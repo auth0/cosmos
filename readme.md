@@ -27,3 +27,5 @@ The `src` folder has all of the code, while `assets` has our design files.
 If you peak under `src`, you will find 3 big folders. As we build our library, these folders can directly import code from each other. However, in the final structure, `tokens` and `components` will be consumable as npm packages.
 
 &nbsp;
+
+Check out the [contribution guide](https://github.com/auth0/cosmos/blob/master/contributing.md)
