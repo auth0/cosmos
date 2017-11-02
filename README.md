@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="/assets/cosmos.png" height="200px">
+  <img src="/assets/cosmos.png">
   <br><br>
-  <b>cosmos: auth0 design systems</b>
+  <b>auth0 design systems</b>
   <br>
 </p>
 
