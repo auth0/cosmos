@@ -5,7 +5,8 @@ const colors = {
   grayLight: '#D9D9D9',
   blue: '#2386DB',
   orange: '#FF3E00',
-  green: '#4CD964'
+  green: '#4CD964',
+  white: '#FFF'
 }
 
 export default colors

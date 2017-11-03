@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Subheader } from '../../components/heading'
+import { Subheader } from '../../components'
 
 const Container = styled.div`
   margin: 50px 0;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Headline, Subheader } from '../../components/heading'
+import { Headline, Subheader } from '../../components'
 
 const Colors = () => (
   <Container title="Typography Scale">
