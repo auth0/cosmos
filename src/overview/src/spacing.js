@@ -16,7 +16,7 @@ const Box = styled.span`
 
 const Spacing = () => (
   <Container title="Spacing (Increments of 8px)">
-    {sizes.map(size => <Box size={size} />)}
+    {sizes.map(size => <Box key={size} size={size} />)}
   </Container>
 )
 
