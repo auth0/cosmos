@@ -1,7 +1,7 @@
 <p align="center">
   <img src="/assets/cosmos.png">
   <br><br>
-  <b>auth0 design systems</b>
+  <b>Auth0 Design System</b>
   <br>
 </p>
 
@@ -11,7 +11,7 @@
 
 &nbsp;
 
-There are 4 big parts of cosmos:
+There are 4 big parts of Cosmos:
 
 - Tokens: _configs_ that can be shared imported into projects
 - Components: React component library
