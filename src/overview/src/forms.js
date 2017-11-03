@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Input, Form, FormField, FormLabel, HelperText, Error } from '../../components'
+import { Input, Textarea, Form, FormField, FormLabel, HelperText, Error } from '../../components'
 
 const Forms = () => (
   <Container title="Forms">
@@ -34,6 +34,11 @@ const Forms = () => (
         <FormLabel>Text input with error</FormLabel>
         <Input error />
         <Error>The field name is required</Error>
+      </FormField>
+
+      <FormField>
+        <FormLabel>Text input with error</FormLabel>
+        <Textarea placeholder="Add a description in less than 140 characters" />
       </FormField>
     </Form>
   </Container>

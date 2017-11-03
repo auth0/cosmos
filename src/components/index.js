@@ -11,6 +11,9 @@
 import Input from './atoms/input'
 export { Input }
 
+import Textarea from './atoms/textarea'
+export { Textarea }
+
 import Logo from './atoms/logo'
 export { Logo }
 

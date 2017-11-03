@@ -3,13 +3,19 @@ import styled from 'styled-components'
 import { spacing, colors } from '../../tokens'
 
 import Input from '../atoms/input'
+import Textarea from '../atoms/textarea'
 import { Text } from '../atoms/typography'
 
 const FormLabel = styled(Text)`
-  display: inline-block;
   box-sizing: border-box;
-  padding-right: ${spacing.small};
+  display: inline-block;
+
+  vertical-align: top;
+  position: relative;
+  top: 10px;
   text-align: right;
+
+  padding-right: ${spacing.small};
 `
 
 const FormField = styled.div`
@@ -30,7 +36,7 @@ const Form = styled.form`
   ${FormLabel} {
     width: 30%;
   }
-  ${Input} {
+  ${Input}, ${Textarea} {
     width: 70%;
   }
   ${HelperText}, ${Error} {
