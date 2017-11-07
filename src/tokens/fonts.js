@@ -1,6 +1,6 @@
 const fonts = {
-  text: 'Helvetica, sans-serif',
-  code: 'monospace'
+  text: 'fakt-web, Helvetica, sans-serif',
+  code: 'Roboto Mono, monospace'
 }
 
 export default fonts
