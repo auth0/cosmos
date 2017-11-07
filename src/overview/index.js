@@ -10,19 +10,21 @@ import Icons from './src/icons'
 import Spacing from './src/spacing'
 import Forms from './src/forms'
 
+import Github from './src/github'
 import Typography from './src/typography'
 
 export default () => (
   <Overview>
-    <Logo />
     <Grid>
       <Column>
+        <Logo />
         <Colors />
         <Icons />
         <Spacing />
         <Forms />
       </Column>
       <Column>
+        <Github />
         <Typography />
       </Column>
     </Grid>
