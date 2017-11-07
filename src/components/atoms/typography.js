@@ -12,11 +12,6 @@ injectGlobal`
     font-weight: 300;
     font-style: normal;
   }
-`
-
-injectGlobal`
-
-
 
   @font-face {
     font-family: fakt-web;
@@ -50,13 +45,12 @@ injectGlobal`
 
   body {
     font-family: ${fonts.text};
+    line-height: 1.6;
   }
-
 `
 
 const Headline = styled.h1`
   margin: 20px 0 14px;
-  line-height: 1.8;
   color: ${colors.base};
   font-size: 48px;
   font-weight: 500;
@@ -64,7 +58,6 @@ const Headline = styled.h1`
 
 const Subheader = styled.h6`
   margin: 20px 0 14px;
-  line-height: 1.8;
   color: ${colors.grayDark};
   font-size: 13px;
   font-weight: 300;
