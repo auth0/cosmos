@@ -45,6 +45,7 @@ const Input = styled.input`
   padding: 0 ${spacing.small};
 
   cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
+  transition: border-color 0.25s, box-shadow 0.25s;
 
   &:hover {
     border-color: ${props => getAttributes(props).hoverBorder};
