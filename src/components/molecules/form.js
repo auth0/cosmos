@@ -19,7 +19,7 @@ const FormLabel = styled(Text)`
 `
 
 const FormField = styled.div`
-  margin: ${spacing.small} 0;
+  margin: ${spacing.medium} 0;
 `
 
 const HelperText = styled.div`
