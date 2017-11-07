@@ -16,4 +16,7 @@ const takeScreenshot = async () => {
 const server = serve('build', { port })
 takeScreenshot()
 
-process.on('unhandledRejection', err => console.log('unhandledRejection', err))
+process.on('unhandledRejection', err => {
+  console.log('unhandledRejection', err)
+  process.exit(1)
+})

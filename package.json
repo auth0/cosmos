@@ -11,7 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "screenshot": "node tooling/screenshot"
+    "screenshot": "npm run build && node tooling/screenshot"
   },
   "devDependencies": {
     "npm-run-all": "4.1.2",
