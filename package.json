@@ -11,6 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "npm run build && node tooling/screenshot"
   },
   "devDependencies": {
