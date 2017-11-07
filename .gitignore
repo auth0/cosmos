@@ -57,4 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# ignore macos crap
 .DS_Store
+
+# ignore the build directory output of react-scripts
+build
