@@ -34,7 +34,7 @@ const Input = styled.input`
   box-sizing: border-box;
 
   background: ${props => getAttributes(props).background};
-  border: ${misc.borderWidth} solid;
+  border: 1px solid;
   border-color: ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
@@ -51,6 +51,7 @@ const Input = styled.input`
   }
   &:focus {
     border-color: ${props => getAttributes(props).focusBorder};
+    box-shadow: 0px 0px 0 1px ${props => getAttributes(props).focusBorder};
     outline: none;
   }
 `

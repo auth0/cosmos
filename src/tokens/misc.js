@@ -1,6 +1,5 @@
 const misc = {
-  radius: '3px',
-  borderWidth: '2px'
+  radius: '3px'
 }
 
 export default misc
