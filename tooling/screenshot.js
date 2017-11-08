@@ -9,8 +9,8 @@ const takeScreenshot = async () => {
   await page.goto(`http://localhost:${port}`)
   await page.screenshot({ path: 'tooling/overview.png', fullPage: true })
 
-  await browser.close()
   server.stop()
+  await browser.close()
 }
 
 const server = serve('build', { port })
