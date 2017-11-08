@@ -12,6 +12,7 @@ import Forms from './src/forms'
 
 import Github from './src/github'
 import Typography from './src/typography'
+import Buttons from './src/buttons'
 
 export default () => (
   <Overview>
@@ -26,6 +27,7 @@ export default () => (
       <Column>
         <Github />
         <Typography />
+        <Buttons />
       </Column>
     </Grid>
   </Overview>

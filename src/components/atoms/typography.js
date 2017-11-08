@@ -3,6 +3,13 @@ import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts, misc } from '../../tokens'
 
 injectGlobal`
+
+  body, input, textarea, button {
+    font-family: ${fonts.text};
+    line-height: ${misc.lineHeight};
+    font-size: 14px;
+  }
+
   @font-face {
     font-family: fakt-web;
     src: url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Blond.woff2)
@@ -41,12 +48,6 @@ injectGlobal`
     font-weight: 400;
     src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v5/hMqPNLsu_dywMa4C_DEpY4gp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-  }
-
-  body, input, textarea {
-    font-family: ${fonts.text};
-    line-height: ${misc.lineHeight};
-    font-size: 14px;
   }
 `
 

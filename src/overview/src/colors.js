@@ -19,6 +19,7 @@ const Colors = () => (
       <Swatch color={colors.grayDark} />
       <Swatch color={colors.grayMedium} />
       <Swatch color={colors.grayLight} />
+      <Swatch color={colors.grayLightest} />
     </div>
     <div>
       <Swatch color={colors.blue} />
