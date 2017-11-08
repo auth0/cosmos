@@ -14,7 +14,7 @@ const Textarea = styled.textarea`
   border: 1px solid ${colors.grayLight};
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.code : 'inherit')};
+  font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
 
   &:hover {
     border-color: ${colors.grayMedium};
