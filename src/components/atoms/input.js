@@ -38,11 +38,9 @@ const Input = styled.input`
   border-color: ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.code : fonts.text)};
-  font-size: ${props => (props.code ? 13 : 14)}px;
+  font-family: ${props => (props.code ? fonts.code : 'inherit')};
 
-  line-height: 36px;
-  padding: 0 ${spacing.small};
+  padding: ${spacing.xsmall} ${spacing.small};
 
   cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
   transition: border-color 0.25s, box-shadow 0.25s;
