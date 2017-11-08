@@ -1,6 +1,6 @@
 import styled, { injectGlobal } from 'styled-components'
 
-import { colors, fonts } from '../../tokens'
+import { colors, fonts, misc } from '../../tokens'
 
 injectGlobal`
   @font-face {
@@ -43,9 +43,10 @@ injectGlobal`
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
   }
 
-  body {
+  body, input, textarea {
     font-family: ${fonts.text};
-    line-height: 1.6;
+    line-height: ${misc.lineHeight};
+    font-size: 14px;
   }
 `
 
