@@ -11,7 +11,7 @@ const Textarea = styled.textarea`
   background: ${colors.white};
   box-shadow: none;
 
-  border: ${misc.borderWidth} solid ${colors.grayLight};
+  border: 1px solid ${colors.grayLight};
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.code : fonts.text)};
