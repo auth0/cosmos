@@ -9,3 +9,6 @@ after_success:
   - npm run deploy
 notifications:
   email: false
+branches:
+  only:
+    - master
