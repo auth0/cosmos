@@ -10,7 +10,7 @@ if (event === 'pull_request') {
   const stagingUrl = fs.readFileSync('./staging-url', 'utf8')
 
   const alias = 'cosmos-' + branch
-  exec(`now-replace -t ${nowToken} ${alias} ${stagingUrl}', { stdio: [0, 1, 2] })
+  exec(`now-replace -t ${nowToken} ${alias} ${stagingUrl}`, { stdio: [0, 1, 2] })
 }
 
 process.on('unhandledRejection', err => {
