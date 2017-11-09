@@ -1,10 +1,14 @@
+const fs = require('fs')
 const exec = require('sync-exec')
-const { event } = require('ci-env')
+const { event, branch } = require('ci-env')
 const githubToken = process.env.github_token
 
-// are there 2 deployments?
 if (event === 'pull_request') {
-  exec(`GH_TOKEN=${githubToken} ./node_modules/.bin/now-travis`, { stdio: [0, 1, 2] })
+  exec(`./node_modules/.bin/now-travis --file=staging-url`, { stdio: [0, 1, 2] })
+  const stagingUrl = fs.readFileSync('./staging-url', 'utf8')
+
+  const alias = 'cosmos-' + branch
+  exec(`now-replace ${alias} ${stagingUrl}', { stdio: [0, 1, 2] })
 }
 
 process.on('unhandledRejection', err => {

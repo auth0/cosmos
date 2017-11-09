@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "ci-env": "1.5.1",
+    "now-replace": "1.0.3",
     "now-travis": "1.1.1",
     "puppeteer": "0.12.0",
     "serve": "6.4.1",
