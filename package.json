@@ -14,7 +14,7 @@
     "start": "serve ./build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "npm run build && node tooling/screenshot",
-    "deploy": "now-travis"
+    "deploy": "npm run deploy"
   },
   "devDependencies": {
     "ci-env": "1.5.1",
