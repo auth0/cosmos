@@ -2,6 +2,7 @@ const exec = require('sync-exec')
 const { event } = require('ci-env')
 const githubToken = process.env.github_token
 
+// are there 2 deployments?
 if (event === 'pull_request') {
   exec(`GH_TOKEN=${githubToken} ./node_modules/.bin/now-travis`, { stdio: [0, 1, 2] })
 }
