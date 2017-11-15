@@ -1,6 +1,9 @@
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { colors, spacing, misc } from '../../tokens/'
+import onlyOneOf from '../_helpers/only-one-of-validator'
 
 const config = {
   default: {
@@ -48,7 +51,7 @@ const getAttributes = props => {
   else return config.default
 }
 
-const Button = styled.button`
+const StyledButton = styled.button`
   min-width: 92px;
   box-sizing: border-box;
 
@@ -79,5 +82,25 @@ const Button = styled.button`
     outline: none;
   }
 `
+
+const Button = ({ children, ...props }) => <StyledButton {...props}>{children}</StyledButton>
+
+Button.propTypes = {
+  /** Use for primary call to action */
+  primary: PropTypes.bool,
+  /** Use for secondary call to action */
+  transparent: PropTypes.bool,
+  /** Disable button that does not validate constraint */
+  disabled: PropTypes.bool,
+
+  /** @ignore This is an internal prop only used for validation */
+  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])
+}
+
+Button.defaultProps = {
+  primary: false,
+  transparent: false,
+  disabled: false
+}
 
 export default Button

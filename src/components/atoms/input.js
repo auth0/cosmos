@@ -1,4 +1,6 @@
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { colors, fonts, spacing, misc } from '../../tokens/'
 
@@ -29,7 +31,7 @@ const getAttributes = props => {
   else return config.basic
 }
 
-const Input = styled.input`
+const StyledInput = styled.input`
   width: 100%;
   box-sizing: border-box;
 
@@ -55,4 +57,19 @@ const Input = styled.input`
   }
 `
 
+const Input = ({ children, ...props }) => <StyledInput {...props}>{children}</StyledInput>
+
+Input.propTypes = {
+  /** Make input readOnly if it does not validate constraint */
+  readOnly: PropTypes.bool,
+  /** Pass error string directly to show error state */
+  error: PropTypes.string
+}
+
+Input.defaultProps = {
+  readOnly: false,
+  error: null
+}
+
 export default Input
+export { StyledInput }
