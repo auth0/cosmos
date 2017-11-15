@@ -62,3 +62,4 @@ typings/
 
 # ignore the build directory output of react-scripts
 build
+styleguide
