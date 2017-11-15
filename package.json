@@ -5,25 +5,27 @@
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14",
     "styled-components": "2.2.3"
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build",
+    "dev:styleguide": "styleguidist server",
+    "build": "run-s build:overview build:styleguide",
+    "build:overview": "react-scripts build",
+    "build:styleguide": "styleguidist build",
     "start": "serve ./build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "npm run build && node tooling/screenshot",
-    "deploy": "NOW_ALIAS=cosmos.now.sh now-travis",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "deploy": "NOW_ALIAS=cosmos.now.sh now-travis"
   },
   "devDependencies": {
     "ci-env": "1.5.1",
     "now-replace": "1.0.3",
     "now-travis": "1.1.1",
+    "npm-run-all": "4.1.2",
     "prop-types": "15.6.0",
     "puppeteer": "0.12.0",
+    "react-scripts": "1.0.14",
     "react-styleguidist": "6.0.33",
     "serve": "6.4.1",
     "sync-exec": "0.6.2"

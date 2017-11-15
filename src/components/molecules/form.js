@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../tokens'
 
-import Input, { StyledInput } from '../atoms/input'
+import { StyledInput } from '../atoms/input'
 import Textarea from '../atoms/textarea'
 import { Text } from '../atoms/typography'
 

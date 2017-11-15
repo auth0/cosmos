@@ -9,5 +9,6 @@ module.exports = {
   getComponentPathLine: componentPath => {
     const name = basename(componentPath, '.js')
     return `import ${capitalize(name)} from 'cosmos/${name}'`
-  }
+  },
+  styleguideDir: 'build/styleguide'
 }

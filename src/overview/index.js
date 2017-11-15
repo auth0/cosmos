@@ -10,7 +10,7 @@ import Icons from './src/icons'
 import Spacing from './src/spacing'
 import Forms from './src/forms'
 
-import Github from './src/github'
+import Links from './src/links'
 import Typography from './src/typography'
 import Buttons from './src/buttons'
 
@@ -25,7 +25,7 @@ export default () => (
         <Forms />
       </Column>
       <Column>
-        <Github />
+        <Links />
         <Typography />
         <Buttons />
       </Column>
