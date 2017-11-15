@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../tokens'
 
-import Input from '../atoms/input'
+import { StyledInput } from '../atoms/input'
 import Textarea from '../atoms/textarea'
 import { Text } from '../atoms/typography'
 
@@ -36,7 +36,7 @@ const Form = styled.form`
   ${FormLabel} {
     width: 30%;
   }
-  ${Input}, ${Textarea} {
+  ${StyledInput}, ${Textarea} {
     width: 70%;
   }
   ${HelperText}, ${Error} {
