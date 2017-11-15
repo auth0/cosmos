@@ -9,10 +9,10 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "dev:styleguide": "styleguidist server",
-    "build": "run-s build:overview build:styleguide",
+    "dev:docs": "styleguidist server",
+    "build": "run-s build:overview build:docs",
     "build:overview": "react-scripts build",
-    "build:styleguide": "styleguidist build",
+    "build:docs": "styleguidist build",
     "start": "serve ./build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "npm run build && node tooling/screenshot",
