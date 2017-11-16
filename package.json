@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "glob": "7.1.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "styled-components": "2.2.3"
@@ -12,13 +13,14 @@
     "dev:docs": "styleguidist server",
     "build": "run-s build:overview build:docs",
     "build:overview": "react-scripts build",
-    "build:docs": "styleguidist build",
+    "build:docs": "node tooling/component-metadata",
     "start": "serve ./build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "npm run build && node tooling/screenshot",
     "deploy": "NOW_ALIAS=cosmos.now.sh now-travis"
   },
   "devDependencies": {
+    "babel-plugin-react-display-name": "2.0.0",
     "ci-env": "1.5.1",
     "now-replace": "1.0.3",
     "now-travis": "1.1.1",

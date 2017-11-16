@@ -1,0 +1,86 @@
+{
+  "metadata": [
+    {
+      "description": "This is the best button ever",
+      "methods": [],
+      "displayName": "Button",
+      "props": {
+        "primary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use for primary call to action",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "transparent": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use for secondary call to action",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Disable button that does not validate constraint",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "_type": {
+          "type": {
+            "name": "custom",
+            "raw": "props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])"
+          },
+          "required": false,
+          "description": "This is an internal prop only used for validation"
+        }
+      }
+    },
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "Input",
+      "props": {
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Make input readOnly if it does not validate constraint",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "error": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Pass error string directly to show error state",
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "Logo"
+    }
+  ]
+}

@@ -83,6 +83,7 @@ const StyledButton = styled.button`
   }
 `
 
+/** This is the best button ever */
 const Button = ({ children, ...props }) => <StyledButton {...props}>{children}</StyledButton>
 
 Button.propTypes = {
@@ -93,7 +94,7 @@ Button.propTypes = {
   /** Disable button that does not validate constraint */
   disabled: PropTypes.bool,
 
-  /** @ignore This is an internal prop only used for validation */
+  /** This is an internal prop only used for validation */
   _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])
 }
 
