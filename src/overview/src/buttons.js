@@ -3,15 +3,37 @@ import React from 'react'
 import Container from './container'
 import { Button } from '../../components'
 
+class ButtonStateWrapper extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { mode: 'default' }
+  }
+  onClick() {
+    this.setState({ mode: 'loading' })
+    setTimeout(() => this.setState({ mode: 'success' }), 2500)
+  }
+  render() {
+    let props = { ...this.props }
+    if (this.state.mode === 'loading') props.loading = true
+    else if (this.state.mode === 'success') props.success = true
+
+    return (
+      <Button {...props} onClick={this.onClick.bind(this)}>
+        Button
+      </Button>
+    )
+  }
+}
+
 const Buttons = () => (
   <Container title="Buttons">
-    <Button>Button</Button>
+    <ButtonStateWrapper />
     <br />
-    <Button primary>Button</Button>
+    <ButtonStateWrapper primary />
     <br />
-    <Button transparent>Button</Button>
+    <ButtonStateWrapper transparent />
     <br />
-    <Button disabled>Button</Button>
+    <ButtonStateWrapper disabled />
   </Container>
 )
 

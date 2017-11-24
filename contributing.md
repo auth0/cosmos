@@ -4,7 +4,7 @@
 
 - clone this repo on your machine: `git clone https://github.com/auth0/cosmos.git`
 - `npm install` will install all the dependencies
-- `npm start` to start the dev server
+- `npm run dev` to start the dev server
 - create a new branch and get started!
 
 &nbsp;
@@ -17,7 +17,7 @@ There are 4 big parts of cosmos:
 - Components: React component library
 - Overview: Bird's eye view of components
 - Styleguide: Documentation of the design system
- 
+
 In it's current shape, this repository is a create-react-app project.
 
 The src folder has all of the code, while assets has our design files.

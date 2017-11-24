@@ -20,6 +20,9 @@ export { Textarea }
 import Logo from './atoms/logo'
 export { Logo }
 
+import Icon from './atoms/icon'
+export { Icon }
+
 import { Headline, Subheader, Text } from './atoms/typography'
 export { Headline, Subheader, Text }
 
