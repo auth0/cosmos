@@ -116,7 +116,7 @@ const StyledButton = styled.button`
 
 const Button = ({ children, ...props }) => {
   let content = children
-  if (props.success) content = <Icon success />
+  if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
   return <StyledButton {...props}>{content}</StyledButton>
 }
