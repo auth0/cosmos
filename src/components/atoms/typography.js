@@ -9,7 +9,7 @@ injectGlobal`
     line-height: ${misc.lineHeight};
     font-weight: ${fonts.weight.normal};
     font-size: 14px;
-  }    
+  }
 
   @font-face {
     font-family: fakt-web;
@@ -41,6 +41,11 @@ injectGlobal`
         format('truetype');
     font-weight: ${fonts.weight.bold};
     font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'budicon-font';
+    src: url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.woff) format('woff');
   }
 
   @font-face {
