@@ -13,7 +13,6 @@ injectGlobal`
     -moz-osx-font-smoothing: grayscale;
   }
 
-
   @font-face {
     font-family: fakt-web;
     src: url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.woff2)
@@ -45,6 +44,11 @@ injectGlobal`
         format('truetype');
     font-weight: ${fonts.weight.bold};
     font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'budicon-font';
+    src: url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.woff) format('woff');
   }
 
   @font-face {

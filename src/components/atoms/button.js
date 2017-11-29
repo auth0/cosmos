@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
+import Icon from './icon'
+import Spinner from './spinner'
 
 const config = {
   default: {
@@ -41,18 +43,47 @@ const config = {
     hoverBorder: colors.grayLightest,
     focusBackground: colors.grayLightest,
     focusBorder: colors.grayLightest
+  },
+  loading: {
+    text: colors.white,
+    background: colors.green,
+    border: colors.green,
+    hoverBackground: colors.green,
+    hoverBorder: colors.green,
+    focusBackground: colors.green,
+    focusBorder: colors.green
+  },
+  success: {
+    text: colors.white,
+    background: colors.green,
+    border: colors.green,
+    hoverBackground: colors.green,
+    hoverBorder: colors.green,
+    focusBackground: colors.green,
+    focusBorder: colors.green
   }
 }
 
 const getAttributes = props => {
-  if (props.primary) return config.primary
-  else if (props.transparent) return config.transparent
-  else if (props.disabled) return config.disabled
-  else return config.default
+  let styles = null
+  if (props.success) styles = config.success
+  else if (props.primary) styles = config.primary
+  else if (props.transparent) styles = config.transparent
+  else if (props.disabled) styles = config.disabled
+  else styles = config.default
+
+  if (props.loading) {
+    styles.background = styles.hoverBackground
+    styles.focusBackground = styles.hoverBackground
+    styles.border = styles.hoverBorder
+    styles.focusBorder = styles.hoverBorder
+  }
+
+  return styles
 }
 
 const StyledButton = styled.button`
-  min-width: 92px;
+  min-width: 96px;
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -85,7 +116,12 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ children, ...props }) => <StyledButton {...props}>{children}</StyledButton>
+const Button = ({ children, ...props }) => {
+  let content = children
+  if (props.success) content = <Icon type="success" />
+  else if (props.loading) content = <Spinner inverse={props.primary} />
+  return <StyledButton {...props}>{content}</StyledButton>
+}
 
 Button.propTypes = {
   /** Use for primary call to action */
@@ -95,6 +131,11 @@ Button.propTypes = {
   /** Disable button that does not validate constraint */
   disabled: PropTypes.bool,
 
+  /** Loading state when waiting for an action to complete */
+  loading: PropTypes.bool,
+  /** Successful state when action is completed successfuly */
+  success: PropTypes.bool,
+
   /** @ignore This is an internal prop only used for validation */
   _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])
 }
@@ -102,7 +143,9 @@ Button.propTypes = {
 Button.defaultProps = {
   primary: false,
   transparent: false,
-  disabled: false
+  disabled: false,
+  loading: false,
+  success: false
 }
 
 export default Button

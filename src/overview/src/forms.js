@@ -32,7 +32,7 @@ const Forms = () => (
 
       <FormField>
         <FormLabel>Text input with error</FormLabel>
-        <Input error />
+        <Input error="The field name is required" />
         <Error>The field name is required</Error>
       </FormField>
 
