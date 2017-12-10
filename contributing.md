@@ -22,7 +22,7 @@ In it's current shape, this repository is a create-react-app project.
 
 The src folder has all of the code, while assets has our design files.
 
-If you peak under src, you will find the 3 big folders: tokens, components and overview.
+If you peek under src, you will find the 3 big folders: tokens, components and overview.
 As we build our library, these folders can directly import code from each other. However, in the final structure, tokens and components will be consumable as npm packages.
 
 &nbsp;
