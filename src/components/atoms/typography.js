@@ -9,16 +9,8 @@ injectGlobal`
     line-height: ${misc.lineHeight};
     font-weight: ${fonts.weight.normal};
     font-size: 14px;
-  }
-
-  @font-face {
-    font-family: fakt-web;
-    src: url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Blond.woff2)
-        format('woff2'),
-      url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Blond.woff) format('woff'),
-      url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Blond.ttf) format('truetype');
-    font-weight: ${fonts.weight.normal};
-    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   @font-face {
@@ -28,7 +20,7 @@ injectGlobal`
       url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.woff) format('woff'),
       url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.ttf)
         format('truetype');
-    font-weight: ${fonts.weight.semibold};
+    font-weight: ${fonts.weight.normal};
     font-style: normal;
   }
 
@@ -38,6 +30,17 @@ injectGlobal`
         format('woff2'),
       url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Medium.woff) format('woff'),
       url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Medium.ttf)
+        format('truetype');
+    font-weight: ${fonts.weight.medium};
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: fakt-web;
+    src: url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff2)
+        format('woff2'),
+      url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff) format('woff'),
+      url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold_web.ttf)
         format('truetype');
     font-weight: ${fonts.weight.bold};
     font-style: normal;
@@ -61,14 +64,14 @@ const Headline = styled.h1`
   margin: 20px 0 14px;
   color: ${colors.base};
   font-size: 48px;
-  font-weight: ${fonts.weight.bold};
+  font-weight: ${fonts.weight.medium};
 `
 
 const Subheader = styled.h6`
   margin: 20px 0 14px;
   color: ${colors.grayDark};
   font-size: 13px;
-  font-weight: ${fonts.weight.normal};
+  font-weight: ${fonts.weight.medium};
 `
 
 const Text = styled.span`

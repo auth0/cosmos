@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../tokens/'
+import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
 import Icon from './icon'
 import Spinner from './spinner'
@@ -88,6 +88,8 @@ const StyledButton = styled.button`
 
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: ${fonts.weight.bold};
 
   background: ${props => getAttributes(props).background};
   border: 1px solid;
