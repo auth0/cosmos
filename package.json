@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "glob": "7.1.2",
+    "markdown-to-jsx": "5.4.2",
+    "raw-loader": "0.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-live": "1.7.1",
     "react-router-dom": "4.2.2",
     "styled-components": "2.2.3"
   },
