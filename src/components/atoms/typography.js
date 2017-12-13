@@ -60,10 +60,24 @@ injectGlobal`
   }
 `
 
-const Headline = styled.h1`
+const Heading1 = styled.h1`
   margin: 20px 0 14px;
   color: ${colors.base};
   font-size: 48px;
+  font-weight: ${fonts.weight.medium};
+`
+
+const Heading2 = styled.h2`
+  margin: 20px 0 14px;
+  color: ${colors.base};
+  font-size: 36px;
+  font-weight: ${fonts.weight.medium};
+`
+
+const Heading3 = styled.h3`
+  margin: 20px 0 14px;
+  color: ${colors.base};
+  font-size: 28px;
   font-weight: ${fonts.weight.medium};
 `
 
@@ -80,4 +94,4 @@ const Text = styled.span`
   font-weight: ${fonts.weight.normal};
 `
 
-export { Headline, Subheader, Text }
+export { Heading1, Heading2, Heading3, Subheader, Text }
