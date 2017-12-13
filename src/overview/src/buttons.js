@@ -10,7 +10,7 @@ class ButtonStateWrapper extends React.Component {
   }
   onClick() {
     this.setState({ mode: 'loading' })
-    setTimeout(() => this.setState({ mode: 'success' }), 2500)
+    setTimeout(() => this.setState({ mode: 'success' }), 1000)
   }
   render() {
     let props = { ...this.props }

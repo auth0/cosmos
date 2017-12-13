@@ -10,7 +10,7 @@ const Links = styled.div`
 
 export default () => (
   <Links>
-    <a href="/docs/">
+    <a href="/docs">
       <img alt="docs" src="/docs.png" />
     </a>
     <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
