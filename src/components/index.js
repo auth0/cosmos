@@ -23,8 +23,8 @@ export { Logo }
 import Icon from './atoms/icon'
 export { Icon }
 
-import { Headline, Subheader, Text } from './atoms/typography'
-export { Headline, Subheader, Text }
+import { Heading1, Heading2, Heading3, Subheader, Text } from './atoms/typography'
+export { Heading1, Heading2, Heading3, Subheader, Text }
 
 /* molecules */
 import { Form, FormField, FormLabel, HelperText, Error } from './molecules/form'
