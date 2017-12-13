@@ -1,3 +1,11 @@
 import React from 'react'
 
-export default () => <div>manage</div>
+import { Dummy as Navigation, Dummy as Sidebar, Dummy as Main } from './dummy-components'
+
+export default () => (
+  <div>
+    <Navigation />
+    <Sidebar />
+    <Main />
+  </div>
+)
