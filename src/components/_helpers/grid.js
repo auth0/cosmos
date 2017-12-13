@@ -6,7 +6,7 @@ const Grid = styled.div`
 `
 
 const Column = styled.div`
-  width: 45%;
+  width: ${props => props.width || '45%'};
 `
 
 export { Grid, Column }

@@ -5,9 +5,9 @@ const fonts = {
     code: 'Roboto Mono, monospace'
   },
   weight: {
-    normal: 300,
-    semibold: 400,
-    bold: 500
+    normal: 400,
+    medium: 500,
+    bold: 700
   }
 }
 
