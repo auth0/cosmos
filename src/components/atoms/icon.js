@@ -17,21 +17,28 @@ const StyledIcon = styled.i`
   font-style: normal;
 `
 
-const SuccessIcon = styled(StyledIcon)`
+const Success = styled(StyledIcon)`
   &:after {
     content: '';
   }
 `
 
-const ClientsIcon = styled(StyledIcon)`
+const Clients = styled(StyledIcon)`
   &:after {
     content: '';
   }
 `
 
+const HourGlass = styled(StyledIcon)`
+  &:after {
+    content: '';
+  }
+`
+
 const Icon = props => {
-  if (props.type === 'success') return <SuccessIcon />
-  else if (props.type === 'clients') return <ClientsIcon />
+  if (props.type === 'success') return <Success />
+  else if (props.type === 'clients') return <Clients />
+  else if (props.type === 'hourglass') return <HourGlass />
   else return null
 }
 

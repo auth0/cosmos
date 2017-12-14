@@ -26,6 +26,9 @@ export default () => (
     <a href="/manage">
       <Icon type="clients" />
     </a>
+    <a href="/is-cosmos-ready-yet">
+      <Icon type="hourglass" />
+    </a>
     <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
       <img alt="github" src="/github.png" />
     </a>
