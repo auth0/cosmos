@@ -1,8 +1,14 @@
 import React from 'react'
 
-import { Dummy as TopNav, Dummy as Dropdown } from './dummy-components'
+import {
+  Dummy as TopNav,
+  Dummy as Dropdown,
+  Dummy as TenantCard,
+  Dummy as UserCard
+} from './dummy-components'
 
 const openSalesModal = () => {}
+const switchTenant = () => {}
 
 const links = [
   { label: 'Help & Support', url: 'https://support.auth0.com', target: 'blank' },
@@ -46,7 +52,7 @@ const DropdownComponent = () => (
       url="https://support.auth0.com/tenants"
     />
     <Dropdown.Devider />
-    <Devider.Link name="Logout" icon="logout" url="/logout" />
+    <Dropdown.Link name="Logout" icon="logout" url="/logout" />
   </Dropdown>
 )
 

@@ -31,7 +31,11 @@ const run = () => {
   sources = {}
   glob.sync(path.join(__dirname, '../src/manage/**/*.js')).map(file => {
     if (file === path.join(__dirname, '../src/manage/dummy-components.js')) return
-    babel.transformFileSync(file, options)
+    try {
+      babel.transformFileSync(file, options)
+    } catch (err) {
+      console.log(err)
+    }
   })
   console.log(sources)
 
@@ -49,4 +53,6 @@ if (watch) {
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)
+} else {
+  run()
 }

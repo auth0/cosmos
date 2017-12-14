@@ -2,39 +2,39 @@ import React from 'react'
 
 import { Dummy as Sidebar } from './dummy-components'
 
-const items = [
-  { icon: 'dashboard', label: 'dashboard', url: '/dashboard' },
-  { icon: 'clients', label: 'Clients', url: '/clients' },
-  { icon: 'api', label: 'APIs', url: '/apis' },
-  { icon: 'sso', label: 'SSO Integrations', url: '/externalapps' },
-  {
-    icon: 'connections',
-    label: 'Connections',
-    children: [
-      { label: 'Database', url: '/connections/database' },
-      { label: 'Social', url: '/connections/social' },
-      { label: 'Enterprise', url: '/connections/enterprise' },
-      { label: 'Passwordless', url: '/connections/passwordless' }
-    ]
-  },
-  { icon: 'users', label: 'Users', url: '/users' },
-  { icon: 'rules', label: 'Rules', url: '/rules' },
-  { icon: 'hooks', label: 'Hooks', url: '/hooks' },
-  { icon: 'scheduled', label: 'Scheduled jobs', url: '/Scheduled jobs' },
-  { icon: 'multifactor', label: 'Multifactor Auth', url: '/guardian' },
-  { icon: 'pages', label: 'Hosted Pages', url: '/login_page' },
-  {
-    icon: 'emails',
-    label: 'Emails',
-    children: [
-      { label: 'Templates', url: '/emails' },
-      { label: 'Provider', url: '/emails/provider' }
-    ]
-  },
-  { icon: 'logs', label: 'Logs', url: '/logs' },
-  { icon: 'anomaly', label: 'Anomaly Detection', url: '/anomaly' },
-  { icon: 'extensions', label: 'Extensions', url: '/extensions' },
-  { icon: 'support', label: 'Get Support', url: 'https://support.auth0.com', target: 'blank' }
-]
+const items = (
+  <Sidebar>
+    <Sidebar.Link icon="dashboard" label="dashboard" url="/dashboard" />
+    <Sidebar.Link icon="clients" label="Clients" url="/clients" />
+    <Sidebar.Link icon="api" label="APIs" url="/apis" />
+    <Sidebar.Link icon="sso" label="SSO Integrations" url="/externalapps" />
+    <Sidebar.LinkGroup icon="connections" label="Connections">
+      <Sidebar.Link label="Database" url="/connections/database" />
+      <Sidebar.Link label="Social" url="/connections/social" />
+      <Sidebar.Link label="Enterprise" url="/connections/enterprise" />
+      <Sidebar.Link label="Passwordless" url="/connections/passwordless" />
+    </Sidebar.LinkGroup>
+    <Sidebar.Link icon="users" label="Users" url="/users" />
+    <Sidebar.Link icon="rules" label="Rules" url="/rules" />
+    <Sidebar.Link icon="hooks" label="Hooks" url="/hooks" />
+    <Sidebar.Link icon="scheduled" label="Scheduled jobs" url="/Scheduled jobs" />
+    <Sidebar.Link icon="multifactor" label="Multifactor Auth" url="/guardian" />
+    <Sidebar.Link icon="pages" label="Hosted Pages" url="/login_page" />
+    <Sidebar.LinkGroup icon="emails" label="Emails">
+      <Sidebar.Link label="Templates" url="/emails" />
+      <Sidebar.Link label="Provider" url="/emails/provider" />
+    </Sidebar.LinkGroup>
+
+    <Sidebar.Link icon="logs" label="Logs" url="/logs" />
+    <Sidebar.Link icon="anomaly" label="Anomaly Detection" url="/anomaly" />
+    <Sidebar.Link icon="extensions" label="Extensions" url="/extensions" />
+    <Sidebar.Link
+      icon="support"
+      label="Get Support"
+      url="https://support.auth0.com"
+      target="blank"
+    />
+  </Sidebar>
+)
 
 export default () => <Sidebar items={items} />
