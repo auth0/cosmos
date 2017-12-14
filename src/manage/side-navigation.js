@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Dummy as Sidebar } from './dummy-components'
 
-const items = (
+export default () => (
   <Sidebar>
     <Sidebar.Link icon="dashboard" label="dashboard" url="/dashboard" />
     <Sidebar.Link icon="clients" label="Clients" url="/clients" />
@@ -36,5 +36,3 @@ const items = (
     />
   </Sidebar>
 )
-
-export default () => <Sidebar items={items} />
