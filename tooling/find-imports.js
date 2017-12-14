@@ -1,6 +1,7 @@
 const babel = require('babel-core')
 const fs = require('fs')
 const glob = require('glob')
+const path = require('path')
 
 /* Babel transform that goes around each file */
 const sources = {}
@@ -25,9 +26,14 @@ const options = {
   plugins: ['transform-object-rest-spread', transform]
 }
 
-glob.sync('../src/manage/**/*.js').map(file => {
-  if (file === '../src/manage/dummy-components.js') return
+glob.sync(path.join(__dirname, '../src/manage/**/*.js')).map(file => {
+  if (file === path.join(__dirname, '../src/manage/dummy-components.js')) return
   babel.transformFileSync(file, options)
 })
-
 console.log(sources)
+
+fs.writeFileSync(
+  path.join(__dirname, '../src/is-cosmos-ready-yet/sources.json'),
+  JSON.stringify(sources),
+  'utf8'
+)

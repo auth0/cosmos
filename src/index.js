@@ -7,6 +7,7 @@ import './index.css'
 import Overview from './overview/'
 import Docs from './docs/'
 import Manage from './manage/'
+import IsCosmosReadyYet from './is-cosmos-ready-yet'
 
 ReactDOM.render(
   <Router>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route exact path="/" component={Overview} />
       <Route path="/manage" component={Manage} />
       <Route path="/docs" component={Docs} />
+      <Route path="/is-cosmos-ready-yet" component={IsCosmosReadyYet} />
     </div>
   </Router>,
   document.getElementById('root')
