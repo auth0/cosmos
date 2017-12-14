@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Dummy as Navigation, Dummy as Sidebar, Dummy as PageHeader } from './dummy-components'
+import { Dummy as TopNav, Dummy as Sidebar, Dummy as PageHeader } from './dummy-components'
 
 import { Heading1 } from '../components'
 
@@ -13,7 +13,7 @@ const Main = () => (
 
 export default () => (
   <div>
-    <Navigation />
+    <TopNav />
     <Sidebar />
     <Main />
   </div>
