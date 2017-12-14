@@ -13,7 +13,7 @@
     "styled-components": "2.2.3"
   },
   "scripts": {
-    "dev": "run-p dev:build 'update-progress -- -w' build:docs",
+    "dev": "run-p dev:build 'update-progress -- -w' 'build:docs -- -w'",
     "dev:build": "react-scripts start",
     "dev:docs": "styleguidist server",
     "build": "run-s build:overview build:docs",
