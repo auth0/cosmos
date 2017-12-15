@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Dummy as PageHeader } from './dummy-components'
-import { Dummy as Tabs } from './dummy-components'
+import { Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
+import { Heading1 } from '../components'
 
 import Settings from './settings'
 
