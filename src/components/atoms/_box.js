@@ -1,11 +1,11 @@
-/*
+/**
   This is a demo component to show how to write a good component.
   We will create a square box component here.
 
   There are 5 steps to do this
 */
 
-/*
+/**
   Step 1: Import all the dependencies
   - import React and styled-components, thes are the bread and butter
   - import prop type for documentation and validation
@@ -18,7 +18,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 
-/*
+/**
   Step 2: Create a styled element with css
   You can get the html element from styled.element like styled.a
 */
@@ -41,16 +41,21 @@ const StyledBox = styled.div`
   }
 `
 
-/*
-  Step 3: Create a react component that return the styled element
-  This is where you can add any component logic as well
-*/
+/**
+ * Step 3: Create a React component that returns the styled element,
+ * Add description above the component, this will be shown in the docs
+ */
+
+/**
+ * Think of the box
+ */
+
 const Box = props => {
   /* you can pass on all the props to the component like this */
   return <StyledBox {...props} />
 }
 
-/*
+/**
   Step 4: We need to add prop information for our component
   - Add propTypes to make for documentation and validation
   - Add defaultProps for documentation
