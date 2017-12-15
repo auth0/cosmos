@@ -3,6 +3,24 @@
     {
       "description": "",
       "methods": [],
+      "displayName": "Box",
+      "props": {
+        "big": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "This comment will be picked up by the docs",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
+      "description": "",
+      "methods": [],
       "displayName": "Button",
       "props": {
         "primary": {

@@ -42,9 +42,6 @@ const Container = styled.div`
 
 const Playground = props => {
   const code = `<${props.component.displayName}/>`
-  const example = examples.filter(
-    example => example.componentName === props.component.displayName
-  )[0].content
 
   return (
     <Container>
@@ -58,7 +55,6 @@ const Playground = props => {
         </Half>
         <Clear />
       </LiveProvider>
-      <Markdown>{example}</Markdown>
     </Container>
   )
 }
