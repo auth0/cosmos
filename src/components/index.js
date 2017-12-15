@@ -7,6 +7,10 @@
 
 /* eslint-disable import/first */
 
+/* demo */
+import Box from './atoms/_box'
+export { Box }
+
 /* atoms */
 import Input from './atoms/input'
 export { Input }
