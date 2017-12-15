@@ -2,4 +2,6 @@ import React from 'react'
 
 const Dummy = () => <div />
 
-export { Dummy }
+const dummyFunction = () => {}
+
+export { Dummy, dummyFunction }
