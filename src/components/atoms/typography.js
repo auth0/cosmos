@@ -89,7 +89,7 @@ const Subheader = styled.h6`
 `
 
 const Text = styled.span`
-  color: ${colors.grayDark};
+  color: ${colors.base};
   font-size: 14px;
   font-weight: ${fonts.weight.normal};
 `
