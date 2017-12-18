@@ -17,12 +17,14 @@ const StyledTextarea = styled.textarea`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
+  transition: border-color 0.25s, box-shadow 0.25s;
 
   &:hover {
     border-color: ${colors.grayMedium};
   }
   &:focus {
     border-color: ${colors.blue};
+    box-shadow: 0px 0px 0 1px ${colors.blue};
     outline: none;
   }
 `
