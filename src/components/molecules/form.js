@@ -26,7 +26,7 @@ const Field = styled.div`
   }
 `
 
-const HelperText = styled.div`
+const Description = styled.div`
   font-size: 13px;
   color: ${colors.grayMedium};
 `
@@ -52,10 +52,10 @@ const StyledForm = styled.form`
   ${Label} {
     width: 25%;
   }
-  ${StyledInput}, ${StyledTextarea} {
+  ${StyledInput}, ${StyledTextarea}, ${Description}, ${Error} {
     width: 50%;
   }
-  ${HelperText}, ${Error} {
+  ${Description}, ${Error} {
     margin: ${spacing.xsmall} 0 ${spacing.xsmall} 30%;
   }
   ${Devider} {
@@ -81,7 +81,7 @@ const FormElement = props => (
       error={props.error}
     />
     {props.error ? <Error>{props.error}</Error> : null}
-    {props.description ? <HelperText>{props.description}</HelperText> : null}
+    {props.description ? <Description>{props.description}</Description> : null}
   </Field>
 )
 

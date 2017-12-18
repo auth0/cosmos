@@ -1,6 +1,10 @@
 import React from 'react'
-import { dummyFn as copy, dummyFn as regenerate, dummyFn as reveal } from './dummy-components'
 import { Form } from '../components'
+
+const dummyFn = () => {}
+let copy,
+  regenerate,
+  reveal = dummyFn
 
 class Settings extends React.Component {
   constructor() {
