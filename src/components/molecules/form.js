@@ -6,7 +6,6 @@ import uniqueId from '../_helpers/uniqueId'
 
 import Input, { StyledInput } from '../atoms/input'
 import Textarea, { StyledTextarea } from '../atoms/textarea'
-import { Text } from '../atoms/typography'
 
 const Label = styled.label`
   box-sizing: border-box;
@@ -15,6 +14,7 @@ const Label = styled.label`
   padding-right: ${spacing.small};
   line-height: 40px;
   text-align: right;
+  vertical-align: top;
   font-weight: ${fonts.weight.medium};
 `
 
