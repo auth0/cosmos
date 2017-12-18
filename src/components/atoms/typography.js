@@ -61,28 +61,28 @@ injectGlobal`
 `
 
 const Heading1 = styled.h1`
-  margin: 20px 0 14px;
+  margin: 0; /* reset browser default */
   color: ${colors.base};
   font-size: 48px;
   font-weight: ${fonts.weight.medium};
 `
 
 const Heading2 = styled.h2`
-  margin: 20px 0 14px;
+  margin: 0; /* reset browser default */
   color: ${colors.base};
   font-size: 36px;
   font-weight: ${fonts.weight.medium};
 `
 
 const Heading3 = styled.h3`
-  margin: 20px 0 14px;
+  margin: 0; /* reset browser default */
   color: ${colors.base};
   font-size: 28px;
   font-weight: ${fonts.weight.medium};
 `
 
 const Subheader = styled.h6`
-  margin: 20px 0 14px;
+  margin: 0; /* reset browser default */
   color: ${colors.grayDark};
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
