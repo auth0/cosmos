@@ -45,7 +45,12 @@ const StyledForm = styled.form`
   }
 `
 
-const Form = props => <StyledForm {...props} />
+/**
+ * Use forms to collect information from user
+ */
+
+const Form = () => <StyledForm />
+// TODO: Form will get an layout prop for orientation of labels
 
 const FormAPI = props => (
   <Field>
