@@ -21,9 +21,6 @@ const Label = styled(Text)`
 
 const Field = styled.div`
   margin: ${spacing.medium} 0;
-  ${StyledInput}, ${StyledTextarea} {
-    margin-left: ${spacing.large};
-  }
 `
 
 const Description = styled.div`
@@ -52,11 +49,13 @@ const StyledForm = styled.form`
   ${Label} {
     width: 25%;
   }
-  ${StyledInput}, ${StyledTextarea}, ${Description}, ${Error} {
+  ${StyledInput}, ${StyledTextarea} {
     width: 50%;
+    margin-left: ${spacing.large};
   }
   ${Description}, ${Error} {
-    margin: ${spacing.xsmall} 0 ${spacing.xsmall} 30%;
+    width: 50%;
+    margin: ${spacing.xsmall} 0 ${spacing.xsmall} calc(${spacing.large} + 25%);
   }
   ${Devider} {
     width: 100%;
