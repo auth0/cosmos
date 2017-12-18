@@ -1,12 +1,13 @@
+import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors } from '../../tokens'
 
-import { StyledInput } from '../atoms/input'
+import Input, { StyledInput } from '../atoms/input'
 import Textarea from '../atoms/textarea'
 import { Text } from '../atoms/typography'
 
-const FormLabel = styled(Text)`
+const Label = styled(Text)`
   box-sizing: border-box;
   display: inline-block;
 
@@ -18,7 +19,7 @@ const FormLabel = styled(Text)`
   padding-right: ${spacing.small};
 `
 
-const FormField = styled.div`
+const Field = styled.div`
   margin: ${spacing.medium} 0;
 `
 
@@ -32,8 +33,8 @@ const Error = styled.div`
   color: ${colors.orange};
 `
 
-const Form = styled.form`
-  ${FormLabel} {
+const StyledForm = styled.form`
+  ${Label} {
     width: 30%;
   }
   ${StyledInput}, ${Textarea} {
@@ -44,4 +45,24 @@ const Form = styled.form`
   }
 `
 
-export { Form, FormField, FormLabel, HelperText, Error }
+const Form = props => <StyledForm {...props} />
+
+const FormAPI = props => (
+  <Field>
+    <Label>{props.label}</Label>
+    <props.fieldComponent
+      type="text"
+      placeholder={props.placeholder}
+      defaultValue={props.defaultValue}
+      readOnly={props.readOnly}
+      error={props.error}
+    />
+    {props.error ? <Error>{props.error}</Error> : null}
+    {props.description ? <HelperText>{props.description}</HelperText> : null}
+  </Field>
+)
+
+Form.Field = props => <FormAPI {...props} fieldComponent={Input} />
+Form.Textarea = props => <FormAPI {...props} fieldComponent={Textarea} />
+
+export { Form }
