@@ -43,15 +43,14 @@ class Settings extends React.Component {
           ]}
           description="The Client Secret is not base64 encoded."
         />
-        {/*
-          <Form.FieldSet label="General">
+        <Form.FieldSet label="General">
           <Form.Field
             label="Name"
             type="text"
             defaultValue="API Explorer Client"
             placeholder="Add name for client"
           />
-          <Form.TextArea
+          <Form.Textarea
             label="Description"
             placeholder="Add a description in less than 140 charachters"
             description="A free text description of the client. Max charachter count is 140"
@@ -66,15 +65,15 @@ class Settings extends React.Component {
           <Form.Select
             label="Client Type"
             options={[
-          { text: 'Native', value: 'native', defaultSelected: true },
-          { text: 'Non Interactive Client', value: 'non-interactive' },
-          { text: 'Regular Web Application', value: 'regular' },
-          { text: 'Single Page Application', value: 'spa' }
+              { text: 'Native', value: 'native', defaultSelected: true },
+              { text: 'Non Interactive Client', value: 'non-interactive' },
+              { text: 'Regular Web Application', value: 'regular' },
+              { text: 'Single Page Application', value: 'spa' }
             ]}
             description="The type of client will determine which settings you can configure from the dashboard."
           />
-          </Form.FieldSet>
-          <Form.FieldSet label="Tokens">
+        </Form.FieldSet>
+        {/* <Form.FieldSet label="Tokens">
           <Form.Select
             label="Token Endpoint Authentication Method"
             disabled
@@ -85,8 +84,8 @@ class Settings extends React.Component {
             ]}
             description="Defines the requested authentication method for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
           />
-          </Form.FieldSet>
-          <Form.FieldSet label="Allowed URLs">
+        </Form.FieldSet> */}
+        {/* <Form.FieldSet label="Allowed URLs">
           <Form.TextArea
             label="Allowed Callback URLs"
             description="After the user authenticates we will only call back to any of these URLs. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases."
@@ -113,15 +112,15 @@ class Settings extends React.Component {
             defaultValue="3600"
             description="Control the expiration of the id tokens (in seconds)"
           />
-          </Form.FieldSet>
-          <Form.FieldSet label="Single Sign On">
+        </Form.FieldSet> */}
+        {/* <Form.FieldSet label="Single Sign On">
           <Form.Toggle
             label="Single Sign On"
             defaultValue="true"
             description="If this setting is enabled, Auth0 will handle Single Sign On instead of the Identity Provider (e.g.: No redirect to Facebook to log the user in if they have already logged in before)."
           />
-          </Form.FieldSet>
-          <Form.Actions>
+        </Form.FieldSet> */}
+        {/* <Form.Actions>
           <Form.Button onClick={this.save}>Save Changes</Form.Button>
           <Form.Button distructive onClick={this.delete}>
             Delete Client

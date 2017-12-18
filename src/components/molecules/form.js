@@ -36,6 +36,18 @@ const Error = styled.div`
   color: ${colors.orange};
 `
 
+const FieldSet = styled.fieldset`
+  border: none;
+`
+
+const Devider = styled(Label)`
+  text-transform: uppercase;
+  text-align: left;
+  border-bottom: 1px solid ${colors.grayLightest};
+  padding-bottom: ${spacing.small};
+  margin-bottom: ${spacing.large};
+`
+
 const StyledForm = styled.form`
   ${Label} {
     width: 25%;
@@ -46,6 +58,9 @@ const StyledForm = styled.form`
   ${HelperText}, ${Error} {
     margin: ${spacing.xsmall} 0 ${spacing.xsmall} 30%;
   }
+  ${Devider} {
+    width: 100%;
+  }
 `
 
 /**
@@ -55,7 +70,7 @@ const StyledForm = styled.form`
 const Form = props => <StyledForm>{props.children}</StyledForm>
 // TODO: Form will get an layout prop for orientation of labels
 
-const FormAPI = props => (
+const FormElement = props => (
   <Field>
     <Label>{props.label}</Label>
     <props.fieldComponent
@@ -70,7 +85,15 @@ const FormAPI = props => (
   </Field>
 )
 
-Form.Field = props => <FormAPI {...props} fieldComponent={Input} />
-Form.Textarea = props => <FormAPI {...props} fieldComponent={Textarea} />
+Form.Field = props => <FormElement {...props} fieldComponent={Input} />
+Form.Textarea = props => <FormElement {...props} fieldComponent={Textarea} />
+Form.Select = props => <FormElement {...props} fieldComponent={Input} />
+
+Form.FieldSet = props => (
+  <FieldSet>
+    <Devider>{props.label}</Devider>
+    {props.children}
+  </FieldSet>
+)
 
 export default Form
