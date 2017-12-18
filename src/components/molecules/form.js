@@ -10,12 +10,14 @@ import TextArea, { StyledTextArea } from '../atoms/textarea'
 const Label = styled.label`
   box-sizing: border-box;
   display: inline-block;
-  min-height: 40px;
-  padding-right: ${spacing.small};
-  line-height: 40px;
-  text-align: right;
-  vertical-align: top;
   font-weight: ${fonts.weight.medium};
+
+  text-align: right;
+  padding-right: ${spacing.small};
+
+  min-height: 40px;
+  vertical-align: top;
+  padding-top: 10px;
 `
 
 const Field = styled.div`
