@@ -30,7 +30,7 @@ const config = {
     text: colors.base,
     background: colors.white,
     border: colors.base,
-    hoverBackground: colors.grayLight,
+    hoverBackground: colors.grayLightest,
     hoverBorder: colors.base,
     focusBackground: colors.grayMedium,
     focusBorder: colors.base
