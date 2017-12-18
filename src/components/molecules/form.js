@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { fonts, spacing, colors } from '../../tokens'
+import uniqueId from '../_helpers/uniqueId'
 
 import Input, { StyledInput } from '../atoms/input'
 import Textarea, { StyledTextarea } from '../atoms/textarea'
@@ -68,7 +69,9 @@ const Form = props => <StyledForm>{props.children}</StyledForm>
 // TODO: Form will get an layout prop for orientation of labels
 
 const FormElement = props => {
-  let id = props.id || props.label.toLowerCase().replace(/ /g, '_')
+  /* Get unique id for label */
+  let id = props.id || uniqueId(props.label)
+
   return (
     <Field>
       <Label htmlFor={id}>{props.label}</Label>
