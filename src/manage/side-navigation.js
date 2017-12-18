@@ -5,7 +5,7 @@ Sidebar.Link = Dummy
 Sidebar.LinkGroup = Dummy
 
 export default () => (
-  <Sidebar>
+  <Sidebar style={{ float: 'left', width: '16%', height: '100vh', borderRight: '1px solid #eee' }}>
     <Sidebar.Link icon="dashboard" label="dashboard" url="/dashboard" />
     <Sidebar.Link icon="clients" label="Clients" url="/clients" />
     <Sidebar.Link icon="api" label="APIs" url="/apis" />

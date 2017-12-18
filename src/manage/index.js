@@ -2,12 +2,18 @@ import React from 'react'
 
 import TopNavigation from './top-navigation'
 import SideNavigation from './side-navigation'
-import MainArea from './main-area'
+import Page from './page'
 
-export default () => (
+import { Dummy as Container } from './dummy-components'
+
+const App = () => (
   <div>
     <TopNavigation />
-    <SideNavigation />
-    <MainArea />
+    <Container style={{ maxWidth: 1064, margin: '40px auto' }}>
+      <SideNavigation />
+      <Page />
+    </Container>
   </div>
 )
+
+export default App

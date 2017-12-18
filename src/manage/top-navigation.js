@@ -4,8 +4,11 @@ import {
   Dummy as TopNav,
   Dummy as Dropdown,
   Dummy as TenantCard,
-  Dummy as UserCard
+  Dummy as UserCard,
+  Dummy
 } from './dummy-components'
+
+Dropdown.Link = Dropdown.Devider = Dummy
 
 const openSalesModal = () => {}
 const switchTenant = () => {}
@@ -56,4 +59,10 @@ const DropdownComponent = () => (
   </Dropdown>
 )
 
-export default () => <TopNav links={links} DropdownComponent={DropdownComponent} />
+export default () => (
+  <TopNav
+    style={{ height: 60, borderBottom: '1px solid #eee' }}
+    links={links}
+    DropdownComponent={DropdownComponent}
+  />
+)

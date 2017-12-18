@@ -31,5 +31,5 @@ import { Heading1, Heading2, Heading3, Subheader, Text } from './atoms/typograph
 export { Heading1, Heading2, Heading3, Subheader, Text }
 
 /* molecules */
-import { Form, FormField, FormLabel, HelperText, Error } from './molecules/form'
-export { Form, FormField, FormLabel, HelperText, Error }
+import Form from './molecules/form'
+export { Form }
