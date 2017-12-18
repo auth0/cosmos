@@ -7,15 +7,13 @@ import Input, { StyledInput } from '../atoms/input'
 import Textarea, { StyledTextarea } from '../atoms/textarea'
 import { Text } from '../atoms/typography'
 
-const Label = styled(Text)`
+const Label = styled.label`
   box-sizing: border-box;
   display: inline-block;
-
-  vertical-align: top;
-  position: relative;
-  top: 10px;
+  min-height: 40px;
+  padding-right: ${spacing.small};
+  line-height: 40px;
   text-align: right;
-
   font-weight: ${fonts.weight.medium};
 `
 
@@ -51,11 +49,11 @@ const StyledForm = styled.form`
   }
   ${StyledInput}, ${StyledTextarea} {
     width: 50%;
-    margin-left: ${spacing.large};
+    margin-left: ${spacing.small};
   }
   ${Description}, ${Error} {
     width: 50%;
-    margin: ${spacing.xsmall} 0 ${spacing.xsmall} calc(${spacing.large} + 25%);
+    margin: ${spacing.xsmall} 0 ${spacing.xsmall} calc(${spacing.small} + 25%);
   }
   ${Devider} {
     width: 100%;
@@ -69,20 +67,24 @@ const StyledForm = styled.form`
 const Form = props => <StyledForm>{props.children}</StyledForm>
 // TODO: Form will get an layout prop for orientation of labels
 
-const FormElement = props => (
-  <Field>
-    <Label>{props.label}</Label>
-    <props.fieldComponent
-      type="text"
-      placeholder={props.placeholder}
-      defaultValue={props.defaultValue}
-      readOnly={props.readOnly}
-      error={props.error}
-    />
-    {props.error ? <Error>{props.error}</Error> : null}
-    {props.description ? <Description>{props.description}</Description> : null}
-  </Field>
-)
+const FormElement = props => {
+  let id = props.id || props.label.toLowerCase().replace(/ /g, '_')
+  return (
+    <Field>
+      <Label htmlFor={id}>{props.label}</Label>
+      <props.fieldComponent
+        type="text"
+        id={id}
+        placeholder={props.placeholder}
+        defaultValue={props.defaultValue}
+        readOnly={props.readOnly}
+        error={props.error}
+      />
+      {props.error ? <Error>{props.error}</Error> : null}
+      {props.description ? <Description>{props.description}</Description> : null}
+    </Field>
+  )
+}
 
 Form.Field = props => <FormElement {...props} fieldComponent={Input} />
 Form.Textarea = props => <FormElement {...props} fieldComponent={Textarea} />

@@ -20,7 +20,6 @@ class Settings extends React.Component {
   render() {
     return (
       <Form>
-        <Form.Field label="Name" type="text" defaultValue={this.state.name} />
         <Form.Field
           label="Domain"
           type="text"
