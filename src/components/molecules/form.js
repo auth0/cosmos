@@ -52,6 +52,14 @@ const StyledForm = styled.form`
     width: 50%;
     margin-left: ${spacing.small};
   }
+  ${StyledTextarea} {
+    /* browsers give textareas an annoying alignment
+    that needs to be overwritten :/ */
+    vertical-align: top;
+    /* resize should not happen horizontally inside a form */
+    resize: vertical;
+    min-height: 40px;
+  }
   ${Description}, ${Error} {
     width: 50%;
     margin: ${spacing.xsmall} 0 ${spacing.xsmall} calc(${spacing.small} + 25%);
