@@ -118,6 +118,17 @@
             "computed": false
           }
         },
+        "code": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use when the expected input is code",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
         "error": {
           "type": {
             "name": "string"
@@ -149,6 +160,46 @@
           "description": "Invert for dark background",
           "defaultValue": {
             "value": "false",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
+      "description": "",
+      "methods": [],
+      "displayName": "Textarea",
+      "props": {
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Make input readOnly if it does not validate constraint",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "code": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use when the expected input is code",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "error": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Pass error string directly to show error state",
+          "defaultValue": {
+            "value": "null",
             "computed": false
           }
         }

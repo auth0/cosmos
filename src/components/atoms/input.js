@@ -12,8 +12,8 @@ const config = {
     focusBorder: colors.blue
   },
   readOnly: {
-    background: colors.grayLight,
-    border: colors.grayMedium,
+    background: colors.grayLightest,
+    border: colors.grayLight,
     hoverBorder: colors.grayMedium,
     focusBorder: colors.grayMedium
   },
@@ -57,17 +57,20 @@ const StyledInput = styled.input`
   }
 `
 
-const Input = ({ children, ...props }) => <StyledInput {...props}>{children}</StyledInput>
+const Input = props => <StyledInput {...props} />
 
 Input.propTypes = {
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
+  /** Use when the expected input is code */
+  code: PropTypes.bool,
   /** Pass error string directly to show error state */
   error: PropTypes.string
 }
 
 Input.defaultProps = {
   readOnly: false,
+  code: false,
   error: null
 }
 

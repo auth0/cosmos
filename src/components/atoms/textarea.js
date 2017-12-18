@@ -1,8 +1,10 @@
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 import { colors, fonts, spacing, misc } from '../../tokens/'
 
-const Textarea = styled.textarea`
+const StyledTextarea = styled.textarea`
   width: 100%;
   height: 10em;
   box-sizing: border-box;
@@ -25,4 +27,22 @@ const Textarea = styled.textarea`
   }
 `
 
+const Textarea = props => <StyledTextarea {...props} />
+
+Textarea.propTypes = {
+  /** Make input readOnly if it does not validate constraint */
+  readOnly: PropTypes.bool,
+  /** Use when the expected input is code */
+  code: PropTypes.bool,
+  /** Pass error string directly to show error state */
+  error: PropTypes.string
+}
+
+Textarea.defaultProps = {
+  readOnly: false,
+  code: false,
+  error: null
+}
+
 export default Textarea
+export { StyledTextarea }
