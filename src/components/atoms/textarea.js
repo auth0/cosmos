@@ -17,7 +17,7 @@ const StyledTextArea = styled.textarea`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  transition: border-color 0.25s, box-shadow 0.25s;
+  transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
 
   resize: ${props => (props.resize ? 'vertical' : 'none')};
 
