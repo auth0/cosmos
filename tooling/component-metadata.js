@@ -6,11 +6,11 @@ const path = require('path')
 const chokidar = require('chokidar')
 
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
+const componentList = glob.sync('src/components/+(atoms|molecules)/*.js')
 
 const run = () => {
   console.log('Updading docs')
-  const metadata = glob
-    .sync('src/components/atoms/*.js')
+  const metadata = componentList
     .map(path => ({
       filepath: path,
       source: fs.readFileSync(path, 'utf8')
@@ -31,8 +31,10 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch([path.join(__dirname, '../src/**/*.js')], { ignored: ['node_modules'] })
+    .watch(componentList, { ignored: ['node_modules'] })
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)
+} else {
+  run()
 }
