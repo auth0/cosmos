@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 
 import { colors, fonts, spacing, misc } from '../../tokens/'
 
-const StyledTextarea = styled.textarea`
+const StyledTextArea = styled.textarea`
   width: 100%;
-  height: 10em;
+
   box-sizing: border-box;
   padding: ${spacing.xsmall} ${spacing.small};
 
@@ -19,6 +19,8 @@ const StyledTextarea = styled.textarea`
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
   transition: border-color 0.25s, box-shadow 0.25s;
 
+  resize: ${props => (props.resize ? 'vertical' : 'none')};
+
   &:hover {
     border-color: ${colors.grayMedium};
   }
@@ -29,22 +31,25 @@ const StyledTextarea = styled.textarea`
   }
 `
 
-const Textarea = props => <StyledTextarea {...props} />
+const TextArea = props => <StyledTextArea rows={props.length || 5} {...props} />
 
-Textarea.propTypes = {
+TextArea.propTypes = {
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
   /** Use when the expected input is code */
   code: PropTypes.bool,
   /** Pass error string directly to show error state */
-  error: PropTypes.string
+  error: PropTypes.string,
+  /** Allow resizing of the textarea */
+  resizeable: PropTypes.bool
 }
 
-Textarea.defaultProps = {
+TextArea.defaultProps = {
   readOnly: false,
   code: false,
-  error: null
+  error: null,
+  resizeable: false
 }
 
-export default Textarea
-export { StyledTextarea }
+export default TextArea
+export { StyledTextArea }
