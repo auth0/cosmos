@@ -29,6 +29,9 @@ const StyledTextArea = styled.textarea`
     box-shadow: 0px 0px 0 1px ${colors.blue};
     outline: none;
   }
+  &::-webkit-input-placeholder {
+    color: ${colors.grayMedium};
+  }
 `
 
 const TextArea = props => <StyledTextArea rows={props.length || 5} {...props} />

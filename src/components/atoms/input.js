@@ -9,13 +9,15 @@ const config = {
     background: colors.white,
     border: colors.grayLight,
     hoverBorder: colors.grayMedium,
-    focusBorder: colors.blue
+    focusBorder: colors.blue,
+    placeholder: colors.grayMedium
   },
   readOnly: {
     background: colors.grayLightest,
     border: colors.grayLight,
     hoverBorder: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    focusBorder: colors.grayMedium,
+    placeholder: colors.base
   },
   error: {
     background: colors.white,
@@ -54,6 +56,9 @@ const StyledInput = styled.input`
     border-color: ${props => getAttributes(props).focusBorder};
     box-shadow: 0px 0px 0 1px ${props => getAttributes(props).focusBorder};
     outline: none;
+  }
+  &::-webkit-input-placeholder {
+    color: ${props => getAttributes(props).placeholder};
   }
 `
 
