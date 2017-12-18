@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
+import { Dummy, Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
 import { Heading1 } from '../components'
 
 import Settings from './settings'
+Tabs.Tab = Dummy
 
 const MainArea = () => (
   <div>

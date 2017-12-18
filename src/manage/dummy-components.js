@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Dummy = () => <div />
+const Dummy = props => (
+  <div style={{ minHeight: 200, border: '1px solid #eee' }} props={props}>
+    {props.children}
+  </div>
+)
 
 const dummyFunction = () => {}
 

@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { Dummy as Sidebar } from './dummy-components'
+import { Dummy, Dummy as Sidebar } from './dummy-components'
+Sidebar.Link = Dummy
+Sidebar.LinkGroup = Dummy
 
 export default () => (
   <Sidebar>
