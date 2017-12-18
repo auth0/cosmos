@@ -5,7 +5,7 @@ import { fonts, spacing, colors } from '../../tokens'
 import uniqueId from '../_helpers/uniqueId'
 
 import Input, { StyledInput } from '../atoms/input'
-import Textarea, { StyledTextarea } from '../atoms/textarea'
+import TextArea, { StyledTextArea } from '../atoms/textarea'
 
 const Label = styled.label`
   box-sizing: border-box;
@@ -48,16 +48,16 @@ const StyledForm = styled.form`
   ${Label} {
     width: 25%;
   }
-  ${StyledInput}, ${StyledTextarea} {
+  ${StyledInput}, ${StyledTextArea} {
     width: 50%;
     margin-left: ${spacing.small};
   }
-  ${StyledTextarea} {
+  ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
     that needs to be overwritten :/ */
     vertical-align: top;
     /* resize should not happen horizontally inside a form */
-    resize: vertical;
+
     min-height: 40px;
   }
   ${Description}, ${Error} {
@@ -83,22 +83,15 @@ const FormElement = props => {
   return (
     <Field>
       <Label htmlFor={id}>{props.label}</Label>
-      <props.fieldComponent
-        type="text"
-        id={id}
-        placeholder={props.placeholder}
-        defaultValue={props.defaultValue}
-        readOnly={props.readOnly}
-        error={props.error}
-      />
+      <props.fieldComponent id={id} {...props} />
       {props.error ? <Error>{props.error}</Error> : null}
       {props.description ? <Description>{props.description}</Description> : null}
     </Field>
   )
 }
 
-Form.Field = props => <FormElement {...props} fieldComponent={Input} />
-Form.Textarea = props => <FormElement {...props} fieldComponent={Textarea} />
+Form.TextInput = props => <FormElement {...props} fieldComponent={Input} />
+Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
 Form.Select = props => <FormElement {...props} fieldComponent={Input} />
 
 Form.FieldSet = props => (

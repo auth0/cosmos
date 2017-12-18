@@ -168,7 +168,7 @@
     {
       "description": "",
       "methods": [],
-      "displayName": "Textarea",
+      "displayName": "TextArea",
       "props": {
         "readOnly": {
           "type": {
@@ -200,6 +200,17 @@
           "description": "Pass error string directly to show error state",
           "defaultValue": {
             "value": "null",
+            "computed": false
+          }
+        },
+        "resizeable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Allow resizing of the textarea",
+          "defaultValue": {
+            "value": "false",
             "computed": false
           }
         }

@@ -20,21 +20,21 @@ class Settings extends React.Component {
   render() {
     return (
       <Form>
-        <Form.Field
+        <Form.TextInput
           label="Domain"
           type="text"
           readOnly
           defaultValue={this.state.domain}
           action={{ icon: 'copy', onClick: copy }}
         />
-        <Form.Field
+        <Form.TextInput
           label="Client ID"
           type="text"
           readOnly
           defaultValue={this.state.clientID}
           action={{ icon: 'copy', onClick: copy }}
         />
-        <Form.Field
+        <Form.TextInput
           label="Secret"
           type="password"
           readOnly
@@ -47,19 +47,19 @@ class Settings extends React.Component {
           description="The Client Secret is not base64 encoded."
         />
         <Form.FieldSet label="General">
-          <Form.Field
+          <Form.TextInput
             label="Name"
             type="text"
             defaultValue="API Explorer Client"
             placeholder="Add name for client"
           />
-          <Form.Textarea
+          <Form.TextArea
             label="Description"
             placeholder="Add a description in less than 140 charachters"
             description="A free text description of the client. Max charachter count is 140"
             limit="140"
           />
-          <Form.Field
+          <Form.TextInput
             label="Logo"
             type="text"
             placeholder="http://path.to/my_logo.png"
@@ -109,7 +109,7 @@ class Settings extends React.Component {
           />
           </Form.FieldSet>
           <Form.FieldSet label="JWT Expiration">
-          <Form.Field
+          <Form.TextInput
             label="JWT Expiration"
             type="number"
             defaultValue="3600"
