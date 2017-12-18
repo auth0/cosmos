@@ -92,7 +92,7 @@ const FormElement = props => {
 
 Form.TextInput = props => <FormElement {...props} fieldComponent={Input} />
 Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
-Form.Select = props => <FormElement {...props} fieldComponent={Input} />
+// Form.Select = props => <FormElement {...props} fieldComponent={Input} />
 
 Form.FieldSet = props => (
   <FieldSet>
