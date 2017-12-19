@@ -1,8 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { Dummy } from './dummy-components'
-import Sidebar from '../components/molecules/sidebar'
-
+import { Dummy } from "./dummy-components";
+import Sidebar from "../components/molecules/sidebar";
 
 export default () => (
   <Sidebar>
@@ -19,7 +18,11 @@ export default () => (
     <Sidebar.Link icon="users" label="Users" url="/users" />
     <Sidebar.Link icon="rules" label="Rules" url="/rules" />
     <Sidebar.Link icon="hooks" label="Hooks" url="/hooks" />
-    <Sidebar.Link icon="scheduled" label="Scheduled jobs" url="/Scheduled jobs" />
+    <Sidebar.Link
+      icon="scheduled"
+      label="Scheduled jobs"
+      url="/Scheduled jobs"
+    />
     <Sidebar.Link icon="multifactor" label="Multifactor Auth" url="/guardian" />
     <Sidebar.Link icon="pages" label="Hosted Pages" url="/login_page" />
     <Sidebar.LinkGroup icon="emails" label="Emails">
@@ -30,11 +33,5 @@ export default () => (
     <Sidebar.Link icon="logs" label="Logs" url="/logs" />
     <Sidebar.Link icon="anomaly" label="Anomaly Detection" url="/anomaly" />
     <Sidebar.Link icon="extensions" label="Extensions" url="/extensions" />
-    <Sidebar.Link
-      icon="support"
-      label="Get Support"
-      url="https://support.auth0.com"
-      target="blank"
-    />
   </Sidebar>
-)
+);

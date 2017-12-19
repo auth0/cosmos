@@ -12,12 +12,12 @@
   - import tokens instead of hard coding values
 */
 
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { colors, spacing, fonts, misc } from '../../tokens/'
-import Icon, { StyledIcon } from '../atoms/icon'
+import { colors, spacing, fonts, misc } from "../../tokens/";
+import Icon, { StyledIcon } from "../atoms/icon";
 
 /**
   Step 2: Create a styled element with css
@@ -36,7 +36,7 @@ const StyledSidebar = styled.div`
     margin-right: ${spacing.xsmall};
     vertical-align: middle;
   }
-`
+`;
 
 /**
  * Step 3: Create a React component that returns the styled element,
@@ -49,8 +49,8 @@ const StyledSidebar = styled.div`
 
 const Sidebar = props => {
   /* you can pass on all the props to the component like this */
-  return <StyledSidebar {...props} />
-}
+  return <StyledSidebar {...props} />;
+};
 
 /**
   Step 4: We need to add prop information for our component
@@ -60,21 +60,21 @@ const Sidebar = props => {
 Sidebar.propTypes = {
   /** This comment will be picked up by the docs */
   big: PropTypes.bool
-}
+};
 
 Sidebar.defaultProps = {
   big: false
-}
+};
 
 Sidebar.Link = props => {
   /* you can pass on all the props to the component like this */
   return (
     <Link href={props.url} onClick={props.onClick}>
-      <Icon type={props.icon ? 'clients' : 'arrow-right'} size={16} />
+      <Icon type={props.icon ? "clients" : "arrow-right"} size={16} />
       {props.label}
     </Link>
-  )
-}
+  );
+};
 
 const Link = styled.a`
   display: block;
@@ -83,18 +83,19 @@ const Link = styled.a`
   text-decoration: none;
   font-size: 13px;
   padding: calc(${spacing.xsmall} / 2) 0;
+  margin-bottom: 2px;
   &:hover  {
     color: ${colors.orange};
   }
-`
+`;
 
 class LinkGroup extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { open: false }
+    super(props);
+    this.state = { open: false };
   }
   open() {
-    this.setState({ open: !this.state.open })
+    this.setState({ open: !this.state.open });
   }
   render() {
     return (
@@ -104,24 +105,27 @@ class LinkGroup extends React.Component {
           label={this.props.label}
           onClick={this.open.bind(this)}
         />
-        <LinkGroupChildren open={this.state.open}>{this.props.children}</LinkGroupChildren>
+        <LinkGroupChildren open={this.state.open}>
+          {this.props.children}
+        </LinkGroupChildren>
       </div>
-    )
+    );
   }
 }
 
-Sidebar.LinkGroup = LinkGroup
+Sidebar.LinkGroup = LinkGroup;
 
 const LinkGroupChildren = styled.div`
   padding-left: 1.75em;
   overflow: hidden;
-  max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
-  visibility: ${props => (props.open ? 'visible' : 'hidden')};
+  max-height: ${props =>
+    props.open ? props.children.length * 50 + "px" : "0"};
+  visibility: ${props => (props.open ? "visible" : "hidden")};
   transition: max-height 0.5s ease, visibility 0.5s ease;
-`
+`;
 
 /* Finally, export the component */
-export default Sidebar
+export default Sidebar;
 
 /*
   We are not done yet, there is one more step to make our component usable
