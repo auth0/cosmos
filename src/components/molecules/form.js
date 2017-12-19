@@ -39,7 +39,7 @@ const FieldSet = styled.fieldset`
 const Devider = styled(Label)`
   text-transform: uppercase;
   text-align: left;
-  border-bottom: 1px solid ${colors.grayLightest}
+  border-bottom: 1px solid ${colors.grayLight}
   padding-bottom: ${spacing.small};
   margin-bottom: ${spacing.large};
 `
@@ -64,8 +64,11 @@ const ContentLayout = styled.div`
 `
 
 const StyledActions = styled.div`
-  margin-left: ${labelWidth}px;
+  padding-left: ${labelWidth}px;
   height: 100px;
+  margin-top: ${spacing.xlarge};
+  border-top: 1px solid ${colors.grayLight};
+  padding-top: ${spacing.medium};
 `
 
 const StyledForm = styled.form`
