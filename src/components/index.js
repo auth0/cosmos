@@ -18,6 +18,9 @@ export { Input }
 import Select from './atoms/select'
 export { Select }
 
+import Switch from './atoms/switch'
+export { Switch }
+
 import Button from './atoms/button'
 export { Button }
 
