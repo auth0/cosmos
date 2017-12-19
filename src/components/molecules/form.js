@@ -10,9 +10,10 @@ import Select, { StyledSelect } from '../atoms/select'
 
 const Label = styled.label`
   box-sizing: border-box;
-  display: inline-block;
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
   font-weight: ${fonts.weight.medium};
-
   text-align: right;
   padding-right: ${spacing.small};
 
@@ -21,18 +22,32 @@ const Label = styled.label`
   padding-top: 10px;
 `
 
+
+// Layout
 const Field = styled.div`
   margin: ${spacing.medium} 0;
+  display: flex;
+  width: 625px;
+`
+const LabelLayout = styled.div`
+  width: 35%;
+  text-align: right;
+  padding-right: ${spacing.medium}
+`
+const ContentLayout = styled.div`
+  width: 65%;
 `
 
 const Description = styled.div`
   font-size: 13px;
   color: ${colors.grayMedium};
+  margin-top: ${spacing.xsmall};
 `
 
 const Error = styled.div`
   font-size: 13px;
   color: ${colors.orange};
+  margin-top: ${spacing.xsmall};
 `
 
 const FieldSet = styled.fieldset`
@@ -48,24 +63,12 @@ const Devider = styled(Label)`
 `
 
 const StyledForm = styled.form`
-  ${Label} {
-    width: 25%;
-  }
-  ${StyledInput}, ${StyledTextArea}, ${StyledSelect} {
-    width: 50%;
-    margin-left: ${spacing.small};
-  }
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
     that needs to be overwritten :/ */
     vertical-align: top;
     /* resize should not happen horizontally inside a form */
-
     min-height: 40px;
-  }
-  ${Description}, ${Error} {
-    width: 50%;
-    margin: ${spacing.xsmall} 0 ${spacing.xsmall} calc(${spacing.small} + 25%);
   }
   ${Devider} {
     width: 100%;
@@ -85,10 +88,14 @@ const FormElement = props => {
 
   return (
     <Field>
-      <Label htmlFor={id}>{props.label}</Label>
-      <props.fieldComponent id={id} {...props} />
-      {props.error ? <Error>{props.error}</Error> : null}
-      {props.description ? <Description>{props.description}</Description> : null}
+      <LabelLayout>
+        <Label htmlFor={id}>{props.label}</Label>
+      </LabelLayout>
+      <ContentLayout>
+        <props.fieldComponent id={id} {...props} />
+        {props.error ? <Error>{props.error}</Error> : null}
+        {props.description ? <Description>{props.description}</Description> : null}
+      </ContentLayout>
     </Field>
   )
 }
