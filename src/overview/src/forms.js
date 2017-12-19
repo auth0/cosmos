@@ -16,7 +16,7 @@ const Forms = () => (
         should be the exact name of an existing connections of one of the following."
       />
       <Form.TextInput label="Text input with error" error="The field name is required" />
-      <Form.Textarea
+      <Form.TextArea
         label="Text input with error"
         placeholder="Add a description in less than 140 characters"
       />
