@@ -115,13 +115,15 @@ class Settings extends React.Component {
             description="Control the expiration of the id tokens (in seconds)"
           />
         </Form.FieldSet>
-        {/* <Form.FieldSet label="Single Sign On">
-          <Form.Toggle
+        <Form.FieldSet label="Single Sign On">
+          <Form.Switch
             label="Single Sign On"
-            defaultValue="true"
-            description="If this setting is enabled, Auth0 will handle Single Sign On instead of the Identity Provider (e.g.: No redirect to Facebook to log the user in if they have already logged in before)."
+            // on
+            description="If this setting is enabled, Auth0
+            will handle Single Sign On instead of the Identity Provider (e.g.: No redirect to Facebook
+            to log the user in if they have already logged in before)."
           />
-        </Form.FieldSet> */}
+        </Form.FieldSet>
         {/* <Form.Actions>
           <Form.Button onClick={this.save}>Save Changes</Form.Button>
           <Form.Button distructive onClick={this.delete}>
