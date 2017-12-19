@@ -8,29 +8,15 @@ import Input, { StyledInput } from '../atoms/input'
 import TextArea, { StyledTextArea } from '../atoms/textarea'
 import Select, { StyledSelect } from '../atoms/select'
 import Switch from '../atoms/switch'
+import Button from '../atoms/button'
+import { Right, Clear } from '../_helpers/float'
 
 const Label = styled.label`
-  box-sizing: border-box;
   display: block;
   min-height: 40px;
   font-weight: ${fonts.weight.medium};
   text-align: right;
   padding-top: 10px;
-`
-
-// Layout
-const Field = styled.div`
-  margin: ${spacing.medium} 0;
-  display: flex;
-  width: 625px;
-`
-const LabelLayout = styled.div`
-  width: 35%;
-  text-align: right;
-  padding-right: ${spacing.medium};
-`
-const ContentLayout = styled.div`
-  width: 65%;
 `
 
 const Description = styled.div`
@@ -47,14 +33,39 @@ const Error = styled.div`
 
 const FieldSet = styled.fieldset`
   border: none;
+  padding: 0;
 `
 
 const Devider = styled(Label)`
   text-transform: uppercase;
   text-align: left;
-  border-bottom: 1px solid ${colors.grayLightest};
+  border-bottom: 1px solid ${colors.grayLightest}
   padding-bottom: ${spacing.small};
   margin-bottom: ${spacing.large};
+`
+
+// Layout
+
+const formWidth = 625 // in pixels
+const labelWidth = 0.35 * formWidth
+
+const Field = styled.div`
+  margin: ${spacing.medium} 0;
+  display: flex;
+  width: ${formWidth}px;
+`
+const LabelLayout = styled.div`
+  width: ${labelWidth}px;
+  text-align: right;
+  padding-right: ${spacing.medium};
+`
+const ContentLayout = styled.div`
+  width: ${formWidth - labelWidth}px;
+`
+
+const StyledActions = styled.div`
+  margin-left: ${labelWidth}px;
+  height: 100px;
 `
 
 const StyledForm = styled.form`
@@ -99,6 +110,38 @@ Form.TextInput = props => <FormElement {...props} fieldComponent={Input} />
 Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
 Form.Select = props => <FormElement {...props} fieldComponent={Select} />
 Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />
+
+Form.Actions = props => {
+  return (
+    <StyledActions>
+      {props.primaryAction && (
+        <Button primary onClick={props.primaryAction.method}>
+          {props.primaryAction.label}
+        </Button>
+      )}
+
+      {props.secondaryActions &&
+        props.secondaryActions.map((action, index) => {
+          return (
+            <Button key={index} onClick={action.method}>
+              {action.label}
+            </Button>
+          )
+        })}
+
+      {props.distructiveActions && (
+        <Right>
+          {props.distructiveActions.map((action, index) => (
+            <Button key={index} onClick={action.method} distructive>
+              {action.label}
+            </Button>
+          ))}
+        </Right>
+      )}
+      <Clear />
+    </StyledActions>
+  )
+}
 
 Form.FieldSet = props => (
   <FieldSet>
