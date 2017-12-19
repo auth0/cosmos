@@ -1,8 +1,9 @@
 import React from 'react'
-
-import { dummyFn as copy, dummyFn as regenerate, dummyFn as reveal } from './dummy-components'
-
 import { Form } from '../components'
+
+let copy,
+  regenerate,
+  reveal = () => {}
 
 class Settings extends React.Component {
   constructor() {
@@ -74,19 +75,19 @@ class Settings extends React.Component {
             description="The type of client will determine which settings you can configure from the dashboard."
           />
         </Form.FieldSet>
-        {/* <Form.FieldSet label="Tokens">
+        <Form.FieldSet label="Tokens">
           <Form.Select
             label="Token Endpoint Authentication Method"
-            disabled
+            readOnly
             options={[
-          { text: 'None', value: 'none', defaultSelected: true },
-          { text: 'Basic', value: 'basic' },
-          { text: 'Post', value: 'post' }
+              { text: 'None', value: 'none', defaultSelected: true },
+              { text: 'Basic', value: 'basic' },
+              { text: 'Post', value: 'post' }
             ]}
             description="Defines the requested authentication method for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
           />
-        </Form.FieldSet> */}
-        {/* <Form.FieldSet label="Allowed URLs">
+        </Form.FieldSet>
+        <Form.FieldSet label="Allowed URLs">
           <Form.TextArea
             label="Allowed Callback URLs"
             description="After the user authenticates we will only call back to any of these URLs. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases."
@@ -94,7 +95,7 @@ class Settings extends React.Component {
           <Form.TextArea
             label="Allowed Callback URLs"
             description={
-          'Comma-separated list of allowed origins for use with Cross-Origin Authentication and web message response mode, in the form of `<scheme> "://" <host> [ ":" <port> ]`, such as `https://login.mydomain.com` or `http://localhost:3000`.'
+              'Comma-separated list of allowed origins for use with Cross-Origin Authentication and web message response mode, in the form of `<scheme> "://" <host> [ ":" <port> ]`, such as `https://login.mydomain.com` or `http://localhost:3000`.'
             }
           />
           <Form.TextArea
@@ -105,15 +106,15 @@ class Settings extends React.Component {
             label="Allowed Origins (CORS)"
             description="Allowed Origins are URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS). By default, all your callback URLs will be allowed. This field allows you to enter other origins if you need to. You can specify multiple valid URLs by comma-separating them or one by line, and also use wildcards at the subdomain level (e.g.: `https://*.contoso.com`). Notice that querystrings and hash information are not taking into account when validating these URLs."
           />
-          </Form.FieldSet>
-          <Form.FieldSet label="JWT Expiration">
+        </Form.FieldSet>
+        <Form.FieldSet label="JWT Expiration">
           <Form.TextInput
             label="JWT Expiration"
             type="number"
             defaultValue="3600"
             description="Control the expiration of the id tokens (in seconds)"
           />
-        </Form.FieldSet> */}
+        </Form.FieldSet>
         {/* <Form.FieldSet label="Single Sign On">
           <Form.Toggle
             label="Single Sign On"
