@@ -129,10 +129,10 @@ Form.Actions = props => {
           )
         })}
 
-      {props.distructiveActions && (
+      {props.destructiveActions && (
         <Right>
-          {props.distructiveActions.map((action, index) => (
-            <Button key={index} onClick={action.method} distructive>
+          {props.destructiveActions.map((action, index) => (
+            <Button key={index} onClick={action.method} destructive>
               {action.label}
             </Button>
           ))}

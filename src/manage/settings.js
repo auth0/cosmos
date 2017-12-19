@@ -125,7 +125,7 @@ class Settings extends React.Component {
         </Form.FieldSet>
         <Form.Actions
           primaryAction={{ label: 'Save Changes', method: this.save }}
-          distructiveActions={[{ label: 'Delete Client', method: this.delete, distructive: true }]}
+          destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
         />
       </Form>
     )
