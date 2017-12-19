@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
+import { substract } from '../_helpers/pixel-calc'
 import Icon from './icon'
 import Spinner from './spinner'
 
@@ -37,12 +38,14 @@ const config = {
   },
   icon: {
     text: colors.base,
-    background: colors.white,
-    border: colors.white,
-    hoverBackground: colors.grayLightest,
-    hoverBorder: colors.grayLightest,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    background: 'transparent',
+    border: 'transparent',
+    hoverText: colors.blue,
+    hoverBackground: 'transparent',
+    hoverBorder: 'transparent',
+    focusText: colors.blue,
+    focusBackground: 'transparent',
+    focusBorder: 'transparent'
   },
   disabled: {
     text: colors.grayMedium,
@@ -118,14 +121,15 @@ const StyledButton = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  padding: ${spacing.xsmall} ${spacing.small};
   margin: ${spacing.xsmall};
   margin-left: 0;
+  padding: ${spacing.xsmall} ${spacing.small};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
   &:hover {
+    color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
   }
@@ -185,3 +189,4 @@ Button.defaultProps = {
 }
 
 export default Button
+export { StyledButton }

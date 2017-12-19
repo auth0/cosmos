@@ -24,14 +24,14 @@ class Settings extends React.Component {
           type="text"
           readOnly
           defaultValue={this.state.domain}
-          action={{ icon: 'copy', onClick: copy }}
+          action={{ icon: 'copy', method: copy }}
         />
         <Form.TextInput
           label="Client ID"
           type="text"
           readOnly
           defaultValue={this.state.clientID}
-          action={{ icon: 'copy', onClick: copy }}
+          action={{ icon: 'copy', method: copy }}
         />
         <Form.TextInput
           label="Secret"
@@ -39,9 +39,9 @@ class Settings extends React.Component {
           readOnly
           defaultValue={this.state.secret}
           actions={[
-            { icon: 'copy', onClick: copy },
-            { icon: 'reveal', onClick: reveal },
-            { icon: 'refresh', onClick: regenerate }
+            { icon: 'copy', method: copy },
+            { icon: 'reveal', method: reveal },
+            { icon: 'refresh', method: regenerate }
           ]}
           description="The Client Secret is not base64 encoded."
         />

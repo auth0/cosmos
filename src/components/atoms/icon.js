@@ -37,7 +37,7 @@ const HourGlass = styled(StyledIcon)`
 
 const Copy = styled(StyledIcon)`
   &:after {
-    content: '';
+    content: '';
   }
 `
 
