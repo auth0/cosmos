@@ -15,7 +15,6 @@ const Label = styled.label`
   min-height: 40px;
   font-weight: ${fonts.weight.medium};
   text-align: right;
-  padding-right: ${spacing.small};
   padding-top: 10px;
 `
 
