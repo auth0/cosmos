@@ -36,7 +36,7 @@ const config = {
     focusBackground: colors.grayMedium,
     focusBorder: colors.base
   },
-  icon: {
+  link: {
     text: colors.base,
     background: 'transparent',
     border: 'transparent',
@@ -90,7 +90,7 @@ const getAttributes = props => {
   if (props.success) styles = config.success
   else if (props.primary) styles = config.primary
   else if (props.transparent) styles = config.transparent
-  else if (props.icon) styles = config.icon
+  else if (props.link) styles = config.link
   else if (props.destructive) styles = config.destructive
   else if (props.disabled) styles = config.disabled
   else styles = config.default
@@ -165,6 +165,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Use for destructive actions like delete */
   destructive: PropTypes.bool,
+  /** Use for subtle actions */
+  link: PropTypes.bool,
 
   /** Name of icon */
   icon: PropTypes.string,
@@ -175,13 +177,14 @@ Button.propTypes = {
   success: PropTypes.bool,
 
   /** @ignore This is an internal prop only used for validation */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'icon'])
+  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'link'])
 }
 
 Button.defaultProps = {
   primary: false,
   transparent: false,
   destructive: false,
+  link: false,
   icon: null,
   disabled: false,
   loading: false,

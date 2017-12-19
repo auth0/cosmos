@@ -29,7 +29,7 @@ const ActionInput = props => {
         <Input {...props} />
         <ButtonGroup>
           {props.actions.map((action, index) => (
-            <Button key={index} icon={action.icon} onClick={action.method} />
+            <Button key={index} link icon={action.icon} onClick={action.method} />
           ))}
         </ButtonGroup>
       </Wrapper>

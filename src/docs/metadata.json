@@ -67,6 +67,17 @@
             "computed": false
           }
         },
+        "link": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use for subtle actions",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
         "icon": {
           "type": {
             "name": "string"
@@ -103,7 +114,7 @@
         "_type": {
           "type": {
             "name": "custom",
-            "raw": "props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'icon'])"
+            "raw": "props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'link'])"
           },
           "required": false,
           "description": "@ignore This is an internal prop only used for validation"
