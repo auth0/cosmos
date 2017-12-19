@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const Overview = styled.div`
-  width: 1000px;
+  width: 1600px;
   padding: 100px;
 `
 
