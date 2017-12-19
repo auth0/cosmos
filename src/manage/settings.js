@@ -24,14 +24,14 @@ class Settings extends React.Component {
           type="text"
           readOnly
           defaultValue={this.state.domain}
-          action={{ icon: 'copy', method: copy }}
+          actions={[{ icon: 'copy', method: copy }]}
         />
         <Form.TextInput
           label="Client ID"
           type="text"
           readOnly
           defaultValue={this.state.clientID}
-          action={{ icon: 'copy', method: copy }}
+          actions={[{ icon: 'copy', method: copy }]}
         />
         <Form.TextInput
           label="Secret"

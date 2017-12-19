@@ -39,7 +39,7 @@ const Buttons = () => (
     <br />
     <ButtonStateWrapper link />
     <br />
-    <ButtonStateWrapper link />
+    <ButtonStateWrapper link icon="copy" />
   </Container>
 )
 
