@@ -56,6 +56,17 @@
             "computed": false
           }
         },
+        "distructive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Use for distructive actions like delete",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
         "loading": {
           "type": {
             "name": "bool"

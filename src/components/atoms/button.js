@@ -44,6 +44,15 @@ const config = {
     focusBackground: colors.grayLightest,
     focusBorder: colors.grayLightest
   },
+  distructive: {
+    text: colors.white,
+    background: colors.orangeDarker,
+    border: colors.orangeDarker,
+    hoverBackground: colors.orange,
+    hoverBorder: colors.orange,
+    focusBackground: colors.orangeLighter,
+    focusBorder: colors.orangeLighter
+  },
   loading: {
     text: colors.white,
     background: colors.green,
@@ -69,6 +78,7 @@ const getAttributes = props => {
   if (props.success) styles = config.success
   else if (props.primary) styles = config.primary
   else if (props.transparent) styles = config.transparent
+  else if (props.distructive) styles = config.distructive
   else if (props.disabled) styles = config.disabled
   else styles = config.default
 
@@ -130,6 +140,8 @@ Button.propTypes = {
   transparent: PropTypes.bool,
   /** Disable button that does not validate constraint */
   disabled: PropTypes.bool,
+  /** Use for distructive actions like delete */
+  distructive: PropTypes.bool,
 
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
@@ -143,6 +155,7 @@ Button.propTypes = {
 Button.defaultProps = {
   primary: false,
   transparent: false,
+  distructive: false,
   disabled: false,
   loading: false,
   success: false
