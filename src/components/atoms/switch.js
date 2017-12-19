@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, misc } from '../../tokens/'
@@ -34,12 +34,19 @@ const Toggle = styled.span`
     transform: translateX(${props => (props.on ? '20px' : 0)});
   }
 
-  &:active {
-    &:before {
-      width: 30px;
-      left: ${props => (props.on ? '0' : '6px')};
-    }
-  }
+  ${props =>
+    props.readOnly
+      ? css`
+          opacity: 0.4;
+        `
+      : css`
+          &:active {
+            &:before {
+              width: 30px;
+              left: ${props => (props.on ? '0' : '6px')};
+            }
+          }
+        `};
 `
 
 const Label = styled.label`
@@ -58,6 +65,7 @@ class Switch extends React.Component {
     this.state = { on: props.on }
   }
   onToggle() {
+    if (this.props.readOnly) return
     this.setState(currentState => ({ on: !currentState.on }))
   }
   render() {
@@ -69,7 +77,7 @@ class Switch extends React.Component {
     return (
       <span onClick={this.onToggle.bind(this)}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly />
-        <Toggle on={this.state.on} />
+        <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
       </span>
     )

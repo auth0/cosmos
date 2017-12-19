@@ -118,8 +118,6 @@ class Settings extends React.Component {
         <Form.FieldSet label="Single Sign On">
           <Form.Switch
             label="Single Sign On"
-            accessibleLabels={['ON', 'OFF']}
-            readOnly
             description="If this setting is enabled, Auth0
             will handle Single Sign On instead of the Identity Provider (e.g.: No redirect to Facebook
             to log the user in if they have already logged in before)."
