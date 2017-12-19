@@ -219,6 +219,57 @@
       }
     },
     {
+      "description": "Use Switch for boolean inputs",
+      "displayName": "Switch",
+      "methods": [
+        {
+          "name": "onToggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "on": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "State of the toggle",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "accessibleLabels": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          },
+          "required": false,
+          "description": "Labels to show, import for accessibility",
+          "defaultValue": {
+            "value": "['ENABLED', 'DISABLED']",
+            "computed": false
+          }
+        },
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Locked switch",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
       "description": "",
       "methods": [],
       "displayName": "TextArea",
