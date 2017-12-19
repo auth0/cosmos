@@ -46,12 +46,12 @@ const config = {
   },
   distructive: {
     text: colors.white,
-    background: colors.orangeDarker,
-    border: colors.orangeDarker,
-    hoverBackground: colors.orange,
-    hoverBorder: colors.orange,
-    focusBackground: colors.orangeLighter,
-    focusBorder: colors.orangeLighter
+    background: colors.orange,
+    border: colors.orange,
+    hoverBackground: colors.orangeLighter,
+    hoverBorder: colors.orangeLighter,
+    focusBackground: colors.orangeLighest,
+    focusBorder: colors.orangeLighest
   },
   loading: {
     text: colors.white,
