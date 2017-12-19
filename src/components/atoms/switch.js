@@ -2,15 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, misc } from '../../tokens/'
-
-const StyledSwitch = styled.span``
+import { colors, spacing, misc } from '../../tokens/'
 
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
 `
-const Label = styled.label`
+const Toggle = styled.span`
   display: inline-block;
   width: 55px;
   height: 32px;
@@ -44,6 +42,12 @@ const Label = styled.label`
   }
 `
 
+const Label = styled.label`
+  vertical-align: top;
+  line-height: 32px;
+  padding-left: ${spacing.small};
+`
+
 /**
  * Use Switch for boolean inputs
  */
@@ -57,15 +61,17 @@ class Switch extends React.Component {
     this.setState(currentState => ({ on: !currentState.on }))
   }
   render() {
+    let [onLabel, offLabel] = this.props.accessibleLabels
     /*
       The checkbox is controlled by the component state
       and is itself a readOnly component
     */
     return (
-      <StyledSwitch>
+      <span onClick={this.onToggle.bind(this)}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly />
-        <Label onClick={this.onToggle.bind(this)} on={this.state.on} />
-      </StyledSwitch>
+        <Toggle on={this.state.on} />
+        <Label>{this.state.on ? onLabel : offLabel}</Label>
+      </span>
     )
   }
 }
@@ -73,12 +79,15 @@ class Switch extends React.Component {
 Switch.propTypes = {
   /** State of the toggle */
   on: PropTypes.bool,
+  /** Labels to show, import for accessibility */
+  accessibleLabels: PropTypes.arrayOf(PropTypes.string),
   /** Locked switch */
   readOnly: PropTypes.bool
 }
 
 Switch.defaultProps = {
   on: false,
+  accessibleLabels: ['ENABLED', 'DISABLED'],
   readOnly: false
 }
 

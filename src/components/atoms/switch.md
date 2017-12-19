@@ -1,11 +1,23 @@
-Toggle (by default off)
+Switch (by default off)
 
 ```
-<Toggle />
+<Switch />
+```
+
+Custom accessibility labels:
+
+```
+<Switch accessibleLabels={['ON', 'OFF']} />
 ```
 
 Default state on:
 
 ```
-<Toggle on />
+<Switch on />
+```
+
+Lock switch state
+
+```
+<Switch on readOnly />
 ```
