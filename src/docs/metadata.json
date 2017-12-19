@@ -152,6 +152,30 @@
       "methods": [],
       "displayName": "Select",
       "props": {
+        "options": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "text": {
+                  "name": "string",
+                  "required": true
+                },
+                "value": {
+                  "name": "any",
+                  "required": true
+                },
+                "defaultSelected": {
+                  "name": "bool",
+                  "required": false
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "Options to render inside select"
+        },
         "readOnly": {
           "type": {
             "name": "bool"

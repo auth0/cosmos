@@ -30,6 +30,14 @@ const Select = ({ options, ...props }) => {
 }
 
 Select.propTypes = {
+  /** Options to render inside select */
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      value: PropTypes.any.isRequired,
+      defaultSelected: PropTypes.bool
+    })
+  ).isRequired,
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
   /** Pass error string directly to show error state */
