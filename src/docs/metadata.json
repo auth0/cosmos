@@ -56,12 +56,12 @@
             "computed": false
           }
         },
-        "distructive": {
+        "destructive": {
           "type": {
             "name": "bool"
           },
           "required": false,
-          "description": "Use for distructive actions like delete",
+          "description": "Use for destructive actions like delete",
           "defaultValue": {
             "value": "false",
             "computed": false
