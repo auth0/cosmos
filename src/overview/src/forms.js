@@ -20,6 +20,24 @@ const Forms = () => (
         label="Text input with error"
         placeholder="Add a description in less than 140 characters"
       />
+      <Form.Select
+        label="Select with options"
+        options={[
+          { text: 'One', value: 1, defaultSelected: true },
+          { text: 'Two', value: 2 },
+          { text: 'Three', value: 3 }
+        ]}
+      />
+      <Form.Switch label="Switches are fun" on />
+      <Form.Actions
+        primaryAction={{ label: 'Save' }}
+        secondaryActions={[
+          {
+            label: 'Clear'
+          }
+        ]}
+        destructiveActions={[{ label: 'Delete' }]}
+      />
     </Form>
   </Container>
 )

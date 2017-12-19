@@ -6,6 +6,8 @@ const colors = {
   grayLightest: '#F1F1F1',
   blue: '#14AAFF',
   orange: '#FF3E00',
+  orangeLighter: '#ff784d',
+  orangeLightest: '#ffb299',
   green: '#4CD964',
   white: '#FFF'
 }

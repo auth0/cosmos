@@ -123,12 +123,10 @@ class Settings extends React.Component {
             to log the user in if they have already logged in before)."
           />
         </Form.FieldSet>
-        {/* <Form.Actions>
-          <Form.Button onClick={this.save}>Save Changes</Form.Button>
-          <Form.Button distructive onClick={this.delete}>
-            Delete Client
-          </Form.Button>
-        </Form.Actions> */}
+        <Form.Actions
+          primaryAction={{ label: 'Save Changes', method: this.save }}
+          destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
+        />
       </Form>
     )
   }

@@ -34,6 +34,8 @@ const Buttons = () => (
     <ButtonStateWrapper transparent />
     <br />
     <ButtonStateWrapper disabled />
+    <br />
+    <ButtonStateWrapper destructive />
   </Container>
 )
 
