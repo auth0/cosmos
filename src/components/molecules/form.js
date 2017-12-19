@@ -6,6 +6,7 @@ import uniqueId from '../_helpers/uniqueId'
 
 import Input, { StyledInput } from '../atoms/input'
 import TextArea, { StyledTextArea } from '../atoms/textarea'
+import Select, { StyledSelect } from '../atoms/select'
 
 const Label = styled.label`
   box-sizing: border-box;
@@ -50,7 +51,7 @@ const StyledForm = styled.form`
   ${Label} {
     width: 25%;
   }
-  ${StyledInput}, ${StyledTextArea} {
+  ${StyledInput}, ${StyledTextArea}, ${StyledSelect} {
     width: 50%;
     margin-left: ${spacing.small};
   }
@@ -94,7 +95,7 @@ const FormElement = props => {
 
 Form.TextInput = props => <FormElement {...props} fieldComponent={Input} />
 Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
-// Form.Select = props => <FormElement {...props} fieldComponent={Input} />
+Form.Select = props => <FormElement {...props} fieldComponent={Select} />
 
 Form.FieldSet = props => (
   <FieldSet>

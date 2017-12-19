@@ -1,14 +1,8 @@
 import React from 'react'
 
-import {
-  Dummy,
-  dummyFn as copy,
-  dummyFn as regenerate,
-  dummyFn as reveal
-} from './dummy-components'
+import { dummyFn as copy, dummyFn as regenerate, dummyFn as reveal } from './dummy-components'
 
 import { Form } from '../components'
-Form.Select = Dummy
 
 class Settings extends React.Component {
   constructor() {
@@ -61,7 +55,7 @@ class Settings extends React.Component {
             label="Description"
             placeholder="Add a description in less than 140 charachters"
             description="A free text description of the client. Max charachter count is 140"
-            limit="140"
+            length="10"
           />
           <Form.TextInput
             label="Logo"

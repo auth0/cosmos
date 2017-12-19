@@ -37,6 +37,7 @@
     "react-scripts": "1.0.14",
     "react-styleguidist": "6.0.33",
     "serve": "6.4.1",
-    "sync-exec": "0.6.2"
+    "sync-exec": "0.6.2",
+    "webpack-bundle-analyzer": "2.9.1"
   }
 }
