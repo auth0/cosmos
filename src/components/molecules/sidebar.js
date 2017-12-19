@@ -52,7 +52,6 @@ const Sidebar = props => {
   return <StyledSidebar {...props} />
 }
 
-
 /**
   Step 4: We need to add prop information for our component
   - Add propTypes to make for documentation and validation
@@ -67,41 +66,58 @@ Sidebar.defaultProps = {
   big: false
 }
 
-
 Sidebar.Link = props => {
   /* you can pass on all the props to the component like this */
-  return <Link href={props.url}>
-    <Icon type={props.icon ? 'clients' : 'arrow-right'} size={16} />
-    {props.label}
-  </Link>
+  return (
+    <Link href={props.url} onClick={props.onClick}>
+      <Icon type={props.icon ? 'clients' : 'arrow-right'} size={16} />
+      {props.label}
+    </Link>
+  )
 }
-
 
 const Link = styled.a`
   display: block;
+  cursor: pointer;
   color: ${colors.base};
   text-decoration: none;
   font-size: 13px;
   padding: calc(${spacing.xsmall} / 2) 0;
-  &:hover {
+  &:hover  {
     color: ${colors.orange};
   }
 `
 
-Sidebar.LinkGroup = props => {
-  /* you can pass on all the props to the component like this */
-  return <div>
-    <Sidebar.Link icon="emails" label="Emails" />
-    <LinkGroupChildren>
-    {props.children}
-    </LinkGroupChildren>
-  </div>
+class LinkGroup extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { open: false }
+  }
+  open() {
+    this.setState({ open: !this.state.open })
+  }
+  render() {
+    return (
+      <div>
+        <Sidebar.Link
+          icon={this.props.icon}
+          label={this.props.label}
+          onClick={this.open.bind(this)}
+        />
+        <LinkGroupChildren open={this.state.open}>{this.props.children}</LinkGroupChildren>
+      </div>
+    )
+  }
 }
 
+Sidebar.LinkGroup = LinkGroup
 
-const LinkGroupChildren =styled.div`
+const LinkGroupChildren = styled.div`
   padding-left: 1.75em;
-  display: none;
+  overflow: hidden;
+  max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
+  visibility: ${props => (props.open ? 'visible' : 'hidden')};
+  transition: max-height 0.5s ease, visibility 0.5s ease;
 `
 
 /* Finally, export the component */
