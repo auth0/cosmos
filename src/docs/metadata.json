@@ -99,6 +99,17 @@
           },
           "required": true,
           "description": "Icon type"
+        },
+        "size": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "Icon size",
+          "defaultValue": {
+            "value": "14",
+            "computed": false
+          }
         }
       }
     },
@@ -148,6 +159,59 @@
       "displayName": "Logo"
     },
     {
+      "description": "Use select when you want to limit the input options",
+      "methods": [],
+      "displayName": "Select",
+      "props": {
+        "options": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "text": {
+                  "name": "string",
+                  "required": true
+                },
+                "value": {
+                  "name": "any",
+                  "required": true
+                },
+                "defaultSelected": {
+                  "name": "bool",
+                  "required": false
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "Options to render inside select"
+        },
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Make input readOnly if it does not validate constraint",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "error": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Pass error string directly to show error state",
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
       "description": "",
       "methods": [],
       "displayName": "Spinner",
@@ -158,6 +222,57 @@
           },
           "required": false,
           "description": "Invert for dark background",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
+      "description": "Use Switch for boolean inputs",
+      "displayName": "Switch",
+      "methods": [
+        {
+          "name": "onToggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "on": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "State of the toggle",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "accessibleLabels": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          },
+          "required": false,
+          "description": "Labels to show, import for accessibility",
+          "defaultValue": {
+            "value": "['ENABLED', 'DISABLED']",
+            "computed": false
+          }
+        },
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Locked switch",
           "defaultValue": {
             "value": "false",
             "computed": false
@@ -220,6 +335,24 @@
       "description": "Use forms to collect information from user",
       "methods": [],
       "displayName": "Form"
+    },
+    {
+      "description": "Think of the box",
+      "methods": [],
+      "displayName": "Sidebar",
+      "props": {
+        "big": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "This comment will be picked up by the docs",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      }
     }
   ]
 }

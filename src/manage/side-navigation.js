@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { Dummy, Dummy as Sidebar } from './dummy-components'
-Sidebar.Link = Dummy
-Sidebar.LinkGroup = Dummy
+import { Dummy } from './dummy-components'
+import Sidebar from '../components/molecules/sidebar'
+
 
 export default () => (
-  <Sidebar style={{ float: 'left', width: '16%', height: '100vh', borderRight: '1px solid #eee' }}>
-    <Sidebar.Link icon="dashboard" label="dashboard" url="/dashboard" />
+  <Sidebar>
+    <Sidebar.Link icon="dashboard" label="Dashboard" url="/dashboard" />
     <Sidebar.Link icon="clients" label="Clients" url="/clients" />
     <Sidebar.Link icon="api" label="APIs" url="/apis" />
     <Sidebar.Link icon="sso" label="SSO Integrations" url="/externalapps" />
