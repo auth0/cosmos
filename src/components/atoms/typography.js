@@ -4,7 +4,7 @@ import { colors, fonts, misc } from '../../tokens'
 
 injectGlobal`
 
-  body, input, textarea, button {
+  body, input, textarea, button, select {
     font-family: ${fonts.family.text};
     line-height: ${misc.lineHeight};
     font-weight: ${fonts.weight.normal};

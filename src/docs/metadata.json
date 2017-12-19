@@ -148,6 +148,59 @@
       "displayName": "Logo"
     },
     {
+      "description": "Use select when you want to limit the input options",
+      "methods": [],
+      "displayName": "Select",
+      "props": {
+        "options": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "text": {
+                  "name": "string",
+                  "required": true
+                },
+                "value": {
+                  "name": "any",
+                  "required": true
+                },
+                "defaultSelected": {
+                  "name": "bool",
+                  "required": false
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "Options to render inside select"
+        },
+        "readOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Make input readOnly if it does not validate constraint",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "error": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Pass error string directly to show error state",
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          }
+        }
+      }
+    },
+    {
       "description": "",
       "methods": [],
       "displayName": "Spinner",

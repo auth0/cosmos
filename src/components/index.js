@@ -15,6 +15,9 @@ export { Box }
 import Input from './atoms/input'
 export { Input }
 
+import Select from './atoms/select'
+export { Select }
+
 import Button from './atoms/button'
 export { Button }
 
