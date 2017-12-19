@@ -35,10 +35,17 @@ const HourGlass = styled(StyledIcon)`
   }
 `
 
+const Copy = styled(StyledIcon)`
+  &:after {
+    content: '';
+  }
+`
+
 const Icon = props => {
   if (props.type === 'success') return <Success />
   else if (props.type === 'clients') return <Clients />
   else if (props.type === 'hourglass') return <HourGlass />
+  else if (props.type === 'copy') return <Copy />
   else return null
 }
 

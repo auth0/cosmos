@@ -35,6 +35,15 @@ const config = {
     focusBackground: colors.grayMedium,
     focusBorder: colors.base
   },
+  icon: {
+    text: colors.base,
+    background: colors.white,
+    border: colors.white,
+    hoverBackground: colors.grayLightest,
+    hoverBorder: colors.grayLightest,
+    focusBackground: colors.grayMedium,
+    focusBorder: colors.grayMedium
+  },
   disabled: {
     text: colors.grayMedium,
     background: colors.grayLightest,
@@ -78,6 +87,7 @@ const getAttributes = props => {
   if (props.success) styles = config.success
   else if (props.primary) styles = config.primary
   else if (props.transparent) styles = config.transparent
+  else if (props.icon) styles = config.icon
   else if (props.destructive) styles = config.destructive
   else if (props.disabled) styles = config.disabled
   else styles = config.default
@@ -93,7 +103,7 @@ const getAttributes = props => {
 }
 
 const StyledButton = styled.button`
-  min-width: 96px;
+  min-width: ${props => (props.icon ? '40px' : '96px')};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -130,7 +140,16 @@ const Button = ({ children, ...props }) => {
   let content = children
   if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
-  return <StyledButton {...props}>{content}</StyledButton>
+
+  if (props.icon) {
+    return (
+      <StyledButton {...props}>
+        <Icon type={props.icon} />
+      </StyledButton>
+    )
+  } else {
+    return <StyledButton {...props}>{content}</StyledButton>
+  }
 }
 
 Button.propTypes = {
@@ -143,19 +162,23 @@ Button.propTypes = {
   /** Use for destructive actions like delete */
   destructive: PropTypes.bool,
 
+  /** Name of icon */
+  icon: PropTypes.string,
+
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
   /** Successful state when action is completed successfuly */
   success: PropTypes.bool,
 
   /** @ignore This is an internal prop only used for validation */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])
+  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'icon'])
 }
 
 Button.defaultProps = {
   primary: false,
   transparent: false,
   destructive: false,
+  icon: null,
   disabled: false,
   loading: false,
   success: false

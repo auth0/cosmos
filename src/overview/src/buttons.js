@@ -36,6 +36,8 @@ const Buttons = () => (
     <ButtonStateWrapper disabled />
     <br />
     <ButtonStateWrapper destructive />
+    <br />
+    <ButtonStateWrapper icon="copy" />
   </Container>
 )
 
