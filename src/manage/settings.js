@@ -40,8 +40,8 @@ class Settings extends React.Component {
           defaultValue={this.state.secret}
           actions={[
             { icon: 'copy', method: copy },
-            { icon: 'reveal', method: reveal },
-            { icon: 'refresh', method: regenerate }
+            { icon: 'copy', method: reveal },
+            { icon: 'copy', method: regenerate }
           ]}
           description="The Client Secret is not base64 encoded."
         />

@@ -106,7 +106,7 @@ const getAttributes = props => {
 }
 
 const StyledButton = styled.button`
-  min-width: ${props => (props.icon ? '40px' : '96px')};
+  min-width: ${props => (props.icon ? '36px' : '96px')};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -123,7 +123,7 @@ const StyledButton = styled.button`
 
   margin: ${spacing.xsmall};
   margin-left: 0;
-  padding: ${spacing.xsmall} ${spacing.small};
+  padding: ${spacing.xsmall} ${props => (props.icon ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
