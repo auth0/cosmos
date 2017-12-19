@@ -13,16 +13,11 @@ const Label = styled.label`
   box-sizing: border-box;
   display: block;
   min-height: 40px;
-  line-height: 40px;
   font-weight: ${fonts.weight.medium};
   text-align: right;
   padding-right: ${spacing.small};
-
-  min-height: 40px;
-  vertical-align: top;
   padding-top: 10px;
 `
-
 
 // Layout
 const Field = styled.div`
@@ -33,7 +28,7 @@ const Field = styled.div`
 const LabelLayout = styled.div`
   width: 35%;
   text-align: right;
-  padding-right: ${spacing.medium}
+  padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
   width: 65%;
