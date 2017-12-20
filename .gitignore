@@ -62,4 +62,7 @@ typings/
 
 # ignore the build directory output of react-scripts
 build
-styleguide
+
+# ignore metadata file
+src/docs/metadata.json
+src/is-cosmos-ready-yet/components.json
