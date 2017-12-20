@@ -10,12 +10,11 @@ const options = {
   overrides: {
     hr: { component: Break },
     h2: { component: SectionHeader },
-    h3: { component: Heading3 },
-    h4: { component: Heading5 },
-    p: { component: Text },
+    p: { component: Heading5 },
+    li: { component: Heading5 },
     code: {
       /* use playground for js code blocks */
-      component: props => (props.className === 'lang-js' ? <Playground {...props} /> : null)
+      component: props => (props.className.includes('js') ? <Playground {...props} /> : null)
     }
   }
 }

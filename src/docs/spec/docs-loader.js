@@ -1,7 +1,7 @@
 /* Load examples from markdown files */
 
 const webpackMarkdownLoader = require.context(
-  '!raw-loader!./../../components/atoms',
+  '!raw-loader!./../../components/atoms/',
   false,
   /\.md$/
 )
