@@ -1,4 +1,4 @@
-Default button:
+### Default example
 
 ```js
 ;<Button>Button</Button>
@@ -6,7 +6,15 @@ Default button:
 
 ---
 
-#### Examples
+### Props
+
+```js
+<PropTable />
+```
+
+---
+
+### Examples
 
 Use for primary call to action
 
@@ -37,3 +45,9 @@ Icon button
 ```js
 ;<Button icon="copy" />
 ```
+
+---
+
+### Guidelines
+
+---

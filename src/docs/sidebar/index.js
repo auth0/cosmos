@@ -1,26 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, spacing } from '../../tokens'
-import { Logo } from '../../components'
-import ComponentList from './component-list'
+/* import components from the generated metadata files */
+import { metadata as components } from '../metadata.json'
 
-const Sidebar = styled.div`
+import { colors } from '../../tokens'
+import LogoContainer from './logo'
+import SearchBox from './search.js'
+import List from './list'
+
+const StyledSidebar = styled.div`
   background: ${colors.grayLightest};
   height: 100vh;
 `
-/* Logo on the top has a nice white background thing going on */
-const LogoContainer = styled.div`
-  padding: ${spacing.medium};
-  text-align: center;
-  background: ${colors.white};
-`
 
-export default () => (
-  <Sidebar>
-    <LogoContainer>
-      <Logo />
-    </LogoContainer>
-    <ComponentList />
-  </Sidebar>
-)
+class Sidebar extends React.Component {
+  constructor() {
+    super()
+    /* by default, show all components */
+    this.state = { filteredComponents: components }
+  }
+  filter(query) {
+    /* filter components based on search query */
+    const filteredComponents = components.filter(component => component.displayName.includes(query))
+    this.setState({ filteredComponents })
+  }
+  render() {
+    return (
+      <StyledSidebar>
+        <LogoContainer />
+        <SearchBox onChange={this.filter.bind(this)} />
+        <List components={this.state.filteredComponents} />
+      </StyledSidebar>
+    )
+  }
+}
+
+export default Sidebar

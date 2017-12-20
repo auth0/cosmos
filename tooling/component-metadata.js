@@ -17,15 +17,18 @@ const run = () => {
     .map(path => {
       try {
         /* append display name handler to handlers list */
-        const handlers = docgen.defaultHandlers.concat(
-          createDisplayNameHandler(path)
-        )
+        const handlers = docgen.defaultHandlers.concat(createDisplayNameHandler(path))
 
         /* read file to get source code */
         const code = fs.readFileSync(path, 'utf8')
 
         /* parse the component code to get metadata */
-        return docgen.parse(code, null, handlers)
+        const data = docgen.parse(code, null, handlers)
+
+        /* add filepath to metadata */
+        data.filepath = path
+
+        return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
         warn('Could not parse metadata for ' + path)
@@ -41,11 +44,7 @@ const run = () => {
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
-  fs.writeFileSync(
-    'src/docs/metadata.json',
-    JSON.stringify({ metadata }, null, 2),
-    'utf8'
-  )
+  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
 }
 
 /* watch mode 👀 */

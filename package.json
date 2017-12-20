@@ -27,7 +27,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,md}": ["prettier --write --single-quote --no-semi", "git add"]
+    "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
   },
   "devDependencies": {
     "babel-plugin-react-display-name": "2.0.0",
