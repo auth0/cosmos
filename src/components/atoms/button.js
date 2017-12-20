@@ -191,5 +191,7 @@ Button.defaultProps = {
   success: false
 }
 
+Button.meta = {}
+
 export default Button
 export { StyledButton }

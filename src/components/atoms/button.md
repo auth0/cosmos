@@ -1,53 +1,55 @@
-### Default example
+```meta
+  category: Actions
+```
 
 ```js
-;<Button>Button</Button>
+<Button>Button</Button>
 ```
 
 ---
 
-### Props
+## Examples
+
+#### Buttons are great to ask users for action
 
 ```js
-<PropTable />
+<Button>Save</Button>
 ```
 
----
-
-### Examples
-
-Use for primary call to action
+#### Primary actions help attract attention to the main action
 
 ```js
-;<Button primary>Save</Button>
+<Button primary>Save</Button>
 ```
 
-Use for secondary call to action
+#### Use secondary actions for actions that are not as important
 
 ```js
-;<Button transparent>I’m transparent</Button>
+<Button transparent>I’m transparent</Button>
 ```
 
-Disable button that does validate constraint
+#### Disable a button if you don't want the user isn't allowed to click on it
 
 ```js
-;<Button disabled>This one is disabled</Button>
+<Button disabled>This one is disabled</Button>
 ```
 
-Destructive button for destructive use cases like delete
+#### Destructive buttons warn the user about it's effects. Proceed with caution.
 
 ```js
-;<Button destructive>Delete</Button>
+<Button destructive>Delete</Button>
 ```
 
-Icon button
+#### Link button for linky stuff, idk?
 
 ```js
-;<Button icon="copy" />
+<Button link>Clear</Button>
 ```
 
----
+#### Icon buttons work well in compact spaces
 
-### Guidelines
+```js
+<Button icon="copy" />
+```
 
 ---

@@ -1,7 +1,7 @@
 Options is required field
 
 ```js
-;<Select
+<Select
   options={[
     { text: 'One', value: 1, defaultSelected: true },
     { text: 'Two', value: 2 },
@@ -13,7 +13,7 @@ Options is required field
 Form can be readOnly
 
 ```js
-;<Select
+<Select
   readOnly
   options={[
     { text: 'One', value: 1, defaultSelected: true },

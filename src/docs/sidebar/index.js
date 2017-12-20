@@ -11,6 +11,7 @@ import List from './list'
 
 const StyledSidebar = styled.div`
   background: ${colors.grayLightest};
+  position: fixed;
   height: 100vh;
   overflow: scroll;
 `

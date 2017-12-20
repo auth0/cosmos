@@ -1,5 +1,5 @@
 Success Icon
 
 ```js
-;<Icon type="success" />
+<Icon type="success" />
 ```

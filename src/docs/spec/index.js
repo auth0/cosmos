@@ -5,7 +5,6 @@ import { metadata as components } from '../metadata.json'
 import documentations from './docs-loader'
 
 import { Heading3, Subheader } from '../../components'
-import Playground from './playground'
 import Example from './example'
 
 const Container = styled.div`
@@ -22,7 +21,6 @@ export default props => {
     <Container>
       <Heading3>{component.displayName}</Heading3>
       <Subheader>{component.description || 'Description missing!'}</Subheader>
-      <Playground component={component} />
       <Example docs={docs} component={component} />
     </Container>
   )

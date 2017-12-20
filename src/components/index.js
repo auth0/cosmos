@@ -33,8 +33,16 @@ export { Logo }
 import Icon from './atoms/icon'
 export { Icon }
 
-import { Heading1, Heading2, Heading3, Subheader, Text } from './atoms/typography'
-export { Heading1, Heading2, Heading3, Subheader, Text }
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Subheader,
+  Text
+} from './atoms/typography'
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
 
 /* molecules */
 import Form from './molecules/form'
