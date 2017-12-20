@@ -132,6 +132,17 @@
           },
           "required": true,
           "description": "Icon type"
+        },
+        "size": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "Icon size",
+          "defaultValue": {
+            "value": "14",
+            "computed": false
+          }
         }
       }
     },
