@@ -1,9 +1,7 @@
 import React from 'react'
 import { Form } from '../components'
 
-let copy,
-  regenerate,
-  reveal = () => {}
+let dummyFn = () => {}
 
 class Settings extends React.Component {
   constructor() {
@@ -24,14 +22,14 @@ class Settings extends React.Component {
           type="text"
           readOnly
           defaultValue={this.state.domain}
-          actions={[{ icon: 'copy', method: copy }]}
+          actions={[{ icon: 'copy', method: dummyFn }]}
         />
         <Form.TextInput
           label="Client ID"
           type="text"
           readOnly
           defaultValue={this.state.clientID}
-          actions={[{ icon: 'copy', method: copy }]}
+          actions={[{ icon: 'copy', method: dummyFn }]}
         />
         <Form.TextInput
           label="Secret"
@@ -39,9 +37,9 @@ class Settings extends React.Component {
           readOnly
           defaultValue={this.state.secret}
           actions={[
-            { icon: 'copy', method: copy },
-            { icon: 'copy', method: reveal },
-            { icon: 'copy', method: regenerate }
+            { icon: 'copy', method: dummyFn },
+            { icon: 'copy', method: dummyFn },
+            { icon: 'copy', method: dummyFn }
           ]}
           description="The Client Secret is not base64 encoded."
         />
