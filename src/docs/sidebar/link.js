@@ -7,13 +7,14 @@ import { spacing, colors } from '../../tokens'
 const StyledLink = styled.div`
   a {
     display: block;
-    padding: ${spacing.small} ${spacing.large};
+    padding: ${spacing.small} ${spacing.xlarge};
     text-decoration: none;
     color: ${colors.grayDark};
 
     &:hover,
     &.selected {
       background: ${colors.white};
+      color: ${colors.orange};
       box-shadow: inset -1px 0px 1px 0px ${colors.grayLightest};
     }
   }

@@ -6,31 +6,21 @@ import { StyledLink } from './link'
 
 const Label = styled(StyledLink)`
   a {
-    cursor: pointer;
     padding: ${spacing.small} ${spacing.small};
-    color: ${props => (props.open ? colors.orange : 'inherit')};
+    &:hover {
+      background: initial;
+    }
   }
 `
 
-class Group extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { open: props.open }
-  }
-  toggle() {
-    this.setState({ open: !this.state.open })
-  }
-  render() {
-    return (
-      <div>
-        <Label onClick={this.toggle.bind(this)} open={this.state.open}>
-          <a>{this.props.label}</a>
-        </Label>
-        {this.state.open && this.props.children}
-      </div>
-    )
-  }
-}
+const Group = props => (
+  <div>
+    <Label>
+      <a>{props.label}</a>
+    </Label>
+    {props.children}
+  </div>
+)
 
 const getGroups = components => {
   const groups = { atoms: [], molecules: [] }
