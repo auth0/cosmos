@@ -70,7 +70,7 @@ Sidebar.Link = props => {
   /* you can pass on all the props to the component like this */
   return (
     <Link href={props.url} onClick={props.onClick}>
-      <Icon type={props.icon ? "clients" : "arrow-right"} size={16} />
+      <Icon type={props.icon ? props.icon : 'arrow-right'} size={16} />
       {props.label}
     </Link>
   );
