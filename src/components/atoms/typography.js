@@ -81,11 +81,25 @@ const Heading3 = styled.h3`
   font-weight: ${fonts.weight.medium};
 `
 
+const Heading4 = styled.h4`
+  margin: 0; /* reset browser default */
+  color: ${colors.base};
+  font-size: 24px;
+  font-weight: ${fonts.weight.normal};
+`
+
+const Heading5 = styled.h5`
+  margin: 0; /* reset browser default */
+  color: ${colors.base};
+  font-size: 16px;
+  font-weight: ${fonts.weight.normal};
+`
+
 const Subheader = styled.h6`
   margin: 0; /* reset browser default */
   color: ${colors.grayDark};
   font-size: 13px;
-  font-weight: ${fonts.weight.medium};
+  font-weight: ${fonts.weight.normal};
 `
 
 const Text = styled.span`
@@ -94,4 +108,4 @@ const Text = styled.span`
   font-weight: ${fonts.weight.normal};
 `
 
-export { Heading1, Heading2, Heading3, Subheader, Text }
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }

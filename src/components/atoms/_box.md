@@ -1,6 +1,6 @@
-This is the where you can add examples
-
-Default box:
+```meta
+  category: Actions
+```
 
 ```
 <Box />

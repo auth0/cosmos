@@ -1,7 +1,7 @@
 /* Load examples from markdown files */
 
 const webpackMarkdownLoader = require.context(
-  '!raw-loader!./../../components/atoms',
+  '!raw-loader!./../../components/atoms/',
   false,
   /\.md$/
 )
@@ -9,9 +9,9 @@ const webpackMarkdownLoader = require.context(
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1)
 
 const examples = webpackMarkdownLoader.keys().map(filename => {
-  let componentName = capitalize(filename.replace('./', '').replace('.md', ''))
+  let name = capitalize(filename.replace('./', '').replace('.md', ''))
   return {
-    componentName,
+    name,
     content: webpackMarkdownLoader(filename)
   }
 })
