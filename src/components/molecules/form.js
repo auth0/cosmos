@@ -36,12 +36,15 @@ const FieldSet = styled.fieldset`
   padding: 0;
 `
 
-const Devider = styled(Label)`
+const Divider = styled(Label)`
   text-transform: uppercase;
   text-align: left;
-  border-bottom: 1px solid ${colors.grayLight}
-  padding-bottom: ${spacing.small};
-  margin-bottom: ${spacing.large};
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: ${fonts.weight.medium};
+  border-bottom: 1px solid ${colors.grayLight};
+  padding-bottom: ${spacing.xsmall};
+  margin-bottom: ${spacing.xlarge};
 `
 
 // Layout
@@ -79,7 +82,7 @@ const StyledForm = styled.form`
     /* resize should not happen horizontally inside a form */
     min-height: 40px;
   }
-  ${Devider} {
+  ${Divider} {
     width: 100%;
   }
 `
@@ -148,7 +151,7 @@ Form.Actions = props => {
 
 Form.FieldSet = props => (
   <FieldSet>
-    <Devider>{props.label}</Devider>
+    <Divider>{props.label}</Divider>
     {props.children}
   </FieldSet>
 )

@@ -346,24 +346,6 @@
       "description": "Use forms to collect information from user",
       "methods": [],
       "displayName": "Form"
-    },
-    {
-      "description": "Think of the box",
-      "methods": [],
-      "displayName": "Sidebar",
-      "props": {
-        "big": {
-          "type": {
-            "name": "bool"
-          },
-          "required": false,
-          "description": "This comment will be picked up by the docs",
-          "defaultValue": {
-            "value": "false",
-            "computed": false
-          }
-        }
-      }
     }
   ]
 }
