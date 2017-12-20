@@ -5,7 +5,7 @@ import Sidebar from '../components/molecules/sidebar'
 export default () => (
   <Sidebar>
     <Sidebar.Link icon="dashboard" label="Dashboard" url="/dashboard" />
-    <Sidebar.Link icon="clients" label="Clients" url="/clients" />
+    <Sidebar.Link icon="clients" label="Clients" url="/clients" selected />
     <Sidebar.Link icon="api" label="APIs" url="/apis" />
     <Sidebar.Link icon="sso" label="SSO Integrations" url="/externalapps" />
     <Sidebar.LinkGroup icon="connections" label="Connections">
@@ -17,7 +17,11 @@ export default () => (
     <Sidebar.Link icon="users" label="Users" url="/users" />
     <Sidebar.Link icon="rules" label="Rules" url="/rules" />
     <Sidebar.Link icon="hooks" label="Hooks" url="/hooks" />
-    <Sidebar.Link icon="scheduled" label="Scheduled jobs" url="/Scheduled jobs" />
+    <Sidebar.Link
+      icon="scheduled"
+      label="Scheduled jobs"
+      url="/Scheduled jobs"
+    />
     <Sidebar.Link icon="multifactor" label="Multifactor Auth" url="/guardian" />
     <Sidebar.Link icon="pages" label="Hosted Pages" url="/login_page" />
     <Sidebar.LinkGroup icon="emails" label="Emails">

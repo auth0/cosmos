@@ -27,7 +27,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "prettier --write --single-quote --no-semi", "git add"]
+    "*.js": [
+      "prettier --write --single-quote --no-semi",
+      "git add"
+    ]
   },
   "devDependencies": {
     "babel-plugin-react-display-name": "2.0.0",
@@ -38,6 +41,7 @@
     "now-replace": "1.0.3",
     "now-travis": "1.1.1",
     "npm-run-all": "4.1.2",
+    "prettier": "1.9.2",
     "prop-types": "15.6.0",
     "puppeteer": "0.12.0",
     "react-scripts": "1.0.14",
