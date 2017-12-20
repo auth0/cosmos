@@ -35,6 +35,16 @@ const Container = styled.div`
   }
 `
 
+const CodeWrapper = styled.div`
+  overflow: hidden;
+  max-height: ${props => 25 * (props.code.split('\n').length + 1)}px;
+  transition: max-height 0.5s ease;
+
+  &.hide {
+    max-height: 0;
+  }
+`
+
 const CodeToggle = styled.div`
   position: absolute;
   color: ${colors.grayDark};
@@ -87,7 +97,10 @@ class Playground extends React.Component {
           </CodeToggle>
           <LivePreview />
           <LiveError />
-          {this.state.codeVisible ? <LiveEditor /> : null}
+          {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
+          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={this.props.children}>
+            <LiveEditor />
+          </CodeWrapper>
           {this.state.codeVisible ? (
             <Copy onClick={this.copyCode.bind(this)}>
               <Components.Icon type="copy" />
