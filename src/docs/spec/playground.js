@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import Markdown from 'markdown-to-jsx'
 
-import examples from './components-loader'
 import * as Components from '../../components'
 
 const Half = styled.div`

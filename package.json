@@ -42,6 +42,7 @@
     "now-travis": "1.1.1",
     "npm-run-all": "4.1.2",
     "prettier": "1.9.2",
+    "prettycli": "1.4.3",
     "prop-types": "15.6.0",
     "puppeteer": "0.12.0",
     "react-scripts": "1.0.14",

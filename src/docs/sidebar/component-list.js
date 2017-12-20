@@ -6,6 +6,7 @@ import { metadata as components } from '../metadata.json'
 import { spacing, colors } from '../../tokens'
 import { Input } from '../../components'
 
+/* Style the links inside */
 const List = styled.div`
   > a {
     display: block;
@@ -35,7 +36,9 @@ export default class extends React.Component {
           onChange={e => this.setState({ searchQuery: e.target.value })}
         />
         {components
-          .filter(component => component.displayName.includes(this.state.searchQuery))
+          .filter(component =>
+            component.displayName.includes(this.state.searchQuery)
+          )
           .map(component => (
             <NavLink
               to={`/docs/${component.displayName}`}

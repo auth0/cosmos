@@ -9,7 +9,7 @@ const Sidebar = styled.div`
   background: ${colors.grayLightest};
   height: 100vh;
 `
-
+/* Logo on the top has a nice white background thing going on */
 const LogoContainer = styled.div`
   padding: ${spacing.medium};
   text-align: center;

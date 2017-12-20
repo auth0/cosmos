@@ -4,10 +4,14 @@ Default button:
 ;<Button>Button</Button>
 ```
 
+---
+
+#### Examples
+
 Use for primary call to action
 
 ```js
-;<Button primary>primary</Button>
+;<Button primary>Save</Button>
 ```
 
 Use for secondary call to action

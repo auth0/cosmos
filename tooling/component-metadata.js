@@ -1,33 +1,54 @@
 const fs = require('fs')
 const glob = require('glob')
-const { parse, defaultHandlers } = require('react-docgen')
+const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
-const path = require('path')
 const chokidar = require('chokidar')
+const { info, warn } = require('prettycli')
 
+/* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
+
+/* Get list of js files from atoms and molecules */
 const componentList = glob.sync('src/components/+(atoms|molecules)/*.js')
 
 const run = () => {
-  console.log('Updading docs')
+  info('DOCS', 'Generating metadata')
   const metadata = componentList
-    .map(path => ({
-      filepath: path,
-      source: fs.readFileSync(path, 'utf8')
-    }))
-    .map(({ source, filepath }) => {
+    .map(path => {
       try {
-        const handlers = defaultHandlers.concat(createDisplayNameHandler(filepath))
-        return parse(source, null, handlers)
+        /* append display name handler to handlers list */
+        const handlers = docgen.defaultHandlers.concat(
+          createDisplayNameHandler(path)
+        )
+
+        /* read file to get source code */
+        const code = fs.readFileSync(path, 'utf8')
+
+        /* parse the component code to get metadata */
+        return docgen.parse(code, null, handlers)
       } catch (err) {
-        console.log('Could not parse component:' + filepath)
+        /* warn if there was a problem with getting metadata */
+        warn('Could not parse metadata for ' + path)
       }
     })
+    /*
+      filter out null values,
+      this protects against components that don't have metadata yet
+    */
     .filter(meta => meta)
 
-  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
+  /*
+    Write the file in docs folder
+    TODO: Rethink tooling for docs which works across packages
+  */
+  fs.writeFileSync(
+    'src/docs/metadata.json',
+    JSON.stringify({ metadata }, null, 2),
+    'utf8'
+  )
 }
 
+/* watch mode 👀 */
 if (watch) {
   console.log('running in watch mode')
   chokidar
