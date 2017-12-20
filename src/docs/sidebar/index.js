@@ -12,6 +12,7 @@ import List from './list'
 const StyledSidebar = styled.div`
   background: ${colors.grayLightest};
   height: 100vh;
+  overflow: scroll;
 `
 
 class Sidebar extends React.Component {
