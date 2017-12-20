@@ -12,7 +12,8 @@ injectGlobal`
 
 const StyledIcon = styled.i`
   font-family: 'budicon-font';
-  font-size: 13px;
+  display: inline-block;
+  font-size: ${props => props.size}px;
   font-weight: 400;
   font-style: normal;
 `
@@ -36,15 +37,22 @@ const HourGlass = styled(StyledIcon)`
 `
 
 const Icon = props => {
-  if (props.type === 'success') return <Success />
-  else if (props.type === 'clients') return <Clients />
-  else if (props.type === 'hourglass') return <HourGlass />
+  if (props.type === 'success') return <Success {...props} />
+  else if (props.type === 'clients') return <Clients {...props} />
+  else if (props.type === 'hourglass') return <HourGlass {...props} />
   else return null
 }
 
 Icon.propTypes = {
   /** Icon type */
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  /** Icon size */
+  size: PropTypes.number
+}
+
+Icon.defaultProps = {
+  size: 14
 }
 
 export default Icon
+export { StyledIcon }
