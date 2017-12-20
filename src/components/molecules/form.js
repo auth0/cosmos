@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import { fonts, spacing, colors } from '../../tokens'
 import uniqueId from '../_helpers/uniqueId'
 
-import Input, { StyledInput } from '../atoms/input'
+import ActionInput from '../molecules/action-input'
 import TextArea, { StyledTextArea } from '../atoms/textarea'
-import Select, { StyledSelect } from '../atoms/select'
+import Select from '../atoms/select'
 import Switch from '../atoms/switch'
 import Button from '../atoms/button'
 import { Right, Clear } from '../_helpers/float'
@@ -112,7 +112,7 @@ const FormElement = props => {
   )
 }
 
-Form.TextInput = props => <FormElement {...props} fieldComponent={Input} />
+Form.TextInput = props => <FormElement {...props} fieldComponent={ActionInput} />
 Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
 Form.Select = props => <FormElement {...props} fieldComponent={Select} />
 Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />

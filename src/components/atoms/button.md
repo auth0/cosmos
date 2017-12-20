@@ -21,3 +21,15 @@ Disable button that does validate constraint
 ```js
 ;<Button disabled>This one is disabled</Button>
 ```
+
+Destructive button for destructive use cases like delete
+
+```js
+;<Button destructive>Delete</Button>
+```
+
+Icon button
+
+```js
+;<Button icon="copy" />
+```

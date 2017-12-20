@@ -20,10 +20,6 @@ const StyledIcon = styled.i`
   font-style: normal;
 `
 
-
-
-
-
 const Success = styled(StyledIcon)`
   &:after {
     content: '';
@@ -107,6 +103,12 @@ const Emails = styled(StyledIcon)`
   }
 `
 
+const Copy = styled(StyledIcon)`
+  &:after {
+    content: '';
+  }
+`
+
 const Icon = props => {
   if (props.type === 'success') return <Success {...props} />
   else if (props.type === 'clients') return <Clients {...props} />
@@ -122,7 +124,7 @@ const Icon = props => {
   else if (props.type === 'connections') return <Connections {...props} />
   else if (props.type === 'analytics') return <Analytics {...props} />
   else if (props.type === 'emails') return <Emails {...props} />
-
+  else if (props.type === 'copy') return <Copy />
   else return null
 }
 

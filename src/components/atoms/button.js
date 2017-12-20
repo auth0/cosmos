@@ -1,9 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
+import { substract } from '../_helpers/pixel-calc'
 import Icon from './icon'
 import Spinner from './spinner'
 
@@ -34,6 +35,17 @@ const config = {
     hoverBorder: colors.base,
     focusBackground: colors.grayMedium,
     focusBorder: colors.base
+  },
+  link: {
+    text: colors.base,
+    background: 'transparent',
+    border: 'transparent',
+    hoverText: colors.blue,
+    hoverBackground: 'transparent',
+    hoverBorder: 'transparent',
+    focusText: colors.blue,
+    focusBackground: 'transparent',
+    focusBorder: 'transparent'
   },
   disabled: {
     text: colors.grayMedium,
@@ -78,6 +90,7 @@ const getAttributes = props => {
   if (props.success) styles = config.success
   else if (props.primary) styles = config.primary
   else if (props.transparent) styles = config.transparent
+  else if (props.link) styles = config.link
   else if (props.destructive) styles = config.destructive
   else if (props.disabled) styles = config.disabled
   else styles = config.default
@@ -93,7 +106,7 @@ const getAttributes = props => {
 }
 
 const StyledButton = styled.button`
-  min-width: 96px;
+  min-width: ${props => (props.icon ? '36px' : '96px')};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -108,14 +121,15 @@ const StyledButton = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  padding: ${spacing.xsmall} ${spacing.small};
   margin: ${spacing.xsmall};
   margin-left: 0;
+  padding: ${spacing.xsmall} ${props => (props.icon ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
   &:hover {
+    color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
   }
@@ -130,7 +144,16 @@ const Button = ({ children, ...props }) => {
   let content = children
   if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
-  return <StyledButton {...props}>{content}</StyledButton>
+
+  if (props.icon) {
+    return (
+      <StyledButton {...props}>
+        <Icon type={props.icon} />
+      </StyledButton>
+    )
+  } else {
+    return <StyledButton {...props}>{content}</StyledButton>
+  }
 }
 
 Button.propTypes = {
@@ -142,6 +165,11 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   /** Use for destructive actions like delete */
   destructive: PropTypes.bool,
+  /** Use for subtle actions */
+  link: PropTypes.bool,
+
+  /** Name of icon */
+  icon: PropTypes.string,
 
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
@@ -149,16 +177,19 @@ Button.propTypes = {
   success: PropTypes.bool,
 
   /** @ignore This is an internal prop only used for validation */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled'])
+  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'link'])
 }
 
 Button.defaultProps = {
   primary: false,
   transparent: false,
   destructive: false,
+  link: false,
+  icon: null,
   disabled: false,
   loading: false,
   success: false
 }
 
 export default Button
+export { StyledButton }

@@ -3,6 +3,11 @@ import React from 'react'
 import Container from './container'
 import { Form } from '../../components'
 
+const copyMethod = e => {
+  e.preventDefault()
+  alert('fired!')
+}
+
 const Forms = () => (
   <Container title="Forms">
     <Form>
@@ -14,6 +19,10 @@ const Forms = () => (
         placeholder="Placeholder text"
         description="Name of the connection to be use for Password Grant exchanges. The default_directory value
         should be the exact name of an existing connections of one of the following."
+      />
+      <Form.TextInput
+        label="Text input with actions"
+        actions={[{ icon: 'copy', method: copyMethod }]}
       />
       <Form.TextInput label="Text input with error" error="The field name is required" />
       <Form.TextArea
