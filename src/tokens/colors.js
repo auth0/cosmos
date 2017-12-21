@@ -1,7 +1,8 @@
 const colors = {
   base: {
     white: '#FFF',
-    black: '#333',
+    black: '#000',
+    default: '#333',
     gray: '#979797',
     grayDark: '#636363',
     grayMedium: '#A8A8A8',
@@ -18,16 +19,11 @@ const colors = {
     default: '#333',
     subHeader: '#636363',
     helper: '#989898',
-    label: '#333',
-    labelDisabled: '#C6C6C6',
-    error: '#FF3E00',
-    pager: {
-      title: '#000'
-    },
-    form: {
-      title: '#000',
-      divider: 'rgba(151,151,151,0.29)'
-    }
+    error: '#FF3E00'
+  },
+  form: {
+    title: '#000',
+    divider: 'rgba(151,151,151,0.29)'
   },
   input: {
     background: '#FFF',
@@ -40,7 +36,9 @@ const colors = {
     text: '#333',
     placeholder: '#B2B2B2',
     placeholderDisabled: '#C1C1C1',
-    placeholderReadOnly: '#333'
+    placeholderReadOnly: '#333',
+    label: '#333',
+    labelDisabled: '#C6C6C6'
   },
   link: {
     default: '#2386DB',

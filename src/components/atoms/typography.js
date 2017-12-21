@@ -62,14 +62,14 @@ injectGlobal`
 
 const Heading1 = styled.h1`
   margin: 0; /* reset browser default */
-  color: ${colors.text.default};
+  color: ${colors.text.black};
   font-size: 48px;
   font-weight: ${fonts.weight.medium};
 `
 
 const Heading2 = styled.h2`
   margin: 0; /* reset browser default */
-  color: ${colors.text.default};
+  color: ${colors.text.black};
   font-size: 36px;
   font-weight: ${fonts.weight.medium};
 `

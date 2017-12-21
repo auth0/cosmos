@@ -15,7 +15,7 @@ const Swatch = styled.span`
 const Colors = () => (
   <Container title="Colors">
     <div>
-      <Swatch color={colors.base.black} />
+      <Swatch color={colors.base.default} />
       <Swatch color={colors.base.grayDark} />
       <Swatch color={colors.base.grayMedium} />
       <Swatch color={colors.base.grayLight} />
