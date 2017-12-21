@@ -35,7 +35,7 @@ const colors = {
     icon: '#A2A2A2'
   },
   link: {
-    default: '#333',
+    default: '#2386DB',
     defaultHover: '#2386DB',
     defaultFocus: '#2386DB'
   },
@@ -85,7 +85,10 @@ const colors = {
     successText: '#FFF',
     successBorder: '#4CD964',
     successBorderHover: '#4CD964',
-    successBorderFocus: '#4CD964'
+    successBorderFocus: '#4CD964',
+    link: '#333',
+    linkHover: '#2386DB',
+    linkFocus: '#2386DB'
   }
 }
 

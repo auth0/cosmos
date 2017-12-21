@@ -9,78 +9,78 @@ import Spinner from './spinner'
 
 const config = {
   default: {
-    text: colors.base,
-    background: '#dfdfdf',
-    border: colors.grayLightest,
-    hoverBackground: colors.grayLight,
-    hoverBorder: colors.grayLight,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    text: colors.button.defaultText,
+    background: colors.button.defaultBackground,
+    border: colors.button.defaultBorder,
+    hoverBackground: colors.button.defaultBackgroundHover,
+    hoverBorder: colors.button.defaultBorderHover,
+    focusBackground: colors.button.defaultBackgroundFocus,
+    focusBorder: colors.button.defaultBorderFocus
   },
   primary: {
-    text: colors.white,
-    background: colors.base,
-    border: colors.base,
-    hoverBackground: colors.grayDark,
-    hoverBorder: colors.grayDark,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    text: colors.button.primaryText,
+    background: colors.button.primaryBackground,
+    border: colors.button.primaryBorder,
+    hoverBackground: colors.button.primaryBackgroundHover,
+    hoverBorder: colors.button.primaryBorderHover,
+    focusBackground: colors.button.primaryBackgroundFocus,
+    focusBorder: colors.button.primaryBorderFocus
   },
   transparent: {
-    text: colors.base,
-    background: colors.white,
-    border: colors.base,
-    hoverBackground: colors.grayLightest,
-    hoverBorder: colors.base,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.base
+    text: colors.button.transparentText,
+    background: colors.button.transparentBackground,
+    border: colors.button.transparentBorder,
+    hoverBackground: colors.button.transparentBackgroundHover,
+    hoverBorder: colors.button.transparentBorderHover,
+    focusBackground: colors.button.transparentBackgroundFocus,
+    focusBorder: colors.button.transparentBorderFocus
   },
   link: {
-    text: colors.base,
+    text: colors.button.link,
     background: 'transparent',
     border: 'transparent',
-    hoverText: colors.blue,
+    hoverText: colors.button.linkHover,
     hoverBackground: 'transparent',
     hoverBorder: 'transparent',
-    focusText: colors.blue,
+    focusText: colors.button.linkFocus,
     focusBackground: 'transparent',
     focusBorder: 'transparent'
   },
   disabled: {
-    text: colors.grayMedium,
-    background: colors.grayLightest,
-    border: colors.grayLightest,
-    hoverBackground: colors.grayLightest,
-    hoverBorder: colors.grayLightest,
-    focusBackground: colors.grayLightest,
-    focusBorder: colors.grayLightest
+    text: colors.button.grayMedium,
+    background: colors.button.grayLightest,
+    border: colors.button.grayLightest,
+    hoverBackground: colors.button.grayLightest,
+    hoverBorder: colors.button.grayLightest,
+    focusBackground: colors.button.grayLightest,
+    focusBorder: colors.button.grayLightest
   },
   destructive: {
-    text: colors.white,
-    background: colors.orange,
-    border: colors.orange,
-    hoverBackground: colors.orangeLighter,
-    hoverBorder: colors.orangeLighter,
-    focusBackground: colors.orangeLighest,
-    focusBorder: colors.orangeLighest
+    text: colors.button.destructiveText,
+    background: colors.button.destructiveBackground,
+    border: colors.button.destructiveBorder,
+    hoverBackground: colors.button.destructiveBackgroundHover,
+    hoverBorder: colors.button.destructiveBorderHover,
+    focusBackground: colors.button.destructiveBackgroundFocus,
+    focusBorder: colors.button.destructiveBorderFocus
   },
   loading: {
-    text: colors.white,
-    background: colors.green,
-    border: colors.green,
-    hoverBackground: colors.green,
-    hoverBorder: colors.green,
-    focusBackground: colors.green,
-    focusBorder: colors.green
+    text: colors.button.white,
+    background: colors.button.green,
+    border: colors.button.green,
+    hoverBackground: colors.button.green,
+    hoverBorder: colors.button.green,
+    focusBackground: colors.button.green,
+    focusBorder: colors.button.green
   },
   success: {
-    text: colors.white,
-    background: colors.green,
-    border: colors.green,
-    hoverBackground: colors.green,
-    hoverBorder: colors.green,
-    focusBackground: colors.green,
-    focusBorder: colors.green
+    text: colors.button.successText,
+    background: colors.button.successBackground,
+    border: colors.button.successBorder,
+    hoverBackground: colors.button.successBackgroundHover,
+    hoverBorder: colors.button.successBorderHover,
+    focusBackground: colors.button.successBackgroundFocus,
+    focusBorder: colors.button.successBorderFocus
   }
 }
 
