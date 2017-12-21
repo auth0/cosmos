@@ -17,6 +17,7 @@ const colors = {
     default: '#333',
     pagerTitle: '#000',
     formTitle: '#000',
+    subHeader: '#636363',
     helper: '#989898',
     label: '#333',
     labelDisabled: '#C6C6C6',
