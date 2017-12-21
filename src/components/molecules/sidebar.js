@@ -79,13 +79,14 @@ Sidebar.Link = props => {
 const Link = styled.a`
   display: block;
   cursor: pointer;
-  color: ${props => (props.selected ? colors.orange : colors.base)};
+  color: ${props =>
+    props.selected ? colors.link.sidebarFocus : colors.link.sidebar};
   text-decoration: none;
   font-size: 13px;
   padding: calc(${spacing.xsmall} / 2) 0;
   margin-bottom: 2px;
   &:hover  {
-    color: ${colors.orange};
+    color: ${colors.link.sidebarHover};
   }
 `
 

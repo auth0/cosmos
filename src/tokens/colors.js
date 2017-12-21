@@ -39,7 +39,10 @@ const colors = {
   link: {
     default: '#2386DB',
     defaultHover: '#2386DB',
-    defaultFocus: '#2386DB'
+    defaultFocus: '#2386DB',
+    sidebar: '#333',
+    sidebarHover: '#FF3E00',
+    sidebarFocus: '#FF3E00'
   },
   tabs: {
     default: '#333',
