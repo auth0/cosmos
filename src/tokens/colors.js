@@ -20,10 +20,7 @@ const colors = {
     helperText: '#989898',
     label: '#333',
     labelDisabled: '#C6C6C6',
-    error: '#FF3E00',
-    input: '#333',
-    placeholder: '#B2B2B2',
-    placeholderDisabled: '#C1C1C1'
+    error: '#FF3E00'
   },
   input: {
     background: '#FFF',
@@ -32,7 +29,11 @@ const colors = {
     borderHover: '#B7B7B7',
     borderFocus: '#14AAFF',
     borderError: '#FF0000',
-    icon: '#A2A2A2'
+    icon: '#A2A2A2',
+    text: '#333',
+    placeholder: '#B2B2B2',
+    placeholderDisabled: '#C1C1C1',
+    placeholderReadOnly: '#333'
   },
   link: {
     default: '#2386DB',
