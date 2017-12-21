@@ -47,13 +47,13 @@ const config = {
     focusBorder: 'transparent'
   },
   disabled: {
-    text: colors.button.grayMedium,
-    background: colors.button.grayLightest,
-    border: colors.button.grayLightest,
-    hoverBackground: colors.button.grayLightest,
-    hoverBorder: colors.button.grayLightest,
-    focusBackground: colors.button.grayLightest,
-    focusBorder: colors.button.grayLightest
+    text: colors.button.disabledText,
+    background: colors.button.disabledBackground,
+    border: colors.button.disabledBorder,
+    hoverBackground: colors.button.disabledBackgroundHover,
+    hoverBorder: colors.button.disabledBorderHover,
+    focusBackground: colors.button.disabledBackgroundFocus,
+    focusBorder: colors.button.disabledBorderFocus
   },
   destructive: {
     text: colors.button.destructiveText,
