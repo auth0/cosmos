@@ -41,6 +41,7 @@ const StyledInput = styled.input`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
+  color: ${colors.input.text};
 
   padding: ${spacing.xsmall} ${spacing.small};
 

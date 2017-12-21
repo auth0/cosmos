@@ -2,6 +2,7 @@ const colors = {
   base: {
     white: '#FFF',
     black: '#333',
+    gray: '#979797',
     grayDark: '#636363',
     grayMedium: '#A8A8A8',
     grayLight: '#D9D9D9',
@@ -15,13 +16,18 @@ const colors = {
   },
   text: {
     default: '#333',
-    pagerTitle: '#000',
-    formTitle: '#000',
     subHeader: '#636363',
     helper: '#989898',
     label: '#333',
     labelDisabled: '#C6C6C6',
-    error: '#FF3E00'
+    error: '#FF3E00',
+    pager: {
+      title: '#000'
+    },
+    form: {
+      title: '#000',
+      divider: 'rgba(151,151,151,0.29)'
+    }
   },
   input: {
     background: '#FFF',
