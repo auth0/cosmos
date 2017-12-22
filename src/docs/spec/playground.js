@@ -5,15 +5,17 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import * as Components from '../../components'
 import { fonts, colors, spacing } from '../../tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
+import Props from './props'
 
 const Container = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin: ${spacing.small} 0 ${spacing.xlarge};
-  position: relative;
+  width: 900px;
+  margin-bottom: ${spacing.xlarge};
 
+  & .react-live {
+    position: relative;
+  }
   & .react-live-preview {
-    border: 1px solid ${colors.grayLightest};
+    border: 1px solid ${colors.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
     border-radius: 4px 4px ${props => (props.codeVisible ? '0 0' : '4px 4px')};
     padding: 20px;
@@ -70,27 +72,55 @@ const Copy = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { codeVisible: props.className.includes('props'), uniqueId: uniqueId('code') }
+    let showProps = props.tags.includes('props')
+
+    this.state = {
+      showProps,
+      codeVisible: showProps,
+      uniqueId: uniqueId('code'),
+      code: this.props.code
+    }
   }
   toggleCode() {
     this.setState({ codeVisible: !this.state.codeVisible })
   }
   copyCode() {
     const copyText = document.querySelector('#' + this.state.uniqueId)
-    console.log(copyText)
     copyText.select()
     document.execCommand('copy')
   }
+  onPropsChange(propData) {
+    // TODO: Refactor this block when less sleepy
+
+    let propString = ''
+
+    const propNames = Object.keys(propData).filter(key => key[0] !== '_')
+
+    propNames.map(name => {
+      if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
+        propString += name + ' '
+      }
+    })
+
+    propString = propString.trim()
+
+    this.setState({ code: this.props.code.replace('{props}', propString) })
+  }
   render() {
-    const code = this.props.children
+    const code = this.state.code
 
     return (
       <Container codeVisible={this.state.codeVisible}>
-        <input id={this.state.uniqueId} defaultValue={code} style={{ opacity: 0 }} />
+        <input
+          id={this.state.uniqueId}
+          value={code}
+          style={{ opacity: 0, height: 0 }}
+          onChange={() => {}}
+        />
         <LiveProvider
           code={code}
           scope={Components}
-          noInline={this.props.className.includes('multiple')}
+          noInline={this.props.tags.includes('multiple')}
         >
           <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
             {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
@@ -98,7 +128,7 @@ class Playground extends React.Component {
           <LivePreview />
           <LiveError />
           {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
-          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={this.props.children}>
+          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={code}>
             <LiveEditor />
           </CodeWrapper>
           {this.state.codeVisible ? (
@@ -107,6 +137,12 @@ class Playground extends React.Component {
             </Copy>
           ) : null}
         </LiveProvider>
+        {this.state.showProps && (
+          <Props
+            propData={this.props.component.props}
+            onPropsChange={this.onPropsChange.bind(this)}
+          />
+        )}
       </Container>
     )
   }

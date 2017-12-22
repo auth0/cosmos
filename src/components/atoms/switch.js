@@ -66,7 +66,10 @@ class Switch extends React.Component {
   }
   onToggle() {
     if (this.props.readOnly) return
-    this.setState(currentState => ({ on: !currentState.on }))
+    this.setState(currentState => {
+      this.props.onToggle(!currentState.on)
+      return { on: !currentState.on }
+    })
   }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
@@ -85,6 +88,8 @@ class Switch extends React.Component {
 }
 
 Switch.propTypes = {
+  /** Function called on toggle */
+  onToggle: PropTypes.func.isRequired,
   /** State of the toggle */
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
@@ -94,6 +99,7 @@ Switch.propTypes = {
 }
 
 Switch.defaultProps = {
+  onToggle: null,
   on: false,
   accessibleLabels: ['ENABLED', 'DISABLED'],
   readOnly: false
