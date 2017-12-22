@@ -111,7 +111,12 @@ class Playground extends React.Component {
 
     return (
       <Container codeVisible={this.state.codeVisible}>
-        <input id={this.state.uniqueId} defaultValue={code} style={{ opacity: 0, height: 0 }} />
+        <input
+          id={this.state.uniqueId}
+          value={code}
+          style={{ opacity: 0, height: 0 }}
+          onChange={() => {}}
+        />
         <LiveProvider
           code={code}
           scope={Components}
