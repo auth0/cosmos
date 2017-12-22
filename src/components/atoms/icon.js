@@ -19,7 +19,7 @@ const StyledIcon = styled.i`
   font-weight: 400;
   font-style: normal;
   &:after {
-    content: '${props => props.icon.content}';
+    content: '${props => props.icon.content || ''}';
   }
 `
 
