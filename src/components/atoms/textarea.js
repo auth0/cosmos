@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React from "react";
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import { colors, fonts, spacing, misc } from '../../tokens/'
+import { colors, fonts, spacing, misc } from "../../tokens/";
 
 const StyledTextArea = styled.textarea`
   width: 100%;
@@ -13,13 +13,14 @@ const StyledTextArea = styled.textarea`
   background: ${colors.white};
   box-shadow: none;
 
-  border: 1px solid ${colors.grayLight};
+  border: 1px solid #ccc;
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
+  font-family: ${props => (props.code ? fonts.family.code : "inherit")};
+  transition: border-color ${misc.animationDuration},
+    box-shadow ${misc.animationDuration};
 
-  resize: ${props => (props.resize ? 'vertical' : 'none')};
+  resize: ${props => (props.resize ? "vertical" : "none")};
 
   &:hover {
     border-color: ${colors.grayMedium};
@@ -32,9 +33,11 @@ const StyledTextArea = styled.textarea`
   &::-webkit-input-placeholder {
     color: ${colors.grayMedium};
   }
-`
+`;
 
-const TextArea = props => <StyledTextArea rows={props.length || 5} {...props} />
+const TextArea = props => (
+  <StyledTextArea rows={props.length || 5} {...props} />
+);
 
 TextArea.propTypes = {
   /** Make input readOnly if it does not validate constraint */
@@ -45,14 +48,14 @@ TextArea.propTypes = {
   error: PropTypes.string,
   /** Allow resizing of the textarea */
   resizeable: PropTypes.bool
-}
+};
 
 TextArea.defaultProps = {
   readOnly: false,
   code: false,
   error: null,
   resizeable: false
-}
+};
 
-export default TextArea
-export { StyledTextArea }
+export default TextArea;
+export { StyledTextArea };
