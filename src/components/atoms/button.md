@@ -5,7 +5,7 @@
 import Button from 'cosmos/button'
 
 ```js props
-<Button>Button</Button>
+<Button {props}>Button</Button>
 ```
 
 ---
