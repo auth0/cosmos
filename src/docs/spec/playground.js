@@ -9,11 +9,11 @@ import uniqueId from '../../components/_helpers/uniqueId'
 const Container = styled.div`
   width: 100%;
   max-width: 800px;
-  margin: ${spacing.small} 0 ${spacing.xlarge};
+  margin-bottom: ${spacing.xlarge};
   position: relative;
 
   & .react-live-preview {
-    border: 1px solid ${colors.grayLightest};
+    border: 1px solid ${colors.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
     border-radius: 4px 4px ${props => (props.codeVisible ? '0 0' : '4px 4px')};
     padding: 20px;
@@ -86,7 +86,7 @@ class Playground extends React.Component {
 
     return (
       <Container codeVisible={this.state.codeVisible}>
-        <input id={this.state.uniqueId} defaultValue={code} style={{ opacity: 0 }} />
+        <input id={this.state.uniqueId} defaultValue={code} style={{ opacity: 0, height: 0 }} />
         <LiveProvider
           code={code}
           scope={Components}

@@ -4,12 +4,14 @@ import Markdown from 'markdown-to-jsx'
 import Playground from './playground'
 import Break from './break'
 import SectionHeader from './section-header'
+import ExampleHeader from './example-header'
 import { Text, Heading3, Heading5 } from '../../components'
 
 const options = {
   overrides: {
     hr: { component: Break },
     h2: { component: SectionHeader },
+    h4: { component: ExampleHeader },
     p: { component: Heading5 },
     li: { component: Heading5 },
     code: {
@@ -21,7 +23,7 @@ const options = {
 
 const Example = props => {
   return (
-    <div>
+    <div style={{ maxWidth: 800 }}>
       <Markdown options={options}>{props.docs.content}</Markdown>
     </div>
   )
