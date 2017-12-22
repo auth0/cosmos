@@ -176,8 +176,9 @@ Button.propTypes = {
   /** Successful state when action is completed successfuly */
   success: PropTypes.bool,
 
-  /** this is an internal prop only used for validation */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'disabled', 'destructive', 'link'])
+  /** internal props only used for transition, start with _ */
+  _type: props => onlyOneOf(props, ['primary', 'transparent', 'destructive', 'link']),
+  _state: props => onlyOneOf(props, ['disabled', 'loading', 'success'])
 }
 
 Button.defaultProps = {
