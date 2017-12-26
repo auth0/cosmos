@@ -1,15 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../tokens'
+import { fonts, spacing, colors } from '../../tokens'
 
-const Header = styled.div`
+const Header = styled.a`
   padding: ${spacing.small} 0;
-
-  text-transform: uppercase;
-  font-size: 14px;
-  border-bottom: 1px solid ${colors.grayLight};
-  margin-bottom: ${spacing.medium};
+  font-weight: ${fonts.weight.medium};
+  display: block;
+  font-size: 21px;
 `
 
 const ExampleHeader = props => <Header>{props.children}</Header>
