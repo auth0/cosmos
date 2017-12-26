@@ -1,4 +1,6 @@
 import React from 'react'
+
+import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { Grid, Column } from '../components/_helpers/grid'
@@ -6,18 +8,41 @@ import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
 
+const Layout = styled.div`
+  position: relative;
+  width: 100%;
+`
+
+const SideContent = styled.div`
+  width: 16.8rem;
+  position: fixed;
+`
+
+const MainContent = styled.div`
+  padding-left: 16.8rem;
+`
+
+const Body = styled.div`
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.1rem 1.05rem;
+`
+
 export default () => (
   <Router>
-    <Grid>
-      <Column width="20%">
+    <Layout>
+      <SideContent>
         <Sidebar />
-      </Column>
-      <Column width="75%">
-        <Switch>
-          <Route path="/docs/:componentName" component={Spec} />
-          <Route component={Home} />
-        </Switch>
-      </Column>
-    </Grid>
+      </SideContent>
+      <MainContent>
+        <Body>
+          <Switch>
+            <Route path="/docs/:componentName" component={Spec} />
+            <Route component={Home} />
+          </Switch>
+        </Body>
+      </MainContent>
+    </Layout>
   </Router>
 )

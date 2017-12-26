@@ -8,7 +8,6 @@ import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
 
 const Container = styled.div`
-  width: 900px;
   margin-bottom: ${spacing.xlarge};
 
   & .react-live {

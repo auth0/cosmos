@@ -6,25 +6,37 @@ import { substract } from '../../components/_helpers/pixel-calc'
 import { Input, Switch } from '../../components'
 
 const Table = styled.table`
-  border: 1px solid ${colors.grayLight};
-  width: 900px;
-  margin-top: ${spacing.large};
-
+  width: 100%;
+  margin-top: ${spacing.xlarge}; /** TODO: This space should be moved to the parent component: the playground **/
   th,
   td {
     text-align: left;
-    padding: ${spacing.small} ${spacing.medium};
+    padding: ${spacing.small} ${spacing.small};
     vertical-align: middle;
     position: relative;
   }
   th {
-    background: ${colors.base};
-    color: ${colors.white};
+    border-bottom: 2px solid #ddd;
+  }
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    text-transform: uppercase;
+    font-weight: ${fonts.weight.medium};
+    letter-spacing: 1px;
+    font-size: 12px;
   }
 `
 
 const PropName = styled.div`
-  color: ${colors.blue};
+  color: rgba(0, 0, 0, 0.86);
+  font-family: ${fonts.family.code};
+  font-size: 13px;
+  padding: 0 6px 2px;
+  display: inline-block;
+  background-color: #f5f7f9;
+  border-radius: 3px;
 `
 
 const Type = styled.span`
@@ -83,10 +95,9 @@ class Props extends React.Component {
       <Table>
         <thead>
           <tr>
-            <th>key</th>
-            <th>description</th>
-            <th>type</th>
-            <th>default</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
             <th />
           </tr>
         </thead>
@@ -102,7 +113,7 @@ class Props extends React.Component {
               <td>
                 <Type>{propData[key].type.name}</Type>
               </td>
-              <td>{propData[key].defaultValue.value}</td>
+
               <td>
                 <PropSwitcher
                   propName={key}
