@@ -67,7 +67,7 @@ class Switch extends React.Component {
   onToggle() {
     if (this.props.readOnly) return
     this.setState(currentState => {
-      this.props.onToggle(!currentState.on)
+      if (this.props.onToggle) this.props.onToggle(!currentState.on)
       return { on: !currentState.on }
     })
   }
@@ -89,7 +89,7 @@ class Switch extends React.Component {
 
 Switch.propTypes = {
   /** Function called on toggle */
-  onToggle: PropTypes.func.isRequired,
+  onToggle: PropTypes.func,
   /** State of the toggle */
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
