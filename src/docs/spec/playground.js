@@ -47,13 +47,12 @@ const CodeWrapper = styled.div`
 `
 
 const CodeToggle = styled.div`
-  position: absolute;
   color: ${colors.grayDark};
-  right: 0;
+  text-align: right;
   font-size: 12px;
 
   cursor: pointer;
-  padding: ${spacing.small};
+  padding: ${spacing.xsmall} 0;
 `
 
 const Copy = styled.div`
@@ -97,7 +96,9 @@ class Playground extends React.Component {
 
     propNames.map(name => {
       if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
-        propString += name + ' '
+        propString += `${name} `
+      } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
+        propString += `${name}="${propData[name].value}" `
       }
     })
 
@@ -121,9 +122,6 @@ class Playground extends React.Component {
           scope={Components}
           noInline={this.props.tags.includes('multiple')}
         >
-          <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
-            {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
-          </CodeToggle>
           <LivePreview />
           <LiveError />
           {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
@@ -136,6 +134,9 @@ class Playground extends React.Component {
             </Copy>
           ) : null}
         </LiveProvider>
+        <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
+          {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
+        </CodeToggle>
         {this.state.showProps && (
           <Props
             propData={this.props.component.props}
