@@ -3,7 +3,7 @@ import React from 'react'
 import Container from './container'
 import { Form } from '../../components'
 
-const copyMethod = e => {
+const fakeMethod = e => {
   e.preventDefault()
   alert('fired!')
 }
@@ -22,7 +22,7 @@ const Forms = () => (
       />
       <Form.TextInput
         label="Text input with actions"
-        actions={[{ icon: 'copy', method: copyMethod }]}
+        actions={[{ icon: 'copy', method: fakeMethod }]}
       />
       <Form.TextInput label="Text input with error" error="The field name is required" />
       <Form.TextArea
@@ -37,7 +37,7 @@ const Forms = () => (
           { text: 'Three', value: 3 }
         ]}
       />
-      <Form.Switch label="Switches are fun" on />
+      <Form.Switch label="Switches are fun" on onToggle={() => fakeMethod} />
       <Form.Actions
         primaryAction={{ label: 'Save' }}
         secondaryActions={[
