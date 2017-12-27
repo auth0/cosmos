@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
 import { substract } from '../../components/_helpers/pixel-calc'
-import { Input, Switch } from '../../components'
+import { Input, Switch, Code } from '../../components'
 
 const Table = styled.table`
   width: 100%;
@@ -27,16 +27,6 @@ const Table = styled.table`
     letter-spacing: 1px;
     font-size: 12px;
   }
-`
-
-const PropName = styled.div`
-  color: rgba(0, 0, 0, 0.86);
-  font-family: ${fonts.family.code};
-  font-size: 13px;
-  padding: 0 6px 2px;
-  display: inline-block;
-  background-color: #f5f7f9;
-  border-radius: 3px;
 `
 
 const Type = styled.span`
@@ -105,7 +95,7 @@ class Props extends React.Component {
           {keys.map(key => (
             <tr key={key}>
               <td>
-                <PropName>{key}</PropName>
+                <Code>{key}</Code>
               </td>
               <td>
                 <Description>{propData[key].description}</Description>

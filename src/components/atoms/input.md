@@ -2,7 +2,7 @@
   category: Forms
 ```
 
-import Input from 'cosmos/button'
+`import Input from 'cosmos/input'`
 
 ```js props
 <Input {props} placeholder="Placeholder text" />
@@ -12,7 +12,7 @@ import Input from 'cosmos/button'
 
 You can use semantic HMTL property type with input.
 
-It also ships with a 'code' prop that is useful when the input is a hash/code value.
+It also ships with a `code` prop that is useful when the input is a hash/code value.
 
 ```js multiple
 render(
@@ -30,9 +30,9 @@ render(
 
 #### Input states
 
-The readOnly prop can be used for disabling input that do not satisfy constraints.
+The `readOnly` prop can be used for disabling input that do not satisfy constraints.
 
-To show validation errors, use the error prop which takes the error message as a string.
+To show validation errors, use the `error` prop which takes the error message as a string.
 
 ```js multiple
 render(
@@ -46,7 +46,7 @@ render(
 
 #### Function
 
-The onChange prop is transparently passed to the input
+The `onChange` prop is transparently passed to the input
 
 ```js multiple
 const method = event => alert(event.target.value)

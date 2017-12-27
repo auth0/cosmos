@@ -2,12 +2,16 @@
   category: Actions
 ```
 
+```js props
+<Box {props} />
 ```
-<Box />
-```
+
+---
+
+#### Examples
 
 Big box:
 
-```
+```js
 <Box big />
 ```
