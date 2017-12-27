@@ -2,7 +2,7 @@
   category: Forms
 ```
 
-import Switch from 'cosmos/switch'
+`import Switch from 'cosmos/switch'`
 
 ```js props
 <Switch {props} onToggle={value => alert(value)} />
@@ -12,19 +12,19 @@ import Switch from 'cosmos/switch'
 
 ## Examples
 
-onToggle should always be provided for handling changes in the value
+`onToggle` should always be provided for handling changes in the value
 
 ```js
 <Switch onToggle={value => alert(value)} />
 ```
 
-You can change the default state of the switch by passing the on prop
+You can change the default state of the switch by passing the `on` prop
 
 ```js
 <Switch on onToggle={value => alert(value)} />
 ```
 
-Switch can be locked in it's initial state with the readOnly prop
+Switch can be locked in it's initial state with the `readOnly` prop
 
 ```js multiple
 render(

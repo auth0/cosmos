@@ -9,7 +9,12 @@ const webpackMarkdownLoader = require.context(
 const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1)
 
 const examples = webpackMarkdownLoader.keys().map(filename => {
-  let name = capitalize(filename.replace('./', '').replace('.md', ''))
+  let name = capitalize(
+    filename
+      .replace('./', '') // clean up the path
+      .replace('.md', '') // remove the extension
+      .replace('_', '') // remove hint for helper components
+  )
   return {
     name,
     content: webpackMarkdownLoader(filename)

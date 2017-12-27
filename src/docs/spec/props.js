@@ -35,7 +35,7 @@ const PropName = styled.div`
   font-size: 13px;
   padding: 0 6px 2px;
   display: inline-block;
-  background-color: #f5f7f9;
+  background-color: ${colors.grayLightest};
   border-radius: 3px;
 `
 

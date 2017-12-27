@@ -33,6 +33,9 @@ export { Logo }
 import Icon from './atoms/icon'
 export { Icon }
 
+import Code from './atoms/code'
+export { Code }
+
 import {
   Heading1,
   Heading2,

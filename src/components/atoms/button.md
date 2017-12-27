@@ -2,7 +2,7 @@
   category: Actions
 ```
 
-import Button from 'cosmos/button'
+`import Button from 'cosmos/button'`
 
 ```js props
 <Button {props}>Button</Button>
@@ -54,7 +54,7 @@ render(
 
 #### Icons in Buttons
 
-Icon buttons work well in compact spaces. You can pick name of icon from [docs/Icon](/docs/Icon)
+Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](/docs/Icon)
 
 ```js multiple
 render(
