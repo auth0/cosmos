@@ -16,6 +16,7 @@ const Page = () => (
       boxSizing: 'border-box'
     }}
   >
+    <PageHeader />
     <Heading2>Clients</Heading2>
     <Settings />
   </div>

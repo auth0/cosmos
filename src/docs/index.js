@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import { Grid, Column } from '../components/_helpers/grid'
 import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'

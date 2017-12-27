@@ -16,7 +16,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, fonts, misc } from '../../tokens/'
+import { colors, spacing } from '../../tokens/'
 import Icon, { StyledIcon } from '../atoms/icon'
 
 /**
@@ -105,9 +105,7 @@ class LinkGroup extends React.Component {
           label={this.props.label}
           onClick={this.open.bind(this)}
         />
-        <LinkGroupChildren open={this.state.open}>
-          {this.props.children}
-        </LinkGroupChildren>
+        <LinkGroupChildren open={this.state.open}>{this.props.children}</LinkGroupChildren>
       </div>
     )
   }
@@ -118,8 +116,7 @@ Sidebar.LinkGroup = LinkGroup
 const LinkGroupChildren = styled.div`
   padding-left: 1.75em;
   overflow: hidden;
-  max-height: ${props =>
-    props.open ? props.children.length * 50 + 'px' : '0'};
+  max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
   transition: max-height 0.5s ease, visibility 0.5s ease;
 `
