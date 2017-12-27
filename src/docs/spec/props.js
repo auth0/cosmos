@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
-import { substract } from '../../components/_helpers/pixel-calc'
 import { Input, Switch, Code } from '../../components'
 
 const Table = styled.table`

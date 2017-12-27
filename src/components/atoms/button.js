@@ -1,10 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
-import { substract } from '../_helpers/pixel-calc'
 import Icon from './icon'
 import Spinner from './spinner'
 

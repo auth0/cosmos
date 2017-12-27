@@ -16,7 +16,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, fonts, misc } from '../../tokens/'
+import { colors, misc } from '../../tokens/'
 
 /**
   Step 2: Create a styled element with css

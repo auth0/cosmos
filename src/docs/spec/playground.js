@@ -100,6 +100,8 @@ class Playground extends React.Component {
       } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
         propString += ` ${name}="${propData[name].value}"`
       }
+      // make eslint happy
+      return name
     })
 
     this.setState({ code: this.props.code.replace(' {props}', propString) })

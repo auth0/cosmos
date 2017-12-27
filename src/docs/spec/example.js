@@ -5,7 +5,7 @@ import Playground from './playground'
 import Break from './break'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
-import { Text, Heading3, Heading5, Code } from '../../components'
+import { Heading5, Code } from '../../components'
 
 const Example = props => {
   const options = {
