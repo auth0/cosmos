@@ -24,7 +24,7 @@ You can change the default state of the switch by passing the on prop
 <Switch on onToggle={value => alert(value)} />
 ```
 
-Switch can be locked in it's initial state with the `readOnly` prop
+Switch can be locked in it's initial state with the readOnly prop
 
 ```js multiple
 render(
