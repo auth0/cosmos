@@ -96,7 +96,9 @@ class Playground extends React.Component {
 
     propNames.map(name => {
       if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
-        propString += name + ' '
+        propString += `${name} `
+      } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
+        propString += `${name}="${propData[name].value}" `
       }
     })
 

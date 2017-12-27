@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-import { colors, fonts, spacing, misc } from "../../tokens/";
+import { colors, fonts, spacing, misc } from '../../tokens/'
 
 const config = {
   basic: {
     background: colors.white,
-    border: "#ccc",
+    border: '#ccc',
     hoverBorder: colors.grayMedium,
     focusBorder: colors.blue,
     placeholder: colors.grayMedium
@@ -25,13 +25,13 @@ const config = {
     hoverBorder: colors.orange,
     focusBorder: colors.blue
   }
-};
+}
 
 const getAttributes = props => {
-  if (props.readOnly) return config.readOnly;
-  else if (props.error) return config.error;
-  else return config.basic;
-};
+  if (props.readOnly) return config.readOnly
+  else if (props.error) return config.error
+  else return config.basic
+}
 
 const StyledInput = styled.input`
   width: 100%;
@@ -42,13 +42,12 @@ const StyledInput = styled.input`
   border-color: ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.family.code : "inherit")};
+  font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
 
   padding: ${spacing.xsmall} ${spacing.small};
 
-  cursor: ${props => (props.readOnly ? "not-allowed" : "auto")};
-  transition: border-color ${misc.animationDuration},
-    box-shadow ${misc.animationDuration};
+  cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
+  transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
 
   &:hover {
     border-color: ${props => getAttributes(props).hoverBorder};
@@ -61,9 +60,13 @@ const StyledInput = styled.input`
   &::-webkit-input-placeholder {
     color: ${props => getAttributes(props).placeholder};
   }
-`;
+`
 
-const Input = props => <StyledInput {...props} />;
+/**
+ * Request information from the user
+ */
+
+const Input = props => <StyledInput {...props} />
 
 Input.propTypes = {
   /** Make input readOnly if it does not validate constraint */
@@ -71,14 +74,17 @@ Input.propTypes = {
   /** Use when the expected input is code */
   code: PropTypes.bool,
   /** Pass error string directly to show error state */
-  error: PropTypes.string
-};
+  error: PropTypes.string,
+  /** onChange transparently passed to the input */
+  onChange: PropTypes.func
+}
 
 Input.defaultProps = {
   readOnly: false,
   code: false,
-  error: null
-};
+  error: null,
+  onChange: null
+}
 
-export default Input;
-export { StyledInput };
+export default Input
+export { StyledInput }

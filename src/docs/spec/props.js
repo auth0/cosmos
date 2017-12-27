@@ -59,7 +59,7 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
   if (data.type.name === 'bool') {
     return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={method} />
   } else if (data.type.name === 'string') {
-    return <Input defaultValue={data.value} onChange={method} />
+    return <Input defaultValue={data.value} onChange={e => method(e.target.value)} />
   }
   return <div />
 }
