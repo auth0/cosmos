@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
 import uniqueId from '../../_helpers/uniqueId'
+import { multiply, substract } from '../../_helpers/pixel-calc'
 
 import ActionInput from '../../molecules/action-input'
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
@@ -20,21 +21,21 @@ import Description from './description'
 
 // Layout
 
-const formWidth = 625 // in pixels
-const labelWidth = 0.35 * formWidth
+const formWidth = '625px'
+const labelWidth = multiply(formWidth, 0.35)
 
 const Field = styled.div`
   margin: ${spacing.medium} 0;
   display: flex;
-  width: ${formWidth}px;
+  width: ${formWidth};
 `
 const LabelLayout = styled.div`
-  width: ${labelWidth}px;
+  width: ${labelWidth};
   text-align: right;
   padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
-  width: ${formWidth - labelWidth}px;
+  width: ${substract(formWidth, labelWidth)};
 `
 
 const StyledForm = styled.form`
