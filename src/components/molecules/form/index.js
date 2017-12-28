@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
 import uniqueId from '../../_helpers/uniqueId'
-import { multiply, substract } from '../../_helpers/pixel-calc'
+import { multiply, subtract } from '../../_helpers/pixel-calc'
 
 import ActionInput from '../../molecules/action-input'
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
@@ -35,7 +35,7 @@ const LabelLayout = styled.div`
   padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
-  width: ${substract(formWidth, labelWidth)};
+  width: ${subtract(formWidth, labelWidth)};
 `
 
 const StyledForm = styled.form`

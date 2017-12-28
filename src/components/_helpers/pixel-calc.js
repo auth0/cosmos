@@ -26,7 +26,7 @@ const add = (a, b) => {
   return value + unit
 }
 
-const substract = (a, b) => {
+const subtract = (a, b) => {
   if (!validate(a, b)) return
   const unit = parse(a).unit
   const value = parse(a).value - parse(b).value
@@ -42,4 +42,4 @@ const multiply = (a, b) => {
   return value + unit
 }
 
-export { add, substract, multiply }
+export { add, subtract, multiply }
