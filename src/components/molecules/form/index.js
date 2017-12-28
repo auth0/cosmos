@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { fonts, spacing, colors } from '../../tokens'
-import uniqueId from '../_helpers/uniqueId'
+import { fonts, spacing, colors } from '../../../tokens'
+import uniqueId from '../../_helpers/uniqueId'
 
-import ActionInput from '../molecules/action-input'
-import TextArea, { StyledTextArea } from '../atoms/textarea'
-import Select from '../atoms/select'
-import Switch from '../atoms/switch'
-import Button from '../atoms/button'
-import { Right, Clear } from '../_helpers/float'
+import ActionInput from '../../molecules/action-input'
+import TextArea, { StyledTextArea } from '../../atoms/textarea'
+import Select from '../../atoms/select'
+import Switch from '../../atoms/switch'
+import Button from '../../atoms/button'
+import { Right, Clear } from '../../_helpers/float'
+
+import Description from './description'
 
 const Label = styled.label`
   display: block;
@@ -17,12 +19,6 @@ const Label = styled.label`
   font-weight: ${fonts.weight.medium};
   text-align: right;
   padding-top: 10px;
-`
-
-const Description = styled.div`
-  font-size: 13px;
-  color: ${colors.grayMedium};
-  margin-top: ${spacing.xsmall};
 `
 
 const Error = styled.div`
