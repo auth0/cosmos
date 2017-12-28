@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { fonts, spacing, colors } from '../../../tokens'
+import { spacing } from '../../../tokens'
 import uniqueId from '../../_helpers/uniqueId'
 
 import ActionInput from '../../molecules/action-input'
@@ -11,37 +11,12 @@ import Switch from '../../atoms/switch'
 import Button from '../../atoms/button'
 import { Right, Clear } from '../../_helpers/float'
 
+import StyledLabel from './label'
+import StyledDivider from './divider'
+import StyledFieldSet from './fieldset'
+import StyledError from './error'
+import StyledActions from './actions'
 import Description from './description'
-
-const Label = styled.label`
-  display: block;
-  min-height: 40px;
-  font-weight: ${fonts.weight.medium};
-  text-align: right;
-  padding-top: 10px;
-`
-
-const Error = styled.div`
-  font-size: 13px;
-  color: ${colors.orange};
-  margin-top: ${spacing.xsmall};
-`
-
-const FieldSet = styled.fieldset`
-  border: none;
-  padding: 0;
-`
-
-const Divider = styled(Label)`
-  text-transform: uppercase;
-  text-align: left;
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: ${fonts.weight.medium};
-  border-bottom: 1px solid ${colors.grayLight};
-  padding-bottom: ${spacing.xsmall};
-  margin-bottom: ${spacing.xlarge};
-`
 
 // Layout
 
@@ -62,14 +37,6 @@ const ContentLayout = styled.div`
   width: ${formWidth - labelWidth}px;
 `
 
-const StyledActions = styled.div`
-  padding-left: ${labelWidth}px;
-  height: 100px;
-  margin-top: ${spacing.xlarge};
-  border-top: 1px solid ${colors.grayLight};
-  padding-top: ${spacing.medium};
-`
-
 const StyledForm = styled.form`
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
@@ -78,7 +45,7 @@ const StyledForm = styled.form`
     /* resize should not happen horizontally inside a form */
     min-height: 40px;
   }
-  ${Divider} {
+  ${StyledDivider} {
     width: 100%;
   }
 `
@@ -97,11 +64,11 @@ const FormElement = props => {
   return (
     <Field>
       <LabelLayout>
-        <Label htmlFor={id}>{props.label}</Label>
+        <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
       </LabelLayout>
       <ContentLayout>
         <props.fieldComponent id={id} {...props} />
-        {props.error ? <Error>{props.error}</Error> : null}
+        {props.error ? <StyledError>{props.error}</StyledError> : null}
         {props.description ? <Description>{props.description}</Description> : null}
       </ContentLayout>
     </Field>
@@ -115,7 +82,7 @@ Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />
 
 Form.Actions = props => {
   return (
-    <StyledActions>
+    <StyledActions labelWidth={labelWidth}>
       {props.primaryAction && (
         <Button primary onClick={props.primaryAction.method}>
           {props.primaryAction.label}
@@ -146,10 +113,10 @@ Form.Actions = props => {
 }
 
 Form.FieldSet = props => (
-  <FieldSet>
-    <Divider>{props.label}</Divider>
+  <StyledFieldSet>
+    <StyledDivider>{props.label}</StyledDivider>
     {props.children}
-  </FieldSet>
+  </StyledFieldSet>
 )
 
 export default Form

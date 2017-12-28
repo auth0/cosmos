@@ -34,4 +34,12 @@ const substract = (a, b) => {
   return value + unit
 }
 
-export { add, substract }
+const multiply = (a, b) => {
+  if (!validate(a, b)) return
+  const unit = parse(a).unit
+  const value = parse(a).value * parse(b).value
+
+  return value + unit
+}
+
+export { add, substract, multiply }

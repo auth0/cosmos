@@ -1,0 +1,13 @@
+import styled from 'styled-components'
+
+import { spacing, colors } from '../../../tokens'
+
+const Actions = styled.div`
+  padding-left: ${props => props.labelWidth}px;
+  height: 100px;
+  margin-top: ${spacing.xlarge};
+  border-top: 1px solid ${colors.grayLight};
+  padding-top: ${spacing.medium};
+`
+
+export default Actions
