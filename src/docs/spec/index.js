@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { metadata as components } from '../metadata.json'
-import documentations from './docs-loader'
+import documentations from '../docs-loader'
 
 import { Heading3, Subheader } from '../../components'
 import Example from './example'

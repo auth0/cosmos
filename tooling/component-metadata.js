@@ -9,7 +9,7 @@ const { info, warn } = require('prettycli')
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 
 /* Get list of js files from atoms and molecules */
-const componentList = glob.sync('src/components/+(atoms|molecules)/*.js')
+const componentList = glob.sync('src/components/+(atoms|molecules)/**/*.js')
 
 const run = () => {
   info('DOCS', 'Generating metadata')

@@ -1,13 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-/* import components from the generated metadata files */
-import { metadata as components } from '../metadata.json'
-
 import { colors } from '../../tokens'
 import LogoContainer from './logo'
 import SearchBox from './search.js'
 import List from './list'
+
+/* import components from the generated metadata files */
+import { metadata as components } from '../metadata.json'
+import documentations from '../docs-loader'
+
+const documentedComponentNames = documentations.map(docs => docs.name)
+const documentedComponents = components.filter(component =>
+  documentedComponentNames.includes(component.displayName)
+)
+
+console.log(documentedComponents)
 
 const StyledSidebar = styled.div`
   background: ${colors.grayLightest};
@@ -19,11 +27,13 @@ class Sidebar extends React.Component {
   constructor() {
     super()
     /* by default, show all components */
-    this.state = { filteredComponents: components }
+    this.state = { filteredComponents: documentedComponents }
   }
   filter(query) {
     /* filter components based on search query */
-    const filteredComponents = components.filter(component => component.displayName.includes(query))
+    const filteredComponents = documentedComponents.filter(component =>
+      component.displayName.includes(query)
+    )
     this.setState({ filteredComponents })
   }
   render() {
