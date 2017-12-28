@@ -17,7 +17,7 @@ const Forms = () => (
       <Form.TextInput
         label="Field with helper text"
         placeholder="Placeholder text"
-        description="Name of the connection to be use for Password Grant exchanges. The default_directory value
+        description="Name of the connection to be use for Password Grant exchanges. The `default_directory` value
         should be the exact name of an existing connections of one of the following."
       />
       <Form.TextInput
