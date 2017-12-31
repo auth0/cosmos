@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Helmet from 'react-helmet'
 import { metadata as components } from '../metadata.json'
 import documentations from '../docs-loader'
 
@@ -19,6 +19,7 @@ export default props => {
 
   return (
     <Container>
+      <Helmet title={component.displayName + ' — Cosmos'} />
       <Heading3>{component.displayName}</Heading3>
       <Subheader>{component.description || 'Description missing!'}</Subheader>
       <Example docs={docs} component={component} />
