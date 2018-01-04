@@ -8,14 +8,6 @@ import List from './list'
 
 /* import components from the generated metadata files */
 import { metadata as components } from '../metadata.json'
-import documentations from '../docs-loader'
-
-const documentedComponentNames = documentations.map(docs => docs.name)
-const documentedComponents = components.filter(component =>
-  documentedComponentNames.includes(component.displayName)
-)
-
-console.log(documentedComponents)
 
 const StyledSidebar = styled.div`
   background: ${colors.grayLightest};
@@ -27,13 +19,11 @@ class Sidebar extends React.Component {
   constructor() {
     super()
     /* by default, show all components */
-    this.state = { filteredComponents: documentedComponents }
+    this.state = { filteredComponents: components }
   }
   filter(query) {
     /* filter components based on search query */
-    const filteredComponents = documentedComponents.filter(component =>
-      component.displayName.includes(query)
-    )
+    const filteredComponents = components.filter(component => component.displayName.includes(query))
     this.setState({ filteredComponents })
   }
   render() {

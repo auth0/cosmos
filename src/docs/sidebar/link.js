@@ -9,23 +9,38 @@ const StyledLink = styled.div`
     display: block;
     padding: ${spacing.small} ${spacing.xlarge};
     text-decoration: none;
-    color: ${colors.grayDark};
+    color: ${props => (props.disabled ? colors.grayMedium : colors.grayDark)};
 
     &:hover,
     &.selected {
       background: ${colors.white};
-      color: ${colors.orange};
+      color: ${props => (props.disabled ? null : colors.orange)};
       box-shadow: inset -1px 0px 1px 0px ${colors.grayLightest};
     }
   }
 `
 
+const Tag = styled.span`
+  color: ${colors.grayMedium};
+  float: right;
+`
+
 const Link = props => {
-  let { displayName } = props.component
+  let { displayName, documentation, implemented } = props.component
   return (
-    <StyledLink>
-      <NavLink to={`/docs/${displayName}`} key={displayName} activeClassName="selected">
+    <StyledLink disabled={!documentation}>
+      <NavLink
+        to={`/docs/${displayName}`}
+        key={displayName}
+        activeClassName="selected"
+        onClick={e => {
+          /* disable link if documentation doesn't exist */
+          if (!documentation) e.preventDefault()
+        }}
+      >
         {displayName}
+        {documentation ? null : <Tag>Not documented</Tag>}
+        {implemented ? null : <Tag>Not implemented</Tag>}
       </NavLink>
     </StyledLink>
   )
