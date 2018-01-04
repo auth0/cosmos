@@ -8,14 +8,21 @@ const { info, warn } = require('prettycli')
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 
-/* Get list of js files from atoms and molecules */
-const componentList = glob.sync('src/components/+(atoms|molecules)/**/*.js')
+/* Helper function */
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1)
+
+/* Get list of js and md files from atoms and molecules */
+const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
+let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
 
 const run = () => {
   info('DOCS', 'Generating metadata')
-  const metadata = componentList
+  let metadata = javascriptFiles
     .map(path => {
       try {
+        /* skip secondary files in molecules */
+        if (path.includes('molecules') && !path.includes('index.js')) return
+
         /* append display name handler to handlers list */
         const handlers = docgen.defaultHandlers.concat(createDisplayNameHandler(path))
 
@@ -28,6 +35,27 @@ const run = () => {
         /* add filepath to metadata */
         data.filepath = path
 
+        /* get documentation file path */
+        let documentationPath
+
+        if (path.includes('molecules')) {
+          /* molecule roots are called index.js, doc is named after directory */
+          const directoryName = path.split('/').splice(-2, 1)[0]
+          documentationPath = path.replace('index.js', `${directoryName}.md`)
+        } else {
+          /* for atoms, the name is same as the javascript filename */
+          documentationPath = path.replace('.js', '.md')
+        }
+
+        /* add documentation if exists */
+        if (fs.existsSync(documentationPath)) {
+          data.documentation = fs.readFileSync(documentationPath, 'utf8')
+          /* remove from markdown files list (useful later) */
+          markdownFiles = markdownFiles.filter(path => path !== documentationPath)
+        } else {
+          warn('documentation not found for ' + path)
+        }
+
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
@@ -39,6 +67,28 @@ const run = () => {
       this protects against components that don't have metadata yet
     */
     .filter(meta => meta)
+
+  /* Add documentation files that are not implemented yet */
+
+  markdownFiles.map(path => {
+    const data = {}
+
+    /* attach content of documentation file */
+    data.documentation = fs.readFileSync(path, 'utf8')
+
+    /* attach temporary filepath */
+    data.filepath = path
+
+    /* infer display name from path */
+    data.displayName = capitalize(
+      path
+        .split('/')
+        .pop()
+        .replace('.md', '')
+    )
+
+    metadata.push(data)
+  })
 
   /*
     Write the file in docs folder
