@@ -4,9 +4,13 @@
 
 ---
 
-#### Examples
+`Form` is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
-Form ships with handy wrappers around fields which takes care of layout, styling and accessibility.
+There are common props for all fields like `label`, `description` and `error`.
+
+---
+
+#### Examples
 
 ```js
 <Form>
@@ -28,6 +32,19 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
       { text: 'Third option', value: '3' },
       { text: 'Fourth option', value: '4' }
     ]}
+  />
+</Form>
+```
+
+You can also add description for the form field
+
+```js
+<Form>
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    description="This is some helper text"
   />
 </Form>
 ```
