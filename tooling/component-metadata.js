@@ -101,7 +101,7 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch(componentList, { ignored: ['node_modules'] })
+    .watch('src/components', { ignored: ['node_modules'] })
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)
