@@ -56,6 +56,9 @@ const run = () => {
           warn('documentation not found for ' + path)
         }
 
+        /* add lazy hint for documentation */
+        data.implemented = true
+
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
@@ -69,7 +72,6 @@ const run = () => {
     .filter(meta => meta)
 
   /* Add documentation files that are not implemented yet */
-
   markdownFiles.map(path => {
     const data = {}
 
@@ -86,6 +88,9 @@ const run = () => {
         .pop()
         .replace('.md', '')
     )
+
+    /* add lazy hint for documentation */
+    data.implemented = false
 
     metadata.push(data)
   })

@@ -37,7 +37,7 @@ const Example = props => {
 
   return (
     <div style={{ maxWidth: 800 }}>
-      <Markdown options={options}>{props.docs.content}</Markdown>
+      <Markdown options={options}>{props.documentation}</Markdown>
     </div>
   )
 }
