@@ -3,6 +3,7 @@ import Markdown from 'markdown-to-jsx'
 
 import Playground from './playground'
 import Break from './break'
+import TextBlock from './text-block'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
 import { Heading5, Code } from '../../components'
@@ -13,7 +14,8 @@ const Example = props => {
       hr: { component: Break },
       h2: { component: SectionHeader },
       h4: { component: ExampleHeader },
-      p: { component: Heading5 },
+      h5: { component: TextBlock },
+      p: { component: TextBlock },
       li: { component: Heading5 },
       code: {
         /* use playground for js code blocks */
