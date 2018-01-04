@@ -7,11 +7,11 @@ const List = props => {
   const groups = getGroups(props.components)
   return (
     <div>
-      <Group label="Atoms" open>
-        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
-      </Group>
-      <Group label="Molecules">
+      <Group label="Compound components">
         {groups.molecules.map((component, index) => <Link key={index} component={component} />)}
+      </Group>
+      <Group label="Building blocks" open>
+        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
       </Group>
     </div>
   )
