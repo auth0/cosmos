@@ -13,7 +13,7 @@ ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/" component={Overview} />
-      <Route path="/manage" component={Manage} />
+      <Route path="/clients" component={Manage} />
       <Route path="/docs" component={Docs} />
       <Route path="/is-cosmos-ready-yet" component={IsCosmosReadyYet} />
     </div>
