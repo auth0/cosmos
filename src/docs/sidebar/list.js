@@ -4,7 +4,10 @@ import Link from './link'
 import Group, { getGroups } from './group'
 
 const List = props => {
-  const groups = getGroups(props.components)
+  /* Filter out example Box component */
+  const components = props.components.filter(c => c.displayName !== 'Box')
+
+  const groups = getGroups(components)
   return (
     <div>
       <Group label="Compound components">

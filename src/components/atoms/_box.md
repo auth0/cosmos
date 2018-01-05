@@ -2,6 +2,8 @@
   category: Actions
 ```
 
+This component can be seen on `/docs/Box`
+
 ```js props
 <Box {props} />
 ```
