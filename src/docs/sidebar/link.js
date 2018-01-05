@@ -10,6 +10,7 @@ const StyledLink = styled.div`
     padding: ${spacing.small} ${spacing.xlarge};
     text-decoration: none;
     color: ${props => (props.disabled ? colors.grayMedium : colors.grayDark)};
+    cursor: ${props => (props.disabled ? 'default' : 'pointer')};
 
     &:hover,
     &.selected {
