@@ -29,7 +29,7 @@ const Description = props => {
       the correct elements
     */
     for (let i = 1; i < parts.length; i += 2) {
-      parts[i] = <Code>{parts[i]}</Code>
+      parts[i] = <Code key={i}>{parts[i]}</Code>
     }
 
     return <StyledDescription>{parts}</StyledDescription>
