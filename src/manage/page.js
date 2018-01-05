@@ -1,9 +1,12 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Dummy, Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
 import { Heading2 } from '../components'
 
-import Settings from './settings'
+import ClientList from './client-list'
+import Client from './client'
+
 Tabs.Tab = Dummy
 
 const Page = () => (
@@ -18,7 +21,12 @@ const Page = () => (
   >
     <PageHeader />
     <Heading2>Clients</Heading2>
-    <Settings />
+    <Router>
+      <div>
+        <Route exact path="/clients" component={ClientList} />
+        <Route exact path="/clients/:clientId" component={Client} />
+      </div>
+    </Router>
   </div>
 )
 

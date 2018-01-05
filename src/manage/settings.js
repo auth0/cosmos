@@ -4,12 +4,12 @@ import { Form } from '../components'
 let dummyFn = () => {}
 
 class Settings extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       name: 'API Explorer Client',
       domain: 'storezero.auth0.com',
-      clientID: 'DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip',
+      clientID: props.clientId,
       secret: 'asoidvsubdwfqeagwbviuyeaobvi'
     }
   }
