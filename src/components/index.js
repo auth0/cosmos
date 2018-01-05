@@ -24,8 +24,8 @@ export { Switch }
 import Button from './atoms/button'
 export { Button }
 
-import Textarea from './atoms/textarea'
-export { Textarea }
+import TextArea from './atoms/textarea'
+export { TextArea }
 
 import Logo from './atoms/logo'
 export { Logo }
