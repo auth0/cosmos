@@ -13,10 +13,6 @@ const StyledCode = styled.span`
   border-radius: 3px;
 `
 
-/**
- * Use for decoration of code
- */
-
 const Code = props => <StyledCode {...props}>{props.children}</StyledCode>
 
 Code.propTypes = {}

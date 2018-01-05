@@ -62,10 +62,6 @@ const StyledInput = styled.input`
   }
 `
 
-/**
- * Request information from the user
- */
-
 const Input = props => <StyledInput {...props} />
 
 Input.propTypes = {
