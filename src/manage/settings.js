@@ -54,7 +54,7 @@ class Settings extends React.Component {
             label="Description"
             placeholder="Add a description in less than 140 charachters"
             description="A free text description of the client. Max charachter count is 140"
-            length="10"
+            length={10}
           />
           <Form.TextInput
             label="Logo"
