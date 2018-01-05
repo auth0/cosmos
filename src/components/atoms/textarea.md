@@ -4,6 +4,8 @@
 
 `import TextArea from 'cosmos/textarea'`
 
+Note: `TextArea` is camelcased, it's not `Textarea`.
+
 ```js props
 <TextArea {props} placeholder="Placeholder text" />
 ```
