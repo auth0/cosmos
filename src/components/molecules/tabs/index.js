@@ -1,10 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing } from '../../../tokens'
+import { colors, spacing } from '../../../tokens'
 
 const TabLink = styled.a`
   padding: ${spacing.large};
+  color: ${props => (props.selected ? colors.base : colors.blue)};
+  cursor: ${props => (props.selected ? 'default' : 'pointer')};
 `
 
 class Tabs extends React.Component {
@@ -23,15 +26,26 @@ class Tabs extends React.Component {
     this.state = { labels, selectedTab }
   }
   changeTab(label) {
+    const selectedTabLabel = this.state.selectedTab.props.label
+
     React.Children.map(this.props.children, child => {
-      if (child.props.label === label) this.setState({ selectedTab: child })
+      /* dont change tab if already selected */
+      if (child.props.label === label && selectedTabLabel !== label) {
+        this.setState({ selectedTab: child })
+      }
     })
   }
   render() {
+    const selectedTabLabel = this.state.selectedTab.props.label
+
     return (
       <div>
         {this.state.labels.map(label => (
-          <TabLink onClick={() => this.changeTab(label)} key={label}>
+          <TabLink
+            onClick={() => this.changeTab(label)}
+            key={label}
+            selected={label === selectedTabLabel}
+          >
             {label}
           </TabLink>
         ))}
@@ -42,5 +56,14 @@ class Tabs extends React.Component {
 }
 
 Tabs.Tab = props => <div>{props.children}</div>
+
+Tabs.propTypes = {
+  /** Children should be an array of React elements */
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
+}
+
+Tabs.defaultProps = {
+  children: []
+}
 
 export default Tabs
