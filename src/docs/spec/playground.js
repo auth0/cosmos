@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '../../components'
+
 import { fonts, colors, spacing } from '../../tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
@@ -99,9 +100,10 @@ class Playground extends React.Component {
         propString += ` ${name}`
       } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
         propString += ` ${name}="${propData[name].value}"`
+      } else if (propData[name].type.name === 'number' && propData[name].value !== 'null') {
+        propString += ` ${name}={${propData[name].value}}`
       }
-      // make eslint happy
-      return name
+      return name // make eslint happy by returning a value from map
     })
 
     this.setState({ code: this.props.code.replace(' {props}', propString) })
