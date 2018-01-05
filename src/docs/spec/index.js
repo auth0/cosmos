@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { metadata as components } from '../metadata.json'
 
-import { Heading3, Subheader } from '../../components'
+import { Heading3 } from '../../components'
 import Example from './example'
 
 const Container = styled.div`
@@ -19,7 +19,6 @@ export default props => {
     <Container>
       <Helmet title={component.displayName + ' — Cosmos'} />
       <Heading3>{component.displayName}</Heading3>
-      <Subheader>{component.description || 'Description missing!'}</Subheader>
       <Example documentation={component.documentation} component={component} />
     </Container>
   )

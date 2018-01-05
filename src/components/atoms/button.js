@@ -139,10 +139,6 @@ const StyledButton = styled.button`
   }
 `
 
-/**
- * You can use a button to request a call to action
- */
-
 const Button = ({ children, ...props }) => {
   let content = children
   if (props.success) content = <Icon type="success" />

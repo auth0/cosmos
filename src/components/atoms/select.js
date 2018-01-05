@@ -6,9 +6,6 @@ import { StyledInput } from './input'
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: 40px;
 `
-/**
- * Use select when you want to limit the input options
- */
 
 const Select = ({ options, ...props }) => {
   /*

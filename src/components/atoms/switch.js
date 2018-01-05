@@ -55,10 +55,6 @@ const Label = styled.label`
   padding-left: ${spacing.small};
 `
 
-/**
- * Use Switch for boolean inputs
- */
-
 class Switch extends React.Component {
   constructor(props) {
     super(props)
