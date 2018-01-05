@@ -1,14 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
-import { colors, spacing } from '../../../tokens'
-
-const TabLink = styled.a`
-  padding: ${spacing.large};
-  color: ${props => (props.selected ? colors.base : colors.blue)};
-  cursor: ${props => (props.selected ? 'default' : 'pointer')};
-`
+import TabLink from './link'
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -18,22 +11,24 @@ class Tabs extends React.Component {
     const labels = React.Children.map(props.children, child => child.props.label)
 
     /* get selected tab component */
-    let selectedTab = props.children[0] // assume it's the first component
+
+    let selectedTab = props.children[0] // start by assuming it's the first component
     React.Children.map(props.children, child => {
-      if (child.props.selected) selectedTab = child // override if selected prop is true
+      /* override if selected prop is true */
+      if (child.props.selected) selectedTab = child
     })
 
     this.state = { labels, selectedTab }
   }
-  changeTab(label) {
+  changeTab(changeToLabel) {
     const selectedTabLabel = this.state.selectedTab.props.label
 
-    React.Children.map(this.props.children, child => {
-      /* dont change tab if already selected */
-      if (child.props.label === label && selectedTabLabel !== label) {
-        this.setState({ selectedTab: child })
-      }
-    })
+    /* only change tab if it's not already selected */
+    if (selectedTabLabel !== changeToLabel) {
+      React.Children.map(this.props.children, child => {
+        if (child.props.label === changeToLabel) this.setState({ selectedTab: child })
+      })
+    }
   }
   render() {
     const selectedTabLabel = this.state.selectedTab.props.label
