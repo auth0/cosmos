@@ -19,7 +19,6 @@ export default props => {
     <Container>
       <Helmet title={component.displayName + ' — Cosmos'} />
       <Heading3>{component.displayName}</Heading3>
-      <Subheader>{component.description || 'Description missing!'}</Subheader>
       <Example documentation={component.documentation} component={component} />
     </Container>
   )
