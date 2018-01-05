@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import PropTypes from 'prop-types'
+import { colors } from '../../tokens'
 
 import iconData from './icons.json'
 
@@ -18,6 +19,7 @@ const StyledIcon = styled.i`
   font-size: ${props => props.size}px;
   font-weight: 400;
   font-style: normal;
+  color: ${props => props.color};
   &:after {
     content: '${props => props.icon.content || ''}';
   }
@@ -32,11 +34,14 @@ Icon.propTypes = {
   /** Icon type */
   type: PropTypes.string.isRequired,
   /** Icon size */
-  size: PropTypes.number
+  size: PropTypes.number,
+  /** Icon foreground color */
+  color: PropTypes.string
 }
 
 Icon.defaultProps = {
-  size: 14
+  size: 14,
+  color: colors.base
 }
 
 export default Icon

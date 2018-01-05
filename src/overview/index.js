@@ -9,6 +9,7 @@ import Colors from './src/colors'
 import Icons from './src/icons'
 import Spacing from './src/spacing'
 import Forms from './src/forms'
+import EmptyStates from './src/empty-states'
 
 import Links from './src/links'
 import Typography from './src/typography'
@@ -22,6 +23,7 @@ export default () => (
         <Colors />
         <Icons />
         <Spacing />
+        <EmptyStates />
         <Forms />
       </Column>
       <Column>
