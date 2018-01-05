@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { metadata as components } from '../metadata.json'
 
-import { Heading3, Subheader } from '../../components'
+import { Heading3 } from '../../components'
 import Example from './example'
 
 const Container = styled.div`
