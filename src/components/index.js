@@ -50,3 +50,6 @@ export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
 /* molecules */
 import Form from './molecules/form'
 export { Form }
+
+import Tabs from './molecules/tabs'
+export { Tabs }
