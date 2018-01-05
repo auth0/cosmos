@@ -1,8 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, fonts, spacing, misc } from '../../tokens/'
 import { StyledInput } from './input'
 
 const StyledTextArea = StyledInput.withComponent('textarea').extend`
