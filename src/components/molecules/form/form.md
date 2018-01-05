@@ -36,7 +36,7 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
 </Form>
 ```
 
-You can also add description for the form field
+You can also add `description` for the form field which supports tagging variables in `` and also supports custom components
 
 ```js
 <Form>
@@ -44,7 +44,17 @@ You can also add description for the form field
     label="Field label"
     type="text"
     placeholder="Enter something"
-    description="This is some helper text"
+    description="This is some helper `text`"
+  />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    description={
+      <span>
+        Find more about it <a href="link">here</a>
+      </span>
+    }
   />
 </Form>
 ```
