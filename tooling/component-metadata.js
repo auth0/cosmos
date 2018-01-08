@@ -4,12 +4,10 @@ const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
+const camelCase = require('lodash.camelcase')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
-
-/* Helper function */
-const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1)
 
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
@@ -82,7 +80,7 @@ const run = () => {
     data.filepath = path
 
     /* infer display name from path */
-    data.displayName = capitalize(
+    data.displayName = camelCase(
       path
         .split('/')
         .pop()

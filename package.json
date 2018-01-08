@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "glob": "7.1.2",
+    "lodash.camelcase": "4.3.0",
     "markdown-to-jsx": "5.4.2",
     "raw-loader": "0.5.1",
     "react": "^16.0.0",

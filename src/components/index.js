@@ -12,8 +12,8 @@ import Box from './atoms/_box'
 export { Box }
 
 /* atoms */
-import Input from './atoms/input'
-export { Input }
+import TextInput from './atoms/text-input'
+export { TextInput }
 
 import Select from './atoms/select'
 export { Select }

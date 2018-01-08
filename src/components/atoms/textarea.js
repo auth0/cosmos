@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledInput } from './input'
+import { StyledInput } from './_styled-input'
 
 const StyledTextArea = StyledInput.withComponent('textarea').extend`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};

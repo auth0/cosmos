@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
-import { Input, Switch, Code } from '../../components'
+import { TextInput, Switch, Code } from '../../components'
 
 const Table = styled.table`
   width: 100%;
@@ -48,7 +48,7 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
   if (data.type.name === 'bool') {
     return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={method} />
   } else if (['string', 'number'].includes(data.type.name)) {
-    return <Input defaultValue={data.value} onChange={e => method(e.target.value)} />
+    return <TextInput defaultValue={data.value} onChange={e => method(e.target.value)} />
   }
   return <div />
 }

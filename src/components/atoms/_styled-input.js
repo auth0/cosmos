@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import { colors, fonts, spacing, misc } from '../../tokens/'
 
@@ -62,25 +60,4 @@ const StyledInput = styled.input`
   }
 `
 
-const Input = props => <StyledInput {...props} />
-
-Input.propTypes = {
-  /** Make input readOnly if it does not validate constraint */
-  readOnly: PropTypes.bool,
-  /** Use when the expected input is code */
-  code: PropTypes.bool,
-  /** Pass error string directly to show error state */
-  error: PropTypes.string,
-  /** onChange transparently passed to the input */
-  onChange: PropTypes.func
-}
-
-Input.defaultProps = {
-  readOnly: false,
-  code: false,
-  error: null,
-  onChange: null
-}
-
-export default Input
 export { StyledInput }
