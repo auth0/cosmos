@@ -36,6 +36,9 @@ export { Icon }
 import Code from './atoms/code'
 export { Code }
 
+import EmptyState from './atoms/empty-state'
+export { EmptyState }
+
 import {
   Heading1,
   Heading2,
