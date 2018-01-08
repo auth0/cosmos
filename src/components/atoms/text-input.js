@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from './_styled-input'
 
-const Input = props => <StyledInput {...props} />
+const TextInput = props => <StyledInput {...props} />
 
-Input.propTypes = {
+TextInput.propTypes = {
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
   /** Use when the expected input is code */
@@ -16,12 +16,12 @@ Input.propTypes = {
   onChange: PropTypes.func
 }
 
-Input.defaultProps = {
+TextInput.defaultProps = {
   readOnly: false,
   code: false,
   error: null,
   onChange: null
 }
 
-export default Input
+export default TextInput
 export { StyledInput }

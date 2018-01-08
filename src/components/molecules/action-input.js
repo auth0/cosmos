@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Input from '../atoms/input'
+import TextInput from '../atoms/text-input'
 import Button, { StyledButton } from '../atoms/button'
 
 const Wrapper = styled.div`
@@ -26,7 +26,7 @@ const ActionInput = props => {
   if (props.actions) {
     return (
       <Wrapper>
-        <Input {...props} />
+        <TextInput {...props} />
         <ButtonGroup>
           {props.actions.map((action, index) => (
             <Button key={index} link icon={action.icon} onClick={action.method} />
@@ -35,12 +35,12 @@ const ActionInput = props => {
       </Wrapper>
     )
   } else {
-    return <Input {...props} />
+    return <TextInput {...props} />
   }
 }
 
 ActionInput.propTypes = {
-  ...Input.propTypes,
+  ...TextInput.propTypes,
   /** Actions to be attached to input */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -51,7 +51,7 @@ ActionInput.propTypes = {
 }
 
 ActionInput.defaultProps = {
-  ...Input.defaultProps,
+  ...TextInput.defaultProps,
   actions: []
 }
 
