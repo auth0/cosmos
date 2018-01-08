@@ -50,6 +50,9 @@ import {
 } from './atoms/typography'
 export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
 
+import Tooltip from './atoms/tooltip'
+export { Tooltip }
+
 /* molecules */
 import EmptyState from './molecules/empty-state'
 export { EmptyState }
