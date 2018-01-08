@@ -31,7 +31,7 @@ const Table = styled.table`
 const Type = styled.span`
   font-size: 13px;
   font-family: ${fonts.family.code};
-  color: ${colors.grayDark};
+  color: ${colors.base.grayDark};
   padding: 0 ${spacing.xsmall};
   border-radius: ${misc.radius};
   position: relative;
@@ -39,7 +39,7 @@ const Type = styled.span`
 `
 
 const Description = styled.span`
-  color: ${colors.grayDark};
+  color: ${colors.base.grayDark};
 `
 
 const PropSwitcher = ({ propName, data, onPropsChange }) => {
