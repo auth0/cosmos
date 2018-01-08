@@ -23,7 +23,7 @@ export default () => (
     <a href="/docs">
       <img alt="docs" src="/docs.png" />
     </a>
-    <a href="/manage">
+    <a href="/clients">
       <Icon type="clients" />
     </a>
     <a href="/is-cosmos-ready-yet">
