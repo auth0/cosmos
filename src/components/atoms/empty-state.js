@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Icon, { StyledIcon } from './icon'
-import { colors } from '../../tokens'
+import { colors, spacing } from '../../tokens'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  margin-top: 1em;
+  margin-top: ${spacing.xsmall};
 `
 
 const EmptyState = props => {
