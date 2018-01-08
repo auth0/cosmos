@@ -65,13 +65,13 @@ const config = {
     focusBorder: colors.button.destructiveBorderFocus
   },
   loading: {
-    text: colors.button.white,
-    background: colors.button.green,
-    border: colors.button.green,
-    hoverBackground: colors.button.green,
-    hoverBorder: colors.button.green,
-    focusBackground: colors.button.green,
-    focusBorder: colors.button.green
+    text: colors.base.white,
+    background: colors.base.green,
+    border: colors.base.green,
+    hoverBackground: colors.base.green,
+    hoverBorder: colors.base.green,
+    focusBackground: colors.base.green,
+    focusBorder: colors.base.green
   },
   success: {
     text: colors.button.successText,
