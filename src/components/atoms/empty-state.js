@@ -20,7 +20,7 @@ const Content = styled.div`
 const EmptyState = props => {
   return (
     <Wrapper>
-      <Icon type={props.icon} size={props.iconSize} color={props.iconColor} />
+      <Icon type={props.icon} size={100} color={colors.grayMedium} />
       <Content>{props.children}</Content>
     </Wrapper>
   )
@@ -29,14 +29,7 @@ const EmptyState = props => {
 EmptyState.displayName = 'EmptyState'
 
 EmptyState.propTypes = {
-  icon: PropTypes.string.isRequired,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.string
-}
-
-EmptyState.defaultProps = {
-  iconSize: 100,
-  iconColor: colors.grayMedium
+  icon: PropTypes.string.isRequired
 }
 
 export default EmptyState

@@ -63,7 +63,10 @@ class Props extends React.Component {
 
   getDefaultValues(propData) {
     const propNames = Object.keys(propData).filter(key => key[0] !== '_')
-    propNames.map(name => (propData[name].value = propData[name].defaultValue.value))
+    propNames.forEach(name => {
+      const { defaultValue } = propData[name]
+      propData[name].value = defaultValue ? defaultValue.value : 'null'
+    })
     return propData
   }
 
