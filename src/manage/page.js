@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Dummy, Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
-import { Heading2 } from '../components'
+import { Heading1 } from '../components'
 
 import ClientList from './client-list'
 import Client from './client'
@@ -20,7 +20,7 @@ const Page = () => (
     }}
   >
     <PageHeader />
-    <Heading2>Clients</Heading2>
+    <Heading1>Clients</Heading1>
     <Router>
       <div>
         <Route exact path="/clients" component={ClientList} />
