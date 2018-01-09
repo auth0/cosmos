@@ -3,7 +3,7 @@ property in the `<Icon>` component.) Any children of the component will be rende
 the icon.
 
 ```js props
-<EmptyState icon='clients' {props}>
+<EmptyState icon='clients' title='SSO Integrations' {props}>
   <Text>No items have been defined.</Text>
 </EmptyState>
 ```
