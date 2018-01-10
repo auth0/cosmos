@@ -1,9 +1,9 @@
-The `icon` property is required, and should be set to a valid icon type. (Same as the `type`
-property in the `<Icon>` component.) Any children of the component will be rendered underneath
-the icon.
+This component can be used as a placeholder for a list when the list would otherwise be empty.
 
 ```js props
-<EmptyState icon='clients' title='SSO Integrations' {props}>
-  <Text>No items have been defined.</Text>
-</EmptyState>
+<EmptyState
+  title="Clients"
+  icon="clients"
+  action={{ icon: "add", text: "Create Client", method: function(){/*...*/} }}
+/>
 ```

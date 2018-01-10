@@ -95,15 +95,14 @@ class Playground extends React.Component {
 
     const propNames = Object.keys(propData).filter(key => key[0] !== '_')
 
-    propNames.map(name => {
+    propNames.forEach(name => {
       if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
         propString += ` ${name}`
       } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
         propString += ` ${name}="${propData[name].value}"`
-      } else if (propData[name].type.name === 'number' && propData[name].value !== 'null') {
+      } else if (propData[name].value !== 'null') {
         propString += ` ${name}={${propData[name].value}}`
       }
-      return name // make eslint happy by returning a value from map
     })
 
     this.setState({ code: this.props.code.replace(' {props}', propString) })

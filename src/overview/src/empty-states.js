@@ -1,13 +1,21 @@
 import React from 'react'
 
 import Container from './container'
-import { EmptyState, Text } from '../../components'
+import { EmptyState } from '../../components'
 
 const EmptyStates = () => (
   <Container title="Empty State">
-    <EmptyState icon="clients">
-      <Text>No items have been added to this section.</Text>
-    </EmptyState>
+    <EmptyState
+      icon="clients"
+      text="No clients have been created."
+      action={{
+        icon: 'add',
+        text: 'Create Client',
+        method: function() {
+          /*...*/
+        }
+      }}
+    />
   </Container>
 )
 

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../tokens/'
 import onlyOneOf from '../_helpers/only-one-of-validator'
-import Icon from './icon'
+import Icon, { StyledIcon } from './icon'
 import Spinner from './spinner'
 
 const config = {
@@ -122,16 +122,22 @@ const StyledButton = styled.button`
 
   margin: ${spacing.xsmall};
   margin-left: 0;
-  padding: ${spacing.xsmall} ${props => (props.icon ? 0 : spacing.small)};
+  padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
+
+  ${StyledIcon} {
+    color: ${props => getAttributes(props).text};
+    margin-right: ${spacing.xsmall};
+  }
 
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
   }
+
   &:focus {
     background: ${props => getAttributes(props).focusBackground};
     border-color: ${props => getAttributes(props).focusBorder};
@@ -139,10 +145,25 @@ const StyledButton = styled.button`
   }
 `
 
+const Content = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+`
+
 const Button = ({ children, ...props }) => {
   let content = children
+
   if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
+
+  if (props.icon && content) {
+    return (
+      <StyledButton {...props}>
+        <Icon type={props.icon} />
+        <Content>{content}</Content>
+      </StyledButton>
+    )
+  }
 
   if (props.icon) {
     return (
@@ -150,9 +171,13 @@ const Button = ({ children, ...props }) => {
         <Icon type={props.icon} />
       </StyledButton>
     )
-  } else {
-    return <StyledButton {...props}>{content}</StyledButton>
   }
+
+  return (
+    <StyledButton {...props}>
+      <Content>{content}</Content>
+    </StyledButton>
+  )
 }
 
 Button.propTypes = {
