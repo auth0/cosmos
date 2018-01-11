@@ -6,8 +6,10 @@ import Code from '../../atoms/code'
 
 const StyledDescription = styled.div`
   font-size: 13px;
-  color: ${colors.grayMedium};
+  line-height: 24px;
+  color: rgba(64, 64, 64, 0.86);
   margin-top: ${spacing.xsmall};
+  margin-bottom: ${spacing.xsmall};
 `
 
 const Description = props => {

@@ -19,8 +19,8 @@ const config = {
   },
   primary: {
     text: colors.white,
-    background: colors.base,
-    border: colors.base,
+    background: colors.lightBlue,
+    border: colors.lightBlue,
     hoverBackground: colors.grayDark,
     hoverBorder: colors.grayDark,
     focusBackground: colors.grayMedium,

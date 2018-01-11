@@ -12,7 +12,10 @@ const Wrapper = styled.div`
 const ButtonGroup = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 3px;
+  /*
+    TO-DO: Connect or calculate to height of input. What about other inputs sizes? 
+  */
   ${StyledButton} {
     margin: 0;
   }

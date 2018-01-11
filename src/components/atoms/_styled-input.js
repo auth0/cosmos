@@ -8,20 +8,23 @@ const config = {
     border: '#ccc',
     hoverBorder: colors.grayMedium,
     focusBorder: colors.blue,
-    placeholder: colors.grayMedium
+    placeholder: colors.grayMedium,
+    color: '#555'
   },
   readOnly: {
     background: colors.grayLightest,
     border: colors.grayLight,
     hoverBorder: colors.grayMedium,
     focusBorder: colors.grayMedium,
-    placeholder: colors.base
+    placeholder: colors.base,
+    color: '#555'
   },
   error: {
     background: colors.white,
     border: colors.orange,
     hoverBorder: colors.orange,
-    focusBorder: colors.blue
+    focusBorder: colors.blue,
+    color: '#555'
   }
 }
 
@@ -41,8 +44,9 @@ const StyledInput = styled.input`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
+  color: ${props => getAttributes(props).color};
 
-  padding: ${spacing.xsmall} ${spacing.small};
+  padding: 10px ${spacing.small};
 
   cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
   transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};

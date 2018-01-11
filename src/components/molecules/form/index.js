@@ -25,7 +25,7 @@ const formWidth = '625px'
 const labelWidth = multiply(formWidth, 0.35)
 
 const Field = styled.div`
-  margin: ${spacing.medium} 0;
+  margin-bottom: ${spacing.small};
   display: flex;
   width: ${formWidth};
 `

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../tokens/'
+import { colors, fonts, spacing, misc } from '../../tokens/'
 
 const Checkbox = styled.input`
   width: 0;
@@ -53,6 +53,10 @@ const Label = styled.label`
   vertical-align: top;
   line-height: 32px;
   padding-left: ${spacing.small};
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: ${fonts.weight.medium};
 `
 
 class Switch extends React.Component {
@@ -97,7 +101,7 @@ Switch.propTypes = {
 Switch.defaultProps = {
   onToggle: null,
   on: false,
-  accessibleLabels: ['ENABLED', 'DISABLED'],
+  accessibleLabels: ['Enabled', 'Disabled'],
   readOnly: false
 }
 

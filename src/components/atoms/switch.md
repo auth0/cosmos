@@ -38,5 +38,5 @@ render(
 You can change the accessibility labels by passing an array with two strings
 
 ```js
-<Switch accessibleLabels={['ON', 'OFF']} onToggle={value => console.log(value)} />
+<Switch accessibleLabels={['On', 'Off']} onToggle={value => console.log(value)} />
 ```

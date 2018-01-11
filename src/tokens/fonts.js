@@ -12,3 +12,7 @@ const fonts = {
 }
 
 export default fonts
+
+/*
+  TO-DO: Check and load only Roboto Medium for Code
+*/
