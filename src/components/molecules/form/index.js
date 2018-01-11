@@ -5,7 +5,7 @@ import { spacing } from '../../../tokens'
 import uniqueId from '../../_helpers/uniqueId'
 import { multiply, subtract } from '../../_helpers/pixel-calc'
 
-import ActionInput from '../../molecules/action-input'
+import ActionInput from '../../molecules/_action-input'
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { injectGlobal } from 'styled-components'
 import PropTypes from 'prop-types'
-import { colors } from '../../tokens'
 
+import { colors } from '../../../tokens'
 import iconData from './icons.json'
 
 injectGlobal`
