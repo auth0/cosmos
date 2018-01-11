@@ -16,8 +16,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing } from '../../tokens/'
-import Icon, { StyledIcon } from '../atoms/icon'
+import { colors, spacing } from '../../../tokens/'
+import Icon, { StyledIcon } from '../../atoms/icon'
 
 /**
   Step 2: Create a styled element with css
