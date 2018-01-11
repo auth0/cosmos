@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import TabLink from './link'
 import TabContent from './content'
@@ -31,22 +32,34 @@ class Tabs extends React.Component {
       })
     }
   }
+
   render() {
     const selectedTabLabel = this.state.selectedTab.props.label
 
+    const Tabs = styled.div``
+
+    const TabsNavigation = styled.div`
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      ${TabLink}:last-child {
+        margin-right: 0;
+      }
+    `
+
     return (
-      <div>
-        {this.state.labels.map(label => (
-          <TabLink
-            onClick={() => this.changeTab(label)}
-            key={label}
-            selected={label === selectedTabLabel}
-          >
-            {label}
-          </TabLink>
-        ))}
+      <Tabs>
+        <TabsNavigation>
+          {this.state.labels.map(label => (
+            <TabLink
+              onClick={() => this.changeTab(label)}
+              key={label}
+              selected={label === selectedTabLabel}
+            >
+              {label}
+            </TabLink>
+          ))}
+        </TabsNavigation>
         {this.state.selectedTab}
-      </div>
+      </Tabs>
     )
   }
 }

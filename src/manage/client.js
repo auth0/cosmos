@@ -7,13 +7,12 @@ class Client extends React.Component {
   render() {
     return (
       <Tabs>
-        <Tabs.Tab label="Quick Start">quick start</Tabs.Tab>
+        <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
         <Tabs.Tab label="Settings" selected>
           <Settings clientId={this.props.match.params.clientId} />
         </Tabs.Tab>
-        <Tabs.Tab label="Addons">addons</Tabs.Tab>
-        <Tabs.Tab label="Connections">connections</Tabs.Tab>
-        <Tabs.Tab label="Advanced">advanced</Tabs.Tab>
+        <Tabs.Tab label="Connections">Connections</Tabs.Tab>
+        <Tabs.Tab label="Advanced">Advanced</Tabs.Tab>
       </Tabs>
     )
   }
