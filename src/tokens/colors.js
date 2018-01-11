@@ -16,7 +16,9 @@ const colors = {
     red: '#FF0000'
   },
   text: {
-    default: '#333',
+    default: '#212121',
+    secondary: '#757575',
+    subtle: '#BDBDBD',
     subHeader: '#636363',
     helper: '#989898',
     error: '#FF3E00'
@@ -41,16 +43,16 @@ const colors = {
     labelDisabled: '#C6C6C6'
   },
   link: {
-    default: '#2386DB',
-    defaultHover: '#2386DB',
-    defaultFocus: '#2386DB',
+    default: '#0a84ae',
+    defaultHover: '#0a84ae',
+    defaultFocus: '#0a84ae',
     sidebar: '#333',
     sidebarHover: '#FF3E00',
     sidebarFocus: '#FF3E00'
   },
   tabs: {
-    default: '#333',
-    defaultHover: '#2386DB'
+    default: '#212121',
+    defaultHover: '#0a84ae'
   },
   button: {
     defaultBackground: '#F1F1F1',
