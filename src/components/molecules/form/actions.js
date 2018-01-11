@@ -6,7 +6,7 @@ const Actions = styled.div`
   padding-left: ${props => props.labelWidth};
   height: 100px;
   margin-top: ${spacing.xlarge};
-  border-top: 1px solid ${colors.grayLight};
+  border-top: 1px solid ${colors.base.grayLight};
   padding-top: ${spacing.medium};
 `
 

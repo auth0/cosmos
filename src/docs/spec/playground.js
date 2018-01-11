@@ -15,7 +15,7 @@ const Container = styled.div`
     position: relative;
   }
   & .react-live-preview {
-    border: 1px solid ${colors.grayLight};
+    border: 1px solid ${colors.base.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
     border-radius: 4px 4px ${props => (props.codeVisible ? '0 0' : '4px 4px')};
     padding: 20px;
@@ -26,13 +26,13 @@ const Container = styled.div`
     background: #20222b;
     overflow-x: auto;
     font-family: ${fonts.family.code};
-    border: 1px solid ${colors.grayLightest};
+    border: 1px solid ${colors.base.grayLightest};
     border-top-width: 0;
     border-radius: 0 0 4px 4px;
   }
 
   & .react-live-error {
-    color: ${colors.orange};
+    color: ${colors.base.orange};
     padding: 5px;
   }
 `
@@ -48,7 +48,7 @@ const CodeWrapper = styled.div`
 `
 
 const CodeToggle = styled.div`
-  color: ${colors.grayDark};
+  color: ${colors.base.grayDark};
   text-align: right;
   font-size: 12px;
 
@@ -60,11 +60,11 @@ const Copy = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
-  color: ${colors.white};
+  color: ${colors.base.white};
   padding: ${spacing.small};
   cursor: pointer;
   &:hover {
-    color: ${colors.blue};
+    color: ${colors.base.blue};
   }
 `
 
@@ -95,15 +95,14 @@ class Playground extends React.Component {
 
     const propNames = Object.keys(propData).filter(key => key[0] !== '_')
 
-    propNames.map(name => {
+    propNames.forEach(name => {
       if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
         propString += ` ${name}`
       } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
         propString += ` ${name}="${propData[name].value}"`
-      } else if (propData[name].type.name === 'number' && propData[name].value !== 'null') {
+      } else if (propData[name].value !== 'null') {
         propString += ` ${name}={${propData[name].value}}`
       }
-      return name // make eslint happy by returning a value from map
     })
 
     this.setState({ code: this.props.code.replace(' {props}', propString) })

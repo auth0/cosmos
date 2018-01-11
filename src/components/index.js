@@ -36,8 +36,8 @@ export { Icon }
 import Code from './atoms/code'
 export { Code }
 
-import EmptyState from './atoms/empty-state'
-export { EmptyState }
+import Spinner from './atoms/spinner'
+export { Spinner }
 
 import {
   Heading1,
@@ -51,6 +51,9 @@ import {
 export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
 
 /* molecules */
+import EmptyState from './molecules/empty-state'
+export { EmptyState }
+
 import Form from './molecules/form'
 export { Form }
 

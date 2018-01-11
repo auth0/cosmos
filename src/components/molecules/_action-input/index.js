@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import TextInput from '../atoms/text-input'
-import Button, { StyledButton } from '../atoms/button'
+import TextInput from '../../atoms/text-input'
+import Button, { StyledButton } from '../../atoms/button'
 
 const Wrapper = styled.div`
   position: relative;

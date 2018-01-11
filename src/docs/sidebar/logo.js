@@ -8,7 +8,7 @@ import { colors, spacing } from '../../tokens'
 const Container = styled.div`
   padding: ${spacing.medium};
   text-align: center;
-  background: ${colors.white};
+  background: ${colors.base.white};
 `
 
 const LogoContainer = () => (

@@ -2,85 +2,85 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, fonts, misc } from '../../tokens/'
-import onlyOneOf from '../_helpers/only-one-of-validator'
-import Icon from './icon'
-import Spinner from './spinner'
+import { colors, spacing, fonts, misc } from '../../../tokens/'
+import onlyOneOf from '../../_helpers/only-one-of-validator'
+import Icon, { StyledIcon } from '../icon'
+import Spinner from '../spinner'
 
 const config = {
   default: {
-    text: colors.base,
-    background: '#dfdfdf',
-    border: colors.grayLightest,
-    hoverBackground: colors.grayLight,
-    hoverBorder: colors.grayLight,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    text: colors.button.defaultText,
+    background: colors.button.defaultBackground,
+    border: colors.button.defaultBorder,
+    hoverBackground: colors.button.defaultBackgroundHover,
+    hoverBorder: colors.button.defaultBorderHover,
+    focusBackground: colors.button.defaultBackgroundFocus,
+    focusBorder: colors.button.defaultBorderFocus
   },
   primary: {
-    text: colors.white,
-    background: colors.base,
-    border: colors.base,
-    hoverBackground: colors.grayDark,
-    hoverBorder: colors.grayDark,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.grayMedium
+    text: colors.button.primaryText,
+    background: colors.button.primaryBackground,
+    border: colors.button.primaryBorder,
+    hoverBackground: colors.button.primaryBackgroundHover,
+    hoverBorder: colors.button.primaryBorderHover,
+    focusBackground: colors.button.primaryBackgroundFocus,
+    focusBorder: colors.button.primaryBorderFocus
   },
   transparent: {
-    text: colors.base,
-    background: colors.white,
-    border: colors.base,
-    hoverBackground: colors.grayLightest,
-    hoverBorder: colors.base,
-    focusBackground: colors.grayMedium,
-    focusBorder: colors.base
+    text: colors.button.transparentText,
+    background: colors.button.transparentBackground,
+    border: colors.button.transparentBorder,
+    hoverBackground: colors.button.transparentBackgroundHover,
+    hoverBorder: colors.button.transparentBorderHover,
+    focusBackground: colors.button.transparentBackgroundFocus,
+    focusBorder: colors.button.transparentBorderFocus
   },
   link: {
-    text: colors.base,
+    text: colors.button.link,
     background: 'transparent',
     border: 'transparent',
-    hoverText: colors.blue,
+    hoverText: colors.button.linkHover,
     hoverBackground: 'transparent',
     hoverBorder: 'transparent',
-    focusText: colors.blue,
+    focusText: colors.button.linkFocus,
     focusBackground: 'transparent',
     focusBorder: 'transparent'
   },
   disabled: {
-    text: colors.grayMedium,
-    background: colors.grayLightest,
-    border: colors.grayLightest,
-    hoverBackground: colors.grayLightest,
-    hoverBorder: colors.grayLightest,
-    focusBackground: colors.grayLightest,
-    focusBorder: colors.grayLightest
+    text: colors.button.disabledText,
+    background: colors.button.disabledBackground,
+    border: colors.button.disabledBorder,
+    hoverBackground: colors.button.disabledBackgroundHover,
+    hoverBorder: colors.button.disabledBorderHover,
+    focusBackground: colors.button.disabledBackgroundFocus,
+    focusBorder: colors.button.disabledBorderFocus
   },
   destructive: {
-    text: colors.white,
-    background: colors.orange,
-    border: colors.orange,
-    hoverBackground: colors.orangeLighter,
-    hoverBorder: colors.orangeLighter,
-    focusBackground: colors.orangeLighest,
-    focusBorder: colors.orangeLighest
+    text: colors.button.destructiveText,
+    background: colors.button.destructiveBackground,
+    border: colors.button.destructiveBorder,
+    hoverBackground: colors.button.destructiveBackgroundHover,
+    hoverBorder: colors.button.destructiveBorderHover,
+    focusBackground: colors.button.destructiveBackgroundFocus,
+    focusBorder: colors.button.destructiveBorderFocus
   },
   loading: {
-    text: colors.white,
-    background: colors.green,
-    border: colors.green,
-    hoverBackground: colors.green,
-    hoverBorder: colors.green,
-    focusBackground: colors.green,
-    focusBorder: colors.green
+    text: colors.base.white,
+    background: colors.base.green,
+    border: colors.base.green,
+    hoverBackground: colors.base.green,
+    hoverBorder: colors.base.green,
+    focusBackground: colors.base.green,
+    focusBorder: colors.base.green
   },
   success: {
-    text: colors.white,
-    background: colors.green,
-    border: colors.green,
-    hoverBackground: colors.green,
-    hoverBorder: colors.green,
-    focusBackground: colors.green,
-    focusBorder: colors.green
+    text: colors.button.successText,
+    background: colors.button.successBackground,
+    border: colors.button.successBorder,
+    hoverBackground: colors.button.successBackgroundHover,
+    hoverBorder: colors.button.successBorderHover,
+    focusBackground: colors.button.successBackgroundFocus,
+    focusBorder: colors.button.successBorderFocus
   }
 }
 
@@ -122,16 +122,22 @@ const StyledButton = styled.button`
 
   margin: ${spacing.xsmall};
   margin-left: 0;
-  padding: ${spacing.xsmall} ${props => (props.icon ? 0 : spacing.small)};
+  padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
+
+  ${StyledIcon} {
+    color: ${props => getAttributes(props).text};
+    margin-right: ${spacing.xsmall};
+  }
 
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
   }
+
   &:focus {
     background: ${props => getAttributes(props).focusBackground};
     border-color: ${props => getAttributes(props).focusBorder};
@@ -139,10 +145,25 @@ const StyledButton = styled.button`
   }
 `
 
+const Content = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+`
+
 const Button = ({ children, ...props }) => {
   let content = children
+
   if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
+
+  if (props.icon && content) {
+    return (
+      <StyledButton {...props}>
+        <Icon type={props.icon} />
+        <Content>{content}</Content>
+      </StyledButton>
+    )
+  }
 
   if (props.icon) {
     return (
@@ -150,9 +171,13 @@ const Button = ({ children, ...props }) => {
         <Icon type={props.icon} />
       </StyledButton>
     )
-  } else {
-    return <StyledButton {...props}>{content}</StyledButton>
   }
+
+  return (
+    <StyledButton {...props}>
+      <Content>{content}</Content>
+    </StyledButton>
+  )
 }
 
 Button.propTypes = {

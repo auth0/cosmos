@@ -10,7 +10,7 @@ import List from './list'
 import { metadata as components } from '../metadata.json'
 
 const StyledSidebar = styled.div`
-  background: ${colors.grayLightest};
+  background: ${colors.base.grayLightest};
   height: 100vh;
   overflow: scroll;
 `

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledInput } from './_styled-input'
+import { StyledInput } from '../_styled-input'
 
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: 40px;
