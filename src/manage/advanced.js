@@ -18,12 +18,7 @@ class Advanced extends React.Component {
     return (
       <div>
         <Form>
-          <Form.FieldSet label="Application Metadata
-">
-            {/* Question: Maybe the fieldset should be removed and the form would
-              have a title and description prop. This is because spacing will be
-              inconsistent with individual elements. */}
-
+          <Form.FieldSet label="Application Metadata">
             <Text>
               Application metadata are custom string keys and values (max 255 characters each), set
               on a per application basis. Metadata is exposed in the Client object as
@@ -108,6 +103,7 @@ class Advanced extends React.Component {
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form.FieldSet>
         </Form>
+
         {/* TO-DO: Keep adding content */}
       </div>
     )

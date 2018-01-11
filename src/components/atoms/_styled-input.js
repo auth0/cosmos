@@ -9,7 +9,7 @@ const config = {
     hoverBorder: colors.grayMedium,
     focusBorder: colors.blue,
     placeholder: colors.grayMedium,
-    color: '#555'
+    color: colors.grayDarker
   },
   readOnly: {
     background: colors.grayLightest,
@@ -17,14 +17,14 @@ const config = {
     hoverBorder: colors.grayMedium,
     focusBorder: colors.grayMedium,
     placeholder: colors.base,
-    color: '#555'
+    color: colors.grayDarker
   },
   error: {
     background: colors.white,
     border: colors.orange,
     hoverBorder: colors.orange,
     focusBorder: colors.blue,
-    color: '#555'
+    color: colors.grayDarker
   }
 }
 

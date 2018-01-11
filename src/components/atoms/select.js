@@ -5,9 +5,6 @@ import { StyledInput } from './_styled-input'
 
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: 44px;
-  /*
-    TO-DO: Tokenize and connect to buttons and input heights and/or paddings. Ex: InputHeight token.
-  */
 `
 
 const Select = ({ options, ...props }) => {
