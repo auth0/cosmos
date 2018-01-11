@@ -18,7 +18,7 @@ const EmptyState = props => {
   return (
     <EmptyState.Wrapper>
       <Heading1>{props.title}</Heading1>
-      <Icon type={props.icon} size={100} color={colors.grayMedium} />
+      <Icon type={props.icon} size={100} color={colors.icon.light} />
       <p>
         <Text>{props.text}</Text>
         {helpLink}
