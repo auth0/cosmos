@@ -98,6 +98,10 @@ const colors = {
     link: '#333',
     linkHover: '#2386DB',
     linkFocus: '#2386DB'
+  },
+  icon: {
+    default: '#333',
+    light: '#A8A8A8'
   }
 }
 

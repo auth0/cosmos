@@ -16,6 +16,7 @@ injectGlobal`
 const StyledIcon = styled.i`
   font-family: 'budicon-font';
   display: inline-block;
+  vertical-align: middle;
   font-size: ${props => props.size}px;
   font-weight: 400;
   font-style: normal;
@@ -41,7 +42,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   size: 14,
-  color: colors.base
+  color: colors.icon.default
 }
 
 export default Icon
