@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Icon, { StyledIcon } from './icon'
-import { colors, spacing } from '../../tokens'
+import Icon, { StyledIcon } from '../icon'
+import { colors, spacing } from '../../../tokens'
 
 const Wrapper = styled.div`
   width: 100%;

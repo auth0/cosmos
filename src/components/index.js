@@ -39,6 +39,9 @@ export { Code }
 import EmptyState from './atoms/empty-state'
 export { EmptyState }
 
+import Spinner from './atoms/spinner'
+export { Spinner }
+
 import {
   Heading1,
   Heading2,

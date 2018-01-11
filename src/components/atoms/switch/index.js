@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../tokens/'
+import { colors, spacing, misc } from '../../../tokens/'
 
 const Checkbox = styled.input`
   width: 0;

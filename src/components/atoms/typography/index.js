@@ -1,6 +1,6 @@
 import styled, { injectGlobal } from 'styled-components'
 
-import { colors, fonts, misc } from '../../tokens'
+import { colors, fonts, misc } from '../../../tokens'
 
 injectGlobal`
 
