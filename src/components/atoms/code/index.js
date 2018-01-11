@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, fonts } from '../../tokens/'
+import { colors, fonts } from '../../../tokens/'
 
 const StyledCode = styled.span`
   color: rgba(0, 0, 0, 0.86);

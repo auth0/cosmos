@@ -16,8 +16,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing } from '../../tokens/'
-import Icon, { StyledIcon } from '../atoms/icon'
+import { colors, spacing } from '../../../tokens/'
+import Icon, { StyledIcon } from '../../atoms/icon'
 
 /**
   Step 2: Create a styled element with css
@@ -79,8 +79,7 @@ Sidebar.Link = props => {
 const Link = styled.a`
   display: block;
   cursor: pointer;
-  color: ${props =>
-    props.selected ? colors.link.sidebarFocus : colors.link.sidebar};
+  color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
   text-decoration: none;
   font-size: 13px;
   padding: calc(${spacing.xsmall} / 2) 0;

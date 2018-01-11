@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors, fonts, spacing, misc } from '../../tokens/'
+import { colors, fonts, spacing, misc } from '../../../tokens/'
 
 const config = {
   basic: {

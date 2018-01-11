@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../tokens/'
+import { colors, spacing, misc } from '../../../tokens/'
 
 const Checkbox = styled.input`
   width: 0;
@@ -13,8 +13,7 @@ const Toggle = styled.span`
   width: 55px;
   height: 32px;
   border-radius: 21px;
-  background: ${props =>
-    props.on ? colors.base.green : colors.base.grayLight};
+  background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
   position: relative;
 
@@ -30,8 +29,8 @@ const Toggle = styled.span`
     background: ${colors.base.white};
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.25), 0 4px 11px 0 rgba(0, 0, 0, 0.08),
       -1px 3px 3px 0 rgba(0, 0, 0, 0.14);
-    transition: transform ${misc.animationDuration} ease,
-      width ${misc.animationDuration}, left ${misc.animationDuration};
+    transition: transform ${misc.animationDuration} ease, width ${misc.animationDuration},
+      left ${misc.animationDuration};
     transform: translateX(${props => (props.on ? '20px' : 0)});
   }
 

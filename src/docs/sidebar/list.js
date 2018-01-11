@@ -4,8 +4,8 @@ import Link from './link'
 import Group, { getGroups } from './group'
 
 const List = props => {
-  /* Filter out example Box component */
-  const components = props.components.filter(c => c.displayName !== 'Box')
+  /* Filter out internal components */
+  const components = props.components.filter(c => !c.internal)
 
   const groups = getGroups(components)
   return (
