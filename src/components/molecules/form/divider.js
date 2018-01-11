@@ -9,7 +9,7 @@ const StyledDivider = styled(StyledLabel)`
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: ${fonts.weight.medium};
-  border-bottom: 1px solid ${colors.grayLight};
+  border-bottom: 1px solid ${colors.form.divider};
   padding-bottom: ${spacing.xsmall};
   margin-bottom: ${spacing.xlarge};
 `

@@ -15,16 +15,16 @@ const Swatch = styled.span`
 const Colors = () => (
   <Container title="Colors">
     <div>
-      <Swatch color={colors.base} />
-      <Swatch color={colors.grayDark} />
-      <Swatch color={colors.grayMedium} />
-      <Swatch color={colors.grayLight} />
-      <Swatch color={colors.grayLightest} />
+      <Swatch color={colors.base.default} />
+      <Swatch color={colors.base.grayDark} />
+      <Swatch color={colors.base.grayMedium} />
+      <Swatch color={colors.base.grayLight} />
+      <Swatch color={colors.base.grayLightest} />
     </div>
     <div>
-      <Swatch color={colors.blue} />
-      <Swatch color={colors.orange} />
-      <Swatch color={colors.green} />
+      <Swatch color={colors.base.blue} />
+      <Swatch color={colors.base.orange} />
+      <Swatch color={colors.base.green} />
     </div>
   </Container>
 )

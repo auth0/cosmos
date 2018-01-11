@@ -3,7 +3,7 @@ import { colors, spacing } from '../../../tokens'
 
 const TabLink = styled.a`
   padding: ${spacing.large};
-  color: ${props => (props.selected ? colors.base : colors.blue)};
+  color: ${props => (props.selected ? colors.link.default : colors.link.focus)};
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
 `
 

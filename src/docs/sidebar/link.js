@@ -9,20 +9,20 @@ const StyledLink = styled.div`
     display: block;
     padding: ${spacing.small} ${spacing.xlarge};
     text-decoration: none;
-    color: ${props => (props.disabled ? colors.grayMedium : colors.grayDark)};
+    color: ${props => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
     cursor: ${props => (props.disabled ? 'default' : 'pointer')};
 
     &:hover,
     &.selected {
-      background: ${colors.white};
-      color: ${props => (props.disabled ? null : colors.orange)};
-      box-shadow: inset -1px 0px 1px 0px ${colors.grayLightest};
+      background: ${colors.base.white};
+      color: ${props => (props.disabled ? null : colors.base.orange)};
+      box-shadow: inset -1px 0px 1px 0px ${colors.base.grayLightest};
     }
   }
 `
 
 const Tag = styled.span`
-  color: ${colors.grayMedium};
+  color: ${colors.base.grayMedium};
   float: right;
 `
 

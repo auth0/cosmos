@@ -6,7 +6,7 @@ import Code from '../../atoms/code'
 
 const StyledDescription = styled.div`
   font-size: 13px;
-  color: ${colors.grayMedium};
+  color: ${colors.text.helper};
   margin-top: ${spacing.xsmall};
 `
 

@@ -16,7 +16,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, misc } from '../../tokens/'
+import { colors, misc } from '../../../tokens/'
 
 /*
   Step 2: Create a styled element with css
@@ -27,8 +27,8 @@ const StyledBox = styled.div`
   /* all your css goes here */
 
   /* you can use variables here like tokens */
-  background: ${colors.grayLightest};
-  border: 1px solid ${colors.grayDark};
+  background: ${colors.base.grayLightest};
+  border: 1px solid ${colors.base.grayDark};
   border-radius: ${misc.radius};
 
   /* you can use props here to customize the element */
@@ -37,7 +37,7 @@ const StyledBox = styled.div`
 
   /* this is how you add pseudo states */
   &:hover {
-    background: ${colors.grayLight};
+    background: ${colors.base.grayLight};
   }
 `
 

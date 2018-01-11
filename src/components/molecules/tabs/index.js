@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import TabLink from './link'
+import TabContent from './content'
 
 class Tabs extends React.Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Tabs extends React.Component {
   }
 }
 
-Tabs.Tab = props => <div>{props.children}</div>
+Tabs.Tab = props => <TabContent>{props.children}</TabContent>
 
 Tabs.propTypes = {
   /** Children should be an array of React elements */

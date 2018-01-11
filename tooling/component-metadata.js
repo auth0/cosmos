@@ -34,16 +34,8 @@ const run = () => {
         data.filepath = path
 
         /* get documentation file path */
-        let documentationPath
-
-        if (path.includes('molecules')) {
-          /* molecule roots are called index.js, doc is named after directory */
-          const directoryName = path.split('/').splice(-2, 1)[0]
-          documentationPath = path.replace('index.js', `${directoryName}.md`)
-        } else {
-          /* for atoms, the name is same as the javascript filename */
-          documentationPath = path.replace('.js', '.md')
-        }
+        const directoryName = path.split('/').splice(-2, 1)[0]
+        const documentationPath = path.replace('index.js', `${directoryName}.md`)
 
         /* add documentation if exists */
         if (fs.existsSync(documentationPath)) {
@@ -56,6 +48,7 @@ const run = () => {
 
         /* add lazy hint for documentation */
         data.implemented = true
+        data.internal = path.includes('_')
 
         return data
       } catch (err) {

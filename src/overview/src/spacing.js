@@ -10,7 +10,7 @@ const Box = styled.span`
   display: inline-block;
   width: ${props => spacing[props.size]};
   height: ${props => spacing[props.size]};
-  background: ${colors.grayLight};
+  background: ${colors.base.grayLight};
   margin-right: ${spacing.small};
 `
 

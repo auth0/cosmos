@@ -36,6 +36,9 @@ export { Icon }
 import Code from './atoms/code'
 export { Code }
 
+import Spinner from './atoms/spinner'
+export { Spinner }
+
 import {
   Heading1,
   Heading2,

@@ -1,6 +1,6 @@
 import styled, { injectGlobal } from 'styled-components'
 
-import { colors, fonts, misc } from '../../tokens'
+import { colors, fonts, misc } from '../../../tokens'
 
 injectGlobal`
 
@@ -62,21 +62,21 @@ injectGlobal`
 
 const Heading1 = styled.h1`
   margin: 0; /* reset browser default */
-  color: ${colors.base};
+  color: ${colors.text.black};
   font-size: 36px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.normal};
 `
 
 const Heading2 = styled.h2`
   margin: 0; /* reset browser default */
-  color: ${colors.base};
+  color: ${colors.text.black};
   font-size: 24px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.medium};
 `
 
 const Heading3 = styled.h3`
   margin: 0; /* reset browser default */
-  color: ${colors.base};
+  color: ${colors.text.default};
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
@@ -97,13 +97,13 @@ const Heading5 = styled.h5`
 
 const Subheader = styled.h6`
   margin: 0; /* reset browser default */
-  color: ${colors.grayDark};
+  color: ${colors.text.subHeader};
   font-size: 13px;
   font-weight: ${fonts.weight.normal};
 `
 
 const Text = styled.span`
-  color: ${colors.base};
+  color: ${colors.text.default};
   font-size: 14px;
   font-weight: ${fonts.weight.normal};
 `
