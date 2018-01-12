@@ -8,7 +8,7 @@ const StyledLabel = styled.label`
   color: ${colors.text.default};
   font-weight: ${fonts.weight.medium};
   text-align: right;
-  padding-top: 13px;
+  padding-top: 11px;
 `
 
 export default StyledLabel
