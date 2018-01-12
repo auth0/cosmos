@@ -9,7 +9,7 @@ const StyledDescription = styled.div`
   line-height: 2;
   color: ${colors.text.secondary};
   margin-top: ${spacing.xsmall};
-  margin-bottom: ${spacing.xsmall};
+  margin-bottom: ${spacing.small};
 `
 
 const Description = props => {

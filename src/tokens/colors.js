@@ -18,6 +18,7 @@ const colors = {
   },
   text: {
     default: '#212121',
+    inputs: '#555',
     secondary: '#757575',
     subtle: '#BDBDBD'
   },

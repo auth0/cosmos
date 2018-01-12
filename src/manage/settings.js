@@ -54,7 +54,7 @@ class Settings extends React.Component {
           label="Description"
           placeholder="Add a description in less than 140 charachters"
           description="A free text description of the client. Max charachter count is 140"
-          length={10}
+          length={5}
         />
         <Form.TextInput
           label="Client Logo"
@@ -86,12 +86,14 @@ class Settings extends React.Component {
         <Form.TextArea
           label="Allowed Callback URLs"
           description="After the user authenticates we will only call back to any of these URLs. You can specify multiple valid URLs by comma-separating them (typically to handle different environments like QA or testing). Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases."
+          length={3}
         />
         <Form.TextArea
           label="Allowed Callback URLs"
           description={
             'Comma-separated list of allowed origins for use with Cross-Origin Authentication and web message response mode, in the form of `<scheme> "://" <host> [ ":" <port> ]`, such as `https://login.mydomain.com` or `http://localhost:3000`.'
           }
+          length={3}
         />
         <Form.TextArea
           label="Allowed Logout URLs"
@@ -107,10 +109,12 @@ class Settings extends React.Component {
               <a href="https://auth0.com/docs/logout">https://auth0.com/docs/logout</a>
             </span>
           }
+          length={3}
         />
         <Form.TextArea
           label="Allowed Origins (CORS)"
           description="Allowed Origins are URLs that will be allowed to make requests from JavaScript to Auth0 API (typically used with CORS). By default, all your callback URLs will be allowed. This field allows you to enter other origins if you need to. You can specify multiple valid URLs by comma-separating them or one by line, and also use wildcards at the subdomain level (e.g.: `https://*.contoso.com`). Notice that querystrings and hash information are not taking into account when validating these URLs."
+          length={3}
         />
 
         <Form.TextInput
