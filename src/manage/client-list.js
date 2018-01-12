@@ -1,9 +1,12 @@
 import React from 'react'
 
+import { Heading1 } from '../components'
+
 class ClientList extends React.Component {
   render() {
     return (
       <div>
+        <Heading1>Clients</Heading1>
         <div>client list</div>
         <br />
         <br />

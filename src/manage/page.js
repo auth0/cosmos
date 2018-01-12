@@ -19,8 +19,6 @@ const Page = () => (
       boxSizing: 'border-box'
     }}
   >
-    <PageHeader />
-    <Heading1>Clients</Heading1>
     <Router>
       <div>
         <Route exact path="/clients" component={ClientList} />
