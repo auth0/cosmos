@@ -1,6 +1,6 @@
 import values from '../values/colors'
 
-const meaning = {
+const conventions = {
   destructive: {
     background: {
       default: values.red.base,
@@ -23,4 +23,4 @@ const meaning = {
   }
 }
 
-export default meaning
+export default conventions
