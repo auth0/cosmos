@@ -20,6 +20,10 @@ const conventions = {
       hover: values.blue.light,
       focus: values.blue.lighter
     }
+  },
+  highlight: {
+    subtle: values.blue.base,
+    catchy: values.red.lighter
   }
 }
 
