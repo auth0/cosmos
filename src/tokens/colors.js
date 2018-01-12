@@ -20,7 +20,8 @@ const colors = {
     default: '#212121',
     inputs: '#555',
     secondary: '#757575',
-    subtle: '#BDBDBD'
+    subtle: '#BDBDBD',
+    error: '#FF0000'
   },
   form: {
     title: '#000',
