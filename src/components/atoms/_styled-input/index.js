@@ -9,7 +9,7 @@ const config = {
     hoverBorder: colors.input.borderHover,
     focusBorder: colors.input.borderFocus,
     placeholder: colors.input.placeholder,
-    color: colors.base.text
+    color: colors.text.default
   },
   readOnly: {
     background: colors.input.backgroundReadOnly,
@@ -17,14 +17,14 @@ const config = {
     hoverBorder: colors.input.border,
     focusBorder: colors.input.border,
     placeholder: colors.input.placeholderReadOnly,
-    color: colors.base.text
+    color: colors.text.default
   },
   error: {
     background: colors.input.background,
     border: colors.input.borderError,
     hoverBorder: colors.input.borderError,
     focusBorder: colors.input.borderError,
-    color: colors.base.text
+    color: colors.text.default
   }
 }
 
