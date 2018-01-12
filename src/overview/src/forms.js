@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Form } from '../../components'
+import { Form, Code, Link } from '../../components'
 
 const fakeMethod = e => {
   e.preventDefault()
@@ -19,6 +19,18 @@ const Forms = () => (
         placeholder="Placeholder text"
         description="Name of the connection to be use for Password Grant exchanges. The `default_directory` value
         should be the exact name of an existing connections of one of the following."
+      />
+      <Form.TextInput
+        label="Field with helper text"
+        placeholder="Placeholder text"
+        description={
+          <span>
+            Name of the connection to be use for Password Grant exchanges. The{' '}
+            <Code>default_directory</Code>
+            value should be the exact name of an existing connections of{' '}
+            <Link href="">one of the following.</Link>
+          </span>
+        }
       />
       <Form.TextInput
         label="Text input with actions"

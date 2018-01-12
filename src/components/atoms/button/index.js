@@ -36,15 +36,15 @@ const config = {
     focusBorder: colors.button.transparentBorderFocus
   },
   link: {
-    text: colors.button.link,
-    background: 'transparent',
-    border: 'transparent',
-    hoverText: colors.button.linkHover,
-    hoverBackground: 'transparent',
-    hoverBorder: 'transparent',
-    focusText: colors.button.linkFocus,
-    focusBackground: 'transparent',
-    focusBorder: 'transparent'
+    text: colors.link.foreground.default,
+    hoverText: colors.link.foreground.hover,
+    focusText: colors.link.foreground.focus,
+    background: colors.link.background.default,
+    border: colors.link.background.default,
+    hoverBackground: colors.link.background.default,
+    hoverBorder: colors.link.background.default,
+    focusBackground: colors.link.background.default,
+    focusBorder: colors.link.background.default
   },
   disabled: {
     text: colors.button.disabledText,
@@ -56,13 +56,13 @@ const config = {
     focusBorder: colors.button.disabledBorderFocus
   },
   destructive: {
-    text: colors.button.destructiveText,
-    background: colors.button.destructiveBackground,
-    border: colors.button.destructiveBorder,
-    hoverBackground: colors.button.destructiveBackgroundHover,
-    hoverBorder: colors.button.destructiveBorderHover,
-    focusBackground: colors.button.destructiveBackgroundFocus,
-    focusBorder: colors.button.destructiveBorderFocus
+    text: colors.destructive.foreground.default,
+    background: colors.destructive.background.default,
+    border: colors.destructive.background.default,
+    hoverBackground: colors.destructive.background.hover,
+    hoverBorder: colors.destructive.background.hover,
+    focusBackground: colors.destructive.background.focus,
+    focusBorder: colors.destructive.background.focus
   },
   loading: {
     text: colors.base.white,
