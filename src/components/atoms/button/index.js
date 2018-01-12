@@ -56,13 +56,13 @@ const config = {
     focusBorder: colors.button.disabledBorderFocus
   },
   destructive: {
-    text: colors.button.destructiveText,
-    background: colors.button.destructiveBackground,
-    border: colors.button.destructiveBorder,
-    hoverBackground: colors.button.destructiveBackgroundHover,
-    hoverBorder: colors.button.destructiveBorderHover,
-    focusBackground: colors.button.destructiveBackgroundFocus,
-    focusBorder: colors.button.destructiveBorderFocus
+    text: colors.destructive.foreground.default,
+    background: colors.destructive.background.default,
+    border: colors.destructive.background.default,
+    hoverBackground: colors.destructive.background.hover,
+    hoverBorder: colors.destructive.background.hover,
+    focusBackground: colors.destructive.background.focus,
+    focusBorder: colors.destructive.background.focus
   },
   loading: {
     text: colors.base.white,
