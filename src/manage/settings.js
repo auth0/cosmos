@@ -52,8 +52,8 @@ class Settings extends React.Component {
 
         <Form.TextArea
           label="Description"
-          placeholder="Add a description in less than 140 charachters"
-          description="A free text description of the client. Max charachter count is 140"
+          placeholder="Add a description in less than 140 characters"
+          description="A free text description of the client. Max character count is 140."
           length={5}
         />
         <Form.TextInput
@@ -76,9 +76,9 @@ class Settings extends React.Component {
         <Form.Select
           label="Token Endpoint Authentication Method"
           options={[
-            { text: 'None', value: 'none', defaultSelected: true },
+            { text: 'None', value: 'none' },
             { text: 'Basic', value: 'basic' },
-            { text: 'Post', value: 'post' }
+            { text: 'Post', value: 'post', defaultSelected: true }
           ]}
           description="Defines the requested authentication method for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
         />
