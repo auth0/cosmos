@@ -36,15 +36,15 @@ const config = {
     focusBorder: colors.button.transparentBorderFocus
   },
   link: {
-    text: colors.button.link,
-    background: 'transparent',
-    border: 'transparent',
-    hoverText: colors.button.linkHover,
-    hoverBackground: 'transparent',
-    hoverBorder: 'transparent',
-    focusText: colors.button.linkFocus,
-    focusBackground: 'transparent',
-    focusBorder: 'transparent'
+    text: colors.link.foreground.default,
+    hoverText: colors.link.foreground.hover,
+    focusText: colors.link.foreground.focus,
+    background: colors.link.background.default,
+    border: colors.link.background.default,
+    hoverBackground: colors.link.background.default,
+    hoverBorder: colors.link.background.default,
+    focusBackground: colors.link.background.default,
+    focusBorder: colors.link.background.default
   },
   disabled: {
     text: colors.button.disabledText,

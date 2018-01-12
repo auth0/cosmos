@@ -5,7 +5,8 @@ const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
-  color: ${props => (props.selected ? colors.link.default : colors.link.focus)};
+  color: ${props =>
+    props.selected ? colors.link.foreground.default : colors.link.foreground.focus};
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
   border-bottom: 1px solid ${props => (props.selected ? colors.base : 'transparent')};
   margin-bottom: -1px;
