@@ -9,7 +9,7 @@ const StyledCode = styled.span`
   font-size: 90%;
   padding: 0 6px 2px;
   display: inline-block;
-  background-color: ${colors.base.grayLightest};
+  background-color: ${colors.base.blueLightest};
   border-radius: 3px;
 `
 

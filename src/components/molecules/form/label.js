@@ -9,7 +9,6 @@ const StyledLabel = styled.label`
   font-weight: ${fonts.weight.medium};
   text-align: right;
   padding-top: 13px;
-  line-height: normal;
 `
 
 export default StyledLabel
