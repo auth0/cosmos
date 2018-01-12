@@ -10,6 +10,16 @@ const meaning = {
     foreground: {
       default: values.white.base
     }
+  },
+  link: {
+    background: {
+      default: 'transparent'
+    },
+    foreground: {
+      default: values.blue.base,
+      hover: values.blue.light,
+      focus: values.blue.lighter
+    }
   }
 }
 
