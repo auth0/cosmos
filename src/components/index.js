@@ -39,6 +39,9 @@ export { Code }
 import Spinner from './atoms/spinner'
 export { Spinner }
 
+import Tooltip from './atoms/tooltip'
+export { Tooltip }
+
 import {
   Heading1,
   Heading2,
@@ -49,9 +52,6 @@ import {
   Text
 } from './atoms/typography'
 export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
-
-import Tooltip from './atoms/tooltip'
-export { Tooltip }
 
 /* molecules */
 import EmptyState from './molecules/empty-state'
