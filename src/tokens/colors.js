@@ -8,7 +8,7 @@ const colors = {
     grayMedium: '#A8A8A8',
     grayLight: '#D9D9D9',
     grayLightest: '#F1F1F1',
-    blue: '#2386DB',
+    blue: '#0a84ae',
     orange: '#FF3E00',
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
@@ -18,10 +18,7 @@ const colors = {
   text: {
     default: '#212121',
     secondary: '#757575',
-    subtle: '#BDBDBD',
-    subHeader: '#636363',
-    helper: '#989898',
-    error: '#FF3E00'
+    subtle: '#BDBDBD'
   },
   form: {
     title: '#000',
@@ -32,7 +29,7 @@ const colors = {
     backgroundReadOnly: '#F3F4F4',
     border: '#D9D9D9',
     borderHover: '#B7B7B7',
-    borderFocus: '#14AAFF',
+    borderFocus: '#0a84ae',
     borderError: '#FF0000',
     icon: '#A2A2A2',
     text: '#333',

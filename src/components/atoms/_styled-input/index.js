@@ -8,20 +8,23 @@ const config = {
     border: colors.input.border,
     hoverBorder: colors.input.borderHover,
     focusBorder: colors.input.borderFocus,
-    placeholder: colors.input.placeholder
+    placeholder: colors.input.placeholder,
+    color: colors.base.text
   },
   readOnly: {
     background: colors.input.backgroundReadOnly,
     border: colors.input.border,
     hoverBorder: colors.input.border,
     focusBorder: colors.input.border,
-    placeholder: colors.input.placeholderReadOnly
+    placeholder: colors.input.placeholderReadOnly,
+    color: colors.base.text
   },
   error: {
     background: colors.input.background,
     border: colors.input.borderError,
     hoverBorder: colors.input.borderError,
-    focusBorder: colors.input.borderError
+    focusBorder: colors.input.borderError,
+    color: colors.base.text
   }
 }
 
@@ -41,9 +44,9 @@ const StyledInput = styled.input`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  color: ${colors.input.text};
+  color: ${props => getAttributes(props).color};
 
-  padding: ${spacing.xsmall} ${spacing.small};
+  padding: ${misc.inputs.padding} ${spacing.small};
 
   cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
   transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};

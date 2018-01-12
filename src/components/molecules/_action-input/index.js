@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const ButtonGroup = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  top: 2px;
   ${StyledButton} {
     margin: 0;
   }
