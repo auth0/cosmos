@@ -1,5 +1,3 @@
-Success Icon
-
-```js
-<Icon type="success" />
+```js props
+<Icon type="analytics" {props} />
 ```

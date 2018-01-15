@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../../tokens/'
 import onlyOneOf from '../../_helpers/only-one-of-validator'
-import Icon, { StyledIcon } from '../icon'
+import Icon from '../icon'
 import Spinner from '../spinner'
 
 const config = {
@@ -127,8 +127,7 @@ const StyledButton = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${StyledIcon} {
-    color: ${props => getAttributes(props).text};
+  ${Icon.Element} {
     margin-right: ${spacing.xsmall};
   }
 
@@ -159,7 +158,7 @@ const Button = ({ children, ...props }) => {
   if (props.icon && content) {
     return (
       <StyledButton {...props}>
-        <Icon type={props.icon} />
+        <Icon type={props.icon} color={getAttributes(props).text} />
         <Content>{content}</Content>
       </StyledButton>
     )

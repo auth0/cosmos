@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Icon, { StyledIcon } from '../../atoms/icon'
+import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import { Heading1, Text } from '../../atoms/typography'
 import { colors, spacing } from '../../../tokens'
@@ -34,7 +34,7 @@ EmptyState.Wrapper = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  > ${StyledIcon} {
+  > ${Icon.Svg} {
     margin-top: ${spacing.xlarge};
     line-height: 1em;
   }

@@ -17,7 +17,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens/'
-import Icon, { StyledIcon } from '../../atoms/icon'
+import Icon from '../../atoms/icon'
 
 /**
   Step 2: Create a styled element with css
@@ -32,9 +32,8 @@ const StyledSidebar = styled.div`
    */
   width: 160px;
 
-  ${StyledIcon} {
+  ${Icon.Svg} {
     margin-right: ${spacing.xsmall};
-    vertical-align: middle;
   }
 `
 
