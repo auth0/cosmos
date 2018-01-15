@@ -41,9 +41,9 @@ const StyledInput = styled.input`
   border-radius: ${misc.radius};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  color: ${colors.input.text};
+  color: ${colors.text.inputs};
 
-  padding: ${spacing.xsmall} ${spacing.small};
+  padding: ${misc.inputs.padding} ${spacing.small};
 
   cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
   transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};

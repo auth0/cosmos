@@ -25,7 +25,7 @@ const formWidth = '625px'
 const labelWidth = multiply(formWidth, 0.35)
 
 const Field = styled.div`
-  margin: ${spacing.medium} 0;
+  margin: ${spacing.small} 0;
   display: flex;
   width: ${formWidth};
 `
@@ -44,7 +44,8 @@ const StyledForm = styled.form`
     that needs to be overwritten :/ */
     vertical-align: top;
     /* resize should not happen horizontally inside a form */
-    min-height: 40px;
+    min-height: 44px;
+    /* TO-DO: Tokenize this value as it's related to the other heights of components. */
   }
   ${StyledDivider} {
     width: 100%;

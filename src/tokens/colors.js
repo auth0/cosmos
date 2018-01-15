@@ -8,7 +8,8 @@ const colors = {
     grayMedium: '#A8A8A8',
     grayLight: '#D9D9D9',
     grayLightest: '#F1F1F1',
-    blue: '#2386DB',
+    blue: '#0a84ae',
+    blueLightest: '#f5f7f9',
     orange: '#FF3E00',
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
@@ -16,10 +17,11 @@ const colors = {
     red: '#FF0000'
   },
   text: {
-    default: '#333',
-    subHeader: '#636363',
-    helper: '#989898',
-    error: '#FF3E00'
+    default: '#212121',
+    inputs: '#555',
+    secondary: '#757575',
+    subtle: '#BDBDBD',
+    error: '#FF0000'
   },
   form: {
     title: '#000',
@@ -30,7 +32,7 @@ const colors = {
     backgroundReadOnly: '#F3F4F4',
     border: '#D9D9D9',
     borderHover: '#B7B7B7',
-    borderFocus: '#14AAFF',
+    borderFocus: '#0a84ae',
     borderError: '#FF0000',
     icon: '#A2A2A2',
     text: '#333',
@@ -41,16 +43,16 @@ const colors = {
     labelDisabled: '#C6C6C6'
   },
   link: {
-    default: '#2386DB',
-    defaultHover: '#2386DB',
-    defaultFocus: '#2386DB',
+    default: '#0a84ae',
+    defaultHover: '#0a84ae',
+    defaultFocus: '#0a84ae',
     sidebar: '#333',
     sidebarHover: '#FF3E00',
     sidebarFocus: '#FF3E00'
   },
   tabs: {
-    default: '#333',
-    defaultHover: '#2386DB'
+    default: '#212121',
+    defaultHover: '#0a84ae'
   },
   button: {
     defaultBackground: '#F1F1F1',

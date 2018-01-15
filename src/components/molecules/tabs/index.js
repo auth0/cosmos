@@ -40,7 +40,7 @@ class Tabs extends React.Component {
     const Tabs = styled.div``
 
     const TabsNavigation = styled.div`
-      border-bottom: 1px solid ${colors.grayLight};
+      border-bottom: 1px solid ${colors.base.grayLight};
       ${TabLink}:last-child {
         margin-right: 0;
       }
