@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors } from '../../../tokens'
+import { colors, spacing } from '../../../tokens'
 import { icons } from './icons.json'
 
 const Icon = props => {
@@ -21,6 +21,10 @@ const Icon = props => {
 Icon.Element = styled.svg`
   display: inline-block;
   vertical-align: middle;
+  margin-right: ${spacing.xsmall};
+  :last-child {
+    margin-right: 0;
+  }
 `
 
 Icon.propTypes = {

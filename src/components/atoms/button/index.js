@@ -127,10 +127,6 @@ const StyledButton = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${Icon.Element} {
-    margin-right: ${spacing.xsmall};
-  }
-
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
