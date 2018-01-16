@@ -39,17 +39,19 @@ const StyledTooltip = styled.div`
   }
 `
 
-const Tooltip = props => {
-  return <StyledTooltip {...props} />
+const Tooltip = ({ content, ...props }) => {
+  return <StyledTooltip {...props}>{content}</StyledTooltip>
 }
 
 Tooltip.propTypes = {
+  /** Use to show tooltip on top */
   top: PropTypes.bool,
+  /** Use to show tooltip on bottom */
   bottom: PropTypes.bool
 }
 
 Tooltip.defaultProps = {
-  top: null,
+  top: true,
   bottom: false
 }
 
