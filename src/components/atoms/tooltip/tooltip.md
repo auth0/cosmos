@@ -1,5 +1,5 @@
 ```js props
-<Tooltip {props} content="Here is some text" />
+<Tooltip {props} content="Here is some text">Hover me</Tooltip>
 ```
 
 ---
@@ -9,11 +9,15 @@
 Tooltip top:
 
 ```js
-<Tooltip top content="I am a tooltip on top" />
+<Tooltip top content="Copy">
+  <Icon type="copy" />
+</Tooltip>
 ```
 
 Tooltip bottom:
 
 ```js
-<Tooltip top content="I am a tooltip on top" />
+<Tooltip bottom content="Notifications">
+  <Icon type="notifications" />
+</Tooltip>
 ```
