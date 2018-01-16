@@ -10,10 +10,22 @@ const StyledTooltip = styled.div`
   border-radius: ${misc.radius};
   max-width: 200px;
   text-align: center;
-  position: relative;
+  position: absolute;
   padding: ${spacing.xsmall};
   line-height: normal;
   font-size: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: ${spacing.xsmall} 0;
+  opacity: 0;
+  ${props =>
+    props.bottom
+      ? css`
+          top: 100%;
+        `
+      : css`
+          bottom: 100%;
+        `};
 
   &:after {
     content: '';
@@ -39,8 +51,24 @@ const StyledTooltip = styled.div`
   }
 `
 
+const ContentTooltip = styled.div`
+  display: inline-block;
+  position: relative;
+
+  &:hover {
+    ${StyledTooltip} {
+      opacity: 1;
+    }
+  }
+`
+
 const Tooltip = ({ content, ...props }) => {
-  return <StyledTooltip {...props}>{content}</StyledTooltip>
+  return (
+    <ContentTooltip>
+      <StyledTooltip {...props}>{content}</StyledTooltip>
+      {props.children}
+    </ContentTooltip>
+  )
 }
 
 Tooltip.propTypes = {
@@ -51,7 +79,7 @@ Tooltip.propTypes = {
 }
 
 Tooltip.defaultProps = {
-  top: true,
+  top: null,
   bottom: false
 }
 
