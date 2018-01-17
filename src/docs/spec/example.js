@@ -19,13 +19,16 @@ const Example = props => {
       p: TextBlock,
       li: Heading5,
       /* use playground for js code blocks */
-      code: props => {
-        console.log(props)
-        if (!props.className) return <Code>{props.children}</Code>
-        else if (props.className.indexOf('js') === -1) return null
+      code: markdownProps => {
+        if (!markdownProps.className) return <Code>{markdownProps.children}</Code>
+        else if (markdownProps.className.indexOf('js') === -1) return null
         else {
           return (
-            <Playground code={props.children} tags={props.className} component={props.component} />
+            <Playground
+              code={markdownProps.children}
+              tags={markdownProps.className}
+              component={props.component}
+            />
           )
         }
       },

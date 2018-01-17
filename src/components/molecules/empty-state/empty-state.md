@@ -1,9 +1,15 @@
 This component can be used as a placeholder for a list when the list would otherwise be empty.
 
-```js props
+```jsx
 <EmptyState
   title="Clients"
   icon="clients"
-  action={{ icon: "add", text: "Create Client", method: function(){/*...*/} }}
+  action={{
+    icon: 'add',
+    text: 'Create Client',
+    method: function() {
+      /*...*/
+    }
+  }}
 />
 ```

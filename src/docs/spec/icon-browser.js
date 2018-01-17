@@ -5,6 +5,10 @@ import { TextInput, Icon } from '../../components'
 import { colors, spacing } from '../../tokens'
 import { types, aliases } from '../icons.json'
 
+const IconBrowserElement = styled.div`
+  margin-bottom: ${spacing.xlarge};
+`
+
 const IconBrowserList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -63,14 +67,14 @@ class IconBrowser extends React.Component {
     ))
 
     return (
-      <div>
+      <IconBrowserElement>
         <TextInput
           placeholder="Start typing to search for icons..."
           value={filter}
           onChange={this.handleChange}
         />
         <IconBrowserList>{icons}</IconBrowserList>
-      </div>
+      </IconBrowserElement>
     )
   }
 }

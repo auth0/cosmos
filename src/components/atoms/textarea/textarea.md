@@ -6,7 +6,7 @@
 
 Note: `TextArea` is camelcased, it's not `Textarea`.
 
-```js props
+```jsx
 <TextArea {props} placeholder="Placeholder text" />
 ```
 

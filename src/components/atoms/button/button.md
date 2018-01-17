@@ -4,7 +4,7 @@
 
 `import Button from 'cosmos/button'`
 
-```js props
+```jsx
 <Button {props}>Button</Button>
 ```
 

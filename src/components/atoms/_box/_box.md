@@ -4,7 +4,7 @@
 
 This component can be seen on `/docs/Box`
 
-```js props
+```jsx
 <Box {props} />
 ```
 
