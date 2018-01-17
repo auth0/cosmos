@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fuzzysearch": "^1.0.3",
     "glob": "7.1.2",
     "lodash.camelcase": "4.3.0",
-    "markdown-to-jsx": "5.4.2",
+    "markdown-to-jsx": "6.4.1",
     "raw-loader": "0.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

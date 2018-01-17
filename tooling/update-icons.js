@@ -35,6 +35,29 @@ const transform = (name, svg) => {
   return icon
 }
 
+const buildAliasLookup = icons => {
+  const aliases = JSON.parse(fs.readFileSync('src/icons/aliases.json', 'utf8'))
+  const lookup = {}
+
+  // Add entries pointing from the actual names of the icons to themselves
+  Object.keys(icons).forEach(name => {
+    lookup[name] = name
+  })
+
+  // Add entries for each of the aliases of the icons, pointing to their actual names
+  Object.keys(aliases).forEach(name => {
+    if (!icons[name]) {
+      warn('DOCS', `Ignoring aliases defined for a non-existent icon ${name}`)
+      return
+    }
+    aliases[name].forEach(alias => {
+      lookup[alias] = name
+    })
+  })
+
+  return lookup
+}
+
 const run = () => {
   info('DOCS', 'Generating icons')
 
@@ -48,7 +71,7 @@ const run = () => {
     multipass: true
   })
 
-  const process = path => {
+  const processFile = path => {
     const name = basename(path)
       .replace(/^icon-/, '')
       .replace(/\.svg$/, '')
@@ -60,16 +83,22 @@ const run = () => {
   }
 
   const svgFiles = glob.sync('src/icons/**/*.svg')
-  const aliases = JSON.parse(fs.readFileSync('src/icons/aliases.json', 'utf8'))
 
-  Promise.all(svgFiles.map(process)).then(data => {
-    const metadata = {
-      icons: fromPairs(data),
-      aliases
-    }
+  Promise.all(svgFiles.map(processFile)).then(data => {
+    const icons = fromPairs(data)
+    const aliases = buildAliasLookup(icons)
+
+    // Write the transformed path data from the icon SVG files
     fs.writeFileSync(
       'src/components/atoms/icon/icons.json',
-      JSON.stringify(metadata, null, 2),
+      JSON.stringify({ icons }, null, 2),
+      'utf8'
+    )
+
+    // Write the lookup table for icon names which will be used in the docs
+    fs.writeFileSync(
+      'src/docs/icons.json',
+      JSON.stringify({ types: Object.keys(icons).sort(), aliases }, null, 2),
       'utf8'
     )
   })

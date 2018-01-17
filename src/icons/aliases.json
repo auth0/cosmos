@@ -1,4 +1,4 @@
 {
-  "trash": ["delete", "remove"],
+  "delete": ["trash", "remove"],
   "users": ["person", "people"]
 }

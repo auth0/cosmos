@@ -71,7 +71,7 @@ const Copy = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    let showProps = props.tags.includes('props')
+    let showProps = props.tags.includes('jsx')
 
     this.state = {
       showProps,
