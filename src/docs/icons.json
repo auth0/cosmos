@@ -10,6 +10,7 @@
     "delete",
     "emails",
     "extensions",
+    "help",
     "hlp",
     "hooks",
     "logs",
@@ -30,6 +31,7 @@
     "delete": "delete",
     "emails": "emails",
     "extensions": "extensions",
+    "help": "help",
     "hlp": "hlp",
     "hooks": "hooks",
     "logs": "logs",
@@ -40,6 +42,8 @@
     "users": "users",
     "trash": "delete",
     "remove": "delete",
+    "question": "help",
+    "?": "help",
     "person": "users",
     "people": "users"
   }

@@ -6,7 +6,8 @@ import { colors, spacing } from '../../../tokens'
 import { icons } from './icons.json'
 
 const Icon = props => {
-  const icon = icons[props.type] || icons.connections // TODO: Choose a real "unknown" icon
+  // If the icon type isn't found, show a question mark instead.
+  const icon = icons[props.type] || icons.help
   return (
     <Icon.Element
       width={props.size}
