@@ -5,9 +5,9 @@ import { Tooltip } from '../../components'
 
 const Tooltips = () => (
   <Container title="Tooltip">
-    <Tooltip top content="I am a tooltip on top" />
-    <br />
-    <Tooltip bottom content="I am a tooltip on bottom" />
+    <Tooltip top content="Hi! I am a Tooltip :D">
+      HOVER ME
+    </Tooltip>
   </Container>
 )
 

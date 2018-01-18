@@ -8,7 +8,7 @@ const StyledTooltip = styled.div`
   background: ${colors.tooltip.background};
   color: ${colors.tooltip.text};
   border-radius: ${misc.radius};
-  max-width: 200px;
+  width: max-content;
   text-align: center;
   position: absolute;
   padding: ${spacing.xsmall};
@@ -17,6 +17,7 @@ const StyledTooltip = styled.div`
   left: 50%;
   transform: translateX(-50%);
   margin: ${spacing.xsmall} 0;
+  pointer-events: none;
   opacity: 0;
   ${props =>
     props.bottom
@@ -79,7 +80,7 @@ Tooltip.propTypes = {
 }
 
 Tooltip.defaultProps = {
-  top: null,
+  top: true,
   bottom: false
 }
 
