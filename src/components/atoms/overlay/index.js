@@ -42,23 +42,23 @@ class Overlay extends React.Component {
   }
 
   handleDocumentKeyDown = evt => {
-    const { isOpen, onClose } = this.props
-    if (isOpen && evt.which === keyCodes.escape) {
+    const { closeOnEscape, isOpen, onClose } = this.props
+    if (closeOnEscape && isOpen && evt.which === keyCodes.escape) {
       evt.preventDefault()
       onClose()
     }
   }
 
   render() {
+    const { isOpen, children } = this.props
+
     if (!this.state.hasBeenMounted) return null
 
     let content = null
-    if (this.props.isOpen) {
+    if (isOpen) {
       content = (
         <Overlay.Backdrop onMouseDown={this.handleBackdropMouseDown}>
-          <Overlay.Element innerRef={el => (this.contentElement = el)}>
-            {this.props.children}
-          </Overlay.Element>
+          <Overlay.Element innerRef={el => (this.contentElement = el)}>{children}</Overlay.Element>
         </Overlay.Backdrop>
       )
     }
@@ -86,11 +86,13 @@ Overlay.Element = styled.div`
 `
 
 Overlay.propTypes = {
+  closeOnEscape: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
 Overlay.defaultProps = {
+  closeOnEscape: true,
   isOpen: false
 }
 
