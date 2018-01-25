@@ -31,6 +31,8 @@ const Buttons = () => (
     <br />
     <ButtonStateWrapper primary />
     <br />
+    <ButtonStateWrapper primaryAlt />
+    <br />
     <ButtonStateWrapper transparent />
     <br />
     <ButtonStateWrapper disabled />

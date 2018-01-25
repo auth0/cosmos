@@ -26,6 +26,15 @@ const config = {
     focusBackground: colors.button.primaryBackgroundFocus,
     focusBorder: colors.button.primaryBorderFocus
   },
+  primaryAlt: {
+    text: colors.button.primaryAltText,
+    background: colors.button.primaryAltBackground,
+    border: colors.button.primaryAltBorder,
+    hoverBackground: colors.button.primaryAltBackgroundHover,
+    hoverBorder: colors.button.primaryAltBorderHover,
+    focusBackground: colors.button.primaryAltBackgroundFocus,
+    focusBorder: colors.button.primaryAltBorderFocus
+  },
   transparent: {
     text: colors.button.transparentText,
     background: colors.button.transparentBackground,
@@ -88,6 +97,7 @@ const getAttributes = props => {
   let styles = null
   if (props.success) styles = config.success
   else if (props.primary) styles = config.primary
+  else if (props.primaryAlt) styles = config.primaryAlt
   else if (props.transparent) styles = config.transparent
   else if (props.link) styles = config.link
   else if (props.destructive) styles = config.destructive
@@ -111,7 +121,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
-  font-weight: ${fonts.weight.bold};
+  font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
   border: 1px solid;
@@ -183,6 +193,8 @@ const Button = ({ children, ...props }) => {
 Button.propTypes = {
   /** Use for primary call to action */
   primary: PropTypes.bool,
+  /** Use for primary call to action with alternative color */
+  primaryAlt: PropTypes.bool,
   /** Use for secondary call to action */
   transparent: PropTypes.bool,
   /** Disable button that does not validate constraint */
