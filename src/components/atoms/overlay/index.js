@@ -35,8 +35,13 @@ class Overlay extends React.Component {
   }
 
   handleBackdropMouseDown = evt => {
-    const { isOpen, onClose } = this.props
-    if (isOpen && this.contentElement && !this.contentElement.contains(evt.target)) {
+    const { closeOnBackdropClick, isOpen, onClose } = this.props
+    if (
+      closeOnBackdropClick &&
+      isOpen &&
+      this.contentElement &&
+      !this.contentElement.contains(evt.target)
+    ) {
       onClose()
     }
   }
@@ -86,12 +91,14 @@ Overlay.Element = styled.div`
 `
 
 Overlay.propTypes = {
+  closeOnBackdropClick: PropTypes.bool.isRequired,
   closeOnEscape: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired
 }
 
 Overlay.defaultProps = {
+  closeOnBackdropClick: true,
   closeOnEscape: true,
   isOpen: false
 }
