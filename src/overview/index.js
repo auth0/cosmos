@@ -10,6 +10,7 @@ import Icons from './src/icons'
 import Spacing from './src/spacing'
 import Forms from './src/forms'
 import EmptyStates from './src/empty-states'
+import Overlays from './src/overlays'
 
 import Links from './src/links'
 import Tooltip from './src/tooltip'
@@ -25,6 +26,7 @@ export default () => (
         <Icons />
         <Spacing />
         <EmptyStates />
+        <Overlays />
         <Forms />
         <Tooltip />
       </Column>

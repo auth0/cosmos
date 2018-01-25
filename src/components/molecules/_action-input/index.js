@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import TextInput from '../../atoms/text-input'
-import Button, { StyledButton } from '../../atoms/button'
+import Button from '../../atoms/button'
 
 const Wrapper = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ const ButtonGroup = styled.div`
   position: absolute;
   right: 0;
   top: 2px;
-  ${StyledButton} {
+  ${Button.Element} {
     margin: 0;
   }
 `
