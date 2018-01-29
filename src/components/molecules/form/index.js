@@ -50,6 +50,11 @@ const StyledForm = styled.form`
   ${StyledDivider} {
     width: 100%;
   }
+  ${Field} {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 `
 
 const Form = props => <StyledForm>{props.children}</StyledForm>

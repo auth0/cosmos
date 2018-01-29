@@ -59,7 +59,9 @@ You can also add `description` for the form field which supports tagging variabl
 </Form>
 ```
 
-Long forms should be divided into smaller groups using a `FieldSet`
+#### Grouping fields
+
+Long forms should be divided into smaller groups using a `FieldSet`. Note that `Form.Actions` go outside fieldsets.
 
 ```js
 <Form>
@@ -72,6 +74,7 @@ Long forms should be divided into smaller groups using a `FieldSet`
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
 
@@ -86,8 +89,8 @@ If a page has multiple forms, use a `Well` to separate each form. Use a `Form.Fi
       <Form.FieldSet label="iOS Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
       </Form.FieldSet>
+      <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
     </Form>
   </Well>
 
@@ -96,8 +99,8 @@ If a page has multiple forms, use a `Well` to separate each form. Use a `Form.Fi
       <Form.FieldSet label="Android Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
       </Form.FieldSet>
+      <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
     </Form>
   </Well>
 </div>
