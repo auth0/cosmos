@@ -34,6 +34,7 @@ class Advanced extends React.Component {
               <Form.TextInput
                 label="Team ID"
                 type="text"
+                code
                 placeholder="9JA89QQLNQ"
                 description={
                   <span>
@@ -51,6 +52,7 @@ class Advanced extends React.Component {
               <Form.TextInput label="App Package Name" type="text" placeholder="com.example" />
               <Form.TextArea
                 label="Key Hashes"
+                code
                 placeholder="D8:A0:83:..., D9:C1:B2:..."
                 length="3"
                 description="The SHA256 fingerprints of your app’s signing certificate. You can specify multiple key hashes by comma-separating them or one by line."
@@ -65,7 +67,7 @@ class Advanced extends React.Component {
             <Form.FieldSet label="OAuth">
               <Form.TextArea
                 label="Allowed APPs / APIs"
-                placeholder="D8:A0:83:..., D9:C1:B2:..."
+                placeholder=""
                 length="3"
                 description="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific client ids. You can specify multiple IDs by comma-separating them or one by line."
               />
@@ -118,9 +120,8 @@ class Advanced extends React.Component {
           <Form>
             <Form.FieldSet label="WS-Federation">
               <p>Code block goes here...</p>
-
-              <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
             </Form.FieldSet>
+            <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
         </Well>
         <Well>
