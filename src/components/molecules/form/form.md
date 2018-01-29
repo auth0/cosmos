@@ -75,6 +75,34 @@ Long forms should be divided into smaller groups using a `FieldSet`
 </Form>
 ```
 
+#### Multiple forms in a page
+
+If a page has multiple forms, use a `Well` to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+
+```js
+<div>
+  <Well>
+    <Form>
+      <Form.FieldSet label="iOS Settings">
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+      </Form.FieldSet>
+    </Form>
+  </Well>
+
+  <Well>
+    <Form>
+      <Form.FieldSet label="Android Settings">
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+      </Form.FieldSet>
+    </Form>
+  </Well>
+</div>
+```
+
 At the end of the forms, you need actions that the user can take. Pass a `primaryAction` with the label and method to call.
 
 ```js

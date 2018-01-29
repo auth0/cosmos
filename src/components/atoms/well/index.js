@@ -7,7 +7,7 @@ import { colors, misc, spacing } from '../../../tokens/'
 const StyledWell = styled.div`
   background: rgb(249, 249, 249);
   padding: ${spacing.large};
-  margin-bottom: ${spacing.large};
+  margin-bottom: ${spacing.medium};
 `
 
 const Well = props => {
