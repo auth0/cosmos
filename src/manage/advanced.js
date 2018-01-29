@@ -47,11 +47,6 @@ class Advanced extends React.Component {
                 placeholder="com.my.autho.bundle"
               />
             </Form.FieldSet>
-            <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
-          </Form>
-        </Well>
-        <Well>
-          <Form>
             <Form.FieldSet label="Android Settings">
               <Form.TextInput label="App Package Name" type="text" placeholder="com.example" />
               <Form.TextArea
@@ -64,6 +59,7 @@ class Advanced extends React.Component {
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
         </Well>
+
         <Well>
           <Form>
             <Form.FieldSet label="OAuth">
@@ -182,7 +178,7 @@ KrYthg==
         </Well>
         <Well>
           <Form>
-            <Form.FieldSet label="Endpoints">
+            <Form.FieldSet label="OAuth Endpoints">
               <Form.TextInput
                 label="OAuth Authorization URL"
                 type="text"
@@ -218,6 +214,8 @@ KrYthg==
                 value="https://mydomain.auth0.com/.well-known/jwks.json"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
+            </Form.FieldSet>
+            <Form.FieldSet label="SAML Endpoints">
               <Form.TextInput
                 label="SAML Protocol URL"
                 type="text"
@@ -232,6 +230,8 @@ KrYthg==
                 value="https://mydomain.auth0.com/samlp/metadata/e4esSP93hcGXiuVAmtzSJfKiojt56QJr"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
+            </Form.FieldSet>
+            <Form.FieldSet label="WS-Federations">
               <Form.TextInput
                 label="WsFederation Metadata URL"
                 type="text"

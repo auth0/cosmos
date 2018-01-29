@@ -4,7 +4,7 @@ import { spacing } from '../../../tokens'
 const FieldSet = styled.fieldset`
   border: none;
   padding: 0;
-  margin-bottom: ${spacing.small};
+  margin-bottom: ${spacing.large};
 `
 
 export default FieldSet
