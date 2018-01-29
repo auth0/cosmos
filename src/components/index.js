@@ -39,6 +39,9 @@ export { Code }
 import Spinner from './atoms/spinner'
 export { Spinner }
 
+import Tooltip from './atoms/tooltip'
+export { Tooltip }
+
 import {
   Heading1,
   Heading2,

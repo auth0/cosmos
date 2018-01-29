@@ -50,6 +50,10 @@ const colors = {
     sidebarHover: '#FF3E00',
     sidebarFocus: '#FF3E00'
   },
+  tooltip: {
+    background: '#1A1A1A',
+    text: '#FFF'
+  },
   tabs: {
     default: '#212121',
     defaultHover: '#0a84ae'
