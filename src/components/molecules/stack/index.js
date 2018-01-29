@@ -7,10 +7,12 @@ import { spacing } from '../../../tokens'
 const StyledStack = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: stretch;
   > * {
     flex: 1;
-    margin: ${spacing.xsmall};
+    align-self: center;
+    margin: 0 ${spacing.xsmall};
   }
 `
 
@@ -18,10 +20,7 @@ const Stack = props => {
   return <StyledStack>{props.children}</StyledStack>
 }
 
-Stack.propTypes = {
-  /** components to stack horizontally */
-  children: PropTypes.arrayOf(PropTypes.element)
-}
+Stack.propTypes = {}
 
 Stack.defaultProps = {}
 
