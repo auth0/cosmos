@@ -1,19 +1,7 @@
 import React from 'react'
-import { Text, Form } from '../components'
-
-let dummyFn = () => {}
+import { Text, Switch, Stack } from '../components'
 
 class Connections extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: 'API Explorer Client',
-      domain: 'storezero.auth0.com',
-      clientID: props.clientId,
-      secret: 'asoidvsubdwfqeagwbviuyeaobvi'
-    }
-  }
-  save() {}
   render() {
     return (
       <div>
@@ -21,6 +9,14 @@ class Connections extends React.Component {
           Connections are sources of users. They are categorized into Database, Social and
           Enterprise and can be shared among different applications.
         </Text>
+        <div>
+          <Stack>
+            <div>github</div> <div>GitHub</div> <Switch on />
+          </Stack>
+          <Stack>
+            <div>google-oauth2</div> <div>Google</div> <Switch off />
+          </Stack>
+        </div>
       </div>
     )
   }

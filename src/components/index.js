@@ -59,3 +59,6 @@ export { Form }
 
 import Tabs from './molecules/tabs'
 export { Tabs }
+
+import Stack from './molecules/stack'
+export { Stack }
