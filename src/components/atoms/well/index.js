@@ -6,7 +6,7 @@ import { colors, misc, spacing } from '../../../tokens/'
 
 const StyledWell = styled.div`
   background: ${colors.base.grayLightest};
-  padding: ${spacing.medium} ${spacing.large};
+  padding: ${spacing.large};
   margin-bottom: ${spacing.large};
 `
 

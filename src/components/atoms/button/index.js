@@ -120,8 +120,6 @@ const StyledButton = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  margin: ${spacing.xsmall};
-  margin-left: 0;
   padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};

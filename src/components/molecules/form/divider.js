@@ -12,6 +12,8 @@ const StyledDivider = styled(StyledLabel)`
   border-bottom: 1px solid ${colors.form.divider};
   padding-bottom: ${spacing.xsmall};
   margin-bottom: ${spacing.xlarge};
+  margin-top: 0;
+  padding-top: 0;
 `
 
 export default StyledDivider
