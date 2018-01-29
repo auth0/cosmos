@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 import { colors, spacing } from '../../../tokens'
 import { Subheader } from '../../atoms/typography'
 
+const StyledLabel = styled.div`
+  padding: ${spacing.xsmall};
+  border-bottom: 1px solid ${colors.base.grayLight};
+`
+
 const StyledRow = styled.div`
   border-bottom: 1px solid ${colors.base.grayLight};
   padding: ${spacing.xsmall};
@@ -30,9 +35,9 @@ const List = props => {
   return (
     <StyledList>
       {props.label ? (
-        <StyledRow>
+        <StyledLabel>
           <Subheader>{props.label}</Subheader>
-        </StyledRow>
+        </StyledLabel>
       ) : null}
       {children.map((child, index) => <StyledRow key={index}>{child}</StyledRow>)}
     </StyledList>
