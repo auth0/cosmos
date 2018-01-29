@@ -34,35 +34,32 @@ class Overlay extends React.Component {
     document.removeEventListener('keydown', this.handleDocumentKeyDown)
   }
 
-  handleBackdropMouseDown = evt => {
-    const { closeOnBackdropClick, isOpen, onClose } = this.props
-    if (
-      closeOnBackdropClick &&
-      isOpen &&
-      this.contentElement &&
-      !this.contentElement.contains(evt.target)
-    ) {
+  handleMouseDown = evt => {
+    const { closeOnBackdropClick, open, onClose } = this.props
+    const clickWasOnBackdrop = this.contentElement && !this.contentElement.contains(evt.target)
+    if (open && closeOnBackdropClick && clickWasOnBackdrop) {
       onClose()
     }
   }
 
   handleDocumentKeyDown = evt => {
-    const { closeOnEscape, isOpen, onClose } = this.props
-    if (closeOnEscape && isOpen && evt.which === keyCodes.escape) {
+    const { closeOnEscape, open, onClose } = this.props
+    const escapeWasPressed = evt.which === keyCodes.escape
+    if (open && closeOnEscape && escapeWasPressed) {
       evt.preventDefault()
       onClose()
     }
   }
 
   render() {
-    const { isOpen, children } = this.props
+    const { open, children } = this.props
 
     if (!this.state.hasBeenMounted) return null
 
     let content = null
-    if (isOpen) {
+    if (open) {
       content = (
-        <Overlay.Backdrop onMouseDown={this.handleBackdropMouseDown}>
+        <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
           <Overlay.Element innerRef={el => (this.contentElement = el)}>{children}</Overlay.Element>
         </Overlay.Backdrop>
       )
@@ -93,14 +90,14 @@ Overlay.Element = styled.div`
 Overlay.propTypes = {
   closeOnBackdropClick: PropTypes.bool.isRequired,
   closeOnEscape: PropTypes.bool.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired
 }
 
 Overlay.defaultProps = {
   closeOnBackdropClick: true,
   closeOnEscape: true,
-  isOpen: false
+  open: false
 }
 
 export default Overlay

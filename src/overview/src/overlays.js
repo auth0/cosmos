@@ -27,13 +27,13 @@ class OverlayExample extends React.Component {
       <Container title="Overlays and Dialogs">
         <Button onClick={this.setIsOverlayOpen(true)}>Show Overlay</Button>
         <Button onClick={this.setIsDialogOpen(true)}>Show Dialog</Button>
-        <Overlay isOpen={isOverlayOpen} onClose={this.setIsOverlayOpen(false)}>
+        <Overlay open={isOverlayOpen} onClose={this.setIsOverlayOpen(false)}>
           <ExampleOverlayContent>
             An <code>Overlay</code> is a low-level component that can contain any content.<br />
             To close an overlay, click anywhere outside of it, or press ESC.
           </ExampleOverlayContent>
         </Overlay>
-        <Dialog title="Example Dialog" isOpen={isDialogOpen} onClose={this.setIsDialogOpen(false)}>
+        <Dialog title="Example Dialog" open={isDialogOpen} onClose={this.setIsDialogOpen(false)}>
           <Dialog.Body>
             A <code>Dialog</code> builds on an <code>Overlay</code>, providing more styling and
             structure around what is displayed. It allows setting a fixed width, and adds a
