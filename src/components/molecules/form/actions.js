@@ -4,7 +4,7 @@ import { spacing, colors } from '../../../tokens'
 
 const Actions = styled.div`
   padding-left: ${props => props.labelWidth};
-  margin-top: ${spacing.large};
+  margin-top: ${spacing.medium};
   margin-bottom: ${spacing.small};
 `
 

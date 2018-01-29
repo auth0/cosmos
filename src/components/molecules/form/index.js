@@ -50,6 +50,11 @@ const StyledForm = styled.form`
   ${StyledDivider} {
     width: 100%;
   }
+  ${StyledFieldSet} {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
   ${Field} {
     &:last-child {
       margin-bottom: 0;
