@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
+import { Subheader } from '../../atoms/typography'
 
 const StyledRow = styled.div`
   border-bottom: 1px solid ${colors.base.grayLight};
@@ -16,14 +17,19 @@ const StyledList = styled.div`
 const List = props => {
   return (
     <StyledList>
+      {props.label ? (
+        <StyledRow>
+          <Subheader>{props.label}</Subheader>
+        </StyledRow>
+      ) : null}
       {props.children.map((child, index) => <StyledRow key={index}>{child}</StyledRow>)}
     </StyledList>
   )
 }
 
 List.propTypes = {
-  /** components to layout vertically */
-  children: PropTypes.arrayOf(PropTypes.element)
+  /** header for list */
+  label: PropTypes.string
 }
 
 List.defaultProps = {}

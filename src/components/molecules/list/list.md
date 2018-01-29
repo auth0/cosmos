@@ -9,7 +9,7 @@
 Use this component to layout a list of `components` vertically
 
 ```js props
-<List>
+<List {props}>
   <div>one</div>
   <div>two</div>
   <div>three</div>
@@ -19,7 +19,7 @@ Use this component to layout a list of `components` vertically
 #### Examples
 
 ```js
-<List>
+<List label="Social">
   <Stack>
     <div>github</div> <div>GitHub</div> <Switch on />
   </Stack>

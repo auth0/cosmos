@@ -9,7 +9,7 @@ class Connections extends React.Component {
           Connections are sources of users. They are categorized into Database, Social and
           Enterprise and can be shared among different applications.
         </Text>
-        <List>
+        <List label="Social">
           <Stack>
             <div>github</div> <div>GitHub</div> <Switch on />
           </Stack>
