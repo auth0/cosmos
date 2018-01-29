@@ -7,11 +7,10 @@ import { Subheader } from '../../atoms/typography'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};
-  border-bottom: 1px solid ${colors.base.grayLight};
 `
 
 const StyledRow = styled.div`
-  border-bottom: 1px solid ${colors.base.grayLight};
+  border-top: 1px solid ${colors.base.grayLight};
   padding: ${spacing.xsmall};
   &:hover {
     background: ${colors.base.grayLightest};
@@ -20,9 +19,6 @@ const StyledRow = styled.div`
 
 const StyledList = styled.div`
   margin: ${spacing.large} 0;
-  ${StyledRow}:last-child {
-    border-bottom: none;
-  }
 `
 
 const List = props => {

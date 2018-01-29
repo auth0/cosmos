@@ -14,9 +14,6 @@ class Connections extends React.Component {
           <Stack>
             <div>Username-Password-Authentication</div> <div>Database</div> <Switch />
           </Stack>
-          <Stack>
-            <div>google-oauth2</div> <div>Google</div> <Switch off />
-          </Stack>
         </List>
 
         <List label="Social">
