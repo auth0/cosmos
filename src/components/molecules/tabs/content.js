@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { spacing } from '../../../tokens'
 
 const StyledTabContent = styled.div`
-  padding-top: ${spacing.medium};
+  padding-top: ${spacing.large};
 `
 const TabContent = props => <StyledTabContent>{props.children}</StyledTabContent>
 
