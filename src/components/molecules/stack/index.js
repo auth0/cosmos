@@ -10,7 +10,7 @@ const StyledStack = styled.div`
   align-items: stretch;
   > * {
     flex: 1;
-    margin: ${spacing.xsmall};
+    margin: 0 ${spacing.xsmall};
   }
 `
 
