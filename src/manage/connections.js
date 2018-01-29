@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Switch, Stack } from '../components'
+import { Text, Switch, List, Stack } from '../components'
 
 class Connections extends React.Component {
   render() {
@@ -9,14 +9,14 @@ class Connections extends React.Component {
           Connections are sources of users. They are categorized into Database, Social and
           Enterprise and can be shared among different applications.
         </Text>
-        <div>
+        <List>
           <Stack>
             <div>github</div> <div>GitHub</div> <Switch on />
           </Stack>
           <Stack>
             <div>google-oauth2</div> <div>Google</div> <Switch off />
           </Stack>
-        </div>
+        </List>
       </div>
     )
   }
