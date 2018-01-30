@@ -60,6 +60,9 @@ export { EmptyState }
 import Form from './molecules/form'
 export { Form }
 
+import FormGroup from './molecules/form-group'
+export { FormGroup }
+
 import Tabs from './molecules/tabs'
 export { Tabs }
 

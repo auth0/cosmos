@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Form } from '../../components'
+import { Form, FormGroup } from '../../components'
 
 const fakeMethod = e => {
   e.preventDefault()
@@ -52,7 +52,7 @@ const Forms = () => (
     </Container>
 
     <Container title="Form Groups">
-      <Form.Group>
+      <FormGroup>
         <Form>
           <Form.FieldSet label="Form 1">
             <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
@@ -60,7 +60,7 @@ const Forms = () => (
             <Form.Actions primaryAction={{ label: 'Save' }} />
           </Form.FieldSet>
         </Form>
-      </Form.Group>
+      </FormGroup>
     </Container>
   </div>
 )

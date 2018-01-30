@@ -6,7 +6,6 @@ import uniqueId from '../../_helpers/uniqueId'
 import { multiply, subtract } from '../../_helpers/pixel-calc'
 
 import ActionInput from '../../molecules/_action-input'
-import Well from '../../atoms/_well'
 
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
@@ -128,7 +127,5 @@ Form.FieldSet = props => (
     {props.children}
   </StyledFieldSet>
 )
-
-Form.Group = props => <Well>{props.children}</Well>
 
 export default Form
