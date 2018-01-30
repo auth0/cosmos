@@ -31,7 +31,7 @@ class ClientList extends React.Component {
         <br />
         <List>
           {clients.map(client => (
-            <Stack key={client.id}>
+            <List.Item key={client.id}>
               <Logo />
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
@@ -46,7 +46,7 @@ class ClientList extends React.Component {
                 <Button icon="copy" />
                 <Button icon="copy" />
               </Stack>
-            </Stack>
+            </List.Item>
           ))}
         </List>
       </div>

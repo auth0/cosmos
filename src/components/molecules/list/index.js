@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
 import { Subheader } from '../../atoms/typography'
+import Stack from '../../molecules/stack'
 
 const StyledLabel = styled.div`
   padding: ${spacing.small};
@@ -22,12 +23,6 @@ const StyledList = styled.div`
 `
 
 const List = props => {
-  const children = React.Children.map(props.children, child => {
-    if (child.type.displayName === 'Stack') {
-      return React.cloneElement(child, { consistentWidth: true })
-    } else return child
-  })
-
   return (
     <StyledList>
       {props.label ? (
@@ -35,10 +30,12 @@ const List = props => {
           <Subheader>{props.label}</Subheader>
         </StyledLabel>
       ) : null}
-      {children.map((child, index) => <StyledRow key={index}>{child}</StyledRow>)}
+      {props.children.map((child, index) => <StyledRow key={index}>{child}</StyledRow>)}
     </StyledList>
   )
 }
+
+List.Item = Stack
 
 List.propTypes = {
   /** header for list */
