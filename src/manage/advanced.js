@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Code, Well } from '../components'
+import { Form, Code, Well, Text } from '../components'
 
 let dummyFn = () => {}
 
@@ -20,11 +20,11 @@ class Advanced extends React.Component {
         <Well>
           <Form>
             <Form.FieldSet label="Application Metadata">
-              <p>
+              <Text>
                 Application metadata are custom string keys and values (max 255 characters each),
                 set on a per application basis. Metadata is exposed in the Client object as{' '}
                 <Code>client_metadata</Code>, and in Rules as <Code>context.clientMetadata</Code>
-              </p>
+              </Text>
             </Form.FieldSet>
           </Form>
         </Well>
@@ -106,20 +106,19 @@ class Advanced extends React.Component {
         <Well>
           <Form>
             <Form.FieldSet label="Grant Types">
-              <p>
-                Notification: Using Password or MFA grant types with public clients is not
+              <Text>
+                [Notification] Using Password or MFA grant types with public clients is not
                 recommended. To use the Client Credentials grant you have to set a Token Endpoint
                 Auth Method other than "none". See our documentation for more information.
-              </p>
-              <br />
-              <p>Grants go here... </p>
+              </Text>
+              <Text>Grants go here... </Text>
             </Form.FieldSet>
           </Form>
         </Well>
         <Well>
           <Form>
             <Form.FieldSet label="WS-Federation">
-              <p>Code block goes here...</p>
+              <p>cer goes here...</p>
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
@@ -132,7 +131,7 @@ class Advanced extends React.Component {
                 code
                 readOnly
                 value="-----BEGIN CERTIFICATE-----
-MIIDADCCAeigAwIBAgIJBplWRwBLlQgHMA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+LIODRDECMeigPwSBUgMJDpoWLwoLrQeHSATGCSqGSIb3DQEBBQUAMCcxJTAjBgNV
 BAMTHGZlcm5hbmRvY2FycmV0dG9uaS5hdXRoMC5jb20wHhcNMTcwMTI3MjE0OTM1
 WhcNMzAxMDA2MjE0OTM1WjAnMSUwIwYDVQQDExxmZXJuYW5kb2NhcnJldHRvbmku
 YXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvW0PbOzi
@@ -157,7 +156,7 @@ KrYthg==
                 type="text"
                 code
                 readOnly
-                value="E0:78:98:F6:0B:45:42:34:A1:8E:55:BC:41:75:0D:71:BD:E7:D9:C9"
+                value="L0:O8:R8:E6:MB:I5:P2:S4:U1:ME:D5:OC:L1:O5:RD:E1:SD:T7:D9:C9"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
               <Form.TextInput
@@ -165,7 +164,7 @@ KrYthg==
                 type="text"
                 code
                 readOnly
-                value="E0:78:98:F6:0B:45:42:34:A1:8E:55:BC:41:75:0D:71:BD:E7:D9:C9"
+                value="L0:O8:R8:E6:MB:I5:P2:S4:U1:ME:D5:OC:L1:O5:RD:E1:SD:T7:D9:C9"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
             </Form.FieldSet>
