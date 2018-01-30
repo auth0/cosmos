@@ -12,6 +12,7 @@ import Forms from './src/forms'
 import EmptyStates from './src/empty-states'
 
 import Links from './src/links'
+import Tooltip from './src/tooltip'
 import Typography from './src/typography'
 import Buttons from './src/buttons'
 
@@ -25,6 +26,7 @@ export default () => (
         <Spacing />
         <EmptyStates />
         <Forms />
+        <Tooltip />
       </Column>
       <Column>
         <Links />
