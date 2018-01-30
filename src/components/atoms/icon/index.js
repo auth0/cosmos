@@ -13,8 +13,9 @@ const Icon = props => {
       width={props.size}
       height={props.size}
       viewBox={`0 0 ${icon.width} ${icon.height}`}
+      color={props.color}
     >
-      {icon.paths.map((path, index) => <path key={index} d={path} fill={props.color} />)}
+      {icon.paths.map((path, index) => <path key={index} d={path} />)}
     </Icon.Element>
   )
 }
@@ -23,6 +24,9 @@ Icon.Element = styled.svg`
   display: inline-block;
   vertical-align: middle;
   margin-right: ${spacing.xsmall};
+  path {
+    fill: ${props => props.color};
+  }
   :last-child {
     margin-right: 0;
   }
