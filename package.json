@@ -9,6 +9,7 @@
     "raw-loader": "0.5.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-flexbox-grid": "2.0.0",
     "react-helmet": "^5.2.0",
     "react-live": "1.7.1",
     "react-router-dom": "4.2.2",
