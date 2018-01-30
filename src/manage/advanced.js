@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Code, Well, Text } from '../components'
+import { Form, Code, Text } from '../components'
 
 let dummyFn = () => {}
 
@@ -17,7 +17,7 @@ class Advanced extends React.Component {
   render() {
     return (
       <div>
-        <Well>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="Application Metadata">
               <Text>
@@ -27,8 +27,8 @@ class Advanced extends React.Component {
               </Text>
             </Form.FieldSet>
           </Form>
-        </Well>
-        <Well>
+        </Form.Group>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="iOS Settings">
               <Form.TextInput
@@ -60,9 +60,9 @@ class Advanced extends React.Component {
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </Well>
+        </Form.Group>
 
-        <Well>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="OAuth">
               <Form.TextArea
@@ -102,8 +102,8 @@ class Advanced extends React.Component {
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </Well>
-        <Well>
+        </Form.Group>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="Grant Types">
               <Text>
@@ -114,16 +114,16 @@ class Advanced extends React.Component {
               <Text>Grants go here... </Text>
             </Form.FieldSet>
           </Form>
-        </Well>
-        <Well>
+        </Form.Group>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="WS-Federation">
               <p>cer goes here...</p>
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </Well>
-        <Well>
+        </Form.Group>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="Certificates">
               <Form.TextArea
@@ -175,8 +175,8 @@ KrYthg==
               }}
             />
           </Form>
-        </Well>
-        <Well>
+        </Form.Group>
+        <Form.Group>
           <Form>
             <Form.FieldSet label="OAuth Endpoints">
               <Form.TextInput
@@ -204,14 +204,14 @@ KrYthg==
                 label="OpenID Configuration"
                 type="text"
                 readOnly
-                value="https://mydomain.auth0.com/.well-known/openid-configuration"
+                value="https://mydomain.auth0.com/.Form.Group-known/openid-configuration"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
               <Form.TextInput
                 label="JSON Web Key Set"
                 type="text"
                 readOnly
-                value="https://mydomain.auth0.com/.well-known/jwks.json"
+                value="https://mydomain.auth0.com/.Form.Group-known/jwks.json"
                 actions={[{ icon: 'copy', method: dummyFn }]}
               />
             </Form.FieldSet>
@@ -248,7 +248,7 @@ KrYthg==
               />
             </Form.FieldSet>
           </Form>
-        </Well>
+        </Form.Group>
       </div>
     )
   }

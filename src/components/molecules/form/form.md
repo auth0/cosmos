@@ -84,7 +84,7 @@ If a page has multiple forms, use a `Well` to separate each form. Use a `Form.Fi
 
 ```js
 <div>
-  <Well>
+  <Form.Group>
     <Form>
       <Form.FieldSet label="iOS Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
@@ -92,9 +92,9 @@ If a page has multiple forms, use a `Well` to separate each form. Use a `Form.Fi
       </Form.FieldSet>
       <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
     </Form>
-  </Well>
+  </Form.Group>
 
-  <Well>
+  <Form.Group>
     <Form>
       <Form.FieldSet label="Android Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
@@ -102,7 +102,7 @@ If a page has multiple forms, use a `Well` to separate each form. Use a `Form.Fi
       </Form.FieldSet>
       <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
     </Form>
-  </Well>
+  </Form.Group>
 </div>
 ```
 

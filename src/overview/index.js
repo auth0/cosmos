@@ -13,7 +13,6 @@ import EmptyStates from './src/empty-states'
 
 import Links from './src/links'
 import Tooltip from './src/tooltip'
-import Well from './src/well'
 import Typography from './src/typography'
 import Buttons from './src/buttons'
 
@@ -28,7 +27,6 @@ export default () => (
         <EmptyStates />
         <Forms />
         <Tooltip />
-        <Well />
       </Column>
       <Column>
         <Links />
