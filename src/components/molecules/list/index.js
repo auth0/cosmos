@@ -7,7 +7,7 @@ import { Subheader } from '../../atoms/typography'
 import Stack from '../../molecules/stack'
 
 const StyledLabel = styled.div`
-  padding: ${spacing.small};
+  padding: ${spacing.xsmall};
 `
 
 const StyledRow = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../../tokens/'
-import onlyOneOf from '../../_helpers/only-one-of-validator'
+import { onlyOneOf } from '../../_helpers/custom-validations'
 import Icon, { StyledIcon } from '../icon'
 import Spinner from '../spinner'
 

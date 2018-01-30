@@ -31,7 +31,7 @@ Use compressed for stacking elements without margin between them
 </Stack>
 ```
 
-Or if you wish to have more control over the width of each column, you can supply an array of widths in %
+Or if you wish to have more control over the width of each element, you can supply an array of widths in %
 
 ```js
 <Stack widths={[10, 30, 30, 30]}>

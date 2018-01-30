@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
+import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
 
 const StyledStack = styled.div`
   display: flex;
@@ -47,7 +48,15 @@ const Stack = props => {
 
 Stack.propTypes = {
   /** Use compressed for stacking elements without margin between them */
-  compressed: PropTypes.bool
+  compressed: PropTypes.bool,
+  /** Element widths in % */
+  widths: PropTypes.arrayOf(PropTypes.number),
+
+  /* internal props only used for validation */
+  /* sum of width values should be 100% */
+  _sum: props => sumOfElements(props.widths, 100),
+  /* the number of widths should match number of children */
+  _numberOfValues: props => numberOfValues(props.widths, React.Children.count(props.children))
 }
 
 Stack.defaultProps = {
