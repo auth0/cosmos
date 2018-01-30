@@ -8,7 +8,7 @@ const StyledStack = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: stretch;
+  align-items: bottom;
   justify-content: ${props => (props.compressed ? 'start' : 'space-between')};
   > * {
     flex: ${props => (props.compressed ? 'none' : 1)};
@@ -20,8 +20,29 @@ const StyledStack = styled.div`
   }
 `
 
+const StackedItem = styled.div`
+  flex-basis: ${props => props.width}%;
+`
+
+/*
+  wrap children in col
+  flex-basis makes flex redundant, have one
+  accept widths on parent = Stack
+*/
+
 const Stack = props => {
-  return <StyledStack {...props}>{props.children}</StyledStack>
+  let children
+  if (props.compressed) children = props.children
+  else {
+    children = React.Children.map(props.children, (child, index) => {
+      let width = 0
+      if (props.widths) width = `${props.widths[index]}` || 0
+
+      return <StackedItem width={width}>{child}</StackedItem>
+    })
+  }
+
+  return <StyledStack {...props}>{children}</StyledStack>
 }
 
 Stack.propTypes = {
