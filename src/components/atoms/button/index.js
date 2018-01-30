@@ -111,7 +111,7 @@ const StyledButton = styled.button`
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
-  font-weight: ${fonts.weight.bold};
+  font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
   border: 1px solid;

@@ -30,7 +30,9 @@ Buttons are great to ask users for action
 ```js multiple
 render(
   <div>
+    <Button>default</Button>
     <Button primary>primary</Button>
+    <Button primaryAlt>primary alt</Button>
     <Button transparent>secondary</Button>
     <Button link>Clear</Button>
     <Button destructive>Delete</Button>
