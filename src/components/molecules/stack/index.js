@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
@@ -8,22 +9,28 @@ const StyledStack = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
+  justify-content: ${props => (props.compressed ? 'start' : 'space-between')};
   > * {
-    flex: 1;
+    flex: ${props => (props.compressed ? 'none' : 1)};
     align-self: center;
-    margin: 0 ${spacing.xsmall};
+    margin-right: ${props => (props.compressed ? 0 : spacing.xsmall)};
+  }
+  > *:last-child {
+    margin-right: 0;
   }
 `
 
 const Stack = props => {
-  return <StyledStack>{props.children}</StyledStack>
+  return <StyledStack {...props}>{props.children}</StyledStack>
 }
 
-Stack.propTypes = {}
+Stack.propTypes = {
+  /** Use compressed for stacking elements without margin between them */
+  compressed: PropTypes.bool
+}
 
-Stack.defaultProps = {}
-
-/* Setting name explicitly because List depends on it */
-Stack.displayName = 'Stack'
+Stack.defaultProps = {
+  compressed: false
+}
 
 export default Stack
