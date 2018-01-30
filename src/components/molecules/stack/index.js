@@ -1,8 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-
-import { spacing } from '../../../tokens'
 
 const Stack = props => {
   const columns = React.Children.map(props.children, child => <Col>{child}</Col>)
