@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { colors, misc, spacing } from '../../../tokens/'
 
 const StyledWell = styled.div`
-  background: rgb(249, 249, 249);
+  background: ${colors.form.background};
   padding: ${spacing.large};
   margin-bottom: ${spacing.medium};
 `
