@@ -23,4 +23,7 @@ Stack.propTypes = {}
 
 Stack.defaultProps = {}
 
+/* Setting name explicitly because List depends on it */
+Stack.displayName = 'Stack'
+
 export default Stack

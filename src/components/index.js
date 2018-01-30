@@ -65,3 +65,6 @@ export { Tabs }
 
 import Stack from './molecules/stack'
 export { Stack }
+
+import List from './molecules/list'
+export { List }

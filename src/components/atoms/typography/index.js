@@ -98,8 +98,8 @@ const Heading5 = styled.h5`
 const Subheader = styled.h6`
   margin: 0; /* reset browser default */
   color: ${colors.text.subHeader};
-  font-size: 13px;
-  font-weight: ${fonts.weight.normal};
+  font-size: 14px;
+  font-weight: ${fonts.weight.medium};
 `
 
 const Text = styled.span`
