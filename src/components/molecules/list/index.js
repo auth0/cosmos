@@ -6,7 +6,7 @@ import { colors, spacing } from '../../../tokens'
 import { Subheader } from '../../atoms/typography'
 
 const StyledLabel = styled.div`
-  padding: ${spacing.xsmall};
+  padding: ${spacing.small};
 `
 
 const StyledRow = styled.div`
