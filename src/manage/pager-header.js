@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading1, Button, Icon } from '../components'
+import { Heading1, Button, Icon, Breadcrumb } from '../components'
+
+const StyledActions = styled.div`
+  float: right;
+`
 
 const ArrowMore = styled.i`
   position: relative;
@@ -14,13 +18,13 @@ const ArrowMore = styled.i`
   border-color: transparent transparent transparent #0688d2;
 `
 
-const StyledActions = styled.div`
-  float: right;
+const PagerLink = styled.a`
+  text-decoration: none;
 `
 
-const PageHeader = props => <div>{props.children}</div>
+const PagerHeader = props => <div>{props.children}</div>
 
-PageHeader.Primary = props => (
+PagerHeader.Primary = props => (
   <div>
     <StyledActions>
       {props.secondaryAction && (
@@ -41,20 +45,23 @@ PageHeader.Primary = props => (
     {props.description && (
       <div>
         {props.description.text}{' '}
-        {props.description.link ? (
-          <a href={props.description.link}>
-            Learn more <ArrowMore />
-          </a>
+        {props.description.learnMore ? (
+          <PagerLink href={props.description.learnMore}>
+            Learn more<ArrowMore />
+          </PagerLink>
         ) : null}
       </div>
     )}
   </div>
 )
 
-PageHeader.Secondary = props => (
+PagerHeader.Secondary = props => (
   <div>
+    {props.breadcrumb && (
+      <Breadcrumb content={props.breadcrumb.content} href={props.breadcrumb.link} />
+    )}
     <Heading1>{props.title}</Heading1>
   </div>
 )
 
-export default PageHeader
+export default PagerHeader
