@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading1, Text, Code, Button, Icon, Breadcrumb } from '../components'
+import { spacing } from '../tokens'
+import { Heading1, Code, Button, Icon, Breadcrumb } from '../components'
 
 const StyledActions = styled.div`
   float: right;
@@ -25,6 +26,23 @@ const PagerLink = styled.a`
 
 const StyledPagerAvatar = styled.img`
   display: inline-block;
+  width: 72px;
+  height: 72px;
+  border-radius: 72px;
+  float: left;
+  margin-right: ${spacing.small};
+`
+
+const StyledClient = styled.span`
+  color: #676767;
+  font-size: 13px;
+`
+
+const StyledInteractive = styled.span`
+  color: #7c7c7c;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: ${spacing.small};
 `
 
 const PagerHeader = props => <div>{props.children}</div>
@@ -67,15 +85,15 @@ PagerHeader.Secondary = props => (
       <Breadcrumb content={props.breadcrumb.content} href={props.breadcrumb.link} />
     )}
     <div>
-      <PagerAvatar image="https://cdn.auth0.com/website/ds/avatar.svg" />
+      {props.avatar && <PagerAvatar image={props.avatar} />}
       <Heading1>{props.title}</Heading1>
-      <Text>NON INTERACTIVE</Text>
-      <Text>
-        Client ID:<Code>DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip</Code>
+      <StyledInteractive>{props.interactive}</StyledInteractive>
+      <StyledClient>
+        Client ID:<Code>{props.token}</Code>
         <Button link>
           <Icon type="copy" />
         </Button>
-      </Text>
+      </StyledClient>
     </div>
   </div>
 )
