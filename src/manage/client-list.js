@@ -32,7 +32,7 @@ class ClientList extends React.Component {
         <br />
         <List>
           {clients.map(client => (
-            <List.Item key={client.id} widths={[7, 25, 38, 30]}>
+            <Stack key={client.id} widths={[7, 25, 38, 30]}>
               <Avatar />
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
@@ -49,7 +49,7 @@ class ClientList extends React.Component {
                 <Button icon="analytics" />
                 <Button icon="emails" />
               </Stack>
-            </List.Item>
+            </Stack>
           ))}
         </List>
       </div>

@@ -35,8 +35,6 @@ const List = props => {
   )
 }
 
-List.Item = Stack
-
 List.propTypes = {
   /** header for list */
   label: PropTypes.string
