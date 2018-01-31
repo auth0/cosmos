@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading1, Button, Icon, Breadcrumb } from '../components'
+import { Heading1, Text, Code, Button, Icon, Breadcrumb } from '../components'
 
 const StyledActions = styled.div`
   float: right;
@@ -19,10 +19,16 @@ const ArrowMore = styled.i`
 `
 
 const PagerLink = styled.a`
+  color: #0688d2;
   text-decoration: none;
 `
 
+const StyledPagerAvatar = styled.img`
+  display: inline-block;
+`
+
 const PagerHeader = props => <div>{props.children}</div>
+const PagerAvatar = ({ image, ...props }) => <StyledPagerAvatar src={image || ''} />
 
 PagerHeader.Primary = props => (
   <div>
@@ -60,7 +66,17 @@ PagerHeader.Secondary = props => (
     {props.breadcrumb && (
       <Breadcrumb content={props.breadcrumb.content} href={props.breadcrumb.link} />
     )}
-    <Heading1>{props.title}</Heading1>
+    <div>
+      <PagerAvatar image="https://cdn.auth0.com/website/ds/avatar.svg" />
+      <Heading1>{props.title}</Heading1>
+      <Text>NON INTERACTIVE</Text>
+      <Text>
+        Client ID:<Code>DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip</Code>
+        <Button link>
+          <Icon type="copy" />
+        </Button>
+      </Text>
+    </div>
   </div>
 )
 
