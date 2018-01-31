@@ -1,13 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import { Dummy, Dummy as PageHeader, Dummy as Tabs } from './dummy-components'
-import { Heading1 } from '../components'
-
 import ClientList from './client-list'
 import Client from './client'
-
-Tabs.Tab = Dummy
 
 const Page = () => (
   <div
