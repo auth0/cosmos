@@ -20,7 +20,7 @@ const List = props => {
               <div key={index}>
                 <Link key={index} component={component} />
                 {component.children.map((child, index) => {
-                  return <Link child key={index} component={child} />
+                  return <Link child key={index} component={child} parent={component} />
                 })}
               </div>
             )

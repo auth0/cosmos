@@ -27,11 +27,13 @@ const Tag = styled.span`
 `
 
 const Link = props => {
-  let { displayName, documentation, implemented } = props.component
+  const { displayName, documentation, implemented } = props.component
+  const url = `/docs/${displayName}`
+
   return (
-    <StyledLink disabled={!documentation} isChild={props.child}>
+    <StyledLink disabled={!documentation} isChild={props.parent}>
       <NavLink
-        to={`/docs/${displayName}`}
+        to={url}
         key={displayName}
         activeClassName="selected"
         onClick={e => {

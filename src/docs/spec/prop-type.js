@@ -12,7 +12,7 @@ const parseType = type => {
 const getShape = value => {
   const shape = {}
 
-  Object.keys(value).map(key => {
+  Object.keys(value).forEach(key => {
     shape[key] = value[key].name
   })
 

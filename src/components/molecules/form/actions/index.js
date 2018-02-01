@@ -48,6 +48,8 @@ const Actions = props => {
   )
 }
 
+Actions.displayName = 'Form.Actions'
+
 const actionShape = {
   label: PropTypes.string.isRequired,
   method: PropTypes.func.isRequired
