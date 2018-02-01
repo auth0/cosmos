@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
-import { labelWidth } from './layout'
+import { spacing, colors } from '../../../../tokens'
+import { labelWidth } from '../layout'
 
-import Button from '../../atoms/button'
-import { Right, Clear } from '../../_helpers/float'
+import Button from '../../../atoms/button'
+import { Right, Clear } from '../../../_helpers/float'
 
 const StyledActions = styled.div`
   padding-left: ${props => props.labelWidth};
@@ -46,6 +47,18 @@ const Actions = props => {
     </StyledActions>
   )
 }
+
+Actions.propTypes = {
+  primaryAction: PropTypes.shape({ label: PropTypes.string, method: PropTypes.func }),
+  secondaryActions: PropTypes.arrayOf(
+    PropTypes.shape({ label: PropTypes.string, method: PropTypes.func })
+  ),
+  destructiveActions: PropTypes.arrayOf(
+    PropTypes.shape({ label: PropTypes.string, method: PropTypes.func })
+  )
+}
+
+Actions.defaultProps = {}
 
 export default Actions
 export { StyledActions }
