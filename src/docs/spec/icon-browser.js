@@ -57,11 +57,11 @@ class IconBrowser extends React.Component {
   render() {
     const { filter } = this.state
 
-    const icons = this.getMatchingIcons(filter).map((type, index) => (
+    const icons = this.getMatchingIcons(filter).map((name, index) => (
       <li key={index}>
         <IconBrowserLink>
-          <Icon type={type} size={40} />
-          <span>{type}</span>
+          <Icon name={name} size={40} />
+          <span>{name}</span>
         </IconBrowserLink>
       </li>
     ))

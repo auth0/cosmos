@@ -148,13 +148,13 @@ const Content = styled.span`
 const Button = ({ children, ...props }) => {
   let content = children
 
-  if (props.success) content = <Icon type="success" />
+  if (props.success) content = <Icon name="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
 
   if (props.icon && content) {
     return (
       <StyledButton {...props}>
-        <Icon type={props.icon} color={getAttributes(props).text} />
+        <Icon name={props.icon} color={getAttributes(props).text} />
         <Content>{content}</Content>
       </StyledButton>
     )
@@ -163,7 +163,7 @@ const Button = ({ children, ...props }) => {
   if (props.icon) {
     return (
       <StyledButton {...props}>
-        <Icon type={props.icon} />
+        <Icon name={props.icon} />
       </StyledButton>
     )
   }

@@ -5,13 +5,13 @@ import { Icon } from '../../components'
 
 const Icons = () => (
   <Container title="Icons">
-    <Icon type="analytics" />
-    <Icon type="apis" />
-    <Icon type="clients" />
-    <Icon type="connections" />
-    <Icon type="dashboard" />
-    <Icon type="trash" />
-    <Icon type="users" />
+    <Icon name="analytics" />
+    <Icon name="apis" />
+    <Icon name="clients" />
+    <Icon name="connections" />
+    <Icon name="dashboard" />
+    <Icon name="trash" />
+    <Icon name="users" />
   </Container>
 )
 

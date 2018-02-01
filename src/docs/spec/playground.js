@@ -131,7 +131,7 @@ class Playground extends React.Component {
           </CodeWrapper>
           {this.state.codeVisible ? (
             <Copy onClick={this.copyCode.bind(this)}>
-              <Components.Icon type="copy" />
+              <Components.Icon name="copy" />
             </Copy>
           ) : null}
         </LiveProvider>

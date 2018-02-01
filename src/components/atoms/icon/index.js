@@ -6,8 +6,8 @@ import { colors, spacing } from '../../../tokens'
 import { icons } from './icons.json'
 
 const Icon = props => {
-  // If the icon type isn't found, show a question mark instead.
-  const icon = icons[props.type] || icons.help
+  // If the icon name isn't found, show a question mark instead.
+  const icon = icons[props.name] || icons.help
   return (
     <Icon.Element
       width={props.size}
@@ -33,8 +33,8 @@ Icon.Element = styled.svg`
 `
 
 Icon.propTypes = {
-  /** Icon type */
-  type: PropTypes.string.isRequired,
+  /** Icon name */
+  name: PropTypes.string.isRequired,
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */

@@ -1,7 +1,7 @@
 The `Icon` component displays an icon glyph as an `<svg>` element.
 
 ```jsx
-<Icon type="analytics" {props} />
+<Icon name="analytics" {props} />
 ```
 
 You can see the available icons here. To find a specific icon, type in a search string

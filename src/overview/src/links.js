@@ -24,10 +24,10 @@ export default () => (
       <img alt="docs" src="/docs.png" />
     </a>
     <a href="/clients">
-      <Icon type="clients" size={30} />
+      <Icon name="clients" size={30} />
     </a>
     <a href="/is-cosmos-ready-yet">
-      <Icon type="hourglass" size={30} />
+      <Icon name="hourglass" size={30} />
     </a>
     <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
       <img alt="github" src="/github.png" />
