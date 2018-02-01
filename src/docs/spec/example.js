@@ -6,32 +6,33 @@ import Break from './break'
 import TextBlock from './text-block'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
+import IconBrowser from './icon-browser'
 import { Heading5, Code } from '../../components'
 
 const Example = props => {
   const options = {
     overrides: {
-      hr: { component: Break },
-      h2: { component: SectionHeader },
-      h4: { component: ExampleHeader },
-      h5: { component: TextBlock },
-      p: { component: TextBlock },
-      li: { component: Heading5 },
-      code: {
-        /* use playground for js code blocks */
-        component: markDownprops => {
-          if (!markDownprops.className) return <Code>{markDownprops.children}</Code>
-          else if (!markDownprops.className.includes('js')) return null
-          else
-            return (
-              <Playground
-                code={markDownprops.children}
-                tags={markDownprops.className}
-                component={props.component}
-              />
-            )
+      hr: Break,
+      h2: SectionHeader,
+      h4: ExampleHeader,
+      h5: TextBlock,
+      p: TextBlock,
+      li: Heading5,
+      /* use playground for js code blocks */
+      code: markdownProps => {
+        if (!markdownProps.className) return <Code>{markdownProps.children}</Code>
+        else if (markdownProps.className.indexOf('js') === -1) return null
+        else {
+          return (
+            <Playground
+              code={markdownProps.children}
+              tags={markdownProps.className}
+              component={props.component}
+            />
+          )
         }
-      }
+      },
+      IconBrowser
     }
   }
 

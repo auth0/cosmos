@@ -4,7 +4,7 @@
 
 `import Switch from 'cosmos/switch'`
 
-```js props
+```jsx
 <Switch {props} onToggle={value => alert(value)} />
 ```
 

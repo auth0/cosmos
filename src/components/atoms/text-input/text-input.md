@@ -4,7 +4,7 @@
 
 `import TextInput from 'cosmos/text-input'`
 
-```js props
+```jsx
 <TextInput {props} placeholder="Placeholder text" />
 ```
 

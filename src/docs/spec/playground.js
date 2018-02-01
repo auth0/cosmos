@@ -71,7 +71,7 @@ const Copy = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    let showProps = props.tags.includes('props')
+    let showProps = props.tags.includes('lang-jsx')
 
     this.state = {
       showProps,
@@ -131,7 +131,7 @@ class Playground extends React.Component {
           </CodeWrapper>
           {this.state.codeVisible ? (
             <Copy onClick={this.copyCode.bind(this)}>
-              <Components.Icon type="copy" />
+              <Components.Icon name="copy" />
             </Copy>
           ) : null}
         </LiveProvider>
