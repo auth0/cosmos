@@ -23,6 +23,10 @@ class OverlayExample extends React.Component {
 
   render() {
     const { isOverlayOpen, isDialogOpen } = this.state
+    const actions = [
+      new Dialog.Action('OK', this.setIsDialogOpen(false), 'primary'),
+      new Dialog.Action('Cancel', this.setIsDialogOpen(false))
+    ]
     return (
       <Container title="Overlays and Dialogs">
         <Button onClick={this.setIsOverlayOpen(true)}>Show Overlay</Button>
@@ -33,18 +37,15 @@ class OverlayExample extends React.Component {
             To close an overlay, click anywhere outside of it, or press ESC.
           </ExampleOverlayContent>
         </Overlay>
-        <Dialog title="Example Dialog" open={isDialogOpen} onClose={this.setIsDialogOpen(false)}>
-          <Dialog.Body>
-            A <code>Dialog</code> builds on an <code>Overlay</code>, providing more styling and
-            structure around what is displayed. It allows setting a fixed width, and adds a
-            titlebar, close button, and a footer.
-          </Dialog.Body>
-          <Dialog.Footer>
-            <Button primary onClick={this.setIsDialogOpen(false)}>
-              OK
-            </Button>
-            <Button onClick={this.setIsDialogOpen(false)}>Cancel</Button>
-          </Dialog.Footer>
+        <Dialog
+          title="Example Dialog"
+          actions={actions}
+          open={isDialogOpen}
+          onClose={this.setIsDialogOpen(false)}
+        >
+          A <code>Dialog</code> builds on an <code>Overlay</code>, providing more styling and
+          structure around what is displayed. It allows setting a fixed width, and adds a titlebar,
+          close button, and a footer.
         </Dialog>
       </Container>
     )
