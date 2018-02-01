@@ -3,26 +3,23 @@ import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
 import uniqueId from '../../_helpers/uniqueId'
-import { multiply, subtract } from '../../_helpers/pixel-calc'
+import { subtract } from '../../_helpers/pixel-calc'
 
 import ActionInput from '../../molecules/_action-input'
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
-import Button from '../../atoms/button'
-import { Right, Clear } from '../../_helpers/float'
+
+import { formWidth, labelWidth } from './layout'
+import Description from './description'
+import Actions from './actions'
 
 import StyledLabel from './label'
 import StyledDivider from './divider'
 import StyledFieldSet from './fieldset'
 import StyledError from './error'
-import StyledActions from './actions'
-import Description from './description'
 
 // Layout
-
-const formWidth = '625px'
-const labelWidth = multiply(formWidth, 0.35)
 
 const Field = styled.div`
   margin: ${spacing.small} 0;
@@ -78,37 +75,7 @@ Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
 Form.Select = props => <FormElement {...props} fieldComponent={Select} />
 Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />
 
-Form.Actions = props => {
-  return (
-    <StyledActions labelWidth={labelWidth}>
-      {props.primaryAction && (
-        <Button primary onClick={props.primaryAction.method}>
-          {props.primaryAction.label}
-        </Button>
-      )}
-
-      {props.secondaryActions &&
-        props.secondaryActions.map((action, index) => {
-          return (
-            <Button key={index} onClick={action.method}>
-              {action.label}
-            </Button>
-          )
-        })}
-
-      {props.destructiveActions && (
-        <Right>
-          {props.destructiveActions.map((action, index) => (
-            <Button key={index} onClick={action.method} destructive>
-              {action.label}
-            </Button>
-          ))}
-        </Right>
-      )}
-      <Clear />
-    </StyledActions>
-  )
-}
+Form.Actions = Actions
 
 Form.FieldSet = props => (
   <StyledFieldSet>
