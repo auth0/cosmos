@@ -14,7 +14,7 @@ const attachChildren = components => {
   })
 
   const children = components.filter(component => isChild(component))
-  children.map(child => {
+  children.forEach(child => {
     const parent = getParent(parents, child)
     parent.children.push(child)
   })

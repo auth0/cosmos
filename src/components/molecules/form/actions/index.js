@@ -48,14 +48,15 @@ const Actions = props => {
   )
 }
 
+const actionShape = {
+  label: PropTypes.string.isRequired,
+  method: PropTypes.func.isRequired
+}
+
 Actions.propTypes = {
-  primaryAction: PropTypes.shape({ label: PropTypes.string, method: PropTypes.func }),
-  secondaryActions: PropTypes.arrayOf(
-    PropTypes.shape({ label: PropTypes.string, method: PropTypes.func })
-  ),
-  destructiveActions: PropTypes.arrayOf(
-    PropTypes.shape({ label: PropTypes.string, method: PropTypes.func })
-  )
+  primaryAction: PropTypes.shape(actionShape),
+  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape)),
+  destructiveActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
 }
 
 Actions.defaultProps = {}
