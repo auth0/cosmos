@@ -27,8 +27,7 @@ class Advanced extends React.Component {
               </Text>
             </Form.FieldSet>
           </Form>
-        </FormGroup>
-        <FormGroup>
+
           <Form>
             <Form.FieldSet label="iOS Settings">
               <Form.TextInput
@@ -60,9 +59,7 @@ class Advanced extends React.Component {
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </FormGroup>
 
-        <FormGroup>
           <Form>
             <Form.FieldSet label="OAuth">
               <Form.TextArea
@@ -102,8 +99,7 @@ class Advanced extends React.Component {
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </FormGroup>
-        <FormGroup>
+
           <Form>
             <Form.FieldSet label="Grant Types">
               <Text>
@@ -114,16 +110,14 @@ class Advanced extends React.Component {
               <Text>Grants go here... </Text>
             </Form.FieldSet>
           </Form>
-        </FormGroup>
-        <FormGroup>
+
           <Form>
             <Form.FieldSet label="WS-Federation">
               <p>cer goes here...</p>
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>
-        </FormGroup>
-        <FormGroup>
+
           <Form>
             <Form.FieldSet label="Certificates">
               <Form.TextArea
@@ -175,8 +169,7 @@ KrYthg==
               }}
             />
           </Form>
-        </FormGroup>
-        <FormGroup>
+
           <Form>
             <Form.FieldSet label="OAuth Endpoints">
               <Form.TextInput

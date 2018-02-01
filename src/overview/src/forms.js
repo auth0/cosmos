@@ -60,6 +60,13 @@ const Forms = () => (
             <Form.Actions primaryAction={{ label: 'Save' }} />
           </Form.FieldSet>
         </Form>
+        <Form>
+          <Form.FieldSet label="Form 2">
+            <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
+
+            <Form.Actions primaryAction={{ label: 'Save' }} />
+          </Form.FieldSet>
+        </Form>
       </FormGroup>
     </Container>
   </div>
