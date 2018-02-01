@@ -34,6 +34,7 @@ const run = () => {
         data.filepath = path
 
         /* get documentation file path */
+        console.log(path)
         const directoryName = path.split('/').splice(-2, 1)[0]
         const documentationPath = path.replace('index.js', `${directoryName}.md`)
 
