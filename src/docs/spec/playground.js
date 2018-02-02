@@ -71,7 +71,7 @@ const Copy = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    let showProps = props.tags.includes('props')
+    let showProps = props.language === 'lang-jsx'
 
     this.state = {
       showProps,
@@ -118,11 +118,7 @@ class Playground extends React.Component {
           style={{ opacity: 0, height: 0 }}
           onChange={() => {}}
         />
-        <LiveProvider
-          code={code}
-          scope={Components}
-          noInline={this.props.tags.includes('multiple')}
-        >
+        <LiveProvider code={code} scope={Components}>
           <LivePreview />
           <LiveError />
           {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
@@ -131,7 +127,7 @@ class Playground extends React.Component {
           </CodeWrapper>
           {this.state.codeVisible ? (
             <Copy onClick={this.copyCode.bind(this)}>
-              <Components.Icon type="copy" />
+              <Components.Icon name="copy" />
             </Copy>
           ) : null}
         </LiveProvider>
