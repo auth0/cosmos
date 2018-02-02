@@ -6,10 +6,10 @@ import Form from '../form'
 import Well from '../../atoms/_well'
 import { spacing } from '../../../tokens/'
 
-const StyledFormGroup = styled.div`` //feel free to delete this and replace with div
+const StyledFormGroup = styled.div``
 
 const StyledFormWrapper = styled(Well)`
-  margin: ${spacing.medium} 0;
+  margin-bottom: ${spacing.medium};
 `
 
 const FormGroup = props => {

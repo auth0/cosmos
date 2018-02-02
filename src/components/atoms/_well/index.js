@@ -10,7 +10,7 @@ const StyledWell = styled.div`
 `
 
 const Well = props => {
-  return <StyledWell>{props.children}</StyledWell>
+  return <StyledWell {...props}>{props.children}</StyledWell>
 }
 
 Well.propTypes = {}
