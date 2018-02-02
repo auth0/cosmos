@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { colors, misc } from '../../tokens/'
 
 const StyledContainer = styled.div`
-  max-width: 1064px;
+  max-width: 1034px;
   margin: 0 auto;
 `
 

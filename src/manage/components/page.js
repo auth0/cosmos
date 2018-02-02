@@ -8,7 +8,7 @@ const Page = () => (
   <div
     style={{
       width: '836px',
-      marginLeft: '212px',
+      marginLeft: '198px',
       paddingBottom: '50px'
     }}
   >

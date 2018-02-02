@@ -15,7 +15,7 @@ const App = () => (
       <div
         style={{
           display: 'flexbox',
-          paddingTop: '96px'
+          paddingTop: '100px'
         }}
       >
         <SideNavigation />
