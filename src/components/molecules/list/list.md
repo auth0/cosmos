@@ -8,7 +8,7 @@
 
 Use this component to layout a list of `components` vertically
 
-```js props
+```jsx
 <List {props}>
   <div>one</div>
   <div>two</div>
@@ -30,21 +30,17 @@ You can pass an optional label for the list
 
 Use `List` with `Stack` to create complex structures like this:
 
-```js multiple
-const connections = [
-  { name: 'GitHub', id: 'github', enabled: true },
-  { name: 'Google', id: 'google-oauth2', enabled: false }
-]
-
-render(
-  <List label="Social">
-    {connections.map(connection => (
-      <Stack key={connection.id}>
-        <div>{connection.id}</div>
-        <div>{connection.name}</div>
-        <Switch on={connection.enabled} />
-      </Stack>
-    ))}
-  </List>
-)
+```js
+<List label="Social">
+  <Stack>
+    <div>github</div>
+    <div>GitHub</div>
+    <Switch on />
+  </Stack>
+  <Stack>
+    <div>google-oauth2</div>
+    <div>Google</div>
+    <Switch />
+  </Stack>
+</List>
 ```
