@@ -6,14 +6,18 @@ import Form from '../form'
 import Well from '../../atoms/_well'
 import { spacing } from '../../../tokens/'
 
-const StyledFormGroup = styled(Well)`
-  margin-bottom: ${spacing.medium};
+const StyledFormGroup = styled.div`` //feel free to delete this and replace with div
+
+const StyledFormWrapper = styled(Well)`
+  margin: ${spacing.medium} 0;
 `
 
 const FormGroup = props => {
-  return React.Children.map(props.children, child => {
-    return <StyledFormGroup>{child}</StyledFormGroup>
+  const children = React.Children.map(props.children, child => {
+    return <StyledFormWrapper>{child}</StyledFormWrapper>
   })
+
+  return <StyledFormGroup>{children}</StyledFormGroup>
 }
 
 FormGroup.propTypes = {
