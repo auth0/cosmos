@@ -20,13 +20,15 @@ const Example = props => {
       li: Heading5,
       /* use playground for js code blocks */
       code: markdownProps => {
-        if (!markdownProps.className) return <Code>{markdownProps.children}</Code>
-        else if (markdownProps.className.indexOf('js') === -1) return null
+        const language = markdownProps.className
+
+        if (!language) return <Code>{markdownProps.children}</Code>
+        else if (!['lang-js', 'lang-jsx'].includes(language)) return null
         else {
           return (
             <Playground
               code={markdownProps.children}
-              tags={markdownProps.className}
+              language={language}
               component={props.component}
             />
           )
