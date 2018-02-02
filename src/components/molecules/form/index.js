@@ -1,39 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing } from '../../../tokens'
-import uniqueId from '../../_helpers/uniqueId'
-import { subtract } from '../../_helpers/pixel-calc'
-
 import ActionInput from '../../molecules/_action-input'
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
 
-import { formWidth, labelWidth } from './layout'
-import Description from './description'
+import Field from './field'
 import Actions from './actions'
 
-import StyledLabel from './label'
 import StyledDivider from './divider'
 import StyledFieldSet from './fieldset'
-import StyledError from './error'
-
-// Layout
-
-const Field = styled.div`
-  margin: ${spacing.small} 0;
-  display: flex;
-  width: ${formWidth};
-`
-const LabelLayout = styled.div`
-  width: ${labelWidth};
-  text-align: right;
-  padding-right: ${spacing.medium};
-`
-const ContentLayout = styled.div`
-  width: ${subtract(formWidth, labelWidth)};
-`
 
 const StyledForm = styled.form`
   ${StyledTextArea} {
@@ -52,28 +29,10 @@ const StyledForm = styled.form`
 const Form = props => <StyledForm>{props.children}</StyledForm>
 // TODO: Form will get an layout prop for orientation of labels
 
-const FormElement = props => {
-  /* Get unique id for label */
-  let id = props.id || uniqueId(props.label)
-
-  return (
-    <Field>
-      <LabelLayout>
-        <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
-      </LabelLayout>
-      <ContentLayout>
-        <props.fieldComponent id={id} {...props} />
-        {props.error ? <StyledError>{props.error}</StyledError> : null}
-        {props.description ? <Description>{props.description}</Description> : null}
-      </ContentLayout>
-    </Field>
-  )
-}
-
-Form.TextInput = props => <FormElement {...props} fieldComponent={ActionInput} />
-Form.TextArea = props => <FormElement {...props} fieldComponent={TextArea} />
-Form.Select = props => <FormElement {...props} fieldComponent={Select} />
-Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />
+Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
+Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
+Form.Select = props => <Field {...props} fieldComponent={Select} />
+Form.Switch = props => <Field {...props} fieldComponent={Switch} />
 
 Form.Actions = Actions
 
