@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>buddicons/play-circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="buddicons/play-circle" fill="#000000" fill-rule="nonzero">
+            <path d="M10,18 C14.418278,18 18,14.418278 18,10 C18,5.581722 14.418278,2 10,2 C5.581722,2 2,5.581722 2,10 C2,14.418278 5.581722,18 10,18 Z M10,19 C5.02943725,19 1,14.9705627 1,10 C1,5.02943725 5.02943725,1 10,1 C14.9705627,1 19,5.02943725 19,10 C19,14.9705627 14.9705627,19 10,19 Z M13.2572479,9.57125354 C13.5809174,9.76545523 13.5809174,10.2345448 13.2572479,10.4287465 L8.25724788,13.4287465 C7.92398562,13.6287038 7.5,13.3886472 7.5,13 L7.5,7 C7.5,6.61135276 7.92398562,6.37129618 8.25724788,6.57125354 L13.2572479,9.57125354 Z M8.5,7.88309519 L8.5,12.1169048 L12.0281747,10 L8.5,7.88309519 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
