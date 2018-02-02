@@ -1,39 +1,40 @@
 import React from 'react'
-import styled, { injectGlobal } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors } from '../../../tokens'
-import iconData from './icons.json'
-
-injectGlobal`
-  @font-face {
-    font-family: budicon-font;
-    src: url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.eot);
-    src: url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.eot#iefix) format("embedded-opentype"),url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.woff) format("woff"),url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.ttf) format("truetype"),url(https://cdn.auth0.com/fonts/budicons/fonts/budicon-font.svg#budicon-font) format("svg");
-  }
-`
-
-const StyledIcon = styled.i`
-  font-family: 'budicon-font';
-  display: inline-block;
-  vertical-align: middle;
-  font-size: ${props => props.size}px;
-  font-weight: 400;
-  font-style: normal;
-  color: ${props => props.color};
-  &:after {
-    content: '${props => props.icon.content || ''}';
-  }
-`
+import { colors, spacing } from '../../../tokens'
+import { icons } from './icons.json'
 
 const Icon = props => {
-  const icon = iconData.filter(icon => icon.name === props.type)[0] || {}
-  return <StyledIcon icon={icon} {...props} />
+  // If the icon name isn't found, show a question mark instead.
+  const icon = icons[props.name] || icons.help
+  return (
+    <Icon.Element
+      width={props.size}
+      height={props.size}
+      viewBox={`0 0 ${icon.width} ${icon.height}`}
+      color={props.color}
+    >
+      {icon.paths.map((path, index) => <path key={index} d={path} />)}
+    </Icon.Element>
+  )
 }
 
+Icon.Element = styled.svg`
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: ${spacing.xsmall};
+  path {
+    fill: ${props => props.color};
+  }
+  :last-child {
+    margin-right: 0;
+  }
+`
+
 Icon.propTypes = {
-  /** Icon type */
-  type: PropTypes.string.isRequired,
+  /** Icon name */
+  name: PropTypes.string.isRequired,
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */
@@ -41,9 +42,8 @@ Icon.propTypes = {
 }
 
 Icon.defaultProps = {
-  size: 14,
+  size: 20,
   color: colors.icon.default
 }
 
 export default Icon
-export { StyledIcon }

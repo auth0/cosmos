@@ -10,7 +10,7 @@ Tooltip top:
 
 ```js
 <Tooltip top content="Copy">
-  <Icon type="copy" />
+  <Icon name="copy" />
 </Tooltip>
 ```
 
@@ -18,6 +18,6 @@ Tooltip bottom:
 
 ```js
 <Tooltip bottom content="Notifications">
-  <Icon type="notifications" />
+  <Icon name="notifications" />
 </Tooltip>
 ```

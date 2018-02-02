@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../../tokens/'
 import onlyOneOf from '../../_helpers/only-one-of-validator'
-import Icon, { StyledIcon } from '../icon'
+import Icon from '../icon'
 import Spinner from '../spinner'
 
 const config = {
@@ -125,11 +125,6 @@ const StyledButton = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${StyledIcon} {
-    color: ${props => getAttributes(props).text};
-    margin-right: ${spacing.xsmall};
-  }
-
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
@@ -151,13 +146,13 @@ const Content = styled.span`
 const Button = ({ children, ...props }) => {
   let content = children
 
-  if (props.success) content = <Icon type="success" />
+  if (props.success) content = <Icon name="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
 
   if (props.icon && content) {
     return (
       <StyledButton {...props}>
-        <Icon type={props.icon} />
+        <Icon name={props.icon} color={getAttributes(props).text} />
         <Content>{content}</Content>
       </StyledButton>
     )
@@ -166,7 +161,7 @@ const Button = ({ children, ...props }) => {
   if (props.icon) {
     return (
       <StyledButton {...props}>
-        <Icon type={props.icon} />
+        <Icon name={props.icon} />
       </StyledButton>
     )
   }
