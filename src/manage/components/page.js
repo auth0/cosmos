@@ -1,17 +1,15 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import ClientList from './client-list'
-import Client from './client'
+import ClientList from '../client-list'
+import Client from '../client'
 
 const Page = () => (
   <div
     style={{
-      float: 'left',
-      width: '83%',
-      height: '100vh',
-      paddingLeft: '36px',
-      boxSizing: 'border-box'
+      width: '836px',
+      marginLeft: '212px',
+      paddingBottom: '50px'
     }}
   >
     <Router>

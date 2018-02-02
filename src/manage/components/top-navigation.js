@@ -1,12 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import {
-  Dummy as TopNav,
   Dummy as Dropdown,
   Dummy as TenantCard,
   Dummy as UserCard,
   Dummy
 } from './dummy-components'
+
+import Container from './container'
 
 Dropdown.Link = Dropdown.Devider = Dummy
 
@@ -14,7 +16,11 @@ const openSalesModal = () => {}
 const switchTenant = () => {}
 
 const links = [
-  { label: 'Help & Support', url: 'https://support.auth0.com', target: 'blank' },
+  {
+    label: 'Help & Support',
+    url: 'https://support.auth0.com',
+    target: 'blank'
+  },
   {
     label: 'Documentation',
     url: 'https://auth0.com/docs',
@@ -59,10 +65,21 @@ const DropdownComponent = () => (
   </Dropdown>
 )
 
+const TopNav = styled.div`
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+`
+
 export default () => (
-  <TopNav
-    style={{ height: 60, borderBottom: '1px solid #eee' }}
-    links={links}
-    DropdownComponent={DropdownComponent}
-  />
+  <TopNav links={links} DropdownComponent={DropdownComponent}>
+    <Container>
+      <div>Hello</div>
+    </Container>
+  </TopNav>
 )
