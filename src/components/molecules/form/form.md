@@ -59,7 +59,9 @@ You can also add `description` for the form field which supports tagging variabl
 </Form>
 ```
 
-Long forms should be divided into smaller groups using a `FieldSet`
+#### Grouping fields
+
+Long forms should be divided into smaller groups using a `FieldSet`. Note that `Form.Actions` go outside fieldsets.
 
 ```js
 <Form>
@@ -72,8 +74,15 @@ Long forms should be divided into smaller groups using a `FieldSet`
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
+
+#### Multiple forms in a page
+
+If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+
+#### Form actions
 
 At the end of the forms, you need actions that the user can take. Pass a `primaryAction` with the label and method to call.
 

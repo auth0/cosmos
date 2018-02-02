@@ -2,6 +2,7 @@ import React from 'react'
 import { Tabs, Heading1 } from '../components'
 
 import Settings from './settings'
+import Advanced from './advanced'
 import Connections from './connections'
 
 class Client extends React.Component {
@@ -11,13 +12,15 @@ class Client extends React.Component {
         <Heading1>API Explorer Client</Heading1>
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
-          <Tabs.Tab label="Settings" selected>
+          <Tabs.Tab label="Settings">
             <Settings clientId={this.props.match.params.clientId} />
           </Tabs.Tab>
           <Tabs.Tab label="Connections">
             <Connections />
           </Tabs.Tab>
-          <Tabs.Tab label="Advanced">Advanced</Tabs.Tab>
+          <Tabs.Tab label="Advanced" selected>
+            <Advanced clientId={this.props.match.params.clientId} />
+          </Tabs.Tab>
         </Tabs>
       </div>
     )
