@@ -8,7 +8,7 @@
 
 Use this component to layout a list of `components` vertically
 
-```js props
+```jsx
 <List {props}>
   <div>one</div>
   <div>two</div>

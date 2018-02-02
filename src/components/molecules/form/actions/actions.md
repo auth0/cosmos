@@ -4,7 +4,7 @@
 
 At the end of the forms, you need actions that the user can take.
 
-```js props
+```jsx
 <Form.Actions
   primaryAction={{ label: 'Save Changes', method: this.save }}
   secondaryActions={[{ label: 'Clear', method: this.clear }]}

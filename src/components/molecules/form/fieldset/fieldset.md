@@ -4,7 +4,7 @@
 
 Long forms should be divided into smaller groups using `Form.FieldSet`
 
-```js props
+```jsx
 <Form>
   <Form.FieldSet {props}>
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
