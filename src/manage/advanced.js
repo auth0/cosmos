@@ -124,25 +124,9 @@ class Advanced extends React.Component {
                 label="Signing Certificate"
                 code
                 readOnly
-                value="-----BEGIN CERTIFICATE-----
-                LIODRDECMeigPwSBUgMJDpoWLwoLrQeHSATGCSqGSIb3DQEBBQUAMCcxJTAjBgNV
-                BAMTHGZlcm5hbmRvY2FycmV0dG9uaS5hdXRoMC5jb20wHhcNMTcwMTI3MjE0OTM1
-                WhcNMzAxMDA2MjE0OTM1WjAnMSUwIwYDVQQDExxmZXJuYW5kb2NhcnJldHRvbmku
-                YXV0aDAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvW0PbOzi
-                7bmeTFRu/AQcSal0tLC6/o6x7pf5ti3oCa8QyS//yXP39mR5vlbQq42Bpt01TY9/
-                3jqtk1wU9UmXVuspX/pS3SbjnuB8l1efrQC845N8XhyHSWcd1cL9iNPF8ucAYfvl
-                uAMobs9j7s7T3cTHRVo1ffbRp0PN/u40uah6l1tUnzZuK3ZeAZqVWQi++yVHKyTi
-                Ff7n+A55IK2Tq2qLchspH6jd5/Wf92t9nBvKutaALRllKt3NLdtK/d+UKJ1AB+72
-                6XDEPiBD8lxfW/nGzQUkoiICjrhIvux5aCWzEs1uE4flQe11fSsNZroK6T6xXSEm
-                ClaQJhnbrGqlPQIDAQABoy8wLTAMBgNVHRMEBTADAQH/MB0GA1UdDgQWBBSgORhm
-                28ZObhg39mXLfVZrqik9rTANBgkqhkiG9w0BAQUFAAOCAQEAi2vPPBbms5oaZi4s
-                DOWpuETpIfRhlGuNxqA5B/sFjN7O7/bgCUY/f7Pvp/Vz5QSVjLpPOe59C69QDugk
-                y6h3UsjD2VbYhgErDLT2nfeAoDRSqtsZ74mDK48olBULhqf3E+aHN18lt7Y7F38a
-                nY1vfnps8ueZlsOxrJD+UPVjR66STjeQJNG9CZrDcK7L2KAd8OOtZSvrPgIG1VgP
-                i7e07/bY313KWhLLTf9x5awoYN0itSwU+Y5PZS7Zq8HcFO/q82bulQ2q5fgbLatd
-                X8CdcIKzC8FHsB5HtW2mKaqwsMTUJAVYI8nRse1UyYFataMtTVpTUWnsrX7xriuZ
-                KrYthg==
-                -----END CERTIFICATE-----"
+                value="-----BEGIN DUMMY CERTIFICATE-----
+                HtW46whaHcTejeUnjyQFn6vwmPsSpzvNJWWUr8xbKk8FkWwXN9Ub9tkQ4Ec2NLq6hcsKySZ3bbjg6MjSE3bGN4YTEynMG4EP5EadUj68sBNzedt96Lmg8HyGevXsByTK6vfWnXPFDdXSjrujEdVBb5zPFM9wCJRcw86CUZN3BgpwUvnCKrMJaQUEU2f6YEFP9BpyrbedEM6jB8H4VEh4pkrfm2A5vLHPLM4saepv3dHtkY8bYKTs3d3Zpk7uVtrU8JjFkhygQ9YcB86GtT649FVZjcFuHHP9F5JwAvwhmekQjGQRtM7cgF2d2J4kYTp4j59c4DedDmHQCwhFgGmNdQqGNMtnhhRbZLqrt2k9QgTA5wG9zZUyH4Ab8yW7qpyJN29AzYVb7ZBKgun7tgNYzq6bbnByvTB7AtMqRheS789njTpYVjxgQ5WwjRKbBGa3SJsMscfrH9P4ncKAQBQzMtYzZuP6qwqCxUfYVXU73k24ejgmFNnsczBe6txdnJWSuNnvL5ZvR2kRCBsL7vakax3TNVRyvWhCxu9EeVb7xhyemhZFjmTBsqtJ6uJ56YSQxfWBWM5wzJTy62xv2F4wgV3TBKDyEbxzdgj785kAC5ZUs4eVZtT2gF9z9tAxJx38FmFRBvV556vEdjwNhQNXWht6MBBmKt3bmgHhEGuw3kjATYCRqY6y5XSUS6eKSGkZnDN44pTFDHZJkXjhjUQE7nVb5PFQ9Tm2pY3NBfVMj7gR4vxVYuB6sTw75RnFYPcfTNhDzKaLudau3bDSVDh5hNeTgpBKWfPuTs5Z5LS6sULdWuH6ZDVrSXyM9EyYdGnBkHvZAgc3T5w2Vev4wkWtfnpDChEJjSM3g6znP5NZtuFbYy3GFSgNt3VswfTdBE8pgK4YkAeGwnFpZDDpcRKErFvpuPZfHg436HvLTZ9BHFvKuQWxr5CdZGUK4fehR2fuWxaJrRWTUWUr469xpqqQSAFRJEgyMmjwfrNkADxugZF7fA6dwXSAd7GRSGumYUgT
+                -----END DUMMY CERTIFICATE-----"
                 length="8"
               />
               <Form.TextInput
