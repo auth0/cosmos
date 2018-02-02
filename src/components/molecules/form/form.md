@@ -6,7 +6,7 @@
 
 `Form` is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
-There are common props for all fields like `label`, `description` and `error`.
+`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
 
 ---
 
@@ -14,16 +14,17 @@ There are common props for all fields like `label`, `description` and `error`.
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-</Form>
-```
-
-There are multiple field types supported like `TextInput`, `TextArea` and `Select`
-
-```js
-<Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    description="This is some helper `text`"
+  />
+  <Form.TextArea
+    label="Long input"
+    placeholder="Add a lot of text here"
+    error="Can't leave this empty"
+  />
   <Form.Select
     label="Options list"
     options={[
@@ -36,30 +37,7 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
 </Form>
 ```
 
-You can also add `description` for the form field which supports tagging variables in `` and also supports custom components
-
-```js
-<Form>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description="This is some helper `text`"
-  />
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description={
-      <span>
-        Find more about it <a href="link">here</a>
-      </span>
-    }
-  />
-</Form>
-```
-
-Long forms should be divided into smaller groups using a `FieldSet`
+Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](/docs/Form%20Fieldset).
 
 ```js
 <Form>
@@ -75,4 +53,11 @@ Long forms should be divided into smaller groups using a `FieldSet`
 </Form>
 ```
 
-At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form.Actions).
+At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form%20Actions).
+
+```js
+<Form>
+  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+</Form>
+```

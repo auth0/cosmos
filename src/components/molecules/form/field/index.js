@@ -10,11 +10,21 @@ import uniqueId from '../../../_helpers/uniqueId'
 import StyledLabel from '../label'
 import StyledError from '../error'
 import Description from '../description'
+import { StyledTextArea } from '../../../atoms/textarea'
 
 const StyledField = styled.div`
   margin: ${spacing.small} 0;
   display: flex;
   width: ${formWidth};
+
+  ${StyledTextArea} {
+    /* browsers give textareas an annoying alignment
+    that needs to be overwritten :/ */
+    vertical-align: top;
+    /* resize should not happen horizontally inside a form */
+    min-height: 44px;
+    /* TO-DO: Tokenize this value as it's related to the other heights of components. */
+  }
 `
 const LabelLayout = styled.div`
   width: ${labelWidth};

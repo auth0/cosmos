@@ -64,3 +64,16 @@ Here's a secret: `description` has not matured to support links yet. You can how
   }
 />
 ```
+
+We leave the logic part of validation to you the developer, you can pass `error` back to the field and it will take care of the presentation.
+
+```js
+<Form.TextInput
+  label="Allowed URLs"
+  type="text"
+  placeholder="Enter something"
+  defaultValue="auth0.com"
+  error="This is not a valid URL"
+  description="Make sure to specify the protocol, `http://` or `https://`"
+/>
+```

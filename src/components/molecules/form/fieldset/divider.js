@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import { fonts, spacing, colors } from '../../../tokens'
-import StyledLabel from './label'
+import { fonts, spacing, colors } from '../../../../tokens'
+import StyledLabel from '../label'
 
 const StyledDivider = styled(StyledLabel)`
   text-transform: uppercase;
@@ -12,6 +12,7 @@ const StyledDivider = styled(StyledLabel)`
   border-bottom: 1px solid ${colors.form.divider};
   padding-bottom: ${spacing.xsmall};
   margin-bottom: ${spacing.xlarge};
+  width: 100%;
 `
 
 export default StyledDivider
