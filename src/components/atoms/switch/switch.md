@@ -26,13 +26,11 @@ You can change the default state of the switch by passing the `on` prop
 
 Switch can be locked in it's initial state with the `readOnly` prop
 
-```js multiple
-render(
-  <div>
-    <Switch readOnly />
-    <Switch on readOnly />
-  </div>
-)
+```js
+<div>
+  <Switch readOnly />
+  <Switch on readOnly />
+</div>
 ```
 
 You can change the accessibility labels by passing an array with two strings
