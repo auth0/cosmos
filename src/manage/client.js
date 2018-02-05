@@ -12,13 +12,13 @@ class Client extends React.Component {
         <Heading1>API Explorer Client</Heading1>
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
-          <Tabs.Tab label="Settings">
+          <Tabs.Tab label="Settings" selected>
             <Settings clientId={this.props.match.params.clientId} />
           </Tabs.Tab>
           <Tabs.Tab label="Connections">
             <Connections />
           </Tabs.Tab>
-          <Tabs.Tab label="Advanced" selected>
+          <Tabs.Tab label="Advanced">
             <Advanced clientId={this.props.match.params.clientId} />
           </Tabs.Tab>
         </Tabs>
