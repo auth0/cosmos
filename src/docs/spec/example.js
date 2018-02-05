@@ -7,7 +7,8 @@ import TextBlock from './text-block'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
 import IconBrowser from './icon-browser'
-import { Heading5, Code } from '../../components'
+import { Code } from '../../components'
+import { Text } from '../components/typography'
 
 const Example = props => {
   const options = {
@@ -17,7 +18,7 @@ const Example = props => {
       h4: ExampleHeader,
       h5: TextBlock,
       p: TextBlock,
-      li: Heading5,
+      li: Text,
       /* use playground for js code blocks */
       code: markdownProps => {
         const language = markdownProps.className

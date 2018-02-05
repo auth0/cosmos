@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
-import { Heading5 } from '../../components/'
+import { Text } from '../components/typography'
 import { spacing } from '../../tokens'
 
-const TextBlock = styled(Heading5)`
-  padding: ${spacing.small} 0;
-`
+const TextBlock = styled(Text)``
 
 export default TextBlock
