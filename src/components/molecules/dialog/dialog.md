@@ -13,3 +13,7 @@ titlebar, close button, and a footer.
   Are you sure?
 </Dialog>
 ```
+
+Here's an example <code>Dialog</code>:
+
+![dialog example](/docs/dialog.png)

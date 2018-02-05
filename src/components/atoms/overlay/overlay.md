@@ -5,3 +5,7 @@ cases a <code>Dialog</code> might be more appropriate.
 ```jsx
 <Overlay>Hello from Cosmos!</Overlay>
 ```
+
+Here's an example <code>Overlay</code>:
+
+![overlay example](/docs/overlay.png)
