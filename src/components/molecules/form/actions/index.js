@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing, colors } from '../../../../tokens'
-import { labelWidth } from '../layout'
+import getLayout from '../layout'
 
 import Button from '../../../atoms/button'
 import { Right, Clear } from '../../../_helpers/float'
@@ -18,7 +18,7 @@ const StyledActions = styled.div`
 
 const Actions = props => {
   return (
-    <StyledActions labelWidth={labelWidth}>
+    <StyledActions labelWidth={getLayout().labelWidth}>
       {props.primaryAction && (
         <Button primary onClick={props.primaryAction.method}>
           {props.primaryAction.label}

@@ -1,6 +1,11 @@
-import { multiply } from '../../_helpers/pixel-calc'
+import { multiply, subtract } from '../../_helpers/pixel-calc'
 
-const formWidth = '625px'
-const labelWidth = multiply(formWidth, 0.35)
+const getLayout = () => {
+  const formWidth = '625px'
+  const labelWidth = multiply(formWidth, 0.35)
+  const contentWidth = subtract(formWidth, labelWidth)
 
-export { formWidth, labelWidth }
+  return { formWidth, labelWidth, contentWidth }
+}
+
+export default getLayout

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '../../../../tokens'
-import { formWidth, labelWidth } from '../layout'
-import { subtract } from '../../../_helpers/pixel-calc'
+import getLayout from '../layout'
 import uniqueId from '../../../_helpers/uniqueId'
 
 import StyledLabel from '../label'
@@ -15,7 +14,7 @@ import { StyledTextArea } from '../../../atoms/textarea'
 const StyledField = styled.div`
   margin: ${spacing.small} 0;
   display: flex;
-  width: ${formWidth};
+  width: ${getLayout().formWidth};
 
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
@@ -27,12 +26,12 @@ const StyledField = styled.div`
   }
 `
 const LabelLayout = styled.div`
-  width: ${labelWidth};
+  width: ${getLayout().labelWidth};
   text-align: right;
   padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
-  width: ${subtract(formWidth, labelWidth)};
+  width: ${getLayout().contentWidth};
 `
 
 const Field = props => {
