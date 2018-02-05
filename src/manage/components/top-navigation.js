@@ -174,7 +174,8 @@ export default () => (
           <ul>
             <li>
               <a href="#">
-                <span className="hidden">Notifications</span> <Icon size={16} />
+                <span className="hidden">Notifications</span>{' '}
+                <Icon name="notifications" size={16} />
               </a>
             </li>
             <li>
@@ -191,7 +192,7 @@ export default () => (
                 <UserDropdown>
                   <div className="tenant-name">tenantname</div>
                   <Avatar />
-                  <Icon size={10} />
+                  <Icon name="chevron-down" size={10} />
                 </UserDropdown>
               </a>
             </li>
