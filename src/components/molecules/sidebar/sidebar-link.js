@@ -9,7 +9,7 @@ const SidebarLink = props => {
   return (
     <SidebarLink.Element href={props.url} onClick={props.onClick} selected={props.selected}>
       <Icon
-        type={props.icon ? props.icon : 'arrow-right'}
+        name={props.icon ? props.icon : 'arrow-right'}
         size={18}
         color={props.selected ? colors.link.sidebarFocus : colors.link.sidebar}
       />

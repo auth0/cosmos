@@ -11,7 +11,7 @@ const StyledDivider = styled(StyledLabel)`
   font-weight: ${fonts.weight.medium};
   border-bottom: 1px solid ${colors.form.divider};
   padding-bottom: ${spacing.xsmall};
-  margin-bottom: ${spacing.xlarge};
+  margin-bottom: ${spacing.large};
   width: 100%;
 `
 

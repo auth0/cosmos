@@ -26,7 +26,8 @@ const colors = {
   },
   form: {
     title: '#000',
-    divider: 'rgba(151,151,151,0.29)'
+    divider: 'rgba(151,151,151,0.29)',
+    background: '#f9f9f9'
   },
   input: {
     background: '#FFF',
