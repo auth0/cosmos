@@ -42,7 +42,28 @@ const Text = styled.p`
   font-size: 15px;
   line-height: 26px;
   font-weight: ${fonts.weight.normal};
-  margin-bottom: 1em;
+  margin: 1em 0;
 `
 
-export { Heading1, Heading2, Heading3, Heading4, Subheader, Text }
+const ListItem = styled.li`
+  color: #414141;
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: ${fonts.weight.normal};
+`
+
+const List = styled.ul`
+  list-style: square;
+  margin: 1em 0;
+  margin-left: 1.5em;
+`
+
+const Link = styled.a`
+  color: ${colors.link.default};
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export { Heading1, Heading2, Heading3, Heading4, Subheader, Text, Link, List, ListItem }

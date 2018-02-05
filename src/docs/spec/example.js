@@ -6,7 +6,7 @@ import Break from './break'
 
 import IconBrowser from './icon-browser'
 import { Code } from '../../components'
-import { Text } from '../docs-components/typography'
+import { Text, ListItem, List, Link } from '../docs-components/typography'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
 
@@ -17,7 +17,9 @@ const Example = props => {
       h2: SectionHeader,
       h3: ExampleHeader,
       p: Text,
-      li: Text,
+      a: Link,
+      li: ListItem,
+      ul: List,
       /* use playground for js code blocks */
       code: markdownProps => {
         const language = markdownProps.className
