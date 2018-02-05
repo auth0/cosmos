@@ -3,23 +3,30 @@ import styled, { injectGlobal } from 'styled-components'
 import { colors, fonts, misc } from '../../tokens'
 
 const Heading1 = styled.h1`
-  margin: 1em 0 1em 0; /* reset browser default */
+  margin: 1em 0 0.5em 0; /* reset browser default */
   color: ${colors.text.black};
   font-size: 36px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.normal};
 `
 
 const Heading2 = styled.h2`
-  margin: 1.5em 0 0.75em 0; /* reset browser default */
-  color: ${colors.text.black};
-  font-size: 24px; /* TO-DO: tokenize */
+  font-size: 24px;
   font-weight: ${fonts.weight.medium};
+  margin: 1.6em 0 0.6em;
+  color: ${colors.text.black};
 `
 
 const Heading3 = styled.h3`
+  margin: 1.6em 0 0.6em; /* reset browser default */
+  color: ${colors.text.black};
+  font-size: 19px; /* TO-DO: tokenize */
+  font-weight: ${fonts.weight.medium};
+`
+
+const Heading4 = styled.h4`
   margin: 1em 0 1em 0; /* reset browser default */
-  color: ${colors.text.default};
-  font-size: 18px; /* TO-DO: tokenize */
+  color: ${colors.text.black};
+  font-size: 16px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
@@ -32,10 +39,10 @@ const Subheader = styled.h6`
 
 const Text = styled.p`
   color: #414141;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 26px;
   font-weight: ${fonts.weight.normal};
   margin-bottom: 1em;
 `
 
-export { Heading1, Heading2, Heading3, Subheader, Text }
+export { Heading1, Heading2, Heading3, Heading4, Subheader, Text }

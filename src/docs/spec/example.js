@@ -3,21 +3,20 @@ import Markdown from 'markdown-to-jsx'
 
 import Playground from './playground'
 import Break from './break'
-import TextBlock from './text-block'
-import SectionHeader from './section-header'
-import ExampleHeader from './example-header'
+
 import IconBrowser from './icon-browser'
 import { Code } from '../../components'
-import { Text } from '../components/typography'
+import { Text } from '../docs-components/typography'
+import SectionHeader from './section-header'
+import ExampleHeader from './example-header'
 
 const Example = props => {
   const options = {
     overrides: {
       hr: Break,
       h2: SectionHeader,
-      h4: ExampleHeader,
-      h5: TextBlock,
-      p: TextBlock,
+      h3: ExampleHeader,
+      p: Text,
       li: Text,
       /* use playground for js code blocks */
       code: markdownProps => {
@@ -27,11 +26,13 @@ const Example = props => {
         else if (!['lang-js', 'lang-jsx'].includes(language)) return null
         else {
           return (
-            <Playground
-              code={markdownProps.children}
-              language={language}
-              component={props.component}
-            />
+            <div>
+              <Playground
+                code={markdownProps.children}
+                language={language}
+                component={props.component}
+              />
+            </div>
           )
         }
       },

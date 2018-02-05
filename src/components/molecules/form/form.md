@@ -2,19 +2,25 @@
   category: Forms
 ```
 
-Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
-
-There are common props for all fields like `label`, `description` and `error`.
+`import Form from 'cosmos/form'`
 
 ---
 
-#### Examples
+Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility. There are common props for all fields like `label`, `description` and `error`.
+
+## Examples
+
+### Form Field
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
 </Form>
 ```
+
+### Form Fields
 
 There are multiple field types supported like `TextInput`, `TextArea` and `Select`
 
@@ -33,6 +39,8 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
   />
 </Form>
 ```
+
+### Helper text
 
 You can also add `description` for the form field which supports tagging variables in `` and also supports custom components
 
@@ -57,7 +65,7 @@ You can also add `description` for the form field which supports tagging variabl
 </Form>
 ```
 
-#### Grouping fields
+### Grouping fields
 
 Long forms should be divided into smaller groups using a `FieldSet`. Note that `Form.Actions` go outside fieldsets.
 
@@ -76,11 +84,11 @@ Long forms should be divided into smaller groups using a `FieldSet`. Note that `
 </Form>
 ```
 
-#### Multiple forms in a page
+### Multiple forms in a page
 
 If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> to separate each form. Use a `Form.FieldSet` to add meaningful titles.
 
-#### Form actions
+### Form actions
 
 At the end of the forms, you need actions that the user can take. Pass a `primaryAction` with the label and method to call.
 

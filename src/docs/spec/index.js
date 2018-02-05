@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { metadata as components } from '../metadata.json'
 
-import { Heading1 } from '../../components'
+import { Heading1, Subheader } from '../docs-components/typography'
 import Example from './example'
 
 const Container = styled.div`
   height: 100vh;
 `
 const Headings = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 `
 
 export default props => {
@@ -23,7 +23,9 @@ export default props => {
       <Helmet title={component.displayName + ' — Cosmos'} />
       <Headings>
         <Heading1>{component.displayName}</Heading1>
-        <p>{component.documentation.description}</p>
+        <Subheader>
+          This is the component's description to be taken from the FrontMatter of the markdown file
+        </Subheader>
       </Headings>
 
       <Example documentation={component.documentation} component={component} />

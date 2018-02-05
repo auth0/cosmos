@@ -1,14 +1,15 @@
 ```meta
   category: Layout
+  description: "Use this component to horizontally layout children"
 ```
 
 `import Stack from 'cosmos/stack'`
 
----
+## Examples
 
-Use this component to horizontally layout children
+### Inline form
 
-#### Examples
+Use the 'stack' component to layout form elements in the same line.
 
 ```js
 <Stack>
