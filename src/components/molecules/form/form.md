@@ -18,13 +18,11 @@ Form is a compound component that ships with extra props for elements that take 
 </Form>
 ```
 
----
-
-`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
-
 ## Examples
 
 ### Form Fields
+
+Form is composed of Form Fields, read more about them [here](/docs/Form%20Field).
 
 ```js
 <Form>
@@ -83,6 +81,8 @@ At the end of the forms, you need actions that the user can take. Read how to ad
   <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
+
+### Form layouts
 
 `Form` also supports an alternate layout which can be used for narrow environments:
 
