@@ -104,7 +104,37 @@ const getAttributes = props => {
   return styles
 }
 
-const StyledButton = styled.button`
+const Button = ({ children, ...props }) => {
+  let content = children
+
+  if (props.success) content = <Icon type="success" />
+  else if (props.loading) content = <Spinner inverse={props.primary} />
+
+  if (props.icon && content) {
+    return (
+      <Button.Element {...props}>
+        <Icon name={props.icon} color={getAttributes(props).text} />
+        <Button.Content>{content}</Button.Content>
+      </Button.Element>
+    )
+  }
+
+  if (props.icon) {
+    return (
+      <Button.Element {...props}>
+        <Icon name={props.icon} />
+      </Button.Element>
+    )
+  }
+
+  return (
+    <Button.Element {...props}>
+      <Button.Content>{content}</Button.Content>
+    </Button.Element>
+  )
+}
+
+Button.Element = styled.button`
   min-width: ${props => (props.icon ? '36px' : '96px')};
   box-sizing: border-box;
 
@@ -125,6 +155,11 @@ const StyledButton = styled.button`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
+  ${Icon.Element} {
+    color: ${props => getAttributes(props).text};
+    margin-right: ${spacing.xsmall};
+  }
+
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
@@ -138,40 +173,10 @@ const StyledButton = styled.button`
   }
 `
 
-const Content = styled.span`
+Button.Content = styled.span`
   display: inline-block;
   vertical-align: middle;
 `
-
-const Button = ({ children, ...props }) => {
-  let content = children
-
-  if (props.success) content = <Icon name="success" />
-  else if (props.loading) content = <Spinner inverse={props.primary} />
-
-  if (props.icon && content) {
-    return (
-      <StyledButton {...props}>
-        <Icon name={props.icon} color={getAttributes(props).text} />
-        <Content>{content}</Content>
-      </StyledButton>
-    )
-  }
-
-  if (props.icon) {
-    return (
-      <StyledButton {...props}>
-        <Icon name={props.icon} />
-      </StyledButton>
-    )
-  }
-
-  return (
-    <StyledButton {...props}>
-      <Content>{content}</Content>
-    </StyledButton>
-  )
-}
 
 Button.propTypes = {
   /** Use for primary call to action */
@@ -212,4 +217,3 @@ Button.defaultProps = {
 Button.meta = {}
 
 export default Button
-export { StyledButton }

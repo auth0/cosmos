@@ -34,7 +34,7 @@ EmptyState.Wrapper = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  > ${Icon.Svg} {
+  > ${Icon.Element} {
     margin-top: ${spacing.xlarge};
     line-height: 1em;
   }
