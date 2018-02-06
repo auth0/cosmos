@@ -8,8 +8,6 @@
 <Switch {props} onToggle={value => alert(value)} />
 ```
 
----
-
 ## Examples
 
 `onToggle` should always be provided for handling changes in the value

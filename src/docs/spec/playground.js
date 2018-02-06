@@ -4,7 +4,6 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '../../components'
 
-import { Heading2 } from '../docs-components/typography'
 import { fonts, colors, spacing } from '../../tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
