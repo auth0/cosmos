@@ -9,7 +9,8 @@ import Button from '../../../atoms/button'
 import { Right, Clear } from '../../../_helpers/float'
 
 const StyledActions = styled.div`
-  padding-left: ${props => props.labelWidth};
+  padding-left: ${props =>
+    props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
   height: 100px;
   margin-top: ${spacing.xlarge};
   border-top: 1px solid ${colors.base.grayLight};
@@ -17,8 +18,10 @@ const StyledActions = styled.div`
 `
 
 const Actions = props => {
+  const layout = 'label-on-top'
+
   return (
-    <StyledActions labelWidth={getLayout().labelWidth}>
+    <StyledActions layout={layout}>
       {props.primaryAction && (
         <Button primary onClick={props.primaryAction.method}>
           {props.primaryAction.label}

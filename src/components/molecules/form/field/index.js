@@ -12,9 +12,9 @@ import Description from '../description'
 import { StyledTextArea } from '../../../atoms/textarea'
 
 const StyledField = styled.div`
+  display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
+  width: ${props => getLayout(props.layout).formWidth};
   margin: ${spacing.small} 0;
-  display: flex;
-  width: ${getLayout().formWidth};
 
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
@@ -26,24 +26,25 @@ const StyledField = styled.div`
   }
 `
 const LabelLayout = styled.div`
-  width: ${getLayout().labelWidth};
-  text-align: right;
+  width: ${props => getLayout(props.layout).labelWidth};
+  text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
   padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
-  width: ${getLayout().contentWidth};
+  width: ${props => getLayout(props.layout).contentWidth};
 `
 
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
+  const layout = 'label-on-top'
 
   return (
-    <StyledField>
-      <LabelLayout>
+    <StyledField layout={layout}>
+      <LabelLayout layout={layout}>
         <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
       </LabelLayout>
-      <ContentLayout>
+      <ContentLayout layout={layout}>
         <props.fieldComponent id={id} {...props} />
         {props.error ? <StyledError>{props.error}</StyledError> : null}
         {props.description ? <Description>{props.description}</Description> : null}

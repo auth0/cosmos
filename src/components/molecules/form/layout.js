@@ -1,9 +1,17 @@
 import { multiply, subtract } from '../../_helpers/pixel-calc'
 
-const getLayout = () => {
-  const formWidth = '625px'
-  const labelWidth = multiply(formWidth, 0.35)
-  const contentWidth = subtract(formWidth, labelWidth)
+const getLayout = layout => {
+  let formWidth, labelWidth, contentWidth
+
+  if (layout === 'label-on-left') {
+    formWidth = '625px'
+    labelWidth = multiply(formWidth, 0.35)
+    contentWidth = subtract(formWidth, labelWidth)
+  } else if (layout === 'label-on-top') {
+    formWidth = '625px'
+    labelWidth = formWidth
+    contentWidth = formWidth
+  }
 
   return { formWidth, labelWidth, contentWidth }
 }
