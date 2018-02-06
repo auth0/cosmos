@@ -1,3 +1,7 @@
+`import Icon from 'cosmos/icon'`
+
+---
+
 The `Icon` component displays an icon glyph as an `<svg>` element.
 
 ```jsx

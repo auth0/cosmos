@@ -2,6 +2,8 @@
   category: Text
 ```
 
+`import Code from 'cosmos/code'`
+
 ---
 
 #### Examples
