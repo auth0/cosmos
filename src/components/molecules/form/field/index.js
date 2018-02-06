@@ -14,7 +14,7 @@ import { StyledTextArea } from '../../../atoms/textarea'
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
   width: ${props => getLayout(props.layout).formWidth};
-  margin: ${spacing.small} 0;
+  margin: ${spacing.small} ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
 
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
@@ -37,7 +37,7 @@ const ContentLayout = styled.div`
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const layout = 'label-on-top'
+  const layout = 'label-on-left'
 
   return (
     <StyledField layout={layout}>

@@ -11,14 +11,16 @@ import { Right, Clear } from '../../../_helpers/float'
 const StyledActions = styled.div`
   padding-left: ${props =>
     props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
+  width: ${props => getLayout(props.layout).formWidth};
   height: 100px;
+  margin: ${spacing.small} ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
   margin-top: ${spacing.xlarge};
   border-top: 1px solid ${colors.base.grayLight};
   padding-top: ${spacing.medium};
 `
 
 const Actions = props => {
-  const layout = 'label-on-top'
+  const layout = 'label-on-left'
 
   return (
     <StyledActions layout={layout}>
