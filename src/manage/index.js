@@ -1,17 +1,26 @@
 import React from 'react'
+import styled from 'styled-components'
 
-import TopNavigation from './top-navigation'
-import SideNavigation from './side-navigation'
-import Page from './page'
+import TopNavigation from './components/top-navigation'
+import SideNavigation from './components/side-navigation'
+import Container from './components/container'
+import Page from './components/page'
 
-import { Dummy as Container } from './dummy-components'
+// Add margin 40px between TopNavigation and container
 
 const App = () => (
   <div>
     <TopNavigation />
-    <Container style={{ maxWidth: 1064, margin: '40px auto' }}>
-      <SideNavigation />
-      <Page />
+    <Container>
+      <div
+        style={{
+          display: 'flexbox',
+          paddingTop: '100px'
+        }}
+      >
+        <SideNavigation />
+        <Page />
+      </div>
     </Container>
   </div>
 )
