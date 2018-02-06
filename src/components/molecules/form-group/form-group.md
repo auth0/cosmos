@@ -1,8 +1,8 @@
-If a page has multiple forms, use a the `FormGroup` component to separate each form. Use a `Form.FieldSet` to add meaningful titles.
-
 `import FormGroup from 'cosmos/form-group'`
 
 ---
+
+If a page has multiple forms, use a the `FormGroup` component to separate each form. Use a `Form.FieldSet` to add meaningful titles.
 
 ```jsx
 <div>

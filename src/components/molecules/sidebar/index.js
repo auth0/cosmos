@@ -11,6 +11,7 @@ const Sidebar = props => {
   return <Sidebar.Element {...props} />
 }
 
+
 Sidebar.Element = styled.div`
   float: left;
   width: 160px;

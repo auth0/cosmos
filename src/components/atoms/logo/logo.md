@@ -2,11 +2,11 @@
   category: Images
 ```
 
----
+`import Logo from 'cosmos/logo'`
 
-The `Logo` component exports a svg
+## Examples
 
-#### Examples
+The `Logo` component exports an SVG version of the logo.
 
 ```js
 <Logo />

@@ -8,11 +8,9 @@
 <Button {props}>Button</Button>
 ```
 
----
-
 ## Examples
 
-#### Basic button
+### Basic button
 
 Buttons are great to ask users for action
 
@@ -20,7 +18,7 @@ Buttons are great to ask users for action
 <Button>Save</Button>
 ```
 
-#### Button types
+### Button types
 
 * Primary actions help attract attention to the main action
 * Use secondary actions for actions that are not as important
@@ -38,7 +36,7 @@ Buttons are great to ask users for action
 </div>
 ```
 
-#### Button states
+### Button states
 
 Disable a button if you don't want the user isn't allowed to click on it
 
@@ -50,7 +48,7 @@ Disable a button if you don't want the user isn't allowed to click on it
 </div>
 ```
 
-#### Icons in Buttons
+### Icons in Buttons
 
 Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](/docs/Icon)
 

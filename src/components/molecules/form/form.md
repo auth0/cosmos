@@ -2,28 +2,43 @@
   category: Forms
 ```
 
----
-
-`Form` is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
-
-There are common props for all fields like `label`, `description` and `error`.
+`import Form from 'cosmos/form'`
 
 ---
 
-#### Examples
+Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
-```js
-<Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+```jsx
+<Form {props}>
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+  />
 </Form>
 ```
 
-There are multiple field types supported like `TextInput`, `TextArea` and `Select`
+---
+
+`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
+
+## Examples
+
+### Form Fields
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    description="This is some helper `text`"
+  />
+  <Form.TextArea
+    label="Long input"
+    placeholder="Add a lot of text here"
+    error="Can't leave this empty"
+  />
   <Form.Select
     label="Options list"
     options={[
@@ -36,32 +51,9 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
 </Form>
 ```
 
-You can also add `description` for the form field which supports tagging variables in `` and also supports custom components
+### Grouping fields
 
-```js
-<Form>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description="This is some helper `text`"
-  />
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description={
-      <span>
-        Find more about it <a href="link">here</a>
-      </span>
-    }
-  />
-</Form>
-```
-
-#### Grouping fields
-
-Long forms should be divided into smaller groups using a `FieldSet`. Note that `Form.Actions` go outside fieldsets.
+Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](/docs/Form%20Fieldset).
 
 ```js
 <Form>
@@ -74,34 +66,29 @@ Long forms should be divided into smaller groups using a `FieldSet`. Note that `
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
 
-#### Multiple forms in a page
+### Multiple forms in a page
 
 If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> to separate each form. Use a `Form.FieldSet` to add meaningful titles.
 
-#### Form actions
+### Form actions
 
-At the end of the forms, you need actions that the user can take. Pass a `primaryAction` with the label and method to call.
+At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form%20Actions).
 
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
 
-You can also have an `array` of `secondaryActions` and `destructiveActions`
+`Form` also supports an alternate layout which can be used for narrow environments:
 
 ```js
-<Form>
+<Form layout="label-on-top">
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions
-    primaryAction={{ label: 'Save Changes', method: this.save }}
-    secondaryActions={[{ label: 'Clear', method: this.clear }]}
-    destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
-  />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```

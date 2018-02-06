@@ -2,36 +2,40 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
+import Tag from '../docs-components/tag'
 import { spacing, colors } from '../../tokens'
 
 const StyledLink = styled.div`
   a {
     display: block;
-    padding: ${spacing.small} ${spacing.xlarge};
+    padding: ${spacing.small} ${props => (props.isChild ? spacing.xxlarge : spacing.xlarge)};
     text-decoration: none;
+    font-size: 14px;
     color: ${props => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
     cursor: ${props => (props.disabled ? 'default' : 'pointer')};
 
-    &:hover,
+    &:hover {
+      color: ${props => (props.disabled ? null : colors.text.default)};
+    }
     &.selected {
-      background: ${colors.base.white};
-      color: ${props => (props.disabled ? null : colors.base.orange)};
-      box-shadow: inset -1px 0px 1px 0px ${colors.base.grayLightest};
+      color: ${props => (props.disabled ? null : colors.link.default)};
     }
   }
 `
 
-const Tag = styled.span`
+const TagWrapper = styled.span`
   color: ${colors.base.grayMedium};
   float: right;
 `
 
 const Link = props => {
-  let { displayName, documentation, implemented } = props.component
+  const { displayName, documentation, implemented } = props.component
+  const url = `/docs/${displayName}`
+
   return (
-    <StyledLink disabled={!documentation}>
+    <StyledLink disabled={!documentation} isChild={props.parent}>
       <NavLink
-        to={`/docs/${displayName}`}
+        to={url}
         key={displayName}
         activeClassName="selected"
         onClick={e => {
@@ -40,8 +44,16 @@ const Link = props => {
         }}
       >
         {displayName}
-        {documentation ? null : <Tag>Not documented</Tag>}
-        {implemented ? null : <Tag>Not implemented</Tag>}
+        {documentation ? null : (
+          <TagWrapper>
+            <Tag text="Not documented" />
+          </TagWrapper>
+        )}
+        {implemented ? null : (
+          <TagWrapper>
+            <Tag text="Not implemented" />
+          </TagWrapper>
+        )}
       </NavLink>
     </StyledLink>
   )

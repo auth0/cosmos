@@ -9,16 +9,17 @@ import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
 
 const Container = styled.div`
-  margin-bottom: ${spacing.xlarge};
+  margin: ${spacing.medium} 0;
 
   & .react-live {
     position: relative;
   }
   & .react-live-preview {
+    white-space: normal;
     border: 1px solid ${colors.base.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
-    border-radius: 4px 4px ${props => (props.codeVisible ? '0 0' : '4px 4px')};
-    padding: 20px;
+    border-radius: 3px 3px ${props => (props.codeVisible ? '0 0' : '3px 3px')};
+    padding: 40px;
   }
 
   & .prism-code {
@@ -28,7 +29,7 @@ const Container = styled.div`
     font-family: ${fonts.family.code};
     border: 1px solid ${colors.base.grayLightest};
     border-top-width: 0;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 3px 3px;
   }
 
   & .react-live-error {
@@ -115,7 +116,7 @@ class Playground extends React.Component {
         <input
           id={this.state.uniqueId}
           value={code}
-          style={{ opacity: 0, height: 0 }}
+          style={{ opacity: 0, height: 0, display: 'none' }}
           onChange={() => {}}
         />
         <LiveProvider code={code} scope={Components}>
