@@ -8,7 +8,7 @@
 <TextInput {props} placeholder="Placeholder text" />
 ```
 
-#### Input types
+### Input types
 
 You can use semantic HMTL property type with input.
 
@@ -29,7 +29,7 @@ It also ships with a `code` prop that is useful when the input is a hash/code va
 </div>
 ```
 
-#### Input states
+### Input states
 
 The `readOnly` prop can be used for disabling input that do not satisfy constraints.
 
@@ -44,7 +44,7 @@ To show validation errors, use the `error` prop which takes the error message as
 </div>
 ```
 
-#### Function
+### Function
 
 The `onChange` prop is transparently passed to the input
 

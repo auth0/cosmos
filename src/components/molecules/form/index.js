@@ -6,6 +6,7 @@ import uniqueId from '../../_helpers/uniqueId'
 import { multiply, subtract } from '../../_helpers/pixel-calc'
 
 import ActionInput from '../../molecules/_action-input'
+
 import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
@@ -25,7 +26,7 @@ const formWidth = '625px'
 const labelWidth = multiply(formWidth, 0.35)
 
 const Field = styled.div`
-  margin: ${spacing.small} 0;
+  margin-bottom: ${spacing.small};
   display: flex;
   width: ${formWidth};
 `
@@ -49,6 +50,16 @@ const StyledForm = styled.form`
   }
   ${StyledDivider} {
     width: 100%;
+  }
+  ${StyledFieldSet} {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  ${Field} {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `
 

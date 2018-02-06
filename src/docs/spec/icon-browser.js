@@ -6,7 +6,7 @@ import { spacing } from '../../tokens'
 import { types, aliases } from '../icons.json'
 
 const IconBrowserElement = styled.div`
-  margin-bottom: ${spacing.xlarge};
+  margin: ${spacing.medium} 0 64px;
 `
 
 const IconBrowserList = styled.ul`
