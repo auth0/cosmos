@@ -8,9 +8,19 @@
 
 Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
-`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
+```jsx
+<Form {props}>
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+  />
+</Form>
+```
 
 ---
+
+`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
 
 ## Examples
 
@@ -70,6 +80,15 @@ At the end of the forms, you need actions that the user can take. Read how to ad
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+</Form>
+```
+
+`Form` also supports an alternate layout which can be used for narrow environments:
+
+```js
+<Form layout="label-on-top">
+  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
-import { TextInput, Switch, Code } from '../../components'
+import { TextInput, Switch, Code, Select } from '../../components'
 import parseType from './prop-type'
 
 const Table = styled.table`
@@ -50,6 +50,9 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
     return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={method} />
   } else if (['string', 'number'].includes(data.type.name)) {
     return <TextInput defaultValue={data.value} onChange={e => method(e.target.value)} />
+  } else if (data.type.name === 'enum') {
+    const options = data.type.value.map(({ value }) => ({ text: value, value }))
+    return <Select onChange={e => method(e.target.value)} options={options} />
   }
   return <div />
 }

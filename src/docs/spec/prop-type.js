@@ -4,6 +4,8 @@ const parseType = type => {
   } else if (type.name === 'arrayOf') {
     if (type.value.name === 'shape') return `arrayOf(${getShape(type.value.value)})`
     else return type.name
+  } else if (type.name === 'enum') {
+    return 'one of:'
   } else {
     return type.name
   }

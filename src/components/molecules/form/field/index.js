@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '../../../../tokens'
-import { formWidth, labelWidth } from '../layout'
-import { subtract } from '../../../_helpers/pixel-calc'
+import getLayout from '../layout'
 import uniqueId from '../../../_helpers/uniqueId'
 
 import StyledLabel from '../label'
@@ -13,9 +12,9 @@ import Description from '../description'
 import { StyledTextArea } from '../../../atoms/textarea'
 
 const StyledField = styled.div`
-  margin: ${spacing.small} 0;
-  display: flex;
-  width: ${formWidth};
+  display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
+  width: ${props => getLayout(props.layout).formWidth};
+  margin: ${spacing.small} ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
 
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
@@ -27,24 +26,25 @@ const StyledField = styled.div`
   }
 `
 const LabelLayout = styled.div`
-  width: ${labelWidth};
-  text-align: right;
+  width: ${props => getLayout(props.layout).labelWidth};
+  text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
   padding-right: ${spacing.medium};
 `
 const ContentLayout = styled.div`
-  width: ${subtract(formWidth, labelWidth)};
+  width: ${props => getLayout(props.layout).contentWidth};
 `
 
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
+  const layout = props.layout
 
   return (
-    <StyledField>
-      <LabelLayout>
+    <StyledField layout={layout}>
+      <LabelLayout layout={layout}>
         <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
       </LabelLayout>
-      <ContentLayout>
+      <ContentLayout layout={layout}>
         <props.fieldComponent id={id} {...props} />
         {props.error ? <StyledError>{props.error}</StyledError> : null}
         {props.description ? <Description>{props.description}</Description> : null}
