@@ -71,3 +71,12 @@ At the end of the forms, you need actions that the user can take. Read how to ad
   <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
+
+`Form` also supports an alternate layout which can be used for narrow environments:
+
+```js
+<Form layout="label-on-top">
+  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+</Form>
+```
