@@ -12,7 +12,6 @@ const StyledActions = styled.div`
   padding-left: ${props =>
     props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
   width: ${props => getLayout(props.layout).formWidth};
-  height: 100px;
   margin: ${spacing.small} ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
   margin-top: ${spacing.medium};
 `
