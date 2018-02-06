@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const LogoWrapper = styled.span`
-  display: block;
+  display: inline-block;
   height: 32px;
   svg {
     display: block;
-    margin: 0 auto;
   }
 `
 
