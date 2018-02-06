@@ -6,7 +6,7 @@ import { TextInput, Switch, Code } from '../../components'
 
 const Table = styled.table`
   width: 100%;
-  margin-top: ${spacing.xlarge}; /** TODO: This space should be moved to the parent component: the playground **/
+  margin-bottom: 80px;
   th,
   td {
     text-align: left;

@@ -2,13 +2,11 @@
   category: Layout
 ```
 
----
+Tabs are great for splitting information into sections to make them easy to consume.
 
-`Tabs` are great for splitting information into sections to make them easy to consume
+## Examples
 
----
-
-#### Examples
+### Simple tabs
 
 ```js
 <Tabs>
@@ -17,6 +15,8 @@
   <Tabs.Tab label="Tab 3">third tab!</Tabs.Tab>
 </Tabs>
 ```
+
+### Default selected tab
 
 By default the first tab is selected, you can change this behaviour attaching the `selected` prop to a `Tab`.
 

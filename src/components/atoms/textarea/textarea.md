@@ -10,7 +10,7 @@ Note: `TextArea` is camelcased, it's not `Textarea`.
 <TextArea {props} placeholder="Placeholder text" />
 ```
 
-#### Length of the TextArea
+### Length of the TextArea
 
 You can make the `TextArea` longer by using the `length` prop. By default, it's 5 rows long.
 
@@ -23,7 +23,7 @@ You can make the `TextArea` longer by using the `length` prop. By default, it's 
 </div>
 ```
 
-#### Resizing
+### Resizing
 
 `TextArea` is resizable by the user. If you want to disable that behaviour, set `resizable` to `false` as a boolean value.
 
@@ -36,7 +36,7 @@ You can make the `TextArea` longer by using the `length` prop. By default, it's 
 </div>
 ```
 
-#### TextArea states
+### TextArea states
 
 The `readOnly` prop can be used for disabling input that do not satisfy constraints.
 
@@ -51,7 +51,7 @@ To show validation errors, use the `error` prop which takes the error message as
 </div>
 ```
 
-#### Function
+### Function
 
 The `onChange` prop is transparently passed to the underlying textarea
 

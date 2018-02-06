@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading3 } from '../../components/'
-import { spacing } from '../../tokens'
+import { Heading2 } from '../docs-components/typography'
 
-const Header = styled.div`
-  padding: ${spacing.large} 0;
+const Header = styled.a`
+  color: inherit;
+  text-decoration: none;
 `
 
 const SectionHeader = props => (
-  <Header>
-    <Heading3>{props.children}</Heading3>
+  <Header href="#">
+    <Heading2>{props.children}</Heading2>
   </Header>
 )
 
