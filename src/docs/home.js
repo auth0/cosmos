@@ -2,13 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Subheader, Text } from './docs-components/typography'
+import {
+  Heading1,
+  Heading2,
+  Subheader,
+  Text,
+  Link,
+  List,
+  ListItem
+} from './docs-components/typography'
 import Pre from './docs-components/pre'
 import Code from '../components'
 
-const Container = styled.div`
-  height: 100vh;
-`
+const Container = styled.div``
 
 class Home extends React.Component {
   render() {
@@ -34,12 +40,18 @@ class Home extends React.Component {
             porta neque nec, faucibus diam.
           </Text>
 
+          <List>
+            <ListItem>List item 1</ListItem>
+            <ListItem>List item 2</ListItem>
+            <ListItem>List item 3</ListItem>
+          </List>
+
           <Heading2>How to contribute</Heading2>
           <Text>
-            Aenean eu <a href="">ipsum ligula</a>. Duis fringilla nec nisi id bibendum. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Quisque libero lacus, mattis at
-            interdum sit amet, varius eu nisl. Donec viverra hendrerit cursus. Nam risus odio,
-            facilisis vitae tortor non, cursus sollicitudin arcu.
+            Aenean eu <Link href="">ipsum ligula</Link>. Duis fringilla nec nisi id bibendum.
+            Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque libero lacus,
+            mattis at interdum sit amet, varius eu nisl. Donec viverra hendrerit cursus. Nam risus
+            odio, facilisis vitae tortor non, cursus sollicitudin arcu.
           </Text>
 
           <Text>

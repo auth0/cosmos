@@ -6,9 +6,7 @@ import { metadata as components } from '../metadata.json'
 import { Heading1, Subheader } from '../docs-components/typography'
 import Example from './example'
 
-const Container = styled.div`
-  height: 100vh;
-`
+const Container = styled.div``
 const Headings = styled.div`
   margin-bottom: 3rem;
 `

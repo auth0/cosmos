@@ -4,22 +4,35 @@ import styled from 'styled-components'
 import { spacing } from '../../tokens'
 import { StyledLink } from './link'
 
+import { colors, fonts } from '../../tokens'
+
 const Label = styled(StyledLink)`
   a {
-    padding: ${spacing.small} ${spacing.small};
+    text-transform: uppercase;
+    padding: ${spacing.xsmall} ${spacing.medium};
+    cursor: default;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: ${fonts.weight.medium};
+    color: ${colors.base.default};
     &:hover {
       background: initial;
+      color: ${colors.base.default};
     }
   }
 `
 
+const LinkGroup = styled.div`
+  margin-top: ${spacing.medium};
+`
+
 const Group = props => (
-  <div>
+  <LinkGroup>
     <Label>
       <a>{props.label}</a>
     </Label>
     {props.children}
-  </div>
+  </LinkGroup>
 )
 
 const getGroups = components => {
