@@ -52,28 +52,32 @@ Here's an example of providing some context to the user with `description`. It s
 Here's a secret: `description` has not matured to support links yet. You can however take more control and pass a React component instead. It will show get a warning, but we'll let it slide 😉
 
 ```js
-<Form.TextInput
-  label="Allowed URLs"
-  type="text"
-  placeholder="Enter something"
-  description={
-    <span>
-      Notice that querystrings are not taking into account when validating these URLs. <br />
-      Read more about this at <a href="link">here</a>
-    </span>
-  }
-/>
+<Form>
+  <Form.TextInput
+    label="Allowed URLs"
+    type="text"
+    placeholder="Enter something"
+    description={
+      <span>
+        Notice that querystrings are not taking into account when validating these URLs. <br />
+        Read more about this at <a href="link">here</a>
+      </span>
+    }
+  />
+</Form>
 ```
 
 We leave the logic part of validation to you the developer, you can pass `error` back to the field and it will take care of the presentation.
 
 ```js
-<Form.TextInput
-  label="Allowed URLs"
-  type="text"
-  placeholder="Enter something"
-  defaultValue="auth0.com"
-  error="This is not a valid URL"
-  description="Make sure to specify the protocol, `http://` or `https://`"
-/>
+<Form>
+  <Form.TextInput
+    label="Allowed URLs"
+    type="text"
+    placeholder="Enter something"
+    defaultValue="auth0.com"
+    error="This is not a valid URL"
+    description="Make sure to specify the protocol, `http://` or `https://`"
+  />
+</Form>
 ```
