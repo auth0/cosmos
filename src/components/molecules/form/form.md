@@ -6,28 +6,29 @@
 
 ---
 
-Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility. There are common props for all fields like `label`, `description` and `error`.
+Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
+
+`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
+
+---
 
 ## Examples
 
-### Form Field
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-
-```js
-<Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-</Form>
-```
-
 ### Form Fields
 
-There are multiple field types supported like `TextInput`, `TextArea` and `Select`
-
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    description="This is some helper `text`"
+  />
+  <Form.TextArea
+    label="Long input"
+    placeholder="Add a lot of text here"
+    error="Can't leave this empty"
+  />
   <Form.Select
     label="Options list"
     options={[
@@ -40,34 +41,9 @@ There are multiple field types supported like `TextInput`, `TextArea` and `Selec
 </Form>
 ```
 
-### Helper text
-
-You can also add `description` for the form field which supports tagging variables in `` and also supports custom components
-
-```js
-<Form>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description="This is some helper `text`"
-  />
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    description={
-      <span>
-        Find more about it <a href="link">here</a>
-      </span>
-    }
-  />
-</Form>
-```
-
 ### Grouping fields
 
-Long forms should be divided into smaller groups using a `FieldSet`. Note that `Form.Actions` go outside fieldsets.
+Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](/docs/Form%20Fieldset).
 
 ```js
 <Form>
@@ -80,7 +56,6 @@ Long forms should be divided into smaller groups using a `FieldSet`. Note that `
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
 
@@ -90,24 +65,11 @@ If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> 
 
 ### Form actions
 
-At the end of the forms, you need actions that the user can take. Pass a `primaryAction` with the label and method to call.
+At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form%20Actions).
 
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
-</Form>
-```
-
-You can also have an `array` of `secondaryActions` and `destructiveActions`
-
-```js
-<Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions
-    primaryAction={{ label: 'Save Changes', method: this.save }}
-    secondaryActions={[{ label: 'Clear', method: this.clear }]}
-    destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
-  />
 </Form>
 ```

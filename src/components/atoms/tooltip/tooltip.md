@@ -1,4 +1,4 @@
-```js props
+```jsx
 <Tooltip {props} content="Here is some text">Hover me</Tooltip>
 ```
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { spacing } from '../../../tokens'
 
 const Actions = styled.div`
   padding-left: ${props => props.labelWidth};

@@ -8,7 +8,7 @@ import { spacing, colors } from '../../tokens'
 const StyledLink = styled.div`
   a {
     display: block;
-    padding: 10px ${spacing.medium};
+    padding: ${spacing.small} ${props => (props.isChild ? spacing.xxlarge : spacing.xlarge)};
     text-decoration: none;
     font-size: 14px;
     color: ${props => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
@@ -29,11 +29,13 @@ const TagWrapper = styled.span`
 `
 
 const Link = props => {
-  let { displayName, documentation, implemented } = props.component
+  const { displayName, documentation, implemented } = props.component
+  const url = `/docs/${displayName}`
+
   return (
-    <StyledLink disabled={!documentation}>
+    <StyledLink disabled={!documentation} isChild={props.parent}>
       <NavLink
-        to={`/docs/${displayName}`}
+        to={url}
         key={displayName}
         activeClassName="selected"
         onClick={e => {

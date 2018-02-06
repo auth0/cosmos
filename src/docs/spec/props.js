@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
 import { TextInput, Switch, Code } from '../../components'
+import parseType from './prop-type'
 
 const Table = styled.table`
   width: 100%;
@@ -28,7 +29,7 @@ const Table = styled.table`
   }
 `
 
-const Type = styled.span`
+const Type = styled.div`
   font-size: 13px;
   font-family: ${fonts.family.code};
   color: ${colors.base.grayDark};
@@ -103,7 +104,7 @@ class Props extends React.Component {
                 <Description>{propData[key].description}</Description>
               </td>
               <td>
-                <Type>{propData[key].type.name}</Type>
+                <Type>{parseType(propData[key].type)}</Type>
               </td>
 
               <td>
