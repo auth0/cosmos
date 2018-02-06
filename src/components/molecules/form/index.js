@@ -11,7 +11,8 @@ import TextArea, { StyledTextArea } from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
 import Button from '../../atoms/button'
-import { Right, Clear } from '../../_helpers/float'
+import Actions from '../../atoms/_actions'
+import { Right, Left, Clear } from '../../_helpers/float'
 
 import StyledLabel from './label'
 import StyledDivider from './divider'
@@ -92,30 +93,36 @@ Form.Switch = props => <FormElement {...props} fieldComponent={Switch} />
 Form.Actions = props => {
   return (
     <StyledActions labelWidth={labelWidth}>
-      {props.primaryAction && (
-        <Button primary onClick={props.primaryAction.method}>
-          {props.primaryAction.label}
-        </Button>
-      )}
-
-      {props.secondaryActions &&
-        props.secondaryActions.map((action, index) => {
-          return (
-            <Button key={index} onClick={action.method}>
-              {action.label}
+      <Left>
+        <Actions>
+          {props.primaryAction && (
+            <Button primary onClick={props.primaryAction.method}>
+              {props.primaryAction.label}
             </Button>
-          )
-        })}
+          )}
 
+          {props.secondaryActions &&
+            props.secondaryActions.map((action, index) => {
+              return (
+                <Button key={index} onClick={action.method}>
+                  {action.label}
+                </Button>
+              )
+            })}
+        </Actions>
+      </Left>
       {props.destructiveActions && (
         <Right>
-          {props.destructiveActions.map((action, index) => (
-            <Button key={index} onClick={action.method} destructive>
-              {action.label}
-            </Button>
-          ))}
+          <Actions>
+            {props.destructiveActions.map((action, index) => (
+              <Button key={index} onClick={action.method} destructive>
+                {action.label}
+              </Button>
+            ))}
+          </Actions>
         </Right>
       )}
+
       <Clear />
     </StyledActions>
   )
