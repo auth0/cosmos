@@ -29,7 +29,7 @@ const List = props => {
           <Subheader>{props.label}</Subheader>
         </StyledLabel>
       ) : null}
-      {props.children.map((child, index) => <StyledRow key={index}>{child}</StyledRow>)}
+      {React.Children.map(props.children, child => <StyledRow>{child}</StyledRow>)}
     </StyledList>
   )
 }
