@@ -8,6 +8,7 @@ import parseType from './prop-type'
 const Table = styled.table`
   width: 100%;
   margin-bottom: 80px;
+  white-space: normal;
   th,
   td {
     text-align: left;
