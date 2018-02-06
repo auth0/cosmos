@@ -1,12 +1,9 @@
 ```meta
   category: Layout
+  description: "Use this component to layout a list of components vertically"
 ```
 
 `import List from 'cosmos/list'`
-
----
-
-Use this component to layout a list of `components` vertically
 
 ```jsx
 <List {props}>
@@ -16,7 +13,7 @@ Use this component to layout a list of `components` vertically
 </List>
 ```
 
-#### Examples
+## Examples
 
 ```js
 <List label="Social">

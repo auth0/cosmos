@@ -2,15 +2,19 @@
   category: Forms
 ```
 
+`import Form from 'cosmos/form'`
+
 ---
 
-`Form` is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
+Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
 `Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
 
 ---
 
-#### Examples
+## Examples
+
+### Form Fields
 
 ```js
 <Form>
@@ -37,6 +41,8 @@
 </Form>
 ```
 
+### Grouping fields
+
 Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](/docs/Form%20Fieldset).
 
 ```js
@@ -52,6 +58,12 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
   </Form.FieldSet>
 </Form>
 ```
+
+### Multiple forms in a page
+
+If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+
+### Form actions
 
 At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form%20Actions).
 
