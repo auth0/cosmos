@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
 import { Subheader } from '../../atoms/typography'
-import Stack from '../../molecules/stack'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};

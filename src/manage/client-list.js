@@ -39,11 +39,11 @@ class ClientList extends React.Component {
                 <br />
                 <div>{client.type}</div>
               </div>
-              <Stack compressed>
+              <Stack align="left">
                 <span>Client Id: </span>
                 <Code>{client.id}</Code>
               </Stack>
-              <Stack compressed>
+              <Stack align="right">
                 <Button icon="users" />
                 <Button icon="connections" />
                 <Button icon="analytics" />

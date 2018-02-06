@@ -4,6 +4,14 @@
 
 `import Stack from 'cosmos/stack'`
 
+```jsx
+<Stack {props}>
+  <Button icon="copy" />
+  <Button icon="reveal" />
+  <Button icon="trash" />
+</Stack>
+```
+
 ---
 
 Use this component to horizontally layout children
@@ -21,10 +29,18 @@ Use it when you need components in the same horizontal alignment
 </Stack>
 ```
 
-Use compressed for stacking elements without margin between them
+Use align for stacking elements without margin between them
 
 ```js
-<Stack compressed>
+<Stack align="left">
+  <Button icon="copy" />
+  <Button icon="reveal" />
+  <Button icon="trash" />
+</Stack>
+```
+
+```js
+<Stack align="right">
   <Button icon="copy" />
   <Button icon="reveal" />
   <Button icon="trash" />

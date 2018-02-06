@@ -5,16 +5,22 @@ import styled from 'styled-components'
 import { spacing } from '../../../tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
 
+const justifyContent = {
+  fill: 'space-between',
+  left: 'flex-start',
+  right: 'flex-end'
+}
+
 const StyledStack = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: bottom;
-  justify-content: ${props => (props.compressed ? 'start' : 'space-between')};
+  justify-content: ${props => justifyContent[props.align]};
   > * {
-    flex: ${props => (props.compressed ? 'none' : 1)};
+    flex: ${props => (props.align === 'fill' ? 1 : 'none')};
     align-self: center;
-    margin-right: ${props => (props.compressed ? 0 : spacing.xsmall)};
+    margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
     margin-right: 0;
@@ -33,22 +39,27 @@ const StackedItem = styled.div`
 
 const Stack = props => {
   let children
-  if (props.compressed) children = props.children
-  else {
+  if (props.align === 'fill') {
     children = React.Children.map(props.children, (child, index) => {
       let width = 0
       if (props.widths) width = `${props.widths[index]}` || 0
 
       return <StackedItem width={width}>{child}</StackedItem>
     })
+  } else {
+    children = props.children
   }
 
-  return <StyledStack {...props}>{children}</StyledStack>
+  return (
+    <StyledStack {...props} align={props.align}>
+      {children}
+    </StyledStack>
+  )
 }
 
 Stack.propTypes = {
-  /** Use compressed for stacking elements without margin between them */
-  compressed: PropTypes.bool,
+  /** Use align for stacking elements without margin between them */
+  align: PropTypes.oneOf(['fill', 'left', 'right']),
   /** Element widths in % */
   widths: PropTypes.arrayOf(PropTypes.number),
 
@@ -60,7 +71,7 @@ Stack.propTypes = {
 }
 
 Stack.defaultProps = {
-  compressed: false
+  align: 'fill'
 }
 
 export default Stack
