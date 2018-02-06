@@ -18,7 +18,7 @@ const Select = ({ options, ...props }) => {
   return (
     <StyledSelect {...props}>
       {options.map((option, index) => (
-        <option key={index} value={option.value}>
+        <option key={index} value={option.value} selected={option.defaultSelected}>
           {option.text}
         </option>
       ))}
@@ -36,14 +36,11 @@ Select.propTypes = {
     })
   ).isRequired,
   /** Make input readOnly if it does not validate constraint */
-  readOnly: PropTypes.bool,
-  /** Pass error string directly to show error state */
-  error: PropTypes.string
+  readOnly: PropTypes.bool
 }
 
 Select.defaultProps = {
-  readOnly: false,
-  error: null
+  readOnly: false
 }
 
 export default Select

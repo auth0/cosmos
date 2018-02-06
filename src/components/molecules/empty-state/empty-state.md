@@ -1,4 +1,9 @@
-This component can be used as a placeholder for a list when the list would otherwise be empty.
+```meta
+  category: Forms
+  description: "Empty states are displayed when a page has no content."
+```
+
+Empty states are displayed when a page has no content.
 
 ```jsx
 <EmptyState

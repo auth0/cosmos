@@ -12,12 +12,13 @@ const Layout = styled.div`
 `
 
 const SideContent = styled.div`
-  width: 16.8rem;
+  width: 19rem;
   position: fixed;
 `
 
 const MainContent = styled.div`
-  padding-left: 16.8rem;
+  padding-left: 19rem;
+  padding-bottom: 4rem;
 `
 
 const Body = styled.div`
