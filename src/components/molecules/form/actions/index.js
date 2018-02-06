@@ -20,7 +20,7 @@ const StyledActions = styled.div`
 `
 
 const Actions = props => {
-  const layout = 'label-on-left'
+  const layout = props.layout
 
   return (
     <StyledActions layout={layout}>

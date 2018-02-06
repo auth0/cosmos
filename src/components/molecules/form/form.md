@@ -6,9 +6,19 @@
 
 `Form` is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
 
-`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
+```jsx
+<Form {props}>
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+  />
+</Form>
+```
 
 ---
+
+`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
 
 #### Examples
 

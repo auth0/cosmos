@@ -37,7 +37,7 @@ const ContentLayout = styled.div`
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const layout = 'label-on-left'
+  const layout = props.layout
 
   return (
     <StyledField layout={layout}>
