@@ -12,7 +12,6 @@ import FieldSet from './fieldset'
 
 const Form = props => (
   <form>
-    {console.log(props)}
     {React.Children.map(props.children, child =>
       React.cloneElement(child, { layout: props.layout })
     )}
