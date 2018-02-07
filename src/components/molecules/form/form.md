@@ -15,16 +15,15 @@ Form is a compound component that ships with extra props for elements that take 
     type="text"
     placeholder="Enter something"
   />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
-
----
-
-`Form` is composed for Form Fields, read more about them [here](/docs/Form%20Field).
 
 ## Examples
 
 ### Form Fields
+
+Form is composed of Form Fields, read more about them [here](/docs/Form%20Field).
 
 ```js
 <Form>
@@ -48,6 +47,7 @@ Form is a compound component that ships with extra props for elements that take 
       { text: 'Fourth option', value: '4' }
     ]}
   />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
 
@@ -66,6 +66,7 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```
 
@@ -83,6 +84,8 @@ At the end of the forms, you need actions that the user can take. Read how to ad
   <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
+
+### Form layouts
 
 `Form` also supports an alternate layout which can be used for narrow environments:
 

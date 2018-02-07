@@ -17,7 +17,7 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
 </Form>
 ```
 
-#### Examples
+## Examples
 
 ```js
 <Form>
@@ -35,6 +35,8 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
   <Form.Switch label="Subscribe" on />
 </Form>
 ```
+
+### Helper text
 
 Here's an example of providing some context to the user with `description`. It supports adding `backticks`.
 
@@ -66,6 +68,8 @@ Here's a secret: `description` has not matured to support links yet. You can how
   />
 </Form>
 ```
+
+### Validation
 
 We leave the logic part of validation to you the developer, you can pass `error` back to the field and it will take care of the presentation.
 

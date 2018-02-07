@@ -8,7 +8,8 @@ import { spacing, colors } from '../../tokens'
 const StyledLink = styled.div`
   a {
     display: block;
-    padding: ${spacing.small} ${props => (props.isChild ? spacing.xxlarge : spacing.xlarge)};
+    padding: 10px ${spacing.medium};
+    padding-left: ${props => (props.isChild ? spacing.xlarge : spacing.medium)};
     text-decoration: none;
     font-size: 14px;
     color: ${props => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
