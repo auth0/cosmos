@@ -6,6 +6,7 @@ const StyledBreadcrumb = styled.a`
   color: rgba(0, 0, 0, 0.56);
   font-size: 13px;
   text-decoration: none;
+  display: block;
 `
 
 const Breadcrumb = ({ link, content, ...props }) => {

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { spacing } from '../../../tokens'
+
 import Button from '../../atoms/button'
 
 const StyledActions = styled.div`
@@ -8,6 +10,7 @@ const StyledActions = styled.div`
 
   button {
     float: right;
+    margin-left: ${spacing.small};
   }
 `
 

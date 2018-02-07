@@ -12,6 +12,10 @@ class Client extends React.Component {
       <div>
         <PageHeader
           title="API Explorer Client"
+          type={{
+            name: 'Non Interactive',
+            clientId: 'DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip'
+          }}
           logo={<Avatar />}
           breadcrumb={{
             content: 'Clients',
