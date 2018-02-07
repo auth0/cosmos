@@ -8,19 +8,19 @@ import { Heading1 } from '../../atoms/typography'
 import Description from './description'
 import Actions from './actions'
 
-const StyledPagerHeader = styled.div`
+const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
 `
 
-const PagerHeader = props => {
+const PageHeader = props => {
   return (
-    <StyledPagerHeader>
+    <StyledPageHeader>
       {props.actions ? <Actions>{props.actions}</Actions> : null}
 
       <Heading1>{props.title}</Heading1>
       {props.description ? <Description>{props.description}</Description> : null}
-    </StyledPagerHeader>
+    </StyledPageHeader>
   )
 }
 
-export default PagerHeader
+export default PageHeader

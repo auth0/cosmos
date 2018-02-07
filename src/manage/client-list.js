@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Header, List, Stack, Code, Button, ButtonGroup } from '../components'
+import { Header, List, Stack, Code, Button } from '../components'
+import { PageHeader } from '../components'
+import { PagerHeader } from '../components'
+import { Heading1, List, Stack, Code, Button } from '../components'
 import Avatar from './client-avatar'
 
 const Link = styled.a`
@@ -26,8 +30,17 @@ class ClientList extends React.Component {
   render() {
     return (
       <div>
-        <Header size={1}>Clients</Header>
-        <div>Setup a mobile, web or IoT application to use Auth0 for Authentication.</div>
+        <PageHeader
+          title="Clients"
+          description={{
+            text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
+            learnMore: '/clients'
+          }}
+          actions={{
+            primaryAction: { label: 'Create Client', icon: 'plus', method: this.save },
+            secondaryAction: { label: 'Turorial', icon: 'video', method: this.save }
+          }}
+        />
         <br />
         <br />
         <List>
