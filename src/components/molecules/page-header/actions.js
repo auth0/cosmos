@@ -7,6 +7,7 @@ import Button from '../../atoms/button'
 
 const StyledActions = styled.div`
   float: right;
+  margin-top: ${spacing.xsmall};
 
   button {
     float: right;
