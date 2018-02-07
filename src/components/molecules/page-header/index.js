@@ -23,8 +23,6 @@ const StyledLogo = styled.span`
   margin-top: ${spacing.xsmall};
 `
 
-const StyledType = styled.div``
-
 const Type = styled.span`
   text-transform: uppercase;
   font-size: 12px;
@@ -51,17 +49,18 @@ const PageHeader = props => {
     <StyledPageHeader>
       {Top}
 
-      {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
-
-      <Heading1>{props.title}</Heading1>
+      <div>
+        {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
+        <Heading1>{props.title}</Heading1>
+      </div>
 
       {props.type ? (
-        <StyledType>
+        <div>
           <Type>{props.type.name}</Type>
           <ClientId>
             Client ID: <Code>{props.type.clientId}</Code>
           </ClientId>
-        </StyledType>
+        </div>
       ) : null}
 
       {props.description ? <Description>{props.description}</Description> : null}
