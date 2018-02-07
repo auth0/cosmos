@@ -58,3 +58,12 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
   <Button icon="copy" />
 </div>
 ```
+
+### Tooltips
+
+Especially with buttons that only have an icon and no text, it might be helpful to add tooltips
+which appear when a user hovers over a button.
+
+```js
+<Button icon="copy" tooltip="Copy to clipboard" />
+```

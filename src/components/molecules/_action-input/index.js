@@ -29,7 +29,13 @@ const ActionInput = props => {
         <TextInput {...props} />
         <ButtonGroup>
           {props.actions.map((action, index) => (
-            <Button key={index} link icon={action.icon} onClick={action.method} />
+            <Button
+              key={index}
+              link
+              icon={action.icon}
+              onClick={action.method}
+              tooltip={action.label}
+            />
           ))}
         </ButtonGroup>
       </Wrapper>
@@ -45,7 +51,8 @@ ActionInput.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string.isRequired,
-      method: PropTypes.func.isRequired
+      method: PropTypes.func.isRequired,
+      label: PropTypes.string.isRequired
     })
   )
 }
