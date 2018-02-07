@@ -26,7 +26,7 @@ const Actions = props => {
       {props.children.secondaryAction && (
         <Button
           transparent
-          icon={props.children.primaryAction.icon}
+          icon={props.children.secondaryAction.icon}
           onClick={props.children.secondaryAction.method}
         >
           {props.children.secondaryAction.label}
