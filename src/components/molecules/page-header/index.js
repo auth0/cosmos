@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../../tokens'
 
-import { Heading1, Text } from '../../atoms/typography'
+import { Heading1 } from '../../atoms/typography'
 import Breadcrumb from '../../atoms/breadcrumb'
 import Code from '../../atoms/code'
 
