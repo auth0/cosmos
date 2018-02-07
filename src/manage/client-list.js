@@ -7,9 +7,10 @@ import { PageHeader } from '../components'
 import { PagerHeader } from '../components'
 import { Heading1, List, Stack, Code, Button } from '../components'
 import Avatar from './client-avatar'
+import { colors } from '../tokens'
 
 const Link = styled.a`
-  color: #0a84ae;
+  color: ${colors.link.default};
   text-decoration: none;
 `
 
@@ -41,8 +42,6 @@ class ClientList extends React.Component {
             secondaryAction: { label: 'Turorial', icon: 'video', method: this.save }
           }}
         />
-        <br />
-        <br />
         <List>
           {clients.map(client => (
             <Stack key={client.id} widths={[7, 25, 40, 28]}>

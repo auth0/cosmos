@@ -18,7 +18,7 @@ const ArrowMore = styled.i`
   border-color: transparent transparent transparent ${colors.link.default};
 `
 
-const PagerLink = styled.a`
+const Link = styled.a`
   color: ${colors.link.default};
   text-decoration: none;
 `
@@ -28,9 +28,9 @@ const Description = props => {
     <StyledDescription>
       {props.children.text}{' '}
       {props.children.learnMore ? (
-        <PagerLink href={props.children.learnMore}>
+        <Link href={props.children.learnMore}>
           Learn more<ArrowMore />
-        </PagerLink>
+        </Link>
       ) : null}
     </StyledDescription>
   )
