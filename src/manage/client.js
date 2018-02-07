@@ -4,12 +4,20 @@ import { PageHeader, Tabs } from '../components'
 import Settings from './settings'
 import Advanced from './advanced'
 import Connections from './connections'
+import Avatar from './client-avatar'
 
 class Client extends React.Component {
   render() {
     return (
       <div>
-        <PageHeader title="API Explorer Client" />
+        <PageHeader
+          title="API Explorer Client"
+          logo={<Avatar />}
+          breadcrumb={{
+            content: 'Clients',
+            link: '/clients'
+          }}
+        />
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
