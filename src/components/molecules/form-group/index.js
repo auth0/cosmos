@@ -10,6 +10,7 @@ const StyledFormGroup = styled.div``
 
 const StyledFormWrapper = styled(Well)`
   margin-bottom: ${spacing.medium};
+  padding-bottom: ${spacing.xlarge};
 `
 
 const FormGroup = props => {

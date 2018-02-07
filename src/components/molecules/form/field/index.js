@@ -14,8 +14,12 @@ import { StyledTextArea } from '../../../atoms/textarea'
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
   width: ${props => getLayout(props.layout).formWidth};
-  margin: ${spacing.small} ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+  margin-bottom: ${spacing.small};
 
+  &:last-child {
+    margin-bottom: 0;
+  }
   ${StyledTextArea} {
     /* browsers give textareas an annoying alignment
     that needs to be overwritten :/ */
