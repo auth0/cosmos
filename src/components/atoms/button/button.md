@@ -27,12 +27,13 @@ Buttons are great to ask users for action
 
 ```js
 <div>
-  <Button>default</Button>
-  <Button primary>primary</Button>
-  <Button primaryAlt>primary alt</Button>
-  <Button transparent>secondary</Button>
-  <Button link>Clear</Button>
-  <Button destructive>Delete</Button>
+  <Stack>
+    <Button>default</Button>
+    <Button primary>primary</Button>
+    <Button transparent>secondary</Button>
+    <Button link>Clear</Button>
+    <Button destructive>Delete</Button>
+  </Stack>
 </div>
 ```
 
@@ -42,9 +43,11 @@ Disable a button if you don't want the user isn't allowed to click on it
 
 ```js
 <div>
-  <Button disabled>Disabled</Button>
-  <Button loading>Button</Button>
-  <Button success>Button</Button>
+  <Stack>
+    <Button disabled>Disabled</Button>
+    <Button loading>Button</Button>
+    <Button success>Button</Button>
+  </Stack>
 </div>
 ```
 
@@ -54,7 +57,9 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 
 ```js
 <div>
-  <Button link icon="copy" />
-  <Button icon="copy" />
+  <Stack>
+    <Button link icon="copy" />
+    <Button icon="copy" />
+  </Stack>
 </div>
 ```
