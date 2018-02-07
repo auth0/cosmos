@@ -69,7 +69,8 @@ Tabs.Tab = props => <TabContent>{props.children}</TabContent>
 
 Tabs.propTypes = {
   /** Children should be an array of React elements */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  selected: PropTypes.bool
 }
 
 Tabs.defaultProps = {
