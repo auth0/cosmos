@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../../tokens'
 
-import { Heading1 } from '../../atoms/typography'
+import { Heading1, Text } from '../../atoms/typography'
 import Breadcrumb from '../../atoms/breadcrumb'
 import Code from '../../atoms/code'
 
@@ -20,9 +20,22 @@ const StyledLogo = styled.span`
   display: inline-block;
   float: left;
   margin-right: ${spacing.small};
+  margin-top: ${spacing.xsmall};
 `
 
 const StyledType = styled.div``
+
+const Type = styled.span`
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #7c7c7c;
+  margin-right: ${spacing.small};
+`
+
+const ClientId = styled.span`
+  font-size: 13px;
+  color: #676767;
+`
 
 const PageHeader = props => {
   let Top
@@ -44,10 +57,10 @@ const PageHeader = props => {
 
       {props.type ? (
         <StyledType>
-          <span>{props.type.name}</span>
-          <span>
+          <Type>{props.type.name}</Type>
+          <ClientId>
             Client ID: <Code>{props.type.clientId}</Code>
-          </span>
+          </ClientId>
         </StyledType>
       ) : null}
 
