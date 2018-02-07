@@ -15,8 +15,11 @@ const StyledPageHeader = styled.div`
 `
 
 const StyledLogo = styled.span`
+  width: 72px;
+  height: 72px;
   display: inline-block;
   float: left;
+  margin-right: ${spacing.small};
 `
 
 const StyledType = styled.div``

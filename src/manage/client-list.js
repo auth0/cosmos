@@ -1,17 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Header, List, Stack, Code, Button, ButtonGroup } from '../components'
-import { Header, List, Stack, Code, Button } from '../components'
-import { PageHeader } from '../components'
-import { PagerHeader } from '../components'
-import { Heading1, List, Stack, Code, Button } from '../components'
+import { PageHeader, List, Stack, Code, Button } from '../components'
 import Avatar from './client-avatar'
 import { colors } from '../tokens'
 
 const Link = styled.a`
   color: ${colors.link.default};
   text-decoration: none;
+`
+
+const StyledLogo = styled.span`
+  width: 48px;
+  height: 48px;
+  display: inline-block;
 `
 
 const clients = [
@@ -44,8 +46,10 @@ class ClientList extends React.Component {
         />
         <List>
           {clients.map(client => (
-            <Stack key={client.id} widths={[7, 25, 40, 28]}>
-              <Avatar />
+            <Stack key={client.id} widths={[7, 25, 38, 30]}>
+              <StyledLogo>
+                <Avatar />
+              </StyledLogo>
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
                 <br />
