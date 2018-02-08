@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container from './container'
+import Container from '../ov-components/container'
 import { Button, Overlay, Dialog } from '../../components'
 import { colors, spacing } from '../../tokens'
 

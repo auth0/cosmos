@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Container from './container'
+import Container from '../ov-components/container'
 import { spacing, colors } from '../../tokens'
 
 const sizes = Object.keys(spacing)

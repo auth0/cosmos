@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Container from './container'
+import Container from '../ov-components/container'
 import { Tooltip } from '../../components'
 
 const Tooltips = () => (

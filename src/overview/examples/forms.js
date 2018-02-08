@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Container from './container'
+import Container from '../ov-components/container'
 import { Form, FormGroup } from '../../components'
 
 const fakeMethod = e => {
