@@ -57,6 +57,9 @@ const Toggle = styled.span`
 const Label = styled.label`
   vertical-align: top;
   line-height: 32px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: ${colors.text.secondary};
   padding-left: ${spacing.small};
 `
 
