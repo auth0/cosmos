@@ -10,6 +10,7 @@ import StyledLabel from '../label'
 import StyledError from '../error'
 import Description from '../description'
 import { StyledTextArea } from '../../../atoms/textarea'
+import { StyledSwitch } from '../../../atoms/switch'
 
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
@@ -27,6 +28,9 @@ const StyledField = styled.div`
     /* resize should not happen horizontally inside a form */
     min-height: 44px;
     /* TO-DO: Tokenize this value as it's related to the other heights of components. */
+  }
+  ${StyledSwitch} {
+    margin-top: 6px;
   }
 `
 const LabelLayout = styled.div`

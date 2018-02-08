@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, misc } from '../../../tokens/'
 
+const StyledSwitch = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+`
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
@@ -74,11 +79,11 @@ class Switch extends React.Component {
       and is itself a readOnly component
     */
     return (
-      <span onClick={this.onToggle.bind(this)}>
+      <StyledSwitch onClick={this.onToggle.bind(this)}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly />
         <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
-      </span>
+      </StyledSwitch>
     )
   }
 }
@@ -102,3 +107,4 @@ Switch.defaultProps = {
 }
 
 export default Switch
+export { StyledSwitch }
