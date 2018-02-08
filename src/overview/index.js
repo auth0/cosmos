@@ -5,7 +5,7 @@ import { Grid, Column } from '../components/_helpers/grid'
 
 import Overview from './ov-components/overview'
 import Container from './ov-components/container'
-import Links from './ov-components/links'
+import Navigation from './ov-components/navigation'
 
 import Colors from './examples/colors'
 import Icons from './examples/icons'
@@ -19,8 +19,8 @@ import Buttons from './examples/buttons'
 
 export default () => (
   <Overview>
+    <Navigation />
     <Container>
-      <Links />
       <Typography />
       <Buttons />
       <Icons />
