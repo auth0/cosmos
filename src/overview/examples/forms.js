@@ -13,9 +13,20 @@ const Forms = () => (
   <Section>
     <Example title="Forms">
       <Form>
-        <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
-        <Form.TextInput label="This field has text" defaultValue="This is the field value" />
-        <Form.TextInput label="Readonly field" readOnly placeholder="Placeholder text" />
+        <Form.TextInput
+          label="Field label"
+          type="text"
+          placeholder="Placeholder text"
+        />
+        <Form.TextInput
+          label="This field has text"
+          defaultValue="This is the field value"
+        />
+        <Form.TextInput
+          label="Readonly field"
+          readOnly
+          placeholder="Placeholder text"
+        />
         <Form.TextInput
           label="Field with helper text"
           placeholder="Placeholder text"
@@ -24,9 +35,14 @@ const Forms = () => (
         />
         <Form.TextInput
           label="Text input with actions"
-          actions={[{ icon: 'copy', method: fakeMethod, label: 'Copy to clipboard' }]}
+          actions={[
+            { icon: 'copy', method: fakeMethod, label: 'Copy to clipboard' }
+          ]}
         />
-        <Form.TextInput label="Text input with error" error="The field name is required" />
+        <Form.TextInput
+          label="Text input with error"
+          error="The field name is required"
+        />
         <Form.TextArea
           label="Text input with error"
           placeholder="Add a description in less than 140 characters"
@@ -55,14 +71,25 @@ const Forms = () => (
       <FormGroup>
         <Form>
           <Form.FieldSet label="Form 1">
-            <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
-            <Form.TextInput label="This field has text" defaultValue="This is the field value" />
+            <Form.TextInput
+              label="Field label"
+              type="text"
+              placeholder="Placeholder text"
+            />
+            <Form.TextInput
+              label="This field has text"
+              defaultValue="This is the field value"
+            />
             <Form.Actions primaryAction={{ label: 'Save' }} />
           </Form.FieldSet>
         </Form>
         <Form>
           <Form.FieldSet label="Form 2">
-            <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
+            <Form.TextInput
+              label="Field label"
+              type="text"
+              placeholder="Placeholder text"
+            />
 
             <Form.Actions primaryAction={{ label: 'Save' }} />
           </Form.FieldSet>

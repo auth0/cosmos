@@ -15,13 +15,15 @@ const Colors = () => (
 
     <Example title="Paragraph">
       <Paragraph>
-        Auth0 provides authentication and authorization as a service. We are here to give developers
-        and companies the building blocks they need in order to secure their applications, without
-        having to become security experts. You can connect any application (written in any language
-        or on any stack) to Auth0 and define the identity providers you want to use (how you want
-        your users to log in). Based on your app's technology, choose one of our SDKs (or call our
-        API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will
-        verify their identity and send the required information back to your app.
+        Auth0 provides authentication and authorization as a service. We are
+        here to give developers and companies the building blocks they need in
+        order to secure their applications, without having to become security
+        experts. You can connect any application (written in any language or on
+        any stack) to Auth0 and define the identity providers you want to use
+        (how you want your users to log in). Based on your app's technology,
+        choose one of our SDKs (or call our API) and hook it up to your app. Now
+        each time a user tries to authenticate, Auth0 will verify their identity
+        and send the required information back to your app.
       </Paragraph>
     </Example>
 
@@ -34,7 +36,8 @@ const Colors = () => (
 
     <Example title="Code">
       <Paragraph>
-        Auth0 provides authentication and <Code>authorization</Code> as a service.
+        Auth0 provides authentication and <Code>authorization</Code> as a
+        service.
       </Paragraph>
     </Example>
   </Section>
