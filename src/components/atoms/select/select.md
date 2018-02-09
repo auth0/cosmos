@@ -1,21 +1,24 @@
 The `<Select>` component renders a styled drop-down selector.
 
 ```jsx
-<Select
-  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+<Select {props}
+  options={[
+    { text: 'One', value: 1 },
+    { text: 'Two', value: 2 },
+    { text: 'Three', value: 3 }
+  ]}
+  onChange={ event => console.log(event) }
 />
 ```
 
-By default, the first option will be selected. To override this, you can set `defaultSelected`
-to `true` on another option:
+By default, the first option will be selected. To override this, you can set `value`
+to match a value from options
 
 ```js
 <Select
-  options={[
-    { text: 'One', value: 1 },
-    { text: 'Two', value: 2, defaultSelected: true },
-    { text: 'Three', value: 3 }
-  ]}
+  value={2}
+  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
 />
 ```
 
@@ -25,5 +28,6 @@ You can also indicate that a `<Select>` should be read-only by setting the `read
 <Select
   readOnly
   options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
 />
 ```
