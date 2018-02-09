@@ -5,7 +5,7 @@
 `import Switch from 'cosmos/switch'`
 
 ```jsx
-<Switch {props} onToggle={value => alert(value)} />
+<Switch {props} onToggle={value => console.log(value)} />
 ```
 
 ## Examples
@@ -13,13 +13,13 @@
 `onToggle` should always be provided for handling changes in the value
 
 ```js
-<Switch onToggle={value => alert(value)} />
+<Switch onToggle={value => console.log(value)} />
 ```
 
 You can change the default state of the switch by passing the `on` prop
 
 ```js
-<Switch on onToggle={value => alert(value)} />
+<Switch on onToggle={value => console.log(value)} />
 ```
 
 Switch can be locked in it's initial state with the `readOnly` prop
