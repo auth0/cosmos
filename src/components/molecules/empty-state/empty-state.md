@@ -7,6 +7,7 @@ Empty states are displayed when a page has no content.
 
 ```jsx
 <EmptyState
+  {props}
   title="Clients"
   icon="clients"
   action={{
