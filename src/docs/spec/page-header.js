@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Subheader } from '../docs-components/typography'
+import { Heading1, Subheader } from '../docs-components/typography'
+
+const Headings = styled.div`
+  margin-bottom: 3rem;
+`
 
 const Header = props => (
-  <div>
+  <Headings>
+    <Heading1>{props.displayName}</Heading1>
     <Subheader>{props.description}</Subheader>
-  </div>
+  </Headings>
 )
 
 export default Header

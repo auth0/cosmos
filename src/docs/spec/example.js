@@ -39,7 +39,7 @@ const Example = props => {
           )
         } else if (language === 'lang-meta') {
           const metadata = yaml.parse(markdownProps.children)
-          return <PageHeader {...metadata} />
+          return <PageHeader {...metadata} displayName={props.component.displayName} />
         } else {
           return null
         }
