@@ -7,6 +7,7 @@ import * as Components from '../../components'
 import { fonts, colors, spacing } from '../../tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
+import getPropString from './prop-string'
 
 const Container = styled.div`
   margin: ${spacing.medium} 0;
@@ -90,22 +91,7 @@ class Playground extends React.Component {
     document.execCommand('copy')
   }
   onPropsChange(propData) {
-    // TODO: Refactor this block when less sleepy
-
-    let propString = ''
-
-    const propNames = Object.keys(propData).filter(key => key[0] !== '_')
-
-    propNames.forEach(name => {
-      if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
-        propString += ` ${name}`
-      } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
-        propString += ` ${name}="${propData[name].value}"`
-      } else if (propData[name].value !== 'null') {
-        propString += ` ${name}={${propData[name].value}}`
-      }
-    })
-
+    const propString = getPropString(propData)
     this.setState({ code: this.props.code.replace(' {props}', propString) })
   }
   render() {

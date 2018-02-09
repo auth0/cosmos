@@ -13,7 +13,8 @@
     "react-helmet": "5.2.0",
     "react-live": "1.7.1",
     "react-router-dom": "4.2.2",
-    "styled-components": "2.2.3"
+    "styled-components": "2.2.3",
+    "yamljs": "0.3.0"
   },
   "scripts": {
     "dev": "run-p dev:build 'update-progress -- -w' 'build:docs -- -w' 'build:icons -- -w'",
