@@ -9,7 +9,7 @@ const getPropString = propData => {
       propString += ` ${name}`
     } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
       propString += ` ${name}="${propData[name].value}"`
-    } else if (propData[name].type.name === 'number' && propData[name].value !== 'null') {
+    } else if (!['null', 'false'].includes(propData[name].value)) {
       propString += ` ${name}={${propData[name].value}}`
     }
   })
