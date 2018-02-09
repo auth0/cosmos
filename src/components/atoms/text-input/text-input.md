@@ -6,7 +6,7 @@
 `import TextInput from 'cosmos/text-input'`
 
 ```jsx
-<TextInput {props} placeholder="Placeholder text" />
+<TextInput placeholder="Placeholder text" {props} />
 ```
 
 ### Input types
@@ -36,6 +36,15 @@ The `readOnly` prop can be used for disabling input that do not satisfy constrai
 
 ```js
 <TextInput readOnly placeholder="Field is disabled" />
+```
+
+You can also indicate that the value of the input should be masked. This will result
+in a display similar to password fields, but won't trigger password managers.
+
+(Note: this is just a visual effect, and doesn't provide any actual additional security!)
+
+```js
+<TextInput value="secret-client-hash" masked />
 ```
 
 ### Function

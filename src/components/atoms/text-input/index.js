@@ -9,10 +9,12 @@ const StyledInputElement = StyledInput.extend`
 
 const TextInput = props => {
   if (props.masked) {
-    const length =
-      props.defaultValue && props.defaultValue.length > 0 ? props.defaultValue.length : 8
+    const { value } = props
+    const length = value && value.length > 0 ? value.length : 8
     const maskedValue = new Array(length).join('•')
-    return <StyledInput {...props} defaultValue={maskedValue} readOnly />
+    return (
+      <StyledInput {...props} value={null} defaultValue={null} placeholder={maskedValue} readOnly />
+    )
   }
   return <StyledInput {...props} />
 }
@@ -27,7 +29,11 @@ TextInput.propTypes = {
   /** Pass error string directly to show error state */
   error: PropTypes.string,
   /** onChange transparently passed to the input */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** Text to display when the input is empty */
+  placeholder: PropTypes.string,
+  /** The value for the field */
+  value: PropTypes.string
 }
 
 TextInput.defaultProps = {
