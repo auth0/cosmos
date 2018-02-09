@@ -67,6 +67,9 @@ class Switch extends React.Component {
       return { on: !currentState.on }
     })
   }
+  componentWillReceiveProps(newProps) {
+    if (newProps.on !== this.state.on) this.setState({ on: newProps.on })
+  }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
     /*
