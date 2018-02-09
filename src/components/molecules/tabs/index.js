@@ -68,7 +68,7 @@ class Tabs extends React.Component {
 Tabs.Tab = props => <TabContent>{props.children}</TabContent>
 
 Tabs.propTypes = {
-  /** Children should be an array of React elements */
+  /** Children should be an array of Tabs.Tab */
   children: PropTypes.arrayOf(PropTypes.element).isRequired
 }
 
