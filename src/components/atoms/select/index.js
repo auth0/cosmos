@@ -37,7 +37,9 @@ Select.propTypes = {
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
   /** Value selected by default */
-  value: PropTypes.any
+  value: PropTypes.any,
+  /** onChange transparently passed to select */
+  onChange: PropTypes.func
 }
 
 Select.defaultProps = {

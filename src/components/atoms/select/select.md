@@ -7,6 +7,7 @@ The `<Select>` component renders a styled drop-down selector.
     { text: 'Two', value: 2 },
     { text: 'Three', value: 3 }
   ]}
+  onChange={ event => console.log(event) }
 />
 ```
 
@@ -17,6 +18,7 @@ to match a value from options
 <Select
   value={2}
   options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
 />
 ```
 
@@ -26,5 +28,6 @@ You can also indicate that a `<Select>` should be read-only by setting the `read
 <Select
   readOnly
   options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
 />
 ```
