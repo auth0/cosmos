@@ -72,7 +72,7 @@ const run = () => {
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
-        warn('Could not parse metadata for ' + path)
+        warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
       }
     })
     /*

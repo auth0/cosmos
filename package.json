@@ -1,6 +1,7 @@
 {
   "name": "cosmos",
   "version": "0.1.0",
+  "engine": "^7.0.0",
   "private": true,
   "dependencies": {
     "fuzzysearch": "1.0.3",
