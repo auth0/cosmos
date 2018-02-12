@@ -58,8 +58,7 @@ const actionShape = {
 
 Actions.propTypes = {
   primaryAction: PropTypes.shape(actionShape),
-  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape)),
-  destructiveActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
+  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
 }
 
 Actions.defaultProps = {}
