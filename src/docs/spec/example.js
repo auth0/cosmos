@@ -1,37 +1,50 @@
 import React from 'react'
 import Markdown from 'markdown-to-jsx'
+import yaml from 'yamljs'
 
 import Playground from './playground'
 import Break from './break'
-import TextBlock from './text-block'
+
+import IconBrowser from './icon-browser'
+import { Code } from '../../components'
+import { Text, ListItem, List, Link } from '../docs-components/typography'
+import PageHeader from './page-header'
 import SectionHeader from './section-header'
 import ExampleHeader from './example-header'
-import { Heading5, Code } from '../../components'
 
 const Example = props => {
   const options = {
     overrides: {
-      hr: { component: Break },
-      h2: { component: SectionHeader },
-      h4: { component: ExampleHeader },
-      h5: { component: TextBlock },
-      p: { component: TextBlock },
-      li: { component: Heading5 },
-      code: {
-        /* use playground for js code blocks */
-        component: markDownprops => {
-          if (!markDownprops.className) return <Code>{markDownprops.children}</Code>
-          else if (!markDownprops.className.includes('js')) return null
-          else
-            return (
+      hr: Break,
+      h2: SectionHeader,
+      h3: ExampleHeader,
+      p: Text,
+      a: Link,
+      li: ListItem,
+      ul: List,
+      /* use playground for js code blocks */
+      code: markdownProps => {
+        const language = markdownProps.className
+
+        if (!language) return <Code>{markdownProps.children}</Code>
+        else if (['lang-js', 'lang-jsx'].includes(language)) {
+          return (
+            <div>
               <Playground
-                code={markDownprops.children}
-                tags={markDownprops.className}
+                code={markdownProps.children}
+                language={language}
                 component={props.component}
               />
-            )
+            </div>
+          )
+        } else if (language === 'lang-meta') {
+          const metadata = yaml.parse(markdownProps.children)
+          return <PageHeader {...metadata} displayName={props.component.displayName} />
+        } else {
+          return null
         }
-      }
+      },
+      IconBrowser
     }
   }
 

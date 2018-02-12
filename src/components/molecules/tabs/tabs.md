@@ -1,31 +1,28 @@
 ```meta
   category: Layout
+  description: Tabs are great for splitting information into sections to make them easy to consume.
 ```
 
----
-
-`Tabs` are great for splitting information into sections to make them easy to consume
-
----
-
-#### Examples
-
-```js
+```jsx
 <Tabs>
-  <Tabs.Tab label="Tab 1">this is tab 1</Tabs.Tab>
-  <Tabs.Tab label="Tab 2">you can render anything you want here</Tabs.Tab>
-  <Tabs.Tab label="Tab 3">third tab!</Tabs.Tab>
+  <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+  <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
+  <Tabs.Tab label="Tab 3">Third tab's the charm!</Tabs.Tab>
 </Tabs>
 ```
 
-By default the first tab is selected, you can change this behaviour attaching the `selected` prop to a `Tab`.
+## Examples
+
+### Default selected tab
+
+By default, the first tab is selected but you can change this behavior attaching the `selected` prop to a `Tab`.
 
 ```js
 <Tabs>
-  <Tabs.Tab label="Tab 1">this is tab 1</Tabs.Tab>
-  <Tabs.Tab label="Tab 2">you can render anything you want here</Tabs.Tab>
+  <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+  <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
   <Tabs.Tab label="Tab 3" selected>
-    look, third tab is selected by default!
+    Look, third tab is selected by default!
   </Tabs.Tab>
 </Tabs>
 ```

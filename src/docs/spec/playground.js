@@ -7,18 +7,20 @@ import * as Components from '../../components'
 import { fonts, colors, spacing } from '../../tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
+import getPropString from './prop-string'
 
 const Container = styled.div`
-  margin-bottom: ${spacing.xlarge};
+  margin: ${spacing.medium} 0;
 
   & .react-live {
     position: relative;
   }
   & .react-live-preview {
+    white-space: normal;
     border: 1px solid ${colors.base.grayLight};
     border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
-    border-radius: 4px 4px ${props => (props.codeVisible ? '0 0' : '4px 4px')};
-    padding: 20px;
+    border-radius: 3px 3px ${props => (props.codeVisible ? '0 0' : '3px 3px')};
+    padding: 40px;
   }
 
   & .prism-code {
@@ -28,7 +30,7 @@ const Container = styled.div`
     font-family: ${fonts.family.code};
     border: 1px solid ${colors.base.grayLightest};
     border-top-width: 0;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 3px 3px;
   }
 
   & .react-live-error {
@@ -71,7 +73,7 @@ const Copy = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    let showProps = props.tags.includes('props')
+    let showProps = props.language === 'lang-jsx'
 
     this.state = {
       showProps,
@@ -89,22 +91,7 @@ class Playground extends React.Component {
     document.execCommand('copy')
   }
   onPropsChange(propData) {
-    // TODO: Refactor this block when less sleepy
-
-    let propString = ''
-
-    const propNames = Object.keys(propData).filter(key => key[0] !== '_')
-
-    propNames.forEach(name => {
-      if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
-        propString += ` ${name}`
-      } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
-        propString += ` ${name}="${propData[name].value}"`
-      } else if (propData[name].value !== 'null') {
-        propString += ` ${name}={${propData[name].value}}`
-      }
-    })
-
+    const propString = getPropString(propData)
     this.setState({ code: this.props.code.replace(' {props}', propString) })
   }
   render() {
@@ -115,14 +102,10 @@ class Playground extends React.Component {
         <input
           id={this.state.uniqueId}
           value={code}
-          style={{ opacity: 0, height: 0 }}
+          style={{ opacity: 0, height: 0, display: 'none' }}
           onChange={() => {}}
         />
-        <LiveProvider
-          code={code}
-          scope={Components}
-          noInline={this.props.tags.includes('multiple')}
-        >
+        <LiveProvider code={code} scope={Components}>
           <LivePreview />
           <LiveError />
           {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
@@ -131,7 +114,7 @@ class Playground extends React.Component {
           </CodeWrapper>
           {this.state.codeVisible ? (
             <Copy onClick={this.copyCode.bind(this)}>
-              <Components.Icon type="copy" />
+              <Components.Icon name="copy" />
             </Copy>
           ) : null}
         </LiveProvider>

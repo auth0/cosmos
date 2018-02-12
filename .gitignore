@@ -65,4 +65,6 @@ build
 
 # ignore metadata file
 src/docs/metadata.json
+src/docs/icons.json
 src/is-cosmos-ready-yet/components.json
+src/components/atoms/icon/icons.json

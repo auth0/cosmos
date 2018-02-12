@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../../tokens/'
-import onlyOneOf from '../../_helpers/only-one-of-validator'
+import { onlyOneOf } from '../../_helpers/custom-validations'
 import Icon, { StyledIcon } from '../icon'
 import Spinner from '../spinner'
 
@@ -104,14 +104,44 @@ const getAttributes = props => {
   return styles
 }
 
-const StyledButton = styled.button`
+const Button = ({ children, ...props }) => {
+  let content = children
+
+  if (props.success) content = <Icon type="success" />
+  else if (props.loading) content = <Spinner inverse={props.primary} />
+
+  if (props.icon && content) {
+    return (
+      <Button.Element {...props}>
+        <Icon name={props.icon} color={getAttributes(props).text} />
+        <Button.Content>{content}</Button.Content>
+      </Button.Element>
+    )
+  }
+
+  if (props.icon) {
+    return (
+      <Button.Element {...props}>
+        <Icon name={props.icon} />
+      </Button.Element>
+    )
+  }
+
+  return (
+    <Button.Element {...props}>
+      <Button.Content>{content}</Button.Content>
+    </Button.Element>
+  )
+}
+
+Button.Element = styled.button`
   min-width: ${props => (props.icon ? '36px' : '96px')};
   box-sizing: border-box;
 
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 13px;
-  font-weight: ${fonts.weight.bold};
+  font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
   border: 1px solid;
@@ -120,14 +150,12 @@ const StyledButton = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  margin: ${spacing.xsmall};
-  margin-left: 0;
   padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${StyledIcon} {
+  ${Icon.Element} {
     color: ${props => getAttributes(props).text};
     margin-right: ${spacing.xsmall};
   }
@@ -145,40 +173,10 @@ const StyledButton = styled.button`
   }
 `
 
-const Content = styled.span`
+Button.Content = styled.span`
   display: inline-block;
   vertical-align: middle;
 `
-
-const Button = ({ children, ...props }) => {
-  let content = children
-
-  if (props.success) content = <Icon type="success" />
-  else if (props.loading) content = <Spinner inverse={props.primary} />
-
-  if (props.icon && content) {
-    return (
-      <StyledButton {...props}>
-        <Icon type={props.icon} />
-        <Content>{content}</Content>
-      </StyledButton>
-    )
-  }
-
-  if (props.icon) {
-    return (
-      <StyledButton {...props}>
-        <Icon type={props.icon} />
-      </StyledButton>
-    )
-  }
-
-  return (
-    <StyledButton {...props}>
-      <Content>{content}</Content>
-    </StyledButton>
-  )
-}
 
 Button.propTypes = {
   /** Use for primary call to action */
@@ -219,4 +217,3 @@ Button.defaultProps = {
 Button.meta = {}
 
 export default Button
-export { StyledButton }

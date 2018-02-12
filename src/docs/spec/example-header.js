@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { fonts, spacing } from '../../tokens'
+import { Heading3 } from '../docs-components/typography'
 
 const Header = styled.a`
-  padding: ${spacing.small} 0;
-  font-weight: ${fonts.weight.medium};
-  display: block;
-  font-size: 21px;
+  color: inherit;
+  text-decoration: none;
 `
 
-const ExampleHeader = props => <Header>{props.children}</Header>
+const ExampleHeader = props => (
+  <Header href="#">
+    <Heading3>{props.children}</Heading3>
+  </Header>
+)
 
 export default ExampleHeader

@@ -2,11 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '../../tokens'
-import { TextInput, Switch, Code } from '../../components'
+import { Code } from '../../components'
+import parseType from './prop-type'
+import addDefaultValues from './default-props'
+import PropSwitcher from './prop-switcher'
 
 const Table = styled.table`
   width: 100%;
-  margin-top: ${spacing.xlarge}; /** TODO: This space should be moved to the parent component: the playground **/
+  margin-bottom: 80px;
+  white-space: normal;
   th,
   td {
     text-align: left;
@@ -28,7 +32,7 @@ const Table = styled.table`
   }
 `
 
-const Type = styled.span`
+const Type = styled.div`
   font-size: 13px;
   font-family: ${fonts.family.code};
   color: ${colors.base.grayDark};
@@ -42,32 +46,12 @@ const Description = styled.span`
   color: ${colors.base.grayDark};
 `
 
-const PropSwitcher = ({ propName, data, onPropsChange }) => {
-  let method = value => onPropsChange(propName, value.toString())
-
-  if (data.type.name === 'bool') {
-    return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={method} />
-  } else if (['string', 'number'].includes(data.type.name)) {
-    return <TextInput defaultValue={data.value} onChange={e => method(e.target.value)} />
-  }
-  return <div />
-}
-
 class Props extends React.Component {
   constructor(props) {
     super(props)
-    const propData = this.getDefaultValues(props.propData)
+    const propData = addDefaultValues(props.propData)
     this.state = { propData: propData }
     this.props.onPropsChange(propData)
-  }
-
-  getDefaultValues(propData) {
-    const propNames = Object.keys(propData).filter(key => key[0] !== '_')
-    propNames.forEach(name => {
-      const { defaultValue } = propData[name]
-      propData[name].value = defaultValue ? defaultValue.value : 'null'
-    })
-    return propData
   }
 
   onPropsChange(propName, value) {
@@ -103,7 +87,7 @@ class Props extends React.Component {
                 <Description>{propData[key].description}</Description>
               </td>
               <td>
-                <Type>{propData[key].type.name}</Type>
+                <Type>{parseType(propData[key].type)}</Type>
               </td>
 
               <td>

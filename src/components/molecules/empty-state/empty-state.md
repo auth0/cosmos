@@ -1,9 +1,20 @@
-This component can be used as a placeholder for a list when the list would otherwise be empty.
+```meta
+  category: Forms
+  description: "Empty states are displayed when a page has no content."
+```
 
-```js props
+Empty states are displayed when a page has no content.
+
+```jsx
 <EmptyState
   title="Clients"
   icon="clients"
-  action={{ icon: "add", text: "Create Client", method: function(){/*...*/} }}
+  action={{
+    icon: 'add',
+    text: 'Create Client',
+    method: function() {
+      /*...*/
+    }
+  }}
 />
 ```

@@ -5,6 +5,7 @@ import { colors } from '../../tokens'
 import LogoContainer from './logo'
 import SearchBox from './search.js'
 import List from './list'
+import Group from './group'
 
 /* import components from the generated metadata files */
 import { metadata as components } from '../metadata.json'
@@ -13,6 +14,8 @@ const StyledSidebar = styled.div`
   background: ${colors.base.grayLightest};
   height: 100vh;
   overflow: scroll;
+  padding-bottom: 2rem;
+  border-right: 1px solid ${colors.base.grayLightest};
 `
 
 class Sidebar extends React.Component {
@@ -31,6 +34,7 @@ class Sidebar extends React.Component {
       <StyledSidebar>
         <LogoContainer />
         <SearchBox onChange={this.filter.bind(this)} />
+        <Group label="Getting started" />
         <List components={this.state.filteredComponents} />
       </StyledSidebar>
     )

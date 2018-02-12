@@ -31,19 +31,19 @@ Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired,
-      defaultSelected: PropTypes.bool
+      value: PropTypes.any.isRequired
     })
   ).isRequired,
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
-  /** Pass error string directly to show error state */
-  error: PropTypes.string
+  /** Value selected by default */
+  value: PropTypes.any,
+  /** onChange transparently passed to select */
+  onChange: PropTypes.func
 }
 
 Select.defaultProps = {
-  readOnly: false,
-  error: null
+  readOnly: false
 }
 
 export default Select

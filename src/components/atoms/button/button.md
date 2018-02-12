@@ -1,18 +1,17 @@
 ```meta
   category: Actions
+  description: Buttons are great to ask users for action
 ```
 
 `import Button from 'cosmos/button'`
 
-```js props
+```jsx
 <Button {props}>Button</Button>
 ```
 
----
-
 ## Examples
 
-#### Basic button
+### Basic button
 
 Buttons are great to ask users for action
 
@@ -20,47 +19,48 @@ Buttons are great to ask users for action
 <Button>Save</Button>
 ```
 
-#### Button types
+### Button types
 
 * Primary actions help attract attention to the main action
 * Use secondary actions for actions that are not as important
 * Link button for linky stuff, idk?
 * Destructive buttons warn the user about it's effects. Proceed with caution.
 
-```js multiple
-render(
-  <div>
+```js
+<div>
+  <Stack>
+    <Button>default</Button>
     <Button primary>primary</Button>
     <Button transparent>secondary</Button>
     <Button link>Clear</Button>
     <Button destructive>Delete</Button>
-  </div>
-)
+  </Stack>
+</div>
 ```
 
-#### Button states
+### Button states
 
 Disable a button if you don't want the user isn't allowed to click on it
 
-```js multiple
-render(
-  <div>
+```js
+<div>
+  <Stack>
     <Button disabled>Disabled</Button>
     <Button loading>Button</Button>
     <Button success>Button</Button>
-  </div>
-)
+  </Stack>
+</div>
 ```
 
-#### Icons in Buttons
+### Icons in Buttons
 
 Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](/docs/Icon)
 
-```js multiple
-render(
-  <div>
+```js
+<div>
+  <Stack>
     <Button link icon="copy" />
     <Button icon="copy" />
-  </div>
-)
+  </Stack>
+</div>
 ```

@@ -5,6 +5,7 @@ import { StyledInput } from '../_styled-input'
 
 const StyledTextArea = StyledInput.withComponent('textarea').extend`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
+  white-space: ${props => (props.code ? 'pre' : 'normal')};
 `
 
 const TextArea = props => <StyledTextArea rows={props.length} {...props} />
