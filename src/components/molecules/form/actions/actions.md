@@ -8,7 +8,6 @@ At the end of the forms, you need actions that the user can take.
 <Form.Actions
   primaryAction={{ label: 'Save Changes', method: this.save }}
   secondaryActions={[{ label: 'Clear', method: this.clear }]}
-  destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
 />
 ```
 
@@ -23,7 +22,7 @@ Pass a `primaryAction` with the label and method to call.
 </Form>
 ```
 
-You can also have an `array` of `secondaryActions` and `destructiveActions`
+You can also pass an `array` of `secondaryActions`
 
 ```js
 <Form>
@@ -31,7 +30,6 @@ You can also have an `array` of `secondaryActions` and `destructiveActions`
   <Form.Actions
     primaryAction={{ label: 'Save Changes', method: this.save }}
     secondaryActions={[{ label: 'Clear', method: this.clear }]}
-    destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
   />
 </Form>
 ```
