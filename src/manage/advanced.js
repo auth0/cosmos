@@ -37,7 +37,12 @@ class Advanced extends React.Component {
                 placeholder="9JA89QQLNQ"
                 description={
                   <span>
-                    <Link href="link">How to obtain a Team ID?</Link>
+                    <Link
+                      target="_blank"
+                      href="https://developer.apple.com/membercenter/index.action#accountSummary"
+                    >
+                      How to obtain a Team ID?
+                    </Link>
                   </span>
                 }
               />
@@ -86,7 +91,10 @@ class Advanced extends React.Component {
                   <span>
                     Clients flagged as OIDC Conformant will strictly follow the OIDC specification.
                     Turning on this flag can introduce breaking changes to this client. If you have
-                    any questions you can <Link href="link">contact support</Link>.
+                    any questions you can{' '}
+                    <Link target="_blank" href="https://support.auth0.com">
+                      contact support
+                    </Link>.
                   </span>
                 }
               />

@@ -106,7 +106,9 @@ class Settings extends React.Component {
               comma-separating them. You can use the star symbol as a wildcard for subdomains
               ('*.google.com'). Notice that querystrings and hash information are not taking into
               account when validating these URLs. Read more about this at{' '}
-              <Link href="https://auth0.com/docs/logout">https://auth0.com/docs/logout</Link>
+              <Link target="_blank" href="https://auth0.com/docs/logout">
+                https://auth0.com/docs/logout
+              </Link>
             </span>
           }
           length={3}
