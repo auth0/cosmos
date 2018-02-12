@@ -64,3 +64,12 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
   </Stack>
 </div>
 ```
+
+### Label/Tooltips
+
+Especially with buttons that only have an icon and no text, it might be helpful to add a label
+which appear when a user hovers over a button.
+
+```js
+<Button icon="copy" label="Copy to clipboard" />
+```

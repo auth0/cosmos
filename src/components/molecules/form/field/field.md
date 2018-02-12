@@ -21,7 +21,12 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    actions={[{ icon: 'copy', handler: function() {}, label: 'Copy to clipboard' }]}
+  />
   <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
   <Form.Select
     label="Options list"

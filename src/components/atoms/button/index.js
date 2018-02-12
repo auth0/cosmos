@@ -6,6 +6,7 @@ import { colors, spacing, fonts, misc } from '../../../tokens/'
 import { onlyOneOf } from '../../_helpers/custom-validations'
 import Icon, { StyledIcon } from '../icon'
 import Spinner from '../spinner'
+import Tooltip from '../tooltip'
 
 const config = {
   default: {
@@ -104,34 +105,48 @@ const getAttributes = props => {
   return styles
 }
 
+const ButtonWithIcon = ({ children, ...props }) => (
+  <Button.Element {...props}>
+    <Icon name={props.icon} />
+  </Button.Element>
+)
+
+const ButtonWithText = ({ children, ...props }) => (
+  <Button.Element {...props}>
+    <Button.Content>{children}</Button.Content>
+  </Button.Element>
+)
+
+const ButtonWithIconAndText = ({ children, ...props }) => (
+  <Button.Element {...props}>
+    <Icon name={props.icon} color={getAttributes(props).text} />
+    <Button.Content>{children}</Button.Content>
+  </Button.Element>
+)
+
+const ButtonContent = ({ children, ...props }) => {
+  if (props.icon && children) {
+    return <ButtonWithIconAndText {...props}>{children}</ButtonWithIconAndText>
+  } else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
+  else return <ButtonWithText {...props}>{children}</ButtonWithText>
+}
+
 const Button = ({ children, ...props }) => {
-  let content = children
+  let content
 
   if (props.success) content = <Icon type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
+  else content = children
 
-  if (props.icon && content) {
+  if (props.label) {
     return (
-      <Button.Element {...props}>
-        <Icon name={props.icon} color={getAttributes(props).text} />
-        <Button.Content>{content}</Button.Content>
-      </Button.Element>
+      <Tooltip content={props.label}>
+        <ButtonContent {...props}>{content}</ButtonContent>
+      </Tooltip>
     )
   }
 
-  if (props.icon) {
-    return (
-      <Button.Element {...props}>
-        <Icon name={props.icon} />
-      </Button.Element>
-    )
-  }
-
-  return (
-    <Button.Element {...props}>
-      <Button.Content>{content}</Button.Content>
-    </Button.Element>
-  )
+  return <ButtonContent {...props}>{content}</ButtonContent>
 }
 
 Button.Element = styled.button`
@@ -157,7 +172,6 @@ Button.Element = styled.button`
 
   ${Icon.Element} {
     color: ${props => getAttributes(props).text};
-    margin-right: ${spacing.xsmall};
   }
 
   &:hover {
@@ -192,6 +206,9 @@ Button.propTypes = {
 
   /** Name of icon */
   icon: PropTypes.string,
+
+  /** Tooltip to show when the user hovers over the button */
+  label: PropTypes.string,
 
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
