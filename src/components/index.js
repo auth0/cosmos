@@ -45,6 +45,9 @@ export { Tooltip }
 import Overlay from './atoms/overlay'
 export { Overlay }
 
+import Link from './atoms/link'
+export { Link }
+
 import {
   Heading1,
   Heading2,

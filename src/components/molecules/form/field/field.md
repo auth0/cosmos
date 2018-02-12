@@ -67,7 +67,7 @@ Here's a secret: `description` has not matured to support links yet. You can how
     description={
       <span>
         Notice that querystrings are not taking into account when validating these URLs. <br />
-        Read more about this at <a href="link">here</a>
+        Read more about this at <Link href="https://auth0.com">here</Link>
       </span>
     }
   />

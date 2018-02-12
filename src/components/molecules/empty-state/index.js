@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
+import Link from '../../atoms/link'
 import { Heading1, Text } from '../../atoms/typography'
 import { colors, spacing } from '../../../tokens'
 
@@ -10,9 +11,9 @@ const EmptyState = props => {
   let helpLink
   if (props.helpUrl) {
     helpLink = (
-      <a href={props.helpUrl} target="_blank">
+      <Link href={props.helpUrl} target="_blank">
         Learn More
-      </a>
+      </Link>
     )
   }
   return (
@@ -20,8 +21,7 @@ const EmptyState = props => {
       <Heading1>{props.title}</Heading1>
       <Icon name={props.icon} size={100} color={colors.icon.light} />
       <p>
-        <Text>{props.text}</Text>
-        {helpLink}
+        <Text>{props.text}</Text> {helpLink}
       </p>
       <Button primary icon={props.action.icon} onClick={props.action.method}>
         {props.action.text}
