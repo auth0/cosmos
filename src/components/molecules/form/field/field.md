@@ -71,6 +71,8 @@ Here's a secret: `description` has not matured to support links yet. You can how
 
 ### Actions
 
+You can add actions to a field by passing an array of `{ icon, method }`:
+
 ```js
 <Form>
   <Form.TextInput
