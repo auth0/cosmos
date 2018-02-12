@@ -116,7 +116,7 @@ const getAttributes = props => {
 
 const ButtonWithIcon = ({ children, ...props }) => (
   <Button.Element {...props} onlyIcon>
-    <Icon name={props.icon} color={getAttributes(props).icon} />
+    <Icon name={props.icon} color={colors.button.linkIcon} />
   </Button.Element>
 )
 
