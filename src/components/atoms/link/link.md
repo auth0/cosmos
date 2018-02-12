@@ -1,6 +1,9 @@
 ```meta
-  category: Text
+  category: Actions
+  description: Use Links to connect pages with each other
 ```
+
+`import Button from 'cosmos/button'`
 
 ---
 
