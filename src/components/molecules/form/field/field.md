@@ -69,6 +69,22 @@ Here's a secret: `description` has not matured to support links yet. You can how
 </Form>
 ```
 
+### Actions
+
+```js
+<Form>
+  <Form.TextInput
+    label="Allowed URLs"
+    type="text"
+    placeholder="Enter something"
+    actions={[
+      { icon: 'copy', method: e => console.log(e) },
+      { icon: 'delete', method: e => console.log(e) }
+    ]}
+  />
+</Form>
+```
+
 ### Validation
 
 We leave the logic part of validation to you the developer, you can pass `error` back to the field and it will take care of the presentation.
