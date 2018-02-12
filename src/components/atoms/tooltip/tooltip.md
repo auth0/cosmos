@@ -1,5 +1,5 @@
 ```jsx
-<Tooltip {props} content="Here is some text">Hover me</Tooltip>
+<Tooltip content="Here is some text" {props}>Hover me</Tooltip>
 ```
 
 ---

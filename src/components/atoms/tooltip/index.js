@@ -73,6 +73,8 @@ const Tooltip = ({ content, ...props }) => {
 }
 
 Tooltip.propTypes = {
+  /** Content to show in the tooltip */
+  content: PropTypes.string.isRequired,
   /** Use to show tooltip on top */
   top: PropTypes.bool,
   /** Use to show tooltip on bottom */
@@ -80,6 +82,7 @@ Tooltip.propTypes = {
 }
 
 Tooltip.defaultProps = {
+  content: null,
   top: true,
   bottom: false
 }
