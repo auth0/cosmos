@@ -86,15 +86,18 @@ const config = {
 }
 
 const getAttributes = props => {
-  let styles = null
-  if (props.success) styles = config.success
-  else if (props.primary) styles = config.primary
-  else if (props.transparent) styles = config.transparent
-  else if (props.link) styles = config.link
-  else if (props.destructive) styles = config.destructive
-  else if (props.disabled) styles = config.disabled
-  else styles = config.default
+  let styles = {}
 
+  /* copy relevant styles into styles */
+  if (props.success) styles = { ...config.success }
+  else if (props.primary) styles = { ...config.primary }
+  else if (props.transparent) styles = { ...config.transparent }
+  else if (props.link) styles = { ...config.link }
+  else if (props.destructive) styles = { ...config.destructive }
+  else if (props.disabled) styles = { ...config.disabled }
+  else styles = { ...config.default }
+
+  /* overwrite for loading state */
   if (props.loading) {
     styles.background = styles.hoverBackground
     styles.focusBackground = styles.hoverBackground
