@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Code } from '../components'
+import { Form, Code, Link } from '../components'
 
 let dummyFn = () => {}
 
@@ -106,7 +106,7 @@ class Settings extends React.Component {
               comma-separating them. You can use the star symbol as a wildcard for subdomains
               ('*.google.com'). Notice that querystrings and hash information are not taking into
               account when validating these URLs. Read more about this at{' '}
-              <a href="https://auth0.com/docs/logout">https://auth0.com/docs/logout</a>
+              <Link href="https://auth0.com/docs/logout">https://auth0.com/docs/logout</Link>
             </span>
           }
           length={3}

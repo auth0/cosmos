@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Form, Code, Text } from '../components'
+import { FormGroup, Form, Code, Text, Link } from '../components'
 
 let dummyFn = () => {}
 
@@ -37,7 +37,7 @@ class Advanced extends React.Component {
                 placeholder="9JA89QQLNQ"
                 description={
                   <span>
-                    <a href="link">How to obtain a Team ID?</a>
+                    <Link href="link">How to obtain a Team ID?</Link>
                   </span>
                 }
               />
@@ -86,7 +86,7 @@ class Advanced extends React.Component {
                   <span>
                     Clients flagged as OIDC Conformant will strictly follow the OIDC specification.
                     Turning on this flag can introduce breaking changes to this client. If you have
-                    any questions you can <a href="link">contact support</a>.
+                    any questions you can <Link href="link">contact support</Link>.
                   </span>
                 }
               />
