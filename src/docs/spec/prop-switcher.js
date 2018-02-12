@@ -10,7 +10,9 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
     return <TextInput defaultValue={data.value} onChange={e => method(e.target.value)} />
   } else if (data.type.name === 'enum') {
     const options = data.type.value.map(({ value }) => ({ text: value, value }))
-    return <Select onChange={e => method(e.target.value)} options={options} />
+    return (
+      <Select defaultValue={data.value} onChange={e => method(e.target.value)} options={options} />
+    )
   }
   return <div />
 }

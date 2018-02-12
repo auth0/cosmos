@@ -12,12 +12,19 @@ const StyledLink = styled.a`
   }
 `
 
-const A = props => <StyledLink {...props}>{props.children}</StyledLink>
+const Link = props => <StyledLink {...props}>{props.children}</StyledLink>
 
-A.propTypes = {
-  href: propTypes.string
+Link.propTypes = {
+  /** URL to follow */
+  href: propTypes.string,
+  /** specifies where to open the linked document */
+  target: propTypes.oneOf(['_blank', '_self', '_parent', '_top']),
+  /** function to be called on click */
+  onClick: propTypes.func
 }
 
-A.defaultProps = {}
+Link.defaultProps = {
+  target: '_self'
+}
 
-export default A
+export default Link

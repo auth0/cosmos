@@ -4,8 +4,22 @@
 
 ---
 
+```jsx
+<Link href="https://auth0.com" {props}>Click me!</Link>
+```
+
 #### Examples
 
+You can also convert `Link` into a controlled component by passing an `onClick` with `event.preventDefault()`
+
 ```js
-<Code>DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip</Code>
+<Link
+  onClick={event => {
+    event.preventDefault()
+    console.log(event)
+  }}
+  href="https://auth0.com"
+>
+  Click me!
+</Link>
 ```
