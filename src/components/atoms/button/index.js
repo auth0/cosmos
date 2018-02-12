@@ -125,9 +125,9 @@ const ButtonWithIconAndText = ({ children, ...props }) => (
 )
 
 const ButtonContent = ({ children, ...props }) => {
-  if (props.icon && children)
+  if (props.icon && children) {
     return <ButtonWithIconAndText {...props}>{children}</ButtonWithIconAndText>
-  else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
+  } else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
   else return <ButtonWithText {...props}>{children}</ButtonWithText>
 }
 
@@ -138,9 +138,9 @@ const Button = ({ children, ...props }) => {
   else if (props.loading) content = <Spinner inverse={props.primary} />
   else content = children
 
-  if (props.tooltip) {
+  if (props.label) {
     return (
-      <Tooltip content={props.tooltip}>
+      <Tooltip content={props.label}>
         <ButtonContent {...props}>{content}</ButtonContent>
       </Tooltip>
     )
@@ -208,7 +208,7 @@ Button.propTypes = {
   icon: PropTypes.string,
 
   /** Tooltip to show when the user hovers over the button */
-  tooltip: PropTypes.string,
+  label: PropTypes.string,
 
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
