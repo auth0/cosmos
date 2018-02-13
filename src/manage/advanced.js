@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Form, Code, Text, Link } from '../components'
+import { FormGroup, Form, Code, Paragraph, Link } from '../components'
 
 let dummyFn = () => {}
 
@@ -20,11 +20,11 @@ class Advanced extends React.Component {
         <FormGroup>
           <Form>
             <Form.FieldSet label="Application Metadata">
-              <Text>
+              <Paragraph>
                 Application metadata are custom string keys and values (max 255 characters each),
                 set on a per application basis. Metadata is exposed in the Client object as{' '}
                 <Code>client_metadata</Code>, and in Rules as <Code>context.clientMetadata</Code>
-              </Text>
+              </Paragraph>
             </Form.FieldSet>
           </Form>
 
@@ -110,12 +110,12 @@ class Advanced extends React.Component {
 
           <Form>
             <Form.FieldSet label="Grant Types">
-              <Text>
+              <Paragraph>
                 [Notification] Using Password or MFA grant types with public clients is not
                 recommended. To use the Client Credentials grant you have to set a Token Endpoint
                 Auth Method other than "none". See our documentation for more information.
-              </Text>
-              <Text>Grants go here... </Text>
+              </Paragraph>
+              <Paragraph>Grants go here... </Paragraph>
             </Form.FieldSet>
           </Form>
 

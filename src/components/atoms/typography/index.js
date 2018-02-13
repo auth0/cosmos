@@ -102,10 +102,10 @@ const Subheader = styled.h6`
   font-weight: ${fonts.weight.medium};
 `
 
-const Text = styled.span`
+const Paragraph = styled.p`
   color: ${colors.text.default};
   font-size: 14px;
   font-weight: ${fonts.weight.normal};
 `
 
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Paragraph }

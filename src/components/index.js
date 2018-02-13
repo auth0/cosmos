@@ -55,9 +55,9 @@ import {
   Heading4,
   Heading5,
   Subheader,
-  Text
+  Paragraph
 } from './atoms/typography'
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Paragraph }
 
 /* molecules */
 import Dialog from './molecules/dialog'
