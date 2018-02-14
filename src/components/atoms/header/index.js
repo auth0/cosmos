@@ -40,11 +40,13 @@ const Header = props => {
 }
 
 Header.propTypes = {
-  size: PropTypes.number
+  size: PropTypes.oneOf([1, 2, 3, 4, 5]),
+  children: PropTypes.string
 }
 
 Header.defaultProps = {
-  size: 1
+  size: 1,
+  children: null
 }
 
 export default Header
