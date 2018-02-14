@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import styled, { injectGlobal } from 'styled-components'
 
 import { colors, fonts } from '../../../tokens'
@@ -45,6 +45,14 @@ const Paragraph = styled.p`
 const Header = props => {
   const Component = Heading[props.size]
   return <Component {...props}>{props.children}</Component>
+}
+
+Header.propTypes = {
+  size: PropTypes.number
+}
+
+Header.defaultProps = {
+  size: 1
 }
 
 export { Header, Paragraph }
