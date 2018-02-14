@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Header } from '../../components'
+import { spacing } from '../../tokens'
 
 const Container = styled.div`
-  margin: 50px 0;
+  margin: ${spacing.xlarge} 0;
+  ${Subheader} {
+    margin-bottom: ${spacing.medium};
+  }
 `
 
 export default props => (
