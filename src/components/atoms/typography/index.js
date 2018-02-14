@@ -60,44 +60,31 @@ injectGlobal`
   }
 `
 
-const Heading1 = styled.h1`
+const StyledHeading = styled.h1`
   margin: 0; /* reset browser default */
-  color: ${colors.text.black};
-  font-size: 36px; /* TO-DO: tokenize */
+  color: ${colors.text.default};
   font-weight: ${fonts.weight.normal};
 `
 
-const Heading2 = styled.h2`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.black};
-  font-size: 24px; /* TO-DO: tokenize */
+const Heading1 = StyledHeading.withComponent('h1').extend`
+  font-size: 36px;
+`
+
+const Heading2 = StyledHeading.withComponent('h2').extend`
+  font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-const Heading3 = styled.h3`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.default};
+const Heading3 = StyledHeading.withComponent('h3').extend`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-const Heading4 = styled.h4`
-  margin: 0; /* reset browser default */
-  color: ${colors.base};
+const Heading4 = StyledHeading.withComponent('h4').extend`
   font-size: 24px;
-  font-weight: ${fonts.weight.normal};
 `
 
-const Heading5 = styled.h5`
-  margin: 0; /* reset browser default */
-  color: ${colors.base};
-  font-size: 16px;
-  font-weight: ${fonts.weight.normal};
-`
-
-const Subheader = styled.h6`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.subHeader};
+const Heading5 = StyledHeading.withComponent('h5').extend`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
@@ -108,4 +95,4 @@ const Paragraph = styled.p`
   font-weight: ${fonts.weight.normal};
 `
 
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Paragraph }
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph }

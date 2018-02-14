@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Subheader } from '../../components'
+import { Heading5 } from '../../components'
 
 const Container = styled.div`
   margin: 50px 0;
@@ -9,7 +9,7 @@ const Container = styled.div`
 
 export default props => (
   <Container>
-    <Subheader>{props.title}</Subheader>
+    <Heading5>{props.title}</Heading5>
     {props.children}
   </Container>
 )

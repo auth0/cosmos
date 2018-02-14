@@ -48,16 +48,8 @@ export { Overlay }
 import Link from './atoms/link'
 export { Link }
 
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5,
-  Subheader,
-  Paragraph
-} from './atoms/typography'
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Paragraph }
+import { Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph } from './atoms/typography'
+export { Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph }
 
 /* molecules */
 import Dialog from './molecules/dialog'
