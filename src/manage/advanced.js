@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Form, Code, Text } from '../components'
+import { FormGroup, Form, Code, Paragraph, Link } from '../components'
 
 let dummyFn = () => {}
 
@@ -20,11 +20,11 @@ class Advanced extends React.Component {
         <FormGroup>
           <Form>
             <Form.FieldSet label="Application Metadata">
-              <Text>
+              <Paragraph>
                 Application metadata are custom string keys and values (max 255 characters each),
                 set on a per application basis. Metadata is exposed in the Client object as{' '}
                 <Code>client_metadata</Code>, and in Rules as <Code>context.clientMetadata</Code>
-              </Text>
+              </Paragraph>
             </Form.FieldSet>
           </Form>
 
@@ -37,7 +37,12 @@ class Advanced extends React.Component {
                 placeholder="9JA89QQLNQ"
                 description={
                   <span>
-                    <a href="link">How to obtain a Team ID?</a>
+                    <Link
+                      target="_blank"
+                      href="https://developer.apple.com/membercenter/index.action#accountSummary"
+                    >
+                      How to obtain a Team ID?
+                    </Link>
                   </span>
                 }
               />
@@ -86,7 +91,10 @@ class Advanced extends React.Component {
                   <span>
                     Clients flagged as OIDC Conformant will strictly follow the OIDC specification.
                     Turning on this flag can introduce breaking changes to this client. If you have
-                    any questions you can <a href="link">contact support</a>.
+                    any questions you can{' '}
+                    <Link target="_blank" href="https://support.auth0.com">
+                      contact support
+                    </Link>.
                   </span>
                 }
               />
@@ -102,12 +110,12 @@ class Advanced extends React.Component {
 
           <Form>
             <Form.FieldSet label="Grant Types">
-              <Text>
+              <Paragraph>
                 [Notification] Using Password or MFA grant types with public clients is not
                 recommended. To use the Client Credentials grant you have to set a Token Endpoint
                 Auth Method other than "none". See our documentation for more information.
-              </Text>
-              <Text>Grants go here... </Text>
+              </Paragraph>
+              <Paragraph>Grants go here... </Paragraph>
             </Form.FieldSet>
           </Form>
 

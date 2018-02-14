@@ -73,7 +73,7 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
 
 ### Multiple forms in a page
 
-If a page has multiple forms, use a <a href="FormGroup">FormGroup component</a> to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+If a page has multiple forms, use a [FormGroup](/docs/FormGroup) to separate each form. Use a `Form.FieldSet` to add meaningful titles.
 
 ### Form actions
 

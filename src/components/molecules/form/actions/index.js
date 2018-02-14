@@ -9,6 +9,7 @@ import Button from '../../../atoms/button'
 import { Right, Clear } from '../../../_helpers/float'
 
 const StyledActions = styled.div`
+  width: ${props => getLayout(props.layout).formWidth};
   padding-left: ${props =>
     props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
@@ -58,8 +59,7 @@ const actionShape = {
 
 Actions.propTypes = {
   primaryAction: PropTypes.shape(actionShape),
-  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape)),
-  destructiveActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
+  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
 }
 
 Actions.defaultProps = {}

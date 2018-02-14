@@ -69,7 +69,14 @@ Field.propTypes = {
   /** Description to give users some context */
   description: PropTypes.string,
   /** Error message to show in case of failed validation */
-  error: PropTypes.string
+  error: PropTypes.string,
+  /** Actions to be attached to input */
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired,
+      method: PropTypes.func.isRequired
+    })
+  )
 }
 
 Field.defaultProps = {

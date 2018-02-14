@@ -33,15 +33,8 @@ It also ships with a `code` prop that is useful when the input is a hash/code va
 
 The `readOnly` prop can be used for disabling input that do not satisfy constraints.
 
-To show validation errors, use the `error` prop which takes the error message as a string.
-
 ```js
-<div>
-  <TextInput readOnly placeholder="Field is disabled" />
-  <br />
-  <br />
-  <TextInput defaultValue="siddharth@auth..com" error="email id not valid" />
-</div>
+<TextInput readOnly placeholder="Field is disabled" />
 ```
 
 ### Function

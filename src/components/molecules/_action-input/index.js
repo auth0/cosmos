@@ -2,11 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import TextInput from '../../atoms/text-input'
+import TextInput, { StyledInput } from '../../atoms/text-input'
 import Button from '../../atoms/button'
+import { multiply } from '../../_helpers/pixel-calc'
+
+/* TODO: width of button should be exported by button component */
+const widthOfButton = '62px'
 
 const Wrapper = styled.div`
   position: relative;
+  ${StyledInput} {
+    ${props => {
+      if (!props.actions) return
+      return `padding-right: ${multiply(widthOfButton, props.actions.length)}`
+    }}
 `
 
 const ButtonGroup = styled.div`
@@ -25,11 +34,17 @@ const ButtonGroup = styled.div`
 const ActionInput = props => {
   if (props.actions) {
     return (
-      <Wrapper>
+      <Wrapper actions={props.actions}>
         <TextInput {...props} />
         <ButtonGroup>
           {props.actions.map((action, index) => (
-            <Button key={index} link icon={action.icon} onClick={action.method} />
+            <Button
+              key={index}
+              link
+              icon={action.icon}
+              onClick={action.method}
+              tooltip={action.label}
+            />
           ))}
         </ButtonGroup>
       </Wrapper>
@@ -45,7 +60,8 @@ ActionInput.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.string.isRequired,
-      method: PropTypes.func.isRequired
+      method: PropTypes.func.isRequired,
+      label: PropTypes.string.isRequired
     })
   )
 }

@@ -8,4 +8,4 @@ cases a <code>Dialog</code> might be more appropriate.
 
 Here's an example <code>Overlay</code>:
 
-![overlay example](/docs/overlay.png)
+![overlay example](/screenshots/overlay.png)

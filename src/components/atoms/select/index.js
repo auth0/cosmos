@@ -18,7 +18,7 @@ const Select = ({ options, ...props }) => {
   return (
     <StyledSelect {...props}>
       {options.map((option, index) => (
-        <option key={index} value={option.value} selected={option.defaultSelected}>
+        <option key={index} value={option.value}>
           {option.text}
         </option>
       ))}
@@ -31,12 +31,15 @@ Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired,
-      defaultSelected: PropTypes.bool
+      value: PropTypes.any.isRequired
     })
   ).isRequired,
   /** Make input readOnly if it does not validate constraint */
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  /** Value selected by default */
+  value: PropTypes.any,
+  /** onChange transparently passed to select */
+  onChange: PropTypes.func
 }
 
 Select.defaultProps = {

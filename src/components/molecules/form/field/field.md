@@ -21,7 +21,12 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    placeholder="Enter something"
+    actions={[{ icon: 'copy', handler: function() {}, label: 'Copy to clipboard' }]}
+  />
   <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
   <Form.Select
     label="Options list"
@@ -62,9 +67,27 @@ Here's a secret: `description` has not matured to support links yet. You can how
     description={
       <span>
         Notice that querystrings are not taking into account when validating these URLs. <br />
-        Read more about this at <a href="link">here</a>
+        Read more about this at <Link href="https://auth0.com">here</Link>
       </span>
     }
+  />
+</Form>
+```
+
+### Actions
+
+You can add actions to a field by passing an array of `{ icon, method }`:
+
+```js
+<Form>
+  <Form.TextInput
+    label="Allowed URLs"
+    type="text"
+    placeholder="Enter something"
+    actions={[
+      { icon: 'copy', method: e => console.log(e) },
+      { icon: 'delete', method: e => console.log(e) }
+    ]}
   />
 </Form>
 ```

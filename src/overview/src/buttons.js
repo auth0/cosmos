@@ -1,46 +1,46 @@
 import React from 'react'
 
 import Container from './container'
-import { Button } from '../../components'
-
-class ButtonStateWrapper extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { mode: 'default' }
-  }
-  onClick() {
-    this.setState({ mode: 'loading' })
-    setTimeout(() => this.setState({ mode: 'success' }), 1000)
-  }
-  render() {
-    let props = { ...this.props }
-    if (this.state.mode === 'loading') props.loading = true
-    else if (this.state.mode === 'success') props.success = true
-
-    return (
-      <Button {...props} onClick={this.onClick.bind(this)}>
-        Button
-      </Button>
-    )
-  }
-}
+import { Button, List, Stack } from '../../components'
 
 const Buttons = () => (
-  <Container title="Buttons">
-    <ButtonStateWrapper />
-    <br />
-    <ButtonStateWrapper primary />
-    <br />
-    <ButtonStateWrapper transparent />
-    <br />
-    <ButtonStateWrapper disabled />
-    <br />
-    <ButtonStateWrapper destructive />
-    <br />
-    <ButtonStateWrapper link />
-    <br />
-    <ButtonStateWrapper link icon="copy" />
-  </Container>
+  <div>
+    <Container title="Buttons">
+      <Stack>
+        <Button label="An Action">default</Button>
+        <Button primary label="Main call to action">
+          primary
+        </Button>
+        <Button transparent label="Secondary action">
+          secondary
+        </Button>
+      </Stack>
+      <br />
+      <br />
+      <Stack>
+        <Button destructive label="Destructive action">
+          Delete
+        </Button>
+        <Button link label="Subtle action">
+          Clear
+        </Button>
+        <Button link icon="copy" label="Icon button" />
+      </Stack>
+    </Container>
+    <Container title="Button states">
+      <Stack>
+        <Button disabled label="Action not allowed">
+          Disabled
+        </Button>
+        <Button loading label="Loading state">
+          Button
+        </Button>
+        <Button success label="Success!">
+          Button
+        </Button>
+      </Stack>
+    </Container>
+  </div>
 )
 
 export default Buttons

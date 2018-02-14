@@ -5,8 +5,9 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import * as Components from '../../components'
 
 import { fonts, colors, spacing } from '../../tokens'
-import uniqueId from '../../components/_helpers/uniqueId'
 import Props from './props'
+import getPropString from './prop-string'
+import CopyButton from './copy-button'
 
 const Container = styled.div`
   margin: ${spacing.medium} 0;
@@ -57,18 +58,6 @@ const CodeToggle = styled.div`
   padding: ${spacing.xsmall} 0;
 `
 
-const Copy = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  color: ${colors.base.white};
-  padding: ${spacing.small};
-  cursor: pointer;
-  &:hover {
-    color: ${colors.base.blue};
-  }
-`
-
 class Playground extends React.Component {
   constructor(props) {
     super(props)
@@ -77,35 +66,14 @@ class Playground extends React.Component {
     this.state = {
       showProps,
       codeVisible: showProps,
-      uniqueId: uniqueId('code'),
       code: this.props.code
     }
   }
   toggleCode() {
     this.setState({ codeVisible: !this.state.codeVisible })
   }
-  copyCode() {
-    const copyText = document.querySelector('#' + this.state.uniqueId)
-    copyText.select()
-    document.execCommand('copy')
-  }
   onPropsChange(propData) {
-    // TODO: Refactor this block when less sleepy
-
-    let propString = ''
-
-    const propNames = Object.keys(propData).filter(key => key[0] !== '_')
-
-    propNames.forEach(name => {
-      if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
-        propString += ` ${name}`
-      } else if (propData[name].type.name === 'string' && propData[name].value !== 'null') {
-        propString += ` ${name}="${propData[name].value}"`
-      } else if (propData[name].value !== 'null') {
-        propString += ` ${name}={${propData[name].value}}`
-      }
-    })
-
+    const propString = getPropString(propData)
     this.setState({ code: this.props.code.replace(' {props}', propString) })
   }
   render() {
@@ -113,12 +81,6 @@ class Playground extends React.Component {
 
     return (
       <Container codeVisible={this.state.codeVisible}>
-        <input
-          id={this.state.uniqueId}
-          value={code}
-          style={{ opacity: 0, height: 0, display: 'none' }}
-          onChange={() => {}}
-        />
         <LiveProvider code={code} scope={Components}>
           <LivePreview />
           <LiveError />
@@ -126,11 +88,7 @@ class Playground extends React.Component {
           <CodeWrapper className={!this.state.codeVisible && 'hide'} code={code}>
             <LiveEditor />
           </CodeWrapper>
-          {this.state.codeVisible ? (
-            <Copy onClick={this.copyCode.bind(this)}>
-              <Components.Icon name="copy" />
-            </Copy>
-          ) : null}
+          {this.state.codeVisible ? <CopyButton code={this.state.code} /> : null}
         </LiveProvider>
         <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
           {this.state.codeVisible ? 'Hide Code' : 'Show Code'}

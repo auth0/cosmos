@@ -3,26 +3,25 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
-import { Heading1, Text } from '../../atoms/typography'
+import Link from '../../atoms/link'
+import Header from '../../atoms/header'
+import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '../../../tokens'
 
 const EmptyState = props => {
   let helpLink
   if (props.helpUrl) {
     helpLink = (
-      <a href={props.helpUrl} target="_blank">
+      <Link href={props.helpUrl} target="_blank">
         Learn More
-      </a>
+      </Link>
     )
   }
   return (
     <EmptyState.Wrapper>
-      <Heading1>{props.title}</Heading1>
+      <Header size={1}>{props.title}</Header>
       <Icon name={props.icon} size={100} color={colors.icon.light} />
-      <p>
-        <Text>{props.text}</Text>
-        {helpLink}
-      </p>
+      <Paragraph>{props.text}</Paragraph> {helpLink}
       <Button primary icon={props.action.icon} onClick={props.action.method}>
         {props.action.text}
       </Button>

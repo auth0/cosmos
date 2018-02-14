@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading1, List, Stack, Code, Button } from '../components'
+import { Header, List, Stack, Code, Button } from '../components'
 import Avatar from './client-avatar'
 
 const Link = styled.a`
@@ -26,7 +26,7 @@ class ClientList extends React.Component {
   render() {
     return (
       <div>
-        <Heading1>Clients</Heading1>
+        <Header size={1}>Clients</Header>
         <div>Setup a mobile, web or IoT application to use Auth0 for Authentication.</div>
         <br />
         <br />

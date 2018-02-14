@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Heading1 } from '../components'
+import { Tabs, Header } from '../components'
 
 import Settings from './settings'
 import Advanced from './advanced'
@@ -9,7 +9,7 @@ class Client extends React.Component {
   render() {
     return (
       <div>
-        <Heading1>API Explorer Client</Heading1>
+        <Header size={1}>API Explorer Client</Header>
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>

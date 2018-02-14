@@ -40,15 +40,8 @@ You can make the `TextArea` longer by using the `length` prop. By default, it's 
 
 The `readOnly` prop can be used for disabling input that do not satisfy constraints.
 
-To show validation errors, use the `error` prop which takes the error message as a string.
-
 ```js
-<div>
-  <TextArea readOnly placeholder="Field is disabled" />
-  <br />
-  <br />
-  <TextArea defaultValue="siddharth@auth..com" error="email id not valid" />
-</div>
+<TextArea readOnly placeholder="Field is disabled" />
 ```
 
 ### Function

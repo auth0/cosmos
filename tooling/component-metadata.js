@@ -30,6 +30,26 @@ const run = () => {
         /* parse the component code to get metadata */
         const data = docgen.parse(code, null, handlers)
 
+        if (data.props) {
+          /* remove redundant quotes from default value of type string */
+          Object.values(data.props).forEach(prop => {
+            if (prop.defaultValue) {
+              if (typeof prop.defaultValue.value === 'string') {
+                prop.defaultValue.value = prop.defaultValue.value.replace(/^'(.*)'$/, '$1')
+              }
+            }
+          })
+
+          /* remove redundant quotes from enum values in prop types */
+          Object.values(data.props).forEach(prop => {
+            if (prop.type.name === 'enum') {
+              prop.type.value.forEach(element => {
+                element.value = element.value.replace(/^'(.*)'$/, '$1')
+              })
+            }
+          })
+        }
+
         /* add filepath to metadata */
         data.filepath = path
 
@@ -53,7 +73,7 @@ const run = () => {
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
-        warn('Could not parse metadata for ' + path)
+        warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
       }
     })
     /*

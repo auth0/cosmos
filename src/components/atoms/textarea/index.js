@@ -20,15 +20,18 @@ TextArea.propTypes = {
   /** Pass error string directly to show error state */
   error: PropTypes.string,
   /** Allow resizing of the textarea */
-  resizable: PropTypes.bool
+  resizable: PropTypes.bool,
+  /** onChange transparently passed to the input */
+  onChange: PropTypes.func
 }
 
 TextArea.defaultProps = {
-  length: 5,
+  length: 3,
   readOnly: false,
   code: false,
   error: null,
-  resizable: true
+  resizable: true,
+  onChange: null
 }
 
 export default TextArea
