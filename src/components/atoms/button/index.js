@@ -116,7 +116,7 @@ const getAttributes = props => {
 
 const ButtonWithIcon = ({ children, ...props }) => (
   <Button.Element {...props} onlyIcon>
-    <Icon name={props.icon} color={colors.button.linkIcon} />
+    <Icon size="16" name={props.icon} color={colors.button.linkIcon} />
   </Button.Element>
 )
 
@@ -128,7 +128,7 @@ const ButtonWithText = ({ children, ...props }) => (
 
 const ButtonWithIconAndText = ({ children, ...props }) => (
   <Button.Element {...props}>
-    <Icon name={props.icon} color={getAttributes(props).icon} />
+    <Icon size="16" name={props.icon} color={getAttributes(props).icon} />
     <Button.Content>{children}</Button.Content>
   </Button.Element>
 )
@@ -136,7 +136,8 @@ const ButtonWithIconAndText = ({ children, ...props }) => (
 const ButtonContent = ({ children, ...props }) => {
   if (props.icon && children) {
     return <ButtonWithIconAndText {...props}>{children}</ButtonWithIconAndText>
-  } else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
+  } else if (props.icon && !children)
+    return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
   else return <ButtonWithText {...props}>{children}</ButtonWithText>
 }
 
@@ -178,14 +179,16 @@ Button.Element = styled.button`
 
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
+  transition: border-color ${misc.animationDuration},
+    background ${misc.animationDuration};
 
   ${Icon.Element} {
     color: ${props => getAttributes(props).text};
   }
 
   &:hover {
-    color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
+    color: ${props =>
+      getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
   }
@@ -226,7 +229,8 @@ Button.propTypes = {
   success: PropTypes.bool,
 
   /** internal props only used for transition, start with _ */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'destructive', 'link']),
+  _type: props =>
+    onlyOneOf(props, ['primary', 'transparent', 'destructive', 'link']),
   _state: props => onlyOneOf(props, ['disabled', 'loading', 'success'])
 }
 
