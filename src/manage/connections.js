@@ -1,14 +1,14 @@
 import React from 'react'
-import { Text, Switch, List, Stack } from '../components'
+import { Paragraph, Switch, List, Stack } from '../components'
 
 class Connections extends React.Component {
   render() {
     return (
       <div>
-        <Text>
+        <Paragraph>
           Connections are sources of users. They are categorized into Database, Social and
           Enterprise and can be shared among different applications.
-        </Text>
+        </Paragraph>
 
         <List label="Database">
           <Stack>

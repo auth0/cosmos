@@ -1,6 +1,6 @@
-import styled, { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 
-import { colors, fonts, misc } from '../../../tokens'
+import { fonts, misc } from '../../tokens'
 
 injectGlobal`
 
@@ -59,53 +59,3 @@ injectGlobal`
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
   }
 `
-
-const Heading1 = styled.h1`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.black};
-  font-size: 36px; /* TO-DO: tokenize */
-  font-weight: ${fonts.weight.normal};
-`
-
-const Heading2 = styled.h2`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.black};
-  font-size: 24px; /* TO-DO: tokenize */
-  font-weight: ${fonts.weight.medium};
-`
-
-const Heading3 = styled.h3`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.default};
-  font-size: 18px; /* TO-DO: tokenize */
-  font-weight: ${fonts.weight.bold};
-`
-
-const Heading4 = styled.h4`
-  margin: 0; /* reset browser default */
-  color: ${colors.base};
-  font-size: 24px;
-  font-weight: ${fonts.weight.normal};
-`
-
-const Heading5 = styled.h5`
-  margin: 0; /* reset browser default */
-  color: ${colors.base};
-  font-size: 16px;
-  font-weight: ${fonts.weight.normal};
-`
-
-const Subheader = styled.h6`
-  margin: 0; /* reset browser default */
-  color: ${colors.text.subHeader};
-  font-size: 14px;
-  font-weight: ${fonts.weight.medium};
-`
-
-const Text = styled.span`
-  color: ${colors.text.default};
-  font-size: 14px;
-  font-weight: ${fonts.weight.normal};
-`
-
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }

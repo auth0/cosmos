@@ -11,6 +11,9 @@
 import Box from './atoms/_box'
 export { Box }
 
+/* global resets + fonts */
+import './_helpers/globals'
+
 /* atoms */
 import TextInput from './atoms/text-input'
 export { TextInput }
@@ -48,16 +51,11 @@ export { Overlay }
 import Link from './atoms/link'
 export { Link }
 
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5,
-  Subheader,
-  Text
-} from './atoms/typography'
-export { Heading1, Heading2, Heading3, Heading4, Heading5, Subheader, Text }
+import Header from './atoms/header'
+export { Header }
+
+import Paragraph from './atoms/paragraph'
+export { Paragraph }
 
 /* molecules */
 import Dialog from './molecules/dialog'

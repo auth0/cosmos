@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading1, Heading2, Logo } from '../components'
+import { Header, Logo } from '../components'
 import Center from '../components/_helpers/center'
 import { colors } from '../tokens'
 
@@ -25,8 +25,8 @@ const percentage = parseInt(100 * realComponents / totalComponents, 10)
 
 export default () => (
   <Center style={{ width: '75%' }}>
-    <Heading1>Milestone 1: Manage PoC {components['']}</Heading1>
-    <Heading2>{percentage}%</Heading2>
+    <Header size={1}>Milestone 1: Manage PoC {components['']}</Header>
+    <Header size={2}>{percentage}%</Header>
     <div>
       {components.map((component, index) => (
         <Node title={component.name} key={index} pass={component.source === '../components'}>
