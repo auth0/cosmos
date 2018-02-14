@@ -4,11 +4,13 @@ import styled from 'styled-components'
 
 import { colors, fonts } from '../../../tokens'
 
-const Paragraph = styled.p`
+const StyledParagraph = styled.p`
   color: ${colors.text.default};
   font-size: 14px;
   font-weight: ${fonts.weight.normal};
 `
+
+const Paragraph = props => <StyledParagraph {...props}>{props.children}</StyledParagraph>
 
 Paragraph.propTypes = {}
 
