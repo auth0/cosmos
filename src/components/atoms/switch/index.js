@@ -8,10 +8,12 @@ const StyledSwitch = styled.span`
   display: inline-block;
   vertical-align: middle;
   height: 32px;
+  position: relative;
 `
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
+  position: absolute;
 `
 const Toggle = styled.span`
   display: inline-block;
