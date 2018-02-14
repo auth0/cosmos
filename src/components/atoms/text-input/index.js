@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from '../_styled-input'
 
-const TextInput = props => <StyledInput {...props} />
+const StyledInputElement = StyledInput.extend`
+  height: 44px;
+`
+
+const TextInput = props => <StyledInputElement {...props} />
 
 TextInput.propTypes = {
   /** Make input readOnly if it does not validate constraint */
