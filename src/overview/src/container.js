@@ -6,7 +6,7 @@ import { spacing } from '../../tokens'
 
 const Container = styled.div`
   margin: ${spacing.xlarge} 0;
-  ${Subheader} {
+  h5 {
     margin-bottom: ${spacing.medium};
   }
 `
