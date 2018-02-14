@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { injectGlobal } from 'styled-components'
-
+import styled from 'styled-components'
 import { colors, fonts } from '../../../tokens'
-import './globals'
 
 const StyledHeading = styled.h1`
   margin: 0; /* reset browser default */
@@ -36,12 +34,6 @@ Heading[5] = StyledHeading.withComponent('h5').extend`
   font-weight: ${fonts.weight.medium};
 `
 
-const Paragraph = styled.p`
-  color: ${colors.text.default};
-  font-size: 14px;
-  font-weight: ${fonts.weight.normal};
-`
-
 const Header = props => {
   const Component = Heading[props.size]
   return <Component {...props}>{props.children}</Component>
@@ -55,4 +47,4 @@ Header.defaultProps = {
   size: 1
 }
 
-export { Header, Paragraph }
+export default Header

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
-import { Header } from '../../atoms/typography'
+import Header from '../../atoms/header'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};
