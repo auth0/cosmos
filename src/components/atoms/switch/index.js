@@ -2,12 +2,14 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../../tokens/'
+import { colors, fonts, spacing, misc } from '../../../tokens/'
+
+const height = '32px'
 
 const StyledSwitch = styled.span`
   display: inline-block;
   vertical-align: middle;
-  height: 32px;
+  height: ${height};
   position: relative;
 `
 const Checkbox = styled.input`
@@ -18,7 +20,7 @@ const Checkbox = styled.input`
 const Toggle = styled.span`
   display: inline-block;
   width: 55px;
-  height: 32px;
+  height: ${height};
   border-radius: 21px;
   background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
@@ -58,8 +60,8 @@ const Toggle = styled.span`
 
 const Label = styled.label`
   vertical-align: top;
-  line-height: 32px;
-  font-size: 13px;
+  line-height: ${height};
+  font-size: ${fonts.size.small};
   letter-spacing: 1px;
   color: ${colors.text.secondary};
   padding-left: ${spacing.small};
