@@ -1,5 +1,6 @@
 {
   "delete": ["trash", "remove"],
   "help": ["question", "?"],
-  "users": ["person", "people"]
+  "users": ["person", "people"],
+  "check": ["done", "tick"]
 }

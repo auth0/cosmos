@@ -143,7 +143,7 @@ const ButtonContent = ({ children, ...props }) => {
 const Button = ({ children, ...props }) => {
   let content
 
-  if (props.success) content = <Icon type="success" />
+  if (props.success) content = <Icon name="check" type="success" />
   else if (props.loading) content = <Spinner inverse={props.primary} />
   else content = children
 

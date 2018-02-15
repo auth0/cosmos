@@ -20,7 +20,7 @@ const Dialog = props => (
     <DialogElement width={props.width}>
       <DialogTitleBar>
         <span>{props.title}</span>
-        <Icon onClick={props.onClose} />
+        <Icon name="close" size="16" onClick={props.onClose} />
       </DialogTitleBar>
       <DialogBody>{props.children}</DialogBody>
       <DialogFooter>{props.actions.map(createButtonForAction)}</DialogFooter>
