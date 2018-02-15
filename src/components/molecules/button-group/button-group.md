@@ -33,7 +33,7 @@
 ```js
 <Stack>
   <ButtonGroup compressed>
-    <Button primary>Save changes</Button>
+    <Button>Save changes</Button>
     <Button>Clear</Button>
   </ButtonGroup>
   <ButtonGroup compressed>
