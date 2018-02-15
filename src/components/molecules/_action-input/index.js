@@ -35,7 +35,7 @@ const ActionInput = props => {
     return (
       <Wrapper actions={props.actions}>
         <TextInput {...props} />
-        <ButtonGroup>
+        <ButtonGroup compressed>
           {props.actions.map((action, index) => (
             <Button
               key={index}
