@@ -5,6 +5,7 @@ import { spacing, colors, fonts, misc } from '../../tokens'
 import { Code } from '../../components'
 import parseType from './prop-type'
 import addDefaultValues from './default-props'
+import getConflictingProps from './prop-conflicts'
 import PropSwitcher from './prop-switcher'
 
 const Table = styled.table`
@@ -56,7 +57,16 @@ class Props extends React.Component {
 
   onPropsChange(propName, value) {
     this.setState(currentState => {
+      /* Handle conflicting binary props */
+      const conflictingProps = getConflictingProps(currentState.propData, propName)
+      conflictingProps.forEach(conflictingPropName => {
+        /* disable all conflicting props */
+        currentState.propData[conflictingPropName].value = 'false'
+      })
+
+      /* set value for prop */
       currentState.propData[propName].value = value
+
       this.props.onPropsChange(currentState.propData)
       return currentState
     })
