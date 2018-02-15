@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import TextInput, { StyledInput } from '../../atoms/text-input'
 import Button from '../../atoms/button'
+import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
 
 /* TODO: width of button should be exported by button component */
@@ -15,15 +16,13 @@ const Wrapper = styled.div`
     ${props => {
       if (!props.actions) return
       return `padding-right: ${multiply(widthOfButton, props.actions.length)}`
-    }}
-`
+    }};
+  }
 
-const ButtonGroup = styled.div`
-  position: absolute;
-  right: 0;
-  top: 2px;
-  ${Button.Element} {
-    margin: 0;
+  ${StyledButtonGroup} {
+    position: absolute;
+    right: 0;
+    top: 2px;
   }
 `
 
@@ -36,7 +35,7 @@ const ActionInput = props => {
     return (
       <Wrapper actions={props.actions}>
         <TextInput {...props} />
-        <ButtonGroup>
+        <ButtonGroup compressed>
           {props.actions.map((action, index) => (
             <Button
               key={index}

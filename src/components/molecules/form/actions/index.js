@@ -6,6 +6,7 @@ import { spacing, colors } from '../../../../tokens'
 import getLayout from '../layout'
 
 import Button from '../../../atoms/button'
+import ButtonGroup from '../../../molecules/button-group'
 import { Right, Clear } from '../../../_helpers/float'
 
 const StyledActions = styled.div`
@@ -21,11 +22,13 @@ const Actions = props => {
 
   return (
     <StyledActions layout={layout}>
-      {props.primaryAction && (
-        <Button primary onClick={props.primaryAction.method}>
-          {props.primaryAction.label}
-        </Button>
-      )}
+      <ButtonGroup>
+        {props.primaryAction && (
+          <Button primary onClick={props.primaryAction.method}>
+            {props.primaryAction.label}
+          </Button>
+        )}
+      </ButtonGroup>
 
       {props.secondaryActions &&
         props.secondaryActions.map((action, index) => {

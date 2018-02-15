@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Header, List, Stack, Code, Button } from '../components'
+import { Header, List, Stack, Code, Button, ButtonGroup } from '../components'
 import Avatar from './client-avatar'
 
 const Link = styled.a`
@@ -32,7 +32,7 @@ class ClientList extends React.Component {
         <br />
         <List>
           {clients.map(client => (
-            <Stack key={client.id} widths={[7, 25, 38, 30]}>
+            <Stack key={client.id} widths={[7, 25, 40, 28]}>
               <Avatar />
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
@@ -43,12 +43,12 @@ class ClientList extends React.Component {
                 <span>Client Id: </span>
                 <Code>{client.id}</Code>
               </Stack>
-              <Stack align="right">
+              <ButtonGroup>
                 <Button icon="users" />
                 <Button icon="connections" />
                 <Button icon="analytics" />
                 <Button icon="emails" />
-              </Stack>
+              </ButtonGroup>
             </Stack>
           ))}
         </List>

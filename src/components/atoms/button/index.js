@@ -109,7 +109,7 @@ const getAttributes = props => {
 }
 
 const ButtonWithIcon = ({ children, ...props }) => (
-  <Button.Element {...props}>
+  <Button.Element {...props} onlyIcon>
     <Icon name={props.icon} />
   </Button.Element>
 )
@@ -153,7 +153,7 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  min-width: ${props => (props.icon ? '36px' : '96px')};
+  min-width: ${props => (props.onlyIcon ? '36px' : '96px')};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -168,7 +168,7 @@ Button.Element = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
+  padding: ${spacing.xsmall} ${props => (props.onlyIcon ? 0 : spacing.small)};
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
