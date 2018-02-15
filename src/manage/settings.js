@@ -42,11 +42,7 @@ class Settings extends React.Component {
           type="password"
           readOnly
           defaultValue={this.state.secret}
-          actions={[
-            { icon: 'copy', method: dummyFn },
-            { icon: 'copy', method: dummyFn },
-            { icon: 'copy', method: dummyFn }
-          ]}
+          actions={[{ icon: 'copy', method: dummyFn }, { icon: 'delete', method: dummyFn }]}
           description="The Client Secret is not base64 encoded."
         />
 
