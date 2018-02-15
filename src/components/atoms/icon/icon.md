@@ -1,3 +1,8 @@
+```meta
+  category: Actions
+  description: description missing
+```
+
 `import Icon from 'cosmos/icon'`
 
 ---

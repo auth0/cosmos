@@ -1,4 +1,13 @@
-Default spinner:
+```meta
+category: Miscellaneous
+desciption: Spinner is useful to notify the user of background activity
+```
+
+---
+
+## Examples
+
+### Default spinner:
 
 ```js
 <div style={{ padding: '20px' }}>
@@ -6,7 +15,7 @@ Default spinner:
 </div>
 ```
 
-Invert for dark background
+### Invert for dark background
 
 ```js
 <div style={{ background: '#333', padding: '20px' }}>

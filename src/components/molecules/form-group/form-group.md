@@ -1,8 +1,13 @@
+```meta
+category: forms
+description: If a page has multiple forms, you can use FormGroup to separate them out.
+```
+
 `import FormGroup from 'cosmos/form-group'`
 
 ---
 
-If a page has multiple forms, use a the `FormGroup` component to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+Use a `Form.FieldSet` to add meaningful titles.
 
 ```jsx
 <div>

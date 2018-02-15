@@ -1,12 +1,17 @@
-```jsx
-<Tooltip content="Here is some text" {props}>Hover me</Tooltip>
+```meta
+category: Miscellaneous
+description: Use tooltips for giving extra context AND to make visual cues accessible
 ```
 
 ---
 
-#### Examples
+```jsx
+<Tooltip content="Here is some text" {props}>Hover me</Tooltip>
+```
 
-Tooltip top:
+## Examples
+
+### Tooltip top:
 
 ```js
 <Tooltip top content="Copy">
@@ -14,7 +19,7 @@ Tooltip top:
 </Tooltip>
 ```
 
-Tooltip bottom:
+### Tooltip bottom:
 
 ```js
 <Tooltip bottom content="Notifications">
