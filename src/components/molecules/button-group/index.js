@@ -23,7 +23,7 @@ const StyledButtonGroup = styled.div`
   display: inline-block;
 
   ${Button.Element} {
-    margin-right: ${props => (props.compressed ? 0 : spacing.small)};
+    margin-right: ${props => (props.compressed ? 0 : spacing.xsmall)};
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
