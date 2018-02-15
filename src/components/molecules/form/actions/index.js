@@ -6,6 +6,7 @@ import { spacing, colors } from '../../../../tokens'
 import getLayout from '../layout'
 
 import Button from '../../../atoms/button'
+import ButtonGroup from '../../../molecules/button-group'
 import { Right, Clear } from '../../../_helpers/float'
 
 const StyledActions = styled.div`
@@ -14,10 +15,6 @@ const StyledActions = styled.div`
     props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
   margin-top: ${spacing.medium};
-
-  ${Button.Element} {
-    margin-right: ${spacing.small};
-  }
 `
 
 const Actions = props => {
@@ -25,11 +22,13 @@ const Actions = props => {
 
   return (
     <StyledActions layout={layout}>
-      {props.primaryAction && (
-        <Button primary onClick={props.primaryAction.method}>
-          {props.primaryAction.label}
-        </Button>
-      )}
+      <ButtonGroup>
+        {props.primaryAction && (
+          <Button primary onClick={props.primaryAction.method}>
+            {props.primaryAction.label}
+          </Button>
+        )}
+      </ButtonGroup>
 
       {props.secondaryActions &&
         props.secondaryActions.map((action, index) => {

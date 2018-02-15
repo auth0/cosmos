@@ -20,6 +20,8 @@ const iconsOnlyStyles = css`
 `
 
 const Wrapper = styled.div`
+  display: inline-block;
+
   ${Button.Element} {
     margin-right: ${props => (props.iconsOnly ? 0 : spacing.small)};
   }
