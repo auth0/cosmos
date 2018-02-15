@@ -47,15 +47,6 @@ const config = {
     focusBackground: 'transparent',
     focusBorder: 'transparent'
   },
-  disabled: {
-    text: colors.button.disabledText,
-    background: colors.button.disabledBackground,
-    border: colors.button.disabledBorder,
-    hoverBackground: colors.button.disabledBackgroundHover,
-    hoverBorder: colors.button.disabledBorderHover,
-    focusBackground: colors.button.disabledBackgroundFocus,
-    focusBorder: colors.button.disabledBorderFocus
-  },
   destructive: {
     text: colors.button.destructiveText,
     background: colors.button.destructiveBackground,
@@ -94,7 +85,6 @@ const getAttributes = props => {
   else if (props.transparent) styles = { ...config.transparent }
   else if (props.link) styles = { ...config.link }
   else if (props.destructive) styles = { ...config.destructive }
-  else if (props.disabled) styles = { ...config.disabled }
   else styles = { ...config.default }
 
   /* overwrite for loading state */
@@ -170,6 +160,7 @@ Button.Element = styled.button`
 
   padding: ${spacing.xsmall} ${props => (!props.children ? 0 : spacing.small)};
 
+  opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
