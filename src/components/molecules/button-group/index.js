@@ -19,7 +19,7 @@ const iconsOnlyStyles = css`
   }
 `
 
-const Wrapper = styled.div`
+const StyledButtonGroup = styled.div`
   display: inline-block;
 
   ${Button.Element} {
@@ -36,7 +36,7 @@ const ButtonGroup = props => {
     if (child.props.children) iconsOnly = false
   })
 
-  return <Wrapper iconsOnly={iconsOnly}>{props.children}</Wrapper>
+  return <StyledButtonGroup iconsOnly={iconsOnly}>{props.children}</StyledButtonGroup>
 }
 
 ButtonGroup.propTypes = {
@@ -46,3 +46,4 @@ ButtonGroup.propTypes = {
 ButtonGroup.defaultProps = {}
 
 export default ButtonGroup
+export { StyledButtonGroup }
