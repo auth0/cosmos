@@ -14,6 +14,10 @@ const StyledActions = styled.div`
     props.layout === 'label-on-left' ? getLayout(props.layout).labelWidth : 0};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
   margin-top: ${spacing.medium};
+
+  ${Button.Element} {
+    margin-right: ${spacing.small};
+  }
 `
 
 const Actions = props => {
