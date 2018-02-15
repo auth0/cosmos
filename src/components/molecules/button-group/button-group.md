@@ -7,26 +7,39 @@
 
 ---
 
-## Examples
-
-```js
-<ButtonGroup>
+```jsx
+<ButtonGroup {props}>
   <Button primary>Save changes</Button>
   <Button>Clear</Button>
 </ButtonGroup>
 ```
 
+## Examples
+
 ```js
 <Stack>
+  <ButtonGroup>
+    <Button primary>Save changes</Button>
+    <Button>Clear</Button>
+  </ButtonGroup>
   <ButtonGroup>
     <Button icon="pencil" />
     <Button icon="copy" />
     <Button icon="trash" />
   </ButtonGroup>
-  <ButtonGroup>
-    <Button link icon="pencil" />
-    <Button link icon="copy" />
-    <Button link icon="trash" />
+</Stack>
+```
+
+```js
+<Stack>
+  <ButtonGroup compressed>
+    <Button primary>Save changes</Button>
+    <Button>Clear</Button>
+  </ButtonGroup>
+  <ButtonGroup compressed>
+    <Button icon="pencil" />
+    <Button icon="copy" />
+    <Button icon="trash" />
   </ButtonGroup>
 </Stack>
 ```
