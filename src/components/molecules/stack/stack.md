@@ -9,14 +9,13 @@
 <Stack {props}>
   <Button icon="copy" />
   <Button icon="reveal" />
-  <Button icon="trash" />
+  <Button icon="delete" />
 </Stack>
 ```
 
 ---
 
 ## Examples
-
 
 ### Inline form
 
@@ -39,7 +38,7 @@ Use align for stacking elements without margin between them
 <Stack align="left">
   <Button icon="copy" />
   <Button icon="reveal" />
-  <Button icon="trash" />
+  <Button icon="delete" />
 </Stack>
 ```
 
@@ -47,7 +46,7 @@ Use align for stacking elements without margin between them
 <Stack align="right">
   <Button icon="copy" />
   <Button icon="reveal" />
-  <Button icon="trash" />
+  <Button icon="delete" />
 </Stack>
 ```
 

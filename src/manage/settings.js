@@ -28,21 +28,24 @@ class Settings extends React.Component {
           type="text"
           readOnly
           defaultValue={this.state.domain}
-          actions={[{ icon: 'copy', method: dummyFn }]}
+          actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
           label="Client ID"
           type="text"
           readOnly
           defaultValue={this.state.clientID}
-          actions={[{ icon: 'copy', method: dummyFn }]}
+          actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
           label="Client Secret"
           type="password"
           masked
           defaultValue={this.state.secret}
-          actions={[{ icon: 'copy', method: dummyFn }, { icon: 'delete', method: dummyFn }]}
+          actions={[
+            { icon: 'copy', method: dummyFn, label: 'Copy to clipboard' },
+            { icon: 'help', method: dummyFn, label: 'Rotate secret' }
+          ]}
           description="The Client Secret is not base64 encoded."
         />
 

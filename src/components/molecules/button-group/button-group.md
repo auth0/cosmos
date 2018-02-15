@@ -25,7 +25,7 @@
   <ButtonGroup>
     <Button icon="pencil" />
     <Button icon="copy" />
-    <Button icon="trash" />
+    <Button icon="delete" />
   </ButtonGroup>
 </Stack>
 ```
@@ -39,7 +39,7 @@
   <ButtonGroup compressed>
     <Button icon="pencil" />
     <Button icon="copy" />
-    <Button icon="trash" />
+    <Button icon="delete" />
   </ButtonGroup>
 </Stack>
 ```

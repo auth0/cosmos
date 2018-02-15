@@ -143,7 +143,7 @@ class Advanced extends React.Component {
                 code
                 readOnly
                 value="L0:O8:R8:E6:MB:I5:P2:S4:U1:ME:D5:OC:L1:O5:RD:E1:SD:T7:D9:C9"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="Signing Certificate Fingerprint"
@@ -151,7 +151,7 @@ class Advanced extends React.Component {
                 code
                 readOnly
                 value="L0:O8:R8:E6:MB:I5:P2:S4:U1:ME:D5:OC:L1:O5:RD:E1:SD:T7:D9:C9"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
             </Form.FieldSet>
             <Form.Actions
@@ -169,35 +169,35 @@ class Advanced extends React.Component {
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/authorize"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="OAuth Token URL"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/oauth/token"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="OAuth User Info URL"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/userinfo"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="OpenID Configuration"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/.FormGroup-known/openid-configuration"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="JSON Web Key Set"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/.FormGroup-known/jwks.json"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
             </Form.FieldSet>
             <Form.FieldSet label="SAML Endpoints">
@@ -206,14 +206,14 @@ class Advanced extends React.Component {
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/samlp/e4esSP93hcGXiuVAmtzSJfKiojt56QJr"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="SAML Metadata URL"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/samlp/metadata/e4esSP93hcGXiuVAmtzSJfKiojt56QJr"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
             </Form.FieldSet>
             <Form.FieldSet label="WS-Federations">
@@ -222,14 +222,14 @@ class Advanced extends React.Component {
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/wsfed/e4esSP93hcGXiuVAmtzSJfKiojt56QJr/FederationMetadata/2007-06/FederationMetadata.xml"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
               <Form.TextInput
                 label="WsFederation Sign-in URL"
                 type="text"
                 readOnly
                 value="https://mydomain.auth0.com/wsfed/e4esSP93hcGXiuVAmtzSJfKiojt56QJr"
-                actions={[{ icon: 'copy', method: dummyFn }]}
+                actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
               />
             </Form.FieldSet>
           </Form>

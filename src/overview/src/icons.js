@@ -10,7 +10,7 @@ const Icons = () => (
     <Icon name="clients" />
     <Icon name="connections" />
     <Icon name="dashboard" />
-    <Icon name="trash" />
+    <Icon name="delete" />
     <Icon name="users" />
   </Container>
 )
