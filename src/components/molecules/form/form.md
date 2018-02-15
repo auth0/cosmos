@@ -47,6 +47,7 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
       { text: 'Fourth option', value: '4' }
     ]}
   />
+  <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
   <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
 </Form>
 ```

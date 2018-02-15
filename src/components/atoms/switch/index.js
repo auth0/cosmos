@@ -2,16 +2,25 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../../tokens/'
+import { colors, fonts, spacing, misc } from '../../../tokens/'
 
+const height = '32px'
+
+const StyledSwitch = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  height: ${height};
+  position: relative;
+`
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
+  position: absolute;
 `
 const Toggle = styled.span`
   display: inline-block;
   width: 55px;
-  height: 32px;
+  height: ${height};
   border-radius: 21px;
   background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
@@ -51,7 +60,10 @@ const Toggle = styled.span`
 
 const Label = styled.label`
   vertical-align: top;
-  line-height: 32px;
+  line-height: ${height};
+  font-size: ${fonts.size.small};
+  letter-spacing: 1px;
+  color: ${colors.text.secondary};
   padding-left: ${spacing.small};
 `
 
@@ -77,11 +89,11 @@ class Switch extends React.Component {
       and is itself a readOnly component
     */
     return (
-      <span onClick={this.onToggle.bind(this)}>
+      <StyledSwitch onClick={this.onToggle.bind(this)}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly />
         <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
-      </span>
+      </StyledSwitch>
     )
   }
 }
@@ -105,3 +117,4 @@ Switch.defaultProps = {
 }
 
 export default Switch
+export { StyledSwitch }

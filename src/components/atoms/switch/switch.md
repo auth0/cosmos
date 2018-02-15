@@ -10,19 +10,25 @@
 
 ## Examples
 
-`onToggle` should always be provided for handling changes in the value
+### Events
+
+`onToggle` should always be provided for handling changes in the value.
 
 ```js
 <Switch onToggle={value => console.log(value)} />
 ```
 
-You can change the default state of the switch by passing the `on` prop
+### Default state
+
+You can change the default state of the switch by passing the `on` prop.
 
 ```js
 <Switch on onToggle={value => console.log(value)} />
 ```
 
-Switch can be locked in it's initial state with the `readOnly` prop
+### Read-only
+
+Switch can be locked in it's initial state with the `readOnly` prop.
 
 ```js
 <div>
@@ -31,7 +37,9 @@ Switch can be locked in it's initial state with the `readOnly` prop
 </div>
 ```
 
-You can change the accessibility labels by passing an array with two strings
+### Accessibility labels
+
+You can change the accessibility labels by passing an array with two strings.
 
 ```js
 <Switch accessibleLabels={['ON', 'OFF']} onToggle={value => console.log(value)} />

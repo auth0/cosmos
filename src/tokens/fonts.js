@@ -8,6 +8,9 @@ const fonts = {
     normal: 400,
     medium: 500,
     bold: 700
+  },
+  size: {
+    small: '13px'
   }
 }
 
