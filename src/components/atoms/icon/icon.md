@@ -1,13 +1,11 @@
 ```meta
   category: Actions
-  description: description missing
+  description: The Icon component displays an icon glyph as an <svg> element
 ```
 
 `import Icon from 'cosmos/icon'`
 
 ---
-
-The `Icon` component displays an icon glyph as an `<svg>` element.
 
 ```jsx
 <Icon name="analytics" {props} />
