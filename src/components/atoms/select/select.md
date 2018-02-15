@@ -1,4 +1,9 @@
-The `<Select>` component renders a styled drop-down selector.
+```meta
+  category: Forms
+  description: Select renders a styled drop-down selector.
+```
+
+---
 
 ```jsx
 <Select {props}

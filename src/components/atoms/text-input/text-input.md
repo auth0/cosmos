@@ -1,5 +1,6 @@
 ```meta
   category: Forms
+  description: Use TextInput to ask for input from the user
 ```
 
 `import TextInput from 'cosmos/text-input'`

@@ -1,6 +1,5 @@
 ```meta
   category: Text
-  description: description missing
 ```
 
 `import Header from 'cosmos/header'`
