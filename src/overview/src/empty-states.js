@@ -9,7 +9,7 @@ const EmptyStates = () => (
       icon="clients"
       text="No clients have been created."
       action={{
-        icon: 'add',
+        icon: 'plus',
         text: 'Create Client',
         method: function() {
           /*...*/
