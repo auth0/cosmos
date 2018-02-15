@@ -40,7 +40,7 @@ class Settings extends React.Component {
         <Form.TextInput
           label="Client Secret"
           type="password"
-          readOnly
+          masked
           defaultValue={this.state.secret}
           actions={[{ icon: 'copy', method: dummyFn }, { icon: 'delete', method: dummyFn }]}
           description="The Client Secret is not base64 encoded."
