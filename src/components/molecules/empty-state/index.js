@@ -20,7 +20,7 @@ const EmptyState = props => {
   return (
     <EmptyState.Wrapper>
       <Header size={1}>{props.title}</Header>
-      <Icon name={props.icon} size={100} color={colors.icon.light} />
+      <Icon name={props.icon} size={100} color={colors.base.blue} />
       <Paragraph>{props.text}</Paragraph> {helpLink}
       <Button primary icon={props.action.icon} onClick={props.action.method}>
         {props.action.text}
@@ -36,10 +36,11 @@ EmptyState.Wrapper = styled.div`
   > ${Icon.Element} {
     margin-top: ${spacing.xlarge};
     line-height: 1em;
+    opacity: 0.2;
   }
   p {
-    margin-top: ${spacing.xsmall};
-    margin-bottom: ${spacing.xsmall};
+    margin-top: ${spacing.small};
+    margin-bottom: ${spacing.small};
   }
 `
 

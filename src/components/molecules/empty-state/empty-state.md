@@ -10,7 +10,7 @@ Empty states are displayed when a page has no content.
   title="Clients"
   icon="clients"
   action={{
-    icon: 'add',
+    icon: 'plus',
     text: 'Create Client',
     method: function() {
       /*...*/
