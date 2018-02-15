@@ -11,6 +11,7 @@ import Tooltip from '../tooltip'
 const config = {
   default: {
     text: colors.button.defaultText,
+    icon: colors.button.defaultIcon,
     background: colors.button.defaultBackground,
     border: colors.button.defaultBorder,
     hoverBackground: colors.button.defaultBackgroundHover,
@@ -20,6 +21,7 @@ const config = {
   },
   primary: {
     text: colors.button.primaryText,
+    icon: colors.button.primaryIcon,
     background: colors.button.primaryBackground,
     border: colors.button.primaryBorder,
     hoverBackground: colors.button.primaryBackgroundHover,
@@ -29,6 +31,7 @@ const config = {
   },
   transparent: {
     text: colors.button.transparentText,
+    icon: colors.button.transparentIcon,
     background: colors.button.transparentBackground,
     border: colors.button.transparentBorder,
     hoverBackground: colors.button.transparentBackgroundHover,
@@ -37,7 +40,8 @@ const config = {
     focusBorder: colors.button.transparentBorderFocus
   },
   link: {
-    text: colors.button.link,
+    text: colors.button.linkText,
+    icon: colors.button.linkIcon,
     background: 'transparent',
     border: 'transparent',
     hoverText: colors.button.linkHover,
@@ -47,8 +51,19 @@ const config = {
     focusBackground: 'transparent',
     focusBorder: 'transparent'
   },
+  disabled: {
+    text: colors.button.disabledText,
+    icon: colors.button.disabledIcon,
+    background: colors.button.disabledBackground,
+    border: colors.button.disabledBorder,
+    hoverBackground: colors.button.disabledBackgroundHover,
+    hoverBorder: colors.button.disabledBorderHover,
+    focusBackground: colors.button.disabledBackgroundFocus,
+    focusBorder: colors.button.disabledBorderFocus
+  },
   destructive: {
     text: colors.button.destructiveText,
+    icon: colors.button.destructiveIcon,
     background: colors.button.destructiveBackground,
     border: colors.button.destructiveBorder,
     hoverBackground: colors.button.destructiveBackgroundHover,
@@ -67,6 +82,7 @@ const config = {
   },
   success: {
     text: colors.button.successText,
+    icon: colors.button.successIcon,
     background: colors.button.successBackground,
     border: colors.button.successBorder,
     hoverBackground: colors.button.successBackgroundHover,
@@ -100,7 +116,7 @@ const getAttributes = props => {
 
 const ButtonWithIcon = ({ children, ...props }) => (
   <Button.Element {...props} onlyIcon>
-    <Icon name={props.icon} />
+    <Icon name={props.icon} color={colors.button.linkIcon} />
   </Button.Element>
 )
 
@@ -112,7 +128,7 @@ const ButtonWithText = ({ children, ...props }) => (
 
 const ButtonWithIconAndText = ({ children, ...props }) => (
   <Button.Element {...props}>
-    <Icon name={props.icon} color={getAttributes(props).text} />
+    <Icon name={props.icon} color={getAttributes(props).icon} />
     <Button.Content>{children}</Button.Content>
   </Button.Element>
 )
