@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../../tokens'
 
-import { Heading1 } from '../../atoms/typography'
+import Header from '../../atoms/header'
 import Breadcrumb from '../../atoms/breadcrumb'
 import Code from '../../atoms/code'
 
@@ -51,7 +51,7 @@ const PageHeader = props => {
 
       <div>
         {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
-        <Heading1>{props.title}</Heading1>
+        <Header size={1}>{props.title}</Header>
       </div>
 
       {props.type ? (

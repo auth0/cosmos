@@ -57,6 +57,9 @@ export { Header }
 import Paragraph from './atoms/paragraph'
 export { Paragraph }
 
+import Breadcrumb from './atoms/breadcrumb'
+export { Breadcrumb }
+
 /* molecules */
 import Dialog from './molecules/dialog'
 export { Dialog }
