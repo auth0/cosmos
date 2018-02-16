@@ -129,10 +129,7 @@ class Settings extends React.Component {
             to log the user in if they have already logged in before)."
         />
 
-        <Form.Actions
-          primaryAction={{ label: 'Save Changes', method: this.save }}
-          destructiveActions={[{ label: 'Delete Client', method: this.delete }]}
-        />
+        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
       </Form>
     )
   }
