@@ -41,7 +41,7 @@ class ClientList extends React.Component {
           }}
           actions={{
             primaryAction: { label: 'Create Client', icon: 'plus', method: this.save },
-            secondaryAction: { label: 'Tutorial', icon: 'video', method: this.save }
+            secondaryAction: { label: 'Tutorial', icon: 'play-circle', method: this.save }
           }}
         />
         <List>
