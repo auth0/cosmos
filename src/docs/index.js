@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
+import GuidingPrinciples from './guiding-principles'
 
 const Layout = styled.div`
   position: relative;
@@ -37,6 +38,7 @@ export default () => (
       <MainContent>
         <Body>
           <Switch>
+            <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
             <Route path="/docs/:componentName" component={Spec} />
             <Route component={Home} />
           </Switch>

@@ -23,7 +23,7 @@ class Home extends React.Component {
         <Helmet title="Documentation &mdash; Cosmos" />
         <Container>
           <Heading1>Getting Started</Heading1>
-          <Text>Cosmos is a Design System to build Auth0 products.</Text>
+          <Subheader>Cosmos is a Design System to build Auth0 products.</Subheader>
           <Heading2>Install Cosmos in your application</Heading2>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum nisi non
