@@ -7,7 +7,6 @@ const StyledHeading = styled.h1`
   margin: 0; /* reset browser default */
   color: ${colors.text.default};
   font-weight: ${fonts.weight.normal};
-  line-height: normal;
 `
 
 const Heading = []
