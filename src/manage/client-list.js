@@ -61,8 +61,8 @@ class ClientList extends React.Component {
               </Stack>
               <ButtonGroup>
                 <Button icon="quickstarts" label="Quickstart" />
-                <Button icon="help" label="Settings" />
-                <Button icon="help" label="Addons" />
+                <Button icon="settings" label="Settings" />
+                <Button icon="code" label="Addons" />
                 <Button icon="connections" label="Connections" />
               </ButtonGroup>
             </Stack>
