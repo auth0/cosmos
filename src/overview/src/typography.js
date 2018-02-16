@@ -1,14 +1,14 @@
 import React from 'react'
 
 import Container from './container'
-import { Header } from '../../components'
+import { Heading } from '../../components'
 
 const Colors = () => (
   <Container title="Typography Scale">
-    <Header size={1}>H1 Header</Header>
-    <Header size={2}>H2 Header</Header>
-    <Header size={3}>H3 Header</Header>
-    <Header size={4}>H4 Header</Header>
+    <Heading size={1}>Heading 1</Heading>
+    <Heading size={2}>Heading 2</Heading>
+    <Heading size={3}>Heading 3</Heading>
+    <Heading size={4}>Heading 4</Heading>
   </Container>
 )
 
