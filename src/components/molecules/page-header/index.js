@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { spacing } from '../../../tokens'
 
 import Header from '../../atoms/header'
 import Breadcrumb from '../../atoms/breadcrumb'
