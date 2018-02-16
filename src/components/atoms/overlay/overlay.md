@@ -10,7 +10,7 @@
 You probably won't need to use it directly; In most cases a <code>Dialog</code> might be more appropriate.
 
 ```jsx
-<Overlay>Hello from Cosmos!</Overlay>
+<Overlay onClose={() => {}}>Hello from Cosmos!</Overlay>
 ```
 
 Here's an example <code>Overlay</code>:
