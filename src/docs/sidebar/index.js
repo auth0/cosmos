@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
       <StyledSidebar>
         <LogoContainer />
         <SearchBox onChange={this.filter.bind(this)} />
-        <Group label="Getting started" />
+
         <List components={this.state.filteredComponents} />
       </StyledSidebar>
     )

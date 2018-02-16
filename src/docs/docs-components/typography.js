@@ -11,6 +11,7 @@ const Heading1 = styled.h1`
 
 const Heading2 = styled.h2`
   font-size: 24px;
+  line-height: 1.4em;
   font-weight: ${fonts.weight.medium};
   margin: 1.6em 0 0.6em;
   color: ${colors.text.black};
