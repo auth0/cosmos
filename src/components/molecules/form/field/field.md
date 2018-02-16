@@ -25,7 +25,7 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
     label="Field label"
     type="text"
     placeholder="Enter something"
-    actions={[{ icon: 'copy', handler: function() {}, label: 'Copy to clipboard' }]}
+    actions={[{ icon: 'copy', method: () => {}, label: 'Copy to clipboard' }]}
   />
   <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
   <Form.Select
@@ -85,8 +85,8 @@ You can add actions to a field by passing an array of `{ icon, method }`:
     type="text"
     placeholder="Enter something"
     actions={[
-      { icon: 'copy', method: e => console.log(e) },
-      { icon: 'delete', method: e => console.log(e) }
+      { icon: 'copy', label: 'Copy URL', method: e => console.log(e) },
+      { icon: 'delete', label: 'Delete URL', method: e => console.log(e) }
     ]}
   />
 </Form>
