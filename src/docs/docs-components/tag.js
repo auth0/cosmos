@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, fonts, misc } from '../../tokens/'
+import { fonts } from '../../tokens/'
 
 const StyledTag = styled.span`
   background-color: red;

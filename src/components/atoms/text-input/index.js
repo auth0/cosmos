@@ -3,10 +3,6 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from '../_styled-input'
 
-const StyledInputElement = StyledInput.extend`
-  height: 44px;
-`
-
 const TextInput = props => {
   if (props.masked) {
     const { value } = props

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../../tokens'
+import { spacing } from '../../../../tokens'
 import getLayout from '../layout'
 
 import Button from '../../../atoms/button'

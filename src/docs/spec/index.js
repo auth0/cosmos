@@ -1,9 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { metadata as components } from '../metadata.json'
 
-import { Heading1 } from '../docs-components/typography'
 import Example from './example'
 
 export default props => {

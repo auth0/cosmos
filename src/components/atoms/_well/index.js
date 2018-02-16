@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
-import { colors, misc, spacing } from '../../../tokens/'
+import { colors, spacing } from '../../../tokens/'
 
 const StyledWell = styled.div`
   background: ${colors.form.background};

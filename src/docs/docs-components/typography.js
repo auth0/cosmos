@@ -1,6 +1,6 @@
-import styled, { injectGlobal } from 'styled-components'
+import styled from 'styled-components'
 
-import { colors, fonts, misc } from '../../tokens'
+import { colors, fonts } from '../../tokens'
 
 const Heading1 = styled.h1`
   margin: 1em 0 0.5em 0; /* reset browser default */

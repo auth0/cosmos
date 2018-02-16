@@ -1,8 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-
-import { colors, misc } from '../../tokens/'
 
 const StyledContainer = styled.div`
   max-width: 1034px;

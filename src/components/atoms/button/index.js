@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from '../../../tokens/'
 import { onlyOneOf } from '../../_helpers/custom-validations'
-import Icon, { StyledIcon } from '../icon'
+import Icon from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 
