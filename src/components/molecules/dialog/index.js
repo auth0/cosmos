@@ -7,12 +7,16 @@ import Icon from '../../atoms/icon'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '../../../tokens'
 
-const createButtonForAction = action => {
+const createButtonForAction = (action, index) => {
   const buttonProps = {
     onClick: action.method,
     [action.appearance]: true
   }
-  return <Button {...buttonProps}>{action.label}</Button>
+  return (
+    <Button key={index} {...buttonProps}>
+      {action.label}
+    </Button>
+  )
 }
 
 const Dialog = props => (
@@ -20,7 +24,7 @@ const Dialog = props => (
     <DialogElement width={props.width}>
       <DialogTitleBar>
         <span>{props.title}</span>
-        <Icon name="close" size="16" onClick={props.onClose} />
+        <Icon name="close" size={16} onClick={props.onClose} />
       </DialogTitleBar>
       <DialogBody>{props.children}</DialogBody>
       <DialogFooter>{props.actions.map(createButtonForAction)}</DialogFooter>
@@ -71,7 +75,8 @@ Dialog.Element = DialogElement
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.instanceOf(DialogAction)).isRequired,
   title: PropTypes.string.isRequired,
-  width: PropTypes.number
+  width: PropTypes.number,
+  onClose: PropTypes.func
 }
 
 Dialog.defaultProps = {
