@@ -26,7 +26,7 @@ const List = props => {
     <StyledList>
       {props.label ? (
         <StyledLabel>
-          <Header size={5}>{props.label}</Header>
+          <Header size={4}>{props.label}</Header>
         </StyledLabel>
       ) : null}
       {React.Children.map(props.children, child => <StyledRow>{child}</StyledRow>)}
