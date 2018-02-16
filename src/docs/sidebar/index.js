@@ -5,7 +5,6 @@ import { colors } from '../../tokens'
 import LogoContainer from './logo'
 import SearchBox from './search.js'
 import List from './list'
-import Group from './group'
 
 /* import components from the generated metadata files */
 import { metadata as components } from '../metadata.json'

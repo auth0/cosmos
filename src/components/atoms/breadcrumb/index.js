@@ -22,4 +22,9 @@ const Breadcrumb = ({ link, content, ...props }) => {
   )
 }
 
+Breadcrumb.propTypes = {
+  link: PropTypes.string,
+  content: PropTypes.string.isRequired
+}
+
 export default Breadcrumb
