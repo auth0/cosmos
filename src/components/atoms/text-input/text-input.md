@@ -44,7 +44,7 @@ in a display similar to password fields, but won't trigger password managers.
 (Note: this is just a visual effect, and doesn't provide any actual additional security!)
 
 ```js
-<TextInput value="secret-client-hash" masked />
+<TextInput defaultValue="secret-client-hash" masked />
 ```
 
 ### Function
