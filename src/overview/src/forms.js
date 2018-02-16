@@ -23,7 +23,7 @@ const Forms = () => (
         />
         <Form.TextInput
           label="Text input with actions"
-          actions={[{ icon: 'copy', method: fakeMethod }]}
+          actions={[{ icon: 'copy', method: fakeMethod, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput label="Text input with error" error="The field name is required" />
         <Form.TextArea
