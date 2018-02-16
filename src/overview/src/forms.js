@@ -46,7 +46,6 @@ const Forms = () => (
               label: 'Clear'
             }
           ]}
-          destructiveActions={[{ label: 'Delete' }]}
         />
       </Form>
     </Container>
