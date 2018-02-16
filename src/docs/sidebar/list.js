@@ -47,6 +47,10 @@ const List = props => {
         </StyledLink>
       </Group>
 
+      <Group label="Building blocks" open>
+        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
+      </Group>
+
       <Group label="Compound components">
         {groups.molecules.map((component, index) => {
           let children = <Link key={index} component={component} />
@@ -64,9 +68,6 @@ const List = props => {
 
           return children
         })}
-      </Group>
-      <Group label="Building blocks" open>
-        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
       </Group>
     </div>
   )
