@@ -4,14 +4,15 @@ import styled from 'styled-components'
 import { Logo } from '../components'
 
 const StyledAvatar = styled.span`
+  width: 100%;
+  height: 100%;
   border: 1px solid #d9d9d9;
-  display: inline-block;
-  width: 48px;
-  height: 48px;
   border-radius: 3px;
-
   text-align: center;
-  line-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   & g {
     fill: #a8a8a8;
   }

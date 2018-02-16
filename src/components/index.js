@@ -57,6 +57,9 @@ export { Header }
 import Paragraph from './atoms/paragraph'
 export { Paragraph }
 
+import Breadcrumb from './atoms/breadcrumb'
+export { Breadcrumb }
+
 /* molecules */
 import Dialog from './molecules/dialog'
 export { Dialog }
@@ -81,3 +84,6 @@ export { List }
 
 import ButtonGroup from './molecules/button-group'
 export { ButtonGroup }
+
+import PageHeader from './molecules/page-header'
+export { PageHeader }
