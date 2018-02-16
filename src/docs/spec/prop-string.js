@@ -30,22 +30,24 @@ const getPropString = propData => {
     }
 
     /*
-      Case 3: Strings
-      They should be printed wrapped in double quotes "string"
-      Example: <Button icon="copy">
+      Case 3: Numbers
+      Numbers are wrapped in in {}
+      Example: <Icon size={20}>
     */
-    if (typeof propData[name].value === 'string') {
-      propString += ` ${name}="${propData[name].value}"`
+
+    if (propData[name].type.name === 'number') {
+      propString += ` ${name}={${propData[name].value}}`
       return true
     }
 
     /*
-      Case 4: Numbers
-      Numbers are wrapped in in {}
-      Example: <Icon size={20}>
+      Case 4: Strings
+      They should be printed wrapped in double quotes "string"
+      Example: <Button icon="copy">
     */
-    if (typeof propData[name].value === 'number') {
-      propString += ` ${name}={${propData[name].value}}`
+
+    if (typeof propData[name].value === 'string') {
+      propString += ` ${name}="${propData[name].value}"`
       return true
     }
 
