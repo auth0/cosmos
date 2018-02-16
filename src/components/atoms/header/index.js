@@ -26,10 +26,6 @@ Heading[3] = StyledHeading.withComponent('h3').extend`
 `
 
 Heading[4] = StyledHeading.withComponent('h4').extend`
-  font-size: 24px;
-`
-
-Heading[5] = StyledHeading.withComponent('h5').extend`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
@@ -40,7 +36,7 @@ const Header = props => {
 }
 
 Header.propTypes = {
-  size: PropTypes.oneOf([1, 2, 3, 4, 5]),
+  size: PropTypes.oneOf([1, 2, 3, 4]),
   children: PropTypes.string
 }
 

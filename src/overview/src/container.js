@@ -13,7 +13,7 @@ const Container = styled.div`
 
 export default props => (
   <Container>
-    <Header size={5}>{props.title}</Header>
+    <Header size={4}>{props.title}</Header>
     {props.children}
   </Container>
 )
