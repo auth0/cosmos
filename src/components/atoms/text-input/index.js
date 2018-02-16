@@ -8,9 +8,7 @@ const TextInput = props => {
     const { value } = props
     const length = value && value.length > 0 ? value.length : 8
     const maskedValue = new Array(length).join('•')
-    return (
-      <StyledInput {...props} value={null} defaultValue={null} placeholder={maskedValue} readOnly />
-    )
+    return <StyledInput {...props} defaultValue="" placeholder={maskedValue} readOnly />
   }
   return <StyledInput {...props} />
 }
@@ -28,8 +26,8 @@ TextInput.propTypes = {
   onChange: PropTypes.func,
   /** Text to display when the input is empty */
   placeholder: PropTypes.string,
-  /** The value for the field */
-  value: PropTypes.string
+  /** The default value for the field */
+  defaultValue: PropTypes.string
 }
 
 TextInput.defaultProps = {
