@@ -14,13 +14,17 @@ const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
 `
 
+const TitleGroup = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const StyledLogo = styled.span`
   width: 72px;
   height: 72px;
   display: inline-block;
   float: left;
   margin-right: ${spacing.small};
-  margin-top: ${spacing.xsmall};
 `
 
 const Type = styled.span`
@@ -45,23 +49,29 @@ const PageHeader = props => {
     return null
   }
 
-  return (
-    <StyledPageHeader>
-      {Top}
-
-      <div>
+  let Title
+  if (props.logo || props.type) {
+    Title = (
+      <TitleGroup>
         {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
-        <Header size={1}>{props.title}</Header>
-      </div>
-
-      {props.type ? (
         <div>
+          <Header size={1}>{props.title}</Header>
           <Type>{props.type.name}</Type>
           <ClientId>
             Client ID: <Code>{props.type.clientId}</Code>
           </ClientId>
         </div>
-      ) : null}
+      </TitleGroup>
+    )
+  } else {
+    Title = <Header size={1}>{props.title}</Header>
+  }
+
+  return (
+    <StyledPageHeader>
+      {Top}
+
+      {Title}
 
       {props.description ? <Description>{props.description}</Description> : null}
     </StyledPageHeader>
