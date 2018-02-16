@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Logo } from '../../components'
-import { colors, spacing } from '../../tokens'
+import { colors } from '../../tokens'
 
 /* Logo on the top has a nice white background thing going on */
 const Container = styled.div`

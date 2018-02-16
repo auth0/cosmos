@@ -11,10 +11,8 @@ titlebar, close button, and a footer.
 ```jsx
 <Dialog
   title="Example Dialog"
-  actions={[
-    new Dialog.Action('OK', function() {}, 'primary'),
-    new Dialog.Action('Cancel', function() {})
-  ]}
+  onClose={() => {}}
+  actions={[new Dialog.Action('OK', () => {}, 'primary'), new Dialog.Action('Cancel', () => {})]}
 >
   Are you sure?
 </Dialog>

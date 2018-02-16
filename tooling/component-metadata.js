@@ -8,6 +8,8 @@ const camelCase = require('lodash.camelcase')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
+const debug = process.argv.includes('-d') || process.argv.includes('--debug')
+let warning = 0
 
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
@@ -62,8 +64,10 @@ const run = () => {
           data.documentation = fs.readFileSync(documentationPath, 'utf8')
           /* remove from markdown files list (useful later) */
           markdownFiles = markdownFiles.filter(path => path !== documentationPath)
-        } else {
+        } else if (debug) {
           warn('documentation not found for ' + path)
+        } else {
+          warning++
         }
 
         /* add lazy hint for documentation */
@@ -73,7 +77,8 @@ const run = () => {
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
-        warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
+        if (debug) warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
+        else warning++
       }
     })
     /*
@@ -111,6 +116,10 @@ const run = () => {
     TODO: Rethink tooling for docs which works across packages
   */
   fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
+
+  if (warning) {
+    warn(`${warning} components could use some docs love, run in --debug mode for more info`)
+  }
 }
 
 /* watch mode 👀 */

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Button, List, Stack } from '../../components'
+import { Button, Stack } from '../../components'
 
 const Buttons = () => (
   <div>

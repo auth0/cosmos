@@ -163,7 +163,7 @@ export default () => (
     <StyledContainer>
       <TopNavWrapper>
         <Logo>
-          <a href="#">
+          <a href="/clients">
             <LogoImage />
           </a>
         </Logo>
@@ -173,10 +173,7 @@ export default () => (
         <Links>
           <ul>
             <li>
-              <a href="#">
-                <span className="hidden">Notifications</span>{' '}
-                <Icon name="notifications" size={16} />
-              </a>
+              <span className="hidden">Notifications</span> <Icon name="notifications" size={16} />
             </li>
             <li>
               <a href="">Help & Support</a>

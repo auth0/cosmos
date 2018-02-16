@@ -7,12 +7,12 @@
 
 /* eslint-disable import/first */
 
+/* resets for font */
+import './_helpers/globals'
+
 /* demo */
 import Box from './atoms/_box'
 export { Box }
-
-/* global resets + fonts */
-import './_helpers/globals'
 
 /* atoms */
 import TextInput from './atoms/text-input'

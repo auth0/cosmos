@@ -3,7 +3,7 @@ const addDefaultValues = propData => {
   const propNames = Object.keys(propData).filter(key => key[0] !== '_')
 
   propNames.forEach(name => {
-    const { defaultValue, type } = propData[name]
+    const { defaultValue } = propData[name]
     propData[name].value = defaultValue ? defaultValue.value : 'null'
   })
   return propData

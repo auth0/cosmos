@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import TopNavigation from './components/top-navigation'
 import SideNavigation from './components/side-navigation'

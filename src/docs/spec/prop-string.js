@@ -30,23 +30,54 @@ const getPropString = propData => {
     }
 
     /*
-      Case 3: Strings
-      They should be printed wrapped in double quotes "string"
-      Example: <Button icon="copy">
+      Case 3: Array
+      Arrays should be wrapped in {}
+      Example: <Switch accessibleLabels={['ON', 'OFF']}>
     */
-    if (typeof propData[name].value === 'string') {
-      propString += ` ${name}="${propData[name].value}"`
+
+    if (propData[name].type.name === 'arrayOf') {
+      propString += ` ${name}={${propData[name].value}}`
       return true
     }
 
     /*
       Case 4: Numbers
-      Numbers are wrapped in in {}
+      Numbers are wrapped in {}
       Example: <Icon size={20}>
     */
-    if (typeof propData[name].value === 'number') {
+
+    if (propData[name].type.name === 'number') {
       propString += ` ${name}={${propData[name].value}}`
       return true
+    }
+
+    /*
+      Case 5: Strings
+      They should be printed wrapped in double quotes "string"
+      Example: <Button icon="copy">
+    */
+
+    if (propData[name].type.name === 'string') {
+      propString += ` ${name}="${propData[name].value}"`
+      return true
+    }
+
+    /*
+      Case 6: Enum
+      The value for enum should be printed depending on their value
+      Currently supports number and string
+      Example: <From layout="label-on-left">, <Header size={2}>
+    */
+
+    if (propData[name].type.name === 'enum') {
+      /* !isNaN === number */
+      if (!isNaN(propData[name].value)) {
+        propString += ` ${name}={${propData[name].value}}`
+        return true
+      } else if (typeof propData[name].value === 'string') {
+        propString += ` ${name}="${propData[name].value}"`
+        return true
+      }
     }
 
     /*

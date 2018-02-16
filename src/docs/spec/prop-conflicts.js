@@ -3,7 +3,7 @@ const getConflictingProps = (propData, propName) => {
 
   /* validation prop types start with _ */
   const validations = Object.keys(propData).filter(key => key[0] === '_')
-  validations.map(key => {
+  validations.forEach(key => {
     /*
       we only know how to work with specific cases,
       this list will grow with time
