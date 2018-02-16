@@ -48,7 +48,7 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
     ]}
   />
   <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
 
@@ -67,7 +67,7 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
 ```
 

@@ -16,14 +16,14 @@ Use a `Form.FieldSet` to add meaningful titles.
       <Form.FieldSet label="iOS Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
       </Form.FieldSet>
-      <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+      <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
     </Form>
 
     <Form>
       <Form.FieldSet label="Android Settings">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
       </Form.FieldSet>
-      <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+      <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
     </Form>
   </FormGroup>
 </div>

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Form from '../form'
 import Well from '../../atoms/_well'
 import { spacing } from '../../../tokens/'
 
@@ -22,7 +21,8 @@ const FormGroup = props => {
 }
 
 FormGroup.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.instanceOf(Form))
+  /** children should be Form components */
+  children: PropTypes.arrayOf(PropTypes.element)
 }
 
 FormGroup.defaultProps = {}

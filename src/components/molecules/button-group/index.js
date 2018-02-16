@@ -35,7 +35,10 @@ ButtonGroup.propTypes = {
   /** Make Buttons stick to each other */
   compressed: PropTypes.bool,
   /** Should container only Buttons */
-  children: PropTypes.arrayOf(PropTypes.element)
+  children: PropTypes.oneOfType([
+    PropTypes.element, // just one button for dynamic cases like Form Actions
+    PropTypes.arrayOf(PropTypes.element)
+  ])
 }
 
 ButtonGroup.defaultProps = {
