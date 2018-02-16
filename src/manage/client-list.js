@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List, Stack, Code, Button } from '../components'
+import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../components'
 import Avatar from './client-avatar'
 import { colors } from '../tokens'
 
@@ -46,7 +46,7 @@ class ClientList extends React.Component {
         />
         <List>
           {clients.map(client => (
-            <Stack key={client.id} widths={[7, 25, 38, 30]}>
+            <Stack key={client.id} widths={[7, 25, 40, 28]}>
               <StyledLogo>
                 <Avatar />
               </StyledLogo>
