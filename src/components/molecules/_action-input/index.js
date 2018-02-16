@@ -42,7 +42,7 @@ const ActionInput = props => {
               link
               icon={action.icon}
               onClick={action.method}
-              tooltip={action.label}
+              label={action.label}
             />
           ))}
         </ButtonGroup>

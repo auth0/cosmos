@@ -60,10 +60,10 @@ class ClientList extends React.Component {
                 <Code>{client.id}</Code>
               </Stack>
               <ButtonGroup>
-                <Button icon="users" />
-                <Button icon="connections" />
-                <Button icon="analytics" />
-                <Button icon="emails" />
+                <Button icon="quickstarts" label="Quickstart" />
+                <Button icon="help" label="Settings" />
+                <Button icon="help" label="Addons" />
+                <Button icon="connections" label="Connections" />
               </ButtonGroup>
             </Stack>
           ))}
