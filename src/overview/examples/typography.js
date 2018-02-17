@@ -2,23 +2,18 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { Header, Paragraph } from '../../components'
+import { Header, Paragraph, Code, Link } from '../../components'
 
 const Colors = () => (
   <Section title="Typography">
-    <Example>
-      <Header size="1">Heading 1</Header>
+    <Example title="Heading">
+      <Header size="1">Good design is good business</Header>
+      <Header size="2">Good design is good business</Header>
+      <Header size="3">Good design is good business</Header>
+      <Header size="4">Good design is good business</Header>
     </Example>
-    <Example>
-      <Header size="2">Heading 2</Header>
-    </Example>
-    <Example>
-      <Header size="3">Heading 3</Header>
-    </Example>
-    <Example>
-      <Header size="4">Subheader</Header>
-    </Example>
-    <Example>
+
+    <Example title="Paragraph">
       <Paragraph>
         Auth0 provides authentication and authorization as a service. We are here to give developers
         and companies the building blocks they need in order to secure their applications, without
@@ -27,6 +22,19 @@ const Colors = () => (
         your users to log in). Based on your app's technology, choose one of our SDKs (or call our
         API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will
         verify their identity and send the required information back to your app.
+      </Paragraph>
+    </Example>
+
+    <Example title="Link">
+      <Paragraph>
+        Auth0 provides authentication and authorization as a service.{' '}
+        <Link href="/docs">Read more in the docs</Link>.
+      </Paragraph>
+    </Example>
+
+    <Example title="Code">
+      <Paragraph>
+        Auth0 provides authentication and <Code>authorization</Code> as a service.
       </Paragraph>
     </Example>
   </Section>
