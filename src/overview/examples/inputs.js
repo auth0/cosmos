@@ -16,30 +16,45 @@ const Inputs = () => (
       </Col>
       <Col>
         <Example title="Text Input with Value" align="center">
-          <TextInput placeholder="Placeholder" value="Text Input" />
+          <TextInput placeholder="Placeholder" defaultValue="Text Input" />
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Read only" align="center">
-          <TextInput readOnly value="Read-only value" />
+          <TextInput readOnly defaultValue="Read-only value" />
         </Example>
       </Col>
       <Col>
-        <Example title="Input Number" align="center">
-          <TextInput type="number" value="3600" />
+        <Example title="Masked value" align="center">
+          <TextInput masked defaultValue="Masked value" />
         </Example>
       </Col>
     </Row>
-
+    <Row>
+      <Col>
+        <Example title="Input Number" align="center">
+          <TextInput type="number" defaultValue="3600" />
+        </Example>
+      </Col>
+      <Col>
+        <Example title="Input Code" align="center">
+          <TextInput code defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip" />
+        </Example>
+      </Col>
+    </Row>
     <Row>
       <Col>
         <Example title="Text Area" align="center">
-          <TextArea value="" placeholder />
+          <TextArea defaultValue="Text" />
         </Example>
       </Col>
-      <Col />
+      <Col>
+        <Example title="Text Area Code" align="center">
+          <TextArea code defaultValue="Code" />
+        </Example>
+      </Col>
     </Row>
   </Section>
 )

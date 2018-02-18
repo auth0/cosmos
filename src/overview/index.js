@@ -24,10 +24,10 @@ export default () => (
     <Container>
       <Typography />
       <Buttons />
-      <Icons />
-      <Tooltip />
       <Inputs />
       <Forms />
+      <Icons />
+      <Tooltip />
       <Overlays />
       <EmptyStates />
     </Container>

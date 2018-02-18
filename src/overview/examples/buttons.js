@@ -41,18 +41,20 @@ const Buttons = () => (
           <ButtonStateWrapper primary />
         </Example>
       </Col>
+    </Row>
+    <Row>
       <Col>
         <Example title="Secondary Button" align="center">
           <ButtonStateWrapper transparent />
         </Example>
       </Col>
-    </Row>
-    <Row>
       <Col>
         <Example title="Link Button" align="center">
           <ButtonStateWrapper link />
         </Example>
       </Col>
+    </Row>
+    <Row>
       <Col>
         <Example title="Disabled Button" align="center">
           <ButtonStateWrapper disabled />
