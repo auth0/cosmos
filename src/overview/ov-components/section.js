@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Title = styled.div``
+const Title = styled.div`
+  display: none;
+`
 
 const Section = styled.div`
-  margin-bottom: 6rem;
   background-color: white;
 `
 

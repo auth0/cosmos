@@ -14,6 +14,7 @@ import Forms from './examples/forms'
 import EmptyStates from './examples/empty-states'
 import Overlays from './examples/overlays'
 import Tooltip from './examples/tooltip'
+import Inputs from './examples/inputs'
 import Typography from './examples/typography'
 import Buttons from './examples/buttons'
 
@@ -24,10 +25,11 @@ export default () => (
       <Typography />
       <Buttons />
       <Icons />
-      <EmptyStates />
-      <Overlays />
-      <Forms />
       <Tooltip />
+      <Inputs />
+      <Forms />
+      <Overlays />
+      <EmptyStates />
     </Container>
   </Overview>
 )

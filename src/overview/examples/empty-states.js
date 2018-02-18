@@ -6,7 +6,7 @@ import { EmptyState } from '../../components'
 
 const EmptyStates = () => (
   <Section title="Empty State">
-    <Example>
+    <Example title="Empty State">
       <EmptyState
         icon="clients"
         text="No clients have been created."

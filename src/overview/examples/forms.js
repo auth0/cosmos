@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Container from '../ov-components/container'
+import Example from '../ov-components/example'
+import Section from '../ov-components/section'
 import { Form, FormGroup } from '../../components'
 
 const fakeMethod = e => {
@@ -9,8 +10,8 @@ const fakeMethod = e => {
 }
 
 const Forms = () => (
-  <div>
-    <Container title="Forms">
+  <Section>
+    <Example title="Forms">
       <Form>
         <Form.TextInput label="Field label" type="text" placeholder="Placeholder text" />
         <Form.TextInput label="This field has text" defaultValue="This is the field value" />
@@ -48,9 +49,9 @@ const Forms = () => (
           ]}
         />
       </Form>
-    </Container>
+    </Example>
 
-    <Container title="Form Groups">
+    <Example title="Form Groups">
       <FormGroup>
         <Form>
           <Form.FieldSet label="Form 1">
@@ -67,8 +68,8 @@ const Forms = () => (
           </Form.FieldSet>
         </Form>
       </FormGroup>
-    </Container>
-  </div>
+    </Example>
+  </Section>
 )
 
 export default Forms

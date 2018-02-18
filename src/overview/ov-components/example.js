@@ -17,10 +17,13 @@ const Example = styled.div`
   border: 1px solid rgb(236, 236, 236);
   margin-bottom: 1rem;
   border-radius: 3px;
+  &.align-center {
+    text-align: center;
+  }
 `
 
 export default props => (
-  <Example>
+  <Example className={props.align == 'center' ? 'align-center' : null}>
     <Title>{props.title}</Title>
     {props.children}
   </Example>
