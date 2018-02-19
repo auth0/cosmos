@@ -68,6 +68,17 @@ const Buttons = () => (
     </Row>
     <Row>
       <Col>
+        <Example title="Button States" align="center">
+          <Stack>
+            <ButtonStateWrapper />
+            <Button loading>Button</Button>
+            <Button success>Button</Button>
+          </Stack>
+        </Example>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
         <Example title="Button with icon" align="center">
           <Stack>
             <Button primary icon="plus">
