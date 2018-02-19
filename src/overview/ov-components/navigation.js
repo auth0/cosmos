@@ -74,12 +74,7 @@ export default () => (
                 <span>PoC Manage</span>
               </a>
             </li>
-            <li>
-              <a href="/is-cosmos-ready-yet">
-                <Icon color={colors.base.grayLightest} name="hourglass" size={20} />
-                <span>Is Cosmos Ready?</span>
-              </a>
-            </li>
+
             <li>
               <a href="/">
                 <IconSketch />
