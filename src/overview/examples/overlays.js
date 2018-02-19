@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Example from '../ov-components/example'
-import { Button, Overlay, Dialog, Stack } from '../../components'
+import Stack from '../ov-components/stack'
+import { Button, Overlay, Dialog } from '../../components'
 import { colors, spacing } from '../../tokens'
 
 class OverlayExample extends React.Component {

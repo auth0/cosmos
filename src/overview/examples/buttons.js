@@ -3,8 +3,9 @@ import React from 'react'
 import { Row, Col } from '../ov-components/grid'
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
+import Stack from '../ov-components/stack'
 
-import { Button, Stack } from '../../components'
+import { Button } from '../../components'
 
 class ButtonStateWrapper extends React.Component {
   constructor(props) {
