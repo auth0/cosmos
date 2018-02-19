@@ -22,7 +22,7 @@ const Navigation = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    span {
+    .logo-word {
       text-transform: uppercase;
       font-size: 14px;
       letter-spacing: 1.4px;
@@ -57,7 +57,7 @@ export default () => (
         <div className="nav-left">
           <h1 className="logo">
             <Logo />
-            <span> Cosmos</span>
+            <span className="logo-word">Cosmos</span>
           </h1>
         </div>
         <div className="nav-right">
