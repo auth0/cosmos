@@ -14,10 +14,10 @@ const StyledLabel = styled.div`
 `
 
 const StyledRow = styled.div`
-  border-top: 1px solid ${colors.base.grayLight};
-  padding: ${spacing.xsmall};
+  border-top: 1px solid ${colors.list.borderColor};
+  padding: ${spacing.small} ${spacing.xsmall};
   &:hover {
-    background: ${colors.base.grayLightest};
+    background: ${colors.list.backgroundHover};
   }
 `
 

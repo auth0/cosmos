@@ -125,6 +125,10 @@ const colors = {
   icon: {
     default: '#333',
     light: '#A8A8A8'
+  },
+  list: {
+    backgroundHover: '#FAFAFA',
+    borderColor: '#DDD'
   }
 }
 

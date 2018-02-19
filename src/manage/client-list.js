@@ -5,10 +5,20 @@ import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../component
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
 import { colors } from '../tokens'
+import { colors, spacing } from '../tokens'
 
 const Link = styled.a`
   color: ${colors.link.default};
   text-decoration: none;
+`
+
+const Type = styled.div`
+  font-size: 12px;
+  color: ${colors.base.grayDark};
+  letter-spacing: 1px;
+  line-height: normal;
+  margin-top: ${spacing.xsmall};
+  text-transform: uppercase;
 `
 
 const StyledLogo = styled.span`
@@ -76,21 +86,18 @@ class ClientList extends React.Component {
               </StyledLogo>
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
-                <br />
-                <div>{client.type}</div>
+                <Type>{client.type}</Type>
               </div>
               <Stack align="left">
                 <span>Client Id: </span>
                 <Code>{client.id}</Code>
               </Stack>
-              <Stack align="right">
-                <ButtonGroup>
-                  <Button icon="quickstarts" label="Quickstart" />
-                  <Button icon="settings" label="Settings" />
-                  <Button icon="code" label="Addons" />
-                  <Button icon="connections" label="Connections" />
-                </ButtonGroup>
-              </Stack>
+              <ButtonGroup>
+                <Button icon="quickstarts" label="Quickstart" />
+                <Button icon="settings" label="Settings" />
+                <Button icon="code" label="Addons" />
+                <Button icon="connections" label="Connections" />
+              </ButtonGroup>
             </Stack>
           ))}
         </List>
