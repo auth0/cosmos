@@ -12,10 +12,13 @@ import Icons from './examples/icons'
 import Spacing from './examples/spacing'
 import Forms from './examples/forms'
 import EmptyStates from './examples/empty-states'
+import PageHeaders from './examples/page-headers'
 import Overlays from './examples/overlays'
 import Tooltip from './examples/tooltip'
 import Inputs from './examples/inputs'
 import Typography from './examples/typography'
+import TabsExample from './examples/tabs'
+import Lists from './examples/lists'
 import Buttons from './examples/buttons'
 
 export default () => (
@@ -35,8 +38,10 @@ export default () => (
           <Overlays />
         </Col>
       </Row>
-
+      <PageHeaders />
+      <TabsExample />
       <EmptyStates />
+      <Lists />
     </Container>
   </Overview>
 )
