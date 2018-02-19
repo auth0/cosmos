@@ -83,7 +83,10 @@ const Buttons = () => (
         <Example title="Button with icon" align="center">
           <Stack>
             <Button primary icon="plus">
-              Button
+              Create Client
+            </Button>
+            <Button transparent icon="play-circle">
+              Tutorial
             </Button>
             <ButtonStateWrapper link icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
