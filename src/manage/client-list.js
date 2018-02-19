@@ -27,6 +27,16 @@ const clients = [
     id: 'beep-beep-boop-boop',
     name: 'Clients Two',
     type: 'SINGLE PAGE APPLICATION'
+  },
+  {
+    id: 'my-app-id',
+    name: 'My App',
+    type: 'NATIVE'
+  },
+  {
+    id: 'test-app-id',
+    name: 'Test App',
+    type: 'NATIVE'
   }
 ]
 
