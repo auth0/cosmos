@@ -24,7 +24,22 @@ const Buttons = () => (
         <Button link label="Subtle action">
           Clear
         </Button>
-        <Button link icon="copy" label="Icon button" />
+        <Button link icon="copy" label="Subtle action">
+          Copy
+        </Button>
+      </Stack>
+      <br />
+      <br />
+      <Stack>
+        <Button primary icon="plus">
+          Create Client
+        </Button>
+
+        <Button transparent icon="play-circle">
+          Tutorial
+        </Button>
+
+        <Button icon="copy" label="Subtle action" />
       </Stack>
     </Container>
     <Container title="Button states">

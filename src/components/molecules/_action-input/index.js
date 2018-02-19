@@ -21,8 +21,8 @@ const Wrapper = styled.div`
 
   ${StyledButtonGroup} {
     position: absolute;
-    right: 0;
-    top: 2px;
+    right: 4px;
+    top: 3px;
   }
 `
 

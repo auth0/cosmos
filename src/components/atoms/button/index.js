@@ -116,7 +116,7 @@ const getAttributes = props => {
 
 const ButtonWithIcon = ({ children, ...props }) => (
   <Button.Element {...props} onlyIcon>
-    <Icon name={props.icon} color={colors.button.linkIcon} />
+    <Icon size={16} name={props.icon} color={colors.button.linkIcon} />
   </Button.Element>
 )
 
@@ -128,7 +128,7 @@ const ButtonWithText = ({ children, ...props }) => (
 
 const ButtonWithIconAndText = ({ children, ...props }) => (
   <Button.Element {...props}>
-    <Icon name={props.icon} color={getAttributes(props).icon} />
+    <Icon size={16} name={props.icon} color={getAttributes(props).icon} />
     <Button.Content>{children}</Button.Content>
   </Button.Element>
 )
