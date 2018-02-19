@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { spacing } from '../../../tokens'
 
-import Header from '../../atoms/header'
+import Heading from '../../atoms/heading'
 import Breadcrumb from '../../atoms/breadcrumb'
 import Code from '../../atoms/code'
 
@@ -55,7 +55,7 @@ const PageHeader = props => {
       <TitleGroup>
         {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
         <div>
-          <Header size={1}>{props.title}</Header>
+          <Heading size={1}>{props.title}</Heading>
           <Type>{props.type.name}</Type>
           <ClientId>
             Client ID: <Code>{props.type.clientId}</Code>
@@ -64,7 +64,7 @@ const PageHeader = props => {
       </TitleGroup>
     )
   } else {
-    Title = <Header size={1}>{props.title}</Header>
+    Title = <Heading size={1}>{props.title}</Heading>
   }
 
   return (

@@ -51,8 +51,8 @@ export { Overlay }
 import Link from './atoms/link'
 export { Link }
 
-import Header from './atoms/header'
-export { Header }
+import Heading from './atoms/heading'
+export { Heading }
 
 import Paragraph from './atoms/paragraph'
 export { Paragraph }

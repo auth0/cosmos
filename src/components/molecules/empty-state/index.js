@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
-import Header from '../../atoms/header'
+import Heading from '../../atoms/heading'
 import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '../../../tokens'
 
@@ -19,7 +19,7 @@ const EmptyState = props => {
   }
   return (
     <EmptyState.Wrapper>
-      <Header size={1}>{props.title}</Header>
+      <Heading size={1}>{props.title}</Heading>
       <Icon name={props.icon} size={100} color={colors.base.blue} />
       <Paragraph>{props.text}</Paragraph> {helpLink}
       <Button primary icon={props.action.icon} onClick={props.action.method}>

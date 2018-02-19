@@ -10,40 +10,40 @@ const StyledHeading = styled.h1`
   line-height: normal;
 `
 
-const Heading = []
+const H = []
 
-Heading[1] = StyledHeading.withComponent('h1').extend`
+H[1] = StyledHeading.withComponent('h1').extend`
   font-size: 36px;
 `
 
-Heading[2] = StyledHeading.withComponent('h2').extend`
+H[2] = StyledHeading.withComponent('h2').extend`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-Heading[3] = StyledHeading.withComponent('h3').extend`
+H[3] = StyledHeading.withComponent('h3').extend`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-Heading[4] = StyledHeading.withComponent('h4').extend`
+H[4] = StyledHeading.withComponent('h4').extend`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
 
-const Header = props => {
-  const Component = Heading[props.size]
+const Heading = props => {
+  const Component = H[props.size]
   return <Component {...props}>{props.children}</Component>
 }
 
-Header.propTypes = {
+Heading.propTypes = {
   size: PropTypes.oneOf([1, 2, 3, 4]),
   children: PropTypes.string
 }
 
-Header.defaultProps = {
+Heading.defaultProps = {
   size: 1,
   children: null
 }
 
-export default Header
+export default Heading

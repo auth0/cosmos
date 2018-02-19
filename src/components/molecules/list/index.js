@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
-import Header from '../../atoms/header'
+import Heading from '../../atoms/heading'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};
@@ -26,7 +26,7 @@ const List = props => {
     <StyledList>
       {props.label ? (
         <StyledLabel>
-          <Header size={4}>{props.label}</Header>
+          <Heading size={4}>{props.label}</Heading>
         </StyledLabel>
       ) : null}
       {React.Children.map(props.children, child => <StyledRow>{child}</StyledRow>)}
