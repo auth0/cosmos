@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container from '../ov-components/container'
-import { Button, Overlay, Dialog } from '../../components'
+
+import Example from '../ov-components/example'
+import { Button, Overlay, Dialog, Stack } from '../../components'
 import { colors, spacing } from '../../tokens'
 
 class OverlayExample extends React.Component {
@@ -28,9 +29,12 @@ class OverlayExample extends React.Component {
       new Dialog.Action('Cancel', this.setIsDialogOpen(false))
     ]
     return (
-      <Container title="Overlays and Dialogs">
-        <Button onClick={this.setIsOverlayOpen(true)}>Show Overlay</Button>
-        <Button onClick={this.setIsDialogOpen(true)}>Show Dialog</Button>
+      <Example title="Overlays and Dialogs" align="center">
+        <Stack>
+          <Button onClick={this.setIsOverlayOpen(true)}>Show Overlay</Button>
+          <Button onClick={this.setIsDialogOpen(true)}>Show Dialog</Button>
+        </Stack>
+
         <Overlay open={isOverlayOpen} onClose={this.setIsOverlayOpen(false)}>
           <ExampleOverlayContent>
             An <code>Overlay</code> is a low-level component that can contain any content.<br />
@@ -47,7 +51,7 @@ class OverlayExample extends React.Component {
           structure around what is displayed. It allows setting a fixed width, and adds a titlebar,
           close button, and a footer.
         </Dialog>
-      </Container>
+      </Example>
     )
   }
 }

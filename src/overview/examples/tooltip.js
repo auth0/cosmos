@@ -1,14 +1,14 @@
 import React from 'react'
 
-import Container from '../ov-components/container'
-import { Tooltip } from '../../components'
+import Example from '../ov-components/example'
+import { Tooltip, Button } from '../../components'
 
 const Tooltips = () => (
-  <Container title="Tooltip">
+  <Example title="Tooltip" align="center">
     <Tooltip top content="Hi! I am a Tooltip :D">
-      HOVER ME
+      <Button>Hover over me!</Button>
     </Tooltip>
-  </Container>
+  </Example>
 )
 
 export default Tooltips

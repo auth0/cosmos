@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Logo } from '../components'
-import { Grid, Column } from '../components/_helpers/grid'
 
+import { Row, Col } from './ov-components/grid'
 import Overview from './ov-components/overview'
 import Container from './ov-components/container'
 import Navigation from './ov-components/navigation'
@@ -27,8 +27,15 @@ export default () => (
       <Inputs />
       <Forms />
       <Icons />
-      <Tooltip />
-      <Overlays />
+      <Row>
+        <Col>
+          <Tooltip />
+        </Col>
+        <Col>
+          <Overlays />
+        </Col>
+      </Row>
+
       <EmptyStates />
     </Container>
   </Overview>
