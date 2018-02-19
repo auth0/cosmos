@@ -5,7 +5,7 @@ import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 import Stack from '../ov-components/stack'
 
-import { Button } from '../../components'
+import { Button, ButtonGroup } from '../../components'
 
 class ButtonStateWrapper extends React.Component {
   constructor(props) {
@@ -90,6 +90,27 @@ const Buttons = () => (
             </Button>
             <ButtonStateWrapper link icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
+          </Stack>
+        </Example>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Example title="Button Group">
+          <Stack>
+            <ButtonGroup>
+              <Button transparent icon="play-circle">
+                Tutorial
+              </Button>
+              <Button primary icon="plus">
+                Create Client
+              </Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button icon="pencil" />
+              <Button icon="copy" />
+              <Button icon="delete" />
+            </ButtonGroup>
           </Stack>
         </Example>
       </Col>
