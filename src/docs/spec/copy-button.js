@@ -14,9 +14,11 @@ const Wrapper = styled.div`
 
   input {
     opacity: 0;
-    height: 0;
-    width: 0;
-    display: 'none';
+    cursor: default;
+  }
+
+  svg path {
+    transition: fill 0.5s ease;
   }
 `
 
@@ -31,7 +33,10 @@ class CopyButton extends React.Component {
   copyCode() {
     const copyText = document.querySelector('#' + this.state.uniqueId)
     copyText.select()
+    document.execCommand('copy')
     this.setState({ copied: true })
+    /* Go back to original state after 2s */
+    setTimeout(_ => this.setState({ copied: false }), 2000)
   }
   componentWillReceiveProps() {
     this.setState({ copied: false })
