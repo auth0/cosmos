@@ -9,6 +9,7 @@ const EmptyStates = () => (
     <Example title="Empty State">
       <EmptyState
         icon="clients"
+        title="Clients"
         text="No clients have been created."
         action={{
           icon: 'add',
