@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Container from './container'
+import Example from '../ov-components/example'
 import { Icon } from '../../components'
 
 const Icons = () => (
-  <Container title="Icons">
+  <Example title="Icons">
     <Icon name="analytics" />
     <Icon name="apis" />
     <Icon name="clients" />
@@ -12,7 +12,7 @@ const Icons = () => (
     <Icon name="dashboard" />
     <Icon name="delete" />
     <Icon name="users" />
-  </Container>
+  </Example>
 )
 
 export default Icons
