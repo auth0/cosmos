@@ -54,8 +54,6 @@ const PageHeader = props => {
     Top = <Actions actions={props.actions} />
   } else if (props.breadcrumb) {
     Top = <Breadcrumb content={props.breadcrumb.content} link={props.breadcrumb.link} />
-  } else {
-    return null
   }
 
   let Title
