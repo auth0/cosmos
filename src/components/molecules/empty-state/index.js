@@ -42,6 +42,7 @@ EmptyState.Wrapper = styled.div`
     margin-top: ${spacing.small};
     margin-bottom: ${spacing.small};
   }
+  /* We need to remove margin from Heading */
 `
 
 EmptyState.displayName = 'EmptyState'

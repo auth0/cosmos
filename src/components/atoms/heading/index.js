@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import { colors, fonts } from '../../../tokens'
 
 const StyledHeading = styled.h1`
-  margin: 0; /* reset browser default */
+  margin: 1em 0;
   color: ${colors.text.default};
   font-weight: ${fonts.weight.normal};
-  line-height: normal;
+  line-height: 1.3;
 `
 
 const H = []

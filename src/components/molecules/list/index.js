@@ -7,6 +7,7 @@ import Heading from '../../atoms/heading'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};
+  /* We need to remove margin from Heading */
 `
 
 const StyledRow = styled.div`
