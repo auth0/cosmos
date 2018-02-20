@@ -21,6 +21,7 @@ const StyledPageHeader = styled.div`
 const TitleGroup = styled.div`
   display: flex;
   align-items: center;
+  /* We need to remove margin from Heading */
 `
 
 /* Should be a Component */
