@@ -63,6 +63,7 @@ const Label = styled.label`
   line-height: ${height};
   font-size: ${fonts.size.small};
   letter-spacing: 1px;
+  text-transform: uppercase;
   color: ${colors.text.secondary};
   padding-left: ${spacing.small};
 `
@@ -112,7 +113,7 @@ Switch.propTypes = {
 Switch.defaultProps = {
   onToggle: null,
   on: false,
-  accessibleLabels: ['ENABLED', 'DISABLED'],
+  accessibleLabels: ['Enabled', 'Disabled'],
   readOnly: false
 }
 
