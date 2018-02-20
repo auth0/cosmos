@@ -2,16 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import {
-  Heading1,
-  Heading2,
-  Text,
-  Link,
-  List,
-  ListItem,
-  Subheader
-} from './docs-components/typography'
+import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
 import Pre from './docs-components/pre'
+import { Code } from '../components'
 
 const Container = styled.div``
 
@@ -23,42 +16,45 @@ class Home extends React.Component {
         <Container>
           <Heading1>Getting Started</Heading1>
           <Subheader>Cosmos is a Design System to build Auth0 products.</Subheader>
-          <Heading2>Install Cosmos in your application</Heading2>
+          <Heading2>Installation</Heading2>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum nisi non
-            augue laoreet maximus. Sed placerat justo vitae metus rhoncus, vel eleifend neque
-            rhoncus.
+            To add <Code>cosmos</Code> to your react application, run
+            <Pre>npm install --save auth0-cosmos</Pre>
+            If you prefer yarn, run this command instead:
+            <Pre>yarn add auth0-cosmos</Pre>
+            That's all you need to do, you are now ready to use it in your app, no build step
+            needed.
           </Text>
 
-          <Pre>npm install auth0/cosmos</Pre>
-
+          <Heading2>Usage</Heading2>
           <Text>
-            Proin a mauris semper, volutpat magna nec, mattis mi. Duis vitae tortor neque.
-            Suspendisse ultricies varius varius. Nunc ornare nulla nec erat pharetra feugiat. In hac
-            habitasse platea dictumst. Vivamus lacinia faucibus consequat. Cras sed purus congue,
-            porta neque nec, faucibus diam.
-          </Text>
-
-          <List>
-            <ListItem>List item 1</ListItem>
-            <ListItem>List item 2</ListItem>
-            <ListItem>List item 3</ListItem>
-          </List>
-
-          <Heading2>How to contribute</Heading2>
-          <Text>
-            Aenean eu <Link href="">ipsum ligula</Link>. Duis fringilla nec nisi id bibendum.
-            Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque libero lacus,
-            mattis at interdum sit amet, varius eu nisl. Donec viverra hendrerit cursus. Nam risus
-            odio, facilisis vitae tortor non, cursus sollicitudin arcu.
+            Import components that you want from the library
+            <Pre code="import { Button } from 'auth0-cosmos'" />
+            and use them along with you React components:
+            <Pre
+              code={`const Actions = () => <div>
+  <Button primary onClick={this.save}>Save changes</Button>
+  <Button onClick={this.clear}>Clear</Button>
+</div>`}
+            />
           </Text>
 
           <Text>
-            Morbi posuere finibus velit, sed iaculis dui egestas at. Quisque a molestie mauris, at
-            mollis nunc. Proin faucibus odio eu orci luctus, vel viverra dui dignissim. Aenean
-            tellus felis, aliquet at nisl a, pretium venenatis magna. Praesent sit amet orci felis.
-            Nulla rutrum mauris erat, in vestibulum augue pretium in. Proin viverra augue vitae
-            accumsan bibendum. Duis quis ante facilisis enim convallis pellentesque.
+            To learn more about the components and the <Code>props</Code> they offer, pick a
+            component from the sidebar on the left.
+          </Text>
+          <Text>
+            You can also look at example code from our Manage Clients{' '}
+            <Link href="https://github.com/auth0/cosmos/tree/master/src/manage">
+              proof of concept repo.
+            </Link>
+          </Text>
+
+          <Heading2>Feedback</Heading2>
+          <Text>
+            Issues or feature requests can be created on
+            <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
+            <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.
           </Text>
         </Container>
       </div>
