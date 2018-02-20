@@ -11,6 +11,7 @@ const StyledDivider = styled.div`
   margin-bottom: ${spacing.large};
   margin-top: 0;
   width: 100%;
+  color: ${colors.text.default};
 `
 
 export default StyledDivider
