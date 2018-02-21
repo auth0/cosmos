@@ -34,36 +34,36 @@ const Buttons = () => (
     <Row>
       <Col>
         <Example title="Default Button" align="center">
-          <ButtonStateWrapper />
+          <Button>Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Primary Button" align="center">
-          <ButtonStateWrapper primary />
+          <Button primary>Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Secondary Button" align="center">
-          <ButtonStateWrapper transparent />
+          <Button transparent>Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Link Button" align="center">
-          <ButtonStateWrapper link />
+          <Button link>Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Disabled Button" align="center">
-          <ButtonStateWrapper disabled />
+          <Button disabled>Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Destructive Button" align="center">
-          <ButtonStateWrapper destructive />
+          <Button destructive>Button</Button>
         </Example>
       </Col>
     </Row>
@@ -88,7 +88,7 @@ const Buttons = () => (
             <Button transparent icon="play-circle">
               Tutorial
             </Button>
-            <ButtonStateWrapper link icon="copy" />
+            <Button link icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
           </Stack>
         </Example>
