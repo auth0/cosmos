@@ -3,9 +3,7 @@ import styled from 'styled-components'
 
 import { spacing, colors } from '../../../tokens'
 
-const StyledDescription = styled.div`
-  margin-top: ${spacing.medium};
-`
+import Paragraph from '../../atoms/paragraph'
 
 const ArrowMore = styled.i`
   position: relative;
@@ -25,14 +23,14 @@ const Link = styled.a`
 
 const Description = props => {
   return (
-    <StyledDescription>
+    <Paragraph>
       {props.children.text}{' '}
       {props.children.learnMore ? (
         <Link href={props.children.learnMore}>
           Learn more<ArrowMore />
         </Link>
       ) : null}
-    </StyledDescription>
+    </Paragraph>
   )
 }
 
