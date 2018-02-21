@@ -4,7 +4,7 @@ import { Row, Col } from '../ov-components/grid'
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 
-import { TextInput, TextArea } from '../../components'
+import { Stack, TextInput, TextArea, Switch, Select } from '../../components'
 
 const Inputs = () => (
   <Section title="Inputs">
@@ -53,6 +53,28 @@ const Inputs = () => (
       <Col>
         <Example title="Text Area Code" align="center">
           <TextArea code defaultValue="Code" />
+        </Example>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Example title="Switch">
+          <Stack>
+            <Switch on />
+            <Switch off />
+          </Stack>
+        </Example>
+      </Col>
+      <Col>
+        <Example title="Select">
+          <Select
+            options={[
+              { text: 'Option 1', value: 1 },
+              { text: 'Option 2', value: 2 },
+              { text: 'Option 3', value: 3 }
+            ]}
+            onChange={event => console.log(event)}
+          />
         </Example>
       </Col>
     </Row>
