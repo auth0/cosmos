@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Stack } from '../../components'
-
 const Title = styled.div`
   position: absolute;
   font-family: 'Roboto Mono';
@@ -28,7 +26,7 @@ const Example = styled.div`
 `
 
 export default props => (
-  <Example className={props.align == 'center' ? 'align-center' : null}>
+  <Example className={props.align === 'center' ? 'align-center' : null}>
     <Title>{props.title}</Title>
     {props.children}
   </Example>
