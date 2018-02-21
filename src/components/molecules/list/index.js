@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '../../../tokens'
-import Heading from '../../atoms/heading'
+import Heading, { StyledHeading } from '../../atoms/heading'
 
 const StyledLabel = styled.div`
   padding: ${spacing.xsmall};
-  /* We need to remove margin from Heading */
+
+  ${StyledHeading[4]} {
+    margin: 0;
+  }
 `
 
 const StyledRow = styled.div`

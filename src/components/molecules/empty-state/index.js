@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
-import Heading from '../../atoms/heading'
+import Heading, { StyledHeading } from '../../atoms/heading'
 import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '../../../tokens'
 
@@ -38,6 +38,10 @@ EmptyState.Wrapper = styled.div`
     margin-top: ${spacing.xlarge};
     line-height: 1em;
     opacity: 0.2;
+  }
+
+  ${StyledHeading[1]} {
+    margin: 0;
   }
 `
 
