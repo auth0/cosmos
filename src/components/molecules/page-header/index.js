@@ -12,15 +12,14 @@ import Actions from './actions'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
+  ${StyledHeading[1]} {
+    margin: 0;
+  }
 `
 
 const TitleGroup = styled.div`
   display: flex;
   align-items: center;
-
-  ${StyledHeading[1]} {
-    margin: 0;
-  }
 `
 
 const StyledLogo = styled.span`
