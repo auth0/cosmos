@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { List, Button, ButtonGroup, Code, Link, Stack, Switch } from '../../components'
+import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon } from '../../components'
 
 import Avatar from '../../manage/client-avatar'
 
@@ -25,20 +25,37 @@ const StyledLogo = styled.span`
   height: 48px;
   display: inline-block;
 `
+// TODO: Remove the ConnectionType component and maybe do a flag component
+const ConnectionType = styled.div`
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+`
 
 const ListsExample = () => (
   <Section>
     <Example title="List of Connections">
       <List label="Social">
-        <Stack>
+        <Stack align="fill" widths={[60, 40, 20]}>
           <div>github</div>
-          <div>GitHub</div>
-          <Switch on />
+          <ConnectionType>
+            <Icon size={16} name="" />
+            <span>GitHub</span>
+          </ConnectionType>
+          <Stack align="right">
+            <Switch accessibleLabels={[]} />
+          </Stack>
         </Stack>
-        <Stack>
+        <Stack align="fill" widths={[60, 40, 20]}>
           <div>google-oauth2</div>
-          <div>Google</div>
-          <Switch off />
+          <ConnectionType>
+            <Icon size={16} name="" />
+            <span>Google</span>
+          </ConnectionType>
+          <Stack align="right">
+            <Switch accessibleLabels={[]} />
+          </Stack>
         </Stack>
       </List>
     </Example>
