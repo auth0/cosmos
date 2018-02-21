@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { colors } from '../../../tokens'
 
 import Paragraph from '../../atoms/paragraph'
 

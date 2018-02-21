@@ -1,20 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing } from '../../../tokens'
+import { spacing, colors } from '../../../tokens'
 
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Breadcrumb from '../../atoms/breadcrumb'
 import Code from '../../atoms/code'
-
 import Description from './description'
-import Actions from './actions'
+
+import Button from '../../atoms/button'
+import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
 
-  ${StyledHeading[1]} {
-    margin: 0;
+  ${StyledButtonGroup} {
+    float: right;
   }
 `
 
@@ -38,48 +39,72 @@ const StyledLogo = styled.span`
 `
 
 const Type = styled.span`
-  text-transform: uppercase;
-  font-size: 12px;
-  color: #7c7c7c;
   margin-right: ${spacing.small};
+  font-size: 12px;
+  color: ${colors.base.grayDark};
+  letter-spacing: 1px;
+  text-transform: uppercase;
 `
 
-const ClientId = styled.span`
+const ClientID = styled.span`
   font-size: 13px;
-  color: #676767;
+  color: ${colors.base.grayDarkest};
+  margin-right: ${spacing.xsmall};
 `
 
-const PageHeader = props => {
-  let Top
+const Top = props => {
   if (props.actions) {
-    Top = <Actions actions={props.actions} />
+    return (
+      <ButtonGroup align="right">
+        {props.actions.primaryAction && (
+          <Button
+            primary
+            icon={props.actions.primaryAction.icon}
+            onClick={props.actions.primaryAction.method}
+          >
+            {props.actions.primaryAction.label}
+          </Button>
+        )}
+        {props.actions.secondaryAction && (
+          <Button
+            transparent
+            icon={props.actions.secondaryAction.icon}
+            onClick={props.actions.secondaryAction.method}
+          >
+            {props.actions.secondaryAction.label}
+          </Button>
+        )}
+      </ButtonGroup>
+    )
   } else if (props.breadcrumb) {
-    Top = <Breadcrumb content={props.breadcrumb.content} link={props.breadcrumb.link} />
-  }
+    return <Breadcrumb content={props.breadcrumb.content} link={props.breadcrumb.link} />
+  } else return null
+}
 
-  let Title
+const Title = props => {
   if (props.logo || props.type) {
-    Title = (
+    return (
       <TitleGroup>
         {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
         <div>
           <Heading size={1}>{props.title}</Heading>
           <Type>{props.type.name}</Type>
-          <ClientId>
-            Client ID: <Code>{props.type.clientId}</Code>
-          </ClientId>
+          <ClientID>Client ID</ClientID>
+          <Code>{props.type.clientId}</Code>
         </div>
       </TitleGroup>
     )
   } else {
-    Title = <Heading size={1}>{props.title}</Heading>
+    return <Heading size={1}>{props.title}</Heading>
   }
+}
 
+const PageHeader = props => {
   return (
     <StyledPageHeader>
-      {Top}
+      <Top {...props} />
 
-      {Title}
+      <Title {...props} />
 
       {props.description ? <Description>{props.description}</Description> : null}
     </StyledPageHeader>
