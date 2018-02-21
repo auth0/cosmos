@@ -17,6 +17,7 @@ const Example = styled.div`
   border: 1px solid rgb(236, 236, 236);
   margin-bottom: 1rem;
   border-radius: 3px;
+
   &.align-center {
     display: flex;
     flex-wrap: nowrap;
@@ -31,3 +32,5 @@ export default props => (
     {props.children}
   </Example>
 )
+
+export { Example }

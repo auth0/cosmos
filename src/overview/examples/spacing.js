@@ -15,7 +15,9 @@ const Box = styled.span`
 `
 
 const Spacing = () => (
-  <Example title="Tokens: Spacing">{sizes.map(size => <Box key={size} size={size} />)}</Example>
+  <Example title="Tokens: Spacing" align="center" valign="center">
+    <div>{sizes.map(size => <Box key={size} size={size} />)}</div>
+  </Example>
 )
 
 export default Spacing
