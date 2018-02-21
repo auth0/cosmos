@@ -8,7 +8,7 @@ import ButtonGroup from '../../molecules/button-group'
 
 const Actions = props => {
   return (
-    <ButtonGroup>
+    <ButtonGroup align="right">
       {props.children.primaryAction && (
         <Button
           primary
