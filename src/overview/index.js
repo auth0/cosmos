@@ -5,6 +5,8 @@ import Overview from './ov-components/overview'
 import Container from './ov-components/container'
 import Navigation from './ov-components/navigation'
 
+import Colors from './examples/colors'
+import Spacing from './examples/spacing'
 import Icons from './examples/icons'
 import Forms from './examples/forms'
 import EmptyStates from './examples/empty-states'
@@ -22,6 +24,14 @@ export default () => (
   <Overview>
     <Navigation />
     <Container>
+      <Row>
+        <Col>
+          <Colors />
+        </Col>
+        <Col>
+          <Spacing />
+        </Col>
+      </Row>
       <Typography />
       <Buttons />
       <Inputs />
