@@ -43,7 +43,6 @@ EmptyState.Wrapper = styled.div`
   ${StyledHeading[1]} {
     margin: 0;
   }
-  /* We need to remove margin from Heading */
 `
 
 EmptyState.displayName = 'EmptyState'
