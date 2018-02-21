@@ -16,6 +16,7 @@ import Typography from './examples/typography'
 import TabsExample from './examples/tabs'
 import Lists from './examples/lists'
 import Buttons from './examples/buttons'
+import Logos from './examples/logos'
 
 export default () => (
   <Overview>
@@ -25,7 +26,14 @@ export default () => (
       <Buttons />
       <Inputs />
       <Forms />
-      <Icons />
+      <Row>
+        <Col>
+          <Icons />
+        </Col>
+        <Col>
+          <Logos />
+        </Col>
+      </Row>
       <Row>
         <Col>
           <Tooltip />
