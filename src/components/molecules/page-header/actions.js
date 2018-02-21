@@ -4,32 +4,30 @@ import styled from 'styled-components'
 import { spacing } from '../../../tokens'
 
 import Button from '../../atoms/button'
-
-const StyledActions = styled.div`
-  float: right;
-  margin-top: ${spacing.xsmall};
-
-  button {
-    float: right;
-    margin-left: ${spacing.small};
-  }
-`
+import ButtonGroup from '../../molecules/button-group'
 
 const Actions = props => {
-  const { primaryAction, secondaryAction } = props.actions
   return (
-    <StyledActions>
-      {primaryAction && (
-        <Button primary icon={primaryAction.icon} onClick={primaryAction.method}>
-          {primaryAction.label}
+    <ButtonGroup>
+      {props.children.primaryAction && (
+        <Button
+          primary
+          icon={props.children.primaryAction.icon}
+          onClick={props.children.primaryAction.method}
+        >
+          {props.children.primaryAction.label}
         </Button>
       )}
-      {secondaryAction && (
-        <Button transparent icon={secondaryAction.icon} onClick={secondaryAction.method}>
-          {secondaryAction.label}
+      {props.children.secondaryAction && (
+        <Button
+          transparent
+          icon={props.children.secondaryAction.icon}
+          onClick={props.children.secondaryAction.method}
+        >
+          {props.children.secondaryAction.label}
         </Button>
       )}
-    </StyledActions>
+    </ButtonGroup>
   )
 }
 

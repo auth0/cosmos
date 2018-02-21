@@ -12,6 +12,7 @@ import Actions from './actions'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
+
   ${StyledHeading[1]} {
     margin: 0;
   }
