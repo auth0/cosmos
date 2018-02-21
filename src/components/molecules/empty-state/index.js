@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
-import Heading, { StyledHeading } from '../../atoms/heading'
-import Paragraph, { StyledParagraph } from '../../atoms/paragraph'
+import Heading from '../../atoms/heading'
+import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '../../../tokens'
 
 const EmptyState = props => {
