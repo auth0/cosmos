@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
-import Heading from '../../atoms/heading'
+import Heading, { StyledHeading } from '../../atoms/heading'
 import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '../../../tokens'
 
@@ -33,14 +33,15 @@ EmptyState.Wrapper = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
+
   > ${Icon.Element} {
     margin-top: ${spacing.xlarge};
     line-height: 1em;
     opacity: 0.2;
   }
-  p {
-    margin-top: ${spacing.small};
-    margin-bottom: ${spacing.small};
+
+  ${StyledHeading[1]} {
+    margin: 0;
   }
 `
 

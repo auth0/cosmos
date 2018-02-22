@@ -3,36 +3,36 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, fonts } from '../../../tokens'
 
-const StyledHeading = styled.h1`
-  margin: 0; /* reset browser default */
+const BaseHeading = styled.h1`
+  margin: 1em 0;
   color: ${colors.text.default};
   font-weight: ${fonts.weight.normal};
-  line-height: normal;
+  line-height: 1.3;
 `
 
-const H = []
+const StyledHeading = []
 
-H[1] = StyledHeading.withComponent('h1').extend`
+StyledHeading[1] = BaseHeading.withComponent('h1').extend`
   font-size: 36px;
 `
 
-H[2] = StyledHeading.withComponent('h2').extend`
+StyledHeading[2] = BaseHeading.withComponent('h2').extend`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-H[3] = StyledHeading.withComponent('h3').extend`
+StyledHeading[3] = BaseHeading.withComponent('h3').extend`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-H[4] = StyledHeading.withComponent('h4').extend`
+StyledHeading[4] = BaseHeading.withComponent('h4').extend`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
 
 const Heading = props => {
-  const Component = H[props.size]
+  const Component = StyledHeading[props.size]
   return <Component {...props}>{props.children}</Component>
 }
 
@@ -47,3 +47,4 @@ Heading.defaultProps = {
 }
 
 export default Heading
+export { StyledHeading }
