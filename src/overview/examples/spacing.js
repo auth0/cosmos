@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Container from '../ov-components/container'
+import Example from '../ov-components/example'
 import { spacing, colors } from '../../tokens'
 
 const sizes = Object.keys(spacing)
@@ -15,9 +15,9 @@ const Box = styled.span`
 `
 
 const Spacing = () => (
-  <Container title="Spacing (Increments of 8px)">
-    {sizes.map(size => <Box key={size} size={size} />)}
-  </Container>
+  <Example title="Tokens: Spacing" align="center" valign="center">
+    <div>{sizes.map(size => <Box key={size} size={size} />)}</div>
+  </Example>
 )
 
 export default Spacing

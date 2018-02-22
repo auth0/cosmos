@@ -7,10 +7,10 @@ import { Heading, Paragraph, Code, Link } from '../../components'
 const Colors = () => (
   <Section title="Typography">
     <Example title="Heading">
-      <Heading size="1">Good design is good business</Heading>
-      <Heading size="2">Good design is good business</Heading>
-      <Heading size="3">Good design is good business</Heading>
-      <Heading size="4">Good design is good business</Heading>
+      <Heading size={1}>Good design is good business</Heading>
+      <Heading size={2}>Good design is good business</Heading>
+      <Heading size={3}>Good design is good business</Heading>
+      <Heading size={4}>Good design is good business</Heading>
     </Example>
 
     <Example title="Paragraph">

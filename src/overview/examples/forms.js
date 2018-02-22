@@ -108,7 +108,7 @@ const Forms = () => (
 
     <Example title="Form: Fieldset">
       <Form>
-        <Form.FieldSet label="Fieldset Label" />
+        <Form.FieldSet label="Danger Zone" />
       </Form>
     </Example>
 

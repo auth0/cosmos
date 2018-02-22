@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Section from '../ov-components/section'
+import Example from '../ov-components/example'
 import { colors, spacing } from '../../tokens'
 
 const Swatch = styled.span`
@@ -13,7 +13,7 @@ const Swatch = styled.span`
 `
 
 const Colors = () => (
-  <Section title="Colors">
+  <Example title="Tokens: Colors">
     <div>
       <Swatch color={colors.base.default} />
       <Swatch color={colors.base.grayDark} />
@@ -26,7 +26,7 @@ const Colors = () => (
       <Swatch color={colors.base.orange} />
       <Swatch color={colors.base.green} />
     </div>
-  </Section>
+  </Example>
 )
 
 export default Colors

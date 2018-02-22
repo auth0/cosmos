@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, fonts, spacing } from '../../../tokens'
+import { colors, fonts } from '../../../tokens'
 
 const StyledParagraph = styled.p`
   margin: 1em 0;
