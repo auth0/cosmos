@@ -4,7 +4,7 @@ import { Row, Col } from '../ov-components/grid'
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 
-import { Stack, TextInput, TextArea, Switch } from '../../components'
+import { TextInput, TextArea } from '../../components'
 
 const Inputs = () => (
   <Section title="Inputs">
