@@ -14,7 +14,7 @@ class ContributionGuide extends React.Component {
       <div>
         <Helmet title="Documentation &mdash; Cosmos" />
         <Container>
-          <Heading1>Contributing to cosmos</Heading1>
+          <Heading1>Contributing to Cosmos</Heading1>
           <Heading2>Setup</Heading2>
           <Text>
             Clone the GitHub repository on your machine
