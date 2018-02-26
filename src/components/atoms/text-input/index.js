@@ -8,10 +8,14 @@ const TextInput = props => {
     const { value } = props
     const length = value && value.length > 0 ? value.length : 8
     const maskedValue = new Array(length).join('•')
-    return <StyledInput {...props} defaultValue="" placeholder={maskedValue} readOnly />
+    return <TextInput.Element {...props} defaultValue="" placeholder={maskedValue} readOnly />
   }
-  return <StyledInput {...props} />
+  return <TextInput.Element {...props} />
 }
+
+TextInput.Element = StyledInput.extend`
+  height: 44px;
+`
 
 TextInput.propTypes = {
   /** Hide input, similar to passwords but for other private information. Implies readOnly. */
