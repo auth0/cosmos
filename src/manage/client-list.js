@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../components'
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
-import { colors } from '../tokens'
 import { colors, spacing } from '../tokens'
 
 /* Should be a Component */
