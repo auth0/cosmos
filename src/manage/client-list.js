@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../components'
+import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from '../components'
 import { colors, spacing } from '../tokens'
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
@@ -19,20 +19,17 @@ const StyledLogo = styled.span`
   height: 48px;
   display: inline-block;
   float: left;
-  margin-right: ${spacing.xsmall};
+  margin-right: ${spacing.small};
 `
 
-const Link = styled.a`
-  color: ${colors.link.default};
-  text-decoration: none;
-`
-
+/* Should be a type of paragraph: Paragrapgh small? */
 const ClientID = styled.span`
   font-size: 13px;
   color: ${colors.base.grayDarkest};
   margin-right: ${spacing.xsmall};
 `
 
+/* Should be a Component or part of typographic styles: allcaps ? */
 const Type = styled.div`
   font-size: 12px;
   color: ${colors.base.grayDark};
@@ -106,7 +103,11 @@ class ClientList extends React.Component {
               icon: 'plus',
               method: this.setDialogOpen(true)
             },
-            secondaryAction: { label: 'Tutorial', icon: 'play-circle', method: () => {} }
+            secondaryAction: {
+              label: 'Tutorial',
+              icon: 'play-circle',
+              method: () => {}
+            }
           }}
         />
         <List>
