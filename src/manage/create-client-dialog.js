@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Dialog, Form, Icon, Paragraph, Stack } from '../components'
 import { colors, fonts, misc, spacing } from '../tokens'
 
@@ -37,12 +37,22 @@ ClientType.Element = styled.a`
   cursor: pointer;
   height: 310px;
   padding: ${spacing.medium};
-  transition: background ${misc.animationDuration} ease;
+  transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
   border-radius: 3px;
   border: 1px solid;
   border-color: ${props => (props.selected ? colors.base.blueLight : colors.base.grayLight)};
   &:hover {
     border-color: ${colors.input.borderHover};
+  }
+  ${props => (props.selected ? SelectedStyles : null)};
+`
+
+const SelectedStyles = css`
+  border-color: ${colors.input.borderFocus};
+  box-shadow: 0px 0px 0 1px ${colors.input.borderFocus};
+  outline: none;
+  &:hover {
+    border-color: ${colors.input.borderFocus};
   }
 `
 
