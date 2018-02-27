@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../tokens'
 
+/* TODO: We should consolidat the gray background with the image. Now it's only the image */
 const StyledAvatar = styled.span`
   width: 100%;
   height: 100%;
@@ -11,7 +12,7 @@ const StyledAvatar = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-
+  /* TODO: We should find a way to avoid fixed sizes here */
   & svg {
     height: 28px;
   }

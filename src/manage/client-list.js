@@ -7,13 +7,13 @@ import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
 import ClientTypeImages from './client-types-images'
 
-/* Should be a Component */
+/* TODO: Should be a Component */
 const NameGroup = styled.div`
   display: flex;
   align-items: center;
 `
 
-/* Should be a Component */
+/* TODO: We should consolidat the gray background with the image. Now it's only the image */
 const StyledLogo = styled.span`
   width: 48px;
   height: 48px;
@@ -22,14 +22,14 @@ const StyledLogo = styled.span`
   margin-right: ${spacing.small};
 `
 
-/* Should be a type of paragraph: Paragrapgh small? */
+/* TODO: Should be a type of paragraph: Paragrapgh small? */
 const ClientID = styled.span`
   font-size: 13px;
   color: ${colors.base.grayDarkest};
   margin-right: ${spacing.xsmall};
 `
 
-/* Should be a Component or part of typographic styles: allcaps ? */
+/* TODO: Should be a Component or part of typographic styles: allcaps ? */
 const Type = styled.div`
   font-size: 12px;
   color: ${colors.base.grayDark};
