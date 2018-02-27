@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Dialog, Form, Icon, Paragraph, Stack } from '../components'
+import { Dialog, Form, Paragraph, Stack } from '../components'
 import { colors, fonts, misc, spacing } from '../tokens'
 
 import ClientTypeImages from './client-types-images'
@@ -14,10 +14,6 @@ const ClientType = props => (
     <ClientType.Example>eg: {props.example}</ClientType.Example>
   </ClientType.Element>
 )
-
-// TODO: Figure out how to apply :focus kind of styles with this element. also we could use the same tokens as the Input field.
-
-// TODO: How to have a bunch of styles applied when prop.selected?
 
 const ClientStack = styled(Stack)`
   > * {
