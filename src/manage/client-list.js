@@ -7,10 +7,19 @@ import CreateClientDialog from './create-client-dialog'
 import { colors } from '../tokens'
 import { colors, spacing } from '../tokens'
 
+/* Should be a Component */
+const NameGroup = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+/* Should be a Component */
 const StyledLogo = styled.span`
   width: 48px;
   height: 48px;
   display: inline-block;
+  float: left;
+  margin-right: ${spacing.xsmall};
 `
 
 const Link = styled.a`
@@ -86,14 +95,16 @@ class ClientList extends React.Component {
         />
         <List>
           {clients.map(client => (
-            <Stack key={client.id} widths={[7, 25, 40, 28]}>
-              <StyledLogo>
-                <Avatar />
-              </StyledLogo>
-              <div>
-                <Link href={`/clients/${client.id}`}>{client.name}</Link>
-                <Type>{client.type}</Type>
-              </div>
+            <Stack key={client.id} widths={[35, 40, 25]}>
+              <NameGroup>
+                <StyledLogo>
+                  <Avatar />
+                </StyledLogo>
+                <div>
+                  <Link href={`/clients/${client.id}`}>{client.name}</Link>
+                  <Type>{client.type}</Type>
+                </div>
+              </NameGroup>
               <Stack align="left">
                 <ClientID>Client ID</ClientID>
                 <Code>{client.id}</Code>
