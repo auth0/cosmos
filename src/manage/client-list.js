@@ -5,6 +5,7 @@ import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../component
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
 import { colors, spacing } from '../tokens'
+import ClientTypeImages from './client-types-images'
 
 /* Should be a Component */
 const NameGroup = styled.div`
@@ -45,22 +46,38 @@ const clients = [
   {
     id: 'apXVn76xBT7WougWj17MGXHSthfrBB',
     name: 'My Site',
-    type: 'REGULAR WEB APP'
+    type: 'REGULAR WEB APP',
+    image: ClientTypeImages.regular_web
   },
   {
     id: 'NfZmyIGFwJ2OhoGcWhYfeql5Ugy4X',
     name: 'Real View',
-    type: 'SINGLE PAGE APPLICATION'
+    type: 'SINGLE PAGE APPLICATION',
+    image: ClientTypeImages.spa
   },
   {
     id: 'KyVu1XTC6jOFPIUhi0yFifanPwE3l',
     name: 'Route App',
-    type: 'NATIVE'
+    type: 'NATIVE',
+    image: ClientTypeImages.native
+  },
+  {
+    id: 'JKYNATAI6jOFPIUhi08AUJUAja7yYo',
+    name: 'Help Desk',
+    type: 'NATIVE',
+    image: ClientTypeImages.native
+  },
+  {
+    id: 'Uaf45iaIxiTRP98Jmamkasd8xjKLl',
+    name: 'Single Page',
+    type: 'NON INTERACTIVE',
+    image: ClientTypeImages.non_interactive
   },
   {
     id: 'GMdIcXxiTRPGtIZKzAN8caUWhxeb1W',
     name: 'Test App',
-    type: 'NON INTERACTIVE'
+    type: 'NON INTERACTIVE',
+    image: ClientTypeImages.non_interactive
   }
 ]
 
@@ -97,7 +114,7 @@ class ClientList extends React.Component {
             <Stack key={client.id} widths={[35, 40, 25]}>
               <NameGroup>
                 <StyledLogo>
-                  <Avatar />
+                  <Avatar image={client.image} />
                 </StyledLogo>
                 <div>
                   <Link href={`/clients/${client.id}`}>{client.name}</Link>

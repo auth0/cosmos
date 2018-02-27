@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Logo } from '../components'
-
 const StyledAvatar = styled.span`
   width: 100%;
   height: 100%;
@@ -13,15 +11,11 @@ const StyledAvatar = styled.span`
   align-items: center;
   justify-content: center;
 
-  & g {
-    fill: #a8a8a8;
+  & svg {
+    height: 32px;
   }
 `
 
-const Avatar = () => (
-  <StyledAvatar>
-    <Logo />
-  </StyledAvatar>
-)
+const Avatar = props => <StyledAvatar>{props.image}</StyledAvatar>
 
 export default Avatar
