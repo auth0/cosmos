@@ -14,7 +14,7 @@ class Client extends React.Component {
           title="API Explorer Client"
           type={{
             name: 'Non Interactive',
-            clientId: 'DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip'
+            clientId: this.props.match.params.clientId
           }}
           logo={<Avatar />}
           breadcrumb={{
