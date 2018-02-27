@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../components'
+import { colors, spacing } from '../tokens'
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
-import { colors, spacing } from '../tokens'
 import ClientTypeImages from './client-types-images'
 
 /* Should be a Component */

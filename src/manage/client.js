@@ -5,6 +5,7 @@ import Settings from './settings'
 import Advanced from './advanced'
 import Connections from './connections'
 import Avatar from './client-avatar'
+import ClientTypeImages from './client-types-images'
 
 class Client extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class Client extends React.Component {
             name: 'Non Interactive',
             clientId: this.props.match.params.clientId
           }}
-          logo={<Avatar />}
+          logo={<Avatar image={ClientTypeImages.non_interactive} />}
           breadcrumb={{
             content: 'Clients',
             link: '/clients'
