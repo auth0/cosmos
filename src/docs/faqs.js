@@ -17,6 +17,10 @@ class FAQs extends React.Component {
           <Text>🙈</Text>
           <Heading2>What does versioning happen? How do I get updates?</Heading2>
           <Text>🔜</Text>
+          <Heading2>
+            The component I need doesn't exist in cosmos, how do I request for a component?
+          </Heading2>
+          <Text>🔜</Text>
           <Heading2>Why is cosmos from scratch instead of using an existing library?</Heading2>
           <Text>
             This is a question we asked early on:{' '}
