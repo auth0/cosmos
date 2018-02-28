@@ -16,24 +16,17 @@ const StyledActions = styled.div`
 `
 
 const Actions = props => {
+  const { primaryAction, secondaryAction } = props.actions
   return (
     <StyledActions>
-      {props.children.primaryAction && (
-        <Button
-          primary
-          icon={props.children.primaryAction.icon}
-          onClick={props.children.primaryAction.method}
-        >
-          {props.children.primaryAction.label}
+      {primaryAction && (
+        <Button primary icon={primaryAction.icon} onClick={primaryAction.method}>
+          {primaryAction.label}
         </Button>
       )}
-      {props.children.secondaryAction && (
-        <Button
-          transparent
-          icon={props.children.secondaryAction.icon}
-          onClick={props.children.secondaryAction.method}
-        >
-          {props.children.secondaryAction.label}
+      {secondaryAction && (
+        <Button transparent icon={secondaryAction.icon} onClick={secondaryAction.method}>
+          {secondaryAction.label}
         </Button>
       )}
     </StyledActions>

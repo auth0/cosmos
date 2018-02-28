@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
+import ButtonGroup from '../../molecules/button-group'
 import Overlay from '../../atoms/overlay'
 import Icon from '../../atoms/icon'
+import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '../../../tokens'
 
@@ -24,10 +26,14 @@ const Dialog = props => (
     <DialogElement width={props.width}>
       <DialogTitleBar>
         <span>{props.title}</span>
-        <Icon name="close" size={16} onClick={props.onClose} />
+        <Link onClick={props.onClose}>
+          <Icon name="close" size={16} />
+        </Link>
       </DialogTitleBar>
       <DialogBody>{props.children}</DialogBody>
-      <DialogFooter>{props.actions.map(createButtonForAction)}</DialogFooter>
+      <DialogFooter>
+        <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+      </DialogFooter>
     </DialogElement>
   </Overlay>
 )

@@ -5,6 +5,12 @@ import styled from 'styled-components'
 import { spacing } from '../../../tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
 
+const alignItems = {
+  top: 'flex-start',
+  center: 'center',
+  bottom: 'flex-end'
+}
+
 const justifyContent = {
   fill: 'space-between',
   left: 'flex-start',
@@ -15,11 +21,10 @@ const StyledStack = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: bottom;
+  align-items: ${props => alignItems[props.alignVertical]};
   justify-content: ${props => justifyContent[props.align]};
   > * {
     flex: ${props => (props.align === 'fill' ? 1 : 'none')};
-    align-self: center;
     margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
@@ -60,6 +65,8 @@ const Stack = props => {
 Stack.propTypes = {
   /** Use align for stacking elements without margin between them */
   align: PropTypes.oneOf(['fill', 'left', 'right']),
+  /** Vertically align */
+  alignVertical: PropTypes.oneOf(['top', 'center', 'bottom']),
   /** Element widths in % */
   widths: PropTypes.arrayOf(PropTypes.number),
 
@@ -71,7 +78,8 @@ Stack.propTypes = {
 }
 
 Stack.defaultProps = {
-  align: 'fill'
+  align: 'fill',
+  alignVertical: 'center'
 }
 
 export default Stack

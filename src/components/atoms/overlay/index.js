@@ -5,8 +5,8 @@ import styled from 'styled-components'
 
 // TODO: create tokens?
 const layers = {
-  overlayBackdrop: 2,
-  overlay: 3
+  overlayBackdrop: 20,
+  overlay: 30
 }
 
 const keyCodes = {

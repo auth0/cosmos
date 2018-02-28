@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { PageHeader, List, Stack, Code, Button, ButtonGroup } from '../components'
 import Avatar from './client-avatar'
+import CreateClientDialog from './create-client-dialog'
 import { colors } from '../tokens'
 
 const Link = styled.a`
@@ -30,6 +31,15 @@ const clients = [
 ]
 
 class ClientList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { dialogOpen: false }
+  }
+
+  setDialogOpen = dialogOpen => () => {
+    this.setState({ dialogOpen })
+  }
+
   render() {
     return (
       <div>
@@ -40,8 +50,12 @@ class ClientList extends React.Component {
             learnMore: '/clients'
           }}
           actions={{
-            primaryAction: { label: 'Create Client', icon: 'plus', method: this.save },
-            secondaryAction: { label: 'Tutorial', icon: 'play-circle', method: this.save }
+            primaryAction: {
+              label: 'Create Client',
+              icon: 'plus',
+              method: this.setDialogOpen(true)
+            },
+            secondaryAction: { label: 'Tutorial', icon: 'play-circle', method: () => {} }
           }}
         />
         <List>
@@ -70,6 +84,7 @@ class ClientList extends React.Component {
             </Stack>
           ))}
         </List>
+        <CreateClientDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
       </div>
     )
   }

@@ -8,9 +8,7 @@ const getLayout = layout => {
     labelWidth = multiply(formWidth, 0.35)
     contentWidth = subtract(formWidth, labelWidth)
   } else if (layout === 'label-on-top') {
-    formWidth = '625px'
-    labelWidth = formWidth
-    contentWidth = formWidth
+    formWidth = labelWidth = contentWidth = 'auto'
   }
 
   return { formWidth, labelWidth, contentWidth }
