@@ -1,14 +1,22 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import { Paragraph, Switch, List, Stack } from '../components'
+
+// TODO: Need to figure out how to make the first Paragraph have no margin top. We could add a prop?
+// TODO: Remove and solve this override!
+const FirstParagraph = styled(Paragraph)`
+  margin-top: 0;
+`
 
 class Connections extends React.Component {
   render() {
     return (
       <div>
-        <Paragraph>
+        <FirstParagraph>
           Connections are sources of users. They are categorized into Database, Social and
           Enterprise and can be shared among different applications.
-        </Paragraph>
+        </FirstParagraph>
 
         <List label="Database">
           <Stack widths={[41, 41, 18]}>
