@@ -47,8 +47,8 @@ const colors = {
   },
   link: {
     default: '#0a84ae',
-    defaultHover: '#0a84ae',
-    defaultFocus: '#0a84ae',
+    defaultHover: '#053b4e',
+    defaultFocus: '#053b4e',
     sidebar: '#333',
     sidebarHover: '#FF3E00',
     sidebarFocus: '#FF3E00'
