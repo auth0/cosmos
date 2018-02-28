@@ -18,16 +18,17 @@ const StyledPageHeader = styled.div`
   ${StyledButtonGroup} {
     float: right;
   }
+
+  ${StyledHeading[1]} {
+    margin: 0;
+    margin-bottom: ${spacing.xsmall};
+  }
 `
 
 /* Should be a Component */
 const TitleGroup = styled.div`
   display: flex;
   align-items: center;
-
-  ${StyledHeading[1]} {
-    margin: 0;
-  }
 `
 
 /* Should be a Component */
