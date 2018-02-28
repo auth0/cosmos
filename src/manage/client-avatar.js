@@ -1,27 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from '../tokens'
 
-import { Logo } from '../components'
-
+/* TODO: We should consolidat the gray background with the image. Now it's only the image */
 const StyledAvatar = styled.span`
   width: 100%;
   height: 100%;
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
+  background: ${colors.base.grayLightest};
+  border-radius: 50%;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  & g {
-    fill: #a8a8a8;
+  /* TODO: We should find a way to avoid fixed sizes here */
+  & svg {
+    height: 28px;
   }
 `
 
-const Avatar = () => (
-  <StyledAvatar>
-    <Logo />
-  </StyledAvatar>
-)
+const Avatar = props => <StyledAvatar>{props.image}</StyledAvatar>
 
 export default Avatar

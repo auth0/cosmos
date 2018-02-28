@@ -5,6 +5,11 @@ import styled, { css } from 'styled-components'
 import Button from '../../atoms/button'
 import { spacing } from '../../../tokens'
 
+const justifyContent = {
+  left: 'flex-start',
+  right: 'flex-end'
+}
+
 const groupRadiusStyles = css`
   ${Button.Element}:first-child {
     border-top-right-radius: 0;
@@ -20,18 +25,27 @@ const groupRadiusStyles = css`
 `
 
 const StyledButtonGroup = styled.div`
-  display: inline-block;
+  display: flex;
+  justify-content: ${props => justifyContent[props.align]};
 
   ${Button.Element} {
-    margin-right: ${props => (props.compressed ? 0 : spacing.xsmall)};
+    ${props =>
+      justifyContent[props.align] === 'left' ? 'margin-right' : 'margin-left'}: ${props =>
+        props.compressed ? 0 : spacing.xsmall};
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
 `
 
-const ButtonGroup = props => <StyledButtonGroup {...props}>{props.children}</StyledButtonGroup>
+const ButtonGroup = props => (
+  <StyledButtonGroup {...props} align={props.align}>
+    {props.children}
+  </StyledButtonGroup>
+)
 
 ButtonGroup.propTypes = {
+  /** Make Buttons are ordered with the correct space between them  */
+  align: PropTypes.oneOf(['left', 'right']),
   /** Make Buttons stick to each other */
   compressed: PropTypes.bool,
   /** Should container only Buttons */
@@ -42,7 +56,8 @@ ButtonGroup.propTypes = {
 }
 
 ButtonGroup.defaultProps = {
-  compressed: false
+  compressed: false,
+  align: 'left'
 }
 
 export default ButtonGroup

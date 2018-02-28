@@ -1,27 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Paragraph, Switch, List, Stack, Icon } from '../components'
-
-// TODO: Remove the nested Stack here with a new Stack alignment or a Table component
-const Connection = props => (
-  <Stack align="fill">
-    <div>{props.type}</div>
-    <Connection.Type>
-      <Icon size={16} name={props.icon} />
-      <span>{props.name}</span>
-    </Connection.Type>
-    <Stack align="right">
-      <Switch accessibleLabels={[]} />
-    </Stack>
-  </Stack>
-)
-
-Connection.Type = styled.div`
-  span {
-    display: inline-block;
-    vertical-align: middle;
-  }
-`
+import { Paragraph, Switch, List, Stack } from '../components'
 
 class Connections extends React.Component {
   render() {
@@ -33,12 +11,24 @@ class Connections extends React.Component {
         </Paragraph>
 
         <List label="Database">
-          <Connection type="Username-Password-Authentication" icon="help" name="Database" />
+          <Stack widths={[41, 41, 18]}>
+            <div>Username-Password-Authentication</div>
+            <div>Database</div>
+            <Switch />
+          </Stack>
         </List>
 
         <List label="Social">
-          <Connection type="github" icon="help" name="GitHub" />
-          <Connection type="google-oauth2" icon="help" name="Google" />
+          <Stack widths={[41, 41, 18]}>
+            <div>github</div>
+            <div>GitHub</div>
+            <Switch on />
+          </Stack>
+          <Stack widths={[41, 41, 18]}>
+            <div>google-oauth2</div>
+            <div>Google</div>
+            <Switch off />
+          </Stack>
         </List>
 
         <List label="Enterprise">

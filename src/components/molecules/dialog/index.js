@@ -53,7 +53,8 @@ const DialogTitleBar = styled.div`
   overflow: hidden;
   padding: ${spacing.small};
   padding-bottom: 0;
-  font-weight: ${fonts.weight.bold};
+  color: ${colors.text.default};
+  font-weight: ${fonts.weight.medium};
   text-align: center;
   span {
     flex: 1;
@@ -71,7 +72,7 @@ const DialogBody = styled.div`
 const DialogFooter = styled.div`
   display: flex;
   justify-content: center;
-  padding: ${spacing.xsmall};
+  padding: ${spacing.small};
   border-top: 1px solid ${colors.base.grayLight};
 `
 

@@ -17,11 +17,13 @@ const StyledPageHeader = styled.div`
   }
 `
 
+/* Should be a Component */
 const TitleGroup = styled.div`
   display: flex;
   align-items: center;
 `
 
+/* Should be a Component */
 const StyledLogo = styled.span`
   width: 72px;
   height: 72px;
