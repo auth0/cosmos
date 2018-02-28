@@ -33,6 +33,7 @@ class Settings extends React.Component {
         <Form.TextInput
           label="Client ID"
           type="text"
+          code
           readOnly
           defaultValue={this.state.clientID}
           actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
