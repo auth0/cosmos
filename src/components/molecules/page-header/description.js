@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { colors } from '../../../tokens'
 
-const StyledDescription = styled.div`
-  margin-top: ${spacing.medium};
-`
+import Paragraph from '../../atoms/paragraph'
+import Link from '../../atoms/link'
 
 const ArrowMore = styled.i`
   position: relative;
@@ -18,21 +17,16 @@ const ArrowMore = styled.i`
   border-color: transparent transparent transparent ${colors.link.default};
 `
 
-const Link = styled.a`
-  color: ${colors.link.default};
-  text-decoration: none;
-`
-
 const Description = props => {
   return (
-    <StyledDescription>
+    <Paragraph>
       {props.children.text}{' '}
       {props.children.learnMore ? (
         <Link href={props.children.learnMore}>
-          Learn more<ArrowMore />
+          Learn more <ArrowMore />
         </Link>
       ) : null}
-    </StyledDescription>
+    </Paragraph>
   )
 }
 
