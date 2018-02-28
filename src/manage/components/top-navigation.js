@@ -149,7 +149,7 @@ const Links = styled.div`
   }
   ul > li > a  {
     display: block;
-    color: ${colors.base.grayDark};
+    color: ${colors.base.default};
     text-decoration: none;
   }
   .tenant-name {
@@ -196,7 +196,7 @@ export default () => (
             </li>
             <li>
               <a href="" className="notifications">
-                <Icon name="notifications" size={16} color={colors.base.grayDark} />
+                <Icon name="notifications" size={16} color={colors.base.default} />
               </a>
             </li>
             <li>
