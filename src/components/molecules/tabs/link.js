@@ -9,6 +9,10 @@ const TabLink = styled.a`
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
   border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
   margin-bottom: -1px;
+
+  &:hover {
+    color: ${props => (!props.selected ? colors.link.defaultHover : null)};
+  }
 `
 
 export default TabLink
