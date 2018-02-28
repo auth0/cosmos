@@ -5,6 +5,7 @@ import Example from '../ov-components/example'
 import { PageHeader } from '../../components'
 
 import Avatar from '../../manage/client-avatar'
+import ClientTypeImages from '../../manage/client-types-images'
 
 const PageHeaders = () => (
   <Section>
@@ -37,7 +38,7 @@ const PageHeaders = () => (
           name: 'Non Interactive',
           clientId: 'DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip'
         }}
-        logo={<Avatar />}
+        logo={<Avatar image={ClientTypeImages.non_interactive} />}
         breadcrumb={{
           content: 'Clients',
           link: '/clients'
