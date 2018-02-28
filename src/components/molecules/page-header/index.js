@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing, colors } from '../../../tokens'
@@ -56,15 +57,6 @@ const Top = props => {
   if (props.actions) {
     return (
       <ButtonGroup align="right">
-        {props.actions.primaryAction && (
-          <Button
-            primary
-            icon={props.actions.primaryAction.icon}
-            onClick={props.actions.primaryAction.method}
-          >
-            {props.actions.primaryAction.label}
-          </Button>
-        )}
         {props.actions.secondaryAction && (
           <Button
             transparent
@@ -72,6 +64,15 @@ const Top = props => {
             onClick={props.actions.secondaryAction.method}
           >
             {props.actions.secondaryAction.label}
+          </Button>
+        )}
+        {props.actions.primaryAction && (
+          <Button
+            primary
+            icon={props.actions.primaryAction.icon}
+            onClick={props.actions.primaryAction.method}
+          >
+            {props.actions.primaryAction.label}
           </Button>
         )}
       </ButtonGroup>
@@ -109,6 +110,18 @@ const PageHeader = props => {
       {props.description ? <Description>{props.description}</Description> : null}
     </StyledPageHeader>
   )
+}
+
+PageHeader.displayName = 'Page Header'
+
+PageHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  learnMore: PropTypes.string
+}
+
+PageHeader.defaultProps = {
+  title: null,
+  learnMore: null
 }
 
 export default PageHeader
