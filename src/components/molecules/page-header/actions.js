@@ -17,7 +17,6 @@ const StyledActions = styled.div`
 
 const Actions = props => {
   const { primaryAction, secondaryAction } = props.actions
-  console.log({ primaryAction, secondaryAction })
   return (
     <StyledActions>
       {primaryAction && (
