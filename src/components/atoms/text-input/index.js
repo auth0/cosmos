@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'
 
 import { StyledInput } from '../_styled-input'
 
-const TextInput = props => {
+const TextInput = ({ defaultValue, ...props }) => {
   if (props.masked) {
-    const { value } = props
-    const length = value && value.length > 0 ? value.length : 8
+    const length = defaultValue ? defaultValue.length : 8
     const maskedValue = new Array(length).join('•')
-    return <StyledInput {...props} defaultValue="" placeholder={maskedValue} readOnly />
+    return <TextInput.Element {...props} placeholder={maskedValue} readOnly />
   }
-  return <StyledInput {...props} />
+  return <TextInput.Element defaultValue={defaultValue} {...props} />
 }
+
+TextInput.Element = StyledInput.extend`
+  height: 44px;
+`
 
 TextInput.propTypes = {
   /** Hide input, similar to passwords but for other private information. Implies readOnly. */
