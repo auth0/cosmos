@@ -14,7 +14,9 @@ class Connections extends React.Component {
           <Stack widths={[41, 41, 18]}>
             <div>Username-Password-Authentication</div>
             <div>Database</div>
-            <Switch />
+            <Stack align="right">
+              <Switch accessibleLabels={[]} />
+            </Stack>
           </Stack>
         </List>
 
@@ -22,12 +24,16 @@ class Connections extends React.Component {
           <Stack widths={[41, 41, 18]}>
             <div>github</div>
             <div>GitHub</div>
-            <Switch on />
+            <Stack align="right">
+              <Switch on accessibleLabels={[]} />
+            </Stack>
           </Stack>
           <Stack widths={[41, 41, 18]}>
             <div>google-oauth2</div>
             <div>Google</div>
-            <Switch off />
+            <Stack align="right">
+              <Switch off accessibleLabels={[]} />
+            </Stack>
           </Stack>
         </List>
 
