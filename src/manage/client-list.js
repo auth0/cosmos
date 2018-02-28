@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from '../components'
+import { StyledPageHeader } from '../components/molecules/page-header'
+
 import { colors, spacing } from '../tokens'
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
@@ -37,6 +39,13 @@ const Type = styled.div`
   line-height: normal;
   margin-top: ${spacing.xsmall};
   text-transform: uppercase;
+`
+
+/* TODO: Remove this override */
+const ClientsContent = styled.div`
+  ${StyledPageHeader} {
+    margin-bottom: ${spacing.xxlarge};
+  }
 `
 
 const clients = [
@@ -90,7 +99,7 @@ class ClientList extends React.Component {
 
   render() {
     return (
-      <div>
+      <ClientsContent>
         <PageHeader
           title="Clients"
           description={{
@@ -136,7 +145,7 @@ class ClientList extends React.Component {
           ))}
         </List>
         <CreateClientDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
-      </div>
+      </ClientsContent>
     )
   }
 }
