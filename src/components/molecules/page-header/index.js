@@ -115,7 +115,9 @@ const PageHeader = props => {
 PageHeader.displayName = 'Page Header'
 
 PageHeader.propTypes = {
+  /** Page title */
   title: PropTypes.string.isRequired,
+  /** URL for the "Learn more" link  */
   learnMore: PropTypes.string
 }
 
