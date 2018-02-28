@@ -12,12 +12,17 @@ const StyledBreadcrumb = styled.a`
   text-decoration: none;
   display: inline-block;
   margin-bottom: ${spacing.small};
+
+  ${Icon.Element} {
+    bottom: 1px;
+    position: relative;
+  }
 `
 
 const Breadcrumb = ({ link, content, ...props }) => {
   return (
     <StyledBreadcrumb href={link || ''} {...props}>
-      <Icon name="arrow-left" /> {content}
+      <Icon name="arrow-left" size={15} color="rgba(0, 0, 0, 0.56)" /> {content}
     </StyledBreadcrumb>
   )
 }
