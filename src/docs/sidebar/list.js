@@ -47,7 +47,7 @@ const List = props => {
         </StyledLink>
         <StyledLink>
           <NavLink to="/docs/contribution-guide" activeClassName="selected">
-            Contributing to cosmos
+            Contributing to Cosmos
           </NavLink>
         </StyledLink>
       </Group>
