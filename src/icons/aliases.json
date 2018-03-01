@@ -2,5 +2,6 @@
   "delete": ["trash", "remove"],
   "help": ["question", "?"],
   "users": ["person", "people"],
-  "check": ["done", "tick"]
+  "check": ["done", "tick"],
+  "rotate": ["update", "refresh"]
 }
