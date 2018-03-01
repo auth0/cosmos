@@ -17,11 +17,10 @@ class FAQs extends React.Component {
           <Heading2>When will cosmos be ready?</Heading2>
           <Text>
             We are currently building our roadmap and initial components inventory to estimate the
-            v1 release date.
+            v1 release date. It is being tested with selected teams to get early feedback.
           </Text>
-          <Text>It is being tested with selected teams to get early feedback.</Text>
           <Text>
-            However, you can play with it with <Link href="/docs"> the alpha version</Link> today!.
+            However, you can play with it with <Link href="/docs"> the alpha version</Link> today!
             We are in active development, so the component API might change frequently. Your
             feedback will help us shape cosmos better.
           </Text>
@@ -38,17 +37,14 @@ class FAQs extends React.Component {
           {/*  */}
           <Heading2>How does versioning happen? How do I get updates?</Heading2>
           <Text>
-            cosmos is distributed via <Code>npm</Code>, you can update the version and get the
+            Cosmos is distributed via <Code>npm</Code>, you can update the version and get the
             latest features.
           </Text>
           <Text>
             Once cosmos comes out of it's alpha status, It will follow <Code>semver</Code> which
             means we will introduce breaking changes only in major versions (= major redesign, so
-            not anytime soon).
-          </Text>
-          <Text>
-            If you use a component from cosmos, you can be sure that it will not break when you
-            update cosmos version.
+            not anytime soon). If you use a component from cosmos, you can be sure that it will not
+            break when you update cosmos version.
           </Text>
           <Text>
             As a team not directly working on the product, we are also aware that we will not always
