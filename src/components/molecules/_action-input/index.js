@@ -2,17 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import TextInput, { StyledInput } from '../../atoms/text-input'
+import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
 
 /* TODO: width of button should be exported by button component */
-const widthOfButton = '62px'
+const widthOfButton = '36px'
 
 const Wrapper = styled.div`
   position: relative;
-  ${StyledInput} {
+  ${TextInput.Element} {
     ${props => {
       if (!props.actions) return
       return `padding-right: ${multiply(widthOfButton, props.actions.length)}`
