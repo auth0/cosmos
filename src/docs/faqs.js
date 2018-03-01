@@ -14,7 +14,7 @@ class FAQs extends React.Component {
         <Helmet title="Documentation &mdash; Cosmos" />
         <Container>
           <Heading1>FAQs</Heading1>
-          <Heading2>When will cosmos be ready?</Heading2>
+          <Heading2>When will Cosmos be ready?</Heading2>
           <Text>
             We are currently building our roadmap and initial components inventory to estimate the
             v1 release date. It is being tested with selected teams to get early feedback.
@@ -22,16 +22,16 @@ class FAQs extends React.Component {
           <Text>
             However, you can play with it with <Link href="/docs"> the alpha version</Link> today!
             We are in active development, so the component API might change frequently. Your
-            feedback will help us shape cosmos better.
+            feedback will help us shape Cosmos better.
           </Text>
           <Text>We’ll publish the complete roadmap in this website soon.</Text>
           {/*  */}
           <Heading2>
-            The component I need doesn't exist in cosmos, how do I request for a component?
+            The component I need doesn't exist in Cosmos, how do I request for a component?
           </Heading2>
           <Text>
             The easiest way to ask to request a new component or customization to an existing one is
-            to <Link href="https://github.com/auth0/cosmos/issues">create an issue</Link> on GitHub
+            to <Link href="https://github.com/auth0/Cosmos/issues">create an issue</Link> on GitHub
             or <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">talk to us on Slack.</Link>
           </Text>
           {/*  */}
@@ -41,23 +41,23 @@ class FAQs extends React.Component {
             latest features.
           </Text>
           <Text>
-            Once cosmos comes out of it's alpha status, It will follow <Code>semver</Code> which
+            Once Cosmos comes out of it's alpha status, It will follow <Code>semver</Code> which
             means we will introduce breaking changes only in major versions (= major redesign, so
-            not anytime soon). If you use a component from cosmos, you can be sure that it will not
-            break when you update cosmos version.
+            not anytime soon). If you use a component from Cosmos, you can be sure that it will not
+            break when you update Cosmos version.
           </Text>
           <Text>
             As a team not directly working on the product, we are also aware that we will not always
             be aware (we try) of the needs. For this reason, some components will be released in an
             experimental mode first before they make it into stable. You can join the discussion
             about the{' '}
-            <Link href="https://github.com/auth0/cosmos/issues/348">
+            <Link href="https://github.com/auth0/Cosmos/issues/348">
               component release cycle here.
             </Link>
           </Text>
           {/*  */}
           <Heading2>
-            Why is cosmos built from scratch instead of using an existing library?
+            Why is Cosmos built from scratch instead of using an existing library?
           </Heading2>
           <Text>
             This is a question we asked ourselves early on: Can we adopt an existing component
