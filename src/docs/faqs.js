@@ -15,7 +15,15 @@ class FAQs extends React.Component {
         <Container>
           <Heading1>FAQs</Heading1>
           <Heading2>When will cosmos be ready?</Heading2>
-          <Text>🙈</Text>
+          <Text>
+            We are currently building our roadmap and initial components inventory to estimate the
+            v1 release date.
+          </Text>
+          <Text>
+            However, you can start using our beta version today! We will keep shipping updates to it
+            on a regular timeline.
+          </Text>
+          <Text>We’ll publish the complete roadmap in this website soon.</Text>
           {/*  */}
           <Heading2>
             The component I need doesn't exist in cosmos, how do I request for a component?
