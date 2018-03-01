@@ -24,6 +24,8 @@ class Home extends React.Component {
             <Pre>yarn add auth0-cosmos</Pre>
             That's all you need to do, you are now ready to use it in your app, no build step
             needed.
+            <br />
+            (This is the temporary package name, it will soon move to the <Code>auth0/cosmos</Code>)
           </Text>
 
           <Heading2>Usage</Heading2>
