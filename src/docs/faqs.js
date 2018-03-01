@@ -20,8 +20,9 @@ class FAQs extends React.Component {
             v1 release date.
           </Text>
           <Text>
-            However, you can start using our <Link href="/docs"> beta version today!</Link>. We are
-            in active development, so the component API might change frequently.
+            However, you can start using our <Link href="/docs"> alpha version today!</Link>. We are
+            in active development, so the component API might change frequently. Your feedback will
+            help us shape cosmos better.
           </Text>
           <Text>We’ll publish the complete roadmap in this website soon.</Text>
           {/*  */}
@@ -40,7 +41,7 @@ class FAQs extends React.Component {
             latest features.
           </Text>
           <Text>
-            Once cosmos comes out of it's beta status, It will follow <Code>semver</Code> which
+            Once cosmos comes out of it's alpha status, It will follow <Code>semver</Code> which
             means we will introduce breaking changes only in major versions (= major redesign, so
             not anytime soon).
           </Text>
