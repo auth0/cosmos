@@ -6,6 +6,7 @@ import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
+import { spacing } from '../../../tokens'
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
@@ -15,7 +16,9 @@ const Wrapper = styled.div`
   ${TextInput.Element} {
     ${props => {
       if (!props.actions) return
-      return `padding-right: ${multiply(widthOfButton, props.actions.length)}`
+      return `padding-right: calc(${multiply(widthOfButton, props.actions.length)} + ${
+        spacing.xsmall
+      })`
     }};
   }
 
