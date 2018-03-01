@@ -19,10 +19,11 @@ class FAQs extends React.Component {
             We are currently building our roadmap and initial components inventory to estimate the
             v1 release date.
           </Text>
+          <Text>It is being tested with selected teams to get early feedback.</Text>
           <Text>
-            However, you can start using our <Link href="/docs"> alpha version today!</Link>. We are
-            in active development, so the component API might change frequently. Your feedback will
-            help us shape cosmos better.
+            However, you can play with it with <Link href="/docs"> the alpha version</Link> today!.
+            We are in active development, so the component API might change frequently. Your
+            feedback will help us shape cosmos better.
           </Text>
           <Text>We’ll publish the complete roadmap in this website soon.</Text>
           {/*  */}
