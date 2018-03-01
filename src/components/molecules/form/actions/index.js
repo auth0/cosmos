@@ -28,27 +28,27 @@ const Actions = props => {
             {props.primaryAction.label}
           </Button>
         )}
+
+        {props.secondaryActions &&
+          props.secondaryActions.map((action, index) => {
+            return (
+              <Button key={index} onClick={action.method}>
+                {action.label}
+              </Button>
+            )
+          })}
+
+        {props.destructiveActions && (
+          <Right>
+            {props.destructiveActions.map((action, index) => (
+              <Button key={index} onClick={action.method} destructive>
+                {action.label}
+              </Button>
+            ))}
+          </Right>
+        )}
+        <Clear />
       </ButtonGroup>
-
-      {props.secondaryActions &&
-        props.secondaryActions.map((action, index) => {
-          return (
-            <Button key={index} onClick={action.method}>
-              {action.label}
-            </Button>
-          )
-        })}
-
-      {props.destructiveActions && (
-        <Right>
-          {props.destructiveActions.map((action, index) => (
-            <Button key={index} onClick={action.method} destructive>
-              {action.label}
-            </Button>
-          ))}
-        </Right>
-      )}
-      <Clear />
     </StyledActions>
   )
 }
