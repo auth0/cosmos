@@ -16,6 +16,16 @@ class FAQs extends React.Component {
           <Heading1>FAQs</Heading1>
           <Heading2>When will cosmos be ready?</Heading2>
           <Text>🙈</Text>
+          {/*  */}
+          <Heading2>
+            The component I need doesn't exist in cosmos, how do I request for a component?
+          </Heading2>
+          <Text>
+            The easiest way to ask to request a new component or customization to an existing one is
+            to <Link href="https://github.com/auth0/cosmos/issues">create an issue</Link> on GitHub
+            or <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">talk to us on Slack.</Link>
+          </Text>
+          {/*  */}
           <Heading2>How does versioning happen? How do I get updates?</Heading2>
           <Text>
             cosmos is distributed via <Code>npm</Code>, you can update the version and get the
@@ -38,10 +48,7 @@ class FAQs extends React.Component {
               component release cycle here.
             </Link>
           </Text>
-          <Heading2>
-            The component I need doesn't exist in cosmos, how do I request for a component?
-          </Heading2>
-          <Text>🔜</Text>
+          {/*  */}
           <Heading2>
             Why is cosmos built from scratch instead of using an existing library?
           </Heading2>
