@@ -51,7 +51,7 @@ class FAQs extends React.Component {
             be aware (we try) of the needs. For this reason, some components will be released in an
             experimental mode first before they make it into stable. You can join the discussion
             about the{' '}
-            <Link href="https://github.com/auth0/Cosmos/issues/348">
+            <Link href="https://github.com/auth0/cosmos/issues/3">
               component release cycle here.
             </Link>
           </Text>
