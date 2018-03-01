@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Form, Code, Paragraph, Link } from '../components'
+import { FormGroup, Form, Link } from '../components'
 
 let dummyFn = () => {}
 
@@ -18,16 +18,6 @@ class Advanced extends React.Component {
     return (
       <div>
         <FormGroup>
-          <Form>
-            <Form.FieldSet label="Application Metadata">
-              <Paragraph>
-                Application metadata are custom string keys and values (max 255 characters each),
-                set on a per application basis. Metadata is exposed in the Client object as{' '}
-                <Code>client_metadata</Code>, and in Rules as <Code>context.clientMetadata</Code>
-              </Paragraph>
-            </Form.FieldSet>
-          </Form>
-
           <Form>
             <Form.FieldSet label="iOS Settings">
               <Form.TextInput
@@ -71,7 +61,7 @@ class Advanced extends React.Component {
                 label="Allowed APPs / APIs"
                 placeholder=""
                 length="3"
-                description="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific client ids. You can specify multiple IDs by comma-separating them or one by line."
+                description="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific Client IDs. You can specify multiple IDs by comma-separating them or one by line."
               />
 
               <Form.Select
@@ -104,24 +94,6 @@ class Advanced extends React.Component {
                 placeholder="https://domain.tld/path"
                 description="Location URL for the page that will be rendered inside an iframe to perform the token verification when third party cookies are not enabled in the browser. Must be in the same domain where the embedded login form is hosted and must have a `https` scheme."
               />
-            </Form.FieldSet>
-            <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
-          </Form>
-
-          <Form>
-            <Form.FieldSet label="Grant Types">
-              <Paragraph>
-                [Notification] Using Password or MFA grant types with public clients is not
-                recommended. To use the Client Credentials grant you have to set a Token Endpoint
-                Auth Method other than "none". See our documentation for more information.
-              </Paragraph>
-              <Paragraph>Grants go here... </Paragraph>
-            </Form.FieldSet>
-          </Form>
-
-          <Form>
-            <Form.FieldSet label="WS-Federation">
-              <p>cer goes here...</p>
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
           </Form>

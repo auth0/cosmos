@@ -128,3 +128,4 @@ PageHeader.defaultProps = {
 }
 
 export default PageHeader
+export { StyledPageHeader }
