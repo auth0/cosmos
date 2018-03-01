@@ -50,6 +50,11 @@ const List = props => {
             Contributing to Cosmos
           </NavLink>
         </StyledLink>
+        <StyledLink>
+          <NavLink to="/docs/faqs" activeClassName="selected">
+            FAQs
+          </NavLink>
+        </StyledLink>
       </Group>
 
       <Group label="Building blocks" open>

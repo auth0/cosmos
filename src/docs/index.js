@@ -7,6 +7,7 @@ import Spec from './spec'
 import Home from './home'
 import GuidingPrinciples from './guiding-principles'
 import ContributionGuide from './contribution-guide'
+import FAQS from './faqs'
 
 const Layout = styled.div`
   position: relative;
@@ -41,6 +42,7 @@ export default () => (
           <Switch>
             <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
             <Route path="/docs/contribution-guide" component={ContributionGuide} />
+            <Route path="/docs/faqs" component={FAQS} />
             <Route path="/docs/:componentName" component={Spec} />
             <Route component={Home} />
           </Switch>
