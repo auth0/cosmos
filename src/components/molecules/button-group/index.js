@@ -29,8 +29,7 @@ const StyledButtonGroup = styled.div`
   justify-content: ${props => justifyContent[props.align]};
 
   ${Button.Element} {
-    ${props =>
-      justifyContent[props.align] === 'left' ? 'margin-right' : 'margin-left'}: ${props =>
+    ${props => (props.align === 'left' ? 'margin-right' : 'margin-left')}: ${props =>
         props.compressed ? 0 : spacing.xsmall};
   }
 
