@@ -29,6 +29,15 @@ class FAQs extends React.Component {
             If you use a component from cosmos, you can be sure that it will not break when you
             update cosmos version.
           </Text>
+          <Text>
+            As a team not directly working on the product, we are also aware that we will not always
+            be aware (we try) of the needs. For this reason, some components will be released in an
+            experimental mode first before they make it into stable. You can join the discussion
+            about the{' '}
+            <Link href="https://github.com/auth0/cosmos/issues/348">
+              component release cycle here.
+            </Link>
+          </Text>
           <Heading2>
             The component I need doesn't exist in cosmos, how do I request for a component?
           </Heading2>
