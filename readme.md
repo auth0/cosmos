@@ -20,11 +20,11 @@ There are 4 big parts of Cosmos:
 
 &nbsp;
 
-In it's current shape, this repository is a create-react-app project.
+In its current shape, this repository is a create-react-app project.
 
 The `src` folder has all of the code, while `assets` has our design files.
 
-If you peek under `src`, you will find 3 big folders. As we build our library, these folders can directly import code from each other. However, in the final structure, `tokens` and `components` will be consumable as npm packages
+If you peek under `src`, you will find 3 big folders. As we build our library, these folders can directly import code from each other. However, in the final structure, `tokens` and `components` will be consumable as npm packages.
 
 &nbsp;
 
