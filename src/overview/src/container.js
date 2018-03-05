@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Heading } from 'auth0-cosmos'
-import { spacing } from 'auth0-cosmos-tokens'
+import { spacing } from 'auth0-cosmos/tokens'
 
 const Container = styled.div`
   margin: ${spacing.xlarge} 0;

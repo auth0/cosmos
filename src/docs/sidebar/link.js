@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 import Tag from '../docs-components/tag'
-import { spacing, colors } from 'auth0-cosmos-tokens'
+import { spacing, colors } from 'auth0-cosmos/tokens'
 
 const StyledLink = styled.div`
   a {

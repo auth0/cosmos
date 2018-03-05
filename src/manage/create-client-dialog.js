@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Dialog, Form, Paragraph, Stack } from 'auth0-cosmos'
-import { colors, fonts, misc, spacing } from 'auth0-cosmos-tokens'
+import { colors, fonts, misc, spacing } from 'auth0-cosmos/tokens'
 
 import ClientTypeImages from './client-types-images'
 

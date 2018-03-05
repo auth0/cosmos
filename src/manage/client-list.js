@@ -6,7 +6,7 @@ import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from 'auth0-
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
 
-import { colors, spacing } from 'auth0-cosmos-tokens'
+import { colors, spacing } from 'auth0-cosmos/tokens'
 import Avatar from './client-avatar'
 import CreateClientDialog from './create-client-dialog'
 import ClientTypeImages from './client-types-images'

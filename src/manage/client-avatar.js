@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from 'auth0-cosmos-tokens'
+import { colors } from 'auth0-cosmos/tokens'
 
 /* TODO: We should consolidat the gray background with the image. Now it's only the image */
 const StyledAvatar = styled.span`
