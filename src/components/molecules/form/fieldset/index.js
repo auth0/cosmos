@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing } from '../../../../tokens'
+import { spacing } from 'auth0-cosmos-tokens'
 import StyledDivider from './divider'
 
 const StyledFieldSet = styled.fieldset`

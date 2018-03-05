@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing } from '../../tokens'
+import { spacing } from 'auth0-cosmos-tokens'
 import { StyledLink } from './link'
 
-import { colors, fonts } from '../../tokens'
+import { colors, fonts } from 'auth0-cosmos-tokens'
 
 const Label = styled(StyledLink)`
   a {

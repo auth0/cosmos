@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import fuzzysearch from 'fuzzysearch'
 import { TextInput, Icon } from '../../components'
-import { spacing } from '../../tokens'
+import { spacing } from 'auth0-cosmos-tokens'
 import { types, aliases } from '../icons.json'
 
 const IconBrowserElement = styled.div`

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { TextInput } from '../../components'
-import { spacing, colors } from '../../tokens'
+import { spacing, colors } from 'auth0-cosmos-tokens'
 
 const StyledSearchBox = styled(TextInput)`
   border-radius: 0;

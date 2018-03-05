@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Well from '../../atoms/_well'
-import { spacing } from '../../../tokens/'
+import { spacing } from 'auth0-cosmos-tokens'
 
 const StyledFormGroup = styled.div``
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Example from '../ov-components/example'
-import { colors, spacing } from '../../tokens'
+import { colors, spacing } from 'auth0-cosmos-tokens'
 
 const Swatch = styled.span`
   display: inline-block;

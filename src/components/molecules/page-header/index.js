@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { spacing, colors } from 'auth0-cosmos-tokens'
 
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Breadcrumb from '../../atoms/breadcrumb'

@@ -5,7 +5,7 @@ import Container from './container'
 import IconSketch from './icon-sketch'
 import { Icon, Logo } from '../../components'
 
-import { colors, spacing } from '../../tokens'
+import { colors, spacing } from 'auth0-cosmos-tokens'
 
 const Navigation = styled.nav`
   text-align: right;

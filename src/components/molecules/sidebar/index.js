@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 
-import { spacing } from '../../../tokens/'
+import { spacing } from 'auth0-cosmos-tokens'
 import Icon from '../../atoms/icon'
 
 const Sidebar = props => {
