@@ -1,3 +1,3 @@
-import tokens from 'auth0-cosmos-tokens'
+import { colors, spacing, fonts, misc } from 'auth0-cosmos-tokens'
 
-export default tokens
+export { colors, spacing, fonts, misc }

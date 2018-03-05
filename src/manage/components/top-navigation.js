@@ -10,7 +10,7 @@ import {
 
 import Container from './container'
 import { Icon, TextInput } from 'auth0-cosmos'
-import { colors, spacing } from 'auth0-cosmos-tokens'
+import { colors, spacing } from 'auth0-cosmos/tokens'
 
 Dropdown.Link = Dropdown.Devider = Dummy
 

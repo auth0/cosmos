@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, spacing } from 'auth0-cosmos-tokens'
+import { colors, spacing } from 'auth0-cosmos/tokens'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
