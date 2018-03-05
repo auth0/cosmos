@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageHeader, Tabs } from '../components'
+import { PageHeader, Tabs } from 'auth0-cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
