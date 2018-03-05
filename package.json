@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "engine": "^7.0.0",
   "private": true,
+  "workspaces": ["src/components", "src/docs", "src/tokens", "src/overview", "src/manage"],
   "dependencies": {
     "fuzzysearch": "1.0.3",
     "glob": "7.1.2",
@@ -18,17 +19,16 @@
     "yamljs": "0.3.0"
   },
   "scripts": {
-    "dev": "run-p dev:build 'update-progress -- -w' 'build:docs -- -w' 'build:icons -- -w'",
+    "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
     "dev:docs": "styleguidist server",
-    "build": "run-s build:docs build:icons update-progress build:apps",
+    "build": "run-s build:docs build:icons build:apps",
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
     "start": "serve -s build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "yarn build && node tooling/screenshot",
-    "update-progress": "node tooling/update-progress",
     "precommit": "lint-staged"
   },
   "lint-staged": {
