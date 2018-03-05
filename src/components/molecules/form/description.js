@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { spacing, colors } from 'auth0-cosmos-tokens'
 import Code from '../../atoms/code'
 
 const StyledDescription = styled.div`

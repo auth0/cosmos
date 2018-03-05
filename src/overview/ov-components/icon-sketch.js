@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors } from '../../tokens'
+import { colors } from 'auth0-cosmos-tokens'
 
 const StyledIcon = styled.i`
   display: inline-block;

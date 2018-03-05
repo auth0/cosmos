@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { fonts, colors } from '../../../tokens'
+import { fonts, colors } from 'auth0-cosmos-tokens'
 
 const StyledLabel = styled.label`
   display: block;

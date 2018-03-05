@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, fonts, misc } from '../../../tokens/'
+import { colors, spacing, fonts, misc } from 'auth0-cosmos-tokens'
 import { onlyOneOf } from '../../_helpers/custom-validations'
 import Icon from '../icon'
 import Spinner from '../spinner'

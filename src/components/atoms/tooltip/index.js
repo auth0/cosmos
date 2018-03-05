@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, misc } from '../../../tokens/'
+import { colors, spacing, misc } from 'auth0-cosmos-tokens'
 
 const StyledTooltip = styled.div`
   background: ${colors.tooltip.background};

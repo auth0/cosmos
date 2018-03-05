@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing, colors, fonts, misc } from '../../tokens'
+import { spacing, colors, fonts, misc } from 'auth0-cosmos-tokens'
 import { Code } from '../../components'
 import parseType from './prop-type'
 import addDefaultValues from './default-props'

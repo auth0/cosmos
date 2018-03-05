@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, fonts } from '../../../tokens'
+import { colors, fonts } from 'auth0-cosmos-tokens'
 
 const BaseHeading = styled.h1`
   margin: 1em 0;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { fonts, spacing, colors } from '../../../../tokens'
+import { fonts, spacing, colors } from 'auth0-cosmos-tokens'
 
 const StyledDivider = styled.div`
   font-size: 14px;

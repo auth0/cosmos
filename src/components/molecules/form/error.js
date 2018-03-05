@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { spacing, colors } from '../../../tokens'
+import { spacing, colors } from 'auth0-cosmos-tokens'
 
 const Error = styled.div`
   font-size: 13px;

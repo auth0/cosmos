@@ -4,7 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '../../components'
 
-import { fonts, colors, spacing } from '../../tokens'
+import { fonts, colors, spacing } from 'auth0-cosmos-tokens'
 import Props from './props'
 import getPropString from './prop-string'
 import CopyButton from './copy-button'

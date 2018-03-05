@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { colors } from '../../../tokens/'
+import { colors } from 'auth0-cosmos-tokens'
 
 const StyledLink = styled.a`
   color: ${colors.link.default};

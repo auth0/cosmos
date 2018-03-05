@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { colors, spacing } from '../../tokens'
+import { colors, spacing } from 'auth0-cosmos-tokens'
 
 import Link from './link'
 import Group, { getGroups } from './group'

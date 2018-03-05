@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Icon, Tooltip } from '../../components'
-import { spacing, colors } from '../../tokens'
+import { spacing, colors } from 'auth0-cosmos-tokens'
 import uniqueId from '../../components/_helpers/uniqueId'
 
 const Wrapper = styled.div`

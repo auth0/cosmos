@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import Button from '../../atoms/button'
-import { spacing } from '../../../tokens'
+import { spacing } from 'auth0-cosmos-tokens'
 
 const justifyContent = {
   left: 'flex-start',

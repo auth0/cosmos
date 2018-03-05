@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Logo } from '../../components'
-import { colors } from '../../tokens'
+import { colors } from 'auth0-cosmos-tokens'
 
 /* Logo on the top has a nice white background thing going on */
 const Container = styled.div`

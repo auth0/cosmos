@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing } from '../../../tokens'
+import { colors, spacing } from 'auth0-cosmos-tokens'
 import { icons } from './icons.json'
 
 const Icon = props => {
