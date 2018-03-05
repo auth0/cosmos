@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from 'auth0-cosmos-tokens'
-import { Code } from '../../components'
+import { Code } from 'auth0-cosmos'
 import parseType from './prop-type'
 import addDefaultValues from './default-props'
 import getConflictingProps from './prop-conflicts'
