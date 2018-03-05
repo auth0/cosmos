@@ -2,9 +2,7 @@ dist: trusty
 language: node_js
 node_js:
   - "8"
-cache:
-  directories:
-    - node_modules
+cache: yarn
 after_success:
   - npx now-cd --team=auth0-design
 notifications:
