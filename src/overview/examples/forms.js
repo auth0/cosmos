@@ -2,7 +2,7 @@ import React from 'react'
 
 import Example from '../ov-components/example'
 import Section from '../ov-components/section'
-import { Form, FormGroup } from '../../components'
+import { Form, FormGroup } from 'auth0-cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()

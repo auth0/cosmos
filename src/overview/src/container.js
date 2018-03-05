@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Heading } from '../../components'
+import { Heading } from 'auth0-cosmos'
 import { spacing } from 'auth0-cosmos-tokens'
 
 const Container = styled.div`

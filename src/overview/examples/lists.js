@@ -9,7 +9,7 @@ import Example from '../ov-components/example'
 /* TODO: Extract ClientList as a local component in manage/components */
 /* TODO: Extract ConnectionsList as a local component in manage/components */
 
-import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon } from '../../components'
+import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon } from 'auth0-cosmos'
 
 import Avatar from '../../manage/client-avatar'
 

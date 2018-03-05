@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { Heading, Paragraph, Code, Link } from '../../components'
+import { Heading, Paragraph, Code, Link } from 'auth0-cosmos'
 
 const Colors = () => (
   <Section title="Typography">

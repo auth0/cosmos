@@ -1,9 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from 'auth0-cosmos-tokens'
-import { sumOfElements, numberOfValues } from '../../components/_helpers/custom-validations'
 
 const justifyContent = {
   fill: 'space-between',
@@ -59,19 +57,6 @@ const Stack = props => {
       {children}
     </StyledStack>
   )
-}
-
-Stack.propTypes = {
-  /** Use align for stacking elements without margin between them */
-  align: PropTypes.oneOf(['fill', 'left', 'right']),
-  /** Element widths in % */
-  widths: PropTypes.arrayOf(PropTypes.number),
-
-  /* internal props only used for validation */
-  /* sum of width values should be 100% */
-  _sum: props => sumOfElements(props.widths, 100),
-  /* the number of widths should match number of children */
-  _numberOfValues: props => numberOfValues(props.widths, React.Children.count(props.children))
 }
 
 Stack.defaultProps = {
