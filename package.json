@@ -27,7 +27,7 @@
     "build:icons": "node tooling/update-icons",
     "start": "serve -s build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
-    "screenshot": "npm run build && node tooling/screenshot",
+    "screenshot": "yarn build && node tooling/screenshot",
     "update-progress": "node tooling/update-progress",
     "precommit": "lint-staged"
   },

@@ -20,9 +20,9 @@ class ContributionGuide extends React.Component {
             Clone the GitHub repository on your machine
             <Pre>git clone https://github.com/auth0/cosmos.git</Pre>
             To install all the dependencies, run
-            <Pre>npm install</Pre>
+            <Pre>yarn</Pre>
             Create a new branch and start the development server
-            <Pre>npm run dev</Pre>
+            <Pre>yarn dev</Pre>
           </Text>
           <Heading2>Architecture</Heading2>
           <Text>
