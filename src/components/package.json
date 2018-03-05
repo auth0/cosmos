@@ -6,5 +6,8 @@
   "scripts": {},
   "keywords": [],
   "author": "auth0",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "auth0-cosmos-tokens": "0.0.2"
+  }
 }
