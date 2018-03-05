@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Paragraph, Switch, List, Stack } from '../components'
+import { Paragraph, Switch, List, Stack } from 'auth0-cosmos'
 
 // TODO: Need to figure out how to make the first Paragraph have no margin top. We could add a prop?
 // TODO: Remove and solve this override!

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Logo } from '../../components'
+import { Logo } from 'auth0-cosmos'
 import { colors } from 'auth0-cosmos-tokens'
 
 /* Logo on the top has a nice white background thing going on */

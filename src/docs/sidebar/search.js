@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { TextInput } from '../../components'
+import { TextInput } from 'auth0-cosmos'
 import { spacing, colors } from 'auth0-cosmos-tokens'
 
 const StyledSearchBox = styled(TextInput)`

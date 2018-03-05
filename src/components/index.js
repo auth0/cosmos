@@ -87,3 +87,6 @@ export { ButtonGroup }
 
 import PageHeader from './molecules/page-header'
 export { PageHeader }
+
+import Sidebar from './molecules/sidebar'
+export { Sidebar }

@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from '../components'
-import { StyledPageHeader } from '../components/molecules/page-header'
+import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from 'auth0-cosmos'
+
+/* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
+import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
 
 import { colors, spacing } from 'auth0-cosmos-tokens'
 import Avatar from './client-avatar'

@@ -9,9 +9,7 @@ import {
 } from './dummy-components'
 
 import Container from './container'
-import Icon from '../../components/atoms/icon'
-import TextInput from '../../components/atoms/text-input'
-
+import { Icon, TextInput } from 'auth0-cosmos'
 import { colors, spacing } from 'auth0-cosmos-tokens'
 
 Dropdown.Link = Dropdown.Devider = Dummy

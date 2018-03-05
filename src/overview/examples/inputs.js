@@ -4,7 +4,7 @@ import { Row, Col } from '../ov-components/grid'
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 
-import { Stack, TextInput, TextArea, Switch, Select } from '../../components'
+import { Stack, TextInput, TextArea, Switch, Select } from 'auth0-cosmos'
 
 const Inputs = () => (
   <Section title="Inputs">

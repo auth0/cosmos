@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
-import * as Components from '../../components'
+import * as Components from 'auth0-cosmos'
 
 import { fonts, colors, spacing } from 'auth0-cosmos-tokens'
 import Props from './props'

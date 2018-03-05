@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Icon, Tooltip } from '../../components'
+import { Icon, Tooltip } from 'auth0-cosmos'
 import { spacing, colors } from 'auth0-cosmos-tokens'
-import uniqueId from '../../components/_helpers/uniqueId'
+import uniqueId from 'auth0-cosmos/_helpers/uniqueId'
 
 const Wrapper = styled.div`
   position: absolute;

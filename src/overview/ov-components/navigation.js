@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Container from './container'
 import IconSketch from './icon-sketch'
-import { Icon, Logo } from '../../components'
+import { Icon, Logo } from 'auth0-cosmos'
 
 import { colors, spacing } from 'auth0-cosmos-tokens'
 

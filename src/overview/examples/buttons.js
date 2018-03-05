@@ -5,7 +5,7 @@ import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 import Stack from '../ov-components/stack'
 
-import { Button, ButtonGroup } from '../../components'
+import { Button, ButtonGroup } from 'auth0-cosmos'
 
 class ButtonStateWrapper extends React.Component {
   constructor(props) {
