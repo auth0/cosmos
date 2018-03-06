@@ -1,0 +1,9 @@
+{
+  "name": "cosmos",
+  "dependencies": {
+    "serve": "latest"
+  },
+  "scripts": {
+    "start": "serve -s"
+  }
+}
