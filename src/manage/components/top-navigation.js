@@ -12,6 +12,8 @@ import Container from './container'
 import { Icon, TextInput } from 'auth0-cosmos'
 import { colors, spacing } from 'auth0-cosmos/tokens'
 
+import ThemeSwitcher from 'auth0-cosmos/_helpers/theme-switcher'
+
 Dropdown.Link = Dropdown.Devider = Dummy
 
 const openSalesModal = () => {}
@@ -55,7 +57,7 @@ const LogoImage = () => (
     />
     <path
       d="M189 66.92L167.22 0H96.85l21.75 66.92zM96.85 0H26.49L4.75 66.92h70.36zM4.75 66.92zm0 0A96.83 96.83 0 0 0 39.93 175.2l21.74-66.92zm184.21 0L132 108.28l21.75 66.92A96.85 96.85 0 0 0 189 66.92zM39.93 175.2l56.92 41.36 56.93-41.36-56.93-41.36z"
-      fill="#eb5424"
+      fill={colors.base.brand}
     />
   </svg>
 )
@@ -163,7 +165,7 @@ const Links = styled.div`
 const Logo = styled.div`
   a {
     display: block;
-    width: 94px;
+    min-width: 94px;
     height: 35px;
     margin-right: 100px;
   }
@@ -174,8 +176,10 @@ export default () => (
     <StyledContainer>
       <TopNavWrapper>
         <Logo>
-          <a href="/clients">
-            <LogoImage />
+          <a href="#">
+            <ThemeSwitcher>
+              <LogoImage />
+            </ThemeSwitcher>
           </a>
         </Logo>
         <div>
