@@ -16,7 +16,8 @@ const colors = {
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
     green: '#4CD964',
-    red: '#FF0000'
+    red: '#FF0000',
+    brand: '#3445dc'
   },
   text: {
     default: '#212121',
@@ -110,14 +111,14 @@ const colors = {
     destructiveBorder: '#FF0000',
     destructiveBorderHover: '#FF3434',
     destructiveBorderFocus: '#FF3434',
-    successBackground: '#4CD964',
-    successBackgroundHover: '#4CD964',
-    successBackgroundFocus: '#4CD964',
+    successBackground: '#3445dc',
+    successBackgroundHover: '#3445dc',
+    successBackgroundFocus: '#3445dc',
     successText: '#FFF',
     successIcon: '#FFF',
-    successBorder: '#4CD964',
-    successBorderHover: '#4CD964',
-    successBorderFocus: '#4CD964',
+    successBorder: '#3445dc',
+    successBorderHover: '#3445dc',
+    successBorderFocus: '#3445dc',
     linkText: '#3445dc',
     linkIcon: '#3445dc',
     linkHover: '#3445dc',
@@ -130,6 +131,9 @@ const colors = {
   list: {
     backgroundHover: '#FAFAFA',
     borderColor: '#DDD'
+  },
+  success: {
+    default: '#3445dc'
   }
 }
 

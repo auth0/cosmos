@@ -17,12 +17,12 @@ const Checkbox = styled.input`
   opacity: 0;
   position: absolute;
 `
-const Toggle = styled.span`
+const StyledToggle = styled.span`
   display: inline-block;
   width: 55px;
   height: ${height};
   border-radius: 21px;
-  background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
+  background: ${props => (props.on ? colors.success.default : colors.base.grayLight)};
   cursor: pointer;
   position: relative;
 
@@ -92,7 +92,7 @@ class Switch extends React.Component {
     return (
       <StyledSwitch onClick={this.onToggle.bind(this)}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly />
-        <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+        <StyledToggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
       </StyledSwitch>
     )
@@ -118,4 +118,4 @@ Switch.defaultProps = {
 }
 
 export default Switch
-export { StyledSwitch }
+export { StyledSwitch, StyledToggle }
