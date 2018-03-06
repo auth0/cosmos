@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Logo } from 'auth0-cosmos'
 import { colors } from 'auth0-cosmos/tokens'
 
-import ThemeToggle from 'auth0-cosmos/_helpers/theme-toggle'
+import ThemeSwitcher from 'auth0-cosmos/_helpers/theme-switcher'
 
 /* Logo on the top has a nice white background thing going on */
 const Container = styled.div`
@@ -24,27 +24,13 @@ const LogoWrapper = styled.a`
   width: 100%;
 `
 
-class LogoContainer extends React.Component {
-  constructor() {
-    super()
-    this.state = { themeToggleVisible: false }
-  }
-  toggleThemeVisibility() {
-    this.setState({ themeToggleVisible: !this.state.themeToggleVisible })
-  }
-  render() {
-    return (
-      <Container>
-        {this.state.themeToggleVisible ? (
-          <ThemeToggle />
-        ) : (
-          <LogoWrapper href="#" onClick={this.toggleThemeVisibility.bind(this)}>
-            <Logo />
-          </LogoWrapper>
-        )}
-      </Container>
-    )
-  }
-}
-
+const LogoContainer = () => (
+  <Container>
+    <ThemeSwitcher>
+      <LogoWrapper href="#">
+        <Logo />
+      </LogoWrapper>
+    </ThemeSwitcher>
+  </Container>
+)
 export default LogoContainer

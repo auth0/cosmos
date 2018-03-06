@@ -24,7 +24,7 @@ const SwitchWrapper = styled.div`
   }
 `
 
-const ThemeToggle = (props, context) => {
+const Toggle = () => {
   return (
     <SwitchWrapper on={theme === 'extend'}>
       <Switch
@@ -36,4 +36,23 @@ const ThemeToggle = (props, context) => {
   )
 }
 
-export default ThemeToggle
+class ThemeSwitcher extends React.Component {
+  constructor() {
+    super()
+    this.state = { themeToggleVisible: false }
+  }
+  toggleThemeVisibility() {
+    this.setState({ themeToggleVisible: !this.state.themeToggleVisible })
+  }
+  render() {
+    const Component = this.state.themeToggleVisible ? (
+      <Toggle />
+    ) : (
+      <div onClick={this.toggleThemeVisibility.bind(this)}>{this.props.children}</div>
+    )
+
+    return Component
+  }
+}
+
+export default ThemeSwitcher
