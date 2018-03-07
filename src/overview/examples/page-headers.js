@@ -4,8 +4,8 @@ import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 import { PageHeader } from 'auth0-cosmos'
 
-import Avatar from '../../manage/client-avatar'
-import ClientTypeImages from '../../manage/client-types-images'
+import Avatar from '../../manage/components/client-avatar'
+import ClientTypeImages from '../../manage/components/client-types-images'
 
 const PageHeaders = () => (
   <Section>

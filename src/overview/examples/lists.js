@@ -11,9 +11,9 @@ import Example from '../ov-components/example'
 
 import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon } from 'auth0-cosmos'
 
-import Avatar from '../../manage/client-avatar'
+import Avatar from '../../manage/components/client-avatar'
 
-import ClientTypeImages from '../../manage/client-types-images'
+import ClientTypeImages from '../../manage/components/client-types-images'
 const clients = [
   {
     id: 'apXVn76xBT7WougWj17MGXHSthfrBB',
