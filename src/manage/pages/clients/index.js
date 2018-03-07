@@ -7,9 +7,9 @@ import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from 'auth0-
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
 
 import { colors, spacing } from 'auth0-cosmos/tokens'
-import Avatar from './client-avatar'
+import Avatar from '../../components/client-avatar'
 import CreateClientDialog from './create-client-dialog'
-import ClientTypeImages from './client-types-images'
+import ClientTypeImages from '../../components/client-types-images'
 
 /* TODO: Should be a Component */
 const NameGroup = styled.div`

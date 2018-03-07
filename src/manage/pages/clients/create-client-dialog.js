@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Dialog, Form, Paragraph, Stack } from 'auth0-cosmos'
 import { colors, fonts, misc, spacing } from 'auth0-cosmos/tokens'
 
-import ClientTypeImages from './client-types-images'
+import ClientTypeImages from '../../components/client-types-images'
 
 const ClientType = props => (
   <ClientType.Element onClick={props.onClick} selected={props.selected}>
