@@ -4,8 +4,8 @@ import { PageHeader, Tabs } from 'auth0-cosmos'
 import Settings from './settings'
 import Advanced from './advanced'
 import Connections from './connections'
-import Avatar from './client-avatar'
-import ClientTypeImages from './client-types-images'
+import Avatar from '../../components/client-avatar'
+import ClientTypeImages from '../../components/client-types-images'
 
 class Client extends React.Component {
   render() {

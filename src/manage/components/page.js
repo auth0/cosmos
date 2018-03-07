@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import ClientList from '../client-list'
-import Client from '../client'
+import ClientList from '../pages/clients'
+import Client from '../pages/client-detail'
 
 const Page = () => (
   <div
