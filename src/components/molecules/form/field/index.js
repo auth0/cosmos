@@ -67,7 +67,7 @@ Field.propTypes = {
   /** Form Label */
   label: PropTypes.string.isRequired,
   /** Description to give users some context */
-  description: PropTypes.string,
+  description: PropTypes.node,
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */

@@ -56,7 +56,8 @@ Here's an example of providing some context to the user with `description`. It s
 </Form>
 ```
 
-Here's a secret: `description` has not matured to support links yet. You can however take more control and pass a React component instead. It will show get a warning, but we'll let it slide 😉
+If you need more control, `description` also accepts a React component. You can use this to add links
+or other rich formatting to displayed text.
 
 ```js
 <Form>
@@ -66,8 +67,8 @@ Here's a secret: `description` has not matured to support links yet. You can how
     placeholder="Enter something"
     description={
       <span>
-        Notice that querystrings are not taking into account when validating these URLs. <br />
-        Read more about this at <Link href="https://auth0.com">here</Link>
+        Note that querystrings <strong>are not</strong> taken into account when validating these
+        URLs. Read more about this <Link href="https://auth0.com">here</Link>.
       </span>
     }
   />

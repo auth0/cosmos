@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components'
+import { fonts } from '../../tokens'
 
 const reset = () => injectGlobal`
   html, body, div, span, applet, object, iframe,
@@ -49,6 +50,10 @@ table {
 /* Our resets */
 * {
   box-sizing: border-box;
+}
+
+strong, em {
+	font-weight: ${fonts.weight.bold};
 }
 `
 
