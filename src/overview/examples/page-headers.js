@@ -16,17 +16,15 @@ const PageHeaders = () => (
           text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
           learnMore: '/clients'
         }}
-        actions={{
-          primaryAction: {
-            label: 'Create Client',
-            icon: 'plus',
-            method: this.save
-          },
-          secondaryAction: {
-            label: 'Tutorial',
-            icon: 'play-circle',
-            method: this.save
-          }
+        primaryAction={{
+          label: 'Create Client',
+          icon: 'plus',
+          method: () => {}
+        }}
+        secondaryAction={{
+          label: 'Tutorial',
+          icon: 'play-circle',
+          method: () => {}
         }}
       />
     </Example>
