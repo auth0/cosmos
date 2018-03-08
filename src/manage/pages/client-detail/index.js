@@ -11,6 +11,7 @@ class Client extends React.Component {
   render() {
     return (
       <div>
+        /*
         <PageHeader
           title="API Explorer Client"
           type={{
@@ -23,6 +24,7 @@ class Client extends React.Component {
             link: '/clients'
           }}
         />
+        */
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
