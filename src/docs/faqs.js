@@ -72,11 +72,14 @@ class FAQs extends React.Component {
             <ListItem>
               We can reach the same visual result by adopting a component library and customising
               it, but the underlying architecture would not be as good as we want it to be. This is
-              not to say that we are smarter than the creators of these component libraries 😅, only
-              that the end result will be an amalgam of the decisions taken by the original authors
-              and the decisions taken by our team in the context of auth0. (This is different than
-              adapting a library like hapi.js or react, because we **use** the public APIs that are
-              made available by these libraries, we don't have to customise the inner parts)
+              not to say that we are smarter than the creators of these component libraries{' '}
+              <span role="img" aria-label="sweat-smile">
+                😅
+              </span>, only that the end result will be an amalgam of the decisions taken by the
+              original authors and the decisions taken by our team in the context of auth0. (This is
+              different than adapting a library like hapi.js or react, because we **use** the public
+              APIs that are made available by these libraries, we don't have to customise the inner
+              parts)
             </ListItem>
             <ListItem>
               Building it from scratch will give us a greater level of understanding and control to
