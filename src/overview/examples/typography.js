@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { Heading, Paragraph, Code, Link } from 'auth0-cosmos'
+import { Heading, Paragraph, Text, Code, Link, Stack } from 'auth0-cosmos'
 
 const Colors = () => (
   <Section title="Typography">
@@ -23,6 +23,13 @@ const Colors = () => (
         API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will
         verify their identity and send the required information back to your app.
       </Paragraph>
+    </Example>
+
+    <Example title="Text">
+      <Stack>
+        <Text type="subdued">This is less important text that gives extra information</Text>
+        <Text type="allcaps">Application Type</Text>
+      </Stack>
     </Example>
 
     <Example title="Link">

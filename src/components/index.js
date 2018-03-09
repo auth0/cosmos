@@ -57,6 +57,9 @@ export { Heading }
 import Paragraph from './atoms/paragraph'
 export { Paragraph }
 
+import Text from './atoms/text'
+export { Text }
+
 import Breadcrumb from './atoms/breadcrumb'
 export { Breadcrumb }
 
