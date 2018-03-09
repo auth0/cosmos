@@ -6,6 +6,7 @@ import { PageHeader } from 'auth0-cosmos'
 
 import Avatar from '../../manage/components/client-avatar'
 import ClientTypeImages from '../../manage/components/client-types-images'
+import ClientPageHeader from '../../manage/components/client-page-header'
 
 const PageHeaders = () => (
   <Section>
@@ -16,23 +17,21 @@ const PageHeaders = () => (
           text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
           learnMore: '/clients'
         }}
-        actions={{
-          primaryAction: {
-            label: 'Create Client',
-            icon: 'plus',
-            method: this.save
-          },
-          secondaryAction: {
-            label: 'Tutorial',
-            icon: 'play-circle',
-            method: this.save
-          }
+        primaryAction={{
+          label: 'Create Client',
+          icon: 'plus',
+          method: () => {}
+        }}
+        secondaryAction={{
+          label: 'Tutorial',
+          icon: 'play-circle',
+          method: () => {}
         }}
       />
     </Example>
 
     <Example title="Client Page Header">
-      <PageHeader
+      <ClientPageHeader
         title="API Explorer Client"
         type={{
           name: 'Non Interactive',

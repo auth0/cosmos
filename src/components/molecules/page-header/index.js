@@ -2,11 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing, colors } from 'auth0-cosmos-tokens'
+import { spacing } from 'auth0-cosmos-tokens'
 
 import Heading, { StyledHeading } from '../../atoms/heading'
-import Breadcrumb from '../../atoms/breadcrumb'
-import Code from '../../atoms/code'
 import Description from './description'
 
 import Button from '../../atoms/button'
@@ -25,88 +23,27 @@ const StyledPageHeader = styled.div`
   }
 `
 
-/* Should be a Component */
-const TitleGroup = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-/* Should be a Component */
-const StyledLogo = styled.span`
-  width: 72px;
-  height: 72px;
-  display: inline-block;
-  float: left;
-  margin-right: ${spacing.small};
-`
-
-const Type = styled.span`
-  margin-right: ${spacing.small};
-  font-size: 12px;
-  color: ${colors.base.grayDark};
-  letter-spacing: 1px;
-  text-transform: uppercase;
-`
-
-const ClientID = styled.span`
-  font-size: 13px;
-  color: ${colors.base.grayDarkest};
-  margin-right: ${spacing.xsmall};
-`
-
-const Top = props => {
-  if (props.actions) {
-    return (
-      <ButtonGroup align="right">
-        {props.actions.secondaryAction && (
-          <Button
-            transparent
-            icon={props.actions.secondaryAction.icon}
-            onClick={props.actions.secondaryAction.method}
-          >
-            {props.actions.secondaryAction.label}
-          </Button>
-        )}
-        {props.actions.primaryAction && (
-          <Button
-            primary
-            icon={props.actions.primaryAction.icon}
-            onClick={props.actions.primaryAction.method}
-          >
-            {props.actions.primaryAction.label}
-          </Button>
-        )}
-      </ButtonGroup>
-    )
-  } else if (props.breadcrumb) {
-    return <Breadcrumb content={props.breadcrumb.content} link={props.breadcrumb.link} />
-  } else return null
-}
-
-const Title = props => {
-  if (props.logo || props.type) {
-    return (
-      <TitleGroup>
-        {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
-        <div>
-          <Heading size={1}>{props.title}</Heading>
-          <Type>{props.type.name}</Type>
-          <ClientID>Client ID</ClientID>
-          <Code>{props.type.clientId}</Code>
-        </div>
-      </TitleGroup>
-    )
-  } else {
-    return <Heading size={1}>{props.title}</Heading>
-  }
-}
-
 const PageHeader = props => {
   return (
     <StyledPageHeader>
-      <Top {...props} />
+      {props.primaryAction && (
+        <ButtonGroup align="right">
+          {props.secondaryAction && (
+            <Button
+              transparent
+              icon={props.secondaryAction.icon}
+              onClick={props.secondaryAction.method}
+            >
+              {props.secondaryAction.label}
+            </Button>
+          )}
+          <Button primary icon={props.primaryAction.icon} onClick={props.primaryAction.method}>
+            {props.primaryAction.label}
+          </Button>
+        </ButtonGroup>
+      )}
 
-      <Title {...props} />
+      <Heading size={1}>{props.title}</Heading>
 
       {props.description ? <Description>{props.description}</Description> : null}
     </StyledPageHeader>
@@ -116,14 +53,25 @@ const PageHeader = props => {
 PageHeader.displayName = 'Page Header'
 
 PageHeader.propTypes = {
-  /** Page title */
+  /** Page title of the section */
   title: PropTypes.string.isRequired,
+  /** Description to give more information to the user */
+  description: PropTypes.string,
   /** URL for the "Learn more" link  */
-  learnMore: PropTypes.string
+  learnMore: PropTypes.string,
+  /** Actions to be attached on top */
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+      method: PropTypes.func.isRequired
+    })
+  )
 }
 
 PageHeader.defaultProps = {
   title: null,
+  description: null,
   learnMore: null
 }
 
