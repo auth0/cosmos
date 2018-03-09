@@ -1,9 +1,10 @@
 import React from 'react'
-import { PageHeader, Tabs } from 'auth0-cosmos'
+import { Tabs } from 'auth0-cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
 import Connections from './connections'
+import ClientPageHeader from '../../components/client-page-header'
 import Avatar from '../../components/client-avatar'
 import ClientTypeImages from '../../components/client-types-images'
 
@@ -11,8 +12,7 @@ class Client extends React.Component {
   render() {
     return (
       <div>
-        /*
-        <PageHeader
+        <ClientPageHeader
           title="API Explorer Client"
           type={{
             name: 'Non Interactive',
@@ -24,7 +24,6 @@ class Client extends React.Component {
             link: '/clients'
           }}
         />
-        */
         <Tabs>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
