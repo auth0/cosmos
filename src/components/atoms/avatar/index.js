@@ -22,7 +22,7 @@ Avatar.propTypes = {
   size: PropTypes.number,
   /** Avatar background color */
   backgroundColor: PropTypes.string,
-  /** Avatar image or symbol */
+  /** Content image or symbol */
   image: PropTypes.string
 }
 
