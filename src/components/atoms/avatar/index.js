@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors } from 'auth0-cosmos-tokens'
-
 const StyledAvatar = styled.span`
   width: ${props => props.size}px;
   height: ${props => props.size}px;
