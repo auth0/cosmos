@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Dialog, Form, Paragraph, Stack } from 'auth0-cosmos'
 import { colors, fonts, misc, spacing } from 'auth0-cosmos/tokens'
+import { StyledHeading } from 'auth0-cosmos/atoms/heading'
 
 import ClientTypeImages from '../../components/client-types-images'
 
@@ -67,13 +68,13 @@ ClientType.Image = styled.div`
   }
 `
 
-ClientType.Title = styled.div`
-  font-weight: ${fonts.weight.medium};
+ClientType.Title = styled(StyledHeading[4])`
   margin: ${spacing.small} 0;
 `
 
 ClientType.Description = styled(Paragraph)`
   font-size: 13px;
+  margin-top: 0;
 `
 
 ClientType.Example = styled.div`
