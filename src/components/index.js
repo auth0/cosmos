@@ -60,6 +60,9 @@ export { Paragraph }
 import Breadcrumb from './atoms/breadcrumb'
 export { Breadcrumb }
 
+import Avatar from './atoms/avatar'
+export { Avatar }
+
 /* molecules */
 import Dialog from './molecules/dialog'
 export { Dialog }
