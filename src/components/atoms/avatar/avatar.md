@@ -5,8 +5,6 @@
 
 `import Avatar from 'cosmos/avatar'`
 
----
-
 ```jsx
-<Avatar {props} />
+<Avatar image={<Logo />} {props} />
 ```
