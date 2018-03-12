@@ -39,19 +39,19 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Primary Button" align="center">
-          <Button primary>Button</Button>
+          <Button intent="primary">Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Secondary Button" align="center">
-          <Button transparent>Button</Button>
+          <Button intent="transparent">Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Link Button" align="center">
-          <Button link>Button</Button>
+          <Button intent="link">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -63,7 +63,7 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Destructive Button" align="center">
-          <Button destructive>Button</Button>
+          <Button intent="destructive">Button</Button>
         </Example>
       </Col>
     </Row>
