@@ -2,7 +2,7 @@
   category: Text
 ```
 
-`import Heading from 'cosmos/heading'`
+`import { Heading } from 'auth0-cosmos'`
 
 ```jsx
 <Heading {props}>Heading</Heading>

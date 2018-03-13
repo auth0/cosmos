@@ -2,7 +2,7 @@
   category: Images
 ```
 
-`import Logo from 'cosmos/logo'`
+`import { Logo } from 'auth0-cosmos'`
 
 ## Examples
 

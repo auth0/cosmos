@@ -3,7 +3,7 @@
   description: Use TextInput to ask for input from the user
 ```
 
-`import TextInput from 'cosmos/text-input'`
+`import { TextInput } from 'auth0-cosmos'`
 
 ```jsx
 <TextInput placeholder="Placeholder text" {props} />

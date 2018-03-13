@@ -1,7 +1,7 @@
 /*
   This file is an aggregator, to make it easier for folks to import components that they need
 
-  example: `import {Input} from 'components'`
+  example: `import { Input } from 'components'`
   instead of  `import Input from 'components/input'`
 */
 

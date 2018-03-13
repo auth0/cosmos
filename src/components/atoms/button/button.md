@@ -3,7 +3,7 @@
   description: Buttons are great to ask users for action
 ```
 
-`import Button from 'cosmos/button'`
+`import { Button } from 'auth0-cosmos'`
 
 ```jsx
 <Button {props}>Button</Button>

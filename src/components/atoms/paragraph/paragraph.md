@@ -2,7 +2,7 @@
   category: Text
 ```
 
-`import Paragraph from 'cosmos/paragraph'`
+`import { Paragraph } from 'auth0-cosmos'`
 
 ## Examples
 

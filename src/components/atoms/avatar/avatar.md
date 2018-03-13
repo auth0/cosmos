@@ -3,7 +3,7 @@
   description: Avatar component contains images or symbols.
 ```
 
-`import Avatar from 'cosmos/avatar'`
+`import { Avatar } from 'auth0-cosmos'`
 
 ```jsx
 <Avatar image={<Logo />} {props} />

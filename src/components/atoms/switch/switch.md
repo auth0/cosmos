@@ -2,7 +2,7 @@
   category: Forms
 ```
 
-`import Switch from 'cosmos/switch'`
+`import { Switch } from 'auth0-cosmos'`
 
 ```jsx
 <Switch {props} onToggle={value => console.log(value)} />
