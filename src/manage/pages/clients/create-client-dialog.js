@@ -8,17 +8,23 @@ import { StyledHeading } from 'auth0-cosmos/atoms/heading'
 import ClientTypeImages from '../../components/client-types-images'
 
 const ClientType = props => (
-  <ClientType.Element onClick={props.onClick} selected={props.selected}>
+  <ClientType.RadioElement onClick={props.onClick} selected={props.selected}>
+    <ClientType.Radio
+      type="radio"
+      value={props.name}
+      checked={props.checked}
+      onChange={props.onChange}
+    />
     <ClientType.Image size={64} image={props.image} />
     <ClientType.Title>{props.name}</ClientType.Title>
     <ClientType.Description>{props.description}</ClientType.Description>
     <ClientType.Example>eg: {props.example}</ClientType.Example>
-  </ClientType.Element>
+  </ClientType.RadioElement>
 )
 
 const ClientStack = styled(Stack)``
 
-ClientType.Element = styled.a`
+ClientType.RadioElement = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +52,12 @@ const SelectedStyles = css`
   }
 `
 
+ClientType.Radio = styled.input`
+  visibility: hidden;
+  position: absolute;
+  z-index: -999;
+`
+
 ClientType.Image = styled(Avatar)``
 
 ClientType.Title = styled(StyledHeading[4])`
@@ -66,7 +78,13 @@ ClientType.Example = styled.div`
 class CreateClientDialog extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: 'My App', type: 'native' }
+    this.state = { name: 'My App', type: 'native', isChecked: false }
+  }
+
+  toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked
+    })
   }
 
   setValue = (name, value) => () => {
@@ -97,6 +115,8 @@ class CreateClientDialog extends React.Component {
                 example="iOS SDK"
                 onClick={this.setValue('type', 'native')}
                 selected={type === 'native'}
+                checked={this.state.isChecked}
+                onChange={this.toggleChange}
               />
               <ClientType
                 image={ClientTypeImages.spa}
@@ -105,6 +125,8 @@ class CreateClientDialog extends React.Component {
                 example="Angular.JS + NodeJS"
                 onClick={this.setValue('type', 'spa')}
                 selected={type === 'spa'}
+                checked={this.state.isChecked}
+                onChange={this.toggleChange}
               />
               <ClientType
                 image={ClientTypeImages.regular_web}
@@ -113,6 +135,8 @@ class CreateClientDialog extends React.Component {
                 example="Java ASP.NET"
                 onClick={this.setValue('type', 'regular_web')}
                 selected={type === 'regular_web'}
+                checked={this.state.isChecked}
+                onChange={this.toggleChange}
               />
               <ClientType
                 image={ClientTypeImages.non_interactive}
@@ -121,6 +145,8 @@ class CreateClientDialog extends React.Component {
                 example="Shell Script"
                 onClick={this.setValue('type', 'non_interactive')}
                 selected={type === 'non_interactive'}
+                checked={this.state.isChecked}
+                onChange={this.toggleChange}
               />
             </ClientStack>
           </Form.FieldSet>
