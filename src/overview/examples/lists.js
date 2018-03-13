@@ -9,7 +9,7 @@ import Example from '../ov-components/example'
 /* TODO: Extract ClientList as a local component in manage/components */
 /* TODO: Extract ConnectionsList as a local component in manage/components */
 
-import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon, Avatar } from 'auth0-cosmos'
+import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon, Thumbnail } from 'auth0-cosmos'
 
 import ClientTypeImages from '../../manage/components/client-types-images'
 const clients = [
@@ -117,7 +117,7 @@ const ListsExample = () => (
         {clients.map(client => (
           <Stack key={client.id} widths={[35, 40, 25]}>
             <NameGroup>
-              <Avatar size={48} image={client.image} />
+              <Thumbnail source={client.image} />
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
                 <Type>{client.type}</Type>

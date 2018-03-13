@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup, Avatar } from 'auth0-cosmos'
+import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup, Thumbnail } from 'auth0-cosmos'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
@@ -110,7 +110,7 @@ class ClientList extends React.Component {
           {clients.map(client => (
             <Stack key={client.id} widths={[35, 40, 25]}>
               <NameGroup>
-                <Avatar size={48} image={client.image} />
+                <Thumbnail source={client.image} />
                 <div>
                   <Link href={`/clients/${client.id}`}>{client.name}</Link>
                   <Type>{client.type}</Type>

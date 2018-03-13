@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { PageHeader, Avatar } from 'auth0-cosmos'
+import { PageHeader, Thumbnail } from 'auth0-cosmos'
 
 import ClientTypeImages from '../../manage/components/client-types-images'
 import ClientPageHeader from '../../manage/components/client-page-header'
@@ -36,7 +36,7 @@ const PageHeaders = () => (
           name: 'Non Interactive',
           clientId: 'DUq0xuJZAD7RvezvqCrA6hpJVb6iDUip'
         }}
-        logo={<Avatar image={ClientTypeImages.non_interactive} />}
+        logo={<Thumbnail size="large" source={ClientTypeImages.non_interactive} />}
         breadcrumb={{
           content: 'Clients',
           link: '/clients'
