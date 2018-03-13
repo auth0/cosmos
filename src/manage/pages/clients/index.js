@@ -1,29 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup } from 'auth0-cosmos'
+import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup, Avatar } from 'auth0-cosmos'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
 
 import { colors, spacing } from 'auth0-cosmos/tokens'
-import Avatar from '../../components/client-avatar'
 import CreateClientDialog from './create-client-dialog'
 import ClientTypeImages from '../../components/client-types-images'
 
-/* TODO: Should be a Component */
+/* TODO: Should be a Close Component */
 const NameGroup = styled.div`
   display: flex;
   align-items: center;
-`
-
-/* TODO: We should consolidat the gray background with the image. Now it's only the image */
-const StyledLogo = styled.span`
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  float: left;
-  margin-right: ${spacing.small};
+  span {
+    margin-right: ${spacing.xsmall};
+  }
 `
 
 /* TODO: Should be a type of paragraph: Paragrapgh small? */
@@ -123,9 +116,7 @@ class ClientList extends React.Component {
           {clients.map(client => (
             <Stack key={client.id} widths={[35, 40, 25]}>
               <NameGroup>
-                <StyledLogo>
-                  <Avatar image={client.image} />
-                </StyledLogo>
+                <Avatar size={48} image={client.image} />
                 <div>
                   <Link href={`/clients/${client.id}`}>{client.name}</Link>
                   <Type>{client.type}</Type>

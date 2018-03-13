@@ -2,9 +2,8 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { PageHeader } from 'auth0-cosmos'
+import { PageHeader, Avatar } from 'auth0-cosmos'
 
-import Avatar from '../../manage/components/client-avatar'
 import ClientTypeImages from '../../manage/components/client-types-images'
 import ClientPageHeader from '../../manage/components/client-page-header'
 

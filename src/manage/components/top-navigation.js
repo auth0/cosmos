@@ -9,7 +9,7 @@ import {
 } from './dummy-components'
 
 import Container from './container'
-import { Icon, TextInput } from 'auth0-cosmos'
+import { Icon, TextInput, Avatar } from 'auth0-cosmos'
 import { colors, spacing } from 'auth0-cosmos/tokens'
 
 Dropdown.Link = Dropdown.Devider = Dummy
@@ -61,7 +61,7 @@ const LogoImage = () => (
 )
 
 const AvatarLogo = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="24" height="24">
     <g>
       <circle cx="15" cy="15" r="15" />
       <path
@@ -113,17 +113,14 @@ const TopNavWrapper = styled.div`
   align-items: center;
   height: 100%;
 `
-const Avatar = styled.div`
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: ${colors.base.orange};
-  margin-right: 0.25em;
-`
 
+/* TODO: Should be a Close Component */
 const UserDropdown = styled.div`
   display: flex;
   align-items: center;
+  span {
+    margin-right: 0.25em;
+  }
 `
 
 const InputSearch = styled(TextInput)`
@@ -201,9 +198,7 @@ export default () => (
               <a href="">
                 <UserDropdown>
                   <div className="tenant-name">cosmos-demo</div>
-                  <Avatar>
-                    <AvatarLogo />
-                  </Avatar>
+                  <Avatar size={24} backgroundColor={colors.base.orange} image={<AvatarLogo />} />
                   <Icon name="chevron-down" size={10} color={colors.text.default} />
                 </UserDropdown>
               </a>
