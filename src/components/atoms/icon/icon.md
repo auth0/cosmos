@@ -3,7 +3,7 @@
   description: The Icon component displays an icon glyph as an <svg> element
 ```
 
-`import Icon from 'cosmos/icon'`
+`import { Icon } from 'auth0-cosmos'`
 
 ---
 

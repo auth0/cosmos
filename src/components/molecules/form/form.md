@@ -2,7 +2,7 @@
   category: Forms
 ```
 
-`import Form from 'cosmos/form'`
+`import { Form } from 'auth0-cosmos'`
 
 ---
 

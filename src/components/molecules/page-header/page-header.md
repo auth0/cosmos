@@ -3,7 +3,7 @@
   description: "Use to add a title, description and main actions to pages."
 ```
 
-`import PageHeader from 'cosmos/page-header'`
+`import { PageHeader } from 'auth0-cosmos'`
 
 ```jsx
 <PageHeader
