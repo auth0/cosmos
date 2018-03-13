@@ -8,34 +8,34 @@ const Buttons = () => (
     <Container title="Buttons">
       <Stack>
         <Button label="An Action">default</Button>
-        <Button primary label="Main call to action">
+        <Button intent="primary" label="Main call to action">
           primary
         </Button>
-        <Button transparent label="Secondary action">
+        <Button intent="transparent" label="Secondary action">
           secondary
         </Button>
       </Stack>
       <br />
       <br />
       <Stack>
-        <Button destructive label="Destructive action">
+        <Button intent="destructive" label="Destructive action">
           Delete
         </Button>
-        <Button link label="Subtle action">
+        <Button intent="link" label="Subtle action">
           Clear
         </Button>
-        <Button link icon="copy" label="Subtle action">
+        <Button intent="link" icon="copy" label="Subtle action">
           Copy
         </Button>
       </Stack>
       <br />
       <br />
       <Stack>
-        <Button primary icon="plus">
+        <Button intent="primary" icon="plus">
           Create Client
         </Button>
 
-        <Button transparent icon="play-circle">
+        <Button intent="transparent" icon="play-circle">
           Tutorial
         </Button>
 

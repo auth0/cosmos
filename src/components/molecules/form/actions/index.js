@@ -24,7 +24,7 @@ const Actions = props => {
     <StyledActions layout={layout}>
       <ButtonGroup>
         {props.primaryAction && (
-          <Button primary onClick={props.primaryAction.method}>
+          <Button intent="primary" onClick={props.primaryAction.method}>
             {props.primaryAction.label}
           </Button>
         )}

@@ -82,13 +82,13 @@ const Buttons = () => (
       <Col>
         <Example title="Button with icon" align="center">
           <Stack>
-            <Button primary icon="plus">
+            <Button intent="primary" icon="plus">
               Create Client
             </Button>
-            <Button transparent icon="play-circle">
+            <Button intent="transparent" icon="play-circle">
               Tutorial
             </Button>
-            <Button link icon="copy" />
+            <Button intent="link" icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
           </Stack>
         </Example>
@@ -99,10 +99,10 @@ const Buttons = () => (
         <Example title="Button Group">
           <Stack>
             <ButtonGroup>
-              <Button transparent icon="play-circle">
+              <Button intent="transparent" icon="play-circle">
                 Tutorial
               </Button>
-              <Button primary icon="plus">
+              <Button intent="primary" icon="plus">
                 Create Client
               </Button>
             </ButtonGroup>
