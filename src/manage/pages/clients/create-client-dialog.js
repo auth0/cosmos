@@ -16,14 +16,7 @@ const ClientType = props => (
   </ClientType.Element>
 )
 
-const ClientStack = styled(Stack)`
-  > * {
-    margin-right: ${spacing.small};
-  }
-  > *:last-child {
-    margin-right: 0;
-  }
-`
+const ClientStack = styled(Stack)``
 
 ClientType.Element = styled.a`
   display: flex;
