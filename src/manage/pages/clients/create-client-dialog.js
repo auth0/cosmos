@@ -9,9 +9,7 @@ import ClientTypeImages from '../../components/client-types-images'
 
 const ClientType = props => (
   <ClientType.Element onClick={props.onClick} selected={props.selected}>
-    <ClientType.Image>
-      <Avatar size={64} image={props.image} />
-    </ClientType.Image>
+    <ClientType.Image size={64} image={props.image} />
     <ClientType.Title>{props.name}</ClientType.Title>
     <ClientType.Description>{props.description}</ClientType.Description>
     <ClientType.Example>eg: {props.example}</ClientType.Example>
@@ -55,7 +53,7 @@ const SelectedStyles = css`
   }
 `
 
-ClientType.Image = styled.div``
+ClientType.Image = styled(Avatar)``
 
 ClientType.Title = styled(StyledHeading[4])`
   margin: ${spacing.small} 0;
