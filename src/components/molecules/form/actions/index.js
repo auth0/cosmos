@@ -47,8 +47,8 @@ const Actions = props => {
             ))}
           </Right>
         )}
-        <Clear />
       </ButtonGroup>
+      <Clear />
     </StyledActions>
   )
 }
