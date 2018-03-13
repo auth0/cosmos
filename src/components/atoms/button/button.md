@@ -30,10 +30,10 @@ Buttons are great to ask users for action
 <div>
   <Stack>
     <Button>default</Button>
-    <Button intent="primary">primary</Button>
-    <Button intent="transparent">secondary</Button>
-    <Button intent="link">Clear</Button>
-    <Button intent="destructive">Delete</Button>
+    <Button appearance="primary">primary</Button>
+    <Button appearance="transparent">secondary</Button>
+    <Button appearance="link">Clear</Button>
+    <Button appearance="destructive">Delete</Button>
   </Stack>
 </div>
 ```
@@ -59,7 +59,7 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 ```js
 <div>
   <Stack>
-    <Button intent="link" icon="copy" />
+    <Button appearance="link" icon="copy" />
     <Button icon="copy" />
   </Stack>
 </div>

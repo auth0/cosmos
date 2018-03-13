@@ -22,7 +22,7 @@ const EmptyState = props => {
       <Heading size={1}>{props.title}</Heading>
       <Icon name={props.icon} size={100} color={colors.base.blue} />
       <Paragraph>{props.text}</Paragraph> {helpLink}
-      <Button intent="primary" icon={props.action.icon} onClick={props.action.method}>
+      <Button appearance="primary" icon={props.action.icon} onClick={props.action.method}>
         {props.action.text}
       </Button>
     </EmptyState.Wrapper>

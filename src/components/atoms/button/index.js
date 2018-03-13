@@ -7,7 +7,7 @@ import Icon from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 
-const intents = {
+const appearances = {
   default: {
     text: colors.button.defaultText,
     icon: colors.button.defaultIcon,
@@ -78,7 +78,9 @@ const states = {
 const getAttributes = props => {
   if (props.success) return { ...states.success }
 
-  const baseStyles = intents[props.intent] ? intents[props.intent] : intents.default
+  const baseStyles = appearances[props.appearance]
+    ? appearances[props.appearance]
+    : appearances.default
   const styles = { ...baseStyles }
 
   /* overwrite for loading state */
@@ -183,7 +185,7 @@ Button.Content = styled.span`
 
 Button.propTypes = {
   /** The visual style used to convey the button's purpose */
-  intent: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
+  appearance: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
 
   /** Name of icon */
   icon: PropTypes.string,
@@ -202,7 +204,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  intent: 'default',
+  appearance: 'default',
   icon: null,
   disabled: false,
   loading: false,

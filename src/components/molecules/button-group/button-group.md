@@ -9,7 +9,7 @@
 
 ```jsx
 <ButtonGroup {props}>
-  <Button intent="primary">Save changes</Button>
+  <Button appearance="primary">Save changes</Button>
   <Button>Clear</Button>
 </ButtonGroup>
 ```
@@ -19,7 +19,7 @@
 ```js
 <Stack>
   <ButtonGroup>
-    <Button intent="primary">Save changes</Button>
+    <Button appearance="primary">Save changes</Button>
     <Button>Clear</Button>
   </ButtonGroup>
   <ButtonGroup>
