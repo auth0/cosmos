@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Dialog, Form, Paragraph, Stack } from 'auth0-cosmos'
+import { Dialog, Form, Paragraph, Stack, Avatar } from 'auth0-cosmos'
 import { colors, misc, spacing } from 'auth0-cosmos/tokens'
 import { StyledHeading } from 'auth0-cosmos/atoms/heading'
 
@@ -9,7 +9,9 @@ import ClientTypeImages from '../../components/client-types-images'
 
 const ClientType = props => (
   <ClientType.Element onClick={props.onClick} selected={props.selected}>
-    <ClientType.Image>{props.image}</ClientType.Image>
+    <ClientType.Image>
+      <Avatar size={64} image={props.image} />
+    </ClientType.Image>
     <ClientType.Title>{props.name}</ClientType.Title>
     <ClientType.Description>{props.description}</ClientType.Description>
     <ClientType.Example>eg: {props.example}</ClientType.Example>
@@ -53,20 +55,7 @@ const SelectedStyles = css`
   }
 `
 
-ClientType.Image = styled.div`
-  width: 64px;
-  height: 64px;
-  background: #f1f1f1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: none;
-  svg {
-    height: 36px;
-    width: 36px;
-  }
-`
+ClientType.Image = styled.div``
 
 ClientType.Title = styled(StyledHeading[4])`
   margin: ${spacing.small} 0;
