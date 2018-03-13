@@ -9,9 +9,7 @@ import Example from '../ov-components/example'
 /* TODO: Extract ClientList as a local component in manage/components */
 /* TODO: Extract ConnectionsList as a local component in manage/components */
 
-import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon } from 'auth0-cosmos'
-
-import Avatar from '../../manage/components/client-avatar'
+import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon, Avatar } from 'auth0-cosmos'
 
 import ClientTypeImages from '../../manage/components/client-types-images'
 const clients = [
@@ -53,19 +51,13 @@ const clients = [
   }
 ]
 
-/* TODO: Should be a Component */
+/* TODO: Should be a Close Component */
 const NameGroup = styled.div`
   display: flex;
   align-items: center;
-`
-
-/* TODO: We should consolidat the gray background with the image. Now it's only the image */
-const StyledLogo = styled.span`
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  float: left;
-  margin-right: ${spacing.small};
+  span {
+    margin-right: ${spacing.xsmall};
+  }
 `
 
 /* TODO: Should be a type of paragraph: Paragrapgh small? */
@@ -125,9 +117,7 @@ const ListsExample = () => (
         {clients.map(client => (
           <Stack key={client.id} widths={[35, 40, 25]}>
             <NameGroup>
-              <StyledLogo>
-                <Avatar image={client.image} />
-              </StyledLogo>
+              <Avatar size={48} image={client.image} />
               <div>
                 <Link href={`/clients/${client.id}`}>{client.name}</Link>
                 <Type>{client.type}</Type>

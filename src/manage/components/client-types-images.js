@@ -2,7 +2,7 @@ import React from 'react'
 
 const ClientTypeImages = {
   native: (
-    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
       <g fill="none" fillRule="evenodd">
         <path
           d="M27.368 45H2.632A2.632 2.632 0 0 1 0 42.368V17.632A2.632 2.632 0 0 1 2.632 15h24.736A2.632 2.632 0 0 1 30 17.632v24.736A2.632 2.632 0 0 1 27.368 45"
@@ -20,7 +20,7 @@ const ClientTypeImages = {
     </svg>
   ),
   non_interactive: (
-    <svg viewBox="0 0 36 32" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 36 32" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
       <title>Group 2</title>
       <g fill="none" fillRule="evenodd">
         <path fill="#44C7F4" d="M8.446 26.337l-3.487-2L15.81 5.667l3.488 2z" />
@@ -41,7 +41,7 @@ const ClientTypeImages = {
     </svg>
   ),
   regular_web: (
-    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
       <g fill="none" fillRule="evenodd">
         <path
           d="M33.498 3.04A23.149 23.149 0 0 0 22 0v15.112a7.716 7.716 0 0 1 3.833 1.013c3.666 2.086 4.922 6.707 2.805 10.32L41.915 34c6.35-10.84 2.582-24.701-8.417-30.96"
@@ -63,7 +63,7 @@ const ClientTypeImages = {
     </svg>
   ),
   spa: (
-    <svg viewBox="0 0 45 47" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 45 47" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
       <g fill="none" fillRule="evenodd">
         <path
           d="M18.008 23.5L31.515 0H13.506L0 23.5 13.506 47h18.009L18.008 23.5z"
