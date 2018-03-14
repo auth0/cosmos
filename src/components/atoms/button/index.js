@@ -3,12 +3,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, fonts, misc } from 'auth0-cosmos-tokens'
-import { onlyOneOf } from '../../_helpers/custom-validations'
 import Icon from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 
-const config = {
+const appearances = {
   default: {
     text: colors.button.defaultText,
     icon: colors.button.defaultIcon,
@@ -51,16 +50,6 @@ const config = {
     focusBackground: 'transparent',
     focusBorder: 'transparent'
   },
-  disabled: {
-    text: colors.button.disabledText,
-    icon: colors.button.disabledIcon,
-    background: colors.button.disabledBackground,
-    border: colors.button.disabledBorder,
-    hoverBackground: colors.button.disabledBackgroundHover,
-    hoverBorder: colors.button.disabledBorderHover,
-    focusBackground: colors.button.disabledBackgroundFocus,
-    focusBorder: colors.button.disabledBorderFocus
-  },
   destructive: {
     text: colors.button.destructiveText,
     icon: colors.button.destructiveIcon,
@@ -70,16 +59,10 @@ const config = {
     hoverBorder: colors.button.destructiveBorderHover,
     focusBackground: colors.button.destructiveBackgroundFocus,
     focusBorder: colors.button.destructiveBorderFocus
-  },
-  loading: {
-    text: colors.base.white,
-    background: colors.base.green,
-    border: colors.base.green,
-    hoverBackground: colors.base.green,
-    hoverBorder: colors.base.green,
-    focusBackground: colors.base.green,
-    focusBorder: colors.base.green
-  },
+  }
+}
+
+const states = {
   success: {
     text: colors.button.successText,
     icon: colors.button.successIcon,
@@ -93,15 +76,12 @@ const config = {
 }
 
 const getAttributes = props => {
-  let styles = {}
+  if (props.success) return { ...states.success }
 
-  /* copy relevant styles into styles */
-  if (props.success) styles = { ...config.success }
-  else if (props.primary) styles = { ...config.primary }
-  else if (props.transparent) styles = { ...config.transparent }
-  else if (props.link) styles = { ...config.link }
-  else if (props.destructive) styles = { ...config.destructive }
-  else styles = { ...config.default }
+  const baseStyles = appearances[props.appearance]
+    ? appearances[props.appearance]
+    : appearances.default
+  const styles = { ...baseStyles }
 
   /* overwrite for loading state */
   if (props.loading) {
@@ -204,16 +184,8 @@ Button.Content = styled.span`
 `
 
 Button.propTypes = {
-  /** Use for primary call to action */
-  primary: PropTypes.bool,
-  /** Use for secondary call to action */
-  transparent: PropTypes.bool,
-  /** Disable button that does not validate constraint */
-  disabled: PropTypes.bool,
-  /** Use for destructive actions like delete */
-  destructive: PropTypes.bool,
-  /** Use for subtle actions */
-  link: PropTypes.bool,
+  /** The visual style used to convey the button's purpose */
+  appearance: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
 
   /** Name of icon */
   icon: PropTypes.string,
@@ -221,27 +193,22 @@ Button.propTypes = {
   /** Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
 
+  /** Disables the button, changing the visual style and make it unable to be pressed */
+  disabled: PropTypes.bool,
+
   /** Loading state when waiting for an action to complete */
   loading: PropTypes.bool,
-  /** Successful state when action is completed successfuly */
-  success: PropTypes.bool,
 
-  /** internal props only used for transition, start with _ */
-  _type: props => onlyOneOf(props, ['primary', 'transparent', 'destructive', 'link']),
-  _state: props => onlyOneOf(props, ['disabled', 'loading', 'success'])
+  /** Successful state when action is completed successfuly */
+  success: PropTypes.bool
 }
 
 Button.defaultProps = {
-  primary: false,
-  transparent: false,
-  destructive: false,
-  link: false,
+  appearance: 'default',
   icon: null,
   disabled: false,
   loading: false,
   success: false
 }
-
-Button.meta = {}
 
 export default Button

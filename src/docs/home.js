@@ -35,7 +35,7 @@ class Home extends React.Component {
             and use them along with you React components:
             <Pre
               code={`const Actions = () => <div>
-  <Button primary onClick={this.save}>Save changes</Button>
+  <Button appearance="primary" onClick={this.save}>Save changes</Button>
   <Button onClick={this.clear}>Clear</Button>
 </div>`}
             />

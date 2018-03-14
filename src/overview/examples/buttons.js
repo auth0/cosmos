@@ -39,19 +39,19 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Primary Button" align="center">
-          <Button primary>Button</Button>
+          <Button intent="primary">Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Secondary Button" align="center">
-          <Button transparent>Button</Button>
+          <Button intent="transparent">Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Link Button" align="center">
-          <Button link>Button</Button>
+          <Button intent="link">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -63,7 +63,7 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Destructive Button" align="center">
-          <Button destructive>Button</Button>
+          <Button intent="destructive">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -82,13 +82,13 @@ const Buttons = () => (
       <Col>
         <Example title="Button with icon" align="center">
           <Stack>
-            <Button primary icon="plus">
+            <Button intent="primary" icon="plus">
               Create Client
             </Button>
-            <Button transparent icon="play-circle">
+            <Button intent="transparent" icon="play-circle">
               Tutorial
             </Button>
-            <Button link icon="copy" />
+            <Button intent="link" icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
           </Stack>
         </Example>
@@ -99,10 +99,10 @@ const Buttons = () => (
         <Example title="Button Group">
           <Stack>
             <ButtonGroup>
-              <Button transparent icon="play-circle">
+              <Button intent="transparent" icon="play-circle">
                 Tutorial
               </Button>
-              <Button primary icon="plus">
+              <Button intent="primary" icon="plus">
                 Create Client
               </Button>
             </ButtonGroup>

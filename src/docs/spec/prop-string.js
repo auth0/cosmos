@@ -22,7 +22,7 @@ const getPropString = propData => {
     /*
       Case 2: Truthy boolean
       We only need to drop the key
-      Example: primary="true" results in <Button primary>
+      Example: disabled="true" results in <Button disabled>
     */
     if (propData[name].type.name === 'bool' && propData[name].value === 'true') {
       propString += ` ${name}`

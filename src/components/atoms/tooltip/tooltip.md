@@ -14,7 +14,7 @@ description: Use tooltips for giving extra context AND to make visual cues acces
 ### Tooltip top:
 
 ```js
-<Tooltip top content="Copy">
+<Tooltip position="top" content="Copy">
   <Icon name="copy" />
 </Tooltip>
 ```
@@ -22,7 +22,7 @@ description: Use tooltips for giving extra context AND to make visual cues acces
 ### Tooltip bottom:
 
 ```js
-<Tooltip bottom content="Notifications">
+<Tooltip position="bottom" content="Notifications">
   <Icon name="notifications" />
 </Tooltip>
 ```
