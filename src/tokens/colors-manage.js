@@ -16,7 +16,8 @@ const colors = {
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
     green: '#4CD964',
-    red: '#FF0000'
+    red: '#FF0000',
+    brand: '#eb5424'
   },
   text: {
     default: '#212121',
@@ -130,6 +131,9 @@ const colors = {
   list: {
     backgroundHover: '#FAFAFA',
     borderColor: '#DDD'
+  },
+  success: {
+    default: '#4CD964'
   }
 }
 
