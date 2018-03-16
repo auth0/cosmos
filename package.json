@@ -23,7 +23,7 @@
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
     "start": "serve -s build",
-    "test": "run-s chromatic",
+    "test": "run-s build chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
     "precommit": "lint-staged",
     "storybook": "start-storybook -p 9009 -s public",
