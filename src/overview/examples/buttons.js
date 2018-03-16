@@ -39,19 +39,19 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Primary Button" align="center">
-          <Button intent="primary">Button</Button>
+          <Button appearance="primary">Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
         <Example title="Secondary Button" align="center">
-          <Button intent="transparent">Button</Button>
+          <Button appearance="transparent">Button</Button>
         </Example>
       </Col>
       <Col>
         <Example title="Link Button" align="center">
-          <Button intent="link">Button</Button>
+          <Button appearance="link">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -63,7 +63,7 @@ const Buttons = () => (
       </Col>
       <Col>
         <Example title="Destructive Button" align="center">
-          <Button intent="destructive">Button</Button>
+          <Button appearance="destructive">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -82,13 +82,13 @@ const Buttons = () => (
       <Col>
         <Example title="Button with icon" align="center">
           <Stack>
-            <Button intent="primary" icon="plus">
+            <Button appearance="primary" icon="plus">
               Create Client
             </Button>
-            <Button intent="transparent" icon="play-circle">
+            <Button appearance="transparent" icon="play-circle">
               Tutorial
             </Button>
-            <Button intent="link" icon="copy" />
+            <Button appearance="link" icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
           </Stack>
         </Example>
@@ -99,10 +99,10 @@ const Buttons = () => (
         <Example title="Button Group">
           <Stack>
             <ButtonGroup>
-              <Button intent="transparent" icon="play-circle">
+              <Button appearance="transparent" icon="play-circle">
                 Tutorial
               </Button>
-              <Button intent="primary" icon="plus">
+              <Button appearance="primary" icon="plus">
                 Create Client
               </Button>
             </ButtonGroup>
