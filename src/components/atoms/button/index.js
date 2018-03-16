@@ -145,7 +145,7 @@ Button.Element = styled.button`
 
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
