@@ -8,6 +8,7 @@
     "fuzzysearch": "1.0.3",
     "markdown-to-jsx": "6.4.1",
     "react": "16.2.0",
+    "react-chromatic": "0.7.11",
     "react-dom": "16.2.0",
     "react-helmet": "5.2.0",
     "react-live": "1.10.1",
@@ -24,12 +25,19 @@
     "start": "serve -s build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "yarn build && node tooling/screenshot",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 9009 -s public",
+    "chromatic": "./node_modules/.bin/chromatic test --storybook-addon --app-code=gk9el05coor"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-links": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/react": "^3.3.15",
+    "babel-core": "^6.26.0",
     "chokidar": "2.0.2",
     "glob": "7.1.2",
     "htmlparser2": "3.9.2",
