@@ -8,7 +8,7 @@ import uniqueId from '../../../_helpers/uniqueId'
 
 import StyledLabel from '../label'
 import StyledError from '../error'
-import Description from '../description'
+import HelpText from '../help-text'
 import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
 
@@ -55,7 +55,7 @@ const Field = props => {
       <ContentLayout layout={layout}>
         <props.fieldComponent id={id} {...props} />
         {props.error ? <StyledError>{props.error}</StyledError> : null}
-        {props.description ? <Description>{props.description}</Description> : null}
+        {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
       </ContentLayout>
     </StyledField>
   )
@@ -66,8 +66,8 @@ Field.displayName = 'Form Field'
 Field.propTypes = {
   /** Form Label */
   label: PropTypes.string.isRequired,
-  /** Description to give users some context */
-  description: PropTypes.node,
+  /** Text that further explains the purpose of the field, or provides more detail */
+  helpText: PropTypes.node,
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */
@@ -81,7 +81,7 @@ Field.propTypes = {
 
 Field.defaultProps = {
   label: 'Form label',
-  description: null,
+  helpText: null,
   error: null
 }
 
