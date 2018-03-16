@@ -27,7 +27,7 @@
     "screenshot": "yarn build && node tooling/screenshot",
     "precommit": "lint-staged",
     "storybook": "start-storybook -p 9009 -s public",
-    "chromatic": "./node_modules/.bin/chromatic test --storybook-addon --app-code=gk9el05coor"
+    "chromatic": "chromatic test --storybook-addon"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
