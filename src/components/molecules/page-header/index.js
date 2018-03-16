@@ -30,14 +30,18 @@ const PageHeader = props => {
         <ButtonGroup align="right">
           {props.secondaryAction && (
             <Button
-              transparent
+              appearance="transparent"
               icon={props.secondaryAction.icon}
               onClick={props.secondaryAction.method}
             >
               {props.secondaryAction.label}
             </Button>
           )}
-          <Button primary icon={props.primaryAction.icon} onClick={props.primaryAction.method}>
+          <Button
+            appearance="primary"
+            icon={props.primaryAction.icon}
+            onClick={props.primaryAction.method}
+          >
             {props.primaryAction.label}
           </Button>
         </ButtonGroup>
