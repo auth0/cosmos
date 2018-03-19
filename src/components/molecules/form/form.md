@@ -31,7 +31,7 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
     label="Field label"
     type="text"
     placeholder="Enter something"
-    description="This is some helper `text`"
+    helpText="This is some helper text"
   />
   <Form.TextArea
     label="Long input"

@@ -41,9 +41,9 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
 </Form>
 ```
 
-### Helper text
+### Help text
 
-Here's an example of providing some context to the user with `description`. It supports adding `backticks`.
+Here's an example of providing some context to the user with `helpText`.
 
 ```js
 <Form>
@@ -51,12 +51,13 @@ Here's an example of providing some context to the user with `description`. It s
     label="Callback URL"
     type="text"
     placeholder="Enter something"
-    description="Make sure to specify the protocol, `http://` or `https://`"
+    helpText="Make sure to specify the protocol, http:// or https://"
   />
 </Form>
 ```
 
-Here's a secret: `description` has not matured to support links yet. You can however take more control and pass a React component instead. It will show get a warning, but we'll let it slide 😉
+If you need more control, `helpText` also accepts a React component. You can use this to add links
+or other rich formatting to displayed text.
 
 ```js
 <Form>
@@ -64,10 +65,10 @@ Here's a secret: `description` has not matured to support links yet. You can how
     label="Allowed URLs"
     type="text"
     placeholder="Enter something"
-    description={
+    helpText={
       <span>
-        Notice that querystrings are not taking into account when validating these URLs. <br />
-        Read more about this at <Link href="https://auth0.com">here</Link>
+        Note that querystrings <strong>are not</strong> taken into account when validating these
+        URLs. Read more about this <Link href="https://auth0.com">here</Link>.
       </span>
     }
   />
@@ -104,7 +105,7 @@ We leave the logic part of validation to you the developer, you can pass `error`
     placeholder="Enter something"
     defaultValue="auth0.com"
     error="This is not a valid URL"
-    description="Make sure to specify the protocol, `http://` or `https://`"
+    helpText="Make sure to specify the protocol, http:// or https://"
   />
 </Form>
 ```
