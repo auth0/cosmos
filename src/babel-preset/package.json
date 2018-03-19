@@ -1,8 +1,13 @@
 {
   "name": "babel-preset-cosmos",
   "description": "babel preset to use cosmos",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "author": "siddharthkp",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-react": "6.24.1"
+  }
 }

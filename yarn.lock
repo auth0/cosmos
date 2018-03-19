@@ -941,6 +941,14 @@ babel-preset-cosmos@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/babel-preset-cosmos/-/babel-preset-cosmos-0.0.1.tgz#e658a9c0b84344a354cb2301db35c2c4a423da32"
 
+babel-preset-cosmos@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-cosmos/-/babel-preset-cosmos-0.0.2.tgz#fcc23641cec764414a45c079396796d4397d0e0e"
+  dependencies:
+    babel-plugin-transform-class-properties "6.24.1"
+    babel-plugin-transform-object-rest-spread "6.26.0"
+    babel-preset-react "6.24.1"
+
 babel-preset-env@1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"
