@@ -8,10 +8,12 @@
     "start": "serve public"
   },
   "dependencies": {
+    "babel-plugin-transform-class-properties": "6.24.1",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
     "serve": "6.5.3",
     "webpack": "4.1.1",
     "webpack-cli": "2.0.12"

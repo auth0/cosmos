@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'public/dist')
@@ -13,7 +13,8 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['react']
+          presets: ['react'],
+          plugins: ['transform-object-rest-spread', 'transform-class-properties']
         }
       }
     ]
