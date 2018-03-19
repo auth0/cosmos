@@ -8,10 +8,12 @@
     "start": "serve public"
   },
   "dependencies": {
+    "auth0-cosmos": "0.0.3",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },
   "devDependencies": {
+    "babel-loader": "7.1.4",
     "serve": "6.5.3",
     "webpack": "4.1.1",
     "webpack-cli": "2.0.12"
