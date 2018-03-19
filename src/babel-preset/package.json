@@ -1,0 +1,8 @@
+{
+  "name": "babel-preset-cosmos",
+  "description": "babel preset to use cosmos",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "siddharthkp",
+  "license": "MIT"
+}
