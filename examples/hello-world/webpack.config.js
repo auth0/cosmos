@@ -1,9 +1,12 @@
 const webpack = require('webpack')
-// import { resolve } from 'path'
+const path = require('path')
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './index.js',
+  output: {
+    path: path.resolve(__dirname, 'public/dist')
+  },
   module: {
     rules: [
       {
