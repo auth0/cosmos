@@ -5,6 +5,7 @@ import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup, Avatar } from
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
+import { StyledTextAllCaps, StyledTextSubdued } from 'auth0-cosmos/atoms/text'
 
 import { colors, spacing } from 'auth0-cosmos/tokens'
 import CreateClientDialog from './create-client-dialog'
@@ -19,21 +20,14 @@ const NameGroup = styled.div`
   }
 `
 
-/* TODO: Should be a type of paragraph: Paragrapgh small? */
-const ClientID = styled.span`
-  font-size: 13px;
-  color: ${colors.base.grayDarkest};
+const ClientID = styled(StyledTextSubdued)`
   margin-right: ${spacing.xsmall};
+  line-height: normal;
 `
 
-/* TODO: Should be a Component or part of typographic styles: allcaps ? */
-const Type = styled.div`
-  font-size: 12px;
-  color: ${colors.base.grayDark};
-  letter-spacing: 1px;
-  line-height: normal;
+const Type = styled(StyledTextAllCaps)`
   margin-top: ${spacing.xsmall};
-  text-transform: uppercase;
+  display: block;
 `
 
 /* TODO: Remove this override */
