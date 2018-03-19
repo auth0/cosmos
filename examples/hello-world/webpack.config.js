@@ -13,8 +13,7 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['react'],
-          plugins: ['transform-object-rest-spread', 'transform-class-properties']
+          presets: ['cosmos']
         }
       }
     ]
