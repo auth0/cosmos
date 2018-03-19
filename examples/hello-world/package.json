@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "simple example for using cosmos",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack-cli",
+    "start": "serve public"
+  },
+  "dependencies": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0"
+  },
+  "devDependencies": {
+    "serve": "6.5.3",
+    "webpack": "4.1.1",
+    "webpack-cli": "2.0.12"
+  }
+}
