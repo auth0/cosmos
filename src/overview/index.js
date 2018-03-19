@@ -19,6 +19,8 @@ import TabsExample from './examples/tabs'
 import Lists from './examples/lists'
 import Buttons from './examples/buttons'
 import Logos from './examples/logos'
+import Avatars from './examples/avatars'
+import Thumbnails from './examples/thumbnails'
 
 export default () => (
   <Overview>
@@ -56,6 +58,14 @@ export default () => (
       <TabsExample />
       <EmptyStates />
       <Lists />
+      <Row>
+        <Col>
+          <Avatars />
+        </Col>
+        <Col>
+          <Thumbnails />
+        </Col>
+      </Row>
     </Container>
   </Overview>
 )
