@@ -1,7 +1,8 @@
 {
   "name": "auth0-cosmos",
-  "version": "0.0.2",
   "description": "Component library for Auth0 Design System",
+  "version": "0.0.2",
+  "repository": "auth0/cosmos",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
