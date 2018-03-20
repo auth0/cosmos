@@ -13,18 +13,20 @@
 
 ### Basic button
 
-Buttons are great to ask users for action
-
 ```js
 <Button>Save</Button>
 ```
 
-### Button types
+### Button appearance
 
-* Primary actions help attract attention to the main action
-* Use secondary actions for actions that are not as important
-* Link button for linky stuff, idk?
-* Destructive buttons warn the user about it's effects. Proceed with caution.
+The `appearance` prop defines the overall visual style of the Button. You can use
+this prop to indicate to the user the purpose or importance of the button, or call
+their attention to it.
+
+* Primary buttons can help attract attention to the main call-to-action.
+* Secondary buttons can be used for actions which are less important, or for general purpose.
+* Link buttons can be used to make the button appear more as a hyperlink rather than a button.
+* Destructive buttons indicate that the user should be cautious when triggering it.
 
 ```js
 <div>
@@ -34,6 +36,26 @@ Buttons are great to ask users for action
     <Button appearance="transparent">secondary</Button>
     <Button appearance="link">Clear</Button>
     <Button appearance="destructive">Delete</Button>
+  </Stack>
+</div>
+```
+
+### Button sizes
+
+You can create buttons of various sizes.
+
+* Large buttons are used for calls to action and in empty page states.
+* Small buttons are used inside tables, editable rows, or in row actions.
+* Compressed buttons are used for filters or inline forms.
+* Default-sized buttons are used everywhere else.
+
+```js
+<div>
+  <Stack>
+    <Button>default</Button>
+    <Button size="large">large</Button>
+    <Button size="small">small</Button>
+    <Button size="compressed">compressed</Button>
   </Stack>
 </div>
 ```
@@ -54,7 +76,7 @@ saved successfully.
 </div>
 ```
 
-### Icons in Buttons
+### Icon buttons
 
 Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](/docs/Icon)
 
@@ -67,10 +89,11 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 </div>
 ```
 
-### Label/Tooltips
+### Adding tooltips
 
-Especially with buttons that only have an icon and no text, it might be helpful to add a label
-which appear when a user hovers over a button.
+You can set the `label` property to add a tooltip that will appear when the user hovers over
+the button. This can help clarify the purpose of the button, and is especially useful with
+buttons that only have an icon and no text.
 
 ```js
 <Button icon="copy" label="Copy to clipboard" />
