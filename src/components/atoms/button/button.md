@@ -40,7 +40,9 @@ Buttons are great to ask users for action
 
 ### Button states
 
-Disable a button if you don't want the user isn't allowed to click on it
+You can disable a button if you don't want the user to be able to click it. You can also add a spinner
+to indicate that data is loading, or a success checkmark to indicate (for example) that data has been
+saved successfully.
 
 ```js
 <div>

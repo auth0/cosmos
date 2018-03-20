@@ -75,20 +75,58 @@ const states = {
   }
 }
 
-const getAttributes = props => {
-  if (props.success) return { ...states.success }
+const sizes = {
+  default: {
+    height: '40px',
+    minWidth: '96px',
+    padding: spacing.small
+  },
+  large: {
+    height: '48px',
+    minWidth: '96px',
+    padding: spacing.medium
+  },
+  small: {
+    height: '32px',
+    minWidth: 'auto',
+    padding: spacing.xsmall
+  },
+  compressed: {
+    height: '36px',
+    minWidth: 'auto',
+    padding: spacing.small
+  }
+}
 
-  const baseStyles = appearances[props.appearance]
+const getAttributes = props => {
+  // Get the styles for the button's selected appearance
+  const appearanceStyles = appearances[props.appearance]
     ? appearances[props.appearance]
     : appearances.default
-  const styles = { ...baseStyles }
 
-  /* overwrite for loading state */
+  // Get the styles for the button's selected size.
+  const sizeStyles = sizes[props.size] ? sizes[props.size] : sizes.default
+
+  // Merge the two style hashes together to create the base styles.
+  let styles = { ...appearanceStyles, ...sizeStyles }
+
+  // If the success state is set, override some of the styles.
+  if (props.success) {
+    styles = { ...styles, ...states.success }
+  }
+
+  // If the loading state is set, override some of the styles.
   if (props.loading) {
     styles.background = styles.hoverBackground
     styles.focusBackground = styles.hoverBackground
     styles.border = styles.hoverBorder
     styles.focusBorder = styles.hoverBorder
+  }
+
+  // If onlyIcon is set, override some of the styles.
+  if (props.onlyIcon) {
+    styles.padding = 0
+    styles.minWidth = '36px'
   }
 
   return styles
@@ -116,8 +154,11 @@ const ButtonWithIconAndText = ({ children, ...props }) => (
 const ButtonContent = ({ children, ...props }) => {
   if (props.icon && children) {
     return <ButtonWithIconAndText {...props}>{children}</ButtonWithIconAndText>
-  } else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
-  else return <ButtonWithText {...props}>{children}</ButtonWithText>
+  } else if (props.icon && !children) {
+    return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
+  } else {
+    return <ButtonWithText {...props}>{children}</ButtonWithText>
+  }
 }
 
 const Button = ({ children, ...props }) => {
@@ -140,7 +181,8 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  min-width: ${props => (props.onlyIcon ? '36px' : '96px')};
+  height: ${props => getAttributes(props).height};
+  min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -155,7 +197,7 @@ Button.Element = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  padding: ${spacing.xsmall} ${props => (props.onlyIcon ? 0 : spacing.small)};
+  padding: 0 ${props => getAttributes(props).padding};
 
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -184,6 +226,9 @@ Button.Content = styled.span`
 `
 
 Button.propTypes = {
+  /** The size of the button */
+  size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
+
   /** The visual style used to convey the button's purpose */
   appearance: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
 
@@ -204,6 +249,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
+  size: 'default',
   appearance: 'default',
   icon: null,
   disabled: false,
