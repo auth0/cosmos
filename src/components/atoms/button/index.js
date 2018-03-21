@@ -84,7 +84,7 @@ const sizes = {
   large: {
     height: '48px',
     minWidth: '96px',
-    padding: spacing.medium
+    padding: spacing.small
   },
   small: {
     height: '32px',
