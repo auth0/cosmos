@@ -11,7 +11,7 @@ const Buttons = () => (
         <Button appearance="primary" label="Main call to action">
           primary
         </Button>
-        <Button appearance="transparent" label="Secondary action">
+        <Button appearance="secondary" label="Secondary action">
           secondary
         </Button>
       </Stack>
@@ -35,7 +35,7 @@ const Buttons = () => (
           Create Client
         </Button>
 
-        <Button appearance="transparent" icon="play-circle">
+        <Button appearance="secondary" icon="play-circle">
           Tutorial
         </Button>
 

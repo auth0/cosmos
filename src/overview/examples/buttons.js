@@ -38,20 +38,20 @@ const Buttons = () => (
         </Example>
       </Col>
       <Col>
-        <Example title="Primary Button" align="center">
-          <Button appearance="primary">Button</Button>
+        <Example title="CTA Button" align="center">
+          <Button appearance="cta">Button</Button>
         </Example>
       </Col>
     </Row>
     <Row>
       <Col>
-        <Example title="Secondary Button" align="center">
-          <Button appearance="transparent">Button</Button>
+        <Example title="Primary Button" align="center">
+          <Button appearance="primary">Button</Button>
         </Example>
       </Col>
       <Col>
-        <Example title="Link Button" align="center">
-          <Button appearance="link">Button</Button>
+        <Example title="Secondary Button" align="center">
+          <Button appearance="secondary">Button</Button>
         </Example>
       </Col>
     </Row>
@@ -85,7 +85,7 @@ const Buttons = () => (
             <Button appearance="primary" icon="plus">
               Create Client
             </Button>
-            <Button appearance="transparent" icon="play-circle">
+            <Button appearance="secondary" icon="play-circle">
               Tutorial
             </Button>
             <Button appearance="link" icon="copy" />
@@ -99,7 +99,7 @@ const Buttons = () => (
         <Example title="Button Group">
           <Stack>
             <ButtonGroup>
-              <Button appearance="transparent" icon="play-circle">
+              <Button appearance="secondary" icon="play-circle">
                 Tutorial
               </Button>
               <Button appearance="primary" icon="plus">

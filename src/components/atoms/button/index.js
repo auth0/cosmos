@@ -28,15 +28,25 @@ const appearances = {
     focusBackground: colors.button.primaryBackgroundFocus,
     focusBorder: colors.button.primaryBorderFocus
   },
-  transparent: {
-    text: colors.button.transparentText,
-    icon: colors.button.transparentIcon,
-    background: colors.button.transparentBackground,
-    border: colors.button.transparentBorder,
-    hoverBackground: colors.button.transparentBackgroundHover,
-    hoverBorder: colors.button.transparentBorderHover,
-    focusBackground: colors.button.transparentBackgroundFocus,
-    focusBorder: colors.button.transparentBorderFocus
+  secondary: {
+    text: colors.button.secondaryText,
+    icon: colors.button.secondaryIcon,
+    background: colors.button.secondaryBackground,
+    border: colors.button.secondaryBorder,
+    hoverBackground: colors.button.secondaryBackgroundHover,
+    hoverBorder: colors.button.secondaryBorderHover,
+    focusBackground: colors.button.secondaryBackgroundFocus,
+    focusBorder: colors.button.secondaryBorderFocus
+  },
+  cta: {
+    text: colors.button.ctaText,
+    icon: colors.button.ctaIcon,
+    background: colors.button.ctaBackground,
+    border: colors.button.ctaBorder,
+    hoverBackground: colors.button.ctaBackgroundHover,
+    hoverBorder: colors.button.ctaBorderHover,
+    focusBackground: colors.button.ctaBackgroundFocus,
+    focusBorder: colors.button.ctaBorderFocus
   },
   link: {
     text: colors.button.linkText,
@@ -77,22 +87,22 @@ const states = {
 
 const sizes = {
   default: {
-    height: '40px',
+    lineHeight: '37px',
     minWidth: '96px',
     padding: spacing.small
   },
   large: {
-    height: '48px',
+    lineHeight: '45px',
     minWidth: '96px',
     padding: spacing.small
   },
   small: {
-    height: '32px',
+    lineHeight: '29px',
     minWidth: 'auto',
     padding: spacing.xsmall
   },
   compressed: {
-    height: '36px',
+    lineHeight: '33px',
     minWidth: 'auto',
     padding: spacing.small
   }
@@ -149,7 +159,9 @@ const ButtonContent = props => {
     content = <Button.Text>{props.text}</Button.Text>
   }
 
-  return <Button.Element {...props}>{props.override || content}</Button.Element>
+  const Element = props.href ? Button.LinkElement : Button.Element
+
+  return <Element {...props}>{props.override || content}</Element>
 }
 
 const Button = ({ children, ...props }) => {
@@ -173,11 +185,13 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  height: ${props => getAttributes(props).height};
+  display: inline-block;
+  line-height: ${props => getAttributes(props).lineHeight};
   min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
 
   text-transform: uppercase;
+  text-align: center;
   letter-spacing: 1px;
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
@@ -212,6 +226,8 @@ Button.Element = styled.button`
   }
 `
 
+Button.LinkElement = Button.Element.withComponent('a')
+
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
@@ -222,13 +238,19 @@ Button.propTypes = {
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
   /** The visual style used to convey the button's purpose */
-  appearance: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
+  appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
 
   /** Name of icon */
   icon: PropTypes.string,
 
   /** Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
+
+  /** The URL to navigate to when the button is clicked */
+  href: PropTypes.string,
+
+  /** Specifies where to open the navigated document */
+  target: PropTypes.oneOf(['_blank', '_self', '_parent', '_top']),
 
   /** Disables the button, changing the visual style and make it unable to be pressed */
   disabled: PropTypes.bool,

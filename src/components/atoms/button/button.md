@@ -23,19 +23,22 @@ The `appearance` prop defines the overall visual style of the Button. You can us
 this prop to indicate to the user the purpose or importance of the button, or call
 their attention to it.
 
-* Primary buttons can help attract attention to the main call-to-action.
+* CTA buttons can be used to draw attention to the main call-to-action on a page.
+* Primary buttons can be used to indicate an important action (for example, submitting a form).
 * Secondary buttons can be used for actions which are less important, or for general purpose.
-* Link buttons can be used to make the button appear more as a hyperlink rather than a button.
 * Destructive buttons indicate that the user should be cautious when triggering it.
+* Link buttons will cause the button to be styled similarly to a hyperlink, and are primarily used
+  when the button is embedded in another component (for example, a form field).
 
 ```js
 <div>
   <Stack>
     <Button>default</Button>
+    <Button appearance="cta">cta</Button>
     <Button appearance="primary">primary</Button>
-    <Button appearance="transparent">secondary</Button>
-    <Button appearance="link">Clear</Button>
-    <Button appearance="destructive">Delete</Button>
+    <Button appearance="secondary">secondary</Button>
+    <Button appearance="destructive">destructive</Button>
+    <Button appearance="link">link</Button>
   </Stack>
 </div>
 ```
