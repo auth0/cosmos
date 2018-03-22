@@ -45,17 +45,17 @@ their attention to it.
 You can create buttons of various sizes.
 
 * Large buttons are used for calls to action and in empty page states.
-* Small buttons are used inside tables, editable rows, or in row actions.
+* Default-sized buttons are used in most situations, like in Form Actions and Dialogs.
 * Compressed buttons are used for filters or inline forms.
-* Default-sized buttons are used everywhere else.
+* Small buttons are used inside tables: in editable rows, or row actions.
 
 ```js
 <div>
   <Stack>
-    <Button>default</Button>
     <Button size="large">large</Button>
-    <Button size="small">small</Button>
+    <Button>default</Button>
     <Button size="compressed">compressed</Button>
+    <Button size="small">small</Button>
   </Stack>
 </div>
 ```
