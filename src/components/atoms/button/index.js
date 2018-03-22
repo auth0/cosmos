@@ -75,15 +75,47 @@ const states = {
   }
 }
 
-const getAttributes = props => {
-  if (props.success) return { ...states.success }
+const sizes = {
+  default: {
+    height: '40px',
+    minWidth: '96px',
+    padding: spacing.small
+  },
+  large: {
+    height: '48px',
+    minWidth: '96px',
+    padding: spacing.small
+  },
+  small: {
+    height: '32px',
+    minWidth: 'auto',
+    padding: spacing.xsmall
+  },
+  compressed: {
+    height: '36px',
+    minWidth: 'auto',
+    padding: spacing.small
+  }
+}
 
-  const baseStyles = appearances[props.appearance]
+const getAttributes = props => {
+  // Get the styles for the button's selected appearance.
+  const appearanceStyles = appearances[props.appearance]
     ? appearances[props.appearance]
     : appearances.default
-  const styles = { ...baseStyles }
 
-  /* overwrite for loading state */
+  // Get the styles for the button's selected size.
+  const sizeStyles = sizes[props.size] ? sizes[props.size] : sizes.default
+
+  // Merge the two style hashes together to create the base styles.
+  let styles = { ...appearanceStyles, ...sizeStyles }
+
+  // If the success state is set, override some of the styles.
+  if (props.success) {
+    styles = { ...styles, ...states.success }
+  }
+
+  // If the loading state is set, override some of the styles.
   if (props.loading) {
     styles.background = styles.hoverBackground
     styles.focusBackground = styles.hoverBackground
@@ -91,56 +123,58 @@ const getAttributes = props => {
     styles.focusBorder = styles.hoverBorder
   }
 
+  // If the button contains only an icon and no text, override some of the styles.
+  if (props.icon && !props.text) {
+    styles.padding = 0
+    styles.minWidth = '36px'
+  }
+
   return styles
 }
 
-const ButtonWithIcon = ({ children, ...props }) => (
-  <Button.Element {...props} onlyIcon>
-    <Icon size={16} name={props.icon} color={colors.button.linkIcon} />
-  </Button.Element>
-)
+const ButtonContent = props => {
+  let content
 
-const ButtonWithText = ({ children, ...props }) => (
-  <Button.Element {...props}>
-    <Button.Content>{children}</Button.Content>
-  </Button.Element>
-)
+  if (props.icon && props.text) {
+    // The button contains both an icon and text.
+    content = [
+      <Icon size={16} name={props.icon} color={getAttributes(props).icon} />,
+      <Button.Text>{props.text}</Button.Text>
+    ]
+  } else if (props.icon && !props.text) {
+    // The button contains just an icon.
+    content = <Icon size={16} name={props.icon} color={colors.button.linkIcon} />
+  } else {
+    // The button contains just text.
+    content = <Button.Text>{props.text}</Button.Text>
+  }
 
-const ButtonWithIconAndText = ({ children, ...props }) => (
-  <Button.Element {...props}>
-    <Icon size={16} name={props.icon} color={getAttributes(props).icon} />
-    <Button.Content>{children}</Button.Content>
-  </Button.Element>
-)
-
-const ButtonContent = ({ children, ...props }) => {
-  if (props.icon && children) {
-    return <ButtonWithIconAndText {...props}>{children}</ButtonWithIconAndText>
-  } else if (props.icon && !children) return <ButtonWithIcon {...props}>{children}</ButtonWithIcon>
-  else return <ButtonWithText {...props}>{children}</ButtonWithText>
+  return <Button.Element {...props}>{props.override || content}</Button.Element>
 }
 
 const Button = ({ children, ...props }) => {
-  let content
+  let override
 
-  if (props.success)
-    content = <Icon size={16} color={colors.base.white} name="check" type="success" />
-  else if (props.loading) content = <Spinner inverse={props.primary} />
-  else content = children
-
-  if (props.label) {
-    return (
-      <Tooltip content={props.label}>
-        <ButtonContent {...props}>{content}</ButtonContent>
-      </Tooltip>
-    )
+  // Some of the state properties will override the content of the button.
+  if (props.success) {
+    override = <Icon size={16} color={colors.base.white} name="check" type="success" />
+  } else if (props.loading) {
+    override = <Spinner inverse={props.primary} />
   }
 
-  return <ButtonContent {...props}>{content}</ButtonContent>
+  let button = <ButtonContent {...props} text={children} override={override} />
+
+  // If a label was specified, wrap the Button in a Tooltip.
+  if (props.label) {
+    return <Tooltip content={props.label}>{button}</Tooltip>
+  }
+
+  return button
 }
 
 Button.Element = styled.button`
-  min-width: ${props => (props.onlyIcon ? '36px' : '96px')};
+  height: ${props => getAttributes(props).height};
+  min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
 
   text-transform: uppercase;
@@ -155,7 +189,7 @@ Button.Element = styled.button`
 
   color: ${props => getAttributes(props).text};
 
-  padding: ${spacing.xsmall} ${props => (props.onlyIcon ? 0 : spacing.small)};
+  padding: 0 ${props => getAttributes(props).padding};
 
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -178,12 +212,15 @@ Button.Element = styled.button`
   }
 `
 
-Button.Content = styled.span`
+Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
 `
 
 Button.propTypes = {
+  /** The size of the button */
+  size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
+
   /** The visual style used to convey the button's purpose */
   appearance: PropTypes.oneOf(['default', 'primary', 'transparent', 'destructive', 'link']),
 
@@ -204,6 +241,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
+  size: 'default',
   appearance: 'default',
   icon: null,
   disabled: false,
