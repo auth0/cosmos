@@ -56,7 +56,7 @@ const NameGroup = styled.div`
   display: flex;
   align-items: center;
   span {
-    margin-right: ${spacing.xsmall};
+    margin-right: ${spacing.small};
   }
 `
 
