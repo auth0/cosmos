@@ -31,7 +31,7 @@ const PageHeader = props => {
           {props.secondaryAction && (
             <Button
               size="large"
-              appearance="transparent"
+              appearance="secondary"
               icon={props.secondaryAction.icon}
               onClick={props.secondaryAction.method}
             >
@@ -40,7 +40,7 @@ const PageHeader = props => {
           )}
           <Button
             size="large"
-            appearance="primary"
+            appearance="cta"
             icon={props.primaryAction.icon}
             onClick={props.primaryAction.method}
           >
