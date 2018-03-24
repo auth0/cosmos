@@ -52,6 +52,7 @@
     "react-docgen": "2.20.1",
     "react-docgen-displayname-handler": "1.0.1",
     "react-scripts": "1.1.1",
+    "react-storybook-addon-props-combinations": "1.0.1",
     "serve": "6.5.1",
     "svgo": "1.0.5"
   }
