@@ -41,8 +41,8 @@ const ActionInput = props => {
         <ButtonGroup compressed>
           {props.actions.map((action, index) => (
             <Button
+              appearance="link"
               key={index}
-              link
               icon={action.icon}
               onClick={action.method}
               label={action.label}

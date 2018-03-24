@@ -2,7 +2,7 @@ import React from 'react'
 
 import Example from '../ov-components/example'
 import Section from '../ov-components/section'
-import { Form, FormGroup } from 'auth0-cosmos'
+import { Code, Form, FormGroup } from 'auth0-cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()
@@ -17,8 +17,13 @@ const Forms = () => (
           label="Field with helper text"
           defaultValue="This is the field value"
           placeholder="Placeholder text"
-          description="Name of the connection to be use for Password Grant exchanges. The `default_directory` value
-        should be the exact name of an existing connections of one of the following."
+          helpText={
+            <span>
+              Name of the connection to be use for Password Grant exchanges. The{' '}
+              <Code>default_directory</Code>
+              value should be the exact name of an existing connections of one of the following.
+            </span>
+          }
         />
         <Form.TextInput
           label="Text input with actions"
@@ -58,8 +63,13 @@ const Forms = () => (
           label="Field with helper text"
           defaultValue="This is the field value"
           placeholder="Placeholder text"
-          description="Name of the connection to be use for Password Grant exchanges. The `default_directory` value
-        should be the exact name of an existing connections of one of the following."
+          helpText={
+            <span>
+              Name of the connection to be use for Password Grant exchanges. The{' '}
+              <Code>default_directory</Code>
+              value should be the exact name of an existing connections of one of the following.
+            </span>
+          }
         />
         <Form.TextInput
           label="Text input with actions"

@@ -1424,6 +1424,14 @@ babel-plugin-transform-undefined-to-void@^6.8.3:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-undefined-to-void/-/babel-plugin-transform-undefined-to-void-6.9.0.tgz#eb5db0554caffe9ded0206468ec0c6c3b332b9d2"
 
+babel-preset-cosmos@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-cosmos/-/babel-preset-cosmos-0.0.2.tgz#fcc23641cec764414a45c079396796d4397d0e0e"
+  dependencies:
+    babel-plugin-transform-class-properties "6.24.1"
+    babel-plugin-transform-object-rest-spread "6.26.0"
+    babel-preset-react "6.24.1"
+
 babel-preset-env@1.6.1, babel-preset-env@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"

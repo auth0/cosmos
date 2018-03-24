@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Avatar } from 'auth0-cosmos'
+import { Tabs, Thumbnail } from 'auth0-cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
@@ -17,7 +17,7 @@ class Client extends React.Component {
             name: 'Non Interactive',
             clientId: this.props.match.params.clientId
           }}
-          logo={<Avatar image={ClientTypeImages.non_interactive} />}
+          logo={<Thumbnail size="large" source={ClientTypeImages.non_interactive} />}
           breadcrumb={{
             content: 'Clients',
             link: '/clients'

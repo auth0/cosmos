@@ -60,18 +60,6 @@ const LogoImage = () => (
   </svg>
 )
 
-const AvatarLogo = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="24" height="24">
-    <g>
-      <circle cx="15" cy="15" r="15" />
-      <path
-        d="M15,19.5L15,19.5c2.5,0,4.5-2,4.6-4.5c0-1.2-0.5-2.4-1.3-3.2c-0.9-0.9-2-1.3-3.2-1.3h0c-2.5,0-4.5,2-4.5,4.5   C10.5,17.4,12.5,19.5,15,19.5z M15,11.6L15,11.6c0.9,0,1.7,0.4,2.4,1c0.6,0.6,1,1.5,1,2.4c0,1.8-1.5,3.3-3.3,3.3h0   c-1.8,0-3.3-1.5-3.3-3.4C11.7,13.1,13.2,11.6,15,11.6z M21.8,8.2C20,6.4,17.5,5.4,15,5.4c-2.6,0-5,1-6.8,2.8   C5.5,11,4.7,15.1,6.2,18.6l1.1-0.5C6,15,6.7,11.5,9.1,9.1c1.6-1.6,3.7-2.5,5.9-2.5c2.3,0,4.3,0.9,5.9,2.4s2.5,3.7,2.5,5.9   c0,2.2-0.9,4.3-2.4,5.9c-2.4,2.4-5.9,3.1-9,1.9l-0.4,1.1c1.1,0.5,2.3,0.7,3.5,0.7c2.5,0,5-1,6.8-2.8c1.8-1.8,2.8-4.2,2.8-6.8   C24.6,12.4,23.6,10,21.8,8.2z M8.9,19.1L8.9,19.1c-0.6,0-1.1,0.2-1.6,0.6c-0.9,0.9-0.9,2.2,0,3.1c0.4,0.4,1,0.6,1.5,0.7h0   c0.6,0,1.1-0.2,1.5-0.6c0.4-0.4,0.6-1,0.7-1.5c0-0.6-0.2-1.1-0.6-1.6C10,19.3,9.5,19.1,8.9,19.1z M9.6,22c-0.2,0.2-0.4,0.2-0.7,0.3   c-0.3,0-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4c0.2-0.2,0.4-0.3,0.7-0.3c0.3,0,0.5,0.1,0.7,0.3c0.2,0.2,0.3,0.4,0.3,0.7   C9.9,21.5,9.8,21.8,9.6,22z"
-        fill="#ffffff"
-      />
-    </g>
-  </svg>
-)
-
 const DropdownComponent = () => (
   <Dropdown>
     <Dropdown.Link name="Switch tenant" icon="switch" onClick={switchTenant} isDisabled="true" />
@@ -198,7 +186,10 @@ export default () => (
               <a href="">
                 <UserDropdown>
                   <div className="tenant-name">cosmos-demo</div>
-                  <Avatar size={24} backgroundColor={colors.base.orange} image={<AvatarLogo />} />
+                  <Avatar
+                    size="small"
+                    image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+                  />
                   <Icon name="chevron-down" size={10} color={colors.text.default} />
                 </UserDropdown>
               </a>

@@ -41,7 +41,7 @@ const Actions = props => {
         {props.destructiveActions && (
           <Right>
             {props.destructiveActions.map((action, index) => (
-              <Button key={index} onClick={action.method} destructive>
+              <Button appearance="destructive" key={index} onClick={action.method}>
                 {action.label}
               </Button>
             ))}

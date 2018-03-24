@@ -25,7 +25,7 @@ class Advanced extends React.Component {
                 type="text"
                 code
                 placeholder="9JA89QQLNQ"
-                description={
+                helpText={
                   <span>
                     <Link
                       target="_blank"
@@ -49,7 +49,7 @@ class Advanced extends React.Component {
                 code
                 placeholder="D8:A0:83:..., D9:C1:B2:..."
                 length="3"
-                description="The SHA256 fingerprints of your app’s signing certificate. You can specify multiple key hashes by comma-separating them or one by line."
+                helpText="The SHA256 fingerprints of your app’s signing certificate. You can specify multiple key hashes by comma-separating them or one by line."
               />
             </Form.FieldSet>
             <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
@@ -61,7 +61,7 @@ class Advanced extends React.Component {
                 label="Allowed APPs / APIs"
                 placeholder=""
                 length="3"
-                description="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific Client IDs. You can specify multiple IDs by comma-separating them or one by line."
+                helpText="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific Client IDs. You can specify multiple IDs by comma-separating them or one by line."
               />
 
               <Form.Select
@@ -77,7 +77,7 @@ class Advanced extends React.Component {
               <Form.Switch
                 label="OIDC Conformant"
                 on
-                description={
+                helpText={
                   <span>
                     Clients flagged as OIDC Conformant will strictly follow the OIDC specification.
                     Turning on this flag can introduce breaking changes to this client. If you have

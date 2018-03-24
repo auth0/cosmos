@@ -104,7 +104,7 @@ class CreateClientDialog extends React.Component {
         <Form layout="label-on-top">
           <Form.TextInput
             label="Name"
-            description="You can change the client name later in the client settings."
+            helpText="You can change the client name later in the client settings."
             value={name}
           />
 
