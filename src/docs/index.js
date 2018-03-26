@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Sidebar from './sidebar'
 import Spec from './spec'
-import Home from './home'
-import GuidingPrinciples from './guiding-principles'
-import ContributionGuide from './contribution-guide'
-import FAQS from './faqs'
+import GettingStarted from './pages/getting-started'
+import GuidingPrinciples from './pages/guiding-principles'
+import ContributionGuide from './pages/contribution-guide'
+import FAQS from './pages/faqs'
 
 const Layout = styled.div`
   position: relative;
@@ -44,7 +44,7 @@ export default () => (
             <Route path="/docs/contribution-guide" component={ContributionGuide} />
             <Route path="/docs/faqs" component={FAQS} />
             <Route path="/docs/:componentName" component={Spec} />
-            <Route component={Home} />
+            <Route component={GettingStarted} />
           </Switch>
         </Body>
       </MainContent>
