@@ -1,7 +1,6 @@
 {
   "name": "babel-preset-cosmos",
   "description": "babel preset to use cosmos",
-  "version": "0.0.2",
   "repository": "auth0/cosmos",
   "main": "index.js",
   "author": "siddharthkp",
