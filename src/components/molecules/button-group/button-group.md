@@ -9,18 +9,24 @@
 
 ```jsx
 <ButtonGroup {props}>
-  <Button appearance="primary">Save changes</Button>
-  <Button>Clear</Button>
+  <Button icon="pencil" />
+  <Button icon="copy" />
+  <Button icon="delete" />
 </ButtonGroup>
 ```
 
 ## Examples
 
+When presenting actions inside lists and tables, you can use the Button Group.
+In most other cases, these examples can be achieved by other more specialized components. For the submit and other actions of a form, you should check [Form Actions](/docs/Form%20Actions). For presenting the main page actions, you should check [Page Header](/docs/Page%20Header).
+
 ```js
 <Stack>
   <ButtonGroup>
     <Button appearance="primary">Save changes</Button>
-    <Button>Clear</Button>
+    <Button appearance="secondary" icon="play">
+      Try
+    </Button>
   </ButtonGroup>
   <ButtonGroup>
     <Button icon="pencil" />
@@ -30,11 +36,15 @@
 </Stack>
 ```
 
+### Joining buttons
+
+This is experimental and shouldn't be used yet.
+
 ```js
 <Stack>
   <ButtonGroup compressed>
-    <Button>Save changes</Button>
-    <Button>Clear</Button>
+    <Button>Copy</Button>
+    <Button>Paste</Button>
   </ButtonGroup>
   <ButtonGroup compressed>
     <Button icon="pencil" />

@@ -3,5 +3,6 @@
   "help": ["question", "?"],
   "users": ["person", "people"],
   "check": ["done", "tick"],
-  "rotate": ["update", "refresh"]
+  "rotate": ["update", "refresh"],
+  "play": ["try", "test"]
 }
