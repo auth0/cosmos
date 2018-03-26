@@ -9,79 +9,89 @@ import Tooltip from '../tooltip'
 
 const appearances = {
   default: {
-    text: colors.button.defaultText,
-    icon: colors.button.defaultIcon,
-    background: colors.button.defaultBackground,
-    border: colors.button.defaultBorder,
-    hoverBackground: colors.button.defaultBackgroundHover,
-    hoverBorder: colors.button.defaultBorderHover,
-    focusBackground: colors.button.defaultBackgroundFocus,
-    focusBorder: colors.button.defaultBorderFocus
+    text: colors.button.default.text,
+    icon: colors.button.default.icon,
+    background: colors.button.default.background,
+    border: colors.button.default.border,
+    hoverBackground: colors.button.default.backgroundHover,
+    hoverBorder: colors.button.default.borderHover,
+    focusBackground: colors.button.default.backgroundFocus,
+    focusBorder: colors.button.default.borderFocus,
+    activeBackground: colors.button.default.backgroundActive,
+    activeBorder: colors.button.default.borderActive
   },
   primary: {
-    text: colors.button.primaryText,
-    icon: colors.button.primaryIcon,
-    background: colors.button.primaryBackground,
-    border: colors.button.primaryBorder,
-    hoverBackground: colors.button.primaryBackgroundHover,
-    hoverBorder: colors.button.primaryBorderHover,
-    focusBackground: colors.button.primaryBackgroundFocus,
-    focusBorder: colors.button.primaryBorderFocus
+    text: colors.button.primary.text,
+    icon: colors.button.primary.icon,
+    background: colors.button.primary.background,
+    border: colors.button.primary.border,
+    hoverBackground: colors.button.primary.backgroundHover,
+    hoverBorder: colors.button.primary.borderHover,
+    focusBackground: colors.button.primary.backgroundFocus,
+    focusBorder: colors.button.primary.borderFocus,
+    activeBackground: colors.button.primary.backgroundActive,
+    activeBorder: colors.button.primary.borderActive
   },
   secondary: {
-    text: colors.button.secondaryText,
-    icon: colors.button.secondaryIcon,
-    background: colors.button.secondaryBackground,
-    border: colors.button.secondaryBorder,
-    hoverBackground: colors.button.secondaryBackgroundHover,
-    hoverBorder: colors.button.secondaryBorderHover,
-    focusBackground: colors.button.secondaryBackgroundFocus,
-    focusBorder: colors.button.secondaryBorderFocus
+    text: colors.button.secondary.text,
+    icon: colors.button.secondary.icon,
+    background: colors.button.secondary.background,
+    border: colors.button.secondary.border,
+    hoverBackground: colors.button.secondary.backgroundHover,
+    hoverBorder: colors.button.secondary.borderHover,
+    focusBackground: colors.button.secondary.backgroundFocus,
+    focusBorder: colors.button.secondary.borderFocus,
+    activeBackground: colors.button.secondary.backgroundActive,
+    activeBorder: colors.button.secondary.borderActive
   },
   cta: {
-    text: colors.button.ctaText,
-    icon: colors.button.ctaIcon,
-    background: colors.button.ctaBackground,
-    border: colors.button.ctaBorder,
-    hoverBackground: colors.button.ctaBackgroundHover,
-    hoverBorder: colors.button.ctaBorderHover,
-    focusBackground: colors.button.ctaBackgroundFocus,
-    focusBorder: colors.button.ctaBorderFocus
-  },
-  link: {
-    text: colors.button.linkText,
-    icon: colors.button.linkIcon,
-    background: 'transparent',
-    border: 'transparent',
-    hoverText: colors.button.linkHover,
-    hoverBackground: 'transparent',
-    hoverBorder: 'transparent',
-    focusText: colors.button.linkFocus,
-    focusBackground: 'transparent',
-    focusBorder: 'transparent'
+    text: colors.button.cta.text,
+    icon: colors.button.cta.icon,
+    background: colors.button.cta.background,
+    border: colors.button.cta.border,
+    hoverBackground: colors.button.cta.backgroundHover,
+    hoverBorder: colors.button.cta.borderHover,
+    focusBackground: colors.button.cta.backgroundFocus,
+    focusBorder: colors.button.cta.borderFocus,
+    activeBackground: colors.button.cta.backgroundActive,
+    activeBorder: colors.button.cta.borderActive
   },
   destructive: {
-    text: colors.button.destructiveText,
-    icon: colors.button.destructiveIcon,
-    background: colors.button.destructiveBackground,
-    border: colors.button.destructiveBorder,
-    hoverBackground: colors.button.destructiveBackgroundHover,
-    hoverBorder: colors.button.destructiveBorderHover,
-    focusBackground: colors.button.destructiveBackgroundFocus,
-    focusBorder: colors.button.destructiveBorderFocus
+    text: colors.button.destructive.text,
+    icon: colors.button.destructive.icon,
+    background: colors.button.destructive.background,
+    border: colors.button.destructive.border,
+    hoverBackground: colors.button.destructive.backgroundHover,
+    hoverBorder: colors.button.destructive.borderHover,
+    focusBackground: colors.button.destructive.backgroundFocus,
+    focusBorder: colors.button.destructive.borderFocus,
+    activeBackground: colors.button.destructive.backgroundActive,
+    activeBorder: colors.button.destructive.borderActive
+  },
+  link: {
+    text: colors.button.link.text,
+    icon: colors.button.link.icon,
+    background: 'transparent',
+    border: 'transparent',
+    hoverText: colors.button.link.hover,
+    hoverBackground: 'transparent',
+    hoverBorder: 'transparent',
+    focusText: colors.button.link.focus,
+    focusBackground: 'transparent',
+    focusBorder: 'transparent'
   }
 }
 
 const states = {
   success: {
-    text: colors.button.successText,
-    icon: colors.button.successIcon,
-    background: colors.button.successBackground,
-    border: colors.button.successBorder,
-    hoverBackground: colors.button.successBackgroundHover,
-    hoverBorder: colors.button.successBorderHover,
-    focusBackground: colors.button.successBackgroundFocus,
-    focusBorder: colors.button.successBorderFocus
+    text: colors.button.success.text,
+    icon: colors.button.success.icon,
+    background: colors.button.success.background,
+    border: colors.button.success.border,
+    hoverBackground: colors.button.success.backgroundHover,
+    hoverBorder: colors.button.success.borderHover,
+    focusBackground: colors.button.success.backgroundFocus,
+    focusBorder: colors.button.success.borderFocus
   }
 }
 
@@ -222,6 +232,12 @@ Button.Element = styled.button`
   &:focus {
     background: ${props => getAttributes(props).focusBackground};
     border-color: ${props => getAttributes(props).focusBorder};
+    outline: none;
+  }
+
+  &:active {
+    background: ${props => getAttributes(props).activeBackground};
+    border-color: ${props => getAttributes(props).activeBorder};
     outline: none;
   }
 `

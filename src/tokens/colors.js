@@ -88,8 +88,8 @@ const colors = {
     },
     secondary: {
       background: 'transparent',
-      backgroundHover: 'rgba(0,0,0,0.5)',
-      backgroundFocus: 'rgba(0,0,0,0.5)',
+      backgroundHover: 'rgba(0,0,0,0.05)',
+      backgroundFocus: 'rgba(0,0,0,0.05)',
       backgroundActive: '#DADADA',
       text: '#333',
       icon: '#333',
