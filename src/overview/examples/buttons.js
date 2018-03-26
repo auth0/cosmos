@@ -58,7 +58,9 @@ const Buttons = () => (
     <Row>
       <Col>
         <Example title="Disabled Button" align="center">
-          <Button disabled>Button</Button>
+          <Button appearance="primary" disabled>
+            Button
+          </Button>
         </Example>
       </Col>
       <Col>
@@ -82,11 +84,11 @@ const Buttons = () => (
       <Col>
         <Example title="Button with icon" align="center">
           <Stack>
-            <Button appearance="primary" icon="plus">
+            <Button appearance="cta" size="large" icon="plus">
               Create Client
             </Button>
-            <Button appearance="secondary" icon="play-circle">
-              Tutorial
+            <Button appearance="secondary" icon="play">
+              Try
             </Button>
             <Button appearance="link" icon="copy" />
             <Button icon="copy" label="Copy to Clipboard" />
@@ -99,10 +101,10 @@ const Buttons = () => (
         <Example title="Button Group">
           <Stack>
             <ButtonGroup>
-              <Button appearance="secondary" icon="play-circle">
+              <Button appearance="secondary" size="large" icon="play-circle">
                 Tutorial
               </Button>
-              <Button appearance="primary" icon="plus">
+              <Button appearance="cta" size="large" icon="plus">
                 Create Client
               </Button>
             </ButtonGroup>
