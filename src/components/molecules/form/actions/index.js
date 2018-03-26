@@ -24,7 +24,11 @@ const Actions = props => {
     <StyledActions layout={layout}>
       <ButtonGroup>
         {props.primaryAction && (
-          <Button appearance="primary" onClick={props.primaryAction.method}>
+          <Button
+            appearance="primary"
+            icon={props.primaryAction.icon}
+            onClick={props.primaryAction.method}
+          >
             {props.primaryAction.label}
           </Button>
         )}
@@ -32,7 +36,7 @@ const Actions = props => {
         {props.secondaryActions &&
           props.secondaryActions.map((action, index) => {
             return (
-              <Button key={index} onClick={action.method}>
+              <Button appearance="secondary" icon={action.icon} key={index} onClick={action.method}>
                 {action.label}
               </Button>
             )
@@ -41,7 +45,12 @@ const Actions = props => {
         {props.destructiveActions && (
           <Right>
             {props.destructiveActions.map((action, index) => (
-              <Button appearance="destructive" key={index} onClick={action.method}>
+              <Button
+                appearance="destructive"
+                icon={action.icon}
+                key={index}
+                onClick={action.method}
+              >
                 {action.label}
               </Button>
             ))}
@@ -57,6 +66,7 @@ Actions.displayName = 'Form Actions'
 
 const actionShape = {
   label: PropTypes.string.isRequired,
+  icon: PropTypes.string,
   method: PropTypes.func.isRequired
 }
 
