@@ -163,7 +163,7 @@ const ButtonContent = props => {
     ]
   } else if (props.icon && !props.text) {
     // The button contains just an icon.
-    content = <Icon size={16} name={props.icon} color={colors.button.linkIcon} />
+    content = <Icon size={16} name={props.icon} color={colors.button.link.icon} />
   } else {
     // The button contains just text.
     content = <Button.Text>{props.text}</Button.Text>
