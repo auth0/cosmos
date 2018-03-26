@@ -1,0 +1,4 @@
+{
+  "changelog":
+    "# Changelog\nAll notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)\nand this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).\n\n## 0.1.0 [March 27, 2016]\n\n### Added\n- New `cta` appearance for `Button`, to be used for primary calls to action. [#425]\n- New \"link mode\" for `Button`. Passing an `href` prop to `Button` will cause it to render as an `<a>` instead of a `<button>`. [#425]\n- *Unstable:* New `Avatar` and `Thumbnail` components. [#398]\n- *Unstable:* New `Text` component for styled text. [#392]\n\n### Changed\n- **BREAKING:** Colliding Boolean props governing appearance of `Button` were replaced with an `appearance` enum. [#400]\n"
+}
