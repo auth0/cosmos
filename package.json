@@ -17,15 +17,16 @@
   "scripts": {
     "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
-    "build": "run-s build:docs build:icons build:apps",
+    "dev:sandbox": "start-storybook -p 9009 -s public",
+    "build": "run-s build:docs build:icons build:apps build:sandbox",
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
+    "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
     "start": "serve -s build",
     "test": "run-s build chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
     "precommit": "lint-staged",
-    "storybook": "start-storybook -p 9009 -s public",
     "chromatic": "chromatic test --storybook-addon"
   },
   "lint-staged": {

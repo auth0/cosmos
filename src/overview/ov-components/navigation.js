@@ -82,6 +82,12 @@ export default () => (
               </a>
             </li>
             <li>
+              <a href="/sandbox">
+                <Icon name="extensions" color={colors.base.grayLightest} size={20} />
+                <span>Sandbox</span>
+              </a>
+            </li>
+            <li>
               <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
                 <Icon name="code" color={colors.base.grayLightest} size={20} />
                 <span>Github</span>
