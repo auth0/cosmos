@@ -7,6 +7,7 @@ import Spec from './spec'
 import GettingStarted from './pages/getting-started'
 import GuidingPrinciples from './pages/guiding-principles'
 import ContributionGuide from './pages/contribution-guide'
+import ReleaseProcess from './pages/release-process'
 import FAQS from './pages/faqs'
 
 const Layout = styled.div`
@@ -43,6 +44,7 @@ export default () => (
             <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
             <Route path="/docs/contribution-guide" component={ContributionGuide} />
             <Route path="/docs/faqs" component={FAQS} />
+            <Route path="/docs/release-process" component={ReleaseProcess} />
             <Route path="/docs/:componentName" component={Spec} />
             <Route component={GettingStarted} />
           </Switch>
