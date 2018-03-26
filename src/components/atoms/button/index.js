@@ -91,7 +91,9 @@ const states = {
     hoverBackground: colors.button.success.backgroundHover,
     hoverBorder: colors.button.success.borderHover,
     focusBackground: colors.button.success.backgroundFocus,
-    focusBorder: colors.button.success.borderFocus
+    focusBorder: colors.button.success.borderFocus,
+    activeBackground: colors.button.success.backgroundActive,
+    activeBorder: colors.button.success.borderActive
   }
 }
 
@@ -139,8 +141,10 @@ const getAttributes = props => {
   if (props.loading) {
     styles.background = styles.hoverBackground
     styles.focusBackground = styles.hoverBackground
+    styles.activeBackground = styles.hoverBackground
     styles.border = styles.hoverBorder
     styles.focusBorder = styles.hoverBorder
+    styles.activeBorder = styles.hoverBorder
   }
 
   // If the button contains only an icon and no text, override some of the styles.
@@ -217,6 +221,7 @@ Button.Element = styled.button`
 
   opacity: ${props => (props.disabled ? 0.5 : 1)};
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
   ${Icon.Element} {

@@ -130,7 +130,8 @@ const colors = {
       icon: '#FAFAFA',
       border: '#4CD964',
       borderHover: '#4CD964',
-      borderFocus: '#4CD964'
+      borderFocus: '#4CD964',
+      borderActive: '#4CD964'
     },
     link: {
       text: '#0a84ae',
