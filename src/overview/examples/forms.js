@@ -109,7 +109,8 @@ const Forms = () => (
           primaryAction={{ label: 'Save' }}
           secondaryActions={[
             {
-              label: 'Clear'
+              label: 'Try',
+              icon: 'play'
             }
           ]}
         />
@@ -127,7 +128,15 @@ const Forms = () => (
         <Form>
           <Form.FieldSet label="Form Title">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
-            <Form.Actions primaryAction={{ label: 'Save' }} />
+            <Form.Actions
+              primaryAction={{ label: 'Save' }}
+              secondaryActions={[
+                {
+                  label: 'Try',
+                  icon: 'play'
+                }
+              ]}
+            />
           </Form.FieldSet>
         </Form>
       </FormGroup>

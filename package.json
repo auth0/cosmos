@@ -17,21 +17,30 @@
   "scripts": {
     "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
-    "build": "run-s build:docs build:icons build:apps",
+    "dev:sandbox": "start-storybook -p 9009 -s public",
+    "build": "run-s build:docs build:icons build:apps build:sandbox",
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
+    "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
     "start": "serve -s build",
-    "test": "echo ✅ Tests can't fail if there don't write any 😉",
+    "test": "run-s build chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
     "precommit": "lint-staged && npm run build:icons",
+    "chromatic":
+      "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
     "deploy": "node tooling/publish.js"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-links": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/react": "^3.3.15",
     "babel-cli": "6.26.0",
+    "babel-core": "^6.26.0",
     "chokidar": "2.0.2",
     "execa": "0.10.0",
     "fs-extra": "5.0.0",
@@ -45,10 +54,12 @@
     "prettier": "1.11.1",
     "prettycli": "1.4.3",
     "puppeteer": "1.1.1",
+    "react-chromatic": "0.7.11",
     "react-docgen": "2.20.1",
     "react-docgen-displayname-handler": "1.0.1",
     "react-scripts": "1.1.1",
     "read-pkg": "3.0.0",
+    "react-storybook-addon-props-combinations": "1.0.1",
     "serve": "6.5.1",
     "svgo": "1.0.5"
   }
