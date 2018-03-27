@@ -50,13 +50,7 @@ pipeline {
       step([$class: 'JUnitResultArchiver', testResults: 'junit.xml']) // Required for the tests trend graph
 
       script {
-        String additionalMessage = '';
-        if (env.BRANCH_NAME.startsWith("PR-")) {
-          additionalMessage += "\nPR: ${env.CHANGE_URL}\nTitle: ${env.CHANGE_TITLE}\nAuthor: ${env.CHANGE_AUTHOR}";
-        }
-        additionalMessage += "\n" + junitResultsToString('junit.xml');
-
-        notifySlack(params.SlackTarget, additionalMessage);
+        notifySlack(params.SlackTarget);
       }
 
       // Recommended to clean the workspace after every run
