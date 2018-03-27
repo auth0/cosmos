@@ -24,7 +24,8 @@
     "start": "serve -s build",
     "test": "echo ✅ Tests can't fail if there don't write any 😉",
     "screenshot": "yarn build && node tooling/screenshot",
-    "precommit": "lint-staged && npm run build:icons"
+    "precommit": "lint-staged && npm run build:icons",
+    "deploy": "node tooling/publish.js"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
