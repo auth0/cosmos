@@ -90,7 +90,7 @@ const run = () => {
 
     // Write the transformed path data from the icon SVG files
     fs.writeFileSync(
-      'src/components/atoms/icon/icons.json',
+      'src/build/components/atoms/icon/icons.json',
       JSON.stringify({ icons }, null, 2),
       'utf8'
     )

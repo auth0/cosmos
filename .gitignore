@@ -62,6 +62,7 @@ typings/
 
 # ignore the build directory output of react-scripts
 build
+src/build
 
 # ignore metadata file
 src/docs/metadata.json

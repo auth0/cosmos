@@ -15,9 +15,10 @@
     "yamljs": "0.3.0"
   },
   "scripts": {
-    "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
-    "dev:build": "react-scripts start",
+    "dev": "run-p 'build:components -- -w' 'build:docs -- -w' 'build:icons -- -w' dev:start",
+    "dev:start": "react-scripts start",
     "build": "run-s build:docs build:icons build:apps",
+    "build:components": "babel src/components -d src/build/components",
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
@@ -30,6 +31,7 @@
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
   },
   "devDependencies": {
+    "babel-cli": "6.26.0",
     "chokidar": "2.0.2",
     "glob": "7.1.2",
     "htmlparser2": "3.9.2",
