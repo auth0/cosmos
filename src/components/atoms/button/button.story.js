@@ -12,7 +12,7 @@ storiesOf('Button').add('overview', () => (
           <Stack>
             <Button>Button</Button>
             <Button appearance="primary">Primary</Button>
-            <Button appearance="transparent">Transparent</Button>
+            <Button appearance="secondary">Secondary</Button>
             <Button appearance="link">Link</Button>
             <Button appearance="destructive">Destructive</Button>
           </Stack>
@@ -27,8 +27,8 @@ storiesOf('Button').add('overview', () => (
             <Button disabled appearance="primary">
               Primary
             </Button>
-            <Button disabled appearance="transparent">
-              Transparent
+            <Button disabled appearance="secondary">
+              Secondary
             </Button>
             <Button disabled appearance="link">
               Link
@@ -48,8 +48,8 @@ storiesOf('Button').add('overview', () => (
             <Button loading appearance="primary">
               Primary
             </Button>
-            <Button loading appearance="transparent">
-              Transparent
+            <Button loading appearance="secondary">
+              Secondary
             </Button>
             <Button loading appearance="link">
               Link
@@ -69,8 +69,8 @@ storiesOf('Button').add('overview', () => (
             <Button success appearance="primary">
               Primary
             </Button>
-            <Button success appearance="transparent">
-              Transparent
+            <Button success appearance="secondary">
+              Secondary
             </Button>
             <Button success appearance="link">
               Link
@@ -129,7 +129,7 @@ storiesOf('Button').add('overview', () => (
             <Button appearance="primary" icon="plus">
               Create Client
             </Button>
-            <Button appearance="transparent" icon="play-circle">
+            <Button appearance="secondary" icon="play-circle">
               Tutorial
             </Button>
             <Button appearance="link" icon="copy" />
@@ -173,7 +173,7 @@ storiesOf('Button').add('overview', () => (
             <Stack>
               <Button>Button</Button>
               <Button appearance="primary">Primary</Button>
-              <Button appearance="transparent">Transparent</Button>
+              <Button appearance="secondary">Secondary</Button>
               <Button appearance="link">Link</Button>
               <Button appearance="destructive">Destructive</Button>
             </Stack>
@@ -185,8 +185,8 @@ storiesOf('Button').add('overview', () => (
               <Button disabled appearance="primary">
                 Primary
               </Button>
-              <Button disabled appearance="transparent">
-                Transparent
+              <Button disabled appearance="secondary">
+                Secondary
               </Button>
               <Button disabled appearance="link">
                 Link
@@ -203,8 +203,8 @@ storiesOf('Button').add('overview', () => (
               <Button loading appearance="primary">
                 Primary
               </Button>
-              <Button loading appearance="transparent">
-                Transparent
+              <Button loading appearance="secondary">
+                Secondary
               </Button>
               <Button loading appearance="link">
                 Link
@@ -220,7 +220,7 @@ storiesOf('Button').add('overview', () => (
               <Button icon="delete" />
               <Button appearance="primary" icon="delete" />
               <Button appearance="link" icon="delete" />
-              <Button appearance="transparent" icon="delete" />
+              <Button appearance="secondary" icon="delete" />
               <Button appearance="destructive" icon="delete" />
             </Stack>
           </div>
