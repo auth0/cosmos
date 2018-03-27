@@ -28,10 +28,14 @@ directories.forEach(directory => {
 })
 info('PUBLISH', 'updated version')
 
-process.exit(1)
+/* copy readme to all dependencies */
+const readmePath = './readme.md'
+directories.forEach(directory => {
+  fs.copySync(readmePath, directory.replace('src', 'dist'))
+})
+info('PUBLISH', 'copied readme')
 
 /* transpile components */
-
 const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
 try {
   execa.shellSync(
