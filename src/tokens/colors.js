@@ -75,7 +75,7 @@ const colors = {
       borderActive: '#DADADA'
     },
     primary: {
-      background: '#44C7F4',
+      background: 'pink',
       backgroundHover: '#13B7ED',
       backgroundFocus: '#13B7ED',
       backgroundActive: '#11A7D9',
