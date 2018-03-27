@@ -169,8 +169,6 @@ const Button = ({ children, ...props }) => {
     return <Tooltip content={props.label}>{button}</Tooltip>
   }
 
-  if (!window.count) window.count = 0
-  window.count++
   return button
 }
 
