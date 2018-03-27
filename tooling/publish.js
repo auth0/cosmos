@@ -31,7 +31,7 @@ info('PUBLISH', 'updated version')
 /* copy readme to all dependencies */
 const readmePath = './readme.md'
 directories.forEach(directory => {
-  fs.copySync(readmePath, directory.replace('src', 'dist'))
+  fs.copySync(readmePath, directory.replace('src', 'dist') + '/readme.md')
 })
 info('PUBLISH', 'copied readme')
 
