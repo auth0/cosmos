@@ -7,7 +7,7 @@ import { PageHeader, List, Stack, Code, Button, Link, ButtonGroup, Thumbnail } f
 import { StyledPageHeader } from 'auth0-cosmos/molecules/page-header'
 import { StyledTextAllCaps, StyledTextSubdued } from 'auth0-cosmos/atoms/text'
 
-import { colors, spacing } from 'auth0-cosmos/tokens'
+import { spacing } from 'auth0-cosmos/tokens'
 import CreateClientDialog from './create-client-dialog'
 import ClientTypeImages from '../../components/client-types-images'
 

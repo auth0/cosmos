@@ -148,8 +148,8 @@ const ButtonContent = props => {
   if (props.icon && props.text) {
     // The button contains both an icon and text.
     content = [
-      <Icon size={16} name={props.icon} color={getAttributes(props).icon} />,
-      <Button.Text>{props.text}</Button.Text>
+      <Icon key="icon" size={16} name={props.icon} color={getAttributes(props).icon} />,
+      <Button.Text key="text">{props.text}</Button.Text>
     ]
   } else if (props.icon && !props.text) {
     // The button contains just an icon.
