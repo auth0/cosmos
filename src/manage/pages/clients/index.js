@@ -11,6 +11,8 @@ import { spacing } from '@auth0/cosmos/tokens'
 import CreateClientDialog from './create-client-dialog'
 import ClientTypeImages from '../../components/client-types-images'
 
+import { clients } from './clients.json'
+
 /* TODO: Should be a Close Component */
 const NameGroup = styled.div`
   display: flex;
@@ -36,45 +38,6 @@ const ClientsContent = styled.div`
     margin-bottom: ${spacing.xxlarge};
   }
 `
-
-const clients = [
-  {
-    id: 'apXVn76xBT7WougWj17MGXHSthfrBB',
-    name: 'My Site',
-    type: 'REGULAR WEB APP',
-    image: ClientTypeImages.regular_web
-  },
-  {
-    id: 'NfZmyIGFwJ2OhoGcWhYfeql5Ugy4X',
-    name: 'Real View',
-    type: 'SINGLE PAGE APPLICATION',
-    image: ClientTypeImages.spa
-  },
-  {
-    id: 'KyVu1XTC6jOFPIUhi0yFifanPwE3l',
-    name: 'Route App',
-    type: 'NATIVE',
-    image: ClientTypeImages.native
-  },
-  {
-    id: 'JKYNATAI6jOFPIUhi08AUJUAja7yYo',
-    name: 'Help Desk',
-    type: 'NATIVE',
-    image: ClientTypeImages.native
-  },
-  {
-    id: 'Uaf45iaIxiTRP98Jmamkasd8xjKLl',
-    name: 'Single Page',
-    type: 'NON INTERACTIVE',
-    image: ClientTypeImages.non_interactive
-  },
-  {
-    id: 'GMdIcXxiTRPGtIZKzAN8caUWhxeb1W',
-    name: 'Test App',
-    type: 'NON INTERACTIVE',
-    image: ClientTypeImages.non_interactive
-  }
-]
 
 class ClientList extends React.Component {
   constructor(props) {
@@ -110,7 +73,7 @@ class ClientList extends React.Component {
           {clients.map(client => (
             <Stack key={client.id} widths={[35, 40, 25]}>
               <NameGroup>
-                <Thumbnail source={client.image} />
+                <Thumbnail source={ClientTypeImages[client.image]} />
                 <div>
                   <Link href={`/clients/${client.id}`}>{client.name}</Link>
                   <Type>{client.type}</Type>
