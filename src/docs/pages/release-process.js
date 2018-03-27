@@ -51,7 +51,7 @@ class ContributionGuide extends React.Component {
         </Text>
         <Text>
           2. Next, run this command in your terminal or the dedicated CD environment:
-          <Pre>yarn run publish</Pre>
+          <Pre>yarn run deploy</Pre>
         </Text>
         <Text>This should publish new versions for all Cosmos packages.</Text>
       </div>
