@@ -5,6 +5,8 @@ const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
+const path = require('path')
+const readPkg = require('read-pkg')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -14,6 +16,9 @@ let warning = 0
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
 let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
+
+/* get version from root package.json */
+const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
 const run = () => {
   info('DOCS', 'Generating metadata')
@@ -115,7 +120,7 @@ const run = () => {
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
-  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
+  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata, version }, null, 2), 'utf8')
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)

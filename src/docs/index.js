@@ -10,6 +10,9 @@ import ContributionGuide from './pages/contribution-guide'
 import ReleaseProcess from './pages/release-process'
 import FAQS from './pages/faqs'
 
+import { version } from './metadata.json'
+import { Code } from 'auth0-cosmos'
+
 const Layout = styled.div`
   position: relative;
   width: 100%;
@@ -32,6 +35,15 @@ const Body = styled.div`
   padding: 2.1rem 1.05rem;
 `
 
+const Version = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  > span {
+    padding: 10px;
+  }
+`
+
 export default () => (
   <Router>
     <Layout>
@@ -40,6 +52,9 @@ export default () => (
       </SideContent>
       <MainContent>
         <Body>
+          <Version>
+            <Code>v{version}</Code>
+          </Version>
           <Switch>
             <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
             <Route path="/docs/contribution-guide" component={ContributionGuide} />
