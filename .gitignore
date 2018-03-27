@@ -67,4 +67,3 @@ dist
 # ignore metadata file
 src/docs/metadata.json
 src/docs/icons.json
-src/components/atoms/icon/icons.json
