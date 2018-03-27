@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { colors } from 'auth0-cosmos/tokens'
 
 const Title = styled.div`
   position: absolute;
@@ -24,10 +25,12 @@ const Example = styled.div`
     align-content: center;
     justify-content: center;
   }
+
+  background: ${props => (props.background === 'dark' ? colors.base.default : colors.base.white)};
 `
 
 export default props => (
-  <Example className={props.align === 'center' ? 'align-center' : null}>
+  <Example className={props.align === 'center' ? 'align-center' : null} {...props}>
     <Title>{props.title}</Title>
     {props.children}
   </Example>
