@@ -23,8 +23,16 @@ info('PUBLISH', 'copied files')
 /* copy version to all dependencies */
 directories.forEach(directory => {
   const packageJSONPath = directory.replace('src', 'dist') + '/package.json'
-  const content = fs.readJsonSync(packageJSONPath)
-  fs.writeJsonSync(packageJSONPath, Object.assign(content, { version: version }))
+  let content = fs.readJsonSync(packageJSONPath)
+  content.version = version
+
+  /* components should import the same version of tokens and babel-preset */
+  if (directory === 'src/components') {
+    content.dependencies['auth0-cosmos-tokens'] = version
+    content.dependencies['babel-preset-cosmos'] = version
+  }
+
+  fs.writeJsonSync(packageJSONPath, content)
 })
 info('PUBLISH', 'updated version')
 
