@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 
-/* TODO: Extract ConnectionsList as a local component in manage/components */
 
 import { List, Stack, Switch, Icon } from '@auth0/cosmos'
 
@@ -22,26 +21,8 @@ const ListsExample = () => (
   <Section>
     <Example title="List of Connections">
       <List label="Social">
-        <Stack align="fill" widths={[60, 40, 20]}>
-          <div>github</div>
-          <ConnectionType>
-            <Icon size={16} name="" />
-            <span>GitHub</span>
-          </ConnectionType>
-          <Stack align="right">
-            <Switch accessibleLabels={[]} />
-          </Stack>
-        </Stack>
-        <Stack align="fill" widths={[60, 40, 20]}>
-          <div>google-oauth2</div>
-          <ConnectionType>
-            <Icon size={16} name="" />
-            <span>Google</span>
-          </ConnectionType>
-          <Stack align="right">
-            <Switch accessibleLabels={[]} />
-          </Stack>
-        </Stack>
+        <ConnectionListRow name="github" connection="GitHub" switchOn />
+        <ConnectionListRow name="google-oauth2" connection="Google" />
       </List>
     </Example>
 
