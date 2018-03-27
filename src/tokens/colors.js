@@ -70,7 +70,7 @@ const colors = {
     defaultBorder: '#F1F1F1',
     defaultBorderHover: '#DAD9D9',
     defaultBorderFocus: '#A8A8A8',
-    primaryBackground: '#44c7f4',
+    primaryBackground: 'pink',
     primaryBackgroundHover: '#14b9f1',
     primaryBackgroundFocus: '#14b9f1',
     primaryText: '#FFF',
