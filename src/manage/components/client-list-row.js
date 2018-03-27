@@ -29,7 +29,6 @@ const Type = styled(StyledTextAllCaps)`
 `
 
 const ClientListRow = props => {
-  /* you can pass on all the props to the component like this */
   return (
     <Stack key={props.id} widths={[35, 40, 25]}>
       <NameGroup>
