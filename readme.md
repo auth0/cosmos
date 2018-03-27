@@ -1,13 +1,13 @@
-<p align="center">
-  <img src="/assets/cosmos.png">
-  <br><br>
-  <b>Auth0 Design System</b>
-  <br><br>
-  <a href="https://auth0-cosmos.now.sh/docs">👉 Start here 👈</a>
-  <br>
-</p>
+<img src="/assets/cosmos.png">
 
-&nbsp;
+&nbsp;&nbsp;
+
+#### Auth0 Design System
+
+&nbsp;&nbsp;
+[👉 Start here 👈](https://auth0-cosmos.now.sh/docs)
+
+&nbsp;&nbsp;
 
 > “Set of shared and integrated principles and patterns that define the overall design of a product.” — Karri Saarinen @ Airbnb
 
