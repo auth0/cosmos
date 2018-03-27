@@ -43,17 +43,22 @@ class ContributionGuide extends React.Component {
         </Text>
         <Heading2>Instructions</Heading2>
         <Text>
-          1. To publish a new version of cosmos libraries, update the version number for the{' '}
+          1. Checkout to the <Code>release</Code> branch
+        </Text>
+        <Text>
+          2. To publish a new version of cosmos libraries, update the version number for the{' '}
           <Link href="https://github.com/auth0/cosmos/blob/master/package.json#L3">
             root <Code>package.json</Code>
           </Link>
-          <br />
         </Text>
         <Text>
-          2. Next, run this command in your terminal or the dedicated CD environment:
+          3. Next, run this command in your terminal or the dedicated CD environment:
           <Pre>yarn run deploy</Pre>
         </Text>
-        <Text>This should publish new versions for all Cosmos packages.</Text>
+        <Text>
+          This should publish new versions for all Cosmos packages and deploy the
+          website/documentation
+        </Text>
       </div>
     )
   }
