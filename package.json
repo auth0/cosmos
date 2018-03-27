@@ -31,6 +31,7 @@
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
   },
   "devDependencies": {
+    "babel-cli": "6.26.0",
     "chokidar": "2.0.2",
     "execa": "0.10.0",
     "fs-extra": "5.0.0",
