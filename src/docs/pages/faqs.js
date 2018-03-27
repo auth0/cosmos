@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Text, Link, List, ListItem } from './docs-components/typography'
+import { Heading1, Heading2, Text, Link, List, ListItem } from '../docs-components/typography'
 import { Code } from 'auth0-cosmos'
 
 const Container = styled.div``

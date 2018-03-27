@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": ["src/components", "src/docs", "src/tokens", "src/overview", "src/manage"],
@@ -31,6 +31,8 @@
   },
   "devDependencies": {
     "chokidar": "2.0.2",
+    "execa": "0.10.0",
+    "fs-extra": "5.0.0",
     "glob": "7.1.2",
     "htmlparser2": "3.9.2",
     "husky": "0.14.3",
@@ -44,6 +46,7 @@
     "react-docgen": "2.20.1",
     "react-docgen-displayname-handler": "1.0.1",
     "react-scripts": "1.1.1",
+    "read-pkg": "3.0.0",
     "serve": "6.5.1",
     "svgo": "1.0.5"
   }
