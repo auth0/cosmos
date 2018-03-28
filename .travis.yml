@@ -8,6 +8,3 @@ after_success:
   - cd build && npx now-cd --team=auth0-design
 notifications:
   email: false
-branches:
-  only:
-    - master
