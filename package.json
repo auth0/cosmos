@@ -12,6 +12,7 @@
     "react-helmet": "5.2.0",
     "react-live": "1.10.1",
     "react-router-dom": "4.2.2",
+    "styled-components": "3.2.3",
     "yamljs": "0.3.0"
   },
   "scripts": {
@@ -58,8 +59,8 @@
     "react-docgen": "2.20.1",
     "react-docgen-displayname-handler": "1.0.1",
     "react-scripts": "1.1.1",
-    "read-pkg": "3.0.0",
     "react-storybook-addon-props-combinations": "1.0.1",
+    "read-pkg": "3.0.0",
     "serve": "6.5.1",
     "svgo": "1.0.5"
   }
