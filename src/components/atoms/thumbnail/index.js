@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { misc, colors } from 'auth0-cosmos-tokens'
+import { misc, colors } from '@auth0/cosmos-tokens'
 
 const sizeContent = {
   small: misc.avatar.small,

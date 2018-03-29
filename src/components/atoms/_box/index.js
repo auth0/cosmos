@@ -16,7 +16,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, misc } from 'auth0-cosmos-tokens'
+import { colors, misc } from '@auth0/cosmos-tokens'
 
 /*
   Step 2: Create a styled element with css

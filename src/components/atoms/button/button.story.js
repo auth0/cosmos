@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Row, Col, Example, Stack } from '../../_helpers/story-helpers'
 
-import { Button, ButtonGroup } from 'auth0-cosmos'
+import { Button, ButtonGroup } from '@auth0/cosmos'
 
 storiesOf('Button').add('overview', () => (
   <div>

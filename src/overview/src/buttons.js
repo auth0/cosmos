@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Button, Stack } from 'auth0-cosmos'
+import { Button, Stack } from '@auth0/cosmos'
 
 const Buttons = () => (
   <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Form, Link } from 'auth0-cosmos'
+import { FormGroup, Form, Link } from '@auth0/cosmos'
 
 let dummyFn = () => {}
 

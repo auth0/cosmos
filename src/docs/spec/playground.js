@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
-import * as Components from 'auth0-cosmos'
+import * as Components from '@auth0/cosmos'
 
-import { fonts, colors, spacing } from 'auth0-cosmos/tokens'
+import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
 import Props from './props'
 import getPropString from './prop-string'
 import CopyButton from './copy-button'
