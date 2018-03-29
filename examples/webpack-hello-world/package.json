@@ -8,7 +8,7 @@
     "start": "serve public"
   },
   "dependencies": {
-    "auth0-cosmos": "0.0.3",
+    "@auth0/cosmos": "0.0.4",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },

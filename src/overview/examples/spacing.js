@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Example from '../ov-components/example'
-import { spacing, colors } from 'auth0-cosmos/tokens'
+import { spacing, colors } from '@auth0/cosmos/tokens'
 
 const sizes = Object.keys(spacing)
 

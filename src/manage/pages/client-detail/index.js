@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Thumbnail } from 'auth0-cosmos'
+import { Tabs, Thumbnail } from '@auth0/cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'

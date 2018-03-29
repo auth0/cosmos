@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import Image from '../image'
 
-import { misc, colors, spacing } from 'auth0-cosmos-tokens'
+import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 
 const sizeContent = {
   small: misc.avatar.small,

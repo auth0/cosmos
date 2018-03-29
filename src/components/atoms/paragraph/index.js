@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, fonts } from 'auth0-cosmos-tokens'
+import { colors, fonts } from '@auth0/cosmos-tokens'
 
 const StyledParagraph = styled.p`
   margin: 1em 0;
