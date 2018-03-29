@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, spacing } from 'auth0-cosmos/tokens'
+import { colors, spacing } from '@auth0/cosmos/tokens'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
@@ -9,7 +9,17 @@ import Example from '../ov-components/example'
 /* TODO: Extract ClientList as a local component in manage/components */
 /* TODO: Extract ConnectionsList as a local component in manage/components */
 
-import { List, Button, ButtonGroup, Code, Link, Stack, Switch, Icon, Thumbnail } from 'auth0-cosmos'
+import {
+  List,
+  Button,
+  ButtonGroup,
+  Code,
+  Link,
+  Stack,
+  Switch,
+  Icon,
+  Thumbnail
+} from '@auth0/cosmos'
 
 import ClientTypeImages from '../../manage/components/client-types-images'
 const clients = [

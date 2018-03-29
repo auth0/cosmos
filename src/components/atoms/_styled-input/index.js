@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors, fonts, spacing, misc } from 'auth0-cosmos-tokens'
+import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 
 const config = {
   basic: {

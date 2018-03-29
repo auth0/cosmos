@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
 import Pre from './docs-components/pre'
-import { Code } from 'auth0-cosmos'
+import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
 
@@ -19,9 +19,9 @@ class Home extends React.Component {
           <Heading2>Installation</Heading2>
           <Text>
             To add <Code>cosmos</Code> to your react application, run
-            <Pre>npm install --save auth0-cosmos</Pre>
+            <Pre>npm install --save @auth0/cosmos</Pre>
             If you prefer yarn, run this command instead:
-            <Pre>yarn add auth0-cosmos</Pre>
+            <Pre>yarn add @auth0/cosmos</Pre>
             That's all you need to do, you are now ready to use it in your app, no build step
             needed.
             <br />
@@ -31,7 +31,7 @@ class Home extends React.Component {
           <Heading2>Usage</Heading2>
           <Text>
             Import components that you want from the library
-            <Pre code="import { Button } from 'auth0-cosmos'" />
+            <Pre code="import { Button } from '@auth0/cosmos'" />
             and use them along with you React components:
             <Pre
               code={`const Actions = () => <div>

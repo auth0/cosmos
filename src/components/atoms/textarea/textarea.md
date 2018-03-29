@@ -2,7 +2,7 @@
   category: Forms
 ```
 
-`import { TextArea } from 'auth0-cosmos'`
+`import { TextArea } from '@auth0/cosmos'`
 
 Note: `TextArea` is camelcased, it's not `Textarea`.
 

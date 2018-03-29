@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, fonts, spacing, misc } from 'auth0-cosmos-tokens'
+import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 
 const height = '32px'
 

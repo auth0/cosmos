@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Code, Link } from 'auth0-cosmos'
+import { Form, Code, Link } from '@auth0/cosmos'
 
 let dummyFn = () => {}
 
