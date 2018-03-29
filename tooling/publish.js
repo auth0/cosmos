@@ -1,7 +1,8 @@
 const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
-const { info, warn, error } = require('prettycli')
+const readPkg = require('read-pkg')
+const { info, error } = require('prettycli')
 
 /* create dist folder */
 fs.removeSync('dist')
@@ -15,6 +16,16 @@ directories.forEach(directory => {
   fs.copySync(directory, directory.replace('src', 'dist'))
 })
 info('PUBLISH', 'copied files')
+
+/* ensure version is same in all packages */
+const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
+directories.forEach(directory => {
+  const packageJSONPath = directory.replace('src', 'dist') + '/package.json'
+  let content = fs.readJsonSync(packageJSONPath)
+  if (content.version !== version) {
+    error('Versions do not match! Please run yarn prepare before publishing')
+  }
+})
 
 /* transpile components */
 const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
