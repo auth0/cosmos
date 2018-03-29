@@ -1,5 +1,5 @@
 {
-  "name": "auth0-cosmos-codemods",
+  "name": "@auth0/cosmos-codemods",
   "version": "0.0.4",
   "description": "codemods for auth0 cosmos",
   "main": "index.js",
