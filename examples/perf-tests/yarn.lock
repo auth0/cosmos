@@ -2,6 +2,28 @@
 # yarn lockfile v1
 
 
+"@auth0/babel-preset-cosmos@0.0.3":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.0.4.tgz#39f023e956b0076f3cc4d320fe63ec3ec0569a24"
+  dependencies:
+    babel-plugin-transform-class-properties "6.24.1"
+    babel-plugin-transform-object-rest-spread "6.26.0"
+    babel-preset-react "6.24.1"
+
+"@auth0/cosmos-tokens@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@auth0/cosmos-tokens/-/cosmos-tokens-0.0.4.tgz#d46caa5d14ca7ae0f40e43ad6cb07628f4d716c2"
+
+"@auth0/cosmos@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@auth0/cosmos/-/cosmos-0.0.4.tgz#5f67e02b6283a3e23752336b8417b02d928a89d4"
+  dependencies:
+    "@auth0/babel-preset-cosmos" "0.0.3"
+    "@auth0/cosmos-tokens" "0.0.4"
+    babel-preset-cosmos "0.0.4"
+    prop-types "15.6.1"
+    styled-components "3.1.6"
+
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
@@ -257,19 +279,6 @@ asynckit@^0.4.0:
 atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
-
-auth0-cosmos-tokens@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/auth0-cosmos-tokens/-/auth0-cosmos-tokens-0.0.3.tgz#35d6c17fc6ae1005d60586e6e22c86f1ed858e64"
-
-auth0-cosmos@0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/auth0-cosmos/-/auth0-cosmos-0.0.3.tgz#2e95dacacee24556c4bf04454012170d624e6b3a"
-  dependencies:
-    auth0-cosmos-tokens "0.0.3"
-    babel-preset-cosmos "0.0.2"
-    prop-types "15.6.1"
-    styled-components "3.1.6"
 
 aws-sign2@~0.6.0:
   version "0.6.0"
@@ -799,9 +808,9 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-preset-cosmos@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-cosmos/-/babel-preset-cosmos-0.0.2.tgz#fcc23641cec764414a45c079396796d4397d0e0e"
+babel-preset-cosmos@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/babel-preset-cosmos/-/babel-preset-cosmos-0.0.4.tgz#e79abf21c7a9060551052d115d82f3a5b29bef70"
   dependencies:
     babel-plugin-transform-class-properties "6.24.1"
     babel-plugin-transform-object-rest-spread "6.26.0"

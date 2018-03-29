@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 
 import { Heading1, Heading2, Text, Link, List, ListItem } from './docs-components/typography'
 import Pre from './docs-components/pre'
-import { Code } from 'auth0-cosmos'
+import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
 

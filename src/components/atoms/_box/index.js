@@ -16,7 +16,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, misc } from 'auth0-cosmos-tokens'
+import { colors, misc } from '@auth0/cosmos-tokens'
 
 /*
   Step 2: Create a styled element with css
@@ -82,5 +82,5 @@ export default Box
   This is a step only for convenience while developing the system,
   it will be replaced with a more explicit syntax
 
-  import { Box } from 'auth0-cosmos'
+  import { Box } from '@auth0/cosmos'
 */

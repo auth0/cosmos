@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Example from '../ov-components/example'
-import { Avatar } from 'auth0-cosmos'
+import { Avatar } from '@auth0/cosmos'
 
 const Avatars = () => (
   <Example title="Avatar" align="center">

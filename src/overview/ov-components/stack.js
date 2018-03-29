@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { spacing } from 'auth0-cosmos/tokens'
+import { spacing } from '@auth0/cosmos/tokens'
 
 const justifyContent = {
   fill: 'space-between',

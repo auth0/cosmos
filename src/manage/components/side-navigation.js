@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Sidebar } from 'auth0-cosmos'
+import { Sidebar } from '@auth0/cosmos'
 
 export default () => (
   <div
