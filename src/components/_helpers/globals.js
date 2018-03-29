@@ -4,9 +4,13 @@ import { fonts, misc } from '@auth0/cosmos-tokens'
 
 injectGlobal`
 
+  ${/* cosmos namespaced reset */ ''}
+  .cosmos {
+    line-height: ${misc.lineHeight};
+  }
+
   body, input, textarea, button, select {
     font-family: ${fonts.family.text};
-    line-height: ${misc.lineHeight};
     font-weight: ${fonts.weight.normal};
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
