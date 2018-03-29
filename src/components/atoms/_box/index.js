@@ -82,5 +82,5 @@ export default Box
   This is a step only for convenience while developing the system,
   it will be replaced with a more explicit syntax
 
-  import { Box } from 'auth0-cosmos'
+  import { Box } from '@auth0/cosmos'
 */

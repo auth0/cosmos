@@ -3,7 +3,7 @@
   description: Use a ButtonGroup to put related buttons together
 ```
 
-`import { ButtonGroup } from 'auth0-cosmos'`
+`import { ButtonGroup } from '@auth0/cosmos'`
 
 ---
 
