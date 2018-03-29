@@ -3,7 +3,14 @@
   "version": "0.1.0",
   "engine": "^7.0.0",
   "private": true,
-  "workspaces": ["src/components", "src/docs", "src/tokens", "src/overview", "src/manage"],
+  "workspaces": [
+    "src/components",
+    "src/docs",
+    "src/tokens",
+    "src/codemods",
+    "src/overview",
+    "src/manage"
+  ],
   "dependencies": {
     "fuzzysearch": "1.0.3",
     "markdown-to-jsx": "6.4.1",
