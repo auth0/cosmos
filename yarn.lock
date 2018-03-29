@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@auth0/babel-preset-cosmos@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.0.4.tgz#39f023e956b0076f3cc4d320fe63ec3ec0569a24"
+  dependencies:
+    babel-plugin-transform-class-properties "6.24.1"
+    babel-plugin-transform-object-rest-spread "6.26.0"
+    babel-preset-react "6.24.1"
+
 "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0-beta.40"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.40.tgz#37e2b0cf7c56026b4b21d3927cadf81adec32ac6"
@@ -1431,14 +1439,6 @@ babel-plugin-transform-strict-mode@^6.24.1:
 babel-plugin-transform-undefined-to-void@^6.8.3:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-undefined-to-void/-/babel-plugin-transform-undefined-to-void-6.9.0.tgz#eb5db0554caffe9ded0206468ec0c6c3b332b9d2"
-
-babel-preset-cosmos@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-cosmos/-/babel-preset-cosmos-0.0.2.tgz#fcc23641cec764414a45c079396796d4397d0e0e"
-  dependencies:
-    babel-plugin-transform-class-properties "6.24.1"
-    babel-plugin-transform-object-rest-spread "6.26.0"
-    babel-preset-react "6.24.1"
 
 babel-preset-env@1.6.1, babel-preset-env@^1.6.1:
   version "1.6.1"
