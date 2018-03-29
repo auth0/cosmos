@@ -62,8 +62,8 @@ typings/
 
 # ignore the build directory output of react-scripts
 build
+dist
 
 # ignore metadata file
 src/docs/metadata.json
 src/docs/icons.json
-src/components/atoms/icon/icons.json
