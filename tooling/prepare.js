@@ -25,4 +25,4 @@ directories.forEach(directory => {
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
-info('PREPARE', 'Updated version for all packages')
+info('PREPARE', 'Updated version for all packages. Please commit this.')
