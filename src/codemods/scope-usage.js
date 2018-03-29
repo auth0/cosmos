@@ -4,7 +4,7 @@ const transformer = (file, api) => {
   return j(file.source)
     .find(j.ImportDeclaration)
     .forEach(path => {
-      if (path.value.source.value === 'auth0-cosmos') path.value.source.value = '@auth0/cosmos'
+      path.value.source.value = path.value.source.value.replace('auth0-cosmos, @auth0/cosmos')
     })
     .toSource()
 }

@@ -36,7 +36,7 @@
     "precommit": "lint-staged",
     "chromatic":
       "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
-    "codemods": "jscodeshift -t src/codemods src/"
+    "codemods": "jscodeshift -t src/codemods src/ tooling/ example/"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
