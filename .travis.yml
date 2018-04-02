@@ -4,7 +4,7 @@ node_js:
   - "8"
 cache: yarn
 after_success:
-  - cp deployment-package.json build/package.json
+  - cp tooling/deployment-package.json build/package.json
   - cd build && npx now-cd --team=auth0-design
 notifications:
   email: false
