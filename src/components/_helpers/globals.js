@@ -6,11 +6,14 @@ injectGlobal`
 
   body, input, textarea, button, select {
     font-family: ${fonts.family.text};
-    line-height: ${misc.lineHeight};
     font-weight: ${fonts.weight.normal};
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  [class^="sc-"] {
+    line-height: ${misc.lineHeight};
   }
 
   @font-face {
