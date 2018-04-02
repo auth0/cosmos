@@ -8,6 +8,7 @@ pipeline {
   }
 
   environment {
+    SERVICE_NAME = 'auth0-cosmos'
   }
 
   options {
