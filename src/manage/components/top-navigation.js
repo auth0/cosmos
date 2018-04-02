@@ -9,8 +9,8 @@ import {
 } from './dummy-components'
 
 import Container from './container'
-import { Icon, TextInput, Avatar } from 'auth0-cosmos'
-import { colors, spacing } from 'auth0-cosmos/tokens'
+import { Icon, TextInput, Avatar } from '@auth0/cosmos'
+import { colors, spacing } from '@auth0/cosmos/tokens'
 
 Dropdown.Link = Dropdown.Devider = Dummy
 

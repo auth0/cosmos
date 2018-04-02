@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing } from 'auth0-cosmos-tokens'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
 
 const StyledLabel = styled.div`

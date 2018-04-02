@@ -1,9 +1,16 @@
 {
   "name": "cosmos",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "engine": "^7.0.0",
   "private": true,
-  "workspaces": ["src/components", "src/docs", "src/tokens", "src/overview", "src/manage"],
+  "workspaces": [
+    "src/components",
+    "src/docs",
+    "src/tokens",
+    "src/codemods",
+    "src/overview",
+    "src/manage"
+  ],
   "dependencies": {
     "fuzzysearch": "1.0.3",
     "markdown-to-jsx": "6.4.1",
@@ -12,6 +19,7 @@
     "react-helmet": "5.2.0",
     "react-live": "1.10.1",
     "react-router-dom": "4.2.2",
+    "styled-components": "3.1.6",
     "yamljs": "0.3.0"
   },
   "scripts": {
@@ -26,9 +34,13 @@
     "start": "serve -s build",
     "test": "run-s build test:chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged && npm run build:icons",
     "test:chromatic": "if-env TRAVIS_EVENT_TYPE=push && yarn chromatic || echo 'Skip chromatic'",
-    "chromatic": "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes"
+    "chromatic":
+      "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
+    "prepare": "node tooling/prepare.js",
+    "deploy": "node tooling/publish.js",
+    "codemods": "jscodeshift -t src/codemods src/"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
@@ -38,12 +50,17 @@
     "@storybook/addon-links": "^3.3.15",
     "@storybook/addons": "^3.3.15",
     "@storybook/react": "^3.3.15",
+    "babel-cli": "6.26.0",
     "babel-core": "^6.26.0",
     "chokidar": "2.0.2",
+    "execa": "0.10.0",
+    "fs-extra": "5.0.0",
     "glob": "7.1.2",
     "htmlparser2": "3.9.2",
     "husky": "0.14.3",
     "if-env": "1.0.4",
+    "jscodeshift": "0.5.0",
+    "latest-version": "3.1.0",
     "lint-staged": "7.0.0",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
@@ -56,6 +73,7 @@
     "react-docgen-displayname-handler": "1.0.1",
     "react-scripts": "1.1.1",
     "react-storybook-addon-props-combinations": "1.0.1",
+    "read-pkg": "3.0.0",
     "serve": "6.5.1",
     "svgo": "1.0.5"
   }

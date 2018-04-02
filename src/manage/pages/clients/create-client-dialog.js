@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Dialog, Form, Paragraph, Stack } from 'auth0-cosmos'
-import { colors, misc, spacing } from 'auth0-cosmos/tokens'
-import { StyledHeading } from 'auth0-cosmos/atoms/heading'
+import { Dialog, Form, Paragraph, Stack } from '@auth0/cosmos'
+import { colors, misc, spacing } from '@auth0/cosmos/tokens'
+import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
 import ClientTypeImages from '../../components/client-types-images'
 

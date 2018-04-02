@@ -3,7 +3,7 @@
   description: Low-level component that can be used to render any content on top of the regular viewport
 ```
 
-`import { Overlay } from 'auth0-cosmos'`
+`import { Overlay } from '@auth0/cosmos'`
 
 ---
 

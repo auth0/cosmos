@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Container from './container'
-import { Heading } from 'auth0-cosmos'
+import { Heading } from '@auth0/cosmos'
 
 const Colors = () => (
   <Container title="Typography Scale">

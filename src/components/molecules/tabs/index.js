@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors } from 'auth0-cosmos-tokens'
+import { colors } from '@auth0/cosmos-tokens'
 
 import TabLink from './link'
 import TabContent from './content'

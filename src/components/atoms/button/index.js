@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing, fonts, misc } from 'auth0-cosmos-tokens'
+import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'

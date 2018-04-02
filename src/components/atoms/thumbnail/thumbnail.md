@@ -3,7 +3,7 @@
   description: Thumbnail component contains images or icon.
 ```
 
-`import { Thumbnail } from 'auth0-cosmos'`
+`import { Thumbnail } from '@auth0/cosmos'`
 
 ```jsx
 <Thumbnail source={<Icon name="settings" />} {props} />

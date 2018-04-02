@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors, spacing } from 'auth0-cosmos-tokens'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 
 const TabLink = styled.a`
   display: inline-block;
