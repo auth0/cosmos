@@ -5,9 +5,5 @@
 
 module.exports = {
   presets: ['react'],
-  plugins: [
-    'transform-object-rest-spread',
-    'transform-class-properties',
-    ['@quickbaseoss/babel-plugin-styled-components-css-namespace', { cssNamespace: 'cosmos' }]
-  ]
+  plugins: ['transform-object-rest-spread', 'transform-class-properties']
 }
