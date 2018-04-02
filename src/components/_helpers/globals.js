@@ -12,6 +12,15 @@ injectGlobal`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  ${
+    /*
+    The only difference between the resets styleguide and cosmos is line-height
+    We want cosmos components to have our line-height, but not break everything else,
+    hence as a hack, we're setting it on styled-components elements.
+
+    Note: This will break on applications that already use styled-components
+  */ ''
+  }
   [class^="sc-"] {
     line-height: ${misc.lineHeight};
   }
