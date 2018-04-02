@@ -36,13 +36,23 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     }
   })
 
-  /* transpile components */
   const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
+
+  /* transpile components */
   try {
     execa.shellSync(
       `./node_modules/.bin/babel --presets=${presetPath} src/components -d dist/components`
     )
     info('PUBLISH', 'transpiled components')
+  } catch (err) {
+    console.log(err)
+    process.exit(1)
+  }
+
+  /* transpile tokens */
+  try {
+    execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} src/tokens -d dist/tokens`)
+    info('PUBLISH', 'transpiled tokens')
   } catch (err) {
     console.log(err)
     process.exit(1)
