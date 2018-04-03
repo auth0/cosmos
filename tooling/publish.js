@@ -58,6 +58,12 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(1)
   }
 
+  /* copy .npmrc to each package */
+  directories.forEach(directory => {
+    const directory = directory.replace('src', 'dist')
+    execa.shellSync(`cp .npmrc ${directory}/`)
+  })
+
   /* publish all components */
   try {
     execa.shellSync('cd dist/tokens && npm publish')
