@@ -14,6 +14,8 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
+  const directories = ['src/tokens', 'src/babel-preset', 'src/components', 'src/codemods']
+
   /* copy root version to all dependencies */
   directories.forEach(directory => {
     const packageJSONPath = directory + '/package.json'
@@ -35,8 +37,6 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   fs.removeSync('dist')
   fs.mkdirsSync('dist')
   info('PUBLISH', 'created dist')
-
-  const directories = ['src/tokens', 'src/babel-preset', 'src/components', 'src/codemods']
 
   /* copy all packages for publishing */
   directories.forEach(directory => {
