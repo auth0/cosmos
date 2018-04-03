@@ -20,7 +20,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     let content = fs.readJsonSync(packageJSONPath)
     content.version = version
 
-    /* components should import the same version of tokens and babel-preset */
+    /* components should import the same version */
     if (directory === 'src/components') {
       content.dependencies['@auth0/cosmos-tokens'] = version
       content.dependencies['@auth0/babel-preset-cosmos'] = version
@@ -29,7 +29,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
     fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
   })
-  info('PREPARE', 'Updated version for all packages. Please commit this.')
+  info('PUBLISH', 'Copied root version to all packages')
 
   /* create dist folder */
   fs.removeSync('dist')
