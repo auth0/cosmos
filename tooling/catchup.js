@@ -6,7 +6,7 @@ const { info } = require('prettycli')
 /* get version from root package.json */
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
-info('PREPARE', `Picked up version ${version} from root`)
+info('CATCH UP', `Picked up version ${version} from root`)
 
 const directories = ['src/tokens', 'src/babel-preset', 'src/components', 'src/codemods']
 
