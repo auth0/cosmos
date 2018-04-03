@@ -1,7 +1,7 @@
 {
   "name": "@auth0/cosmos-tokens",
   "description": "Tokens for Auth0 Design System",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": "auth0/cosmos",
   "main": "index.js",
   "scripts": {},
