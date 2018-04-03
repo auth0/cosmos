@@ -60,8 +60,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* copy .npmrc to each package */
   directories.forEach(directory => {
-    const directory = directory.replace('src', 'dist')
-    execa.shellSync(`cp .npmrc ${directory}/`)
+    execa.shellSync(`cp .npmrc ${directory.replace('src', 'dist')}/`)
   })
 
   /* publish all components */
