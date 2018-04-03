@@ -1,13 +1,14 @@
 pipeline {
   agent {
-    label 'crew-design'
+    label 'crew-brokkr'
   }
 
   tools {
-    nodejs '8.9.1-yarn-0.27.5'
+    nodejs '8.9.1'
   }
 
   environment {
+    NPM_TOKEN = credentials('auth0npm-npm-token')
   }
 
   options {
@@ -34,29 +35,17 @@ pipeline {
       }
     }
     stage('Publish') {
-      when {
-        branch 'release'
-      }
       steps {
-        sh 'yarn deploy'
+        sh "echo //registry.npmjs.org/:_authToken=${env.NPM_TOKEN} > .npmrc"
+        sh "npm run deploy"
       }
     }
   }
 
   post {
-    always { // Steps that need to run regardless of the job status, such as test results publishing, Slack notifications or dependencies cleanup
-      // Publish test results
-      junit allowEmptyResults: true, testResults: 'junit.xml' // Requires 'JUnit' Jenkins plugin installed
-      step([$class: 'JUnitResultArchiver', testResults: 'junit.xml']) // Required for the tests trend graph
-
-      script {
-        notifySlack(params.SlackTarget);
-      }
-
-      // Recommended to clean the workspace after every run
+    always {
+      notifySlack(params.SlackTarget);
       deleteDir()
-
-      // Find more examples of what to add here at https://github.com/auth0/auth0-users/blob/master/Jenkinsfile#L191
     }
   }
 }
