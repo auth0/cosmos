@@ -14,7 +14,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
-  const directories = ['src/tokens', 'src/babel-preset', 'src/components', 'src/codemods']
+  const directories = ['src/tokens', 'src/babel-preset', 'src/components']
 
   /* copy root version to all dependencies */
   directories.forEach(directory => {
@@ -26,7 +26,6 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     if (directory === 'src/components') {
       content.dependencies['@auth0/cosmos-tokens'] = version
       content.dependencies['@auth0/babel-preset-cosmos'] = version
-      content.dependencies['@auth0/cosmos-codemods'] = version
     }
 
     fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
