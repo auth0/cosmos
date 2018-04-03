@@ -20,7 +20,7 @@
     "react-live": "1.10.1",
     "react-router-dom": "4.2.2",
     "styled-components": "3.1.6",
-    "yamljs": "0.3.0"
+    "yamljs": "0.4.0"
   },
   "scripts": {
     "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
