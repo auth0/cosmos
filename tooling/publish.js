@@ -65,12 +65,11 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* publish all components */
   try {
-    execa.shellSync('cd dist/tokens && npm publish')
-    info('PUBLISH', 'published tokens')
-    execa.shellSync('cd dist/babel-preset && npm publish')
-    info('PUBLISH', 'published preset')
-    execa.shellSync('cd dist/components && npm publish')
-    info('PUBLISH', 'published components')
+    directories.forEach(directory => {
+      const dir = directory.replace('src', 'dist')
+      execa.shellSync(`cd ${dir} && npm publish`)
+      info('PUBLISH', `published ${dir}`)
+    })
   } catch (err) {
     console.log(err)
     process.exit(1)

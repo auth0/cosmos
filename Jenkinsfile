@@ -16,7 +16,7 @@ pipeline {
   }
 
   parameters {
-    string(name: 'SlackTarget', defaultValue: '#design-system', description: 'Target Slack Channel for notifications')
+    string(name: 'SlackTarget', defaultValue: '#design-system-feed', description: 'Target Slack Channel for notifications')
   }
 
   stages {
