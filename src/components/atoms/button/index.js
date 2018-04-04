@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon from '../icon'
 import Spinner from '../spinner'
@@ -98,25 +99,25 @@ const states = {
 }
 
 const sizes = {
+  large: {
+    lineHeight: subtract(misc.button.large.height, '2px'),
+    minWidth: '96px',
+    padding: spacing.medium
+  },
   default: {
-    lineHeight: '37px',
+    lineHeight: subtract(misc.button.default.height, '2px'),
     minWidth: '96px',
     padding: spacing.small
   },
-  large: {
-    lineHeight: '45px',
-    minWidth: '96px',
+  compressed: {
+    lineHeight: subtract(misc.button.compressed.height, '2px'),
+    minWidth: 'auto',
     padding: spacing.small
   },
   small: {
-    lineHeight: '29px',
+    lineHeight: subtract(misc.button.small.height, '2px'),
     minWidth: 'auto',
     padding: spacing.xsmall
-  },
-  compressed: {
-    lineHeight: '33px',
-    minWidth: 'auto',
-    padding: spacing.small
   }
 }
 
@@ -225,6 +226,8 @@ Button.Element = styled.button`
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
   ${Icon.Element} {
+    position: relative;
+    top: -1px;
     color: ${props => getAttributes(props).text};
   }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing, misc } from '@auth0/cosmos-tokens'
 import getLayout from '../layout'
 import uniqueId from '../../../_helpers/uniqueId'
 
@@ -25,9 +25,7 @@ const StyledField = styled.div`
     /* browsers give textareas an annoying alignment
     that needs to be overwritten :/ */
     vertical-align: top;
-    /* resize should not happen horizontally inside a form */
-    min-height: 44px;
-    /* TO-DO: Tokenize this value as it's related to the other heights of components. */
+    min-height: ${misc.input.default.height};
   }
   ${StyledSwitch} {
     margin-top: 6px;
@@ -35,6 +33,7 @@ const StyledField = styled.div`
 `
 const LabelLayout = styled.div`
   width: ${props => getLayout(props.layout).labelWidth};
+  margin: ${props => getLayout(props.layout).labelMargin};
   text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
   padding-right: ${spacing.medium};
 `

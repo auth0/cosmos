@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   ${StyledButtonGroup} {
     position: absolute;
     right: 4px;
-    top: 3px;
+    top: 6px;
   }
 `
 
@@ -42,6 +42,7 @@ const ActionInput = props => {
           {props.actions.map((action, index) => (
             <Button
               appearance="link"
+              size="small"
               key={index}
               icon={action.icon}
               onClick={action.method}

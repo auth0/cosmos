@@ -18,6 +18,7 @@ import Typography from './examples/typography'
 import TabsExample from './examples/tabs'
 import Lists from './examples/lists'
 import Buttons from './examples/buttons'
+import ButtonsInputs from './examples/buttons-inputs'
 import Logos from './examples/logos'
 import Avatars from './examples/avatars'
 import Thumbnails from './examples/thumbnails'
@@ -37,6 +38,7 @@ export default () => (
       <Typography />
       <Buttons />
       <Inputs />
+      <ButtonsInputs />
       <Forms />
       <Row>
         <Col>
