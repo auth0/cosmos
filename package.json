@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -38,7 +38,7 @@
     "test:chromatic": "if-env TRAVIS_EVENT_TYPE=push && yarn chromatic || echo 'Skip chromatic'",
     "chromatic":
       "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
-    "prepare": "node tooling/prepare.js",
+    "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
     "codemods": "jscodeshift -t src/codemods src/"
   },

@@ -14,27 +14,34 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
+  const directories = ['src/tokens', 'src/babel-preset', 'src/components']
+
+  /* copy root version to all dependencies */
+  directories.forEach(directory => {
+    const packageJSONPath = directory + '/package.json'
+    let content = fs.readJsonSync(packageJSONPath)
+    content.version = version
+
+    /* components should import the same version */
+    if (directory === 'src/components') {
+      content.dependencies['@auth0/cosmos-tokens'] = version
+      content.dependencies['@auth0/babel-preset-cosmos'] = version
+    }
+
+    fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
+  })
+  info('PUBLISH', 'Copied root version to all packages')
+
   /* create dist folder */
   fs.removeSync('dist')
   fs.mkdirsSync('dist')
   info('PUBLISH', 'created dist')
 
-  const directories = ['src/tokens', 'src/babel-preset', 'src/components', 'src/codemods']
-
-  /* copy tokens and preset for publishing */
+  /* copy all packages for publishing */
   directories.forEach(directory => {
     fs.copySync(directory, directory.replace('src', 'dist'))
   })
   info('PUBLISH', 'copied files')
-
-  /* ensure version is same in all packages */
-  directories.forEach(directory => {
-    const packageJSONPath = directory.replace('src', 'dist') + '/package.json'
-    let content = fs.readJsonSync(packageJSONPath)
-    if (content.version !== version) {
-      error('Versions do not match! Please run yarn prepare before publishing')
-    }
-  })
 
   const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
 
@@ -58,14 +65,18 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(1)
   }
 
+  /* copy .npmrc to each package */
+  directories.forEach(directory => {
+    execa.shellSync(`cp .npmrc ${directory.replace('src', 'dist')}/`)
+  })
+
   /* publish all components */
   try {
-    execa.shellSync('cd dist/tokens && npm publish')
-    info('PUBLISH', 'published tokens')
-    execa.shellSync('cd dist/babel-preset && npm publish')
-    info('PUBLISH', 'published preset')
-    execa.shellSync('cd dist/components && npm publish')
-    info('PUBLISH', 'published components')
+    directories.forEach(directory => {
+      const dir = directory.replace('src', 'dist')
+      execa.shellSync(`cd ${dir} && npm publish`)
+      info('PUBLISH', `published ${dir}`)
+    })
   } catch (err) {
     console.log(err)
     process.exit(1)

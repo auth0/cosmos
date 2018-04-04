@@ -1,6 +1,6 @@
 {
   "name": "@auth0/cosmos-codemods",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "codemods for auth0 cosmos",
   "main": "index.js",
   "repository": "https://github.com/auth0/cosmos",
