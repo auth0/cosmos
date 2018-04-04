@@ -123,7 +123,7 @@ const colors = {
       borderActive: '#BE0001'
     },
     success: {
-      background: '#4CD964',
+      background: '#0a84ae',
       backgroundHover: '#4CD964',
       backgroundFocus: '#4CD964',
       text: '#FAFAFA',
