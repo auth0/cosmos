@@ -9,6 +9,18 @@ const misc = {
     small: '24px',
     medium: '48px',
     large: '72px'
+  },
+  button: {
+    large: { height: '48px' },
+    default: { height: '44px' },
+    compressed: { height: '36px' },
+    small: { height: '32px' }
+  },
+  input: {
+    large: { height: '48px' },
+    default: { height: '44px' },
+    compressed: { height: '36px' },
+    small: { height: '32px' }
   }
 }
 
