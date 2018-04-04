@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@auth0/babel-preset-cosmos@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.0.7.tgz#8b6344e72cd3c9a5608c0cbf936567e00d003a3a"
+"@auth0/babel-preset-cosmos@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.1.0.tgz#5538a5ecc938af42d3ac2656156dd89d41aee41b"
   dependencies:
     babel-plugin-transform-class-properties "6.24.1"
     babel-plugin-transform-object-rest-spread "6.26.0"
