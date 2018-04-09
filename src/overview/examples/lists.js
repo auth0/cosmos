@@ -47,16 +47,7 @@ const ListsExample = () => (
     </Example>
 
     <Example title="List of Clients">
-      <List>
-        {clients.map(client => (
-          <ClientListRow
-            id={client.id}
-            name={client.name}
-            type={client.type}
-            image={client.image}
-          />
-        ))}
-      </List>
+      <ClientListRow />
     </Example>
   </Section>
 )
