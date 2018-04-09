@@ -41,7 +41,8 @@
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
     "codemods": "jscodeshift -t src/codemods src/",
-    "sketch": "story2sketch --stories all --output dist/great-ui.asketch.json"
+    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
+    "sketch": "story2sketch --input=build/sandbox/iframe.html"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
