@@ -9,7 +9,6 @@ import Example from '../ov-components/example'
 import { List, Stack, Switch, Icon } from 'auth0-cosmos'
 
 import ClientListRow from '../../manage/components/client-list-row'
-import { clients } from '../../manage/pages/clients/clients.json'
 
 // TODO: Remove the ConnectionType component and maybe do a flag component
 const ConnectionType = styled.div`
