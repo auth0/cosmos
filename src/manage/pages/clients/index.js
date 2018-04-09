@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List } from 'auth0-cosmos'
+import { PageHeader, List } from '@auth0/cosmos'
 import { clients } from './clients.json'
 
 import CreateClientDialog from './create-client-dialog'

@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Stack, Code, Button, Link, ButtonGroup, Thumbnail } from 'auth0-cosmos'
-import { spacing } from 'auth0-cosmos/tokens'
+import { Stack, Code, Button, Link, ButtonGroup, Thumbnail } from '@auth0/cosmos'
+import { spacing } from '@auth0/cosmos-tokens'
 
 import ClientTypeImages from './client-types-images'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
-import { StyledTextAllCaps, StyledTextSubdued } from 'auth0-cosmos/atoms/text'
+import { StyledTextAllCaps, StyledTextSubdued } from '@auth0/cosmos/atoms/text'
 
 const NameGroup = styled.div`
   display: flex;

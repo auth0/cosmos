@@ -6,7 +6,7 @@ import Example from '../ov-components/example'
 
 /* TODO: Extract ConnectionsList as a local component in manage/components */
 
-import { List, Stack, Switch, Icon } from 'auth0-cosmos'
+import { List, Stack, Switch, Icon } from '@auth0/cosmos'
 
 import ClientListRow from '../../manage/components/client-list-row'
 
