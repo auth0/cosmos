@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
-storiesOf('Button').add('loading state', () => (
+storiesOf('Button').add('success state', () => (
   <Example title="Success state" align="center">
     <Stack>
       <Button success>Default</Button>
