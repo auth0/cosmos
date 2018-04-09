@@ -12,7 +12,6 @@ const Title = styled.div`
 `
 
 const Example = styled.div`
-  background-color: white;
   padding: 4.5rem 3rem 3rem 3rem;
   position: relative;
   border: 1px solid rgb(236, 236, 236);
@@ -27,6 +26,7 @@ const Example = styled.div`
   }
 
   background: ${props => (props.background === 'dark' ? colors.base.default : colors.base.white)};
+  color: ${props => (props.background === 'dark' ? colors.base.white : colors.text.default)};
 `
 
 export default props => (
