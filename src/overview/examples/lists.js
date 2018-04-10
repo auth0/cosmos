@@ -8,7 +8,7 @@ import Example from '../ov-components/example'
 
 import { List, Stack, Switch, Icon } from '@auth0/cosmos'
 
-import ClientListRow from '../../manage/components/client-list-row'
+import ClientList from '../../manage/components/client-list'
 
 // TODO: Remove the ConnectionType component and maybe do a flag component
 const ConnectionType = styled.div`
@@ -46,7 +46,7 @@ const ListsExample = () => (
     </Example>
 
     <Example title="List of Clients">
-      <ClientListRow />
+      <ClientList />
     </Example>
   </Section>
 )

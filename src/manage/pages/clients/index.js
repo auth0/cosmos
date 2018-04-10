@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { PageHeader, List } from '@auth0/cosmos'
-import { clients } from './clients.json'
+import { PageHeader } from '@auth0/cosmos'
 
 import CreateClientDialog from './create-client-dialog'
-import ClientListRow from '../../components/client-list-row'
+import ClientList from '../../components/client-list'
 
 const ClientsContent = styled.div``
 
@@ -39,16 +38,9 @@ class ClientIndex extends React.Component {
             method: () => {}
           }}
         />
-        <List>
-          {clients.map(client => (
-            <ClientListRow
-              id={client.id}
-              name={client.name}
-              type={client.type}
-              image={client.image}
-            />
-          ))}
-        </List>
+
+        <ClientList />
+
         <CreateClientDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
       </ClientsContent>
     )
