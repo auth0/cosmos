@@ -64,6 +64,7 @@ typings/
 build
 dist
 
-# ignore metadata file
+# ignore generated files
 src/docs/metadata.json
+src/docs/changelog.json
 src/docs/icons.json
