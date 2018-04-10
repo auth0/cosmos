@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import kebabCase from 'lodash.kebabcase'
 
 import Tag from '../docs-components/tag'
 import { spacing, colors } from '@auth0/cosmos/tokens'
@@ -31,7 +32,7 @@ const TagWrapper = styled.span`
 
 const Link = props => {
   const { displayName, documentation, implemented } = props.component
-  const url = `/docs/${displayName}`
+  const url = `/docs/${kebabCase(displayName)}`
 
   return (
     <StyledLink disabled={!documentation} isChild={props.parent}>
