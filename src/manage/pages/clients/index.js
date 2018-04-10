@@ -9,7 +9,7 @@ import ClientListRow from '../../components/client-list-row'
 
 const ClientsContent = styled.div``
 
-class ClientList extends React.Component {
+class ClientIndex extends React.Component {
   constructor(props) {
     super(props)
     this.state = { dialogOpen: false }
@@ -55,4 +55,4 @@ class ClientList extends React.Component {
   }
 }
 
-export default ClientList
+export default ClientIndex
