@@ -5,7 +5,7 @@ import Section from '../ov-components/section'
 import Example from '../ov-components/example'
 
 
-import { List, Stack, Switch, Icon } from '@auth0/cosmos'
+import { List, Button, ButtonGroup, Code, Link, Stack, Thumbnail } from '@auth0/cosmos'
 
 import ClientList from '../../manage/components/client-list'
 

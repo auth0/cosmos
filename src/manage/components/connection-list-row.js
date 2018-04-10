@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Switch, Stack, Icon } from 'auth0-cosmos'
-import { spacing } from 'auth0-cosmos/tokens'
+import { Switch, Stack, Icon } from '@auth0/cosmos'
+import { spacing } from '@auth0/cosmos-tokens'
 
 const ConnectionType = styled.div`
   display: flex;
