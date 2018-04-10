@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import kebabCase from 'lodash.kebabcase'
+import startCase from 'lodash.startcase'
 
 import Tag from '../docs-components/tag'
 import { spacing, colors } from '@auth0/cosmos/tokens'
@@ -45,7 +46,7 @@ const Link = props => {
           if (!documentation) e.preventDefault()
         }}
       >
-        {displayName}
+        {startCase(displayName)}
         {documentation ? null : (
           <TagWrapper>
             <Tag text="Not documented" />
