@@ -7,6 +7,8 @@ import Example from '../ov-components/example'
 
 import { List, Button, ButtonGroup, Code, Link, Stack, Thumbnail } from '@auth0/cosmos'
 
+import ClientTypeImages from '../../manage/components/client-types-images'
+import ConnectionList from '../../manage/components/connection-list'
 import ClientList from '../../manage/components/client-list'
 
 // TODO: Remove the ConnectionType component and maybe do a flag component
@@ -20,10 +22,7 @@ const ConnectionType = styled.div`
 const ListsExample = () => (
   <Section>
     <Example title="List of Connections">
-      <List label="Social">
-        <ConnectionListRow name="github" connection="GitHub" switchOn />
-        <ConnectionListRow name="google-oauth2" connection="Google" />
-      </List>
+      <ConnectionList />
     </Example>
 
     <Example title="List of Clients">

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Paragraph, List } from '@auth0/cosmos'
+import { Paragraph } from '@auth0/cosmos'
 
-import ConnectionListRow from '../../components/connection-list-row'
+import ConnectionList from '../../components/connection-list'
 
 // TODO: Need to figure out how to make the first Paragraph have no margin top. We could add a prop?
 // TODO: Remove and solve this override!
@@ -20,22 +20,7 @@ class Connections extends React.Component {
           Enterprise and can be shared among different applications.
         </FirstParagraph>
 
-        <List label="Database">
-          <ConnectionListRow name="Username-Password-Authentication" connection="Database" />
-        </List>
-
-        <List label="Social">
-          <ConnectionListRow name="github" connection="GitHub" switchOn />
-          <ConnectionListRow name="google-oauth2" connection="Google" />
-        </List>
-
-        <List label="Enterprise">
-          <div>There are no connections</div>
-        </List>
-
-        <List label="Passwordless">
-          <div>There are no connections</div>
-        </List>
+        <ConnectionList />
       </div>
     )
   }
