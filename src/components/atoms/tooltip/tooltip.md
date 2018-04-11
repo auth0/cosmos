@@ -6,7 +6,7 @@ description: Use tooltips for giving extra context AND to make visual cues acces
 ---
 
 ```jsx
-<Tooltip content="Here is some text" {props}>Hover me</Tooltip>
+<Tooltip defaults={{content: "Here is some text"}} {props}>Hover me</Tooltip>
 ```
 
 ## Examples
