@@ -1,0 +1,40 @@
+{
+  "clients": [
+    {
+      "id": "apXVn76xBT7WougWj17MGXHSthfrBB",
+      "name": "My Site",
+      "type": "REGULAR WEB APP",
+      "image": "regular_web"
+    },
+    {
+      "id": "NfZmyIGFwJ2OhoGcWhYfeql5Ugy4X",
+      "name": "Real View",
+      "type": "SINGLE PAGE APPLICATION",
+      "image": "spa"
+    },
+    {
+      "id": "KyVu1XTC6jOFPIUhi0yFifanPwE3l",
+      "name": "Route App",
+      "type": "NATIVE",
+      "image": "native"
+    },
+    {
+      "id": "JKYNATAI6jOFPIUhi08AUJUAja7yYo",
+      "name": "Help Desk",
+      "type": "NATIVE",
+      "image": "native"
+    },
+    {
+      "id": "Uaf45iaIxiTRP98Jmamkasd8xjKLl",
+      "name": "Single Page",
+      "type": "NON INTERACTIVE",
+      "image": "non_interactive"
+    },
+    {
+      "id": "GMdIcXxiTRPGtIZKzAN8caUWhxeb1W",
+      "name": "Test App",
+      "type": "NON INTERACTIVE",
+      "image": "non_interactive"
+    }
+  ]
+}
