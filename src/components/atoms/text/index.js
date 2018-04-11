@@ -24,6 +24,7 @@ const Text = props => {
   if (props.type === 'allcaps') {
     return <StyledTextAllCaps {...props}>{props.children}</StyledTextAllCaps>
   }
+  return props.children
 }
 
 Text.propTypes = {
