@@ -50,7 +50,14 @@ const Description = styled.span`
 class Props extends React.Component {
   constructor(props) {
     super(props)
-    const propData = addDefaultValues(props.propData)
+    let propData = addDefaultValues(props.propData)
+
+    /* over ride with defaults from documentation */
+    const defaultsFromDocs = props.defaultsFromDocs
+    Object.keys(defaultsFromDocs).forEach(key => {
+      if (propData[key]) propData[key].value = defaultsFromDocs[key]
+    })
+
     this.state = { propData: propData }
     this.props.onPropsChange(propData)
   }

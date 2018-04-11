@@ -8,6 +8,7 @@ import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
 import Props from './props'
 import getPropString from './prop-string'
 import CopyButton from './copy-button'
+import { getDefaultsFromCode, stripDefaultsFromDocs } from './get-defaults-from-code'
 
 const Container = styled.div`
   margin: ${spacing.medium} 0;
@@ -61,12 +62,16 @@ const CodeToggle = styled.div`
 class Playground extends React.Component {
   constructor(props) {
     super(props)
-    let showProps = props.language === 'lang-jsx'
+    const showProps = props.language === 'lang-jsx'
+
+    const defaultsFromDocs = getDefaultsFromCode(props.code)
+    const code = stripDefaultsFromDocs(props.code)
 
     this.state = {
       showProps,
       codeVisible: showProps,
-      code: this.props.code
+      code,
+      defaultsFromDocs
     }
   }
   toggleCode() {
@@ -74,18 +79,16 @@ class Playground extends React.Component {
   }
   onPropsChange(propData) {
     const propString = getPropString(propData)
-    this.setState({ code: this.props.code.replace(' {props}', propString) })
+    const code = stripDefaultsFromDocs(this.props.code)
+    this.setState({ code: code.replace(' {props}', propString) })
   }
   render() {
-    const code = this.state.code
-
     return (
       <Container codeVisible={this.state.codeVisible}>
-        <LiveProvider code={code} scope={Components}>
+        <LiveProvider code={this.state.code} scope={Components}>
           <LivePreview />
           <LiveError />
-          {/* {this.state.codeVisible ? <LiveEditor /> : null} */}
-          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={code}>
+          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={this.state.code}>
             <LiveEditor />
           </CodeWrapper>
           {this.state.codeVisible ? <CopyButton code={this.state.code} /> : null}
@@ -96,6 +99,8 @@ class Playground extends React.Component {
         {this.state.showProps && (
           <Props
             propData={this.props.component.props}
+            code={this.state.code}
+            defaultsFromDocs={this.state.defaultsFromDocs}
             onPropsChange={this.onPropsChange.bind(this)}
           />
         )}
