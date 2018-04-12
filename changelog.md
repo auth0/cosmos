@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.1.1 [April 12, 2018]
+
+### Changed
+
+* **BREAKING** Make cosmos babel preset an optional dependency [#497]
+  The babel preset is no longer available in `@auth0/cosmos/babel`, use `@auth0/babel-preset-cosmos` instead
+* An improved client list for manage proof of concept [#441]
+* Better naming + urls [#493] and permalinks for docs[#492]
+
 ## 0.1.0 [April 4, 2018]
 
 ### Added
