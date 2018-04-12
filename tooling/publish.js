@@ -25,7 +25,6 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     /* components should import the same version */
     if (directory === 'src/components') {
       content.dependencies['@auth0/cosmos-tokens'] = version
-      content.dependencies['@auth0/babel-preset-cosmos'] = version
     }
 
     fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
