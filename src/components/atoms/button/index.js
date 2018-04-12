@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
+import { colors as colors2 } from '@auth0/cosmos-tokens-v2'
 import Icon from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
@@ -22,16 +23,16 @@ const appearances = {
     activeBorder: colors.button.default.borderActive
   },
   primary: {
-    text: colors.button.primary.text,
-    icon: colors.button.primary.icon,
-    background: colors.button.primary.background,
-    border: colors.button.primary.border,
-    hoverBackground: colors.button.primary.backgroundHover,
-    hoverBorder: colors.button.primary.borderHover,
-    focusBackground: colors.button.primary.backgroundFocus,
-    focusBorder: colors.button.primary.borderFocus,
-    activeBackground: colors.button.primary.backgroundActive,
-    activeBorder: colors.button.primary.borderActive
+    text: colors2.text.onDark,
+    icon: colors2.text.onDark,
+    background: colors2.background.primary,
+    border: colors2.border.primary,
+    hoverBackground: colors2.background.primary_hover,
+    hoverBorder: colors2.border.primary_hover,
+    focusBackground: colors2.background.primary_focus,
+    focusBorder: colors2.border.primary_focus,
+    activeBackground: colors2.background.primary_active,
+    activeBorder: colors2.border.primary_active
   },
   secondary: {
     text: colors.button.secondary.text,
