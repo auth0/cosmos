@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@auth0/babel-preset-cosmos@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.0.7.tgz#8b6344e72cd3c9a5608c0cbf936567e00d003a3a"
+"@auth0/babel-preset-cosmos@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.1.0.tgz#5538a5ecc938af42d3ac2656156dd89d41aee41b"
   dependencies:
     babel-plugin-transform-class-properties "6.24.1"
     babel-plugin-transform-object-rest-spread "6.26.0"
@@ -6083,6 +6083,10 @@ lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.npmjs.org/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
 
+lodash.kebabcase@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
+
 lodash.keys@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
@@ -6106,6 +6110,10 @@ lodash.some@^4.6.0:
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.npmjs.org/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
+
+lodash.startcase@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/lodash.startcase/-/lodash.startcase-4.4.0.tgz#9436e34ed26093ed7ffae1936144350915d9add8"
 
 lodash.template@^4.4.0:
   version "4.4.0"
