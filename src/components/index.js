@@ -102,3 +102,6 @@ export { PageHeader }
 
 import Sidebar from './molecules/sidebar'
 export { Sidebar }
+
+import ResourceList from './molecules/resource-list'
+export { ResourceList }
