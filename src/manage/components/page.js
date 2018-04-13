@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import ClientList from '../pages/clients'
-import Client from '../pages/client-detail'
+import ClientIndex from '../pages/clients'
+import ClientDetail from '../pages/client-detail'
 
 const Page = () => (
   <div
@@ -14,8 +14,8 @@ const Page = () => (
   >
     <Router>
       <div>
-        <Route exact path="/clients" component={ClientList} />
-        <Route exact path="/clients/:clientId" component={Client} />
+        <Route exact path="/clients" component={ClientIndex} />
+        <Route exact path="/clients/:clientId" component={ClientDetail} />
       </div>
     </Router>
   </div>
