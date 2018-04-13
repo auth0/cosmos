@@ -12,7 +12,7 @@ ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/" component={Overview} />
-      <Route path="/clients" component={Manage} />
+      <Route path="/manage" component={Manage} />
       <Route path="/docs" component={Docs} />
     </div>
   </Router>,

@@ -37,7 +37,7 @@ const ClientList = props => {
           <NameGroup>
             <Thumbnail source={ClientTypeImages[client.image]} />
             <div>
-              <Link href={`/clients/${client.id}`}>{client.name}</Link>
+              <Link href={`/manage/clients/${client.id}`}>{client.name}</Link>
               <Type>{client.type}</Type>
             </div>
           </NameGroup>
