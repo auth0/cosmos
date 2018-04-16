@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Avatar, Button, ButtonGroup, Image, Link, Thumbnail } from '@auth0/cosmos'
+import { Avatar, Button, ButtonGroup, Link, Thumbnail } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 
