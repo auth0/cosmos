@@ -7,6 +7,7 @@ import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 
 const StyledListItem = styled.li`
   display: flex;
+  flex-flow: row nowrap;
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   &:hover {
@@ -15,6 +16,9 @@ const StyledListItem = styled.li`
 `
 
 const ListItemHeader = styled.div`
+  flex-basis: 0;
+  flex-flow: row nowrap;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   span {
@@ -22,15 +26,18 @@ const ListItemHeader = styled.div`
   }
 `
 
-const ListItemFooter = styled.div`
-  display: flex;
-`
-
 const ListItemBody = styled.div`
-  flex: 1;
-  padding: 0 ${spacing.large};
+  flex-basis: 0;
+  flex-flow: row nowrap;
+  flex-grow: 1;
   display: flex;
   align-items: center;
+`
+
+const ListItemFooter = styled.div`
+  flex-basis: 0;
+  flex-flow: row nowrap;
+  display: flex;
 `
 
 const ListItemSubtitle = styled(StyledTextAllCaps)`
@@ -48,11 +55,7 @@ const ResourceListItem = props => {
     if (props.image.type === Avatar) {
       image = props.image
     } else {
-      if (typeof props.image === 'string') {
-        image = <Thumbnail source={<Image source={props.image} />} />
-      } else {
-        image = <Thumbnail source={props.image} />
-      }
+      image = <Thumbnail source={props.image} />
     }
   }
 
@@ -69,7 +72,7 @@ const ResourceListItem = props => {
   }
 
   const handleActionClick = handler => evt => {
-    handler(evt, props._item)
+    handler(evt, props.item)
   }
 
   if (props.actions) {

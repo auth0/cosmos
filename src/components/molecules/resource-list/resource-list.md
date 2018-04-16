@@ -81,8 +81,8 @@ If you need more control over the rendering of list items, you can pass a `rende
     { title: 'Item 2', subtitle: 'Example item', identifier: 'def456' },
     { title: 'Item 3', subtitle: 'Example item', identifier: 'ghi789' }
   ]}
-  renderItem={(item, index) => (
-    <ResourceList.Item key={index} {...item}>
+  renderItem={item => (
+    <ResourceList.Item {...item}>
       ID: <Code>{item.identifier}</Code>
     </ResourceList.Item>
   )}
