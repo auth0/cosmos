@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Button, Link, ButtonGroup, Thumbnail } from '@auth0/cosmos'
+import { Avatar, Button, ButtonGroup, Image, Link, Thumbnail } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 
@@ -39,13 +39,21 @@ const ListItemSubtitle = styled(StyledTextAllCaps)`
 `
 
 const ResourceListItem = props => {
-  let thumbnail
+  let image
   let title
   let subtitle
   let actions
 
-  if (props.thumbnail) {
-    thumbnail = <Thumbnail source={props.thumbnail} />
+  if (props.image) {
+    if (props.image.type === Avatar) {
+      image = props.image
+    } else {
+      if (typeof props.image === 'string') {
+        image = <Thumbnail source={<Image source={props.image} />} />
+      } else {
+        image = <Thumbnail source={props.image} />
+      }
+    }
   }
 
   if (props.title) {
@@ -82,7 +90,7 @@ const ResourceListItem = props => {
   return (
     <StyledListItem>
       <ListItemHeader>
-        {thumbnail}
+        {image}
         <div>
           {title}
           {subtitle}
@@ -101,8 +109,8 @@ ResourceListItem.propTypes = {
   subtitle: PropTypes.string,
   /** If specified, the main text will be rendered as a hyperlink with this as the target. */
   href: PropTypes.string,
-  /** An Icon or Image to display as a thumbnail for the list item. */
-  thumbnail: PropTypes.string,
+  /** An image URL, or an Icon, Image, or Avatar to display as a thumbnail image for the list item. */
+  image: PropTypes.node,
   /** The actions to display for the list item. */
   actions: PropTypes.arrayOf(
     PropTypes.shape({

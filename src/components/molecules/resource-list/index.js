@@ -9,19 +9,21 @@ const StyledList = styled.ul`
   padding: 0;
 `
 
-const defaultItemRenderer = props => item => <ResourceListItem actions={props.actions} {...item} />
+const defaultItemRenderer = props => (item, index) => (
+  <ResourceListItem key={index} actions={props.actions} {...item} />
+)
 
 const ResourceList = props => {
   return (
     <StyledList>
-      {props.items.map(item => {
+      {props.items.map((item, index) => {
         const itemProps = {
           _item: item,
           actions: props.actions,
           ...item
         }
         const itemRenderer = props.renderItem || defaultItemRenderer(props)
-        return itemRenderer(itemProps)
+        return itemRenderer(itemProps, index)
       })}
     </StyledList>
   )
