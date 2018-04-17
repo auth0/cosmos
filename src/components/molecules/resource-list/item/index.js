@@ -16,7 +16,7 @@ const StyledListItem = styled.li`
 `
 
 const ListItemHeader = styled.div`
-  flex-basis: 0;
+  flex-basis: 40%;
   flex-flow: row nowrap;
   flex-grow: 1;
   display: flex;
@@ -27,7 +27,7 @@ const ListItemHeader = styled.div`
 `
 
 const ListItemBody = styled.div`
-  flex-basis: 0;
+  flex-basis: 40%;
   flex-flow: row nowrap;
   flex-grow: 1;
   display: flex;
@@ -35,9 +35,11 @@ const ListItemBody = styled.div`
 `
 
 const ListItemFooter = styled.div`
-  flex-basis: 0;
+  flex-basis: 20%;
   flex-flow: row nowrap;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `
 
 const ListItemSubtitle = styled(StyledTextAllCaps)`
