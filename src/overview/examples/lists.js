@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
