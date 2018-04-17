@@ -11,6 +11,7 @@ import StyledError from '../error'
 import HelpText from '../help-text'
 import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
+import { StyledRadioGroup } from '../../radio-group'
 
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
@@ -29,6 +30,9 @@ const StyledField = styled.div`
   }
   ${StyledSwitch} {
     margin-top: 6px;
+  }
+  ${StyledRadioGroup} {
+    margin-top: ${props => (props.layout === 'label-on-left' ? '11px' : null)};
   }
 `
 const LabelLayout = styled.div`

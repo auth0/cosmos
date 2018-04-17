@@ -72,6 +72,9 @@ export { Thumbnail }
 import Image from './atoms/image'
 export { Image }
 
+import Radio from './atoms/radio'
+export { Radio }
+
 /* molecules */
 import Alert from './molecules/alert'
 export { Alert }
@@ -111,3 +114,6 @@ export { ResourceList }
 
 import Table from './molecules/table'
 export { Table }
+
+import RadioGroup from './molecules/radio-group'
+export { RadioGroup }

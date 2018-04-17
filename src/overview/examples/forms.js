@@ -2,7 +2,7 @@ import React from 'react'
 
 import Example from '../ov-components/example'
 import Section from '../ov-components/section'
-import { Code, Form, FormGroup } from '@auth0/cosmos'
+import { Code, Form, FormGroup, Radio } from '@auth0/cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()
@@ -140,6 +140,22 @@ const Forms = () => (
           </Form.FieldSet>
         </Form>
       </FormGroup>
+    </Example>
+
+    <Example title="Radio">
+      <Form>
+        <Form.RadioGroup
+          label="Radio"
+          helpText="This is an auxiliary text for an example radio component."
+        >
+          <Radio name="view" value="react">
+            React
+          </Radio>
+          <Radio name="view" value="html">
+            HTML + Liquid
+          </Radio>
+        </Form.RadioGroup>
+      </Form>
     </Example>
   </Section>
 )
