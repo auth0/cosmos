@@ -10,7 +10,8 @@ const EmptyStates = () => (
       <EmptyState
         icon="clients"
         title="Clients"
-        text="No clients have been created."
+        text="No items have been added to this section."
+        helpUrl="https://auth0.com"
         action={{
           icon: 'plus',
           text: 'Create Client',
