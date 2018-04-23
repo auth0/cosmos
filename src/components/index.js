@@ -73,6 +73,9 @@ import Image from './atoms/image'
 export { Image }
 
 /* molecules */
+import Alert from './molecules/alert'
+export { Alert }
+
 import Dialog from './molecules/dialog'
 export { Dialog }
 

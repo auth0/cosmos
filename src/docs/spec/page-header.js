@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import startCase from 'lodash.startcase'
 
+import { Alert } from '@auth0/cosmos'
 import { Heading1, Subheader } from '../docs-components/typography'
 
 const Headings = styled.div`
@@ -9,11 +10,25 @@ const Headings = styled.div`
   white-space: normal;
 `
 
-const Header = props => (
-  <Headings>
-    <Heading1>{startCase(props.displayName)}</Heading1>
-    <Subheader>{props.description}</Subheader>
-  </Headings>
-)
+const Header = props => {
+  let warning
+  if (props.unstable === true) {
+    warning = (
+      <Alert
+        type="warning"
+        title="Be careful!"
+        text="This component is currently unstable, and may change or be removed entirely in future versions."
+      />
+    )
+  }
+
+  return (
+    <Headings>
+      <Heading1>{startCase(props.displayName)}</Heading1>
+      <Subheader>{props.description}</Subheader>
+      {warning}
+    </Headings>
+  )
+}
 
 export default Header

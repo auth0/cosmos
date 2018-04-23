@@ -1,6 +1,7 @@
 ```meta
   category: Layout
   description: "A data-driven list component"
+  unstable: true
 ```
 
 `import { ResourceList } from '@auth0/cosmos'`
