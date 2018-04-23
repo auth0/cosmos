@@ -26,7 +26,7 @@ const ClientList = props => (
         key={index}
         title={client.name}
         subtitle={client.type}
-        href={`/clients/${client.id}`}
+        href={`/manage/clients/${client.id}`}
         image={ClientTypeImages[client.image]}
         actions={props.actions}
       >
