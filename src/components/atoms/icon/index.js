@@ -23,12 +23,8 @@ const Icon = props => {
 Icon.Element = styled.svg`
   display: inline-block;
   vertical-align: middle;
-  margin-right: ${spacing.xsmall};
   path {
     fill: ${props => props.color};
-  }
-  :last-child {
-    margin-right: 0;
   }
 `
 

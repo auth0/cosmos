@@ -21,9 +21,11 @@ const EmptyState = props => {
   }
   return (
     <Wrapper>
-      <Heading size={1}>{props.title}</Heading>
-      <Icon name={props.icon} size={100} color={colors.base.blue} />
+      <Header>
+        <Heading size={1}>{props.title}</Heading>
+      </Header>
       <Body>
+        <Icon name={props.icon} size={110} color={colors.base.blue} />
         <Paragraph>{props.text}</Paragraph>
         {helpLink}
       </Body>
@@ -38,13 +40,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-
-  > ${Icon.Element} {
-    margin-top: ${spacing.xlarge};
-    line-height: 1em;
-    opacity: 0.2;
-  }
-
+`
+const Header = styled.div`
+  margin-bottom: ${spacing.xlarge};
   ${StyledHeading[1]} {
     margin: 0;
   }
@@ -52,7 +50,12 @@ const Wrapper = styled.div`
 
 const Body = styled.div`
   max-width: 400px;
-  margin: ${spacing.small} auto;
+  margin: 0 auto ${spacing.small} auto;
+  > ${Icon.Element} {
+    margin-bottom: ${spacing.xsmall};
+    line-height: 1em;
+    opacity: 0.2;
+  }
   ${StyledParagraph} {
     margin: 0;
   }

@@ -229,6 +229,7 @@ Button.Element = styled.button`
     position: relative;
     top: -1px;
     color: ${props => getAttributes(props).text};
+    margin-right: ${props => (props.text && !props.loading && !props.success ? spacing.xsmall : 0)};
   }
 
   &:hover {
