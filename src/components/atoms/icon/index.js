@@ -24,10 +24,12 @@ const Icon = props => {
 
 Icon.Element = styled.i`
   display: inline-block;
+  line-height: 1;
 `
 const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
+  line-height: 1;
   path {
     fill: ${props => props.color};
   }
