@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import Icon from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
-import Heading, { StyledHeading } from '../../atoms/heading'
-import Paragraph, { StyledParagraph } from '../../atoms/paragraph'
+import Heading from '../../atoms/heading'
+import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 const EmptyState = props => {
@@ -21,12 +21,10 @@ const EmptyState = props => {
   }
   return (
     <Wrapper>
-      <Header>
-        <Heading size={1}>{props.title}</Heading>
-      </Header>
+      <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color={colors.base.blue} />
-        <Paragraph>{props.text}</Paragraph>
+        <Text>{props.text}</Text>
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.method}>
@@ -41,13 +39,6 @@ const Wrapper = styled.div`
   height: 100%;
   text-align: center;
 `
-const Header = styled.div`
-  margin-bottom: ${spacing.xlarge};
-  ${StyledHeading[1]} {
-    margin: 0;
-  }
-`
-
 const Body = styled.div`
   max-width: 400px;
   margin: 0 auto ${spacing.small} auto;
@@ -56,9 +47,12 @@ const Body = styled.div`
     line-height: 1em;
     opacity: 0.2;
   }
-  ${StyledParagraph} {
-    margin: 0;
-  }
+`
+const Title = styled(Heading)`
+  margin: 0 0 ${spacing.xlarge} 0;
+`
+const Text = styled(Paragraph)`
+  margin: 0;
 `
 
 const LearnMore = styled.div`

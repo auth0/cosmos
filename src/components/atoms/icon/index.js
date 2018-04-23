@@ -2,25 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors } from '@auth0/cosmos-tokens'
 import { icons } from './icons.json'
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
   const icon = icons[props.name] || icons.help
   return (
-    <Icon.Element
-      width={props.size}
-      height={props.size}
-      viewBox={`0 0 ${icon.width} ${icon.height}`}
-      color={props.color}
-    >
-      {icon.paths.map((path, index) => <path key={index} d={path} />)}
+    <Icon.Element>
+      <Image
+        width={props.size}
+        height={props.size}
+        viewBox={`0 0 ${icon.width} ${icon.height}`}
+        color={props.color}
+      >
+        {icon.paths.map((path, index) => <path key={index} d={path} />)}
+      </Image>
     </Icon.Element>
   )
 }
 
-Icon.Element = styled.svg`
+Icon.Element = styled.i`
+  display: inline-block;
+`
+const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
   path {
