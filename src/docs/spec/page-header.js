@@ -24,9 +24,9 @@ const Header = props => {
 
   return (
     <Headings>
+      {warning}
       <Heading1>{startCase(props.displayName)}</Heading1>
       <Subheader>{props.description}</Subheader>
-      {warning}
     </Headings>
   )
 }
