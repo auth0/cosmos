@@ -159,7 +159,7 @@ export default () => (
     <StyledContainer>
       <TopNavWrapper>
         <Logo>
-          <a href="/clients">
+          <a href="/manage/clients">
             <LogoImage />
           </a>
         </Logo>

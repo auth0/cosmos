@@ -69,7 +69,7 @@ export default () => (
               </a>
             </li>
             <li>
-              <a href="/clients">
+              <a href="/manage/clients">
                 <Icon name="clients" color={colors.base.grayLightest} size={20} />
                 <span>PoC Manage</span>
               </a>
