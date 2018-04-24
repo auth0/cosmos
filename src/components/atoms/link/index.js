@@ -28,3 +28,4 @@ Link.defaultProps = {
 }
 
 export default Link
+export { StyledLink }

@@ -147,6 +147,28 @@ const colors = {
   list: {
     backgroundHover: '#FAFAFA',
     borderColor: '#DDD'
+  },
+  alert: {
+    default: {
+      background: '#F0F0F0',
+      text: '#333'
+    },
+    information: {
+      background: '#DBF4FC',
+      text: '#097093'
+    },
+    success: {
+      background: '#E5F8D1',
+      text: '#3F6910'
+    },
+    warning: {
+      background: '#FFF6CB',
+      text: '#786600'
+    },
+    danger: {
+      background: '#FFD8CC',
+      text: '#801F00'
+    }
   }
 }
 
