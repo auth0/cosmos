@@ -43,6 +43,9 @@ const Navigation = styled.nav`
     display: inline-block;
     vertical-align: middle;
   }
+  a > ${Icon.Element} {
+    margin-right: ${spacing.xsmall};
+  }
 
   ul > li {
     display: inline-block;
