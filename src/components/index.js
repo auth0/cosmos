@@ -108,3 +108,6 @@ export { Sidebar }
 
 import ResourceList from './molecules/resource-list'
 export { ResourceList }
+
+import Table from './molecules/table'
+export { Table }
