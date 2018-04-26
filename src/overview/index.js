@@ -21,7 +21,9 @@ import ButtonsInputs from './examples/buttons-inputs'
 import Logos from './examples/logos'
 import Avatars from './examples/avatars'
 import Thumbnails from './examples/thumbnails'
+import Lists from './examples/lists'
 import ResourceLists from './examples/resource-lists'
+import Tables from './examples/tables'
 
 export default () => (
   <Overview>
@@ -50,6 +52,14 @@ export default () => (
       </Row>
       <Row>
         <Col>
+          <Avatars />
+        </Col>
+        <Col>
+          <Thumbnails />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <Tooltip />
         </Col>
         <Col>
@@ -59,15 +69,9 @@ export default () => (
       <PageHeaders />
       <TabsExample />
       <EmptyStates />
+      <Lists />
       <ResourceLists />
-      <Row>
-        <Col>
-          <Avatars />
-        </Col>
-        <Col>
-          <Thumbnails />
-        </Col>
-      </Row>
+      <Tables />
     </Container>
   </Overview>
 )

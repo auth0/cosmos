@@ -4,6 +4,8 @@ import Example from '../ov-components/example'
 import Section from '../ov-components/section'
 import { ResourceList, Image } from '@auth0/cosmos'
 
+import ClientList from '../../manage/components/client-list'
+
 const clickHandler = name => (evt, item) => {
   evt.preventDefault()
   alert(`You triggered the ${name} action for ${item.title}`)
@@ -37,10 +39,17 @@ const ResourceLists = () => (
           }
         ]}
         actions={[
-          { icon: 'settings', label: 'Settings', method: clickHandler('Settings') },
+          {
+            icon: 'settings',
+            label: 'Settings',
+            method: clickHandler('Settings')
+          },
           { icon: 'delete', label: 'Delete', method: clickHandler('Delete') }
         ]}
       />
+    </Example>
+    <Example title="Resource List: Clients">
+      <ClientList />
     </Example>
   </Section>
 )
