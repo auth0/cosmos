@@ -43,6 +43,9 @@ const Navigation = styled.nav`
     display: inline-block;
     vertical-align: middle;
   }
+  a > ${Icon.Element} {
+    margin-right: ${spacing.xsmall};
+  }
 
   ul > li {
     display: inline-block;
@@ -69,7 +72,7 @@ export default () => (
               </a>
             </li>
             <li>
-              <a href="/clients">
+              <a href="/manage/clients">
                 <Icon name="clients" color={colors.base.grayLightest} size={20} />
                 <span>PoC Manage</span>
               </a>

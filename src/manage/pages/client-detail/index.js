@@ -20,7 +20,7 @@ class ClientDetail extends React.Component {
           logo={<Thumbnail size="large" source={ClientTypeImages.non_interactive} />}
           breadcrumb={{
             content: 'Clients',
-            link: '/clients'
+            link: '/manage/clients'
           }}
         />
         <Tabs>

@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.2.0 [April 26, 2018]
+
+### Fixed
+
+* `Tabs` component now ignores `null` children instead of throwing an error. [#518]
+* Fixed incorrect layout of "Learn More" link in `EmptyState`. [#514]
+
+### Changed
+
+* Expanded routes in Manage proof of concept to permit additional pages to be added. [#503]
+
+### Added
+
+* _Unstable:_ New `ResourceList` component. [#504]
+* _Unstable:_ New `Table` component. [#519]
+
 ## 0.1.1 [April 12, 2018]
 
 ### Changed

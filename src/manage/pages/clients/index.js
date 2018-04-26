@@ -25,7 +25,7 @@ class ClientIndex extends React.Component {
           title="Clients"
           description={{
             text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-            learnMore: '/clients'
+            learnMore: '/manage/clients'
           }}
           primaryAction={{
             label: 'Create Client',

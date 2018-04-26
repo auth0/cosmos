@@ -9,6 +9,7 @@ Empty states are displayed when a page has no content.
 <EmptyState
   title="Clients"
   icon="clients"
+  helpUrl="https://auth0.com"
   action={{
     icon: 'plus',
     text: 'Create Client',
