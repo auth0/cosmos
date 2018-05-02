@@ -114,6 +114,3 @@ export { ResourceList }
 
 import Table from './molecules/table'
 export { Table }
-
-import RadioGroup from './molecules/radio-group'
-export { RadioGroup }

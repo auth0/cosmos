@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 const CheckMark = styled.span``
@@ -75,58 +74,82 @@ const StyledRadio = styled.label`
   }
 `
 
-class Radio extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { isChecked: '' }
-
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(e) {
-    if (this.props.readOnly) return
-    console.log('radio selected', e.currentTarget.value)
-    this.setState({
-      isChecked: e.currentTarget.value
-    })
-  }
-
-  render() {
-    return (
-      <StyledRadio readOnly={this.props.readOnly}>
-        <input
-          type="radio"
-          name={this.props.name}
-          value={this.props.value}
-          defaultChecked={this.state.isChecked === this.props.value}
-          onChange={this.handleChange}
-          readOnly
-        />
-        <CheckMark />
-        <Label>{this.props.children}</Label>
-      </StyledRadio>
-    )
-  }
+const justifyContent = {
+  horizontal: `margin-right: ${spacing.medium}`,
+  vertical: `margin-bottom: ${spacing.small}`
 }
 
+const StyledRadioGroup = styled.div`
+  ${StyledRadio} {
+    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    ${props => justifyContent[props.align]};
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+`
+
+const Radio = props => (
+  <StyledRadio readOnly={props.readOnly}>
+    <input
+      type="radio"
+      name={props.name}
+      value={props.value}
+      checked={props.checked}
+      onChange={props.onChange}
+      readOnly
+    />
+    <CheckMark />
+    <Label>{props.children}</Label>
+  </StyledRadio>
+)
+
 Radio.propTypes = {
-  /** Name for input radio */
-  name: PropTypes.string,
-  /** Value for input radio */
-  value: PropTypes.string,
-  /** Disable and lock input radio */
+  /** The name for the radio */
+  name: PropTypes.string.isRequired,
+  /** The value for the radio */
+  value: PropTypes.string.isRequired,
+  /** If true, the radio will be disabled */
   readOnly: PropTypes.bool,
-  /** Selected input radio */
-  isChecked: PropTypes.bool,
-  /** Callback when input radio is selected */
+  /** If true, the radio will be selected */
+  checked: PropTypes.bool,
+  /** Callback function which is called when the user selects the radio */
   onChange: PropTypes.func
 }
 
 Radio.defaultProps = {
-  name: null,
   readOnly: false,
-  isChecked: false
+  checked: false
 }
 
+const RadioGroup = props => (
+  <StyledRadioGroup {...props}>
+    {React.Children.map(props.children, child => {
+      if (child.type === Radio)
+        return React.cloneElement(child, {
+          name: props.name,
+          checked: props.value === child.props.value,
+          readOnly: props.readOnly,
+          onChange: props.handleChange
+        })
+      return child
+    })}
+  </StyledRadioGroup>
+)
+
+RadioGroup.propTypes = {
+  /** The visual alignment of the radio group */
+  align: PropTypes.oneOf(['horizontal', 'vertical']),
+  /** The value of the currently-selected radio */
+  value: PropTypes.string
+}
+
+RadioGroup.defaultProps = {
+  align: 'vertical'
+}
+
+Radio.Group = RadioGroup
+
 export default Radio
-export { StyledRadio }
+export { StyledRadio, StyledRadioGroup }

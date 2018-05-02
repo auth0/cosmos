@@ -11,13 +11,13 @@
 
 ## Examples
 
-Radio Buttons can be grouped to gather related options. You should check [Radio Group](/docs/radio-group).
+Radio Buttons can be grouped to gather related options.
 
 ```js
-<RadioGroup name="exa" isChecked="exa2">
+<Radio.Group name="exa" value="exa2">
   <Radio value="exa1">Example 1</Radio>
   <Radio value="exa2">Example 2</Radio>
-</RadioGroup>
+</Radio.Group>
 ```
 
 ### Read-only
@@ -25,8 +25,8 @@ Radio Buttons can be grouped to gather related options. You should check [Radio 
 Radio Buttons can be locked in it's initial state with the `readOnly` prop.
 
 ```js
-<RadioGroup name="exo" readOnly>
+<Radio.Group name="exo" readOnly>
   <Radio value="exo1">Example 1</Radio>
   <Radio value="exo2">Example 2</Radio>
-</RadioGroup>
+</Radio.Group>
 ```

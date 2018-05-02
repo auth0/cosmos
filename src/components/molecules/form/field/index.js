@@ -11,7 +11,7 @@ import StyledError from '../error'
 import HelpText from '../help-text'
 import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
-import { StyledRadioGroup } from '../../radio-group'
+import { StyledRadioGroup } from '../../../atoms/radio'
 
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
