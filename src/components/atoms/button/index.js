@@ -254,8 +254,9 @@ Button.Element = styled.button`
 Button.LinkElement = Button.Element.withComponent('a')
 
 Button.Text = styled.span`
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `
 
 Button.propTypes = {
