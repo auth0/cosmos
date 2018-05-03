@@ -50,7 +50,7 @@ ButtonGroup.propTypes = {
   /** Should container only Buttons */
   children: PropTypes.oneOfType([
     PropTypes.element, // just one button for dynamic cases like Form Actions
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.array
   ])
 }
 
