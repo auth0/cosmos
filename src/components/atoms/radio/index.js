@@ -6,7 +6,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 const CheckMark = styled.span``
 const Label = styled.span``
 
-const StyledRadio = styled.label`
+const StyledRadioOption = styled.label`
   position: relative;
   cursor: pointer;
   padding-left: ${spacing.medium};
@@ -79,8 +79,8 @@ const justifyContent = {
   vertical: `margin-bottom: ${spacing.small}`
 }
 
-const StyledRadioGroup = styled.div`
-  ${StyledRadio} {
+const StyledRadio = styled.div`
+  ${StyledRadioOption} {
     display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
     ${props => justifyContent[props.align]};
 
@@ -90,8 +90,8 @@ const StyledRadioGroup = styled.div`
   }
 `
 
-const Radio = props => (
-  <StyledRadio readOnly={props.readOnly}>
+const RadioOption = props => (
+  <StyledRadioOption readOnly={props.readOnly}>
     <input
       type="radio"
       name={props.name}
@@ -102,54 +102,42 @@ const Radio = props => (
     />
     <CheckMark />
     <Label>{props.children}</Label>
+  </StyledRadioOption>
+)
+
+const Radio = props => (
+  <StyledRadio {...props}>
+    {React.Children.map(props.children, child => {
+      if (child.type === RadioOption)
+        return React.cloneElement(child, {
+          name: props.name,
+          checked: props.selected === child.props.value,
+          readOnly: props.readOnly || child.props.readOnly,
+          onChange: props.onChange
+        })
+      return child
+    })}
   </StyledRadio>
 )
 
 Radio.propTypes = {
-  /** The name for the radio */
+  /** The direction in which the options should be laid out */
+  align: PropTypes.oneOf(['horizontal', 'vertical']),
+  /** The name of the radio */
   name: PropTypes.string.isRequired,
-  /** The value for the radio */
-  value: PropTypes.string.isRequired,
-  /** If true, the radio will be disabled */
+  /** The value of the currently-selected option */
+  selected: PropTypes.string,
+  /** If true, all options in the group will be disabled */
   readOnly: PropTypes.bool,
-  /** If true, the radio will be selected */
-  checked: PropTypes.bool,
-  /** Callback function which is called when the user selects the radio */
+  /** Callback function which is called when the user selects an option */
   onChange: PropTypes.func
 }
 
 Radio.defaultProps = {
-  readOnly: false,
-  checked: false
-}
-
-const RadioGroup = props => (
-  <StyledRadioGroup {...props}>
-    {React.Children.map(props.children, child => {
-      if (child.type === Radio)
-        return React.cloneElement(child, {
-          name: props.name,
-          checked: props.value === child.props.value,
-          readOnly: props.readOnly,
-          onChange: props.handleChange
-        })
-      return child
-    })}
-  </StyledRadioGroup>
-)
-
-RadioGroup.propTypes = {
-  /** The visual alignment of the radio group */
-  align: PropTypes.oneOf(['horizontal', 'vertical']),
-  /** The value of the currently-selected radio */
-  value: PropTypes.string
-}
-
-RadioGroup.defaultProps = {
   align: 'vertical'
 }
 
-Radio.Group = RadioGroup
+Radio.Option = RadioOption
 
 export default Radio
-export { StyledRadio, StyledRadioGroup }
+export { StyledRadio, StyledRadioOption }

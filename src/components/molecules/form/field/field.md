@@ -8,7 +8,7 @@ Form Fields are a group of field types supported in `Form`:
 * `Form.TextArea`
 * `Form.Select`
 * `Form.Switch`
-* `Form.RadioGroup`
+* `Form.Radio`
 
 In addition to their own [native props](/docs/TextInput), we add a few more props in the context of a `Form`:
 

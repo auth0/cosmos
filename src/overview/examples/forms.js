@@ -52,6 +52,14 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
+        <Form.Radio label="Radio" selected="react">
+          <Radio.Option name="view" value="react">
+            React
+          </Radio.Option>
+          <Radio.Option name="view" value="html">
+            HTML + Liquid
+          </Radio.Option>
+        </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
         <Form.Actions primaryAction={{ label: 'Save' }} />
       </Form>
@@ -98,6 +106,14 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
+        <Form.Radio align="horizontal" label="Radio" selected="react">
+          <Radio.Option name="view" value="react">
+            React
+          </Radio.Option>
+          <Radio.Option name="view" value="html">
+            HTML + Liquid
+          </Radio.Option>
+        </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
         <Form.Actions primaryAction={{ label: 'Save' }} />
       </Form>
@@ -140,22 +156,6 @@ const Forms = () => (
           </Form.FieldSet>
         </Form>
       </FormGroup>
-    </Example>
-
-    <Example title="Radio">
-      <Form>
-        <Form.RadioGroup
-          label="Radio"
-          helpText="This is an auxiliary text for an example radio component."
-        >
-          <Radio name="view" value="react">
-            React
-          </Radio>
-          <Radio name="view" value="html">
-            HTML + Liquid
-          </Radio>
-        </Form.RadioGroup>
-      </Form>
     </Example>
   </Section>
 )

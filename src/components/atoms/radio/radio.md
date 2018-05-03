@@ -1,32 +1,65 @@
 ```meta
   category: Forms
-  description: Use Radio Buttons to make a single selection of options. Unlike Select this serves to easily display simple options to the user.
+  description: Provides a way for a user to select from a group of options
 ```
 
 `import { Radio } from '@auth0/cosmos'`
 
+A `Radio` is similar to a [Select](/docs/select), in that it displays a group of options and allows the user to select one. However, instead of rendering as a drop-down list like `Select`, a `Radio` will render all of the options at once. Since this can take up a lot of visual space and become confusing, you should only use `Radio` when you have a small number of options.
+
 ```jsx
-<Radio {props} name="opt" value="opt1">Option 1</Radio>
+<Radio name="example1" selected="one" {props}>
+  <Radio.Option value="one">Option 1</Radio.Option>
+  <Radio.Option value="two">Option 2</Radio.Option>
+</Radio>
 ```
 
-## Examples
+## State Management
 
-Radio Buttons can be grouped to gather related options.
+Since `Radio` is a controlled (stateless) components, to make it interactive you'll need to manage state and provide an `onChange` callback. Here's a simple example:
 
 ```js
-<Radio.Group name="exa" value="exa2">
-  <Radio value="exa1">Example 1</Radio>
-  <Radio value="exa2">Example 2</Radio>
-</Radio.Group>
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selected: 'one' }
+  }
+
+  handleChange(evt) {
+    this.setState({ selected: evt.target.value })
+  }
+
+  render() {
+    return (
+      <Radio
+        name="example2"
+        selected={this.state.selected}
+        onChange={evt => this.handleChange(evt)}
+      >
+        <Radio.Option value="one">Option 1</Radio.Option>
+        <Radio.Option value="two">Option 2</Radio.Option>
+      </Radio>
+    )
+  }
+}
 ```
 
-### Read-only
+## Read-only
 
-Radio Buttons can be locked in it's initial state with the `readOnly` prop.
+Radios can be locked in their initial state with the `readOnly` prop. This prop can be set on either the `Radio.Option` to lock a single option, or the `Radio` itself to lock all options.
 
 ```js
-<Radio.Group name="exo" readOnly>
-  <Radio value="exo1">Example 1</Radio>
-  <Radio value="exo2">Example 2</Radio>
-</Radio.Group>
+<Radio name="example3" selected="two">
+  <Radio.Option value="one" readOnly>
+    Option 1
+  </Radio.Option>
+  <Radio.Option value="two">Option 2</Radio.Option>
+</Radio>
+```
+
+```js
+<Radio name="example4" selected="one" readOnly>
+  <Radio.Option value="one">Option 1</Radio.Option>
+  <Radio.Option value="two">Option 2</Radio.Option>
+</Radio>
 ```
