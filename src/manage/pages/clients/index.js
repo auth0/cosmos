@@ -1,12 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-
 import { PageHeader } from '@auth0/cosmos'
 
 import CreateClientDialog from './create-client-dialog'
 import ClientList from '../../components/client-list'
-
-const ClientsContent = styled.div``
 
 class ClientIndex extends React.Component {
   constructor(props) {
@@ -20,7 +16,7 @@ class ClientIndex extends React.Component {
 
   render() {
     return (
-      <ClientsContent>
+      <div>
         <PageHeader
           title="Clients"
           description={{
@@ -42,7 +38,7 @@ class ClientIndex extends React.Component {
         <ClientList />
 
         <CreateClientDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
-      </ClientsContent>
+      </div>
     )
   }
 }
