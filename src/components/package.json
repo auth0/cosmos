@@ -1,7 +1,7 @@
 {
   "name": "@auth0/cosmos",
   "description": "Component library for Auth0 Design System",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": "auth0/cosmos",
   "main": "index.js",
   "sideEffects": "false",
@@ -10,8 +10,7 @@
   "author": "auth0",
   "license": "MIT",
   "dependencies": {
-    "@auth0/cosmos-tokens": "0.1.0",
-    "@auth0/babel-preset-cosmos": "0.1.0",
+    "@auth0/cosmos-tokens": "0.1.1",
     "prop-types": "15.6.1",
     "styled-components": "3.1.6"
   }

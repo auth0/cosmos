@@ -1,0 +1,25 @@
+{
+  "connections": {
+    "Database": [
+      {
+        "name": "Username-Password-Authentication",
+        "connection": "Database",
+        "switchOn": false
+      }
+    ],
+    "Social": [
+      {
+        "name": "github",
+        "connection": "GitHub",
+        "switchOn": true
+      },
+      {
+        "name": "google-oauth2",
+        "connection": "Google",
+        "switchOn": false
+      }
+    ],
+    "Enterprise": [{}],
+    "Passwordless": [{}]
+  }
+}

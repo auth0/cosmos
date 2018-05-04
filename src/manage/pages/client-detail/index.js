@@ -7,7 +7,7 @@ import Connections from './connections'
 import ClientPageHeader from '../../components/client-page-header'
 import ClientTypeImages from '../../components/client-types-images'
 
-class Client extends React.Component {
+class ClientDetail extends React.Component {
   render() {
     return (
       <div>
@@ -20,7 +20,7 @@ class Client extends React.Component {
           logo={<Thumbnail size="large" source={ClientTypeImages.non_interactive} />}
           breadcrumb={{
             content: 'Clients',
-            link: '/clients'
+            link: '/manage/clients'
           }}
         />
         <Tabs>
@@ -40,4 +40,4 @@ class Client extends React.Component {
   }
 }
 
-export default Client
+export default ClientDetail

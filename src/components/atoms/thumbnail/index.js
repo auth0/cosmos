@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
+import { Image } from '@auth0/cosmos'
 import { misc, colors } from '@auth0/cosmos-tokens'
 
 const sizeContent = {
@@ -23,13 +23,20 @@ const StyledThumbnail = styled.span`
   overflow: hidden;
 `
 
-const Thumbnail = props => <StyledThumbnail {...props}>{props.source}</StyledThumbnail>
+const Thumbnail = props => {
+  let image
+
+  if (typeof props.source === 'string') image = <Image source={props.source} />
+  else image = props.source
+
+  return <StyledThumbnail {...props}>{image}</StyledThumbnail>
+}
 
 Thumbnail.propTypes = {
   /** Thumbnail size */
   size: PropTypes.PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Thumbnail image or icon using its corresponding component */
-  source: PropTypes.string
+  /** An image URL, an Image component, or an Icon component to display */
+  source: PropTypes.node
 }
 
 Thumbnail.defaultProps = {

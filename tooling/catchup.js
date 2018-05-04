@@ -19,7 +19,6 @@ directories.forEach(directory => {
   /* components should import the same version of tokens and babel-preset */
   if (directory === 'src/components') {
     content.dependencies['@auth0/cosmos-tokens'] = version
-    content.dependencies['@auth0/babel-preset-cosmos'] = version
   }
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })

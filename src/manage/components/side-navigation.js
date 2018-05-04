@@ -11,29 +11,29 @@ export default () => (
     }}
   >
     <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" url="/dashboard" />
-      <Sidebar.Link icon="clients" label="Clients" url="/clients" selected />
-      <Sidebar.Link icon="apis" label="APIs" url="/apis" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" url="/externalapps" />
+      <Sidebar.Link icon="dashboard" label="Dashboard" url="/manage" />
+      <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" selected />
+      <Sidebar.Link icon="apis" label="APIs" url="/manage/apis" />
+      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" url="/manage/externalapps" />
       <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" url="/connections/database" />
-        <Sidebar.Link label="Social" url="/connections/social" />
-        <Sidebar.Link label="Enterprise" url="/connections/enterprise" />
-        <Sidebar.Link label="Passwordless" url="/connections/passwordless" />
+        <Sidebar.Link label="Database" url="/manage/connections/database" />
+        <Sidebar.Link label="Social" url="/manage/connections/social" />
+        <Sidebar.Link label="Enterprise" url="/manage/connections/enterprise" />
+        <Sidebar.Link label="Passwordless" url="/manage/connections/passwordless" />
       </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" url="/users" />
-      <Sidebar.Link icon="rules" label="Rules" url="/rules" />
-      <Sidebar.Link icon="hooks" label="Hooks" url="/hooks" />
-      <Sidebar.Link icon="multifactor" label="Multifactor Auth" url="/guardian" />
-      <Sidebar.Link icon="hosted-pages" label="Hosted Pages" url="/login_page" />
+      <Sidebar.Link icon="users" label="Users" url="/manage/users" />
+      <Sidebar.Link icon="rules" label="Rules" url="/manage/rules" />
+      <Sidebar.Link icon="hooks" label="Hooks" url="/manage/hooks" />
+      <Sidebar.Link icon="multifactor" label="Multifactor Auth" url="/manage/guardian" />
+      <Sidebar.Link icon="hosted-pages" label="Hosted Pages" url="/manage/login_page" />
       <Sidebar.LinkGroup icon="emails" label="Emails">
-        <Sidebar.Link label="Templates" url="/emails" />
-        <Sidebar.Link label="Provider" url="/emails/provider" />
+        <Sidebar.Link label="Templates" url="/manage/emails" />
+        <Sidebar.Link label="Provider" url="/manage/emails/provider" />
       </Sidebar.LinkGroup>
 
-      <Sidebar.Link icon="logs" label="Logs" url="/logs" />
-      <Sidebar.Link icon="anomaly-detection" label="Anomaly Detection" url="/anomaly" />
-      <Sidebar.Link icon="extensions" label="Extensions" url="/extensions" />
+      <Sidebar.Link icon="logs" label="Logs" url="/manage/logs" />
+      <Sidebar.Link icon="anomaly-detection" label="Anomaly Detection" url="/manage/anomaly" />
+      <Sidebar.Link icon="extensions" label="Extensions" url="/manage/extensions" />
     </Sidebar>
   </div>
 )

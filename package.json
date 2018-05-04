@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "fuzzysearch": "1.0.3",
+    "lodash.kebabcase": "4.1.1",
+    "lodash.startcase": "4.4.0",
     "markdown-to-jsx": "6.4.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
@@ -25,7 +27,7 @@
   "scripts": {
     "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
-    "dev:sandbox": "start-storybook -p 9009 -s public",
+    "dev:sandbox": "start-storybook -p 9001 -s public",
     "build": "run-s build:docs build:icons build:apps build:sandbox",
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
@@ -40,7 +42,10 @@
       "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
-    "codemods": "jscodeshift -t src/codemods src/"
+    "codemods": "jscodeshift -t src/codemods src/",
+    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
+    "sketch":
+      "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
@@ -75,6 +80,7 @@
     "react-storybook-addon-props-combinations": "1.0.1",
     "read-pkg": "3.0.0",
     "serve": "6.5.1",
+    "story2sketch": "0.2.1",
     "svgo": "1.0.5"
   }
 }

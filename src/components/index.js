@@ -73,6 +73,9 @@ import Image from './atoms/image'
 export { Image }
 
 /* molecules */
+import Alert from './molecules/alert'
+export { Alert }
+
 import Dialog from './molecules/dialog'
 export { Dialog }
 
@@ -102,3 +105,9 @@ export { PageHeader }
 
 import Sidebar from './molecules/sidebar'
 export { Sidebar }
+
+import ResourceList from './molecules/resource-list'
+export { ResourceList }
+
+import Table from './molecules/table'
+export { Table }
