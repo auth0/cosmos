@@ -3,6 +3,7 @@ const getDefaultString = code => {
     .split('defaults={{')[1]
     .split('}}>')[0]
     .split('}} ')[0]
+    .split('}}\n')[0]
 
   return string
 }
