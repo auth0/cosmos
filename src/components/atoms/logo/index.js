@@ -9,7 +9,7 @@ const LogoWrapper = styled.span`
   }
 `
 
-export default () => (
+const Logo = () => (
   <LogoWrapper>
     <svg
       height="32px"
@@ -26,3 +26,5 @@ export default () => (
     </svg>
   </LogoWrapper>
 )
+
+export default Logo
