@@ -75,7 +75,9 @@ Field.propTypes = {
       icon: PropTypes.string.isRequired,
       method: PropTypes.func.isRequired
     })
-  )
+  ),
+  /** Custom component to render */
+  component: PropTypes.element
 }
 
 Field.defaultProps = {

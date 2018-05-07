@@ -22,6 +22,7 @@ Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
 Form.Switch = props => <Field {...props} fieldComponent={Switch} />
+Form.Field = props => <Field {...props} fieldComponent={props.component} />
 Form.Actions = Actions
 Form.FieldSet = FieldSet
 
