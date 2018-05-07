@@ -5,7 +5,7 @@ const transformer = (file, api) => {
   const j = api.jscodeshift
 
   if (file.path.includes('index.js')) {
-    let defaultDeclaration = ''
+    let defaultDeclaration
     let namedDeclarations = []
 
     const source = j(file.source)
@@ -30,24 +30,25 @@ const transformer = (file, api) => {
     fs.renameSync(file.path, file.path.replace('index', component))
 
     /* write new file */
-    let code = `import ${defaultDeclaration}`
+    let code = `import `
+    if (defaultDeclaration) code += `${defaultDeclaration}`
+
     if (namedDeclarations.length) {
-      code += `, { ${namedDeclarations.join()} }`
+      if (defaultDeclaration) code += ', '
+      code += `{ ${namedDeclarations.join()} }`
     }
     code += ` from './${component}'`
+
     code += `\n\n`
-    code += `export default ${defaultDeclaration}`
+
+    if (defaultDeclaration) code += `export default ${defaultDeclaration}`
     if (namedDeclarations.length) {
-      code += `\n\n`
+      code += `\n`
       code += `export { ${namedDeclarations.join()} }`
     }
 
-    fs.writeFileSync(file.path, code, 'utf8')
-
-    console.log(defaultDeclaration, namedDeclarations)
+    return code
   }
-
-  process.exit(0)
 
   return j(file.source).toSource()
 }
