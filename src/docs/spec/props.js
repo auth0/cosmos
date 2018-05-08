@@ -47,6 +47,14 @@ const Description = styled.span`
   color: ${colors.base.grayDark};
 `
 
+const Required = styled.span`
+  color: ${colors.base.orange};
+  &:after {
+    content: '*';
+    font-size: 16px;
+  }
+`
+
 class Props extends React.Component {
   constructor(props) {
     super(props)
@@ -99,6 +107,7 @@ class Props extends React.Component {
             <tr key={key}>
               <td>
                 <Code>{key}</Code>
+                {propData[key].required && <Required />}
               </td>
               <td>
                 <Description>{propData[key].description}</Description>
