@@ -158,21 +158,18 @@ const getAttributes = props => {
 }
 
 const ButtonContent = props => {
-  let content
-
-  if (props.icon && props.text) {
-    // The button contains both an icon and text.
-    content = [
-      <Icon key="icon" size={16} name={props.icon} color={getAttributes(props).icon} />,
-      <Button.Text key="text">{props.text}</Button.Text>
-    ]
-  } else if (props.icon && !props.text) {
-    // The button contains just an icon.
-    content = <Icon size={16} name={props.icon} color={colors.button.link.icon} />
-  } else {
-    // The button contains just text.
-    content = <Button.Text>{props.text}</Button.Text>
-  }
+  const content = (
+    <Fragment>
+      {props.icon
+         ? <Icon
+             size={16}
+             name={props.icon}
+             color={props.text ? getAttributes(props).icon : colors.button.link.icon} />
+         : null
+      }
+      <Button.Text>{props.text}</Button.Text>
+    </Fragment>
+  )
 
   const Element = props.href ? Button.LinkElement : Button.Element
 
