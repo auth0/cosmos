@@ -12,9 +12,13 @@ export default () => (
   >
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" url="/manage" />
-      <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" selected />
+      <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" />
       <Sidebar.Link icon="apis" label="APIs" url="/manage/apis" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" url="/manage/externalapps" />
+      <Sidebar.Link
+        icon="sso-integrations"
+        label="SSO Integrations"
+        url="/manage/sso-integrations"
+      />
       <Sidebar.LinkGroup icon="connections" label="Connections">
         <Sidebar.Link label="Database" url="/manage/connections/database" />
         <Sidebar.Link label="Social" url="/manage/connections/social" />

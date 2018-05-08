@@ -1,7 +1,6 @@
 ```meta
   category: Layout
   description: "A single item in a ResourceList"
-  unstable: true
 ```
 
 A `ResourceList.Item` is a single item that is displayed in a [ResourceList](/docs/resource-list). You won't typically use this directly, except to return it as a result from a `renderItem()` function passed to a `ResourceList`.

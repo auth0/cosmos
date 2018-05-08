@@ -27,13 +27,13 @@ const StyledLink = styled.div`
 `
 
 const TagWrapper = styled.span`
-  color: ${colors.base.grayMedium};
   float: right;
 `
 
 const Link = props => {
   const { displayName, documentation, implemented } = props.component
   const url = `/docs/${kebabCase(displayName)}`
+  const unstable = props.component.meta && props.component.meta.unstable
 
   return (
     <StyledLink disabled={!documentation} isChild={props.parent}>
@@ -52,6 +52,11 @@ const Link = props => {
             <Tag text="Not documented" />
           </TagWrapper>
         )}
+        {unstable ? (
+          <TagWrapper>
+            <Tag warning text="Experimental" />
+          </TagWrapper>
+        ) : null}
         {implemented ? null : (
           <TagWrapper>
             <Tag text="Not implemented" />
