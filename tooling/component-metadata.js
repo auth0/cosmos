@@ -5,6 +5,7 @@ const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
+const getMetadata = require('./get-metadata')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -73,6 +74,7 @@ const run = () => {
         /* add lazy hint for documentation */
         data.implemented = true
         data.internal = path.includes('_')
+        data.meta = getMetadata(documentationPath)
 
         return data
       } catch (err) {
