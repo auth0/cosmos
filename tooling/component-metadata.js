@@ -65,6 +65,8 @@ const run = () => {
           data.documentation = fs.readFileSync(documentationPath, 'utf8')
           /* remove from markdown files list (useful later) */
           markdownFiles = markdownFiles.filter(path => path !== documentationPath)
+          /* pull meta from docs */
+          data.meta = getMetadata(documentationPath)
         } else if (debug) {
           warn('documentation not found for ' + path)
         } else {
@@ -74,7 +76,6 @@ const run = () => {
         /* add lazy hint for documentation */
         data.implemented = true
         data.internal = path.includes('_')
-        data.meta = getMetadata(documentationPath)
 
         return data
       } catch (err) {
