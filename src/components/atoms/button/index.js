@@ -160,13 +160,13 @@ const getAttributes = props => {
 const ButtonContent = props => {
   const content = (
     <Fragment>
-      {props.icon
-         ? <Icon
-             size={16}
-             name={props.icon}
-             color={props.text ? getAttributes(props).icon : colors.button.link.icon} />
-         : null
-      }
+      {props.icon ? (
+        <Icon
+          size={16}
+          name={props.icon}
+          color={props.text ? getAttributes(props).icon : colors.button.link.icon}
+        />
+      ) : null}
       <Button.Text>{props.text}</Button.Text>
     </Fragment>
   )
