@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-let asketch = JSON.parse(fs.readFileSync('./dist/asketch.json', 'utf8'))
+let asketch = JSON.parse(fs.readFileSync('./build/asketch.json', 'utf8'))
 
 /* filter out narrow spec */
 asketch.layers = asketch.layers.filter(layer => !layer.symbolID.includes('narrow'))
@@ -11,4 +11,4 @@ asketch.layers = asketch.layers.map(layer => {
   return layer
 })
 
-fs.writeFileSync('./dist/asketch.json', JSON.stringify(asketch))
+fs.writeFileSync('./build/asketch.json', JSON.stringify(asketch))
