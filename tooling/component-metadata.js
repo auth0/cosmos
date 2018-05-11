@@ -2,6 +2,7 @@ const fs = require('fs')
 const glob = require('glob')
 const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
+const externalProptypesHandler = require('./react-docgen-external-proptypes-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
@@ -19,13 +20,16 @@ let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
+    .filter(path => !path.includes('.story.js')) //filter out stories
     .map(path => {
       try {
-        /* skip secondary files in molecules */
-        if (path.includes('molecules') && !path.includes('index.js')) return
+        /* skip secondary files */
+        if (!path.includes('index.js')) return
 
         /* append display name handler to handlers list */
-        const handlers = docgen.defaultHandlers.concat(createDisplayNameHandler(path))
+        const handlers = docgen.defaultHandlers
+          .concat(createDisplayNameHandler(path))
+          .concat(externalProptypesHandler(path))
 
         /* read file to get source code */
         const code = fs.readFileSync(path, 'utf8')

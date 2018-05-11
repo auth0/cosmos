@@ -95,6 +95,17 @@ const run = () => {
       'utf8'
     )
 
+    // Write the array of icons for prop type validation
+    fs.writeFileSync(
+      'src/components/atoms/icon/icon-names.js',
+      `
+const iconNames = ${JSON.stringify(Object.keys(icons))}
+
+export default iconNames
+      `,
+      'utf8'
+    )
+
     // Write the lookup table for icon names which will be used in the docs
     fs.writeFileSync(
       'src/docs/icons.json',
