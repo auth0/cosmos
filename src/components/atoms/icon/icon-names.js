@@ -1,4 +1,5 @@
 const iconNames = [
+  '',
   'analytics',
   'anomaly-detection',
   'apis',

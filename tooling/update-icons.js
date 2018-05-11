@@ -99,8 +99,10 @@ const run = () => {
     )
 
     // Write the array of icons for prop type validation
+    const iconNames = Object.keys(icons)
+    iconNames.unshift('') // add empty string for null case
     const code = `
-      const iconNames = ${JSON.stringify(Object.keys(icons))}
+      const iconNames = ${JSON.stringify(iconNames)}
 
       export default iconNames
     `
