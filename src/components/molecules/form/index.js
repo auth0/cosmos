@@ -24,6 +24,7 @@ Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
 Form.Switch = props => <Field {...props} fieldComponent={Switch} />
 Form.Radio = props => <Field {...props} fieldComponent={Radio} />
+Form.Radio.Option = Radio.Option
 Form.Actions = Actions
 Form.FieldSet = FieldSet
 
