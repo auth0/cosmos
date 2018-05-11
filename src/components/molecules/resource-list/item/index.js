@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Avatar, Button, ButtonGroup, Link, Thumbnail } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
+import iconNames from '@auth0/cosmos/atoms/icon/icon-names'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -119,7 +120,7 @@ ResourceListItem.propTypes = {
   /** The actions to display for the list item. */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.oneOf(iconNames).isRequired,
       method: PropTypes.func.isRequired,
       label: PropTypes.string.isRequired
     })
