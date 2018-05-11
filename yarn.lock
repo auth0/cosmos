@@ -7882,6 +7882,10 @@ react-docgen-displayname-handler@1.0.1:
   dependencies:
     recast "0.12.6"
 
+react-docgen-external-proptypes-handler@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/react-docgen-external-proptypes-handler/-/react-docgen-external-proptypes-handler-1.0.0.tgz#e92ac8ef4b431d2611ca5219f56f1c846674498b"
+
 react-docgen@2.20.1, react-docgen@^2.20.0:
   version "2.20.1"
   resolved "https://registry.npmjs.org/react-docgen/-/react-docgen-2.20.1.tgz#29c3a1216066f513958abb1a43678860bbd51c7f"

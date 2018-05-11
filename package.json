@@ -32,7 +32,7 @@
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
-    "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "start": "serve -s build",
     "test": "run-s build test:chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
@@ -43,7 +43,6 @@
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
     "codemods": "jscodeshift -t src/codemods src/",
-    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "sketch":
       "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
   },
@@ -76,6 +75,7 @@
     "react-chromatic": "0.7.11",
     "react-docgen": "2.20.1",
     "react-docgen-displayname-handler": "1.0.1",
+    "react-docgen-external-proptypes-handler": "1.0.0",
     "react-scripts": "1.1.1",
     "react-storybook-addon-props-combinations": "1.0.1",
     "read-pkg": "3.0.0",
