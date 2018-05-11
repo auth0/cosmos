@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon from '../icon'
+import iconNames from '../icon/icon-names'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 
@@ -266,7 +267,7 @@ Button.propTypes = {
   appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
 
   /** Name of icon */
-  icon: PropTypes.string,
+  icon: PropTypes.oneOf(iconNames),
 
   /** Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
