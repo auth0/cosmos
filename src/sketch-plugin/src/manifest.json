@@ -1,0 +1,19 @@
+{
+  "name": "cosmos-paste",
+  "identifier": "cosmos.paste",
+  "version": "0.1",
+  "description": "cosmos paste plugin",
+  "authorEmail": "your@email.com",
+  "author": "Your Name",
+  "commands": [
+    {
+      "script": "my-command.js",
+      "handler": "onRun",
+      "shortcut": "command shift i",
+      "name": "cosmos paste",
+      "identifier": "cosmos.paste.pagenames"
+    }
+  ],
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml"
+}
