@@ -179,6 +179,13 @@ const colors = {
     borderDisabled: '#CCC',
     shadow: 'rgba(0,0,0,0.20)',
     shadowDisabled: 'rgba(0,0,0,0.10)'
+  },
+  label: {
+    default: '#7D7D7D',
+    information: '#3BC0F2',
+    success: '#73CD1F',
+    warning: '#F49C20',
+    danger: '#D14B49'
   }
 }
 

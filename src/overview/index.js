@@ -24,6 +24,7 @@ import Thumbnails from './examples/thumbnails'
 import Lists from './examples/lists'
 import ResourceLists from './examples/resource-lists'
 import Tables from './examples/tables'
+import Labels from './examples/labels'
 
 export default () => (
   <Overview>
@@ -65,6 +66,12 @@ export default () => (
         <Col>
           <Overlays />
         </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Labels />
+        </Col>
+        <Col />
       </Row>
       <PageHeaders />
       <TabsExample />
