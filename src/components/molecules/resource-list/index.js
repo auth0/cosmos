@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ResourceListItem from './item'
+import iconNames from '@auth0/cosmos/atoms/icon/icon-names'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const StyledList = styled.ul`
@@ -32,7 +33,7 @@ ResourceList.propTypes = {
   /** The actions to render to the right side of the list items. */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.oneOf(iconNames).isRequired,
       method: PropTypes.func.isRequired,
       label: PropTypes.string.isRequired
     })

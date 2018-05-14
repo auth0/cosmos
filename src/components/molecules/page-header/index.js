@@ -9,6 +9,7 @@ import Description from './description'
 
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
+import iconNames from '../../atoms/icon/icon-names'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
@@ -69,7 +70,7 @@ PageHeader.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.oneOf(iconNames).isRequired,
       method: PropTypes.func.isRequired
     })
   )

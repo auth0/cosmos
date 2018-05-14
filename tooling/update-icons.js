@@ -6,6 +6,9 @@ const htmlparser = require('htmlparser2')
 const fromPairs = require('lodash.frompairs')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
+const prettier = require('prettier')
+
+const prettierConfig = { singleQuote: true, semi: false }
 
 const transform = (name, svg) => {
   const icon = { paths: [] }
@@ -92,6 +95,20 @@ const run = () => {
     fs.writeFileSync(
       'src/components/atoms/icon/icons.json',
       JSON.stringify({ icons }, null, 2) + '\n',
+      'utf8'
+    )
+
+    // Write the array of icons for prop type validation
+    const iconNames = Object.keys(icons)
+    iconNames.unshift('') // add empty string for null case
+    const code = `
+      const iconNames = ${JSON.stringify(iconNames)}
+
+      export default iconNames
+    `
+    fs.writeFileSync(
+      'src/components/atoms/icon/icon-names.js',
+      prettier.format(code, prettierConfig),
       'utf8'
     )
 

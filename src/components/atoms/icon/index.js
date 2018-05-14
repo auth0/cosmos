@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors } from '@auth0/cosmos-tokens'
 import { icons } from './icons.json'
+import iconNames from './icon-names'
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
@@ -37,7 +38,7 @@ const Image = styled.svg`
 
 Icon.propTypes = {
   /** Icon name */
-  name: PropTypes.string.isRequired,
+  name: PropTypes.oneOf(iconNames).isRequired,
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */

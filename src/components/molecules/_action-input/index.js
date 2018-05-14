@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
+import iconNames from '../../atoms/icon/icon-names'
 import { multiply } from '../../_helpers/pixel-calc'
 import { spacing } from '@auth0/cosmos-tokens'
 
@@ -62,7 +63,7 @@ ActionInput.propTypes = {
   /** Actions to be attached to input */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.oneOf(iconNames).isRequired,
       method: PropTypes.func.isRequired,
       label: PropTypes.string.isRequired
     })
