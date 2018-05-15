@@ -1,6 +1,7 @@
 import {
   Alert,
   Avatar,
+  Badge,
   Box,
   Breadcrumb,
   Button,
@@ -39,6 +40,7 @@ import {
 export {
   Alert,
   Avatar,
+  Badge,
   Box,
   Breadcrumb,
   Button,

@@ -6,9 +6,9 @@ import { colors, misc } from '../../tokens'
 
 const StyledLabel = styled(StyledTextAllCaps)`
   font-size: 11px;
-  color: ${props => colors.label[props.appearance]};
+  color: ${props => colors.status[props.appearance]};
   padding: 2px 8px;
-  border: 1px solid ${props => colors.label[props.appearance]};
+  border: 1px solid ${props => colors.status[props.appearance]};
   border-radius: ${misc.radius};
 `
 

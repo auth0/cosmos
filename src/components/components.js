@@ -15,6 +15,7 @@ import Box from './atoms/_box'
 
 /* atoms */
 import Avatar from './atoms/avatar'
+import Badge from './atoms/badge'
 import Breadcrumb from './atoms/breadcrumb'
 import Button from './atoms/button'
 import Code from './atoms/code'
@@ -54,6 +55,7 @@ import Tabs from './molecules/tabs'
 export {
   Alert,
   Avatar,
+  Badge,
   Box,
   Breadcrumb,
   Button,
