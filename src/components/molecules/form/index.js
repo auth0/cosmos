@@ -1,41 +1,91 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-import ActionInput from '../../molecules/_action-input'
-import TextArea from '../../atoms/textarea'
-import Select from '../../atoms/select'
-import Switch from '../../atoms/switch'
-import Radio from '../../atoms/radio'
+import { spacing, misc } from '@auth0/cosmos-tokens'
+import getLayout from '../layout'
+import uniqueId from '../../../_helpers/uniqueId'
 
-import Field from './field'
-import Actions from './actions'
-import FieldSet from './fieldset'
+import StyledLabel from '../label'
+import StyledError from '../error'
+import HelpText from '../help-text'
+import { StyledTextArea } from '../../../atoms/textarea'
+import { StyledSwitch } from '../../../atoms/switch'
+import { StyledRadio } from '../../../atoms/radio'
 
-const Form = props => (
-  <form>
-    {React.Children.map(props.children, child =>
-      React.cloneElement(child, { layout: props.layout })
-    )}
-  </form>
-)
+const StyledField = styled.div`
+  display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
+  width: ${props => getLayout(props.layout).formWidth};
+  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+  margin-bottom: ${spacing.small};
 
-Form.Field = props => <Field {...props} />
-Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
-Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
-Form.Select = props => <Field {...props} fieldComponent={Select} />
-Form.Switch = props => <Field {...props} fieldComponent={Switch} />
-Form.Radio = props => <Field {...props} fieldComponent={Radio} />
-Form.Radio.Option = Radio.Option
-Form.Actions = Actions
-Form.FieldSet = FieldSet
+  &:last-child {
+    margin-bottom: 0;
+  }
+  ${StyledTextArea} {
+    /* browsers give textareas an annoying alignment
+    that needs to be overwritten :/ */
+    vertical-align: top;
+    min-height: ${misc.input.default.height};
+  }
+  ${StyledSwitch} {
+    margin-top: 6px;
+  }
+  ${StyledRadio} {
+    margin-top: ${props => (props.layout === 'label-on-left' ? '11px' : null)};
+  }
+`
+const LabelLayout = styled.div`
+  width: ${props => getLayout(props.layout).labelWidth};
+  margin: ${props => getLayout(props.layout).labelMargin};
+  text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
+  padding-right: ${spacing.medium};
+`
+const ContentLayout = styled.div`
+  width: ${props => getLayout(props.layout).contentWidth};
+`
 
-Form.propTypes = {
-  /** Two options for controlling form layout */
-  layout: PropTypes.oneOf(['label-on-left', 'label-on-top'])
+const Field = props => {
+  /* Get unique id for label */
+  let id = props.id || uniqueId(props.label)
+  const layout = props.layout
+
+  return (
+    <StyledField layout={layout}>
+      <LabelLayout layout={layout}>
+        <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
+      </LabelLayout>
+      <ContentLayout layout={layout}>
+        {props.fieldComponent ? <props.fieldComponent id={id} {...props} /> : props.children}
+        {props.error ? <StyledError>{props.error}</StyledError> : null}
+        {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
+      </ContentLayout>
+    </StyledField>
+  )
 }
 
-Form.defaultProps = {
-  layout: 'label-on-left'
+Field.displayName = 'Form Field'
+
+Field.propTypes = {
+  /** Form Label */
+  label: PropTypes.string.isRequired,
+  /** Text that further explains the purpose of the field, or provides more detail */
+  helpText: PropTypes.node,
+  /** Error message to show in case of failed validation */
+  error: PropTypes.string,
+  /** Actions to be attached to input */
+  actions: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired,
+      method: PropTypes.func.isRequired
+    })
+  ),
+  /** Custom component to render */
+  component: PropTypes.element
 }
 
-export default Form
+Field.defaultProps = {
+  label: 'Form label',
+  helpText: null,
+  error: null
+}
