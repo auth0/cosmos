@@ -125,23 +125,12 @@ All the props are passed on to the custom component, so you can set the id, erro
 
 ```js
 <Form>
-  <Form.Field
-    label="Height"
-    component={props => (
-      <Stack>
-        <TextInput placeholder="Value" error={props.error} />
-        <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
-        <Button
-          appearance="link"
-          icon={props.actions[0].icon}
-          label={props.actions[0].label}
-          onClick={props.actions[0].method}
-        />
-      </Stack>
-    )}
-    helpText="How tall are you?"
-    error="Show only in the first field"
-    actions={[{ icon: 'copy', label: 'Copy value', method: e => console.log(e) }]}
-  />
+  <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
+    <Stack>
+      <TextInput placeholder="Value" error="Show only in the first field" />
+      <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
+      <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
+    </Stack>
+  </Form.Field>
 </Form>
 ```

@@ -56,7 +56,7 @@ const Field = props => {
         <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
       </LabelLayout>
       <ContentLayout layout={layout}>
-        <props.fieldComponent id={id} {...props} />
+        {props.fieldComponent ? <props.fieldComponent id={id} {...props} /> : props.children}
         {props.error ? <StyledError>{props.error}</StyledError> : null}
         {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
       </ContentLayout>

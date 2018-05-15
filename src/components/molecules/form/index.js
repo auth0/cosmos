@@ -19,7 +19,7 @@ const Form = props => (
   </form>
 )
 
-Form.Field = props => <Field {...props} fieldComponent={props.component} />
+Form.Field = props => <Field {...props} />
 Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
