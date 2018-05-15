@@ -10,6 +10,8 @@ Form Fields are a group of field types supported in `Form`:
 * `Form.Switch`
 * `Form.Radio`
 
+If you need something we don't have, you can use a custom component with `Form.Field`
+
 In addition to their own [native props](/docs/TextInput), we add a few more props in the context of a `Form`:
 
 ```jsx
@@ -112,5 +114,23 @@ We leave the logic part of validation to you the developer, you can pass `error`
     error="This is not a valid URL"
     helpText="Make sure to specify the protocol, http:// or https://"
   />
+</Form>
+```
+
+### Custom component (advanced)
+
+Layout is taken care by `Form.Field`, it sets the position of `label`, `helperText`, etc.
+
+All the props are passed on to the custom component, so you can set the id, error styles, actions customised to the use case.
+
+```js
+<Form>
+  <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
+    <Stack>
+      <TextInput placeholder="Value" error="Show only in the first field" />
+      <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
+      <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
+    </Stack>
+  </Form.Field>
 </Form>
 ```
