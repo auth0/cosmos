@@ -39,7 +39,7 @@ const __ICONNAMES__ = Object.keys(icons)
 
 Icon.propTypes = {
   /** Icon name */
-  name: PropTypes.oneOf(__ICONNAMES__),
+  name: PropTypes.oneOf(__ICONNAMES__).isRequired,
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */

@@ -77,12 +77,12 @@ EmptyState.displayName = 'EmptyState'
 
 EmptyState.propTypes = {
   action: PropTypes.shape({
-    icon: PropTypes.oneOf(__ICONNAMES__),
+    icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
     method: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired,
   helpUrl: PropTypes.string,
-  icon: PropTypes.oneOf(__ICONNAMES__),
+  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   text: PropTypes.string,
   title: PropTypes.string.isRequired
 }

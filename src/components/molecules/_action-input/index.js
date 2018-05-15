@@ -63,7 +63,7 @@ ActionInput.propTypes = {
   /** Actions to be attached to input */
   actions: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__),
+      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
       method: PropTypes.func.isRequired,
       label: PropTypes.string.isRequired
     })
