@@ -46,7 +46,7 @@ const run = () => {
 
           /* remove redundant quotes from enum values in prop types */
           Object.values(data.props).forEach(prop => {
-            if (prop.type.name === 'enum') {
+            if (prop.type.name === 'enum' && Array.isArray(prop.type.value)) {
               prop.type.value.forEach(element => {
                 element.value = element.value.replace(/^'(.*)'$/, '$1')
               })
