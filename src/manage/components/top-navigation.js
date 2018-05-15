@@ -154,7 +154,7 @@ const Logo = styled.div`
   }
 `
 
-export default () => (
+const TopNavigation = () => (
   <TopNav links={links} DropdownComponent={DropdownComponent}>
     <StyledContainer>
       <TopNavWrapper>
@@ -200,3 +200,5 @@ export default () => (
     </StyledContainer>
   </TopNav>
 )
+
+export default TopNavigation
