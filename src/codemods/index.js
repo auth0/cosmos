@@ -1,3 +1,3 @@
-const scopeUsage = require('./scope-usage')
+const namedIndex = require('./named-index')
 
-module.exports = scopeUsage
+module.exports = namedIndex

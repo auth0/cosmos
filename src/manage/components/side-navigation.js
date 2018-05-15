@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Sidebar } from '@auth0/cosmos'
 
-export default () => (
+const SideNavigation = () => (
   <div
     style={{
       top: '110px',
@@ -41,3 +41,5 @@ export default () => (
     </Sidebar>
   </div>
 )
+
+export default SideNavigation
