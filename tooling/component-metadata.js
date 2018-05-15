@@ -19,6 +19,7 @@ let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
+    .filter(path => !path.includes('story.js')) // filter out stories
     .map(path => {
       try {
         /* skip secondary files in molecules */
