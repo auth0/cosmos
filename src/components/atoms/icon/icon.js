@@ -35,9 +35,11 @@ const Image = styled.svg`
   }
 `
 
+const __ICONNAMES__ = Object.keys(icons)
+
 Icon.propTypes = {
   /** Icon name */
-  name: PropTypes.string.isRequired,
+  name: PropTypes.oneOf(__ICONNAMES__).isRequired,
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */
@@ -50,3 +52,4 @@ Icon.defaultProps = {
 }
 
 export default Icon
+export { __ICONNAMES__ }

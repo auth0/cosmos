@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors, spacing } from '@auth0/cosmos-tokens'
-import Icon from '../../atoms/icon'
+import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 
 const SidebarLink = props => {
   return (
@@ -44,7 +44,7 @@ SidebarLink.Element = styled.a`
 
 SidebarLink.propTypes = {
   label: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   onClick: PropTypes.func,
   selected: PropTypes.node.isRequired,
   url: PropTypes.string

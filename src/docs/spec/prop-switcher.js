@@ -8,7 +8,7 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
     return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={method} />
   } else if (['string', 'number'].includes(data.type.name)) {
     return <TextInput defaultValue={data.value} onChange={e => method(e.target.value)} />
-  } else if (data.type.name === 'enum') {
+  } else if (data.type.name === 'enum' && Array.isArray(data.type.value)) {
     const options = data.type.value.map(({ value }) => ({ text: value, value }))
     return (
       <Select defaultValue={data.value} onChange={e => method(e.target.value)} options={options} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Icon from '../../atoms/icon'
+import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
@@ -76,12 +76,12 @@ EmptyState.displayName = 'EmptyState'
 
 EmptyState.propTypes = {
   action: PropTypes.shape({
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
     method: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired,
   helpUrl: PropTypes.string,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   text: PropTypes.string,
   title: PropTypes.string.isRequired
 }
