@@ -49,7 +49,8 @@ const run = () => {
           /* remove redundant quotes from enum values in prop types */
           Object.values(data.props).forEach(prop => {
             if (prop.type.name === 'enum' && prop.type.value === '__ICONNAMES__') {
-              prop.type.value = Object.keys(icons).map(value => ({ value }))
+              /* create an array of all the icons with an empty string as first element */
+              prop.type.value = [{ value: '' }].concat(Object.keys(icons).map(value => ({ value })))
             }
 
             if (prop.type.name === 'enum' && Array.isArray(prop.type.value)) {
