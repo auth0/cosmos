@@ -8,7 +8,7 @@
 ---
 
 ```jsx
-<Icon name="analytics" {props} />
+<Icon {props} defaults={{name: "copy"}} />
 ```
 
 ## Icon Library
