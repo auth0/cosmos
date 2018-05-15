@@ -20,12 +20,13 @@ let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
-    .filter(path => !path.includes('story.js')) // filter out stories
-    .filter(path => !path.includes('sketch.js')) // filter out sketch files
+    .filter(path => !path.includes('story.js')) // ignore story files
+    .filter(path => !path.includes('sketch.js')) // ignore sketch files
     .map(path => {
       try {
-        /* skip secondary files in molecules */
-        if (path.includes('molecules') && !path.includes('index.js')) return
+        /* ignore secondary files */
+        const directoryName = path.split('/').splice(-2, 1)[0]
+        if (!path.includes(`${directoryName}.js`)) return
 
         /* append display name handler to handlers list */
         const handlers = docgen.defaultHandlers.concat(createDisplayNameHandler(path))
@@ -65,8 +66,7 @@ const run = () => {
         data.filepath = path
 
         /* get documentation file path */
-        const directoryName = path.split('/').splice(-2, 1)[0]
-        const documentationPath = path.replace('index.js', `${directoryName}.md`)
+        const documentationPath = path.replace('.js', '.md')
 
         /* add documentation if exists */
         if (fs.existsSync(documentationPath)) {
