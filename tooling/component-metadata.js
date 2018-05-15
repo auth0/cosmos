@@ -20,6 +20,7 @@ const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.js')) // filter out stories
+    .filter(path => !path.includes('sketch.js')) // filter out sketch files
     .map(path => {
       try {
         /* skip secondary files in molecules */
