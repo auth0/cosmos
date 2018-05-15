@@ -2,7 +2,7 @@ import React from 'react'
 
 import Example from '../ov-components/example'
 import Section from '../ov-components/section'
-import { Code, Form, FormGroup } from '@auth0/cosmos'
+import { Code, Form, FormGroup, Radio } from '@auth0/cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()
@@ -52,6 +52,14 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
+        <Form.Radio label="Radio" selected="react">
+          <Radio.Option name="view" value="react">
+            React
+          </Radio.Option>
+          <Radio.Option name="view" value="html">
+            HTML + Liquid
+          </Radio.Option>
+        </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
         <Form.Actions primaryAction={{ label: 'Save' }} />
       </Form>
@@ -98,6 +106,14 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
+        <Form.Radio align="horizontal" label="Radio" selected="react">
+          <Radio.Option name="view" value="react">
+            React
+          </Radio.Option>
+          <Radio.Option name="view" value="html">
+            HTML + Liquid
+          </Radio.Option>
+        </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
         <Form.Actions primaryAction={{ label: 'Save' }} />
       </Form>

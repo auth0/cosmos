@@ -2,16 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { fonts } from '@auth0/cosmos/tokens'
+import { colors, fonts, misc } from '@auth0/cosmos-tokens'
+console.log(misc)
 
 const StyledTag = styled.span`
-  background-color: red;
   display: inline-block;
-  background-color: #777;
-  border-radius: 10px;
+  color: ${props => (props.warning ? colors.base.orangeLighter : colors.base.gray)};
+  border: 1px solid;
+  border-color: ${props => (props.warning ? colors.base.orangeLighter : colors.base.gray)};
+  border-radius: 5px;
   min-width: 10px;
   padding: 4px 8px;
-  color: white;
   line-height: 1;
   vertical-align: middle;
   white-space: nowrap;
@@ -21,7 +22,7 @@ const StyledTag = styled.span`
 
 const Tag = props => {
   /* you can pass on all the props to the component like this */
-  return <StyledTag>{props.text}</StyledTag>
+  return <StyledTag {...props}>{props.text}</StyledTag>
 }
 
 Tag.propTypes = {

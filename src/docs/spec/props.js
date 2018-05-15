@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { spacing, colors, fonts, misc } from '@auth0/cosmos/tokens'
 import { Code } from '@auth0/cosmos'
 import parseType from './prop-type'
-import addDefaultValues from './default-props'
+import addDefaultValues, { getDefaultValue } from './default-props'
 import getConflictingProps from './prop-conflicts'
 import PropSwitcher from './prop-switcher'
 
@@ -18,6 +18,7 @@ const Table = styled.table`
     padding: ${spacing.small} ${spacing.small};
     vertical-align: middle;
     position: relative;
+    color: ${colors.base.grayDark};
   }
   th {
     border-bottom: 2px solid #ddd;
@@ -36,15 +37,18 @@ const Table = styled.table`
 const Type = styled.div`
   font-size: 13px;
   font-family: ${fonts.family.code};
-  color: ${colors.base.grayDark};
   padding: 0 ${spacing.xsmall};
   border-radius: ${misc.radius};
   position: relative;
   left: -${spacing.xsmall};
 `
 
-const Description = styled.span`
-  color: ${colors.base.grayDark};
+const Required = styled.span`
+  color: ${colors.base.orange};
+  &:after {
+    content: '*';
+    font-size: 16px;
+  }
 `
 
 class Props extends React.Component {
@@ -90,7 +94,7 @@ class Props extends React.Component {
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Type</th>
+            <th>Default</th>
             <th />
           </tr>
         </thead>
@@ -99,14 +103,13 @@ class Props extends React.Component {
             <tr key={key}>
               <td>
                 <Code>{key}</Code>
+                {propData[key].required && <Required />}
               </td>
               <td>
-                <Description>{propData[key].description}</Description>
+                {propData[key].description}
+                <Type>type: {parseType(propData[key].type)}</Type>
               </td>
-              <td>
-                <Type>{parseType(propData[key].type)}</Type>
-              </td>
-
+              <td>{getDefaultValue(propData[key])}</td>
               <td>
                 <PropSwitcher
                   propName={key}

@@ -5,6 +5,7 @@ const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
+const getMetadata = require('./get-metadata')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -64,6 +65,8 @@ const run = () => {
           data.documentation = fs.readFileSync(documentationPath, 'utf8')
           /* remove from markdown files list (useful later) */
           markdownFiles = markdownFiles.filter(path => path !== documentationPath)
+          /* pull meta from docs */
+          data.meta = getMetadata(documentationPath)
         } else if (debug) {
           warn('documentation not found for ' + path)
         } else {

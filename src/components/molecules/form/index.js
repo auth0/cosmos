@@ -5,6 +5,7 @@ import ActionInput from '../../molecules/_action-input'
 import TextArea from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
+import Radio from '../../atoms/radio'
 
 import Field from './field'
 import Actions from './actions'
@@ -18,11 +19,13 @@ const Form = props => (
   </form>
 )
 
+Form.Field = props => <Field {...props} fieldComponent={props.component} />
 Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
 Form.Switch = props => <Field {...props} fieldComponent={Switch} />
-Form.Field = props => <Field {...props} fieldComponent={props.component} />
+Form.Radio = props => <Field {...props} fieldComponent={Radio} />
+Form.Radio.Option = Radio.Option
 Form.Actions = Actions
 Form.FieldSet = FieldSet
 

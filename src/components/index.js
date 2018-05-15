@@ -72,8 +72,11 @@ export { Thumbnail }
 import Image from './atoms/image'
 export { Image }
 
+import Radio from './atoms/radio'
+export { Radio }
+
 /* molecules */
-import Alert from './molecules/alert'
+import Alert from './atoms/alert'
 export { Alert }
 
 import Dialog from './molecules/dialog'

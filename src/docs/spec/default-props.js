@@ -9,4 +9,11 @@ const addDefaultValues = propData => {
   return propData
 }
 
+const getDefaultValue = propData => {
+  if (propData.defaultValue && propData.defaultValue.value !== 'null') {
+    return propData.defaultValue.value
+  }
+}
+
 export default addDefaultValues
+export { getDefaultValue }

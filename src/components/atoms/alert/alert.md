@@ -9,10 +9,5 @@
 The `Alert` component should be used to draw the user's attention to a message.
 
 ```jsx
-<Alert
-  type="default"
-  title="Notice!"
-  text="This is an important message!"
-  {props}
-/>
+<Alert {props} defaults={{type: "warning", title: "Notice!", text: "This is an important message!"}} />
 ```

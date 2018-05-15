@@ -8,6 +8,7 @@ Form Fields are a group of field types supported in `Form`:
 * `Form.TextArea`
 * `Form.Select`
 * `Form.Switch`
+* `Form.Radio`
 
 If you need something we don't have, you can use a custom component with `Form.Field`
 
@@ -40,6 +41,10 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
     ]}
   />
   <Form.Switch label="Subscribe" on />
+  <Form.Radio name="example1" selected="one">
+    <Form.Radio.Option value="one">One</Form.Radio.Option>
+    <Form.Radio.Option value="two">Two</Form.Radio.Option>
+  </Form.Radio>
 </Form>
 ```
 
