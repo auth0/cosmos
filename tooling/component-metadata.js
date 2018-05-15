@@ -6,6 +6,7 @@ const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
 const getMetadata = require('./get-metadata')
+const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -47,6 +48,10 @@ const run = () => {
 
           /* remove redundant quotes from enum values in prop types */
           Object.values(data.props).forEach(prop => {
+            if (prop.type.name === 'enum' && prop.type.value === '__ICONNAMES__') {
+              prop.type.value = Object.keys(icons).map(value => ({ value }))
+            }
+
             if (prop.type.name === 'enum' && Array.isArray(prop.type.value)) {
               prop.type.value.forEach(element => {
                 element.value = element.value.replace(/^'(.*)'$/, '$1')
