@@ -186,6 +186,11 @@ const colors = {
     success: '#73CD1F',
     warning: '#F49C20',
     danger: '#D14B49'
+  },
+  tag: {
+    background: '#DBF4FD',
+    border: '#3BC0F2',
+    text: '#3BC0F2'
   }
 }
 
