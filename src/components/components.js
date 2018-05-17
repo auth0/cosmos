@@ -12,105 +12,79 @@ import './_helpers/globals'
 
 /* demo */
 import Box from './atoms/_box'
-export { Box }
 
 /* atoms */
-import TextInput from './atoms/text-input'
-export { TextInput }
-
-import Select from './atoms/select'
-export { Select }
-
-import Switch from './atoms/switch'
-export { Switch }
-
-import Button from './atoms/button'
-export { Button }
-
-import TextArea from './atoms/textarea'
-export { TextArea }
-
-import Logo from './atoms/logo'
-export { Logo }
-
-import Icon from './atoms/icon'
-export { Icon }
-
-import Code from './atoms/code'
-export { Code }
-
-import Spinner from './atoms/spinner'
-export { Spinner }
-
-import Tooltip from './atoms/tooltip'
-export { Tooltip }
-
-import Overlay from './atoms/overlay'
-export { Overlay }
-
-import Link from './atoms/link'
-export { Link }
-
-import Heading from './atoms/heading'
-export { Heading }
-
-import Paragraph from './atoms/paragraph'
-export { Paragraph }
-
-import Text from './atoms/text'
-export { Text }
-
-import Breadcrumb from './atoms/breadcrumb'
-export { Breadcrumb }
-
 import Avatar from './atoms/avatar'
-export { Avatar }
-
-import Thumbnail from './atoms/thumbnail'
-export { Thumbnail }
-
+import Breadcrumb from './atoms/breadcrumb'
+import Button from './atoms/button'
+import Code from './atoms/code'
+import Heading from './atoms/heading'
+import Icon from './atoms/icon'
 import Image from './atoms/image'
-export { Image }
-
+import Label from './atoms/label'
+import Link from './atoms/link'
+import Logo from './atoms/logo'
+import Overlay from './atoms/overlay'
+import Paragraph from './atoms/paragraph'
 import Radio from './atoms/radio'
-export { Radio }
+import Select from './atoms/select'
+import Spinner from './atoms/spinner'
+import Switch from './atoms/switch'
+import Text from './atoms/text'
+import TextArea from './atoms/textarea'
+import TextInput from './atoms/text-input'
+import Thumbnail from './atoms/thumbnail'
+import Tooltip from './atoms/tooltip'
 
 /* molecules */
 import Alert from './atoms/alert'
-export { Alert }
-
-import Dialog from './molecules/dialog'
-export { Dialog }
-
-import EmptyState from './molecules/empty-state'
-export { EmptyState }
-
-import Form from './molecules/form'
-export { Form }
-
-import FormGroup from './molecules/form-group'
-export { FormGroup }
-
-import Tabs from './molecules/tabs'
-export { Tabs }
-
-import Stack from './molecules/stack'
-export { Stack }
-
-import List from './molecules/list'
-export { List }
-
 import ButtonGroup from './molecules/button-group'
-export { ButtonGroup }
-
+import Dialog from './molecules/dialog'
+import EmptyState from './molecules/empty-state'
+import Form from './molecules/form'
+import FormGroup from './molecules/form-group'
+import List from './molecules/list'
 import PageHeader from './molecules/page-header'
-export { PageHeader }
-
-import Sidebar from './molecules/sidebar'
-export { Sidebar }
-
 import ResourceList from './molecules/resource-list'
-export { ResourceList }
-
+import Sidebar from './molecules/sidebar'
+import Stack from './molecules/stack'
 import Table from './molecules/table'
-export { Table }
+import Tabs from './molecules/tabs'
+
+export {
+  Alert,
+  Avatar,
+  Box,
+  Breadcrumb,
+  Button,
+  ButtonGroup,
+  Code,
+  Dialog,
+  EmptyState,
+  Form,
+  FormGroup,
+  Heading,
+  Icon,
+  Image,
+  Label,
+  Link,
+  List,
+  Logo,
+  Overlay,
+  PageHeader,
+  Paragraph,
+  Radio,
+  ResourceList,
+  Select,
+  Sidebar,
+  Spinner,
+  Stack,
+  Switch,
+  Table,
+  Tabs,
+  Text,
+  TextArea,
+  TextInput,
+  Thumbnail,
+  Tooltip
+}
