@@ -1,0 +1,19 @@
+# Pattern: 
+#
+# file/directory      owner
+#
+
+
+# You can use * to add global owners
+*           @landitus
+
+# Match files by file type
+
+*.js        @nkohari
+*.md        @landitus
+
+# or by directory
+
+tooling/   @siddharthkp
+
+
