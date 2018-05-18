@@ -15,12 +15,12 @@
   primaryAction={{
     label: 'Create Client',
     icon: 'plus',
-    method: () => {}
+    handler: () => {}
   }}
   secondaryAction={{
     label: 'Tutorial',
     icon: 'play-circle',
-    method: () => {}
+    handler: () => {}
   }}
 />
 ```

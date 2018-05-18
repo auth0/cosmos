@@ -6,19 +6,19 @@ At the end of the forms, you need actions that the user can take.
 
 ```jsx
 <Form.Actions
-  primaryAction={{ label: 'Save Changes', method: () => {} }}
-  secondaryActions={[{ label: 'Try', icon: 'play', method: () => {} }]}
+  primaryAction={{ label: 'Save Changes', handler: () => {} }}
+  secondaryActions={[{ label: 'Try', icon: 'play', handler: () => {} }]}
 />
 ```
 
 ## Examples
 
-Pass a `primaryAction` with the label and method to call.
+Pass a `primaryAction` with the label and handler to call.
 
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
 
@@ -30,10 +30,10 @@ You can also pass an `array` of `secondaryActions`
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   <Form.Actions
-    primaryAction={{ label: 'Save Changes', method: () => {} }}
+    primaryAction={{ label: 'Save Changes', handler: () => {} }}
     secondaryActions={[
-      { label: 'Try', icon: 'play', method: () => {} },
-      { label: 'Debug', method: () => {} }
+      { label: 'Try', icon: 'play', handler: () => {} },
+      { label: 'Debug', handler: () => {} }
     ]}
   />
 </Form>

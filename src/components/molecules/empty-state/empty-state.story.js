@@ -14,7 +14,7 @@ storiesOf('EmptyState').add('default', () => (
       action={{
         icon: 'plus',
         text: 'Create Client',
-        method: () => {}
+        handler: () => {}
       }}
     />
   </Example>

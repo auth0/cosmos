@@ -29,7 +29,7 @@ const Actions = props => {
           <Button
             appearance="primary"
             icon={props.primaryAction.icon}
-            onClick={props.primaryAction.method}
+            onClick={props.primaryAction.handler}
           >
             {props.primaryAction.label}
           </Button>
@@ -38,7 +38,12 @@ const Actions = props => {
         {props.secondaryActions &&
           props.secondaryActions.map((action, index) => {
             return (
-              <Button appearance="secondary" icon={action.icon} key={index} onClick={action.method}>
+              <Button
+                appearance="secondary"
+                icon={action.icon}
+                key={index}
+                onClick={action.handler}
+              >
                 {action.label}
               </Button>
             )
@@ -51,7 +56,7 @@ const Actions = props => {
                 appearance="destructive"
                 icon={action.icon}
                 key={index}
-                onClick={action.method}
+                onClick={action.handler}
               >
                 {action.label}
               </Button>
@@ -69,7 +74,7 @@ Actions.displayName = 'Form Actions'
 const actionShape = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOf(__ICONNAMES__),
-  method: PropTypes.func.isRequired
+  handler: PropTypes.func.isRequired
 }
 
 Actions.propTypes = {

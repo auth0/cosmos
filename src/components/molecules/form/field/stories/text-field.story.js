@@ -33,8 +33,8 @@ storiesOf('Form').add('text field + actions', () => (
         type="text"
         placeholder="Enter something"
         actions={[
-          { icon: 'copy', method: () => {}, label: 'Copy to clipboard' },
-          { icon: 'delete', method: () => {}, label: 'Delete' }
+          { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
+          { icon: 'delete', handler: () => {}, label: 'Delete' }
         ]}
       />
     </Form>

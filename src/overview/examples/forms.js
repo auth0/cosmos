@@ -30,8 +30,8 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', method: fakeMethod, label: 'Reveal' },
-            { icon: 'copy', method: fakeMethod, label: 'Copy to clipboard' }
+            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
         <Form.TextInput
@@ -84,8 +84,8 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', method: fakeMethod, label: 'Reveal' },
-            { icon: 'copy', method: fakeMethod, label: 'Copy to clipboard' }
+            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
         <Form.TextInput

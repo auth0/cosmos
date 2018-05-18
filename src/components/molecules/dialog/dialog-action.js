@@ -1,7 +1,7 @@
 class DialogAction {
-  constructor(label, method, appearance = 'default') {
+  constructor(label, handler, appearance = 'default') {
     this.label = label
-    this.method = method
+    this.handler = handler
     this.appearance = appearance
   }
 }

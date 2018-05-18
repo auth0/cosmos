@@ -15,7 +15,7 @@ const EmptyStates = () => (
         action={{
           icon: 'plus',
           text: 'Create Client',
-          method: function() {
+          handler: function() {
             /*...*/
           }
         }}

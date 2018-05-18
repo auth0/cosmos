@@ -15,7 +15,7 @@ class ApisIndex extends React.Component {
           primaryAction={{
             label: 'Create API',
             icon: 'plus',
-            method: null
+            handler: null
           }}
         />
       </div>

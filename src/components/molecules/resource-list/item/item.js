@@ -85,7 +85,7 @@ const ResourceListItem = props => {
           <Button
             key={index}
             icon={action.icon}
-            onClick={handleActionClick(action.method)}
+            onClick={handleActionClick(action.handler)}
             label={action.label}
           />
         ))}
@@ -121,7 +121,7 @@ ResourceListItem.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      method: PropTypes.func.isRequired,
+      handler: PropTypes.func.isRequired,
       label: PropTypes.string.isRequired
     })
   )

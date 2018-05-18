@@ -28,7 +28,7 @@ class Settings extends React.Component {
           type="text"
           readOnly
           defaultValue={this.state.domain}
-          actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
+          actions={[{ icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
           label="Client ID"
@@ -36,7 +36,7 @@ class Settings extends React.Component {
           code
           readOnly
           defaultValue={this.state.clientID}
-          actions={[{ icon: 'copy', method: dummyFn, label: 'Copy to clipboard' }]}
+          actions={[{ icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
           label="Client Secret"
@@ -44,8 +44,8 @@ class Settings extends React.Component {
           masked
           defaultValue={this.state.secret}
           actions={[
-            { icon: 'copy', method: dummyFn, label: 'Copy to clipboard' },
-            { icon: 'rotate', method: dummyFn, label: 'Rotate secret' }
+            { icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' },
+            { icon: 'rotate', handler: dummyFn, label: 'Rotate secret' }
           ]}
           helpText="The Client Secret is not base64 encoded."
         />
@@ -74,13 +74,13 @@ class Settings extends React.Component {
         />
 
         <Form.Select
-          label="Token Endpoint Authentication Method"
+          label="Token Endpoint Authentication handler"
           options={[
             { text: 'None', value: 'none' },
             { text: 'Basic', value: 'basic' },
             { text: 'Post', value: 'post', defaultSelected: true }
           ]}
-          helpText="Defines the requested authentication method for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
+          helpText="Defines the requested authentication handler for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
         />
 
         <Form.TextArea
@@ -156,7 +156,7 @@ class Settings extends React.Component {
             to log the user in if they have already logged in before)."
         />
 
-        <Form.Actions primaryAction={{ label: 'Save Changes', method: this.save }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: this.save }} />
       </Form>
     )
   }

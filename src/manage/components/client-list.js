@@ -35,10 +35,10 @@ const ClientList = props => (
       </ResourceList.Item>
     )}
     actions={[
-      { icon: 'quickstarts', label: 'Quickstart', method: noop },
-      { icon: 'settings', label: 'Settings', method: noop },
-      { icon: 'code', label: 'Addons', method: noop },
-      { icon: 'connections', label: 'Connections', method: noop }
+      { icon: 'quickstarts', label: 'Quickstart', handler: noop },
+      { icon: 'settings', label: 'Settings', handler: noop },
+      { icon: 'code', label: 'Addons', handler: noop },
+      { icon: 'connections', label: 'Connections', handler: noop }
     ]}
   />
 )

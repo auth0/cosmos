@@ -12,8 +12,8 @@ A `ResourceList.Item` is a single item that is displayed in a [ResourceList](/do
   href="https://auth0.com/"
   image={<Icon name="clients" />}
   actions={[
-    { icon: 'settings', label: 'Settings', method: function(){} },
-    { icon: 'delete', label: 'Delete', method: function(){} }
+    { icon: 'settings', label: 'Settings', handler: function(){} },
+    { icon: 'delete', label: 'Delete', handler: function(){} }
   ]} {props} />
 ```
 
@@ -94,8 +94,8 @@ between the header (title, subtitle, etc.) and the actions. This is the main rea
   subtitle="Example Subtitle"
   thumbnail={<Icon name="clients" />}
   actions={[
-    { icon: 'settings', label: 'Settings', method: function() {} },
-    { icon: 'delete', label: 'Delete', method: function() {} }
+    { icon: 'settings', label: 'Settings', handler: function() {} },
+    { icon: 'delete', label: 'Delete', handler: function() {} }
   ]}
 >
   This is the list item's body
