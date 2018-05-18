@@ -1,0 +1,11 @@
+#
+# Pattern:
+#
+# file/directory          user
+#
+
+.js         @nkohari
+
+tooling/    @siddharthkp
+
+components/*.md   @landitus
