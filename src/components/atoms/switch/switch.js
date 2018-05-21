@@ -91,7 +91,7 @@ class Switch extends React.Component {
     */
     return (
       <StyledSwitch onClick={this.onToggle.bind(this)}>
-        <Checkbox type="checkbox" checked={this.state.on} readOnly />
+        <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
         <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
       </StyledSwitch>
