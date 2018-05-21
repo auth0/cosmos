@@ -33,15 +33,15 @@ The only required prop is `items`, which should be a list of items to display.
     }
   ]}
   actions={[
-    { icon: 'settings', method: function() {}, label: 'Settings' },
-    { icon: 'delete', method: function() {}, label: 'Delete' }
+    { icon: 'settings', handler: function() {}, label: 'Settings' },
+    { icon: 'delete', handler: function() {}, label: 'Delete' }
   ]}
 />
 ```
 
 ## Actions
 
-If you pass an array of `actions` to the `ResourceList`, each item in the list will be given the same set of actions. When the user activates one of these actions, the function specified by `method` will be called with the click event and the entry in the `items` array corresponding to the item that was clicked.
+If you pass an array of `actions` to the `ResourceList`, each item in the list will be given the same set of actions. When the user activates one of these actions, the function specified by `handler` will be called with the click event and the entry in the `items` array corresponding to the item that was clicked.
 
 Here's an example of an action handler:
 
@@ -61,12 +61,12 @@ If necessary, you can override the actions for a specific list item by giving th
     {
       title: 'Item 3',
       subtitle: 'Example item',
-      actions: [{ icon: 'settings', method: function() {}, label: 'Settings' }]
+      actions: [{ icon: 'settings', handler: function() {}, label: 'Settings' }]
     }
   ]}
   actions={[
-    { icon: 'settings', method: function() {}, label: 'Settings' },
-    { icon: 'delete', method: function() {}, label: 'Delete' }
+    { icon: 'settings', handler: function() {}, label: 'Settings' },
+    { icon: 'delete', handler: function() {}, label: 'Delete' }
   ]}
 />
 ```
@@ -88,8 +88,8 @@ If you need more control over the rendering of list items, you can pass a `rende
     </ResourceList.Item>
   )}
   actions={[
-    { icon: 'settings', method: function() {}, label: 'Settings' },
-    { icon: 'delete', method: function() {}, label: 'Delete' }
+    { icon: 'settings', handler: function() {}, label: 'Settings' },
+    { icon: 'delete', handler: function() {}, label: 'Delete' }
   ]}
 />
 ```

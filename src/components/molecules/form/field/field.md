@@ -28,7 +28,7 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
     label="Field label"
     type="text"
     placeholder="Enter something"
-    actions={[{ icon: 'copy', method: () => {}, label: 'Copy to clipboard' }]}
+    actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
   />
   <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
   <Form.Select
@@ -84,7 +84,7 @@ or other rich formatting to displayed text.
 
 ### Actions
 
-You can add actions to a field by passing an array of `{ icon, method }`:
+You can add actions to a field by passing an array of `{ icon, handler }`:
 
 ```js
 <Form>
@@ -93,8 +93,8 @@ You can add actions to a field by passing an array of `{ icon, method }`:
     type="text"
     placeholder="Enter something"
     actions={[
-      { icon: 'copy', label: 'Copy URL', method: e => console.log(e) },
-      { icon: 'delete', label: 'Delete URL', method: e => console.log(e) }
+      { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+      { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
     ]}
   />
 </Form>

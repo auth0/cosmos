@@ -26,12 +26,12 @@ class ClientIndex extends React.Component {
           primaryAction={{
             label: 'Create Client',
             icon: 'plus',
-            method: this.setDialogOpen(true)
+            handler: this.setDialogOpen(true)
           }}
           secondaryAction={{
             label: 'Tutorial',
             icon: 'play-circle',
-            method: () => {}
+            handler: () => {}
           }}
         />
 

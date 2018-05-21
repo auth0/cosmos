@@ -34,7 +34,7 @@ const PageHeader = props => {
               size="large"
               appearance="secondary"
               icon={props.secondaryAction.icon}
-              onClick={props.secondaryAction.method}
+              onClick={props.secondaryAction.handler}
             >
               {props.secondaryAction.label}
             </Button>
@@ -43,7 +43,7 @@ const PageHeader = props => {
             size="large"
             appearance="cta"
             icon={props.primaryAction.icon}
-            onClick={props.primaryAction.method}
+            onClick={props.primaryAction.handler}
           >
             {props.primaryAction.label}
           </Button>
@@ -71,7 +71,7 @@ PageHeader.propTypes = {
     PropTypes.shape({
       label: PropTypes.string.isRequired,
       icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      method: PropTypes.func.isRequired
+      handler: PropTypes.func.isRequired
     })
   )
 }

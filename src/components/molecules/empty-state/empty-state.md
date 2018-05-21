@@ -12,7 +12,7 @@ Empty states are displayed when a page has no content.
   action={{
     icon: 'plus',
     text: 'Create Client',
-    method: function() { /*...*/ }
+    handler: function() { /*...*/ }
   }}
 />
 ```

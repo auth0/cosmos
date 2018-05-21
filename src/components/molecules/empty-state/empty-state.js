@@ -27,7 +27,7 @@ const EmptyState = props => {
         <Text>{props.text}</Text>
         {helpLink}
       </Body>
-      <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.method}>
+      <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
         {props.action.text}
       </Button>
     </Wrapper>
@@ -77,7 +77,7 @@ EmptyState.displayName = 'EmptyState'
 EmptyState.propTypes = {
   action: PropTypes.shape({
     icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-    method: PropTypes.func.isRequired,
+    handler: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired,
   helpUrl: PropTypes.string,

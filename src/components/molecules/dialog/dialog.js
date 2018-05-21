@@ -11,7 +11,7 @@ import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 
 const createButtonForAction = (action, index) => {
   const buttonProps = {
-    onClick: action.method,
+    onClick: action.handler,
     appearance: action.appearance
   }
   return (
