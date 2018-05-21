@@ -48,13 +48,10 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
     ]}
   />
   <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
-  <Form.RadioGroup label="Radio">
-    <Radio name="view" value="react">
-      React
-    </Radio>
-    <Radio name="view" value="html">
-      HTML + Liquid
-    </Radio>
+  <Form.Radio name="Radio" selected="one">
+    <Form.Radio.Option value="React">React</Form.Radio.Option>
+    <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
+  </Form.Radio>
   </Form.RadioGroup>
   <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
 </Form>
