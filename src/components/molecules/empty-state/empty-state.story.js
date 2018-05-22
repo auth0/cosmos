@@ -13,7 +13,7 @@ storiesOf('EmptyState').add('default', () => (
       helpUrl="https://auth0.com"
       action={{
         icon: 'plus',
-        text: 'Create Client',
+        label: 'Create Client',
         handler: () => {}
       }}
     />
