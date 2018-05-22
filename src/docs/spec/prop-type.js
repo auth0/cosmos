@@ -6,6 +6,8 @@ const parseType = type => {
     else return type.name
   } else if (type.name === 'enum') {
     return 'one of:'
+  } else if (type.name === 'custom') {
+    return type.raw
   } else {
     return type.name
   }
