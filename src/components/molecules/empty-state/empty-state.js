@@ -7,6 +7,7 @@ import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
 import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '@auth0/cosmos-tokens'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
 const EmptyState = props => {
   let helpLink
@@ -28,7 +29,7 @@ const EmptyState = props => {
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
-        {props.action.text}
+        {props.action.label}
       </Button>
     </Wrapper>
   )
@@ -75,11 +76,7 @@ const LearnMore = styled.div`
 EmptyState.displayName = 'EmptyState'
 
 EmptyState.propTypes = {
-  action: PropTypes.shape({
-    icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-    handler: PropTypes.func.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired,
+  action: actionShapeWithRequiredIcon.isRequired,
   helpUrl: PropTypes.string,
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   text: PropTypes.string,
