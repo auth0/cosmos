@@ -11,6 +11,7 @@ const SideNavigation = () => (
     }}
   >
     <Sidebar>
+      <Sidebar.Link icon="arrow-right" label="Getting started" url="/manage/welcome" />
       <Sidebar.Link icon="dashboard" label="Dashboard" url="/manage" />
       <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" />
       <Sidebar.Link icon="apis" label="APIs" url="/manage/apis" />
