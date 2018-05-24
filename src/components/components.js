@@ -35,7 +35,6 @@ import Tag from './atoms/tag'
 import Text from './atoms/text'
 import TextArea from './atoms/textarea'
 import TextInput from './atoms/text-input'
-import Thumbnail from './atoms/thumbnail'
 import Tooltip from './atoms/tooltip'
 
 /* molecules */
@@ -89,6 +88,5 @@ export {
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 }

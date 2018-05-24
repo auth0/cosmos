@@ -34,7 +34,7 @@ const AvatarImage = styled.span`
   overflow: hidden;
 
   img {
-    height: 100%;
+    height: ${props => (props.shape === 'circle' ? '100%' : 'auto')};
     user-select: none;
   }
 
@@ -98,7 +98,12 @@ const Avatar = props => {
     )
   }
 
-  const shape = props.shape || (props.icon ? 'square' : 'circle')
+  let shape
+  if (props.shape === 'auto') {
+    shape = props.icon ? 'square' : 'circle'
+  } else {
+    shape = props.shape
+  }
 
   return (
     <StyledAvatar>
@@ -118,7 +123,7 @@ Avatar.propTypes = {
   /** An image URL to display. */
   image: PropTypes.string.isRequired,
   /** The shape to render the image. */
-  shape: PropTypes.oneOf(['circle', 'square']),
+  shape: PropTypes.oneOf(['auto', 'circle', 'square']),
   /** The size of the avatar. */
   size: PropTypes.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
   /** The primary line of text to display. */
@@ -129,7 +134,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   size: 'medium',
-  shape: 'circle'
+  shape: 'auto'
 }
 
 export default Avatar
