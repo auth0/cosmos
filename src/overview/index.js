@@ -24,7 +24,6 @@ import Spacing from './examples/spacing'
 import Tables from './examples/tables'
 import TabsExample from './examples/tabs'
 import Tags from './examples/tags'
-import Thumbnails from './examples/thumbnails'
 import Tooltip from './examples/tooltip'
 import Typography from './examples/typography'
 
@@ -56,9 +55,6 @@ export default () => (
       <Row>
         <Col>
           <Avatars />
-        </Col>
-        <Col>
-          <Thumbnails />
         </Col>
       </Row>
       <Row>
