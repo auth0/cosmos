@@ -18,7 +18,7 @@ const StyledTooltip = styled.div`
   transform: translateX(-50%);
   margin: ${spacing.xsmall} 0;
   pointer-events: none;
-  opacity: 0;
+  opacity: ${props => (props.defaultVisible ? 1 : 0)};
   ${props =>
     props.position === 'bottom'
       ? css`
@@ -76,12 +76,15 @@ Tooltip.propTypes = {
   /** Content to show in the tooltip */
   content: PropTypes.string.isRequired,
   /** Where to place the tooltip */
-  position: PropTypes.oneOf(['top', 'bottom'])
+  position: PropTypes.oneOf(['top', 'bottom']),
+  /** Visible by default */
+  defaultVisible: PropTypes.bool
 }
 
 Tooltip.defaultProps = {
   content: null,
-  position: 'top'
+  position: 'top',
+  defaultVisible: false
 }
 
 export default Tooltip
