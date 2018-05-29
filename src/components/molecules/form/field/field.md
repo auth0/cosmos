@@ -8,6 +8,9 @@ Form Fields are a group of field types supported in `Form`:
 * `Form.TextArea`
 * `Form.Select`
 * `Form.Switch`
+* `Form.Radio`
+
+If you need something we don't have, you can use a custom component with `Form.Field`
 
 In addition to their own [native props](/docs/TextInput), we add a few more props in the context of a `Form`:
 
@@ -25,7 +28,7 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
     label="Field label"
     type="text"
     placeholder="Enter something"
-    actions={[{ icon: 'copy', method: () => {}, label: 'Copy to clipboard' }]}
+    actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
   />
   <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
   <Form.Select
@@ -38,6 +41,10 @@ In addition to their own [native props](/docs/TextInput), we add a few more prop
     ]}
   />
   <Form.Switch label="Subscribe" on />
+  <Form.Radio name="example1" selected="one">
+    <Form.Radio.Option value="one">One</Form.Radio.Option>
+    <Form.Radio.Option value="two">Two</Form.Radio.Option>
+  </Form.Radio>
 </Form>
 ```
 
@@ -77,7 +84,7 @@ or other rich formatting to displayed text.
 
 ### Actions
 
-You can add actions to a field by passing an array of `{ icon, method }`:
+You can add actions to a field by passing an array of `{ icon, handler }`:
 
 ```js
 <Form>
@@ -86,8 +93,8 @@ You can add actions to a field by passing an array of `{ icon, method }`:
     type="text"
     placeholder="Enter something"
     actions={[
-      { icon: 'copy', label: 'Copy URL', method: e => console.log(e) },
-      { icon: 'delete', label: 'Delete URL', method: e => console.log(e) }
+      { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+      { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
     ]}
   />
 </Form>
@@ -107,5 +114,23 @@ We leave the logic part of validation to you the developer, you can pass `error`
     error="This is not a valid URL"
     helpText="Make sure to specify the protocol, http:// or https://"
   />
+</Form>
+```
+
+### Custom component (advanced)
+
+Layout is taken care by `Form.Field`, it sets the position of `label`, `helperText`, etc.
+
+All the props are passed on to the custom component, so you can set the id, error styles, actions customised to the use case.
+
+```js
+<Form>
+  <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
+    <Stack>
+      <TextInput placeholder="Value" error="Show only in the first field" />
+      <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
+      <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
+    </Stack>
+  </Form.Field>
 </Form>
 ```

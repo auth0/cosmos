@@ -136,8 +136,8 @@ storiesOf('Resource List').add('actions', () => (
         </ResourceList.Item>
       )}
       actions={[
-        { label: 'Delete', icon: 'delete', method: function() {} },
-        { label: 'Settings', icon: 'settings', method: function() {} }
+        { label: 'Delete', icon: 'delete', handler: function() {} },
+        { label: 'Settings', icon: 'settings', handler: function() {} }
       ]}
     />
   </Example>
@@ -154,7 +154,7 @@ storiesOf('Resource List').add('action overrides', () => (
           subtitle: 'Subtitle Three',
           image: IMAGE_URLS[2],
           id: 'ghi789',
-          actions: [{ label: 'Settings', icon: 'settings', method: function() {} }]
+          actions: [{ label: 'Settings', icon: 'settings', handler: function() {} }]
         }
       ]}
       renderItem={item => (
@@ -163,8 +163,8 @@ storiesOf('Resource List').add('action overrides', () => (
         </ResourceList.Item>
       )}
       actions={[
-        { label: 'Delete', icon: 'delete', method: function() {} },
-        { label: 'Settings', icon: 'settings', method: function() {} }
+        { label: 'Delete', icon: 'delete', handler: function() {} },
+        { label: 'Settings', icon: 'settings', handler: function() {} }
       ]}
     />
   </Example>

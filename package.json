@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -42,7 +42,7 @@
       "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
-    "codemods": "jscodeshift -t src/codemods src/",
+    "codemods": "jscodeshift -t src/codemods src/components/",
     "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "sketch":
       "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"

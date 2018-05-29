@@ -42,9 +42,9 @@ const ResourceLists = () => (
           {
             icon: 'settings',
             label: 'Settings',
-            method: clickHandler('Settings')
+            handler: clickHandler('Settings')
           },
-          { icon: 'delete', label: 'Delete', method: clickHandler('Delete') }
+          { icon: 'delete', label: 'Delete', handler: clickHandler('Delete') }
         ]}
       />
     </Example>

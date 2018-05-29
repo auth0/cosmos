@@ -16,7 +16,7 @@ class UsersIndex extends React.Component {
           primaryAction={{
             label: 'Create User',
             icon: 'plus',
-            method: null
+            handler: null
           }}
         />
       </div>

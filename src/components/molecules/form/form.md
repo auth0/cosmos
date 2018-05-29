@@ -15,7 +15,7 @@ Form is a compound component that ships with extra props for elements that take 
     type="text"
     placeholder="Enter something"
   />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
 
@@ -48,7 +48,12 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
     ]}
   />
   <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Radio name="Radio" selected="one">
+    <Form.Radio.Option value="React">React</Form.Radio.Option>
+    <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
+  </Form.Radio>
+  </Form.RadioGroup>
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
 
@@ -67,7 +72,7 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
     <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   </Form.FieldSet>
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
 
@@ -82,7 +87,7 @@ At the end of the forms, you need actions that the user can take. Read how to ad
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
 
@@ -93,6 +98,6 @@ At the end of the forms, you need actions that the user can take. Read how to ad
 ```js
 <Form layout="label-on-top">
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-  <Form.Actions primaryAction={{ label: 'Save Changes', method: () => {} }} />
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```

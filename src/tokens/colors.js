@@ -169,6 +169,23 @@ const colors = {
       background: '#FFD8CC',
       text: '#801F00'
     }
+  },
+  radio: {
+    background: '#FFF',
+    border: '#BEBEBE',
+    backgroundSelected: '#3B99FC',
+    borderSelected: '#2C90FC',
+    backgroundDisabled: '#F6F6F6',
+    borderDisabled: '#CCC',
+    shadow: 'rgba(0,0,0,0.20)',
+    shadowDisabled: 'rgba(0,0,0,0.10)'
+  },
+  label: {
+    default: '#7D7D7D',
+    information: '#3BC0F2',
+    success: '#73CD1F',
+    warning: '#F49C20',
+    danger: '#D14B49'
   }
 }
 

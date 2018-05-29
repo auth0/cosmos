@@ -1,19 +1,20 @@
 /*
   filepath format:
-    1. src/components/atoms/component/index.js
-    2. src/components/molecules/component/index.js
-    3. src/components/molecules/component/child/index.js
+    1. src/components/atoms/component/component.js
+    2. src/components/molecules/component/component.js
+    3. src/components/molecules/component/child/child.js
 */
 
 const attachChildren = components => {
   /* Attach children to their parents and remove from list */
 
-  const parents = components.filter(component => !isChild(component)).map(parent => {
+  const parents = components.filter(component => isParent(component)).map(parent => {
     parent.children = []
     return parent
   })
 
-  const children = components.filter(component => isChild(component))
+  const children = components.filter(component => !isParent(component))
+
   children.forEach(child => {
     const parent = getParent(parents, child)
     parent.children.push(child)
@@ -23,16 +24,32 @@ const attachChildren = components => {
 }
 
 /* Definitions that only works for the current file structure, might change */
-const isChild = component => component.filepath.split('/').length === 6
+const isParent = component => {
+  const directoryName = component.filepath.split('/')[3]
+
+  if (component.filepath.includes(`${directoryName}.js`)) return true
+  else return false
+}
 
 const getParent = (components, child) => {
-  const filepathArray = child.filepath.split('/')
+  /*
+    convert child path to parent path
 
-  /* remove child layer from src/components/molecules/component/child/index.js */
-  filepathArray.splice(-2, 1)
+    src/components/molecules/component/child/child.js
+    to
+    src/components/molecules/component/component.js
+  */
 
-  /* return matching component*/
-  const parentFilePath = filepathArray.join('/')
+  const directoryName = child.filepath.split('/')[3]
+  const parentFilePath =
+    child.filepath
+      .split('/')
+      .splice(0, 4)
+      .join('/') +
+    '/' +
+    directoryName +
+    '.js'
+
   return components.filter(component => component.filepath === parentFilePath)[0]
 }
 

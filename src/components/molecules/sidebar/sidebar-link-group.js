@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import SidebarLink from './sidebar-link'
+import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 
 class SidebarLinkGroup extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ SidebarLinkGroup.Content = styled.div`
 `
 
 SidebarLinkGroup.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   label: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired
 }
