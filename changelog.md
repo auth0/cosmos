@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Add support for custom Form fields [#530]
 
+* Add prop to make tooltips visible by default [#562]
+
 ### Changed
 
 * **BREAKING** `method` has been renamed to `handler` for all components that accept actions as a prop [#551]
