@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+import WelcomeIndex from '../pages/welcome'
 import ClientIndex from '../pages/clients'
 import ClientDetail from '../pages/client-detail'
 import EmailsIndex from '../pages/emails'
@@ -21,6 +22,7 @@ const Page = () => (
   >
     <Router>
       <div>
+        <Route exact path="/manage/welcome" component={WelcomeIndex} />
         <Route exact path="/manage/clients" component={ClientIndex} />
         <Route exact path="/manage/clients/:clientId" component={ClientDetail} />
         <Route exact path="/manage/emails" component={EmailsIndex} />
