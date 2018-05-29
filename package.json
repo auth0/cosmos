@@ -45,7 +45,7 @@
     "codemods": "jscodeshift -t src/codemods src/components/",
     "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "sketch":
-      "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
+      "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=build/asketch.json"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
