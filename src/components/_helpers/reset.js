@@ -1,5 +1,5 @@
 import { injectGlobal } from 'styled-components'
-import { fonts } from '../../tokens'
+import { fonts } from '@auth0/cosmos-tokens'
 
 const reset = () => injectGlobal`
   html, body, div, span, applet, object, iframe,
