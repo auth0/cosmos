@@ -4,6 +4,7 @@
   "description": "simple example for using cosmos with webpack",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-serve --content public",
     "build": "webpack-cli",
     "start": "serve public"
   },
@@ -17,6 +18,7 @@
     "babel-loader": "7.1.4",
     "serve": "6.5.3",
     "webpack": "4.1.1",
-    "webpack-cli": "2.0.12"
+    "webpack-cli": "2.0.12",
+    "webpack-serve": "1.0.2"
   }
 }
