@@ -9,7 +9,8 @@
     "src/tokens",
     "src/codemods",
     "src/overview",
-    "src/manage"
+    "src/manage",
+    "examples/webpack-hello-world"
   ],
   "dependencies": {
     "fuzzysearch": "1.0.3",
