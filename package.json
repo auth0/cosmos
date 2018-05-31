@@ -34,6 +34,7 @@
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
     "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "copy:hello": "cp -r examples/webpack-hello-world/public build/hello",
     "start": "serve -s build",
     "test": "run-s build test:chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
