@@ -13,7 +13,7 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['babel-preset-cosmos']
+          presets: ['@auth0/babel-preset-cosmos']
         }
       }
     ]
