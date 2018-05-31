@@ -12,7 +12,7 @@ import HelpText from '../help-text'
 import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
 import { StyledRadio } from '../../../atoms/radio'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledField = styled.div`
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
@@ -75,12 +75,7 @@ Field.propTypes = {
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired
-    })
-  )
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
 
 Field.defaultProps = {

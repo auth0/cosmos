@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ResourceListItem from './item'
 import { spacing } from '@auth0/cosmos-tokens'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledList = styled.ul`
   margin: ${spacing.large} 0;
@@ -31,13 +31,7 @@ ResourceList.propTypes = {
   /** The items that will be rendered in the list. */
   items: PropTypes.array.isRequired,
   /** The actions to render to the right side of the list items. */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  ),
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */
   renderItem: PropTypes.func
 }

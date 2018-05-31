@@ -1,14 +1,25 @@
+import { shapeForDocs } from '@auth0/cosmos/_helpers/action-shape'
+
 const parseType = type => {
   if (type.name === 'shape') {
     return getShape(type.value)
   } else if (type.name === 'arrayOf') {
     if (type.value.name === 'shape') return `arrayOf(${getShape(type.value.value)})`
+    if (type.value.name === 'custom') return `arrayOf(${replaceRaw(type.value.raw)})`
     else return type.name
   } else if (type.name === 'enum') {
     return 'one of:'
+  } else if (type.name === 'custom') {
+    return replaceRaw(type.raw)
   } else {
     return type.name
   }
+}
+
+const replaceRaw = value => {
+  if (['actionShape', 'actionShapeWithRequiredIcon'].includes(value)) {
+    return JSON.stringify(shapeForDocs, null, 2)
+  } else return value
 }
 
 const getShape = value => {
