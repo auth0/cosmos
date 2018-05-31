@@ -61,4 +61,4 @@ typings/
 .next
 
 # Ignore compiled file
-public/dist
+public/main.js
