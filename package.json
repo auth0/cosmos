@@ -9,7 +9,7 @@
     "src/tokens",
     "src/codemods",
     "src/overview",
-    "src/manage",
+    "examples/manage",
     "examples/webpack-hello-world"
   ],
   "dependencies": {
