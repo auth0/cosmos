@@ -43,6 +43,9 @@ class Tabs extends React.Component {
   }
 
   getSelectedTabFromChildProps(tabs) {
+    const { selected } = this.props
+    if (selected) return selected
+
     for (let index = 0; index < tabs.length; index++) {
       if (tabs[index].props.selected) return index
     }
@@ -50,14 +53,28 @@ class Tabs extends React.Component {
     return 0
   }
 
-  changeTab(index) {
-    if (this.state.selectedIndex !== index) {
-      this.setState({ selectedIndex: index })
+  changeTab(nextIndex) {
+    const currentIndex = this.getSelectedTabFromPropsOrState()
+    if (currentIndex !== nextIndex) {
+      if (this.props.onSelect) {
+        this.props.onSelect(nextIndex)
+      } else {
+        this.setState({ selectedIndex: nextIndex })
+      }
     }
   }
 
+  getSelectedTabFromPropsOrState() {
+    const stateSelectedIndex = this.state.selectedIndex
+    const propsSelectedIndex = this.props.selected
+    const selectedIndex =
+      typeof propsSelectedIndex !== 'undefined' ? propsSelectedIndex : stateSelectedIndex
+
+    return selectedIndex
+  }
+
   render() {
-    const { selectedIndex } = this.state
+    const selectedIndex = this.getSelectedTabFromPropsOrState()
 
     return (
       <Wrapper>
@@ -82,7 +99,11 @@ Tabs.Tab = TabContent
 
 Tabs.propTypes = {
   /** Children should be an array of Tabs.Tab */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  /** Selected should be the index of the desired selected tab */
+  selected: PropTypes.number,
+  /** onSelect will be called with the new index when a new tab is selected by the user */
+  onSelect: PropTypes.func
 }
 
 Tabs.defaultProps = {
