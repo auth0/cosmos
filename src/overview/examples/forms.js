@@ -6,7 +6,7 @@ import { Code, Form, FormGroup, Radio } from '@auth0/cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()
-  alert('fired!')
+  console.log('fired')
 }
 
 const Forms = () => (
@@ -30,7 +30,7 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'rotate', handler: fakeMethod, label: 'Rotate' },
             { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
@@ -61,7 +61,7 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save', handler: () => {} }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: fakeMethod }} />
       </Form>
     </Example>
 
@@ -115,19 +115,19 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save', handler: () => {} }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: fakeMethod }} />
       </Form>
     </Example>
 
     <Example title="Form: Actions">
       <Form layout="label-on-top">
         <Form.Actions
-          primaryAction={{ label: 'Save', handler: () => {} }}
+          primaryAction={{ label: 'Save', handler: fakeMethod }}
           secondaryActions={[
             {
               label: 'Try',
               icon: 'play',
-              handler: () => {}
+              handler: fakeMethod
             }
           ]}
         />
@@ -146,12 +146,12 @@ const Forms = () => (
           <Form.FieldSet label="First Form">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
             <Form.Actions
-              primaryAction={{ label: 'Save', handler: () => {} }}
+              primaryAction={{ label: 'Save', handler: fakeMethod }}
               secondaryActions={[
                 {
                   label: 'Try',
                   icon: 'play',
-                  handler: () => {}
+                  handler: fakeMethod
                 }
               ]}
             />
@@ -161,12 +161,12 @@ const Forms = () => (
           <Form.FieldSet label="Second form">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
             <Form.Actions
-              primaryAction={{ label: 'Save', handler: () => {} }}
+              primaryAction={{ label: 'Save', handler: fakeMethod }}
               secondaryActions={[
                 {
                   label: 'Try',
                   icon: 'play',
-                  handler: () => {}
+                  handler: fakeMethod
                 }
               ]}
             />
