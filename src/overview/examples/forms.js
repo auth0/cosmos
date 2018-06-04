@@ -52,7 +52,7 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
-        <Form.Radio label="Radio" selected="react">
+        <Form.Radio label="Radio" selected="react" name="Stack">
           <Radio.Option name="view" value="react">
             React
           </Radio.Option>
@@ -84,7 +84,7 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'rotate', handler: fakeMethod, label: 'Rotate' },
             { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
@@ -106,7 +106,7 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
-        <Form.Radio align="horizontal" label="Radio" selected="react">
+        <Form.Radio align="horizontal" label="Radio" selected="react" name="Stack">
           <Radio.Option name="view" value="react">
             React
           </Radio.Option>
