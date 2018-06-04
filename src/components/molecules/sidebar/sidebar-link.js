@@ -44,7 +44,7 @@ SidebarLink.Element = styled.a`
 
 SidebarLink.propTypes = {
   label: PropTypes.string.isRequired,
-  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
+  icon: PropTypes.oneOf(__ICONNAMES__),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   url: PropTypes.string
