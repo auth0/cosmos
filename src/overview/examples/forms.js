@@ -143,7 +143,22 @@ const Forms = () => (
     <Example title="Form Groups">
       <FormGroup>
         <Form>
-          <Form.FieldSet label="Form Title">
+          <Form.FieldSet label="First Form">
+            <Form.TextInput label="This field has text" defaultValue="This is the field value" />
+            <Form.Actions
+              primaryAction={{ label: 'Save', handler: () => {} }}
+              secondaryActions={[
+                {
+                  label: 'Try',
+                  icon: 'play',
+                  handler: () => {}
+                }
+              ]}
+            />
+          </Form.FieldSet>
+        </Form>
+        <Form>
+          <Form.FieldSet label="Second form">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
             <Form.Actions
               primaryAction={{ label: 'Save', handler: () => {} }}
