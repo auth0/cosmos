@@ -5,26 +5,27 @@ import Overview from './ov-components/overview'
 import Container from './ov-components/container'
 import Navigation from './ov-components/navigation'
 
-import Colors from './examples/colors'
-import Spacing from './examples/spacing'
-import Icons from './examples/icons'
-import Forms from './examples/forms'
-import EmptyStates from './examples/empty-states'
-import PageHeaders from './examples/page-headers'
-import Overlays from './examples/overlays'
-import Tooltip from './examples/tooltip'
-import Inputs from './examples/inputs'
-import Typography from './examples/typography'
-import TabsExample from './examples/tabs'
+import Avatars from './examples/avatars'
+import Badges from './examples/badges'
 import Buttons from './examples/buttons'
 import ButtonsInputs from './examples/buttons-inputs'
-import Logos from './examples/logos'
-import Avatars from './examples/avatars'
-import Thumbnails from './examples/thumbnails'
-import Lists from './examples/lists'
-import ResourceLists from './examples/resource-lists'
-import Tables from './examples/tables'
+import Colors from './examples/colors'
+import EmptyStates from './examples/empty-states'
+import Forms from './examples/forms'
+import Icons from './examples/icons'
+import Inputs from './examples/inputs'
 import Labels from './examples/labels'
+import Lists from './examples/lists'
+import Logos from './examples/logos'
+import Overlays from './examples/overlays'
+import PageHeaders from './examples/page-headers'
+import ResourceLists from './examples/resource-lists'
+import Spacing from './examples/spacing'
+import Tables from './examples/tables'
+import TabsExample from './examples/tabs'
+import Thumbnails from './examples/thumbnails'
+import Tooltip from './examples/tooltip'
+import Typography from './examples/typography'
 
 export default () => (
   <Overview>
@@ -71,7 +72,9 @@ export default () => (
         <Col>
           <Labels />
         </Col>
-        <Col />
+        <Col>
+          <Badges />
+        </Col>
       </Row>
       <PageHeaders />
       <TabsExample />
