@@ -108,14 +108,12 @@ const RadioOption = props => (
 const Radio = props => (
   <StyledRadio {...props}>
     {React.Children.map(props.children, child => {
-      if (child.type === RadioOption)
-        return React.cloneElement(child, {
-          name: props.name,
-          checked: props.selected === child.props.value,
-          readOnly: props.readOnly || child.props.readOnly,
-          onChange: props.onChange
-        })
-      return child
+      return React.cloneElement(child, {
+        name: props.name,
+        checked: props.selected === child.props.value,
+        readOnly: props.readOnly || child.props.readOnly,
+        onChange: props.onChange
+      })
     })}
   </StyledRadio>
 )
