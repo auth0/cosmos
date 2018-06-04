@@ -20,9 +20,9 @@ const ConnectionList = props => {
       {Object.keys(connections).map((items, i) => (
         <List label={items} key={i}>
           {connections[items].map((cnt, i) => (
-            <div>
+            <div key={i}>
               {cnt.connection ? (
-                <Stack widths={[41, 41, 18]} key={i}>
+                <Stack widths={[41, 41, 18]}>
                   <div>{cnt.name}</div>
                   <ConnectionType>
                     <Icon size={16} name={cnt.icon} />
