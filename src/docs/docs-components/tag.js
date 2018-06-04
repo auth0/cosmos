@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, fonts, misc } from '@auth0/cosmos-tokens'
-console.log(misc)
+import { colors, fonts } from '@auth0/cosmos-tokens'
 
 const StyledTag = styled.span`
   display: inline-block;
