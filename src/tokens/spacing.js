@@ -1,12 +1,13 @@
-const unit = 8
+const unit = 4
 
 const spacing = {
-  xsmall: unit + 'px',
-  small: unit * 2 + 'px',
-  medium: unit * 3 + 'px',
-  large: unit * 4 + 'px',
-  xlarge: unit * 5 + 'px',
-  xxlarge: unit * 7 + 'px'
+  xxsmall: unit + 'px',
+  xsmall: unit * 2 + 'px',
+  small: unit * 4 + 'px',
+  medium: unit * 6 + 'px',
+  large: unit * 8 + 'px',
+  xlarge: unit * 10 + 'px',
+  xxlarge: unit * 14 + 'px'
 }
 
 export default spacing

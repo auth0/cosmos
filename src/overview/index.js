@@ -23,6 +23,7 @@ import ResourceLists from './examples/resource-lists'
 import Spacing from './examples/spacing'
 import Tables from './examples/tables'
 import TabsExample from './examples/tabs'
+import Tags from './examples/tags'
 import Thumbnails from './examples/thumbnails'
 import Tooltip from './examples/tooltip'
 import Typography from './examples/typography'
@@ -75,6 +76,12 @@ export default () => (
         <Col>
           <Badges />
         </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Tags />
+        </Col>
+        <Col />
       </Row>
       <PageHeaders />
       <TabsExample />
