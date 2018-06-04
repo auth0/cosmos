@@ -63,7 +63,10 @@ PageHeader.propTypes = {
   /** Page title of the section */
   title: PropTypes.string.isRequired,
   /** Description to give more information to the user */
-  description: PropTypes.string,
+  description: PropTypes.shape({
+    text: PropTypes.string,
+    learnMore: PropTypes.string
+  }),
   /** URL for the "Learn more" link  */
   learnMore: PropTypes.string,
   /** Actions to be attached on top */
