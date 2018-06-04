@@ -13,6 +13,7 @@ const alignItems = {
 
 const justifyContent = {
   fill: 'space-between',
+  'space-between': 'space-between',
   left: 'flex-start',
   right: 'flex-end'
 }
@@ -44,7 +45,7 @@ const StackedItem = styled.div`
 
 const Stack = props => {
   let children
-  if (props.align === 'fill') {
+  if (props.align === 'fill' || props.align === 'space-between') {
     children = React.Children.map(props.children, (child, index) => {
       let width = 0
       if (props.widths) width = `${props.widths[index]}` || 0
@@ -64,7 +65,7 @@ const Stack = props => {
 
 Stack.propTypes = {
   /** Use align for stacking elements without margin between them */
-  align: PropTypes.oneOf(['fill', 'left', 'right']),
+  align: PropTypes.oneOf(['fill', 'left', 'right', 'space-between']),
   /** Vertically align */
   alignVertical: PropTypes.oneOf(['top', 'center', 'bottom']),
   /** Element widths in % */
