@@ -61,7 +61,7 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save' }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: () => {} }} />
       </Form>
     </Example>
 
@@ -115,18 +115,19 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save' }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: () => {} }} />
       </Form>
     </Example>
 
     <Example title="Form: Actions">
       <Form layout="label-on-top">
         <Form.Actions
-          primaryAction={{ label: 'Save' }}
+          primaryAction={{ label: 'Save', handler: () => {} }}
           secondaryActions={[
             {
               label: 'Try',
-              icon: 'play'
+              icon: 'play',
+              handler: () => {}
             }
           ]}
         />
@@ -145,11 +146,12 @@ const Forms = () => (
           <Form.FieldSet label="Form Title">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
             <Form.Actions
-              primaryAction={{ label: 'Save' }}
+              primaryAction={{ label: 'Save', handler: () => {} }}
               secondaryActions={[
                 {
                   label: 'Try',
-                  icon: 'play'
+                  icon: 'play',
+                  handler: () => {}
                 }
               ]}
             />
