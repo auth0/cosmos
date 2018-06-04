@@ -12,7 +12,7 @@ const SideNavigation = () => (
   >
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" url="/manage" />
-      <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" />
+      <Sidebar.Link icon="clients" label="Clients" url="/manage/clients" selected />
       <Sidebar.Link icon="apis" label="APIs" url="/manage/apis" />
       <Sidebar.Link
         icon="sso-integrations"
