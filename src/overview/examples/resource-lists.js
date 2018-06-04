@@ -49,7 +49,7 @@ const ResourceLists = () => (
       />
     </Example>
     <Example title="Resource List: Clients">
-      <ClientList />
+      <ClientList id="resource-client-list" />
     </Example>
   </Section>
 )
