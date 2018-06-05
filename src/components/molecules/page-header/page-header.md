@@ -24,3 +24,33 @@
   }}
 />
 ```
+
+```js
+<PageHeader
+  title="Clients"
+  description={{
+    text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
+    learnMore: '/clients'
+  }}
+  primaryAction={{
+    label: 'Create Client',
+    icon: 'plus',
+    handler: () => {}
+  }}
+/>
+```
+
+```js
+<PageHeader
+  title="Clients"
+  description={{
+    text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
+    learnMore: '/clients'
+  }}
+  secondaryAction={{
+    label: 'Tutorial',
+    icon: 'play-circle',
+    handler: () => {}
+  }}
+/>
+```
