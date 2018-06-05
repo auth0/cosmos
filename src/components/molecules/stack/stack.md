@@ -8,7 +8,7 @@
 ```jsx
 <Stack {props}>
   <Button icon="copy" />
-  <Button icon="reveal" />
+  <Button icon="rotate" />
   <Button icon="delete" />
 </Stack>
 ```
@@ -37,7 +37,7 @@ Use align for stacking elements without margin between them
 ```js
 <Stack align="left">
   <Button icon="copy" />
-  <Button icon="reveal" />
+  <Button icon="rotate" />
   <Button icon="delete" />
 </Stack>
 ```
@@ -45,7 +45,7 @@ Use align for stacking elements without margin between them
 ```js
 <Stack align="right">
   <Button icon="copy" />
-  <Button icon="reveal" />
+  <Button icon="rotate" />
   <Button icon="delete" />
 </Stack>
 ```

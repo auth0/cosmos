@@ -38,7 +38,7 @@ const Subheader = styled.h6`
   font-weight: ${fonts.weight.normal};
 `
 
-const Text = styled.p`
+const Text = styled.div`
   color: #414141;
   font-size: 15px;
   line-height: 26px;

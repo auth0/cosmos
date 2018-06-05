@@ -180,12 +180,17 @@ const colors = {
     shadow: 'rgba(0,0,0,0.20)',
     shadowDisabled: 'rgba(0,0,0,0.10)'
   },
-  label: {
+  status: {
     default: '#7D7D7D',
     information: '#3BC0F2',
     success: '#73CD1F',
     warning: '#F49C20',
     danger: '#D14B49'
+  },
+  tag: {
+    background: '#DBF4FD',
+    border: '#3BC0F2',
+    text: '#3BC0F2'
   }
 }
 

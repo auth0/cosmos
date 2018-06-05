@@ -11,7 +11,7 @@ Empty states are displayed when a page has no content.
   defaults={{title: "Clients", icon: "clients", helpUrl: "auth0.com"}}
   action={{
     icon: 'plus',
-    text: 'Create Client',
+    label: 'Create Client',
     handler: function() { /*...*/ }
   }}
 />

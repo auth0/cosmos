@@ -52,7 +52,6 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
     <Form.Radio.Option value="React">React</Form.Radio.Option>
     <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
   </Form.Radio>
-  </Form.RadioGroup>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```

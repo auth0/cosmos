@@ -9,7 +9,7 @@ import Description from './description'
 
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
@@ -63,17 +63,14 @@ PageHeader.propTypes = {
   /** Page title of the section */
   title: PropTypes.string.isRequired,
   /** Description to give more information to the user */
-  description: PropTypes.string,
+  description: PropTypes.shape({
+    text: PropTypes.string,
+    learnMore: PropTypes.string
+  }),
   /** URL for the "Learn more" link  */
   learnMore: PropTypes.string,
   /** Actions to be attached on top */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired
-    })
-  )
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
 
 PageHeader.defaultProps = {

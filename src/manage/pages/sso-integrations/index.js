@@ -12,7 +12,8 @@ class SsoIndex extends React.Component {
           helpUrl="http://auth0.com"
           action={{
             icon: 'plus',
-            text: 'Create SSO Integration'
+            label: 'Create SSO Integration',
+            handler: () => {}
           }}
         />
       </div>

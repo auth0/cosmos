@@ -1,6 +1,7 @@
 import {
   Alert,
   Avatar,
+  Badge,
   Box,
   Breadcrumb,
   Button,
@@ -29,6 +30,7 @@ import {
   Switch,
   Table,
   Tabs,
+  Tag,
   Text,
   TextArea,
   TextInput,
@@ -39,6 +41,7 @@ import {
 export {
   Alert,
   Avatar,
+  Badge,
   Box,
   Breadcrumb,
   Button,
@@ -67,6 +70,7 @@ export {
   Switch,
   Table,
   Tabs,
+  Tag,
   Text,
   TextArea,
   TextInput,

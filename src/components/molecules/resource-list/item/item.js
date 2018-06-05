@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Avatar, Button, ButtonGroup, Link, Thumbnail } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -118,13 +118,7 @@ ResourceListItem.propTypes = {
   /** An image URL, or an Icon, Image, or Avatar to display as a thumbnail image for the list item. */
   image: PropTypes.node,
   /** The actions to display for the list item. */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  )
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
 
 export default ResourceListItem

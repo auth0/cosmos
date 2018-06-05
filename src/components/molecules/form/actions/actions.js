@@ -8,7 +8,7 @@ import getLayout from '../layout'
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
 import { Right, Clear } from '../../../_helpers/float'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledActions = styled.div`
   width: ${props => getLayout(props.layout).formWidth};
@@ -71,15 +71,9 @@ const Actions = props => {
 
 Actions.displayName = 'Form Actions'
 
-const actionShape = {
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.oneOf(__ICONNAMES__),
-  handler: PropTypes.func.isRequired
-}
-
 Actions.propTypes = {
-  primaryAction: PropTypes.shape(actionShape),
-  secondaryActions: PropTypes.arrayOf(PropTypes.shape(actionShape))
+  primaryAction: actionShape,
+  secondaryActions: PropTypes.arrayOf(actionShape)
 }
 
 Actions.defaultProps = {}
