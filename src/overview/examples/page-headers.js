@@ -2,7 +2,7 @@ import React from 'react'
 
 import Section from '../ov-components/section'
 import Example from '../ov-components/example'
-import { PageHeader, Thumbnail } from '@auth0/cosmos'
+import { PageHeader } from '@auth0/cosmos'
 
 const PageHeaders = () => (
   <Section>
