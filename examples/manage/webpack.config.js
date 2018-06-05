@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  mode: 'production',
+  mode: process.NODE_ENV || 'development',
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, 'public')

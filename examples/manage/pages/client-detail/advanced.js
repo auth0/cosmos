@@ -48,7 +48,7 @@ class Advanced extends React.Component {
                 label="Key Hashes"
                 code
                 placeholder="D8:A0:83:..., D9:C1:B2:..."
-                length={3}
+                length="3"
                 helpText="The SHA256 fingerprints of your app’s signing certificate. You can specify multiple key hashes by comma-separating them or one by line."
               />
             </Form.FieldSet>
@@ -60,7 +60,7 @@ class Advanced extends React.Component {
               <Form.TextArea
                 label="Allowed APPs / APIs"
                 placeholder=""
-                length={3}
+                length="3"
                 helpText="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific Client IDs. You can specify multiple IDs by comma-separating them or one by line."
               />
 
@@ -107,7 +107,7 @@ class Advanced extends React.Component {
                 value="-----BEGIN DUMMY CERTIFICATE-----
                 HtW46whaHcTejeUnjyQFn6vwmPsSpzvNJWWUr8xbKk8FkWwXN9Ub9tkQ4Ec2NLq6hcsKySZ3bbjg6MjSE3bGN4YTEynMG4EP5EadUj68sBNzedt96Lmg8HyGevXsByTK6vfWnXPFDdXSjrujEdVBb5zPFM9wCJRcw86CUZN3BgpwUvnCKrMJaQUEU2f6YEFP9BpyrbedEM6jB8H4VEh4pkrfm2A5vLHPLM4saepv3dHtkY8bYKTs3d3Zpk7uVtrU8JjFkhygQ9YcB86GtT649FVZjcFuHHP9F5JwAvwhmekQjGQRtM7cgF2d2J4kYTp4j59c4DedDmHQCwhFgGmNdQqGNMtnhhRbZLqrt2k9QgTA5wG9zZUyH4Ab8yW7qpyJN29AzYVb7ZBKgun7tgNYzq6bbnByvTB7AtMqRheS789njTpYVjxgQ5WwjRKbBGa3SJsMscfrH9P4ncKAQBQzMtYzZuP6qwqCxUfYVXU73k24ejgmFNnsczBe6txdnJWSuNnvL5ZvR2kRCBsL7vakax3TNVRyvWhCxu9EeVb7xhyemhZFjmTBsqtJ6uJ56YSQxfWBWM5wzJTy62xv2F4wgV3TBKDyEbxzdgj785kAC5ZUs4eVZtT2gF9z9tAxJx38FmFRBvV556vEdjwNhQNXWht6MBBmKt3bmgHhEGuw3kjATYCRqY6y5XSUS6eKSGkZnDN44pTFDHZJkXjhjUQE7nVb5PFQ9Tm2pY3NBfVMj7gR4vxVYuB6sTw75RnFYPcfTNhDzKaLudau3bDSVDh5hNeTgpBKWfPuTs5Z5LS6sULdWuH6ZDVrSXyM9EyYdGnBkHvZAgc3T5w2Vev4wkWtfnpDChEJjSM3g6znP5NZtuFbYy3GFSgNt3VswfTdBE8pgK4YkAeGwnFpZDDpcRKErFvpuPZfHg436HvLTZ9BHFvKuQWxr5CdZGUK4fehR2fuWxaJrRWTUWUr469xpqqQSAFRJEgyMmjwfrNkADxugZF7fA6dwXSAd7GRSGumYUgT
                 -----END DUMMY CERTIFICATE-----"
-                length={8}
+                length="8"
               />
               <Form.TextInput
                 label="Signing Certificate Fingerprint"
