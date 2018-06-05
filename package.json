@@ -9,6 +9,7 @@
     "src/tokens",
     "src/codemods",
     "src/overview",
+    "src/babel-preset",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
