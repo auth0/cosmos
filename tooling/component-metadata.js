@@ -131,13 +131,21 @@ const run = () => {
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
-  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
+  fs.writeFileSync(
+    'src/components/meta/metadata.json',
+    JSON.stringify({ metadata }, null, 2),
+    'utf8'
+  )
 
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format
   // so we can display it more intelligently in the docs?
   const changelog = fs.readFileSync('changelog.md', 'utf8')
-  fs.writeFileSync('src/docs/changelog.json', JSON.stringify({ changelog }, null, 2), 'utf8')
+  fs.writeFileSync(
+    'src/components/meta/changelog.json',
+    JSON.stringify({ changelog }, null, 2),
+    'utf8'
+  )
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
@@ -148,7 +156,7 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/components', { ignored: ['node_modules'] })
+    .watch('src/components', { ignored: ['node_modules', 'src/components/meta'] })
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)

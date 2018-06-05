@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { metadata as components } from '../metadata.json'
+import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 import kebabCase from 'lodash.kebabcase'
 
 import Example from './example'
