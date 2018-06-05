@@ -19,7 +19,7 @@ const Page = () => (
       paddingBottom: '50px'
     }}
   >
-    <Router basename="/manage">
+    <Router>
       <div>
         <Route exact path="/clients" component={ClientIndex} />
         <Route exact path="/clients/:clientId" component={ClientDetail} />
