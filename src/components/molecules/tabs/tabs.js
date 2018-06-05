@@ -131,9 +131,7 @@ Tabs.defaultProps = {
 }
 
 const generateKey = WrappedComponent =>
-  class Tabs extends React.Component {
-    displayName = `KeyWrapper(${WrappedComponent.displayName})`
-
+  class KeyWrapper extends React.Component {
     shouldComponentUpdate(nextProps) {
       const { selected } = this.props
       if (typeof selected === 'undefined') return false
