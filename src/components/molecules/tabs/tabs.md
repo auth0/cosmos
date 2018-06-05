@@ -31,7 +31,7 @@ By default, the first tab is selected but you can change this behavior attaching
 
 Sometimes you need to have control on what tab is selected anytime. So you can pass the current selected tab index in the `selected` prop, as well as a callback function in the `onSelect` prop, and Cosmos will notify you when the user tries to change the tab so you can act accordingly.
 
-```jsx
+```js
 class TabContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -61,7 +61,35 @@ class TabContainer extends React.Component {
         <Tabs onSelect={nextIndex => this.handleSelected(nextIndex)} selected={this.state.selected}>
           <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
           <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
-          <Tabs.Tab label="Tab 3">Third tab's the charm!</Tabs.Tab>
+          <Tabs.Tab label="Tab 3">Third tabs the charm!</Tabs.Tab>
+        </Tabs>
+      </div>
+    )
+  }
+}
+```
+
+```js
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = { enabled: false }
+  }
+  onToggle(enabled) {
+    this.setState({ enabled })
+  }
+  render() {
+    return (
+      <div>
+        Select a tab and then use the switch. Because the state of the component changes, the
+        selected tab is reset
+        <br />
+        <br />
+        <Switch on={this.state.enabled} onToggle={this.onToggle.bind(this)} />
+        <Tabs>
+          <Tabs.Tab label="one">First tab</Tabs.Tab>
+          <Tabs.Tab label="two">Second tab</Tabs.Tab>
+          <Tabs.Tab label="three">Third tab</Tabs.Tab>
         </Tabs>
       </div>
     )
