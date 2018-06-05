@@ -4,7 +4,6 @@
   "version": "0.2.3",
   "repository": "auth0/cosmos",
   "main": "index.js",
-  "sideEffects": "false",
   "scripts": {},
   "keywords": [],
   "author": "auth0",
