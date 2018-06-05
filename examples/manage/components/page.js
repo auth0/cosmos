@@ -30,7 +30,6 @@ const Page = () => (
         <Route exact path="/apis" component={ApisIndex} />
         <Route exact path="/anomaly" component={AnomalyDetectionIndex} />
         <Route exact path="/sso-integrations" component={SsoIndex} />
-        <Route component={ClientIndex} />
       </div>
     </Router>
   </div>
