@@ -97,7 +97,7 @@ const run = () => {
 
     // Write the lookup table for icon names which will be used in the docs
     fs.writeFileSync(
-      'src/docs/icons.json',
+      'src/components/meta/icons.json',
       JSON.stringify({ types: Object.keys(icons).sort(), aliases }, null, 2),
       'utf8'
     )
