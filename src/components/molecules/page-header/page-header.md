@@ -25,7 +25,9 @@
 />
 ```
 
-## Single actions
+## Examples
+
+### Single actions
 
 A Page header can have a single primary action:
 
@@ -44,7 +46,7 @@ A Page header can have a single primary action:
 />
 ```
 
-A Page header can have a single secondary action:
+A Page header can also have a single secondary action:
 
 ```js
 <PageHeader
