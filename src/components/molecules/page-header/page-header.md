@@ -25,6 +25,10 @@
 />
 ```
 
+## Single actions
+
+A Page header can have a single primary action:
+
 ```js
 <PageHeader
   title="Clients"
@@ -39,6 +43,8 @@
   }}
 />
 ```
+
+A Page header can have a single secondary action:
 
 ```js
 <PageHeader
