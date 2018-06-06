@@ -68,31 +68,3 @@ class TabContainer extends React.Component {
   }
 }
 ```
-
-```js
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = { enabled: false }
-  }
-  onToggle(enabled) {
-    this.setState({ enabled })
-  }
-  render() {
-    return (
-      <div>
-        Select a tab and then use the switch. Because the state of the component changes, the
-        selected tab is reset
-        <br />
-        <br />
-        <Switch on={this.state.enabled} onToggle={this.onToggle.bind(this)} />
-        <Tabs>
-          <Tabs.Tab label="one">First tab</Tabs.Tab>
-          <Tabs.Tab label="two">Second tab</Tabs.Tab>
-          <Tabs.Tab label="three">Third tab</Tabs.Tab>
-        </Tabs>
-      </div>
-    )
-  }
-}
-```
