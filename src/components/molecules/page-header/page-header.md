@@ -7,7 +7,8 @@
 
 ```jsx
 <PageHeader
-  title="Clients"
+  {props}
+  defaults={{ title: "Clients" }}
   description={{
     text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
     learnMore: '/clients'
