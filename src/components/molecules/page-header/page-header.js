@@ -67,16 +67,13 @@ PageHeader.propTypes = {
     text: PropTypes.string,
     learnMore: PropTypes.string
   }),
-  /** URL for the "Learn more" link  */
-  learnMore: PropTypes.string,
   /** Actions to be attached on top */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  primaryAction: actionShapeWithRequiredIcon,
+  secondaryAction: actionShapeWithRequiredIcon
 }
 
 PageHeader.defaultProps = {
-  title: null,
-  description: null,
-  learnMore: null
+  title: ''
 }
 
 export default PageHeader
