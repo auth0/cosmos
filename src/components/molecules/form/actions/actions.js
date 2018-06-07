@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -20,7 +21,7 @@ const StyledActions = styled.div`
 
 const Actions = props => {
   const layout = props.layout
-  const { primaryAction, secondaryAction, destructiveAction } = props
+  const { primaryAction, secondaryActions, destructiveAction } = props
 
   return (
     <StyledActions layout={layout}>
@@ -31,15 +32,12 @@ const Actions = props => {
           </Button>
         )}
 
-        {secondaryAction && (
-          <Button
-            appearance="secondary"
-            icon={secondaryAction.icon}
-            onClick={secondaryAction.handler}
-          >
-            {secondaryAction.label}
-          </Button>
-        )}
+        {secondaryActions &&
+          secondaryActions.map((action, index) => (
+            <Button appearance="secondary" icon={action.icon} key={index} onClick={action.handler}>
+              {action.label}
+            </Button>
+          ))}
 
         {destructiveAction && (
           <Right>
@@ -62,7 +60,7 @@ Actions.displayName = 'Form Actions'
 
 Actions.propTypes = {
   primaryAction: actionShape,
-  secondaryAction: actionShape,
+  secondaryActions: PropTypes.arrayOf(actionShape),
   destructiveAction: actionShape
 }
 
