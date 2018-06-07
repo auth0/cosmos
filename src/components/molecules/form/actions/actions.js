@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -21,46 +20,36 @@ const StyledActions = styled.div`
 
 const Actions = props => {
   const layout = props.layout
+  const { primaryAction, secondaryAction, destructiveAction } = props
 
   return (
     <StyledActions layout={layout}>
       <ButtonGroup>
-        {props.primaryAction && (
-          <Button
-            appearance="primary"
-            icon={props.primaryAction.icon}
-            onClick={props.primaryAction.handler}
-          >
-            {props.primaryAction.label}
+        {primaryAction && (
+          <Button appearance="primary" icon={primaryAction.icon} onClick={primaryAction.handler}>
+            {primaryAction.label}
           </Button>
         )}
 
-        {props.secondaryActions &&
-          props.secondaryActions.map((action, index) => {
-            return (
-              <Button
-                appearance="secondary"
-                icon={action.icon}
-                key={index}
-                onClick={action.handler}
-              >
-                {action.label}
-              </Button>
-            )
-          })}
+        {secondaryAction && (
+          <Button
+            appearance="secondary"
+            icon={secondaryAction.icon}
+            onClick={secondaryAction.handler}
+          >
+            {secondaryAction.label}
+          </Button>
+        )}
 
-        {props.destructiveActions && (
+        {destructiveAction && (
           <Right>
-            {props.destructiveActions.map((action, index) => (
-              <Button
-                appearance="destructive"
-                icon={action.icon}
-                key={index}
-                onClick={action.handler}
-              >
-                {action.label}
-              </Button>
-            ))}
+            <Button
+              appearance="destructive"
+              icon={destructiveAction.icon}
+              onClick={destructiveAction.handler}
+            >
+              {destructiveAction.label}
+            </Button>
           </Right>
         )}
       </ButtonGroup>
@@ -73,7 +62,8 @@ Actions.displayName = 'Form Actions'
 
 Actions.propTypes = {
   primaryAction: actionShape,
-  secondaryActions: PropTypes.arrayOf(actionShape)
+  secondaryAction: actionShape,
+  destructiveAction: actionShape
 }
 
 Actions.defaultProps = {}
