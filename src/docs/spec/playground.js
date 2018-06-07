@@ -8,6 +8,7 @@ import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
 import Props from './props'
 import getPropString from './prop-string'
 import CopyButton from './copy-button'
+import SketchButton from './sketch-button'
 import { getDefaultsFromCode, stripDefaultsFromDocs } from './get-defaults-from-code'
 
 const Container = styled.div`
@@ -92,6 +93,7 @@ class Playground extends React.Component {
             <LiveEditor />
           </CodeWrapper>
           {this.state.codeVisible ? <CopyButton code={this.state.code} /> : null}
+          {this.state.codeVisible ? <SketchButton code={this.state.code} /> : null}
         </LiveProvider>
         <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
           {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
