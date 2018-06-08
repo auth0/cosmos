@@ -4,7 +4,7 @@
   "description": "proof of concept of manage with cosmos",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-serve --content public",
+    "dev": "NODE_ENV=development webpack-serve --content public",
     "build": "webpack-cli",
     "start": "serve public"
   },
