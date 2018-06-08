@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.2.3 [May 31, 2018]
+
+### Fixed
+
+* Fixes problem where fonts are not loading [#571]
+
+## 0.2.2 [May 29, 2018]
+
+### Fixed
+
+* Add missing id to Switch for accessibility [#558]
+
+* Fix path for tokens in helpers [#564]
+
+### Added
+
+* Add `Radio` component to Forms [#511]
+
+* Add `Label` component [#544]
+
+* Add support for custom Form fields [#530]
+
+* Add prop to make tooltips visible by default [#562]
+
+### Changed
+
+* **BREAKING** `method` has been renamed to `handler` for all components that accept actions as a prop [#551]
+
+  ```jsx
+  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
+  ```
+
+* Documentation improvements for `EmptyState` and `Alert` [#491] + [#534]
+
 ## 0.2.1 [May 8, 2018]
 
 ### Fixed

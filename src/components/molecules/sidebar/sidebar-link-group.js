@@ -7,7 +7,14 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 class SidebarLinkGroup extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { open: false }
+    let open = false
+
+    /* If a child is selected, group should be open */
+    React.Children.forEach(props.children, child => {
+      if (child.props.selected) open = true
+    })
+
+    this.state = { open }
   }
 
   handleClick = () => {

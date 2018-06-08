@@ -7,7 +7,7 @@ import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
 import { spacing } from '@auth0/cosmos-tokens'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
@@ -61,13 +61,7 @@ const ActionInput = props => {
 ActionInput.propTypes = {
   ...TextInput.propTypes,
   /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  )
+  actions: PropTypes.arrayOf(actionShape)
 }
 
 ActionInput.defaultProps = {

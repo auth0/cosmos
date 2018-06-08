@@ -17,7 +17,7 @@ const attachChildren = components => {
 
   children.forEach(child => {
     const parent = getParent(parents, child)
-    parent.children.push(child)
+    if (parent) parent.children.push(child)
   })
 
   return parents
@@ -50,7 +50,7 @@ const getParent = (components, child) => {
     directoryName +
     '.js'
 
-  return components.filter(component => component.filepath === parentFilePath)[0]
+  return components.find(component => component.filepath === parentFilePath)
 }
 
 export default attachChildren

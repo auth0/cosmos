@@ -6,7 +6,7 @@ import { Code, Form, FormGroup, Radio } from '@auth0/cosmos'
 
 const fakeMethod = e => {
   e.preventDefault()
-  alert('fired!')
+  console.log('fired')
 }
 
 const Forms = () => (
@@ -30,7 +30,7 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'rotate', handler: fakeMethod, label: 'Rotate' },
             { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
@@ -52,7 +52,7 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
-        <Form.Radio label="Radio" selected="react">
+        <Form.Radio label="Radio" selected="react" name="Stack">
           <Radio.Option name="view" value="react">
             React
           </Radio.Option>
@@ -61,7 +61,7 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save' }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: fakeMethod }} />
       </Form>
     </Example>
 
@@ -84,7 +84,7 @@ const Forms = () => (
           code
           defaultValue="DUq0xuJZAD7RvezvqCrA6hpJVb6iDUipe"
           actions={[
-            { icon: 'reveal', handler: fakeMethod, label: 'Reveal' },
+            { icon: 'rotate', handler: fakeMethod, label: 'Rotate' },
             { icon: 'copy', handler: fakeMethod, label: 'Copy to clipboard' }
           ]}
         />
@@ -106,7 +106,7 @@ const Forms = () => (
             { text: 'Three', value: 3 }
           ]}
         />
-        <Form.Radio align="horizontal" label="Radio" selected="react">
+        <Form.Radio align="horizontal" label="Radio" selected="react" name="Stack">
           <Radio.Option name="view" value="react">
             React
           </Radio.Option>
@@ -115,18 +115,19 @@ const Forms = () => (
           </Radio.Option>
         </Form.Radio>
         <Form.Switch label="Switch" on onToggle={() => fakeMethod} />
-        <Form.Actions primaryAction={{ label: 'Save' }} />
+        <Form.Actions primaryAction={{ label: 'Save', handler: fakeMethod }} />
       </Form>
     </Example>
 
     <Example title="Form: Actions">
       <Form layout="label-on-top">
         <Form.Actions
-          primaryAction={{ label: 'Save' }}
+          primaryAction={{ label: 'Save', handler: fakeMethod }}
           secondaryActions={[
             {
               label: 'Try',
-              icon: 'play'
+              icon: 'play',
+              handler: fakeMethod
             }
           ]}
         />
@@ -142,14 +143,30 @@ const Forms = () => (
     <Example title="Form Groups">
       <FormGroup>
         <Form>
-          <Form.FieldSet label="Form Title">
+          <Form.FieldSet label="First Form">
             <Form.TextInput label="This field has text" defaultValue="This is the field value" />
             <Form.Actions
-              primaryAction={{ label: 'Save' }}
+              primaryAction={{ label: 'Save', handler: fakeMethod }}
               secondaryActions={[
                 {
                   label: 'Try',
-                  icon: 'play'
+                  icon: 'play',
+                  handler: fakeMethod
+                }
+              ]}
+            />
+          </Form.FieldSet>
+        </Form>
+        <Form>
+          <Form.FieldSet label="Second form">
+            <Form.TextInput label="This field has text" defaultValue="This is the field value" />
+            <Form.Actions
+              primaryAction={{ label: 'Save', handler: fakeMethod }}
+              secondaryActions={[
+                {
+                  label: 'Try',
+                  icon: 'play',
+                  handler: fakeMethod
                 }
               ]}
             />

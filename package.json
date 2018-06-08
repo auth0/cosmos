@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
