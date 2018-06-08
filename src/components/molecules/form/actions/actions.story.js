@@ -19,8 +19,19 @@ storiesOf('Form').add('actions: primary + secondary', () => (
         primaryAction={{ label: 'Save Changes', handler: () => {} }}
         secondaryActions={[
           { label: 'Try', icon: 'play', handler: () => {} },
-          { label: 'Debug', handler: () => {} }
+          { label: 'Play', icon: 'play', handler: () => {} }
         ]}
+      />
+    </Form>
+  </Example>
+))
+
+storiesOf('Form').add('actions: primary + destructive', () => (
+  <Example title="primary + destructive">
+    <Form>
+      <Form.Actions
+        primaryAction={{ label: 'Save Changes', handler: () => {} }}
+        destructiveAction={{ label: 'Delete', icon: 'delete', handler: () => {} }}
       />
     </Form>
   </Example>

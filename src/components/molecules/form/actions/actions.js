@@ -21,46 +21,33 @@ const StyledActions = styled.div`
 
 const Actions = props => {
   const layout = props.layout
+  const { primaryAction, secondaryActions, destructiveAction } = props
 
   return (
     <StyledActions layout={layout}>
       <ButtonGroup>
-        {props.primaryAction && (
-          <Button
-            appearance="primary"
-            icon={props.primaryAction.icon}
-            onClick={props.primaryAction.handler}
-          >
-            {props.primaryAction.label}
+        {primaryAction && (
+          <Button appearance="primary" icon={primaryAction.icon} onClick={primaryAction.handler}>
+            {primaryAction.label}
           </Button>
         )}
 
-        {props.secondaryActions &&
-          props.secondaryActions.map((action, index) => {
-            return (
-              <Button
-                appearance="secondary"
-                icon={action.icon}
-                key={index}
-                onClick={action.handler}
-              >
-                {action.label}
-              </Button>
-            )
-          })}
+        {secondaryActions &&
+          secondaryActions.map((action, index) => (
+            <Button appearance="secondary" icon={action.icon} key={index} onClick={action.handler}>
+              {action.label}
+            </Button>
+          ))}
 
-        {props.destructiveActions && (
+        {destructiveAction && (
           <Right>
-            {props.destructiveActions.map((action, index) => (
-              <Button
-                appearance="destructive"
-                icon={action.icon}
-                key={index}
-                onClick={action.handler}
-              >
-                {action.label}
-              </Button>
-            ))}
+            <Button
+              appearance="destructive"
+              icon={destructiveAction.icon}
+              onClick={destructiveAction.handler}
+            >
+              {destructiveAction.label}
+            </Button>
           </Right>
         )}
       </ButtonGroup>
@@ -73,7 +60,8 @@ Actions.displayName = 'Form Actions'
 
 Actions.propTypes = {
   primaryAction: actionShape,
-  secondaryActions: PropTypes.arrayOf(actionShape)
+  secondaryActions: PropTypes.arrayOf(actionShape),
+  destructiveAction: actionShape
 }
 
 Actions.defaultProps = {}
