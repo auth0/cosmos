@@ -1,6 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
+import SideNavigation from './side-navigation'
 import ClientIndex from '../pages/clients'
 import ClientDetail from '../pages/client-detail'
 import EmailsIndex from '../pages/emails'
@@ -12,15 +13,16 @@ import ApisIndex from '../pages/apis'
 import UsersIndex from '../pages/users'
 
 const Page = () => (
-  <div
-    style={{
-      width: '836px',
-      marginLeft: '198px',
-      paddingBottom: '50px'
-    }}
-  >
-    <Router>
-      <div>
+  <Router>
+    <React.Fragment>
+      <SideNavigation />
+      <div
+        style={{
+          width: '836px',
+          marginLeft: '198px',
+          paddingBottom: '50px'
+        }}
+      >
         <Route exact path="/clients" component={ClientIndex} />
         <Route exact path="/clients/:clientId" component={ClientDetail} />
         <Route exact path="/emails" component={EmailsIndex} />
@@ -31,8 +33,8 @@ const Page = () => (
         <Route exact path="/anomaly" component={AnomalyDetectionIndex} />
         <Route exact path="/sso-integrations" component={SsoIndex} />
       </div>
-    </Router>
-  </div>
+    </React.Fragment>
+  </Router>
 )
 
 export default Page
