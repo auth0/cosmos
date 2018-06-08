@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Code, ResourceList } from '@auth0/cosmos'
@@ -42,17 +41,5 @@ const ClientList = props => (
     ]}
   />
 )
-
-ClientList.propTypes = {
-  /* App token */
-  id: PropTypes.string.isRequired,
-  /* App name */
-  name: PropTypes.string
-}
-
-ClientList.defaultProps = {
-  id: null,
-  name: null
-}
 
 export default ClientList

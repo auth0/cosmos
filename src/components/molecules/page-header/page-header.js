@@ -27,18 +27,18 @@ const StyledPageHeader = styled.div`
 const PageHeader = props => {
   return (
     <StyledPageHeader>
-      {props.primaryAction && (
-        <ButtonGroup align="right">
-          {props.secondaryAction && (
-            <Button
-              size="large"
-              appearance="secondary"
-              icon={props.secondaryAction.icon}
-              onClick={props.secondaryAction.handler}
-            >
-              {props.secondaryAction.label}
-            </Button>
-          )}
+      <ButtonGroup align="right">
+        {props.secondaryAction && (
+          <Button
+            size="large"
+            appearance="secondary"
+            icon={props.secondaryAction.icon}
+            onClick={props.secondaryAction.handler}
+          >
+            {props.secondaryAction.label}
+          </Button>
+        )}
+        {props.primaryAction && (
           <Button
             size="large"
             appearance="cta"
@@ -47,8 +47,8 @@ const PageHeader = props => {
           >
             {props.primaryAction.label}
           </Button>
-        </ButtonGroup>
-      )}
+        )}
+      </ButtonGroup>
 
       <Heading size={1}>{props.title}</Heading>
 
@@ -67,16 +67,13 @@ PageHeader.propTypes = {
     text: PropTypes.string,
     learnMore: PropTypes.string
   }),
-  /** URL for the "Learn more" link  */
-  learnMore: PropTypes.string,
   /** Actions to be attached on top */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  primaryAction: actionShapeWithRequiredIcon,
+  secondaryAction: actionShapeWithRequiredIcon
 }
 
 PageHeader.defaultProps = {
-  title: null,
-  description: null,
-  learnMore: null
+  title: ''
 }
 
 export default PageHeader
