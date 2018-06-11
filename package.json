@@ -7,6 +7,7 @@
     "src/components",
     "src/docs",
     "src/tokens",
+    "src/tokens-v2",
     "src/codemods",
     "src/overview",
     "src/manage"
