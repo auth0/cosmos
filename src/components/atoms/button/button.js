@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 
 import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
+import { colors as colors2 } from '@auth0/cosmos-tokens-v2'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 
 const appearances = {
   default: {
-    text: colors.button.default.text,
+    text: colors2.text.onDark,
     icon: colors.button.default.icon,
     background: colors.button.default.background,
     border: colors.button.default.border,
