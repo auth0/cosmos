@@ -18,8 +18,8 @@
     "@auth0/babel-preset-cosmos": "0.2.4",
     "babel-loader": "7.1.4",
     "serve": "6.5.3",
-    "webpack": "4.1.1",
+    "webpack": "4.8.3",
     "webpack-cli": "2.0.12",
-    "webpack-serve": "1.0.2"
+    "webpack-serve": "1.0.3"
   }
 }
