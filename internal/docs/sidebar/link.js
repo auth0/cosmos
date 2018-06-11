@@ -32,7 +32,7 @@ const TagWrapper = styled.span`
 
 const Link = props => {
   const { displayName, documentation, implemented } = props.component
-  const url = `/${kebabCase(displayName)}`
+  const url = `/component/${kebabCase(displayName)}`
   const unstable = props.component.meta && props.component.meta.unstable
 
   return (

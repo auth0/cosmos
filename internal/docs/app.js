@@ -45,7 +45,7 @@ export default () => (
           <Route exact path="/faqs" component={FAQS} />
           <Route exact path="/changes" component={Changes} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/:componentName" component={Spec} />
+          <Route exact path="/component/:componentName" component={Spec} />
         </Body>
       </MainContent>
     </Layout>

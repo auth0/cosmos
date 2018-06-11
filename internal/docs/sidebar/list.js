@@ -41,22 +41,22 @@ const List = props => {
           </NavLink>
         </StyledLink>
         <StyledLink>
-          <NavLink to="guiding-principles" activeClassName="selected">
+          <NavLink to="/guiding-principles" activeClassName="selected">
             Guiding Principles
           </NavLink>
         </StyledLink>
         <StyledLink>
-          <NavLink to="contribution-guide" activeClassName="selected">
+          <NavLink to="/contribution-guide" activeClassName="selected">
             Contributing to Cosmos
           </NavLink>
         </StyledLink>
         <StyledLink>
-          <NavLink to="faqs" activeClassName="selected">
+          <NavLink to="/faqs" activeClassName="selected">
             FAQs
           </NavLink>
         </StyledLink>
         <StyledLink>
-          <NavLink to="changes" activeClassName="selected">
+          <NavLink to="/changes" activeClassName="selected">
             Changelog
           </NavLink>
         </StyledLink>
