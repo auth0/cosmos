@@ -5,11 +5,11 @@
   "private": true,
   "workspaces": [
     "src/components",
-    "src/docs",
     "src/tokens",
     "src/codemods",
     "src/overview",
-    "src/manage"
+    "src/manage",
+    "internal/docs"
   ],
   "dependencies": {
     "fuzzysearch": "1.0.3",
@@ -28,11 +28,12 @@
     "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
     "dev:sandbox": "start-storybook -p 9001 -s public",
-    "build": "run-s build:docs build:icons build:apps build:sandbox",
+    "build": "run-s build:icons build:apps build:docs copy:docs",
     "build:apps": "react-scripts build",
-    "build:docs": "node tooling/component-metadata",
+    "build:docs": "node tooling/component-metadata && cd internal/docs && yarn build",
     "build:icons": "node tooling/update-icons",
     "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "copy:docs": "cp -r internal/docs/public build/docs",
     "start": "serve -s build",
     "test": "run-s build test:chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
