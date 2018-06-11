@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Link, Route } from 'react-router-dom'
 
 import Sidebar from './sidebar'
 import Spec from './spec'
@@ -40,14 +40,12 @@ export default () => (
       </SideContent>
       <MainContent>
         <Body>
-          <Switch>
-            <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
-            <Route path="/docs/contribution-guide" component={ContributionGuide} />
-            <Route path="/docs/faqs" component={FAQS} />
-            <Route path="/docs/changes" component={Changes} />
-            <Route path="/docs/:componentName" component={Spec} />
-            <Route component={Home} />
-          </Switch>
+          <Route exact path="/guiding-principles" component={GuidingPrinciples} />
+          <Route exact path="/contribution-guide" component={ContributionGuide} />
+          <Route exact path="/faqs" component={FAQS} />
+          <Route exact path="/changes" component={Changes} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/:componentName" component={Spec} />
         </Body>
       </MainContent>
     </Layout>
