@@ -8,8 +8,8 @@
     "start": "serve public"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.1.0",
-    "@auth0/babel-preset-cosmos": "0.1.0",
+    "@auth0/cosmos": "0.2.3",
+    "@auth0/babel-preset-cosmos": "0.2.3",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },

@@ -38,6 +38,8 @@ import {
   Tooltip
 } from './components'
 
+import styled from 'styled-components'
+
 export {
   Alert,
   Avatar,
@@ -75,5 +77,6 @@ export {
   TextArea,
   TextInput,
   Thumbnail,
-  Tooltip
+  Tooltip,
+  styled
 }
