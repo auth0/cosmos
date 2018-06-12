@@ -1,6 +1,7 @@
 import {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,
@@ -40,6 +41,7 @@ import {
 export {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,

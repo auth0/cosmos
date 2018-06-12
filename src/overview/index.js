@@ -5,7 +5,8 @@ import Overview from './ov-components/overview'
 import Container from './ov-components/container'
 import Navigation from './ov-components/navigation'
 
-import { AvatarsWithImages, AvatarsWithIcons } from './examples/avatars'
+import Avatars from './examples/avatars'
+import AvatarBlocks from './examples/avatar-blocks'
 import Badges from './examples/badges'
 import Buttons from './examples/buttons'
 import ButtonsInputs from './examples/buttons-inputs'
@@ -54,10 +55,10 @@ export default () => (
       </Row>
       <Row>
         <Col>
-          <AvatarsWithImages />
+          <Avatars />
         </Col>
         <Col>
-          <AvatarsWithIcons />
+          <AvatarBlocks />
         </Col>
       </Row>
       <Row>
