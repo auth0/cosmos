@@ -18,6 +18,7 @@ import Avatar from './atoms/avatar'
 import Badge from './atoms/badge'
 import Breadcrumb from './atoms/breadcrumb'
 import Button from './atoms/button'
+import Checkbox from './atoms/checkbox'
 import Code from './atoms/code'
 import Heading from './atoms/heading'
 import Icon from './atoms/icon'
@@ -62,6 +63,7 @@ export {
   Breadcrumb,
   Button,
   ButtonGroup,
+  Checkbox,
   Code,
   Dialog,
   EmptyState,
