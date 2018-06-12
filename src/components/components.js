@@ -39,6 +39,7 @@ import Tooltip from './atoms/tooltip'
 
 /* molecules */
 import Alert from './atoms/alert'
+import AvatarBlock from './molecules/avatar-block'
 import ButtonGroup from './molecules/button-group'
 import Dialog from './molecules/dialog'
 import EmptyState from './molecules/empty-state'
@@ -55,6 +56,7 @@ import Tabs from './molecules/tabs'
 export {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,
