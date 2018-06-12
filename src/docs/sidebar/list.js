@@ -41,6 +41,11 @@ const List = props => {
           </NavLink>
         </StyledLink>
         <StyledLink>
+          <NavLink exact to="/docs/usage" activeClassName="selected">
+            How to use Cosmos?
+          </NavLink>
+        </StyledLink>
+        <StyledLink>
           <NavLink to="/docs/guiding-principles" activeClassName="selected">
             Guiding Principles
           </NavLink>
