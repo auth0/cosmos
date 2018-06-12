@@ -25,12 +25,13 @@
     "yamljs": "0.3.0"
   },
   "scripts": {
-    "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
+    "dev": "run-p dev:build 'build:metadata -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
     "dev:sandbox": "start-storybook -p 9001 -s public",
-    "build": "run-s build:icons build:apps build:docs copy:docs",
+    "build": "run-s build:icons build:apps build:metadata build:docs copy:docs",
     "build:apps": "react-scripts build",
-    "build:docs": "node tooling/component-metadata && cd internal/docs && yarn build",
+    "build:metadata": "node tooling/component-metadata",
+    "build:docs": "cd internal/docs && yarn build",
     "build:icons": "node tooling/update-icons",
     "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
     "copy:docs": "cp -r internal/docs/public build/docs",

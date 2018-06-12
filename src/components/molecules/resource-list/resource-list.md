@@ -73,7 +73,7 @@ If necessary, you can override the actions for a specific list item by giving th
 
 ## Advanced: Manual Item Rendering
 
-If you need more control over the rendering of list items, you can pass a `renderItem` function to the `ResourceList`. This function will be called once for each list item, and should return a [ResourceList.Item](/docs/resource-list-item). The `ResourceList.Item` can have child elements, which will be rendered as a "body" of the item, between the header and the actions.
+If you need more control over the rendering of list items, you can pass a `renderItem` function to the `ResourceList`. This function will be called once for each list item, and should return a [ResourceList.Item](#/component/resource-list-item). The `ResourceList.Item` can have child elements, which will be rendered as a "body" of the item, between the header and the actions.
 
 ```js
 <ResourceList

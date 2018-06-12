@@ -23,7 +23,7 @@ Form is a compound component that ships with extra props for elements that take 
 
 ### Form Fields
 
-Form is composed of Form Fields, read more about them [here](/docs/Form%20Field).
+Form is composed of Form Fields, read more about them [here](#/component/form-field).
 
 ```js
 <Form>
@@ -58,7 +58,7 @@ Form is composed of Form Fields, read more about them [here](/docs/Form%20Field)
 
 ### Grouping fields
 
-Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](/docs/Form%20Fieldset).
+Long forms should be divided into smaller groups using a `Form.FieldSet`. Read the docs [here](#/component/form-fieldset).
 
 ```js
 <Form>
@@ -77,11 +77,11 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
 
 ### Multiple forms in a page
 
-If a page has multiple forms, use a [FormGroup](/docs/FormGroup) to separate each form. Use a `Form.FieldSet` to add meaningful titles.
+If a page has multiple forms, use a [FormGroup](#/component/form-group) to separate each form. Use a `Form.FieldSet` to add meaningful titles.
 
 ### Form actions
 
-At the end of the forms, you need actions that the user can take. Read how to add them [here](/docs/Form%20Actions).
+At the end of the forms, you need actions that the user can take. Read how to add them [here](#/component/form-actions).
 
 ```js
 <Form>
