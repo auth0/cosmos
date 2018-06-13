@@ -41,6 +41,7 @@
     "build:docs_app": "cd internal/docs && yarn build",
     "build:icons": "node tooling/update-icons",
     "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "dev:manage": "cd examples/manage && yarn dev",
     "build:manage": "cd examples/manage && yarn build",
     "copy:manage": "cp -r examples/manage/public build/manage",
     "start": "serve -s build",
