@@ -72,7 +72,7 @@ export default () => (
               </a>
             </li>
             <li>
-              <a href="/manage/clients">
+              <a href="/redirect?url=manage/#/clients">
                 <Icon name="clients" color={colors.base.grayLightest} size={20} />
                 <span>PoC Manage</span>
               </a>
