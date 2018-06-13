@@ -15,5 +15,6 @@
   },
   "peerDependencies": {
     "react": "16.x"
-  }
+  },
+  "types": "./index.d.ts"
 }
