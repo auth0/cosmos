@@ -1,0 +1,25 @@
+{
+  "name": "manage",
+  "version": "1.0.0",
+  "description": "proof of concept of manage with cosmos",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development webpack-serve --content public",
+    "build": "webpack-cli",
+    "start": "serve public"
+  },
+  "dependencies": {
+    "@auth0/cosmos": "0.2.4",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-router-dom": "4.2.2"
+  },
+  "devDependencies": {
+    "@auth0/babel-preset-cosmos": "0.2.4",
+    "babel-loader": "7.1.4",
+    "serve": "6.5.3",
+    "webpack": "4.8.3",
+    "webpack-cli": "2.0.12",
+    "webpack-serve": "1.0.3"
+  }
+}

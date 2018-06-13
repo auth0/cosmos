@@ -4,22 +4,19 @@
       {
         "name": "Username-Password-Authentication",
         "connection": "Database",
-        "switchOn": false,
-        "icon": "quickstarts"
+        "switchOn": false
       }
     ],
     "Social": [
       {
         "name": "github",
         "connection": "GitHub",
-        "switchOn": true,
-        "icon": "connections"
+        "switchOn": true
       },
       {
         "name": "google-oauth2",
         "connection": "Google",
-        "switchOn": false,
-        "icon": "authorization"
+        "switchOn": false
       }
     ],
     "Enterprise": [{}],
