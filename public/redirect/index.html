@@ -33,23 +33,10 @@ if (location.hostname !== 'localhost') {
 } else {
   const application = location.search.split('?url=')[1].replace('/', '')
 
-<<<<<<< HEAD
   const message = `
     Hi!
     <br/><br/>
     To run ${application}, run <code>yarn dev:${application}</code>
-=======
-  let type
-  if (['manage'].includes(application)) type = 'examples'
-  else if (['docs', 'overview'].includes(application)) type = 'internal'
-
-  const message = `
-    Hi!
-    <br/><br/>
-    You are trying to open an application from ${type}
-    <br/><br/>
-    go to <code>${type}/${application}</code> and run <code>yarn dev</code>
->>>>>>> master
     <br/><br/>
     (This message is only shown in dev environment)
   `
