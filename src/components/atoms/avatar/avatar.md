@@ -1,6 +1,6 @@
 ```meta
   category: Actions
-  description: Displays an image representing a user or resource
+  description: Displays an image representing a User or Resource
   unstable: true
 ```
 

@@ -70,20 +70,20 @@ const AvatarBlock = props => {
 }
 
 AvatarBlock.propTypes = {
-  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
-  href: PropTypes.string,
+  /** The type of item represented by the avatar block. */
+  type: PropTypes.oneOf(['user', 'resource']).isRequired,
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** An image URL to display. */
   image: PropTypes.string.isRequired,
   /** The primary line of text to display. */
   title: PropTypes.string.isRequired,
-  /** The type of item represented by the avatar block. */
-  type: PropTypes.oneOf(['user', 'resource']).isRequired,
+  /** The secondary line of text to display. */
+  subtitle: PropTypes.string,
   /** The size of the avatar block. */
   size: PropTypes.PropTypes.oneOf(['compact', 'default', 'large']),
-  /** The secondary line of text to display. */
-  subtitle: PropTypes.string
+  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
+  href: PropTypes.string
 }
 
 AvatarBlock.defaultProps = {

@@ -16,6 +16,10 @@
 />
 ```
 
+## Examples
+
+### Title and subtitle
+
 `AvatarBlock` builds on [Avatar](/docs/atoms/avatar), allowing you to display a title and subtitle along with the image.
 
 ```js
@@ -33,6 +37,8 @@
   />
 </Stack>
 ```
+
+### Changing size
 
 You can use the `size` prop to render `AvatarBlocks` of various sizes. Note: using the `compact` size with a subtitle will cause it to be rendered as invisible.
 

@@ -15,12 +15,12 @@ const Avatars = () => (
     </Stack>
     <br />
     <Stack>
-      <Avatar size="xsmall" icon="settings" />
-      <Avatar size="small" icon="settings" />
-      <Avatar size="medium" icon="settings" />
-      <Avatar size="large" icon="settings" />
-      <Avatar size="xlarge" icon="settings" />
-      <Avatar size="xxlarge" icon="settings" />
+      <Avatar type="resource" size="xsmall" icon="settings" />
+      <Avatar type="resource" size="small" icon="settings" />
+      <Avatar type="resource" size="medium" icon="settings" />
+      <Avatar type="resource" size="large" icon="settings" />
+      <Avatar type="resource" size="xlarge" icon="settings" />
+      <Avatar type="resource" size="xxlarge" icon="settings" />
     </Stack>
   </Example>
 )
