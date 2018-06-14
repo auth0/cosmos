@@ -76,30 +76,6 @@ class Usage extends React.Component {
           where you can learn how to use it.
         </Text>
 
-        <Heading2>
-          How to extend Cosmos components <Tag warning text="Experimental" />
-        </Heading2>
-        <Text>
-          You hopefully would not need this but in case you do, here is how you can do that. You
-          need some internal knowledge of how cosmos components are structured to leverage this.
-          This is very experimental and might change in the future (become a lot simpler).
-        </Text>
-        <Pre
-          code={`
-  // import the version that comes with cosmos
-  import styled from '@auth0/cosmos/styled'
-
-  // import the styled component from the internals
-  import { StyledInput } from "@auth0/cosmos/atoms/_styled-input"
-
-  // extend the styled component
-  const CustomizedInput = styled(StyledInput)\`
-    border-color: red;
-  \`
-
-  render(<CustomizedInput type="text" placeholder="Enter text here"/>)
-          `}
-        />
       </div>
     )
   }
