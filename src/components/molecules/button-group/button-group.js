@@ -28,13 +28,14 @@ const StyledButtonGroup = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
+  // Adjust tooltip offset when used inside button groups
+  & .cosmos-tooltip {
+    left: ${props => (props.align === 'left' ? '40%' : '58%')};
+  }
+
   ${Button.Element} {
     ${props => (props.align === 'left' ? 'margin-right' : 'margin-left')}: ${props =>
       props.compressed ? 0 : spacing.xsmall};
-
-    &: ${props => (props.align === 'left' ? 'last-child' : 'first-child')} {
-      margin: 0;
-    }
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
