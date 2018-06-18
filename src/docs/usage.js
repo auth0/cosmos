@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 
 import { Heading1, Heading2, Link, Text } from './docs-components/typography'
 import Pre from './docs-components/pre'
-import Tag from './docs-components/tag'
 import { Code } from '@auth0/cosmos'
 
 class Usage extends React.Component {
