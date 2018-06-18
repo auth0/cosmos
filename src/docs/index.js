@@ -6,6 +6,7 @@ import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
 import GuidingPrinciples from './guiding-principles'
+import Usage from './usage'
 import ContributionGuide from './contribution-guide'
 import FAQS from './faqs'
 import Changes from './changes'
@@ -42,6 +43,7 @@ export default () => (
         <Body>
           <Switch>
             <Route path="/docs/guiding-principles" component={GuidingPrinciples} />
+            <Route path="/docs/usage" component={Usage} />
             <Route path="/docs/contribution-guide" component={ContributionGuide} />
             <Route path="/docs/faqs" component={FAQS} />
             <Route path="/docs/changes" component={Changes} />
