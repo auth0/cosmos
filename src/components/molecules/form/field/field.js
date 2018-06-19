@@ -47,7 +47,6 @@ const ContentLayout = styled.div`
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const layout = props.layout
 
   return (
     <FormContext.Consumer>
