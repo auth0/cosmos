@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const glob = require('glob')
 const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
@@ -12,6 +12,9 @@ const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
 let warning = 0
+
+/* Ensure meta directory exists */
+fs.ensureDirSync('src/components/meta')
 
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
@@ -131,13 +134,21 @@ const run = () => {
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
-  fs.writeFileSync('src/docs/metadata.json', JSON.stringify({ metadata }, null, 2), 'utf8')
+  fs.writeFileSync(
+    'src/components/meta/metadata.json',
+    JSON.stringify({ metadata }, null, 2),
+    'utf8'
+  )
 
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format
   // so we can display it more intelligently in the docs?
   const changelog = fs.readFileSync('changelog.md', 'utf8')
-  fs.writeFileSync('src/docs/changelog.json', JSON.stringify({ changelog }, null, 2), 'utf8')
+  fs.writeFileSync(
+    'src/components/meta/changelog.json',
+    JSON.stringify({ changelog }, null, 2),
+    'utf8'
+  )
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
@@ -148,7 +159,7 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/components', { ignored: ['node_modules'] })
+    .watch('src/components', { ignored: ['node_modules', 'src/components/meta'] })
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)

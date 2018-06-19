@@ -5,7 +5,7 @@
 
 `import { Radio } from '@auth0/cosmos'`
 
-A `Radio` is similar to a [Select](/docs/select), in that it displays a group of options and allows the user to select one. However, instead of rendering as a drop-down list like `Select`, a `Radio` will render all of the options at once. Since this can take up a lot of visual space and become confusing, you should only use `Radio` when you have a small number of options.
+A `Radio` is similar to a [Select](#/component/select), in that it displays a group of options and allows the user to select one. However, instead of rendering as a drop-down list like `Select`, a `Radio` will render all of the options at once. Since this can take up a lot of visual space and become confusing, you should only use `Radio` when you have a small number of options.
 
 Since `Radio` is a controlled (stateless) components, to make it interactive you'll need to manage state and provide an `onChange` callback.
 

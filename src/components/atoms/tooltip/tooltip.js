@@ -104,7 +104,9 @@ const TooltipWrapper = styled.div`
 const Tooltip = ({ content, ...props }) => {
   return (
     <TooltipWrapper>
-      <StyledTooltip {...props}>{content}</StyledTooltip>
+      <StyledTooltip className="cosmos-tooltip" {...props}>
+        {content}
+      </StyledTooltip>
       {props.children}
     </TooltipWrapper>
   )

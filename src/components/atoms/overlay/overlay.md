@@ -15,4 +15,4 @@ You probably won't need to use it directly; In most cases a <code>Dialog</code> 
 
 Here's an example <code>Overlay</code>:
 
-![overlay example](/screenshots/overlay.png)
+![overlay example](screenshots/overlay.png)

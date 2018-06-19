@@ -12,7 +12,7 @@ Form Fields are a group of field types supported in `Form`:
 
 If you need something we don't have, you can use a custom component with `Form.Field`
 
-In addition to their own [native props](/docs/TextInput), we add a few more props in the context of a `Form`:
+In addition to their own [native props](#/component/text-input), we add a few more props in the context of a `Form`:
 
 ```jsx
 <Form>
