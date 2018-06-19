@@ -70,6 +70,10 @@ module.exports = {
     },
     docs: {
       dev: {
+        script: parallel('metadata.dev', 'docs.dev_site'),
+        description: 'Start metadata + documentation site in dev mode'
+      },
+      dev_site: {
         script: 'cd internal/docs && yarn dev',
         description: 'Start documentation site in dev mode'
       },
