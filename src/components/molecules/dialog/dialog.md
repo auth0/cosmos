@@ -22,4 +22,4 @@ titlebar, close button, and a footer.
 
 Here's an example <code>Dialog</code>:
 
-![dialog example](/screenshots/dialog.png)
+![dialog example](screenshots/dialog.png)

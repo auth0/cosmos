@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import fuzzysearch from 'fuzzysearch'
 import { TextInput, Icon } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos/tokens'
-import { types, aliases } from '../icons.json'
+import { types, aliases } from '@auth0/cosmos/meta/icons.json'
 
 const IconBrowserElement = styled.div`
   margin: ${spacing.medium} 0 64px;

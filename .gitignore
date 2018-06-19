@@ -65,6 +65,5 @@ build
 dist
 
 # ignore generated files
-src/docs/metadata.json
-src/docs/changelog.json
-src/docs/icons.json
+src/components/meta
+internal/docs/public/main.js

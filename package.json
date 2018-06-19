@@ -5,11 +5,11 @@
   "private": true,
   "workspaces": [
     "src/components",
-    "src/docs",
     "src/tokens",
     "src/codemods",
     "src/overview",
     "src/babel-preset",
+    "internal/docs",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
@@ -27,14 +27,21 @@
     "yamljs": "0.3.0"
   },
   "scripts": {
-    "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
+    "dev": "run-p dev:build 'build:metadata -- -w' 'build:icons -- -w'",
     "dev:build": "react-scripts start",
     "dev:sandbox": "start-storybook -p 9001 -s public",
-    "build": "run-s build:docs build:icons build:apps build:sandbox build:manage copy:manage",
+    "build":
+      "run-s build:icons build:apps build:metadata build:docs_app copy:docs build:manage copy:manage build:sandbox",
     "build:apps": "react-scripts build",
-    "build:docs": "node tooling/component-metadata",
+    "dev:metadata": "node tooling/component-metadata -w",
+    "build:metadata": "node tooling/component-metadata",
+    "dev:docs": "run-p dev:metadata dev:docs_app",
+    "dev:docs_app": "cd internal/docs && yarn dev",
+    "copy:docs": "cp -r internal/docs/public build/docs",
+    "build:docs_app": "cd internal/docs && yarn build",
     "build:icons": "node tooling/update-icons",
     "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "dev:manage": "cd examples/manage && yarn dev",
     "build:manage": "cd examples/manage && yarn build",
     "copy:manage": "cp -r examples/manage/public build/manage",
     "start": "serve -s build",
@@ -47,7 +54,6 @@
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
     "codemods": "jscodeshift -t src/codemods src/components/",
-    "build:sandbox": "build-storybook -o build/sandbox",
     "sketch":
       "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
   },

@@ -3,7 +3,7 @@
   description: "A single item in a ResourceList"
 ```
 
-A `ResourceList.Item` is a single item that is displayed in a [ResourceList](/docs/resource-list). You won't typically use this directly, except to return it as a result from a `renderItem()` function passed to a `ResourceList`.
+A `ResourceList.Item` is a single item that is displayed in a [ResourceList](#/component/resource-list). You won't typically use this directly, except to return it as a result from a `renderItem()` function passed to a `ResourceList`.
 
 ```jsx
 <ResourceList.Item
@@ -47,7 +47,7 @@ And here's a list item that has a `title` and an `image`, but no `subtitle`:
 
 The `image` prop of the `ResourceListItem` supports a wide array of inputs.
 
-You can pass an image URL, which is just passed to an [Image](/docs/image):
+You can pass an image URL, which is just passed to an [Image](#/component/image):
 
 ```js
 <ResourceList.Item
@@ -56,7 +56,7 @@ You can pass an image URL, which is just passed to an [Image](/docs/image):
 />
 ```
 
-You can also provide an [Image](/docs/image) component directly:
+You can also provide an [Image](#/component/image) component directly:
 
 ```js
 <ResourceList.Item
@@ -67,13 +67,13 @@ You can also provide an [Image](/docs/image) component directly:
 />
 ```
 
-You can also provide an [Icon](/docs/icon) component:
+You can also provide an [Icon](#/component/icon) component:
 
 ```js
 <ResourceList.Item title="A List Item" image={<Icon name="clients" />} />
 ```
 
-Or an [Avatar](/docs/avatar) component:
+Or an [Avatar](#/component/avatar) component:
 
 ```js
 <ResourceList.Item

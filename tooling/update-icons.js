@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const { basename } = require('path')
 const glob = require('glob')
 const SVGO = require('svgo')
@@ -6,6 +6,9 @@ const htmlparser = require('htmlparser2')
 const fromPairs = require('lodash.frompairs')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
+
+/* Ensure meta directory exists */
+fs.ensureDirSync('src/components/meta')
 
 const transform = (name, svg) => {
   const icon = { paths: [] }
@@ -97,7 +100,7 @@ const run = () => {
 
     // Write the lookup table for icon names which will be used in the docs
     fs.writeFileSync(
-      'src/docs/icons.json',
+      'src/components/meta/icons.json',
       JSON.stringify({ types: Object.keys(icons).sort(), aliases }, null, 2),
       'utf8'
     )
