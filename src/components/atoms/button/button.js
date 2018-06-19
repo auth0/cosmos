@@ -201,6 +201,7 @@ const Button = ({ children, ...props }) => {
 
 Button.Element = styled.button`
   display: inline-block;
+  min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
   min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
