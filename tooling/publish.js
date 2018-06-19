@@ -4,6 +4,12 @@ const path = require('path')
 const readPkg = require('read-pkg')
 const { info, warn, error } = require('prettycli')
 const latestVersion = require('latest-version')
+const propTypesToTS = require('proptypes-to-ts-declarations')
+
+const { icons } = require('../src/components/atoms/icon/icons.json')
+const oneOfResolvers = {
+  __ICONNAMES__: Object.keys(icons)
+}
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
@@ -13,6 +19,13 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     warn(`This version (${version}) is already published.`)
     process.exit(0)
   }
+
+  info('PUBLISH', 'Generating TypeSscript declarations')
+
+  // Generating index.d.ts file
+  propTypesToTS('@auth0/cosmos', './src/components/**/*.js', './src/components/index.d.ts', {
+    oneOfResolvers
+  })
 
   const directories = ['src/tokens', 'src/babel-preset', 'src/components']
 
