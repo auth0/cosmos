@@ -1,6 +1,6 @@
 import { multiply, subtract } from '../../_helpers/pixel-calc'
 
-const getLayout = layout => {
+const getLayoutValues = layout => {
   let formWidth, labelWidth, contentWidth
 
   if (layout === 'label-on-left') {
@@ -14,4 +14,4 @@ const getLayout = layout => {
   return { formWidth, labelWidth, contentWidth }
 }
 
-export default getLayout
+export default getLayoutValues
