@@ -2,6 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import SideNavigation from './side-navigation'
+import WelcomeIndex from '../pages/welcome'
 import ClientIndex from '../pages/clients'
 import ClientDetail from '../pages/client-detail'
 import EmailsIndex from '../pages/emails'
@@ -23,6 +24,7 @@ const Page = () => (
           paddingBottom: '50px'
         }}
       >
+        <Route exact path="/welcome" component={WelcomeIndex} />
         <Route exact path="/clients" component={ClientIndex} />
         <Route exact path="/clients/:clientId" component={ClientDetail} />
         <Route exact path="/emails" component={EmailsIndex} />

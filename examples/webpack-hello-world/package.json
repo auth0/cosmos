@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth0/cosmos": "0.2.3",
+    "@auth0/babel-preset-cosmos": "0.2.3",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },

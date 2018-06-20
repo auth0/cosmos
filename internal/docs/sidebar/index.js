@@ -7,7 +7,7 @@ import SearchBox from './search.js'
 import List from './list'
 
 /* import components from the generated metadata files */
-import { metadata as components } from '../metadata.json'
+import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 
 const StyledSidebar = styled.div`
   background: ${colors.base.grayLightest};

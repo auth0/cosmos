@@ -5,11 +5,11 @@
   "private": true,
   "workspaces": [
     "src/components",
-    "src/docs",
     "src/tokens",
     "src/codemods",
     "src/overview",
     "src/babel-preset",
+    "internal/docs",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
@@ -27,29 +27,13 @@
     "yamljs": "0.3.0"
   },
   "scripts": {
-    "dev": "run-p dev:build 'build:docs -- -w' 'build:icons -- -w'",
-    "dev:build": "react-scripts start",
-    "dev:sandbox": "start-storybook -p 9001 -s public",
-    "build": "run-s build:docs build:icons build:apps build:sandbox build:manage copy:manage",
-    "build:apps": "react-scripts build",
-    "build:docs": "node tooling/component-metadata",
-    "build:icons": "node tooling/update-icons",
-    "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
-    "build:manage": "cd examples/manage && yarn build",
-    "copy:manage": "cp -r examples/manage/public build/manage",
-    "start": "serve -s build",
-    "test": "run-s build test:chromatic",
-    "screenshot": "yarn build && node tooling/screenshot",
-    "precommit": "lint-staged && npm run build:icons",
-    "test:chromatic": "if-env TRAVIS_EVENT_TYPE=push && yarn chromatic || echo 'Skip chromatic'",
-    "chromatic":
-      "chromatic test --storybook-addon --script-name=dev:sandbox --exit-zero-on-changes",
-    "catchup": "node tooling/catchup.js && yarn install",
-    "deploy": "node tooling/publish.js",
-    "codemods": "jscodeshift -t src/codemods src/components/",
-    "build:sandbox": "build-storybook -o build/sandbox",
-    "sketch":
-      "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
+    "scripts": "nps -s",
+    "i": "nps-i",
+    "dev": "echo Our scripts have changed, run yarn scripts to know more",
+    "build": "nps -s production.build",
+    "start": "nps -s production.start",
+    "test": "nps -s test",
+    "precommit": "lint-staged && nps icons.build"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
@@ -73,7 +57,9 @@
     "lint-staged": "7.0.0",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
-    "npm-run-all": "4.1.2",
+    "nps": "5.9.0",
+    "nps-i": "1.0.1",
+    "nps-utils": "1.5.0",
     "prettier": "1.11.1",
     "prettycli": "1.4.3",
     "puppeteer": "1.1.1",

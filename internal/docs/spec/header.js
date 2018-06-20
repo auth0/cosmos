@@ -18,7 +18,7 @@ const Header = props => {
 
   return (
     <StyledHeader href="#" id={id}>
-      <NavLink to={window.location.pathname + '#' + id}>
+      <NavLink to={'#' + id}>
         <Heading>{props.children}</Heading>
       </NavLink>
     </StyledHeader>

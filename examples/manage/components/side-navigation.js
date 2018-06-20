@@ -15,6 +15,12 @@ class SideNavigation extends React.Component {
       >
         <Sidebar>
           <Sidebar.Link
+            icon="arrow-right"
+            label="Getting started"
+            url="#/welcome"
+            selected={this.isSelected('/welcome')}
+          />
+          <Sidebar.Link
             icon="dashboard"
             label="Dashboard"
             url="#/"

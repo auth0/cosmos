@@ -18,7 +18,7 @@
 ## Examples
 
 When presenting actions inside lists and tables, you can use the Button Group.
-In most other cases, these examples can be achieved by other more specialized components. For the submit and other actions of a form, you should check [Form Actions](/docs/Form%20Actions). For presenting the main page actions, you should check [Page Header](/docs/Page%20Header).
+In most other cases, these examples can be achieved by other more specialized components. For the submit and other actions of a form, you should check [Form Actions](#/component/form-actions). For presenting the main page actions, you should check [Page Header](#/component/page-header).
 
 ```js
 <Stack>

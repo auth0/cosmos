@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Markdown from 'markdown-to-jsx'
-import { changelog } from './changelog'
+import { changelog } from '@auth0/cosmos/meta/changelog'
 
 import {
   Heading1,
