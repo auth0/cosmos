@@ -8,10 +8,7 @@ At the end of the forms, you need actions that the user can take.
 <Form>
   <Form.Actions
     primaryAction={{ label: 'Save Changes', handler: () => {} }}
-    secondaryActions={[
-      { label: 'Try', icon: 'play', handler: () => {} },
-      { label: 'Approve', icon: 'check', handler: () => {} }
-    ]}
+    secondaryActions={[{ label: 'Try', icon: 'play', handler: () => {} }]}
     destructiveAction={{ label: 'Delete', icon: 'delete', handler: () => {} }}
   />
 </Form>
