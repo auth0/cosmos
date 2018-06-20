@@ -33,6 +33,7 @@
     "build": "nps -s production.build",
     "start": "nps -s production.start",
     "test": "nps -s test",
+    "sandbox": "yarn scripts sandbox.dev",
     "precommit": "lint-staged && nps icons.build"
   },
   "lint-staged": {
