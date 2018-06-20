@@ -33,7 +33,9 @@
     "build": "nps -s production.build",
     "start": "nps -s production.start",
     "test": "nps -s test",
-    "precommit": "lint-staged && nps icons.build"
+    "sandbox": "start-storybook -p 9001 -s public",
+    "precommit": "lint-staged && nps icons.build",
+    "chromatic": "chromatic test --storybook-addon --script-name sandbox --exit-zero-on-changes"
   },
   "lint-staged": {
     "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]

@@ -43,8 +43,7 @@ module.exports = {
         description: 'Check if CI event is push and then run chromatic'
       },
       chromatic: {
-        script:
-          'chromatic test --storybook-addon --script-name="scripts sandbox.dev" --exit-zero-on-changes',
+        script: 'chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes',
         description: 'Run chromatic visual tests in CI'
       }
     },
