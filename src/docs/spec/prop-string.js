@@ -57,7 +57,7 @@ const getPropString = propData => {
       Example: <Button icon="copy">
     */
 
-    if (propData[name].type.name === 'string') {
+    if (propData[name].type.name === 'string' && propData[name].value.length > 0) {
       propString += ` ${name}="${propData[name].value}"`
       return true
     }
@@ -70,11 +70,10 @@ const getPropString = propData => {
     */
 
     if (propData[name].type.name === 'enum') {
-      /* !isNaN === number */
-      if (!isNaN(propData[name].value)) {
+      if (propData[name].value === 'number') {
         propString += ` ${name}={${propData[name].value}}`
         return true
-      } else if (typeof propData[name].value === 'string') {
+      } else if (typeof propData[name].value === 'string' && propData[name].value.length > 0) {
         propString += ` ${name}="${propData[name].value}"`
         return true
       }
