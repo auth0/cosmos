@@ -5,6 +5,7 @@ const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
+const propTypesToTS = require('proptypes-to-ts-declarations')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 
@@ -25,6 +26,7 @@ const run = () => {
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.js')) // ignore story files
     .filter(path => !path.includes('sketch.js')) // ignore sketch files
+    .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
     .map(path => {
       try {
         /* ignore secondary files */
@@ -143,12 +145,21 @@ const run = () => {
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format
   // so we can display it more intelligently in the docs?
+  info('DOCS', 'Generating changelog')
   const changelog = fs.readFileSync('changelog.md', 'utf8')
   fs.writeFileSync(
     'src/components/meta/changelog.json',
     JSON.stringify({ changelog }, null, 2),
     'utf8'
   )
+
+  // Write typescript definitions to index.d.ts.
+  info('DOCS', 'Generating TypeScript definitions')
+  propTypesToTS('@auth0/cosmos', './src/components/**/*.js', './src/components/meta/index.d.ts', {
+    oneOfResolvers: {
+      __ICONNAMES__: Object.keys(icons)
+    }
+  })
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
@@ -159,7 +170,9 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/components', { ignored: ['node_modules', 'src/components/meta'] })
+    .watch('src/components', {
+      ignored: ['node_modules', 'src/components/meta']
+    })
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)

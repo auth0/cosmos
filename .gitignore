@@ -67,5 +67,4 @@ dist
 # ignore generated files
 src/components/meta
 internal/docs/public/main.js
-
 *.d.ts
