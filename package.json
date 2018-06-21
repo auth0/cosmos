@@ -64,6 +64,7 @@
     "nps-utils": "1.5.0",
     "prettier": "1.11.1",
     "prettycli": "1.4.3",
+    "proptypes-to-ts-declarations": "^0.8.3",
     "puppeteer": "1.1.1",
     "react-chromatic": "0.7.11",
     "react-docgen": "2.20.1",
