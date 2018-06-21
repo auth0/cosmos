@@ -41,7 +41,7 @@ storiesOf('Resource List').add('titles with links', () => (
   </Example>
 ))
 
-storiesOf('Resource List').add('image urls', () => (
+storiesOf('Resource List').add('with images', () => (
   <Example title="default">
     <ResourceList
       items={[
@@ -53,53 +53,13 @@ storiesOf('Resource List').add('image urls', () => (
   </Example>
 ))
 
-storiesOf('Resource List').add('image components', () => (
+storiesOf('Resource List').add('with icons', () => (
   <Example title="default">
     <ResourceList
       items={[
-        { title: 'Title One', subtitle: 'Subtitle One', image: <Image source={IMAGE_URLS[0]} /> },
-        { title: 'Title Two', subtitle: 'Subtitle Two', image: <Image source={IMAGE_URLS[1]} /> },
-        {
-          title: 'Title Three',
-          subtitle: 'Subtitle Three',
-          image: <Image source={IMAGE_URLS[2]} />
-        }
-      ]}
-    />
-  </Example>
-))
-
-storiesOf('Resource List').add('icon components', () => (
-  <Example title="default">
-    <ResourceList
-      items={[
-        { title: 'Title One', subtitle: 'Subtitle One', image: <Icon name="clients" /> },
-        { title: 'Title Two', subtitle: 'Subtitle Two', image: <Icon name="help" /> },
-        { title: 'Title Three', subtitle: 'Subtitle Three', image: <Icon name="code" /> }
-      ]}
-    />
-  </Example>
-))
-
-storiesOf('Resource List').add('avatar components', () => (
-  <Example title="default">
-    <ResourceList
-      items={[
-        {
-          title: 'Title One',
-          subtitle: 'Subtitle One',
-          image: <Avatar image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" />
-        },
-        {
-          title: 'Title Two',
-          subtitle: 'Subtitle Two',
-          image: <Avatar image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" />
-        },
-        {
-          title: 'Title Three',
-          subtitle: 'Subtitle Three',
-          image: <Avatar image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" />
-        }
+        { title: 'Title One', subtitle: 'Subtitle One', icon: 'clients' },
+        { title: 'Title Two', subtitle: 'Subtitle Two', icon: 'help' },
+        { title: 'Title Three', subtitle: 'Subtitle Three', icon: 'code' }
       ]}
     />
   </Example>
