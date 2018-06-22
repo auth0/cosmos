@@ -1,6 +1,7 @@
 import {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,
@@ -34,13 +35,13 @@ import {
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 } from './components'
 
 export {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,
@@ -74,6 +75,5 @@ export {
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 }

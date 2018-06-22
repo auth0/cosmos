@@ -6,6 +6,7 @@ import Container from './ov-components/container'
 import Navigation from './ov-components/navigation'
 
 import Avatars from './examples/avatars'
+import AvatarBlocks from './examples/avatar-blocks'
 import Badges from './examples/badges'
 import Buttons from './examples/buttons'
 import ButtonsInputs from './examples/buttons-inputs'
@@ -24,7 +25,6 @@ import Spacing from './examples/spacing'
 import Tables from './examples/tables'
 import TabsExample from './examples/tabs'
 import Tags from './examples/tags'
-import Thumbnails from './examples/thumbnails'
 import Tooltip from './examples/tooltip'
 import Typography from './examples/typography'
 
@@ -58,7 +58,7 @@ export default () => (
           <Avatars />
         </Col>
         <Col>
-          <Thumbnails />
+          <AvatarBlocks />
         </Col>
       </Row>
       <Row>

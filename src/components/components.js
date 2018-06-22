@@ -35,11 +35,11 @@ import Tag from './atoms/tag'
 import Text from './atoms/text'
 import TextArea from './atoms/textarea'
 import TextInput from './atoms/text-input'
-import Thumbnail from './atoms/thumbnail'
 import Tooltip from './atoms/tooltip'
 
 /* molecules */
 import Alert from './atoms/alert'
+import AvatarBlock from './molecules/avatar-block'
 import ButtonGroup from './molecules/button-group'
 import Dialog from './molecules/dialog'
 import EmptyState from './molecules/empty-state'
@@ -56,6 +56,7 @@ import Tabs from './molecules/tabs'
 export {
   Alert,
   Avatar,
+  AvatarBlock,
   Badge,
   Box,
   Breadcrumb,
@@ -89,6 +90,5 @@ export {
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 }

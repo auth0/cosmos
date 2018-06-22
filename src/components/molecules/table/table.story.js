@@ -58,7 +58,7 @@ storiesOf('Table').add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="50px">
-        {item => <Avatar image={item.image} />}
+        {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
       <Table.Column field="born" title="Born" />
@@ -71,7 +71,7 @@ storiesOf('Table').add('sorting', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="50px">
-        {item => <Avatar image={item.image} />}
+        {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
       <Table.Column field="born" title="Born" sortable sort="asc" />
