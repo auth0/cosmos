@@ -8,7 +8,7 @@ import { Breadcrumb, Code, Heading } from '@auth0/cosmos'
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
-const StyledClientPageHeader = styled.div`
+const StyledApplicationPageHeader = styled.div`
   margin-bottom: ${spacing.large};
 
   ${StyledHeading[1]} {
@@ -42,15 +42,15 @@ const Type = styled.span`
 `
 
 /* Should be a Css Component */
-const ClientID = styled.span`
+const ApplicationID = styled.span`
   font-size: 13px;
   color: ${colors.base.grayDarkest};
   margin-right: ${spacing.xsmall};
 `
 
-const ClientPageHeader = props => {
+const ApplicationPageHeader = props => {
   return (
-    <StyledClientPageHeader>
+    <StyledApplicationPageHeader>
       <Breadcrumb content={props.breadcrumb.content} link={props.breadcrumb.link} />
 
       <TitleGroup>
@@ -58,23 +58,23 @@ const ClientPageHeader = props => {
         <div>
           <Heading size={1}>{props.title}</Heading>
           <Type>{props.type.name}</Type>
-          <ClientID>Client ID</ClientID>
-          <Code>{props.type.clientId}</Code>
+          <ApplicationID>Application ID</ApplicationID>
+          <Code>{props.type.applicationId}</Code>
         </div>
       </TitleGroup>
-    </StyledClientPageHeader>
+    </StyledApplicationPageHeader>
   )
 }
 
-ClientPageHeader.displayName = 'Client Page Header'
+ApplicationPageHeader.displayName = 'Application Page Header'
 
-ClientPageHeader.propTypes = {
+ApplicationPageHeader.propTypes = {
   /** Page title */
   title: PropTypes.string.isRequired
 }
 
-ClientPageHeader.defaultProps = {
+ApplicationPageHeader.defaultProps = {
   title: null
 }
 
-export default ClientPageHeader
+export default ApplicationPageHeader

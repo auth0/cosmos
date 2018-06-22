@@ -1,10 +1,10 @@
 import React from 'react'
 import { PageHeader } from '@auth0/cosmos'
 
-import CreateClientDialog from './create-client-dialog'
-import ClientList from '../../components/client-list'
+import CreateApplicationDialog from './create-application-dialog'
+import ApplicationList from '../../components/application-list'
 
-class ClientIndex extends React.Component {
+class ApplicationIndex extends React.Component {
   constructor(props) {
     super(props)
     this.state = { dialogOpen: false }
@@ -18,13 +18,13 @@ class ClientIndex extends React.Component {
     return (
       <div>
         <PageHeader
-          title="Clients"
+          title="Applications"
           description={{
             text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-            learnMore: '/manage/clients'
+            learnMore: '/manage/applications'
           }}
           primaryAction={{
-            label: 'Create Client',
+            label: 'Create Application',
             icon: 'plus',
             handler: this.setDialogOpen(true)
           }}
@@ -35,12 +35,12 @@ class ClientIndex extends React.Component {
           }}
         />
 
-        <ClientList />
+        <ApplicationList />
 
-        <CreateClientDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
+        <CreateApplicationDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
       </div>
     )
   }
 }
 
-export default ClientIndex
+export default ApplicationIndex

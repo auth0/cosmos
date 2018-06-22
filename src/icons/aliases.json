@@ -4,5 +4,6 @@
   "users": ["person", "people"],
   "check": ["done", "tick"],
   "rotate": ["update", "refresh"],
-  "play": ["try", "test"]
+  "play": ["try", "test"],
+  "clients": ["applications"]
 }

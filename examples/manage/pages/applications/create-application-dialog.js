@@ -5,18 +5,18 @@ import { Dialog, Form, Paragraph, Stack } from '@auth0/cosmos'
 import { colors, misc, spacing } from '@auth0/cosmos/tokens'
 import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
-import ClientTypeImages from '../../components/client-types-images'
+import ApplicationTypeImages from '../../components/application-types-images'
 
-const ClientType = props => (
-  <ClientType.Element onClick={props.onClick} selected={props.selected}>
-    <ClientType.Image>{props.image}</ClientType.Image>
-    <ClientType.Title>{props.name}</ClientType.Title>
-    <ClientType.Description>{props.description}</ClientType.Description>
-    <ClientType.Example>eg: {props.example}</ClientType.Example>
-  </ClientType.Element>
+const ApplicationType = props => (
+  <ApplicationType.Element onClick={props.onClick} selected={props.selected}>
+    <ApplicationType.Image>{props.image}</ApplicationType.Image>
+    <ApplicationType.Title>{props.name}</ApplicationType.Title>
+    <ApplicationType.Description>{props.description}</ApplicationType.Description>
+    <ApplicationType.Example>eg: {props.example}</ApplicationType.Example>
+  </ApplicationType.Element>
 )
 
-const ClientStack = styled(Stack)`
+const ApplicationStack = styled(Stack)`
   > * {
     margin-right: ${spacing.small};
   }
@@ -25,7 +25,7 @@ const ClientStack = styled(Stack)`
   }
 `
 
-ClientType.Element = styled.a`
+ApplicationType.Element = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,7 +53,7 @@ const SelectedStyles = css`
   }
 `
 
-ClientType.Image = styled.div`
+ApplicationType.Image = styled.div`
   width: 64px;
   height: 64px;
   background: #f1f1f1;
@@ -68,22 +68,22 @@ ClientType.Image = styled.div`
   }
 `
 
-ClientType.Title = styled(StyledHeading[4])`
+ApplicationType.Title = styled(StyledHeading[4])`
   margin: ${spacing.small} 0;
 `
 
-ClientType.Description = styled(Paragraph)`
+ApplicationType.Description = styled(Paragraph)`
   font-size: 13px;
   margin-top: 0;
 `
 
-ClientType.Example = styled.div`
+ApplicationType.Example = styled.div`
   color: ${colors.text.subtle};
   font-size: 13px;
   line-height: ${misc.lineHeight};
 `
 
-class CreateClientDialog extends React.Component {
+class CreateApplicationDialog extends React.Component {
   constructor(props) {
     super(props)
     this.state = { name: 'My App', type: 'native' }
@@ -100,49 +100,55 @@ class CreateClientDialog extends React.Component {
     const actions = [new Dialog.Action('Create', onClose, 'primary')]
 
     return (
-      <Dialog open={open} width={800} title="Create Client" actions={actions} onClose={onClose}>
+      <Dialog
+        open={open}
+        width={800}
+        title="Create Application"
+        actions={actions}
+        onClose={onClose}
+      >
         <Form layout="label-on-top">
           <Form.TextInput
             label="Name"
-            helpText="You can change the client name later in the client settings."
+            helpText="You can change the application name later in the application settings."
             value={name}
           />
 
-          <Form.FieldSet label="Choose a client type">
-            <ClientStack alignVertical="top">
-              <ClientType
-                image={ClientTypeImages.native}
+          <Form.FieldSet label="Choose a application type">
+            <ApplicationStack alignVertical="top">
+              <ApplicationType
+                image={ApplicationTypeImages.native}
                 name="Native"
                 description="Mobile or Desktop, apps that run natively in a device."
                 example="iOS SDK"
                 onClick={this.setValue('type', 'native')}
                 selected={type === 'native'}
               />
-              <ClientType
-                image={ClientTypeImages.spa}
+              <ApplicationType
+                image={ApplicationTypeImages.spa}
                 name="Single Page Web Applications"
                 description="A JavaScript front-end app that uses an API."
                 example="Angular.JS + NodeJS"
                 onClick={this.setValue('type', 'spa')}
                 selected={type === 'spa'}
               />
-              <ClientType
-                image={ClientTypeImages.regular_web}
+              <ApplicationType
+                image={ApplicationTypeImages.regular_web}
                 name="Regular Web Applications"
                 description="Traditional web app (with refresh)."
                 example="Java ASP.NET"
                 onClick={this.setValue('type', 'regular_web')}
                 selected={type === 'regular_web'}
               />
-              <ClientType
-                image={ClientTypeImages.non_interactive}
-                name="Non-Interactive Clients"
+              <ApplicationType
+                image={ApplicationTypeImages.non_interactive}
+                name="Machine to machine"
                 description="CLI, Daemons or Services running on your backend."
                 example="Shell Script"
                 onClick={this.setValue('type', 'non_interactive')}
                 selected={type === 'non_interactive'}
               />
-            </ClientStack>
+            </ApplicationStack>
           </Form.FieldSet>
         </Form>
       </Dialog>
@@ -150,8 +156,8 @@ class CreateClientDialog extends React.Component {
   }
 }
 
-CreateClientDialog.propTypes = {
+CreateApplicationDialog.propTypes = {
   onClose: PropTypes.func.isRequired
 }
 
-export default CreateClientDialog
+export default CreateApplicationDialog

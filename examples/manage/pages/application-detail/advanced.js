@@ -7,9 +7,9 @@ class Advanced extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'API Explorer Client',
+      name: 'API Explorer Application',
       domain: 'storezero.auth0.com',
-      clientID: props.clientId,
+      applicationID: props.applicationId,
       secret: 'asoidvsubdwfqeagwbviuyeaobvi'
     }
   }
@@ -61,7 +61,7 @@ class Advanced extends React.Component {
                 label="Allowed APPs / APIs"
                 placeholder=""
                 length="3"
-                helpText="Allowed Applications / APIs are clients that will be allowed to make delegation request. By default, all your clients will be allowed. This field allows you to enter specific Client IDs. You can specify multiple IDs by comma-separating them or one by line."
+                helpText="Allowed Applications / APIs are applications that will be allowed to make delegation request. By default, all your applications will be allowed. This field allows you to enter specific Application IDs. You can specify multiple IDs by comma-separating them or one by line."
               />
 
               <Form.Select
@@ -79,9 +79,9 @@ class Advanced extends React.Component {
                 on
                 helpText={
                   <span>
-                    Clients flagged as OIDC Conformant will strictly follow the OIDC specification.
-                    Turning on this flag can introduce breaking changes to this client. If you have
-                    any questions you can{' '}
+                    Applications flagged as OIDC Conformant will strictly follow the OIDC
+                    specification. Turning on this flag can introduce breaking changes to this
+                    application. If you have any questions you can{' '}
                     <Link target="_blank" href="https://support.auth0.com">
                       contact support
                     </Link>.
