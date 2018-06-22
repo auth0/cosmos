@@ -32,7 +32,7 @@
     "build:apps": "react-scripts build",
     "build:docs": "node tooling/component-metadata",
     "build:icons": "node tooling/update-icons",
-    "build:sandbox": "build-storybook -c .storybook -o build/sandbox",
+    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "start": "serve -s build",
     "test": "run-s build test:chromatic",
     "screenshot": "yarn build && node tooling/screenshot",
@@ -43,7 +43,6 @@
     "catchup": "node tooling/catchup.js && yarn install",
     "deploy": "node tooling/publish.js",
     "codemods": "jscodeshift -t src/codemods src/",
-    "build:sandbox": "SKETCH=true build-storybook -o build/sandbox",
     "sketch":
       "yarn build:sandbox && story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json && node tooling/cleanup-sketch.js"
   },
@@ -66,7 +65,7 @@
     "if-env": "1.0.4",
     "jscodeshift": "0.5.0",
     "latest-version": "3.1.0",
-    "lint-staged": "7.0.0",
+    "lint-staged": "^7.0.5",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
     "npm-run-all": "4.1.2",
