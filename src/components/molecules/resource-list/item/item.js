@@ -59,9 +59,9 @@ const ResourceListItem = props => {
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
     // want to leak every prop from Avatar into the ResourceListItem...
-    image = <Avatar type="resource" image={props.image} />
+    image = <Avatar type="resource" image={props.image} size="large" />
   } else if (props.icon) {
-    image = <Avatar type="resource" icon={props.icon} />
+    image = <Avatar type="resource" icon={props.icon} size="large" />
   }
 
   if (props.title) {
