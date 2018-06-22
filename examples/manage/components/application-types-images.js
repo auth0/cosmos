@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClientTypeImages = {
+const ApplicationTypeImages = {
   native: (
     <svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
       <g fill="none" fillRule="evenodd">
@@ -82,4 +82,4 @@ const ClientTypeImages = {
   )
 }
 
-export default ClientTypeImages
+export default ApplicationTypeImages

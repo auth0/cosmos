@@ -3,34 +3,34 @@ import styled from 'styled-components'
 
 import { Code, ResourceList } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos-tokens'
-import { clients } from '../pages/clients/clients.json'
+import { applications } from '../pages/applications/applications.json'
 
-import ClientTypeImages from './client-types-images'
+import ApplicationTypeImages from './application-types-images'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledTextSubdued } from '@auth0/cosmos/atoms/text'
 
 const noop = () => {}
 
-const ClientID = styled(StyledTextSubdued)`
+const ApplicationID = styled(StyledTextSubdued)`
   margin-right: ${spacing.xsmall};
   line-height: normal;
 `
 
-const ClientList = props => (
+const ApplicationList = props => (
   <ResourceList
-    items={clients}
-    renderItem={(client, props, index) => (
+    items={applications}
+    renderItem={(application, props, index) => (
       <ResourceList.Item
         key={index}
-        title={client.name}
-        subtitle={client.type}
-        href={`#/clients/${client.id}`}
-        image={ClientTypeImages[client.image]}
+        title={application.name}
+        subtitle={application.type}
+        href={`#/applications/${application.id}`}
+        image={ApplicationTypeImages[application.image]}
         actions={props.actions}
       >
-        <ClientID>Client ID</ClientID>
-        <Code>{client.id}</Code>
+        <ApplicationID>Application ID</ApplicationID>
+        <Code>{application.id}</Code>
       </ResourceList.Item>
     )}
     actions={[
@@ -42,4 +42,4 @@ const ClientList = props => (
   />
 )
 
-export default ClientList
+export default ApplicationList
