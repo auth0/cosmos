@@ -118,7 +118,7 @@ module.exports = {
     },
     sandbox: {
       dev: {
-        script: 'start-storybook -p 9001 -s public',
+        script: 'start-storybook -p 9001 -s build',
         description: 'Start sandbox in dev mode'
       },
       build: {
