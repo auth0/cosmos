@@ -65,7 +65,7 @@ build
 dist
 
 # ignore generated files
-src/components/meta
+core/components/meta
 internal/docs/public/main.js
 internal/overview/public/main.js
 *.d.ts

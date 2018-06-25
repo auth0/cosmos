@@ -77,7 +77,7 @@ export default Box
   Bonus step: Add your component to component/index.js
   so that it can be imported from accross the system
 
-  import { Box } from 'src/components'
+  import { Box } from './components'
 
   This is a step only for convenience while developing the system,
   it will be replaced with a more explicit syntax

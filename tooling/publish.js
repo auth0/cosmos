@@ -14,7 +14,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
-  const directories = ['src/tokens', 'src/babel-preset', 'src/components']
+  const directories = ['core/tokens', 'core/babel-preset', 'core/components']
 
   /* copy root version to all dependencies */
   directories.forEach(directory => {
@@ -23,7 +23,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     content.version = version
 
     /* components should import the same version */
-    if (directory === 'src/components') {
+    if (directory === 'core/components') {
       content.dependencies['@auth0/cosmos-tokens'] = version
     }
 
@@ -38,7 +38,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* copy all packages for publishing */
   directories.forEach(directory => {
-    fs.copySync(directory, directory.replace('src', 'dist'))
+    fs.copySync(directory, directory.replace('core', 'dist'))
   })
   info('PUBLISH', 'copied files')
 
@@ -47,7 +47,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   /* transpile components */
   try {
     execa.shellSync(
-      `./node_modules/.bin/babel --presets=${presetPath} src/components -d dist/components`
+      `./node_modules/.bin/babel --presets=${presetPath} core/components -d dist/components`
     )
     info('PUBLISH', 'transpiled components')
   } catch (err) {
@@ -57,7 +57,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* transpile tokens */
   try {
-    execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} src/tokens -d dist/tokens`)
+    execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
     info('PUBLISH', 'transpiled tokens')
   } catch (err) {
     console.log(err)
@@ -66,13 +66,13 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* copy .npmrc to each package */
   directories.forEach(directory => {
-    execa.shellSync(`cp .npmrc ${directory.replace('src', 'dist')}/`)
+    execa.shellSync(`cp .npmrc ${directory.replace('core', 'dist')}/`)
   })
 
   /* publish all components */
   try {
     directories.forEach(directory => {
-      const dir = directory.replace('src', 'dist')
+      const dir = directory.replace('core', 'dist')
       execa.shellSync(`cd ${dir} && npm publish`)
       info('PUBLISH', `published ${dir}`)
     })

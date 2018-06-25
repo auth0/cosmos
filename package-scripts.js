@@ -145,7 +145,7 @@ module.exports = {
       }
     },
     codemods: {
-      script: 'jscodeshift -t src/codemods src/components/',
+      script: 'jscodeshift -t core/codemods core/components/',
       description: 'Run codemod on components'
     },
     deploy: {

@@ -15,11 +15,11 @@ const debug = process.argv.includes('-d') || process.argv.includes('--debug')
 let warning = 0
 
 /* Ensure meta directory exists */
-fs.ensureDirSync('src/components/meta')
+fs.ensureDirSync('core/components/meta')
 
 /* Get list of js and md files from atoms and molecules */
-const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
-let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
+const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.js')
+let markdownFiles = glob.sync('core/components/+(atoms|molecules)/**/*.md')
 
 const run = () => {
   info('DOCS', 'Generating metadata')
@@ -137,7 +137,7 @@ const run = () => {
     TODO: Rethink tooling for docs which works across packages
   */
   fs.writeFileSync(
-    'src/components/meta/metadata.json',
+    'core/components/meta/metadata.json',
     JSON.stringify({ metadata }, null, 2),
     'utf8'
   )
@@ -148,7 +148,7 @@ const run = () => {
   info('DOCS', 'Generating changelog')
   const changelog = fs.readFileSync('changelog.md', 'utf8')
   fs.writeFileSync(
-    'src/components/meta/changelog.json',
+    'core/components/meta/changelog.json',
     JSON.stringify({ changelog }, null, 2),
     'utf8'
   )
@@ -157,8 +157,8 @@ const run = () => {
   info('DOCS', 'Generating TypeScript definitions')
   propTypesToTS(
     '@auth0/cosmos',
-    'src/components/+(atoms|molecules)/**/*.js',
-    './src/components/meta/index.d.ts',
+    'core/components/+(atoms|molecules)/**/*.js',
+    './core/components/meta/index.d.ts',
     {
       oneOfResolvers: {
         __ICONNAMES__: Object.keys(icons)
@@ -175,8 +175,8 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/components', {
-      ignored: ['node_modules', 'src/components/meta']
+    .watch('core/components', {
+      ignored: ['node_modules', 'core/components/meta']
     })
     .on('ready', run)
     .on('change', run)
