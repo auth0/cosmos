@@ -20,7 +20,7 @@ module.exports = {
         description: 'Build for production'
       },
       directory: {
-        script: 'mkdir build',
+        script: 'mkdir -p build',
         description: 'Create build directory'
       },
       copy: {
