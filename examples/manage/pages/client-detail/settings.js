@@ -17,12 +17,14 @@ class Settings extends React.Component {
   render() {
     return (
       <Form>
-        <Form.TextInput
-          label="Name"
-          type="text"
-          defaultValue="API Explorer Client"
-          placeholder="Add name for client"
-        />
+        <div>
+          <Form.TextInput
+            label="Name"
+            type="text"
+            defaultValue="API Explorer Client"
+            placeholder="Add name for client"
+          />
+        </div>
         <Form.TextInput
           label="Domain"
           type="text"

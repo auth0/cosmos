@@ -11,12 +11,12 @@ import Field from './field'
 import Actions from './actions'
 import FieldSet from './fieldset'
 
+import FormContext from './form-context'
+
 const Form = props => (
-  <form>
-    {React.Children.map(props.children, child =>
-      React.cloneElement(child, { layout: props.layout })
-    )}
-  </form>
+  <FormContext.Provider value={{ layout: props.layout }}>
+    <form {...props} />
+  </FormContext.Provider>
 )
 
 Form.Field = props => <Field {...props} />
