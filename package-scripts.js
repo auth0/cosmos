@@ -35,6 +35,10 @@ module.exports = {
         manage: {
           script: 'cp -r examples/manage/public build/manage',
           description: 'Copy generated manage POC to main production build'
+        },
+        redirect: {
+          script: 'cp -r public/redirect build/redirect',
+          description: 'Copy redirection script'
         }
       },
       start: {
