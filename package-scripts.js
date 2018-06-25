@@ -25,7 +25,7 @@ module.exports = {
       },
       copy: {
         overview: {
-          script: 'cp -r internal/overview/public build/docs',
+          script: 'cp -r internal/overview/public build/overview',
           description: 'Copy generated overview to main production build'
         },
         docs: {
