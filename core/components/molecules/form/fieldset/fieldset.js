@@ -17,9 +17,7 @@ const StyledFieldSet = styled.fieldset`
 const FieldSet = props => (
   <StyledFieldSet>
     <StyledDivider>{props.label}</StyledDivider>
-    {React.Children.map(props.children, child =>
-      React.cloneElement(child, { layout: props.layout })
-    )}
+    {props.children}
   </StyledFieldSet>
 )
 
