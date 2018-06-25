@@ -155,11 +155,16 @@ const run = () => {
 
   // Write typescript definitions to index.d.ts.
   info('DOCS', 'Generating TypeScript definitions')
-  propTypesToTS('@auth0/cosmos', './src/components/**/*.js', './src/components/meta/index.d.ts', {
-    oneOfResolvers: {
-      __ICONNAMES__: Object.keys(icons)
+  propTypesToTS(
+    '@auth0/cosmos',
+    'src/components/+(atoms|molecules)/**/*.js',
+    './src/components/meta/index.d.ts',
+    {
+      oneOfResolvers: {
+        __ICONNAMES__: Object.keys(icons)
+      }
     }
-  })
+  )
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
