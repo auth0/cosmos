@@ -83,7 +83,16 @@ class ContributionGuide extends React.Component {
           <List>
             <ListItem>
               <Code>component.js</Code>
-              <Text>This is where all the component code sits</Text>
+              <Text>This is where all the component code sits.</Text>
+              <Text>
+                We create a <Code>Element</Code> with <Code>styled-components</Code> and use that in
+                the React component. This is also exported so that compound components can style
+                them if needed.
+              </Text>
+              <Text>
+                <Code>propTypes</Code> and <Code>defaultProps</Code> help us validate props and
+                build the documentation.
+              </Text>
               <CodeBlock language="javascript">
                 {`
 import React from 'react'
@@ -98,6 +107,9 @@ const Avatar = props => (
     <img src={props.image}></img>
   </AvatarElement>
 )
+
+Avatar.propTypes = {}
+Avatar.defaultProps = {}
 
 export default Avatar
 export { AvatarElement }
@@ -118,7 +130,10 @@ export default Avatar
 
             <ListItem>
               <Code>component.md</Code>
-              <Text>This is where the documentation and examples for the component sits</Text>
+              <Text>
+                Documentation is pulled from markdown files, there are a few different sections in
+                the document:
+              </Text>
               <CodeBlock language="markdown">
                 {`
 # Metadata:
