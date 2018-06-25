@@ -6,8 +6,10 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'production.directory',
           'icons.build',
           'overview.build',
+          'production.copy.overview',
           'metadata.build',
           'docs.build',
           'production.copy.docs',
@@ -17,7 +19,15 @@ module.exports = {
         ),
         description: 'Build for production'
       },
+      directory: {
+        script: 'mkdir build',
+        description: 'Create build directory'
+      },
       copy: {
+        overview: {
+          script: 'cp -r internal/overview/public build/docs',
+          description: 'Copy generated overview to main production build'
+        },
         docs: {
           script: 'cp -r internal/docs/public build/docs',
           description: 'Copy generated docs site to main production build'
