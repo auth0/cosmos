@@ -15,7 +15,8 @@ module.exports = {
           'production.copy.docs',
           'manage.build',
           'production.copy.manage',
-          'sandbox.build'
+          'sandbox.build',
+          'production.copy.redirect'
         ),
         description: 'Build for production'
       },
@@ -37,7 +38,7 @@ module.exports = {
           description: 'Copy generated manage POC to main production build'
         },
         redirect: {
-          script: 'cp -r public/redirect build/redirect',
+          script: 'cp -r internal/redirect/* build/',
           description: 'Copy redirection script'
         }
       },

@@ -66,13 +66,13 @@ export default () => (
         <div className="nav-right">
           <ul>
             <li>
-              <a href="/redirect?url=docs">
+              <a href="/?url=docs">
                 <Icon name="logs" color={colors.base.grayLightest} size={20} />
                 <span>Documentation</span>
               </a>
             </li>
             <li>
-              <a href="/redirect?url=manage/#/clients">
+              <a href="/?url=manage/#/clients">
                 <Icon name="clients" color={colors.base.grayLightest} size={20} />
                 <span>PoC Manage</span>
               </a>
