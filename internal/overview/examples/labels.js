@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Example from '../ov-components/example'
+import Example from '../components/example'
 import { Label, Stack } from '@auth0/cosmos'
 
 const Labels = () => (

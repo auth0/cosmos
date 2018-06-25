@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Section from '../ov-components/section'
-import Example from '../ov-components/example'
+import Section from '../components/section'
+import Example from '../components/example'
 import { Heading, Paragraph, Text, Code, Link, Stack } from '@auth0/cosmos'
 
 const Colors = () => (

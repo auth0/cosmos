@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Example from '../ov-components/example'
+import Example from '../components/example'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 
 const Swatch = styled.span`

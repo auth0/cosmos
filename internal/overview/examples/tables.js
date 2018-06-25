@@ -2,8 +2,8 @@ import React from 'react'
 
 import { Table, Avatar, Button, ButtonGroup, Link } from '@auth0/cosmos'
 
-import Section from '../ov-components/section'
-import Example from '../ov-components/example'
+import Section from '../components/section'
+import Example from '../components/example'
 
 const TablesExample = () => (
   <Section>
@@ -49,7 +49,7 @@ const TablesExample = () => (
         ]}
       >
         <Table.Column field="image" width="32px">
-          {item => <Avatar size="small" image={item.image} />}
+          {item => <Avatar type="user" size="small" image={item.image} />}
         </Table.Column>
         <Table.Column field="name" title="Name" width="20%">
           {item => <Link href="#">{item.name}</Link>}

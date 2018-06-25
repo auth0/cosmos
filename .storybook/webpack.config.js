@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 
-module.exports = (storybookBaseConfig, configType) => {
+module.exports = storybookBaseConfig => {
   const plugins = storybookBaseConfig.plugins
 
   plugins.push(
@@ -8,9 +8,7 @@ module.exports = (storybookBaseConfig, configType) => {
       'process.env': { SKETCH: process.env.SKETCH }
     })
   )
-  const newConfig = {
-    ...storybookBaseConfig
-  }
+  const newConfig = { ...storybookBaseConfig }
 
   // Export bundles as libraries so we can access them on page scope.
   newConfig.output.library = '[name]'

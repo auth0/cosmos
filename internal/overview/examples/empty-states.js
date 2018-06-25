@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Section from '../ov-components/section'
-import Example from '../ov-components/example'
+import Section from '../components/section'
+import Example from '../components/example'
 import { EmptyState } from '@auth0/cosmos'
 
 const EmptyStates = () => (

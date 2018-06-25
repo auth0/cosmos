@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Example from '../ov-components/example'
-import Stack from '../ov-components/stack'
+import Example from '../components/example'
+import Stack from '../components/stack'
 import { Button, Overlay, Dialog } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 

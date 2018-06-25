@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Example from '../ov-components/example'
+import Example from '../components/example'
 import { Tooltip, Button } from '@auth0/cosmos'
 
 const Tooltips = () => (

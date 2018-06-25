@@ -7,8 +7,8 @@
     "src/components",
     "src/tokens",
     "src/codemods",
-    "src/overview",
     "src/babel-preset",
+    "internal/overview",
     "internal/docs",
     "examples/manage",
     "examples/webpack-hello-world"

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Row, Col } from './ov-components/grid'
-import Overview from './ov-components/overview'
-import Container from './ov-components/container'
-import Navigation from './ov-components/navigation'
+import { Row, Col } from './components/grid'
+import Overview from './components/overview'
+import Container from './components/container'
+import Navigation from './components/navigation'
 
 import Avatars from './examples/avatars'
 import AvatarBlocks from './examples/avatar-blocks'

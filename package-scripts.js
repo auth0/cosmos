@@ -59,11 +59,11 @@ module.exports = {
     },
     overview: {
       dev: {
-        script: 'react-scripts start',
+        script: 'cd internal/overview && yarn dev',
         description: 'Start overview site in dev mode'
       },
       build: {
-        script: 'react-scripts build',
+        script: 'cd internal/overview && yarn build',
         description: 'Build overview site'
       }
     },

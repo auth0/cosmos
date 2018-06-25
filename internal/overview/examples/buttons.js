@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Row, Col } from '../ov-components/grid'
-import Section from '../ov-components/section'
-import Example from '../ov-components/example'
-import Stack from '../ov-components/stack'
+import { Row, Col } from '../components/grid'
+import Section from '../components/section'
+import Example from '../components/example'
+import Stack from '../components/stack'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
