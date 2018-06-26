@@ -8,7 +8,7 @@ const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 
 /* Ensure meta directory exists */
-fs.ensureDirSync('src/components/meta')
+fs.ensureDirSync('core/components/meta')
 
 const transform = (name, svg) => {
   const icon = { paths: [] }
@@ -39,7 +39,7 @@ const transform = (name, svg) => {
 }
 
 const buildAliasLookup = icons => {
-  const aliases = JSON.parse(fs.readFileSync('src/icons/aliases.json', 'utf8'))
+  const aliases = JSON.parse(fs.readFileSync('core/icons/aliases.json', 'utf8'))
   const lookup = {}
 
   // Add entries pointing from the actual names of the icons to themselves
@@ -85,7 +85,7 @@ const run = () => {
     })
   }
 
-  const svgFiles = glob.sync('src/icons/**/*.svg')
+  const svgFiles = glob.sync('core/icons/**/*.svg')
 
   Promise.all(svgFiles.map(processFile)).then(data => {
     const icons = fromPairs(data)
@@ -93,14 +93,14 @@ const run = () => {
 
     // Write the transformed path data from the icon SVG files
     fs.writeFileSync(
-      'src/components/atoms/icon/icons.json',
+      'core/components/atoms/icon/icons.json',
       JSON.stringify({ icons }, null, 2) + '\n',
       'utf8'
     )
 
     // Write the lookup table for icon names which will be used in the docs
     fs.writeFileSync(
-      'src/components/meta/icons.json',
+      'core/components/meta/icons.json',
       JSON.stringify({ types: Object.keys(icons).sort(), aliases }, null, 2),
       'utf8'
     )
@@ -111,7 +111,7 @@ const run = () => {
 if (process.argv.includes('-w') || process.argv.includes('--watch')) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/icons')
+    .watch('core/icons')
     .on('ready', run)
     .on('change', run)
     .on('unlink', run)
