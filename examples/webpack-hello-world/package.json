@@ -6,17 +6,18 @@
   "scripts": {
     "dev": "webpack-serve --content public",
     "build": "webpack-cli",
-    "start": "serve public"
+    "start": "cosmos-cli start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.2.3",
     "@auth0/babel-preset-cosmos": "0.2.3",
+    "@auth0/cosmos": "0.2.3",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   },
   "devDependencies": {
     "@auth0/babel-preset-cosmos": "0.2.3",
     "babel-loader": "7.1.4",
+    "cosmos-cli": "0.0.1",
     "serve": "6.5.3",
     "webpack": "4.1.1",
     "webpack-cli": "2.0.12",

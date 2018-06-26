@@ -10,6 +10,7 @@
     "core/babel-preset",
     "internal/overview",
     "internal/docs",
+    "internal/cosmos-cli",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
