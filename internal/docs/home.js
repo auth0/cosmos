@@ -47,7 +47,7 @@ class Home extends React.Component {
           </Text>
           <Text>
             You can also look at example code from our Manage Clients{' '}
-            <Link href="https://github.com/auth0/cosmos/tree/master/src/manage">
+            <Link href="https://github.com/auth0/cosmos/tree/master/examples/manage">
               proof of concept repo.
             </Link>
           </Text>
