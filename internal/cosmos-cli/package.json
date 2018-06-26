@@ -1,5 +1,5 @@
 {
-  "name": "cosmos-cli",
+  "name": "@auth0/cosmos-cli",
   "version": "0.0.1",
   "description": "",
   "bin": {
@@ -10,9 +10,11 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@auth0/babel-preset-cosmos": "0.2.4"
-  },
-  "devDependencies": {
+    "@auth0/babel-preset-cosmos": "0.2.4",
+    "babel-loader": "7.1.4",
+    "webpack": "4.12.1",
+    "webpack-cli": "3.0.8",
+    "yargs": "11.0.0",
     "execa": "0.10.0",
     "serve": "9.1.0"
   }

@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   entry: './index.js',
   output: {
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(process.cwd(), 'public')
   },
   module: {
     rules: [
