@@ -1,35 +1,59 @@
 import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { withRouter, Route, Link } from 'react-router-dom'
 
-import { spacing } from '@auth0/cosmos-tokens'
+const routeName = {
+  '/': 'Home',
+  '/docs': 'Documentation',
+  '/docs/breadcrumb': 'Breadcrumb'
+}
 
-import Icon from '../icon'
+const findRouteName = url => routeName[url]
 
-const StyledBreadcrumb = styled.a`
-  color: rgba(0, 0, 0, 0.56);
-  font-size: 13px;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: ${spacing.small};
+const getPaths = pathname => {
+  const paths = ['/']
 
-  ${Icon.Element} {
-    bottom: 1px;
-    position: relative;
+  if (pathname === '/') return paths
+
+  pathname.split('/').reduce((prev, curr, index) => {
+    const currPath = `${prev}/${curr}`
+    paths.push(currPath)
+    return currPath
+  })
+
+  return paths
+}
+
+const BreadcrumbItem = ({ match }) => {
+  const routeName = findRouteName(match.url)
+
+  if (routeName) {
+    return match.isExact ? (
+      <li className="active">{routeName}</li>
+    ) : (
+      <li>
+        <Link to={match.url || ''}>{routeName}</Link>
+      </li>
+    )
   }
-`
+  return null
+}
 
-const Breadcrumb = ({ link, content, ...props }) => {
+const BreadcrumbBase = ({ rest, location: { pathname } }) => {
+  const paths = getPaths(pathname)
+
   return (
-    <StyledBreadcrumb href={link || ''} {...props}>
-      <Icon name="arrow-left" size={15} color="rgba(0, 0, 0, 0.56)" /> {content}
-    </StyledBreadcrumb>
+    <ol className="breadcrumb page-breadcrumb">
+      {paths.map(p => <Route {...rest} key={p} path={p} component={BreadcrumbItem} />)}
+    </ol>
   )
 }
 
-Breadcrumb.propTypes = {
-  link: PropTypes.string,
-  content: PropTypes.string.isRequired
+const Breadcrumb = props => {
+  return (
+    <div>
+      <Route path="/:path" component={BreadcrumbBase} {...props} />
+    </div>
+  )
 }
 
-export default Breadcrumb
+export default withRouter(Breadcrumb)
