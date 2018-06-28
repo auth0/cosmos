@@ -8,9 +8,9 @@
     "core/tokens",
     "core/codemods",
     "core/babel-preset",
+    "core/cli",
     "internal/overview",
     "internal/docs",
-    "internal/cosmos-cli",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
