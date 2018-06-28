@@ -1,6 +1,8 @@
 import {
   Alert,
   Avatar,
+  AvatarBlock,
+  Badge,
   Box,
   Breadcrumb,
   Button,
@@ -29,16 +31,18 @@ import {
   Switch,
   Table,
   Tabs,
+  Tag,
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 } from './components'
 
 export {
   Alert,
   Avatar,
+  AvatarBlock,
+  Badge,
   Box,
   Breadcrumb,
   Button,
@@ -67,9 +71,9 @@ export {
   Switch,
   Table,
   Tabs,
+  Tag,
   Text,
   TextArea,
   TextInput,
-  Thumbnail,
   Tooltip
 }

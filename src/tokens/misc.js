@@ -6,9 +6,12 @@ const misc = {
     padding: '10px'
   },
   avatar: {
-    small: '24px',
-    medium: '48px',
-    large: '72px'
+    xsmall: '24px',
+    small: '32px',
+    medium: '40px',
+    large: '48px',
+    xlarge: '72px',
+    xxlarge: '96px'
   },
   button: {
     large: { height: '48px' },

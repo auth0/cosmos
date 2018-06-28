@@ -1,0 +1,45 @@
+<style>
+  @font-face {
+    font-family: fakt-web;
+    src: url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.woff2)
+        format('woff2'),
+      url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.woff) format('woff'),
+      url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.ttf)
+        format('truetype');
+    font-style: normal;
+  }
+  body {
+    background: #eee;
+    margin-top: 10%;
+    text-align: center;
+    font-family: "fakt-web", "Helvetica"
+  }
+  code {
+    padding: 0 6px;
+    color: #d72b3f;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 3px;
+    line-height: 18px;
+  }
+</style>
+<div id="message"></div>
+
+<script>
+if (location.hostname !== 'localhost') {
+  /* redirect to hostname/url */
+  const path = location.href.split('?url=')[1]
+  location = '/' + path
+} else {
+  const application = location.search.split('?url=')[1].replace('/', '')
+
+  const message = `
+    Hi!
+    <br/><br/>
+    To run ${application}, run <code>yarn dev:${application}</code>
+    <br/><br/>
+    (This message is only shown in dev environment)
+  `
+  document.getElementById('message').innerHTML = message
+}
+</script>

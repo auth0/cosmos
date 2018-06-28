@@ -5,10 +5,13 @@
 At the end of the forms, you need actions that the user can take.
 
 ```jsx
-<Form.Actions
-  primaryAction={{ label: 'Save Changes', handler: () => {} }}
-  secondaryActions={[{ label: 'Try', icon: 'play', handler: () => {} }]}
-/>
+<Form>
+  <Form.Actions
+    primaryAction={{ label: 'Save Changes', handler: () => {} }}
+    secondaryActions={[{ label: 'Try', icon: 'play', handler: () => {} }]}
+    destructiveAction={{ label: 'Delete', icon: 'delete', handler: () => {} }}
+  />
+</Form>
 ```
 
 ## Examples
@@ -22,9 +25,9 @@ Pass a `primaryAction` with the label and handler to call.
 </Form>
 ```
 
-### Additional actions
+### Additional action
 
-You can also pass an `array` of `secondaryActions`
+You can also pass an `array` of `secondaryActions`.
 
 ```js
 <Form>
@@ -33,8 +36,22 @@ You can also pass an `array` of `secondaryActions`
     primaryAction={{ label: 'Save Changes', handler: () => {} }}
     secondaryActions={[
       { label: 'Try', icon: 'play', handler: () => {} },
-      { label: 'Debug', handler: () => {} }
+      { label: 'Approve', icon: 'check', handler: () => {} }
     ]}
+  />
+</Form>
+```
+
+### Destructive Action
+
+In case you want to represent a dangerous or unrecoverable action, you can pass a `destructiveAction`.
+
+```js
+<Form>
+  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Actions
+    primaryAction={{ label: 'Save Changes', handler: () => {} }}
+    destructiveAction={{ label: 'Delete', icon: 'delete', handler: () => {} }}
   />
 </Form>
 ```

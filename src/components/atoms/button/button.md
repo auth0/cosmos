@@ -82,7 +82,7 @@ saved successfully.
 
 ### Icon buttons
 
-Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](/docs/Icon)
+Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](#/component/icon)
 
 ```js
 <div>

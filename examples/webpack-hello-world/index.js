@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Heading } from '@auth0/cosmos'
+import { Button } from '@auth0/cosmos'
 
 const App = () => {
-  return <Heading size={1}>Hello world</Heading>
+  return <Button>Hello world</Button>
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))

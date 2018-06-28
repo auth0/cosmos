@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Avatar, Button, ButtonGroup, Link, Thumbnail } from '@auth0/cosmos'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { Button, ButtonGroup, Link } from '@auth0/cosmos'
+import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
+import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -22,7 +24,7 @@ const ListItemHeader = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  span {
+  ${StyledAvatar} {
     margin-right: ${spacing.small};
   }
 `
@@ -55,11 +57,11 @@ const ResourceListItem = props => {
   let actions
 
   if (props.image) {
-    if (props.image.type === Avatar) {
-      image = props.image
-    } else {
-      image = <Thumbnail source={props.image} />
-    }
+    // TODO: We might want a way to control the type of the avatar, but we don't
+    // want to leak every prop from Avatar into the ResourceListItem...
+    image = <Avatar type="resource" image={props.image} size="large" />
+  } else if (props.icon) {
+    image = <Avatar type="resource" icon={props.icon} size="large" />
   }
 
   if (props.title) {
@@ -115,16 +117,12 @@ ResourceListItem.propTypes = {
   subtitle: PropTypes.string,
   /** If specified, the main text will be rendered as a hyperlink with this as the target. */
   href: PropTypes.string,
-  /** An image URL, or an Icon, Image, or Avatar to display as a thumbnail image for the list item. */
-  image: PropTypes.node,
+  /** An image URL to display as a thumbnail image for the list item. */
+  image: PropTypes.string,
+  /** An icon to display as a thumbnail image for the list item. */
+  icon: PropTypes.oneOf(__ICONNAMES__),
   /** The actions to display for the list item. */
-  actions: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-      handler: PropTypes.func.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  )
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
 
 export default ResourceListItem
