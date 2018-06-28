@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-serve --content public",
+    "dev": "cosmos-cli dev",
     "build": "cosmos-cli build",
     "start": "cosmos-cli start"
   },
