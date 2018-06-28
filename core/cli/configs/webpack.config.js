@@ -7,6 +7,9 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), 'public')
   },
+  devServer: {
+    contentBase: path.resolve(process.cwd(), 'public')
+  },
   module: {
     rules: [
       {
