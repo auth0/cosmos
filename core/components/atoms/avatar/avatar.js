@@ -20,7 +20,6 @@ const StyledAvatar = styled.span`
   background-color: ${colors.base.grayLightest};
   border: ${props => (props.type === 'resource' ? `1px solid ${colors.base.grayLight}` : 'none')};
   border-radius: ${props => (props.type === 'resource' ? '3px' : '50%')};
-  padding: ${props => (props.type === 'resource' ? spacing.xsmall : '0')};
 
   text-align: center;
   display: flex;
@@ -28,8 +27,10 @@ const StyledAvatar = styled.span`
   justify-content: center;
   overflow: hidden;
 
-  img {
+  img,
+  svg {
     height: 100%;
+    width: 100%;
     user-select: none;
   }
 
@@ -43,8 +44,10 @@ const Avatar = props => {
 
   if (props.icon) {
     image = <Icon name={props.icon} size={iconSizes[props.size]} />
-  } else {
+  } else if (typeof props.image === 'string') {
     image = <Image source={props.image} />
+  } else {
+    image = props.image
   }
 
   return (
@@ -57,10 +60,10 @@ const Avatar = props => {
 Avatar.propTypes = {
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
-  /** An image URL to display. */
-  image: PropTypes.string,
+  /** An image URL or component to display. */
+  image: PropTypes.node,
   /** The size of the avatar. */
-  size: PropTypes.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
+  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
   /** The type of item represented by the avatar. */
   type: PropTypes.oneOf(['user', 'resource']).isRequired
 }
