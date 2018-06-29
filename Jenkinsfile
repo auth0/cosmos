@@ -37,7 +37,7 @@ pipeline {
     stage('Publish') {
       steps {
         sh "echo //registry.npmjs.org/:_authToken=${env.NPM_TOKEN} > .npmrc"
-        sh "npm run deploy"
+        sh "npm scripts deploy"
       }
     }
   }
