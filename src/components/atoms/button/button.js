@@ -100,22 +100,22 @@ const states = {
 
 const sizes = {
   large: {
-    lineHeight: subtract(misc.button.large.height, '2px'),
+    lineHeight: subtract(misc.button.large.height, '1px'),
     minWidth: '96px',
     padding: spacing.medium
   },
   default: {
-    lineHeight: subtract(misc.button.default.height, '2px'),
+    lineHeight: subtract(misc.button.default.height, '1px'),
     minWidth: '96px',
     padding: spacing.small
   },
   compressed: {
-    lineHeight: subtract(misc.button.compressed.height, '2px'),
+    lineHeight: subtract(misc.button.compressed.height, '1px'),
     minWidth: 'auto',
     padding: spacing.small
   },
   small: {
-    lineHeight: subtract(misc.button.small.height, '2px'),
+    lineHeight: subtract(misc.button.small.height, '1px'),
     minWidth: 'auto',
     padding: spacing.xsmall
   }
@@ -256,7 +256,6 @@ Button.LinkElement = Button.Element.withComponent('a')
 
 Button.Text = styled.span`
   display: inline-block;
-  vertical-align: middle;
 `
 
 Button.propTypes = {
