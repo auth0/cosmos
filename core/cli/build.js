@@ -4,4 +4,8 @@ const task = require('./task')
 /* load config from cosmos-cli */
 const configPath = path.join(__dirname, 'configs/webpack.config.js')
 
-task('Building application', 'webpack', ['--config', configPath])
+task({
+  label: 'Building application',
+  command: 'webpack',
+  options: ['--config', configPath]
+})

@@ -2,7 +2,7 @@ const execa = require('execa')
 const ora = require('ora')
 const argv = require('yargs').argv
 
-const task = async (label, command, options) => {
+const task = async ({ label, command, params, watch }) => {
   /* initiate spinner for feedback */
   const spinner = ora({ text: label, spinner: 'moon' })
 
@@ -11,9 +11,20 @@ const task = async (label, command, options) => {
 
   try {
     spinner.start()
-    const { stdout } = await execa(command, options)
-    spinner.succeed()
-    if (argv.verbose) console.log(stdout)
+
+    if (watch) {
+      const response = execa(command, params)
+
+      /* pipe all output to the console */
+      if (argv.verbose) {
+        response.stdout.pipe(process.stdout)
+        response.stderr.pipe(process.stderr)
+      }
+    } else {
+      const { stdout } = await execa(command, params)
+      spinner.succeed()
+      if (argv.verbose) console.log(stdout)
+    }
   } catch (error) {
     console.log(error)
     spinner.fail()

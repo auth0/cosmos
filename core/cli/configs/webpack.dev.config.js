@@ -2,10 +2,13 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  mode: 'production',
-  entry: './index.js',
+  mode: 'development',
+  entry: ['react-hot-loader/patch', path.resolve(process.cwd(), './index.js')],
   output: {
     path: path.resolve(process.cwd(), 'public')
+  },
+  devServer: {
+    contentBase: path.resolve(process.cwd(), 'public')
   },
   module: {
     rules: [
@@ -17,5 +20,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 }

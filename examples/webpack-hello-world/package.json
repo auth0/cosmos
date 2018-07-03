@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cosmos-cli dev",
+    "dev": "cosmos-cli dev --verbose",
     "build": "cosmos-cli build",
     "start": "cosmos-cli start"
   },
