@@ -54,7 +54,7 @@ const ListItem = styled.li`
 `
 
 const List = styled.ul`
-  list-style: square;
+  list-style: ${props => (props.nested ? 'circle' : 'disc')};
   margin: 1em 0;
   margin-left: 1.5em;
 `

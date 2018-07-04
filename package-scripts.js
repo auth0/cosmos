@@ -6,18 +6,29 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'production.directory',
           'icons.build',
           'overview.build',
+          'production.copy.overview',
           'metadata.build',
           'docs.build',
           'production.copy.docs',
           'manage.build',
           'production.copy.manage',
-          'sandbox.build'
+          'sandbox.build',
+          'production.copy.redirect'
         ),
         description: 'Build for production'
       },
+      directory: {
+        script: 'mkdir -p build',
+        description: 'Create build directory'
+      },
       copy: {
+        overview: {
+          script: 'cp -r internal/overview/public build/overview',
+          description: 'Copy generated overview to main production build'
+        },
         docs: {
           script: 'cp -r internal/docs/public build/docs',
           description: 'Copy generated docs site to main production build'
@@ -25,6 +36,10 @@ module.exports = {
         manage: {
           script: 'cp -r examples/manage/public build/manage',
           description: 'Copy generated manage POC to main production build'
+        },
+        redirect: {
+          script: 'cp -r internal/redirect/* build/',
+          description: 'Copy redirection script'
         }
       },
       start: {
@@ -59,11 +74,11 @@ module.exports = {
     },
     overview: {
       dev: {
-        script: 'react-scripts start',
+        script: 'cd internal/overview && yarn dev',
         description: 'Start overview site in dev mode'
       },
       build: {
-        script: 'react-scripts build',
+        script: 'cd internal/overview && yarn build',
         description: 'Build overview site'
       }
     },
@@ -103,7 +118,7 @@ module.exports = {
     },
     sandbox: {
       dev: {
-        script: 'start-storybook -p 9001 -s public',
+        script: 'start-storybook -p 9001 -s build',
         description: 'Start sandbox in dev mode'
       },
       build: {
@@ -130,7 +145,7 @@ module.exports = {
       }
     },
     codemods: {
-      script: 'jscodeshift -t src/codemods src/components/',
+      script: 'jscodeshift -t core/codemods core/components/',
       description: 'Run codemod on components'
     },
     deploy: {

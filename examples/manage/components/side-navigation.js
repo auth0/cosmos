@@ -88,8 +88,8 @@ class SideNavigation extends React.Component {
           <Sidebar.Link
             icon="hosted-pages"
             label="Hosted Pages"
-            url="#/login_page"
-            selected={this.isSelected('/login_page')}
+            url="#/hosted-pages"
+            selected={this.isSelected('/hosted-pages')}
           />
           <Sidebar.LinkGroup icon="emails" label="Emails">
             <Sidebar.Link label="Templates" url="#/emails" selected={this.isSelected('/emails')} />

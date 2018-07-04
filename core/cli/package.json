@@ -1,0 +1,24 @@
+{
+  "name": "@auth0/cosmos-cli",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "cosmos-cli": "index.js"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {
+    "@auth0/babel-preset-cosmos": "0.2.4",
+    "babel-loader": "7.1.4",
+    "execa": "0.10.0",
+    "ora": "2.1.0",
+    "react-hot-loader": "4.3.3",
+    "serve": "9.1.0",
+    "webpack": "4.12.1",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "3.1.4",
+    "yargs": "11.0.0"
+  }
+}
