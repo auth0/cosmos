@@ -12,6 +12,7 @@ import AnomalyDetectionIndex from '../pages/anomaly-detection'
 import LogsIndex from '../pages/slogs'
 import ApisIndex from '../pages/apis'
 import UsersIndex from '../pages/users'
+import HostedPagesIndex from '../pages/hosted-pages'
 
 const Page = () => (
   <Router>
@@ -34,6 +35,7 @@ const Page = () => (
         <Route exact path="/apis" component={ApisIndex} />
         <Route exact path="/anomaly" component={AnomalyDetectionIndex} />
         <Route exact path="/sso-integrations" component={SsoIndex} />
+        <Route exact path="/hosted-pages" component={HostedPagesIndex} />
       </div>
     </React.Fragment>
   </Router>
