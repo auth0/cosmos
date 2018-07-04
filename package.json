@@ -10,6 +10,7 @@
     "core/codemods",
     "core/cli",
     "internal/overview",
+    "internal/docs",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
@@ -25,7 +26,17 @@
     "chromatic": "chromatic test --storybook-addon --script-name sandbox --exit-zero-on-changes"
   },
   "lint-staged": {
-    "*.{js,json,md}": ["prettier --write --single-quote --no-semi --print-width 100", "git add"]
+    "*.{js,json,md}": [
+      "prettier --write --single-quote --no-semi --print-width 100",
+      "git add"
+    ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "fs-extra": "6.0.1",
+    "lodash.camelcase": "4.3.0",
+    "prettycli": "1.4.3",
+    "proptypes-to-ts-declarations": "0.8.3",
+    "react-docgen": "2.21.0",
+    "react-docgen-displayname-handler": "2.1.0"
+  }
 }

@@ -18,7 +18,14 @@ module.exports = {
         options: {
           presets: ['@auth0/babel-preset-cosmos']
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
+  },
+  node: {
+    fs: 'empty'
   }
 }
