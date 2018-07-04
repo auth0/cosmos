@@ -45,3 +45,39 @@ class DialogContainer extends React.Component {
   }
 }
 ```
+
+## Passing buttons as actions
+
+You can use pass a `<Button />` array as actions to a Dialog.
+
+```js
+class DialogContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { open: false }
+  }
+
+  setDialogState(open) {
+    this.setState({ open })
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={() => this.setDialogState(true)}>Show dialog</Button>
+        <Dialog
+          open={this.state.open}
+          title="Example Dialog"
+          onClose={() => this.setDialogState(false)}
+          actions={[
+            <Button appearance="primary">OK</Button>,
+            <Button appearance="secondary">Cancel</Button>
+          ]}
+        >
+          Are you sure?
+        </Dialog>
+      </div>
+    )
+  }
+}
+```
