@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@auth0/babel-preset-cosmos": "0.2.4",
+    "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "execa": "0.10.0",
     "ora": "2.1.0",
