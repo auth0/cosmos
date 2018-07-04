@@ -41,6 +41,7 @@
     "lodash.frompairs": "4.0.1",
     "nps": "5.9.2",
     "nps-utils": "1.6.0",
+    "prettier": "1.13.7",
     "prettycli": "1.4.3",
     "proptypes-to-ts-declarations": "0.8.3",
     "react-docgen": "2.21.0",
