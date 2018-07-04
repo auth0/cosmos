@@ -8,6 +8,7 @@
     "core/tokens",
     "core/babel-preset",
     "core/cli",
+    "internal/overview",
     "examples/manage",
     "examples/webpack-hello-world"
   ],
