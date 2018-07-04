@@ -38,9 +38,11 @@
     "@storybook/addons": "3.4.8",
     "@storybook/react": "3.4.8",
     "chokidar": "2.0.4",
+    "execa": "0.10.0",
     "fs-extra": "6.0.1",
     "htmlparser2": "3.9.2",
     "if-env": "1.0.4",
+    "latest-version": "4.0.0",
     "lint-staged": "7.2.0",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
@@ -52,6 +54,7 @@
     "react-chromatic": "0.8.4",
     "react-docgen": "2.21.0",
     "react-docgen-displayname-handler": "2.1.0",
+    "read-pkg": "4.0.1",
     "svgo": "1.0.5"
   }
 }
