@@ -3,7 +3,14 @@
   "version": "0.2.3",
   "engine": "^7.0.0",
   "private": true,
-  "workspaces": ["core/babel-preset", "core/cli", "examples/webpack-hello-world"],
+  "workspaces": [
+    "core/components",
+    "core/tokens",
+    "core/babel-preset",
+    "core/cli",
+    "examples/manage",
+    "examples/webpack-hello-world"
+  ],
   "dependencies": {},
   "scripts": {
     "scripts": "nps -s",

@@ -8,4 +8,4 @@ const App = () => {
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
-module.hot.accept()
+if (module && module.hot) module.hot.accept()
