@@ -7,5 +7,5 @@ const configPath = path.join(__dirname, 'configs/webpack.config.js')
 task({
   label: 'Building application',
   command: 'webpack',
-  options: ['--config', configPath]
+  params: ['--config', configPath]
 })
