@@ -7,6 +7,7 @@
     "core/components",
     "core/tokens",
     "core/babel-preset",
+    "core/codemods",
     "core/cli",
     "internal/overview",
     "examples/manage",
