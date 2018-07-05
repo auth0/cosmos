@@ -1,10 +1,11 @@
 import React from 'react'
 import { withRouter, Route, Link } from 'react-router-dom'
 
+//hardcode path to show
 const routeName = {
   '/': 'Home',
-  '/docs': 'Documentation',
-  '/docs/breadcrumb': 'Breadcrumb'
+  '/component': 'Documentation',
+  '/component/breadcrumb': 'Breadcrumb'
 }
 
 const findRouteName = url => routeName[url]
