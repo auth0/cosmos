@@ -1,9 +1,9 @@
 {
-  "name": "@auth0/cosmos-cli",
+  "name": "@auth0/cosmos-engine",
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "cosmos-cli": "index.js"
+    "engine": "index.js"
   },
   "scripts": {},
   "keywords": [],
