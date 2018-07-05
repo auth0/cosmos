@@ -43,6 +43,8 @@ class App extends React.Component {
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
         document.querySelector(`#${hash}`).scrollIntoView()
+      } else {
+        document.querySelector('h1').scrollIntoView()
       }
     }
     scrollToAnchor()
@@ -61,8 +63,8 @@ class App extends React.Component {
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
               <Route exact path="/changes" component={Changes} />
-              <Route exact path="/" component={Home} />
               <Route exact path="/component/:componentName" component={Spec} />
+              <Route exact path="/" component={Home} />
             </Body>
           </MainContent>
         </Layout>
