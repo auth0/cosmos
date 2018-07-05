@@ -63,6 +63,7 @@ function pagesFromItems(items, perPage) {
 
 const Pager = ({ onPrevPressed, onNextPressed }) => (
   <div>
+    {/* TODO: Remove usage of '<' and '>' characters, replace with proper icons. */}
     <StyledPagerButton onClick={onPrevPressed}>{'<'}</StyledPagerButton>
     <StyledPagerButton onClick={onNextPressed}>{'>'}</StyledPagerButton>
   </div>
