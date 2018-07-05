@@ -11,7 +11,7 @@ const Title = styled.div`
   left: 2em;
 `
 
-const Example = styled.div`
+const Wrapper = styled.div`
   padding: 4.5rem 3rem 3rem 3rem;
   position: relative;
   border: 1px solid rgb(236, 236, 236);
@@ -29,11 +29,11 @@ const Example = styled.div`
   color: ${props => (props.background === 'dark' ? colors.base.white : colors.text.default)};
 `
 
-export default props => (
-  <Example className={props.align === 'center' ? 'align-center' : null} {...props}>
+const Example = props => (
+  <Wrapper className={props.align === 'center' ? 'align-center' : null} {...props}>
     <Title>{props.title}</Title>
     {props.children}
-  </Example>
+  </Wrapper>
 )
 
-export { Example }
+export default Example
