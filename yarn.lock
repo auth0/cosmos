@@ -2247,6 +2247,10 @@ clean-css@4.1.x:
   dependencies:
     source-map "0.5.x"
 
+clear@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/clear/-/clear-0.1.0.tgz#b81b1e03437a716984fd7ac97c87d73bdfe7048a"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
