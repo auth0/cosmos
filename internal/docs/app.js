@@ -43,6 +43,8 @@ class App extends React.Component {
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
         document.querySelector(`#${hash}`).scrollIntoView()
+      } else {
+        document.querySelector('h1').scrollIntoView()
       }
     }
     scrollToAnchor()
