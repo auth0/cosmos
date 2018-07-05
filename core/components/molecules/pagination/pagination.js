@@ -61,6 +61,15 @@ function pagesFromItems(items, perPage) {
   return Math.ceil(items / perPage)
 }
 
+function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
+  const nextPage = parseInt(rawNextPage)
+  const pageCount = pagesFromItems(total, perPage)
+  const nextPageExists = nextPage > 0 && nextPage <= pageCount
+
+  console.log('page change requested', nextPage, pageCount, nextPageExists)
+  if (nextPageExists) handlerFn(nextPage)
+}
+
 const Pager = ({ onPrevPressed, onNextPressed }) => (
   <div>
     {/* TODO: Remove usage of '<' and '>' characters, replace with proper icons. */}
@@ -73,12 +82,16 @@ const Pagination = ({ onPageChanged, page, perPage, items }) => (
   <StyledPagination>
     <StyledPageSelector page={page}>
       <div>Page</div>
-      <TextInput type="number" value={page} />
+      <TextInput
+        type="number"
+        value={page}
+        onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
+      />
       <div>of {pagesFromItems(items, perPage)}</div>
     </StyledPageSelector>
     <Pager
-      onNextPressed={() => onPageChanged(page + 1)}
-      onPrevPressed={() => onPageChanged(page - 1)}
+      onNextPressed={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
+      onPrevPressed={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
     />
   </StyledPagination>
 )
