@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { misc, colors } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
+import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from './utils'
 
 const StyledPagination = styled.div`
   display: flex;
@@ -46,28 +47,6 @@ const StyledPageSelector = styled.div`
     width: ${({ page }) => pageInputWidth(page)}px;
   }
 `
-
-function pageInputWidth(page) {
-  const charWidth = 8
-  const baseWidth = 50
-
-  const pageAsString = page.toString()
-  const pageCharLength = pageAsString.length
-
-  return pageCharLength * charWidth + baseWidth
-}
-
-function pagesFromItems(items, perPage) {
-  return Math.ceil(items / perPage)
-}
-
-function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
-  const nextPage = parseInt(rawNextPage)
-  const pageCount = pagesFromItems(total, perPage)
-  const nextPageExists = nextPage > 0 && nextPage <= pageCount
-
-  if (nextPageExists) handlerFn(nextPage)
-}
 
 const Pager = ({ onPrevPressed, onNextPressed }) => (
   <div>
