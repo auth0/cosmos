@@ -39,3 +39,16 @@ export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
 
   if (nextPageExists) handlerFn(nextPage)
 }
+
+/**
+ * Calculates the totals for the current page
+ * @param {number} page
+ * @param {number} perPage
+ * @param {number} items
+ */
+export function totals(page, perPage, items) {
+  const toRecord = page * perPage
+  const fromRecord = toRecord - perPage + 1
+
+  return `Showing ${fromRecord} - ${toRecord} of ${items}`
+}

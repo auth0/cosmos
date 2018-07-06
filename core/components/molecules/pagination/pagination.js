@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { misc, colors } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
-import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from './utils'
+import { changePageIfAppropiate, pageInputWidth, pagesFromItems, totals } from './utils'
 
 const StyledPagination = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const Pager = ({ onPrevPressed, onNextPressed }) => (
   </div>
 )
 
-const Pagination = ({ onPageChanged, page, perPage, items }) => (
+const Pagination = ({ onPageChanged, page, perPage, items, showTotals }) => (
   <StyledPagination>
     <StyledPageSelector page={page}>
       <div>Page</div>
@@ -66,6 +66,7 @@ const Pagination = ({ onPageChanged, page, perPage, items }) => (
         onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
       />
       <div>of {pagesFromItems(items, perPage)}</div>
+      {showTotals && <div>– {totals(page, perPage, items)}</div>}
     </StyledPageSelector>
     <Pager
       onNextPressed={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
