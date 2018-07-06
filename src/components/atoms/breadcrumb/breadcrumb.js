@@ -1,7 +1,36 @@
 import React from 'react'
-import { withRouter, Route, Link } from 'react-router-dom'
+import styled from 'styled-components'
+import Link, { StyledLink } from '../link'
+import Icon from '../icon'
 
-//hardcode path to show
+import { withRouter, Route } from 'react-router-dom'
+
+import { fonts } from '@auth0/cosmos-tokens'
+
+const StyledBreadcrumb = styled.ol`
+  font-size: ${fonts.size.small};
+  font-weight: ${fonts.weight.medium};
+
+  li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+`
+
+const PathActive = styled.li`
+  color: #707070;
+`
+
+const PathAction = styled.li`
+  ${StyledLink} {
+    color: #707070;
+    &:hover {
+      color: #212121;
+    }
+  }
+`
+
+//hardcode path to show. Should add this on docs
 const routeName = {
   '/': 'Home',
   '/component': 'Documentation',
@@ -29,11 +58,12 @@ const BreadcrumbItem = ({ match }) => {
 
   if (routeName) {
     return match.isExact ? (
-      <li className="active">{routeName}</li>
+      <PathActive>{routeName}</PathActive>
     ) : (
-      <li>
-        <Link to={match.url || ''}>{routeName}</Link>
-      </li>
+      <PathAction>
+        <Link href={match.url || ''}>{routeName}</Link>
+        <Icon name="chevron-right-fill" size={12} color="#707070" />
+      </PathAction>
     )
   }
   return null
@@ -43,9 +73,9 @@ const BreadcrumbBase = ({ rest, location: { pathname } }) => {
   const paths = getPaths(pathname)
 
   return (
-    <ol className="breadcrumb page-breadcrumb">
+    <StyledBreadcrumb>
       {paths.map(p => <Route {...rest} key={p} path={p} component={BreadcrumbItem} />)}
-    </ol>
+    </StyledBreadcrumb>
   )
 }
 
