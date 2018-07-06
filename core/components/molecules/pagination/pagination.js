@@ -27,20 +27,27 @@ const PaginationItem = props => (
   />
 )
 
+const renderPaginationItem = ({ toPage, content, appearance, items, perPage, onPageChanged }) => (
+  <PaginationItem
+    appearance={appearance}
+    onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
+  >
+    {content}
+  </PaginationItem>
+)
+
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
   <StyledPagination>
-    <PaginationItem
-      appearance={appearance}
-      onClick={() => changePageIfAppropiate(1, items, perPage, onPageChanged)}
-    >
-      {'<<'}
-    </PaginationItem>
-    <PaginationItem
-      appearance={appearance}
-      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
-    >
-      {'<'}
-    </PaginationItem>
+    {renderPaginationItem({ toPage: 1, content: '<<', appearance, items, perPage, onPageChanged })}
+    {renderPaginationItem({
+      toPage: page - 1,
+      content: '<',
+      appearance,
+      items,
+      perPage,
+      onPageChanged
+    })}
+
     {getPaginationSlice(page, items, perPage).map(page => (
       <PaginationItem
         key={page.page}
@@ -51,20 +58,23 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         {page.page}
       </PaginationItem>
     ))}
-    <PaginationItem
-      appearance={appearance}
-      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
-    >
-      {'>'}
-    </PaginationItem>
-    <PaginationItem
-      appearance={appearance}
-      onClick={() =>
-        changePageIfAppropiate(pagesFromItems(items, perPage), items, perPage, onPageChanged)
-      }
-    >
-      {'>>'}
-    </PaginationItem>
+
+    {renderPaginationItem({
+      toPage: page + 1,
+      content: '>',
+      appearance,
+      items,
+      perPage,
+      onPageChanged
+    })}
+    {renderPaginationItem({
+      toPage: pagesFromItems(items, perPage),
+      content: '>>',
+      appearance,
+      items,
+      perPage,
+      onPageChanged
+    })}
   </StyledPagination>
 )
 
