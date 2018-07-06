@@ -1,19 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Link, { StyledLink } from '../link'
 import Icon from '../icon'
 
 import { withRouter, Route } from 'react-router-dom'
 
-import { fonts } from '@auth0/cosmos-tokens'
+import { fonts, spacing } from '@auth0/cosmos-tokens'
 
 const StyledBreadcrumb = styled.ol`
   font-size: ${fonts.size.small};
   font-weight: ${fonts.weight.medium};
 
+  ${Icon.Element} {
+    position: relative;
+    top: -2px;
+    margin-right: ${spacing.xsmall};
+  }
+`
+
+const StyledBreadcrumbBase = styled.ol`
+  display: inline-block;
+
   li {
     display: inline-block;
-    vertical-align: middle;
   }
 `
 
@@ -27,6 +37,11 @@ const PathAction = styled.li`
     &:hover {
       color: #212121;
     }
+  }
+
+  ${Icon.Element} {
+    top: -1px;
+    margin: 0 ${spacing.xsmall};
   }
 `
 
@@ -62,7 +77,7 @@ const BreadcrumbItem = ({ match }) => {
     ) : (
       <PathAction>
         <Link href={match.url || ''}>{routeName}</Link>
-        <Icon name="chevron-right-fill" size={12} color="#707070" />
+        <Icon name="chevron-right-fill" size={12} color="#9B9B9B" />
       </PathAction>
     )
   }
@@ -73,18 +88,28 @@ const BreadcrumbBase = ({ rest, location: { pathname } }) => {
   const paths = getPaths(pathname)
 
   return (
-    <StyledBreadcrumb>
+    <StyledBreadcrumbBase>
       {paths.map(p => <Route {...rest} key={p} path={p} component={BreadcrumbItem} />)}
-    </StyledBreadcrumb>
+    </StyledBreadcrumbBase>
   )
 }
 
 const Breadcrumb = props => {
   return (
-    <div>
+    <StyledBreadcrumb>
+      {props.homeIcon ? <Icon name="home-fill" size={12} color="#212121" /> : null}
       <Route path="/:path" component={BreadcrumbBase} {...props} />
-    </div>
+    </StyledBreadcrumb>
   )
+}
+
+Breadcrumb.propTypes = {
+  /** Show/Hide home icon at the beginning */
+  homeIcon: PropTypes.bool
+}
+
+Breadcrumb.defaultProps = {
+  homeIcon: true
 }
 
 export default withRouter(Breadcrumb)
