@@ -52,3 +52,35 @@ export function totals(page, perPage, items) {
 
   return `Showing ${fromRecord} - ${toRecord} of ${items}`
 }
+
+/**
+ * Calculates the pagintion slice range for a given page.
+ *
+ * Example:
+ *  Given the page 77 with a pages-per-slice value of 10,
+ *  we would obtain the following range:
+ *
+ *    70, 71, 72, [[73]], 74, 75, 76, 77, 78, 79
+ *
+ *  with the format { page: number, selected: boolean }.
+ *
+ * @param {number} page
+ * @param {number} items
+ * @param {number} itemsPerPage
+ * @param {number} pagesPerSlice
+ */
+export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 10) {
+  const actualPage = page - 1
+  const minPage = actualPage - (actualPage % pagesPerSlice)
+  const maxPage = pagesFromItems(items, itemsPerPage)
+
+  const range = [...Array(pagesPerSlice).keys()]
+    .map(i => {
+      const pageNumber = i + minPage + 1 // Avoid starting at 0
+      const selected = page === pageNumber
+      return { page: pageNumber, selected }
+    })
+    .filter(i => i.page <= maxPage)
+
+  return range
+}
