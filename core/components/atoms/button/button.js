@@ -184,7 +184,7 @@ const Button = ({ children, ...props }) => {
 
   // Some of the state properties will override the content of the button.
   if (props.success) {
-    override = <Icon size={16} color={colors.base.white} name="check" type="success" />
+    override = <Icon size={16} color={states.success.icon} name="check" type="success" />
   } else if (props.loading) {
     override = <Spinner inverse={props.primary} />
   }
