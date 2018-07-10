@@ -15,6 +15,7 @@ const colors = {
     orange: '#eb5424',
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
+    orangeDark: '#FF3E00',
     green: '#4CD964',
     red: '#FF0000'
   },
@@ -142,7 +143,10 @@ const colors = {
   },
   icon: {
     default: '#333',
-    light: '#A8A8A8'
+    light: '#A8A8A8',
+    sidebar: 'default',
+    sidebarHover: 'orangeDark',
+    sidebarFocus: 'orangeDark'
   },
   list: {
     backgroundHover: '#FAFAFA',
