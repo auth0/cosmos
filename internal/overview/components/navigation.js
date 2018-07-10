@@ -67,13 +67,13 @@ export default () => (
           <ul>
             <li>
               <a href="/?url=docs">
-                <Icon name="logs" color={colors.base.grayLightest} size={20} />
+                <Icon name="logs" color="grayLightest" size={20} />
                 <span>Documentation</span>
               </a>
             </li>
             <li>
               <a href="/?url=manage/#/clients">
-                <Icon name="clients" color={colors.base.grayLightest} size={20} />
+                <Icon name="clients" color="grayLightest" size={20} />
                 <span>PoC Manage</span>
               </a>
             </li>
@@ -86,13 +86,13 @@ export default () => (
             </li>
             <li>
               <a href="/sandbox">
-                <Icon name="extensions" color={colors.base.grayLightest} size={20} />
+                <Icon name="extensions" color="grayLightest" size={20} />
                 <span>Sandbox</span>
               </a>
             </li>
             <li>
               <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
-                <Icon name="code" color={colors.base.grayLightest} size={20} />
+                <Icon name="code" color="grayLightest" size={20} />
                 <span>Github</span>
               </a>
             </li>
