@@ -46,11 +46,7 @@ class CopyButton extends React.Component {
       <Wrapper onClick={this.copyCode.bind(this)}>
         <input id={this.state.uniqueId} value={this.props.code} onChange={() => {}} />
         <Tooltip content={this.state.copied ? 'Copied!' : 'Copy code'}>
-          <Icon
-            name="copy"
-            label="Copy code"
-            color={this.state.copied ? colors.base.green : colors.base.grayLight}
-          />
+          <Icon name="copy" label="Copy code" color={this.state.copied ? 'green' : 'grayLight'} />
         </Tooltip>
       </Wrapper>
     )
