@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
-import Pre from './docs-components/pre'
+import CodeBlock from './docs-components/code-block'
 import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
@@ -19,10 +19,10 @@ class Home extends React.Component {
           <Heading2>Installation</Heading2>
           <Text>
             To add <Code>cosmos</Code> to your react application, run
-            <Pre>npm install --save @auth0/cosmos</Pre>
-            If you prefer yarn, run this command instead:
-            <Pre>yarn add @auth0/cosmos</Pre>
-            That{"'"}s all you need to do, you are now ready to use it in your app, no build step
+            <CodeBlock language="shell">$ yarn add @auth0/cosmos</CodeBlock>
+            If you prefer npm, run this command instead:
+            <CodeBlock language="shell">$ npm install --save @auth0/cosmos</CodeBlock>
+            That is all you need to do, you are now ready to use it in your app, no build step
             needed.
             <br />
             (This is the temporary package name, it will soon move to the <Code>auth0/cosmos</Code>)

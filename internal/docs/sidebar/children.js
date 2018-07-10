@@ -17,7 +17,14 @@ const attachChildren = components => {
 
   children.forEach(child => {
     const parent = getParent(parents, child)
-    if (parent) parent.children.push(child)
+    if (!parent) {
+      throw new Error(
+        `Error building sidebar hierarchy for ${
+          child.filepath
+        }. Is there an error in the related component?`
+      )
+    }
+    parent.children.push(child)
   })
 
   return parents
