@@ -8,13 +8,17 @@ import { icons } from './icons.json'
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
   const icon = icons[props.name] || icons.help
+
+  // Use an icon name from tokens, fallback to hexcode (without validation)
+  const color = colors.base[props.color] || props.color
+
   return (
     <Icon.Element>
       <Image
         width={props.size}
         height={props.size}
         viewBox={`0 0 ${icon.width} ${icon.height}`}
-        color={props.color}
+        color={color}
       >
         {icon.paths.map((path, index) => <path key={index} d={path} />)}
       </Image>
@@ -36,6 +40,7 @@ const Image = styled.svg`
 `
 
 const __ICONNAMES__ = Object.keys(icons)
+const __COLORS__ = Object.keys(colors.base)
 
 Icon.propTypes = {
   /** Icon name */
@@ -43,12 +48,12 @@ Icon.propTypes = {
   /** Icon size */
   size: PropTypes.number,
   /** Icon foreground color */
-  color: PropTypes.string
+  color: PropTypes.oneOf(__COLORS__)
 }
 
 Icon.defaultProps = {
   size: 20,
-  color: colors.icon.default
+  color: 'default'
 }
 
 export default Icon
