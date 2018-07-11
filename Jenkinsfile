@@ -16,7 +16,7 @@ pipeline {
   }
 
   parameters {
-    string(name: 'SlackTarget', defaultValue: '#design-system-feed', description: 'Target Slack Channel for notifications')
+    string(name: 'SlackTarget', defaultValue: '#design-system-int', description: 'Target Slack Channel for notifications')
   }
 
   stages {
@@ -37,7 +37,7 @@ pipeline {
     stage('Publish') {
       steps {
         sh "echo //registry.npmjs.org/:_authToken=${env.NPM_TOKEN} > .npmrc"
-        sh "npm run deploy"
+        sh "npm run scripts deploy"
       }
     }
   }

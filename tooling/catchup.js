@@ -8,7 +8,7 @@ const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
 info('CATCH UP', `Picked up version ${version} from root`)
 
-const directories = ['src/tokens', 'src/babel-preset', 'src/components']
+const directories = ['core/tokens', 'core/babel-preset', 'core/components']
 
 /* copy version to all dependencies */
 directories.forEach(directory => {
@@ -17,7 +17,7 @@ directories.forEach(directory => {
   content.version = version
 
   /* components should import the same version of tokens and babel-preset */
-  if (directory === 'src/components') {
+  if (directory === 'core/components') {
     content.dependencies['@auth0/cosmos-tokens'] = version
   }
 
