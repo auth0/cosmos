@@ -8,6 +8,7 @@ const camelCase = require('lodash.camelcase')
 const propTypesToTS = require('proptypes-to-ts-declarations')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
+const colors = require('@auth0/cosmos-tokens/colors')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -55,6 +56,11 @@ const run = () => {
             if (prop.type.name === 'enum' && prop.type.value === '__ICONNAMES__') {
               /* create an array of all the icons with an empty string as first element */
               prop.type.value = [{ value: '' }].concat(Object.keys(icons).map(value => ({ value })))
+            }
+
+            if (prop.type.name === 'enum' && prop.type.value === '__COLORS__') {
+              /* create an array of all the base colors */
+              prop.type.value = Object.keys(colors.base).map(value => ({ value }))
             }
 
             /* remove redundant quotes from enum values in prop types */
@@ -161,7 +167,8 @@ const run = () => {
     './core/components/meta/index.d.ts',
     {
       oneOfResolvers: {
-        __ICONNAMES__: Object.keys(icons)
+        __ICONNAMES__: Object.keys(icons),
+        __COLORS__: Object.keys(colors.base)
       }
     }
   )

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Icon } from '@auth0/cosmos'
-import { spacing, colors } from '@auth0/cosmos/tokens'
+import { spacing } from '@auth0/cosmos/tokens'
 
 storiesOf('Icon').add('default', () => (
   <Example title="Icons">
@@ -35,13 +35,13 @@ storiesOf('Icon').add('size', () => (
 storiesOf('Icon').add('color', () => (
   <Example title="Size">
     <Stack>
-      <Icon name="analytics" color={colors.base.white} />
-      <Icon name="analytics" color={colors.base.black} />
-      <Icon name="analytics" color={colors.base.gray} />
-      <Icon name="analytics" color={colors.base.blue} />
-      <Icon name="analytics" color={colors.base.orange} />
-      <Icon name="analytics" color={colors.base.green} />
-      <Icon name="analytics" color={colors.base.red} />
+      <Icon name="analytics" color="white" />
+      <Icon name="analytics" color="black" />
+      <Icon name="analytics" color="gray" />
+      <Icon name="analytics" color="blue" />
+      <Icon name="analytics" color="orange" />
+      <Icon name="analytics" color="green" />
+      <Icon name="analytics" color="red" />
     </Stack>
   </Example>
 ))
@@ -49,13 +49,13 @@ storiesOf('Icon').add('color', () => (
 storiesOf('Icon').add('dark-background', () => (
   <Example title="Dark background" background="dark">
     <Stack>
-      <Icon name="analytics" color={colors.base.white} />
-      <Icon name="analytics" color={colors.base.black} />
-      <Icon name="analytics" color={colors.base.gray} />
-      <Icon name="analytics" color={colors.base.blue} />
-      <Icon name="analytics" color={colors.base.orange} />
-      <Icon name="analytics" color={colors.base.green} />
-      <Icon name="analytics" color={colors.base.red} />
+      <Icon name="analytics" color="white" />
+      <Icon name="analytics" color="black" />
+      <Icon name="analytics" color="gray" />
+      <Icon name="analytics" color="blue" />
+      <Icon name="analytics" color="orange" />
+      <Icon name="analytics" color="green" />
+      <Icon name="analytics" color="red" />
     </Stack>
   </Example>
 ))

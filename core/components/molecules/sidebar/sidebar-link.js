@@ -11,7 +11,7 @@ const SidebarLink = props => {
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}
         size={18}
-        color={props.selected ? colors.link.sidebarFocus : colors.link.sidebar}
+        color={props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar}
       />
       <span>{props.label}</span>
     </SidebarLink.Element>

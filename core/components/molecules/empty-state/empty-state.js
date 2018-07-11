@@ -24,7 +24,7 @@ const EmptyState = props => {
     <Wrapper>
       <Title size={1}>{props.title}</Title>
       <Body>
-        <Icon name={props.icon} size={110} color={colors.base.blue} />
+        <Icon name={props.icon} size={110} color="blue" />
         <Text>{props.text}</Text>
         {helpLink}
       </Body>
