@@ -4,11 +4,11 @@
 
 Form Fields are a group of field types supported in `Form`:
 
-* `Form.TextInput`
-* `Form.TextArea`
-* `Form.Select`
-* `Form.Switch`
-* `Form.Radio`
+- `Form.TextInput`
+- `Form.TextArea`
+- `Form.Select`
+- `Form.Switch`
+- `Form.Radio`
 
 If you need something we don't have, you can use a custom component with `Form.Field`
 

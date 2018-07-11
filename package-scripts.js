@@ -1,4 +1,7 @@
-const { series: { nps: series }, concurrent: { nps: parallel } } = require('nps-utils')
+const {
+  series: { nps: series },
+  concurrent: { nps: parallel }
+} = require('nps-utils')
 
 module.exports = {
   scripts: {

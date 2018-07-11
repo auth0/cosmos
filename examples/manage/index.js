@@ -13,7 +13,8 @@ const App = () => (
         style={{
           display: 'flexbox',
           paddingTop: '110px'
-        }}>
+        }}
+      >
         <Page />
       </div>
     </Container>
