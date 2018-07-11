@@ -79,3 +79,19 @@ between the header (title, subtitle, etc.) and the actions. This is the main rea
   This is the list item's body
 </ResourceList.Item>
 ```
+
+## Disabled Actions
+
+```js
+<ResourceList.Item
+  title="A List Item"
+  subtitle="Example Subtitle"
+  icon="clients"
+  actions={[
+    { icon: 'settings', label: 'Settings', handler: function() {} },
+    { icon: 'delete', label: 'Delete', handler: function() {}, disabled: true }
+  ]}
+>
+  This is the list item's body
+</ResourceList.Item>
+```

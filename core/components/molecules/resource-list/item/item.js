@@ -89,6 +89,7 @@ const ResourceListItem = props => {
             icon={action.icon}
             onClick={handleActionClick(action.handler)}
             label={action.label}
+            disabled={action.disabled}
           />
         ))}
       </ButtonGroup>
