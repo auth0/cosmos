@@ -1,12 +1,12 @@
 ```meta
   category: Layout
-  description: "A component"
+  description: "Paginate resource lists and tables"
 ```
 
 A `<PaginationToolbar />` component is meant to be used along `ResourceList` and `Table`.
 
 ```jsx
-<PaginationToolbar items={20372} perPage={10} page={3} />
+<PaginationToolbar {props} defaults={{items: 20372, perPage: 10, page: 3, showTotals: false}} />
 ```
 
 ## Example
@@ -44,7 +44,7 @@ displaying, so we let you show the totals for the current page by passing the `s
 prop to the `<PaginationToolbar>` component.
 
 ```js
-class PaginatedResource extends React.Component {
+class PaginatedResourceWithTotals extends React.Component {
   constructor(props) {
     super(props)
 

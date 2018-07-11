@@ -47,7 +47,9 @@ import Form from './molecules/form'
 import FormGroup from './molecules/form-group'
 import List from './molecules/list'
 import PageHeader from './molecules/page-header'
-import Pagination, { PaginationToolbar } from './molecules/pagination'
+import Pagination from './molecules/pagination'
+import PaginationToolbar from './molecules/pagination-toolbar'
+import Pager from './molecules/pager'
 import ResourceList from './molecules/resource-list'
 import Sidebar from './molecules/sidebar'
 import Stack from './molecules/stack'
@@ -79,6 +81,7 @@ export {
   PageHeader,
   Pagination,
   PaginationToolbar,
+  Pager,
   Paragraph,
   Radio,
   ResourceList,

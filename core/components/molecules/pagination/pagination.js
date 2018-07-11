@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Button from '../../atoms/button'
-import { getPaginationSlice, changePageIfAppropiate, pagesFromItems } from './utils'
+import {
+  getPaginationSlice,
+  changePageIfAppropiate,
+  pagesFromItems
+} from '../../_helpers/pagination'
 
 const defaultPaginationAppearance = 'link'
 

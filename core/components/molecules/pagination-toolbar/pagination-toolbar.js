@@ -1,9 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { misc, colors } from '@auth0/cosmos-tokens'
+import { misc, colors } from '../../../tokens'
 import TextInput from '../../atoms/text-input'
-import { changePageIfAppropiate, pageInputWidth, pagesFromItems, totals } from './utils'
+import {
+  changePageIfAppropiate,
+  pageInputWidth,
+  pagesFromItems,
+  totals
+} from '../../_helpers/pagination'
 
 const StyledPaginationToolbar = styled.div`
   display: flex;

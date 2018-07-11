@@ -4,7 +4,7 @@
 ```
 
 ```jsx
-<Pagination {props} defaults={{items: 20372, perPage: 10, page: 3}} />
+<Pager {props} defaults={{items: 20372, perPage: 10, page: 3}} />
 ```
 
 ## Example
@@ -24,7 +24,7 @@ class PaginatedResource extends React.Component {
   render() {
     const { page, perPage, items } = this.state
     return (
-      <Pagination
+      <Pager
         page={page}
         perPage={perPage}
         items={items}
