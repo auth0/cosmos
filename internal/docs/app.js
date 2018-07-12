@@ -6,6 +6,7 @@ import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
 import GuidingPrinciples from './guiding-principles'
+import Usage from './usage'
 import ContributionGuide from './contribution-guide'
 import FAQS from './faqs'
 import Changes from './changes'
@@ -58,6 +59,7 @@ class App extends React.Component {
           <MainContent>
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
+              <Route path="/usage" component={Usage} />
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
               <Route exact path="/changes" component={Changes} />

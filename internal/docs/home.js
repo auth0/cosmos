@@ -30,26 +30,7 @@ class Home extends React.Component {
 
           <Heading2>Usage</Heading2>
           <Text>
-            Import components that you want from the library
-            <CodeBlock language="javascript">{`import { Button } from '@auth0/cosmos'`}</CodeBlock>
-            and use them along with you React components:
-            <CodeBlock language="javascript">{`
-const Actions = () => <div>
-  <Button appearance="primary" onClick={this.save}>Save changes</Button>
-  <Button onClick={this.clear}>Clear</Button>
-</div>
-            `}</CodeBlock>
-          </Text>
-
-          <Text>
-            To learn more about the components and the <Code>props</Code> they offer, pick a
-            component from the sidebar on the left.
-          </Text>
-          <Text>
-            You can also look at example code from our Manage Clients{' '}
-            <Link href="https://github.com/auth0/cosmos/tree/master/examples/manage">
-              proof of concept repo.
-            </Link>
+            <Link href="docs/usage">Continue to usage section</Link>
           </Text>
 
           <Heading2>Feedback</Heading2>
