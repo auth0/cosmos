@@ -7,9 +7,9 @@ class Settings extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'API Explorer Client',
+      name: 'API Explorer Application',
       domain: 'storezero.auth0.com',
-      clientID: props.clientId,
+      applicationID: props.applicationId,
       secret: 'asoidvsubdwfqeagwbviuyeaobvi'
     }
   }
@@ -17,14 +17,12 @@ class Settings extends React.Component {
   render() {
     return (
       <Form>
-        <div>
-          <Form.TextInput
-            label="Name"
-            type="text"
-            defaultValue="API Explorer Client"
-            placeholder="Add name for client"
-          />
-        </div>
+        <Form.TextInput
+          label="Name"
+          type="text"
+          defaultValue="API Explorer Application"
+          placeholder="Add name for application"
+        />
         <Form.TextInput
           label="Domain"
           type="text"
@@ -33,15 +31,15 @@ class Settings extends React.Component {
           actions={[{ icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
-          label="Client ID"
+          label="Application ID"
           type="text"
           code
           readOnly
-          defaultValue={this.state.clientID}
+          defaultValue={this.state.applicationID}
           actions={[{ icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' }]}
         />
         <Form.TextInput
-          label="Client Secret"
+          label="Application Secret"
           type="password"
           masked
           defaultValue={this.state.secret}
@@ -49,30 +47,30 @@ class Settings extends React.Component {
             { icon: 'copy', handler: dummyFn, label: 'Copy to clipboard' },
             { icon: 'rotate', handler: dummyFn, label: 'Rotate secret' }
           ]}
-          helpText="The Client Secret is not base64 encoded."
+          helpText="The Application Secret is not base64 encoded."
         />
 
         <Form.TextArea
           label="Description"
           placeholder="Add a description in less than 140 characters"
-          helpText="A free text description of the client. Max character count is 140."
+          helpText="A free text description of the application. Max character count is 140."
           length={5}
         />
         <Form.TextInput
-          label="Client Logo"
+          label="Application Logo"
           type="text"
           placeholder="http://path.to/my_logo.png"
-          helpText="The URL of the logo to display for the client, if none is set the default badge for this type of client will be shown. Recommended size is 150x150 pixels."
+          helpText="The URL of the logo to display for the application, if none is set the default badge for this type of application will be shown. Recommended size is 150x150 pixels."
         />
         <Form.Select
-          label="Client Type"
+          label="Application Type"
           options={[
             { text: 'Native', value: 'native', defaultSelected: true },
-            { text: 'Non Interactive Client', value: 'non-interactive' },
+            { text: 'Non Interactive Application', value: 'non-interactive' },
             { text: 'Regular Web Application', value: 'regular' },
             { text: 'Single Page Application', value: 'spa' }
           ]}
-          helpText="The type of client will determine which settings you can configure from the dashboard."
+          helpText="The type of application will determine which settings you can configure from the dashboard."
         />
 
         <Form.Select
@@ -82,7 +80,7 @@ class Settings extends React.Component {
             { text: 'Basic', value: 'basic' },
             { text: 'Post', value: 'post', defaultSelected: true }
           ]}
-          helpText="Defines the requested authentication handler for the token endpoint. Possible values are 'None' (public client without a client secret), 'Post' (client uses HTTP POST parameters) or 'Basic' (client uses HTTP Basic)."
+          helpText="Defines the requested authentication handler for the token endpoint. Possible values are 'None' (public application without a application secret), 'Post' (application uses HTTP POST parameters) or 'Basic' (application uses HTTP Basic)."
         />
 
         <Form.TextArea

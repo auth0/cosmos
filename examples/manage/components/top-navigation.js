@@ -159,12 +159,12 @@ const TopNavigation = () => (
     <StyledContainer>
       <TopNavWrapper>
         <Logo>
-          <a href="/manage/clients">
+          <a href="/manage/applications">
             <LogoImage />
           </a>
         </Logo>
         <div>
-          <InputSearch placeholder="Search for clients or features" />
+          <InputSearch placeholder="Search for applications or features" />
         </div>
         <Links>
           <ul>
