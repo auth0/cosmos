@@ -13,8 +13,7 @@ const App = () => (
         style={{
           display: 'flexbox',
           paddingTop: '110px'
-        }}
-      >
+        }}>
         <Page />
       </div>
     </Container>
@@ -22,3 +21,5 @@ const App = () => (
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))
+
+if (module && module.hot) module.hot.accept()
