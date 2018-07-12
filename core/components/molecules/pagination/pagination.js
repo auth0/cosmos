@@ -40,6 +40,12 @@ const renderPaginationItem = ({ toPage, content, appearance, items, perPage, onP
   </PaginationItem>
 )
 
+const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
+  if (page.clickable === false) return
+
+  return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
+}
+
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
   <StyledPagination>
     {renderPaginationItem({ toPage: 1, content: '<<', appearance, items, perPage, onPageChanged })}
@@ -54,12 +60,12 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
 
     {getPaginationSlice(page, items, perPage).map(page => (
       <PaginationItem
-        key={page.page}
+        key={page.label}
         appearance={appearance}
         selected={page.selected}
-        onClick={() => changePageIfAppropiate(page.page, items, perPage, onPageChanged)}
+        onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
       >
-        {page.page}
+        {page.label}
       </PaginationItem>
     ))}
 

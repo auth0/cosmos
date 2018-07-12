@@ -60,9 +60,10 @@ export function totals(page, perPage, items) {
  *  Given the page 77 with a pages-per-slice value of 10,
  *  we would obtain the following range:
  *
- *    70, 71, 72, [[73]], 74, 75, 76, 77, 78, 79
+ *    70, 71, 72, [[73]], 74, 75, 76, 77, 78, 79, ..., 310
  *
- *  with the format { page: number, selected: boolean }.
+ *  with the format:
+ *    { label: number | string, selected: boolean, clickable: boolean }.
  *
  * @param {number} page
  * @param {number} items
@@ -78,9 +79,16 @@ export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 10
     .map(i => {
       const pageNumber = i + minPage + 1 // Avoid starting at 0
       const selected = page === pageNumber
-      return { page: pageNumber, selected }
+      return { label: pageNumber, selected }
     })
-    .filter(i => i.page <= maxPage)
+    .filter(i => i.label <= maxPage)
+
+  const rangeLabels = range.map(x => x.label)
+  if (rangeLabels.indexOf(maxPage) === -1) {
+    const rangeWithEllipsis = [...range, { label: '…', clickable: false }, { label: maxPage }]
+
+    return rangeWithEllipsis
+  }
 
   return range
 }
