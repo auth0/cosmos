@@ -4,11 +4,11 @@
 
 Form Fields are a group of field types supported in `Form`:
 
-* `Form.TextInput`
-* `Form.TextArea`
-* `Form.Select`
-* `Form.Switch`
-* `Form.Radio`
+- `Form.TextInput`
+- `Form.TextArea`
+- `Form.Select`
+- `Form.Switch`
+- `Form.Radio`
 
 If you need something we don't have, you can use a custom component with `Form.Field`
 
@@ -127,7 +127,7 @@ All the props are passed on to the custom component, so you can set the id, erro
 <Form>
   <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
     <Stack>
-      <TextInput placeholder="Value" error="Show only in the first field" />
+      <TextInput placeholder="Value" hasError />
       <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
       <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
     </Stack>
