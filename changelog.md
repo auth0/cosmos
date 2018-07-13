@@ -8,9 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Added
 
-- _Unstable_: Added `Badge` component. [#548]
-- _Unstable_: Added `Tag` component. [#549]
-- _Unstable_: Added `AvatarBlock` component. [#561]
+- **Unstable**: Added `Badge` component. [#548]
+- **Unstable**: Added `Tag` component. [#549]
+- **Unstable**: Added `AvatarBlock` component. [#561]
 - `Tooltip` now supports new `left` and `right` values for the `position` prop. [#576]
 - `Stack` now supports a `space-between` value for its `align` prop, resulting in behavior similar to the flexbox property of the same name. [#591]
 - `Tabs` may now optionally operate as a controlled component via new `selected` and `onSelect` props. [#585]
@@ -82,8 +82,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Added
 
-- _Unstable:_ New `ResourceList` component. [#504]
-- _Unstable:_ New `Table` component. [#519]
+- **Unstable**: New `ResourceList` component. [#504]
+- **Unstable**: New `Table` component. [#519]
 
 ### Changed
 
@@ -109,8 +109,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - New `cta` appearance for `Button`, to be used for primary calls to action. [#425]
 - New "link mode" for `Button`. Passing an `href` prop to `Button` will cause it to render as an `<a>` instead of a `<button>`. [#425]
-- _Unstable:_ New `Avatar` and `Thumbnail` components. [#398]
-- _Unstable:_ New `Text` component for styled text. [#392]
+- **Unstable**: New `Avatar` and `Thumbnail` components. [#398]
+- **Unstable**: New `Text` component for styled text. [#392]
 
 ### Changed
 
