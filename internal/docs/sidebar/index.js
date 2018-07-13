@@ -25,7 +25,9 @@ class Sidebar extends React.Component {
   }
   filter(query) {
     /* filter components based on search query */
-    const filteredComponents = components.filter(component => component.displayName.includes(query))
+    const filteredComponents = components.filter(component =>
+      component.displayName.toLowerCase().includes(query.toLowerCase())
+    )
     this.setState({ filteredComponents })
   }
   render() {
