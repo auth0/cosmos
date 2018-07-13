@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
+import { deprecate } from '../../_helpers/custom-validations'
 
 const TextInput = ({ defaultValue, ...props }) => {
   if (props.masked) {
@@ -24,6 +25,8 @@ TextInput.propTypes = {
   readOnly: PropTypes.bool,
   /** Use when the expected input is code */
   code: PropTypes.bool,
+  /** Pass hasError to show error state */
+  hasError: PropTypes.bool,
   /** Pass error string directly to show error state */
   error: PropTypes.string,
   /** onChange transparently passed to the input */
@@ -31,7 +34,10 @@ TextInput.propTypes = {
   /** Text to display when the input is empty */
   placeholder: PropTypes.string,
   /** The default value for the field */
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+
+  /** deprecate error string prop */
+  _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
 }
 
 TextInput.defaultProps = {

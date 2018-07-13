@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { StyledInput } from '../_styled-input'
+import { deprecate } from '../../_helpers/custom-validations'
 
 const StyledTextArea = StyledInput.withComponent('textarea').extend`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
@@ -22,7 +23,10 @@ TextArea.propTypes = {
   /** Allow resizing of the textarea */
   resizable: PropTypes.bool,
   /** onChange transparently passed to the input */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  /** deprecate error string prop */
+  _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
 }
 
 TextArea.defaultProps = {

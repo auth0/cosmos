@@ -20,4 +20,10 @@ const numberOfValues = (elements, expectedCount) => {
   }
 }
 
-export { onlyOneOf, sumOfElements, numberOfValues }
+const deprecate = (props, { name, replacement }) => {
+  let message = `'${name}' prop has been deprecated.`
+  if (replacement) message += ` Use '${replacement}' instead.`
+  if (props[name]) return new Error(message)
+}
+
+export { onlyOneOf, sumOfElements, numberOfValues, deprecate }
