@@ -18,7 +18,7 @@ import Inputs from './examples/inputs'
 import Labels from './examples/labels'
 import Lists from './examples/lists'
 import Logos from './examples/logos'
-import Overlays from './examples/overlays'
+import Dialogs from './examples/dialogs'
 import PageHeaders from './examples/page-headers'
 import ResourceLists from './examples/resource-lists'
 import Spacing from './examples/spacing'
@@ -66,7 +66,7 @@ export default () => (
           <Tooltip />
         </Col>
         <Col>
-          <Overlays />
+          <Dialogs />
         </Col>
       </Row>
       <Row>

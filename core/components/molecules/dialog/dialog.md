@@ -2,9 +2,10 @@
 category: Layout
 ```
 
-A <code>Dialog</code> builds on an <code>Overlay</code>, providing more styling and
-structure around what is displayed. It allows setting a fixed width, and adds a
-titlebar, close button, and a footer.
+A <code>Dialog</code> opens a modal dialog in a layer above the existing UI.
+It can be used to involve the user temporarily in a different context; for example,
+you can use a Dialog to ask a user a question or confirm that they want to perform
+an action.
 
 ```jsx
 class DialogContainer extends React.Component {
