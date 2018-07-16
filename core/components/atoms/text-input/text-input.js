@@ -5,13 +5,13 @@ import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 
-const TextInput = ({ defaultValue, ...props }) => {
+const TextInput = ({ defaultValue, type, ...props }) => {
   if (props.masked) {
     const length = defaultValue ? defaultValue.length : 8
     const maskedValue = new Array(length).join('•')
-    return <TextInput.Element {...props} placeholder={maskedValue} readOnly />
+    return <TextInput.Element type={type} {...props} placeholder={maskedValue} readOnly />
   }
-  return <TextInput.Element defaultValue={defaultValue} {...props} />
+  return <TextInput.Element type={type} defaultValue={defaultValue} {...props} />
 }
 
 TextInput.Element = StyledInput.extend`
@@ -35,6 +35,8 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   /** The default value for the field */
   defaultValue: PropTypes.string,
+  /** The (HTML) type for the input. */
+  type: PropTypes.string,
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -44,7 +46,8 @@ TextInput.defaultProps = {
   readOnly: false,
   code: false,
   error: null,
-  onChange: null
+  onChange: null,
+  type: 'text'
 }
 
 export default TextInput
