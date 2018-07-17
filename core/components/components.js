@@ -26,7 +26,6 @@ import Image from './atoms/image'
 import Label from './atoms/label'
 import Link from './atoms/link'
 import Logo from './atoms/logo'
-import Overlay from './atoms/overlay'
 import Paragraph from './atoms/paragraph'
 import Radio from './atoms/radio'
 import Select from './atoms/select'
@@ -79,7 +78,6 @@ export {
   Link,
   List,
   Logo,
-  Overlay,
   PageHeader,
   Pagination,
   PaginationToolbar,
