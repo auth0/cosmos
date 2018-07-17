@@ -81,6 +81,8 @@ class App extends React.Component {
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
         document.querySelector(`#${hash}`).scrollIntoView()
+      } else {
+        document.querySelector('#main').scrollIntoView()
       }
     }
     scrollToAnchor()
@@ -96,7 +98,7 @@ class App extends React.Component {
           <SideContent visible={this.state.sidebarVisible}>
             <Sidebar />
           </SideContent>
-          <MainContent>
+          <MainContent id="main">
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
               <Route path="/usage" component={Usage} />
