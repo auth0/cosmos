@@ -13,8 +13,9 @@ import { StyledTextSubdued } from '@auth0/cosmos/atoms/text'
 const noop = () => {}
 
 const ApplicationID = styled(StyledTextSubdued)`
-  margin-right: ${spacing.xsmall};
+  margin-right: ${spacing.small};
   line-height: normal;
+  white-space: nowrap;
 `
 
 const ApplicationList = props => (

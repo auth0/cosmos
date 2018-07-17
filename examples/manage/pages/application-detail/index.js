@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs, Thumbnail } from '@auth0/cosmos'
+import { Avatar, Tabs } from '@auth0/cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
@@ -17,7 +17,9 @@ class ApplicationDetail extends React.Component {
             name: 'Non Interactive',
             applicationId: this.props.match.params.applicationId
           }}
-          logo={<Thumbnail size="large" source={ApplicationTypeImages.non_interactive} />}
+          logo={
+            <Avatar type="resource" size="xlarge" image={ApplicationTypeImages.non_interactive} />
+          }
           breadcrumb={{
             content: 'Applications',
             link: '/#/applications'
