@@ -13,10 +13,30 @@
 
 ```js
 <Breadcrumb>
+  <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>
+  <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
+  <Breadcrumb.Link href="/parent/child">Child</Breadcrumb.Link>
+</Breadcrumb>
+```
+
+You can add an icon the first link
+
+```js
+<Breadcrumb>
   <Breadcrumb.Link href="/home" icon="arrow-left">
     Home
   </Breadcrumb.Link>
   <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
   <Breadcrumb.Link href="/parent/child">Child</Breadcrumb.Link>
+</Breadcrumb>
+```
+
+Sometimes you just need one link
+
+```js
+<Breadcrumb>
+  <Breadcrumb.Link href="/home" icon="arrow-left">
+    Back to applications
+  </Breadcrumb.Link>
 </Breadcrumb>
 ```
