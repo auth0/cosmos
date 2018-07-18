@@ -15,11 +15,25 @@ const Wrapper = styled.div`
     font-size: 13px;
     margin-bottom: ${spacing.small};
     &:hover {
+      cursor: pointer;
       color: ${colors.base.default};
       .breadcrumb-link-icon path {
         fill: ${colors.base.default};
       }
     }
+  }
+
+  ${/* last link should be inactive: */ ''};
+
+  ${StyledLink}:last-child:hover {
+    cursor: default;
+    color: ${colors.base.grayDarkest};
+  }
+
+  ${/* sometimes there's just one link = first = last, let's override that */ ''};
+  ${StyledLink}:first-child:hover {
+    cursor: pointer;
+    color: ${colors.base.default};
   }
 
   ${/* code for separator: */ ''};
