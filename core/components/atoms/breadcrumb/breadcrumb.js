@@ -11,13 +11,13 @@ const Wrapper = styled.div`
   ${/* overrides for link */ ''};
 
   ${StyledLink} {
-    color: ${colors.base.default};
+    color: ${colors.base.grayDarkest};
     font-size: 13px;
     margin-bottom: ${spacing.small};
     &:hover {
-      color: ${colors.base.grayDarkest};
+      color: ${colors.base.default};
       .breadcrumb-link-icon path {
-        fill: ${colors.base.grayDarkest};
+        fill: ${colors.base.default};
       }
     }
   }
@@ -38,7 +38,7 @@ const Breadcrumb = props => <Wrapper {...props} />
 Breadcrumb.Link = props => (
   <Link>
     {props.icon && (
-      <Icon className="breadcrumb-link-icon" name={props.icon} size={15} color="default" />
+      <Icon className="breadcrumb-link-icon" name={props.icon} size={15} color="grayDarkest" />
     )}
     {props.children}
     <Icon
