@@ -15,6 +15,7 @@
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
     "css-loader": "0.28.11",
+    "error-overlay-webpack-plugin": "0.1.5",
     "execa": "0.10.0",
     "ora": "2.1.0",
     "react-hot-loader": "4.3.3",
