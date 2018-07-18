@@ -11,42 +11,48 @@ const Wrapper = styled.div`
   ${/* overrides for link */ ''};
 
   ${StyledLink} {
+    color: ${colors.base.default};
     font-size: 13px;
     margin-bottom: ${spacing.small};
+    &:hover {
+      color: ${colors.base.grayDarkest};
+      .breadcrumb-link-icon path {
+        fill: ${colors.base.grayDarkest};
+      }
+    }
   }
 
   ${/* code for separator: */ ''};
 
-  ${StyledLink} {
-    padding: 0 ${spacing.xsmall};
-    &:after {
-      content: '/';
-      padding-left: ${spacing.xsmall};
-      color: ${colors.base.grayDark};
-    }
+  ${Icon.Element} {
+    margin: 0 ${spacing.small};
   }
 
-  ${StyledLink}:last-child {
-    &:after {
-      content: '';
-    }
+  ${StyledLink}:last-child ${Icon.Element} {
+    display: none;
   }
 `
 
-const Breadcrumb = ({ link, content, ...props }) => {
-  return (
-    <Wrapper>
-      <Icon name="arrow-left" size={15} color="grayDark" />
-      {props.children}
-    </Wrapper>
-  )
-}
+const Breadcrumb = props => <Wrapper {...props} />
+
+Breadcrumb.Link = props => (
+  <Link>
+    {props.icon && (
+      <Icon className="breadcrumb-link-icon" name={props.icon} size={15} color="default" />
+    )}
+    {props.children}
+    <Icon
+      name="chevron-down"
+      style={{ transform: 'rotate(-90deg)' }}
+      size={15}
+      color="grayMedium"
+    />
+  </Link>
+)
 
 Breadcrumb.propTypes = {
   children: PropTypes.node
 }
-
-Breadcrumb.Link = props => <Link {...props} />
 
 Breadcrumb.Link.propTypes = {
   link: PropTypes.string

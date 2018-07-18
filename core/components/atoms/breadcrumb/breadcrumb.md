@@ -13,7 +13,9 @@
 
 ```js
 <Breadcrumb>
-  <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>
+  <Breadcrumb.Link href="/home" icon="arrow-left">
+    Home
+  </Breadcrumb.Link>
   <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
   <Breadcrumb.Link href="/parent/child">Child</Breadcrumb.Link>
 </Breadcrumb>
