@@ -28,7 +28,7 @@ const Wrapper = styled.div`
     margin: 0 ${spacing.small};
   }
 
-  ${StyledLink}:last-child ${Icon.Element} {
+  ${StyledLink}:last-child .cosmos-breadcrumb-separator {
     display: none;
   }
 `
@@ -43,6 +43,7 @@ Breadcrumb.Link = props => (
     {props.children}
     <Icon
       name="chevron-down"
+      className="cosmos-breadcrumb-separator"
       style={{ transform: 'rotate(-90deg)' }}
       size={15}
       color="grayMedium"
