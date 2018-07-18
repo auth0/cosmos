@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { Heading1, Heading2, Link, Text } from './docs-components/typography'
 import Pre from './docs-components/pre'
 import { Code } from '@auth0/cosmos'
+import CodeBlock from './docs-components/code-block'
 
 class Usage extends React.Component {
   render() {
@@ -11,6 +12,17 @@ class Usage extends React.Component {
       <div>
         <Helmet title="How to use Cosmos?" />
         <Heading1>How to use Cosmos?</Heading1>
+
+        <Heading2>Installation</Heading2>
+        <Text>
+          To add <Code>cosmos</Code> to your react application, run
+          <CodeBlock language="shell">$ yarn add @auth0/cosmos</CodeBlock>
+          If you prefer npm, run this command instead:
+          <CodeBlock language="shell">$ npm install --save @auth0/cosmos</CodeBlock>
+          That is all you need to do, you are now ready to use it in your app, no build step needed.
+          <br />
+          (This is the temporary package name, it will soon move to the <Code>auth0/cosmos</Code>)
+        </Text>
 
         <Heading2>Components</Heading2>
         <Text>
