@@ -7,7 +7,7 @@ import styled, {
 } from 'styled-components'
 
 export default styled
-module.exports = {
+export {
   keyframes,
   css,
   injectGlobal,
