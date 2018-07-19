@@ -44,7 +44,7 @@ storiesOf('Dialog').add('with secondary button only', () => (
 
 storiesOf('Dialog').add('with form', () => (
   <StyledExample title="with form">
-    <Dialog open title="Example Dialog" onClose={() => {}} width={600}>
+    <Dialog open title="Example Dialog" onClose={() => {}} size="large">
       <Dialog.Body>
         <Form layout="label-on-top">
           <Form.TextInput label="First Name" type="text" placeholder="John" />
@@ -62,7 +62,7 @@ storiesOf('Dialog').add('with form', () => (
 
 storiesOf('Dialog').add('with introduction + form', () => (
   <StyledExample title="with introduction + form">
-    <Dialog open title="Example Dialog" onClose={() => {}} width={600}>
+    <Dialog open title="Example Dialog" onClose={() => {}} size="large">
       <Dialog.Body>
         <p>
           This is a brief introduction to the form. This is a short text that goes before the form
