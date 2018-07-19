@@ -23,7 +23,7 @@ You can add an icon the first link
 
 ```js
 <Breadcrumb>
-  <Breadcrumb.Link href="/home" icon="arrow-left">
+  <Breadcrumb.Link href="/home" icon="home-fill">
     Home
   </Breadcrumb.Link>
   <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
