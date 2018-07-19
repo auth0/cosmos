@@ -6,4 +6,4 @@ const App = () => {
   return <Heading>Hello world</Heading>
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('root'))

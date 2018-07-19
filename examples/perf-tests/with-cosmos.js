@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styled from 'styled-components'
-
-const Heading = styled.h1``
+import { Heading } from '@auth0/cosmos'
 
 const App = () => {
   return <Heading>Hello world</Heading>
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('root'))
