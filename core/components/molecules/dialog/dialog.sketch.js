@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { Dialog } from '@auth0/cosmos'
+import { Dialog, Button } from '@auth0/cosmos'
 
 /* how do we pass open to the underlying overlay here? */
 storiesOf('Dialog', module).add('default', () => (

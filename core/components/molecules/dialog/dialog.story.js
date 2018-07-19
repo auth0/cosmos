@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form } from '@auth0/cosmos'
+import { Dialog, Button, Form } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -69,12 +69,12 @@ storiesOf('Dialog').add('with introduction + form', () => (
           starts and may include <a href="#">links to other sites</a> and/or <strong>bold</strong>{' '}
           text.
         </p>
+        <Form layout="label-on-top">
+          <Form.TextInput label="First Name" type="text" placeholder="John" />
+          <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
+          <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        </Form>
       </Dialog.Body>
-      <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
-      </Form>
       <Dialog.Footer>
         <Button appearance="primary">OK</Button>
         <Button>Cancel</Button>
