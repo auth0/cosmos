@@ -26,20 +26,19 @@ class DialogContainer extends React.Component {
           open={this.state.open}
           title="Example Dialog"
           onClose={() => this.setDialogState(false)}
-          actions={[
-            new Dialog.Action(
-              'OK',
-              () => {
-                alert("You've performed the 'OK' action.")
-              },
-              'primary'
-            ),
-            new Dialog.Action('Cancel', () => {
-              alert("You've performed the 'Cancel' action.")
-            })
-          ]}
         >
-          Are you sure?
+          <Dialog.Body>Are you sure?</Dialog.Body>
+          <Dialog.Footer>
+            <Button appearance="primary" onClick={() => alert("You've performed the 'OK' action.")}>
+              OK
+            </Button>
+            <Button
+              appearance="secondary"
+              onClick={() => alert("You've performed the 'Cancel' action.")}
+            >
+              Cancel
+            </Button>
+          </Dialog.Footer>
         </Dialog>
       </div>
     )
@@ -47,9 +46,9 @@ class DialogContainer extends React.Component {
 }
 ```
 
-## Passing buttons as actions
+## Form inside Dialog
 
-You can use pass a `<Button />` array as actions to a Dialog.
+You can choose not to render `Dialog.Footer` if the body has a component with actions. Use the `width` prop to modify the size of the dialog
 
 ```js
 class DialogContainer extends React.Component {
@@ -69,13 +68,32 @@ class DialogContainer extends React.Component {
         <Dialog
           open={this.state.open}
           title="Example Dialog"
+          width={750}
           onClose={() => this.setDialogState(false)}
-          actions={[
-            <Button appearance="primary">OK</Button>,
-            <Button appearance="secondary">Cancel</Button>
-          ]}
         >
-          Are you sure?
+          <Dialog.Body>
+            <Form>
+              <Form.TextInput
+                label="Application Name"
+                type="text"
+                placeholder="What's your application called?"
+              />
+              <Form.Select
+                label="Application Type"
+                options={[
+                  { text: 'Native', value: 'native', defaultSelected: true },
+                  { text: 'Non Interactive Application', value: 'non-interactive' },
+                  { text: 'Regular Web Application', value: 'regular' },
+                  { text: 'Single Page Application', value: 'spa' }
+                ]}
+                helpText="The type of application will determine which settings you can configure from the dashboard."
+              />
+              <Form.Actions
+                primaryAction={{ label: 'Save Changes', handler: () => {} }}
+                secondaryActions={[{ label: 'Cancel', handler: () => {} }]}
+              />
+            </Form>
+          </Dialog.Body>
         </Dialog>
       </div>
     )

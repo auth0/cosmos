@@ -5,11 +5,11 @@ import { Dialog } from '@auth0/cosmos'
 
 /* how do we pass open to the underlying overlay here? */
 storiesOf('Dialog', module).add('default', () => (
-  <Dialog
-    title="Example Dialog"
-    onClose={() => {}}
-    actions={[new Dialog.Action('OK', () => {}, 'primary'), new Dialog.Action('Cancel', () => {})]}
-  >
-    Are you sure?
+  <Dialog title="Example Dialog" onClose={() => {}}>
+    <Dialog.Body>Are you sure?</Dialog.Body>
+    <Dialog.Footer>
+      <Button appearance="primary">OK</Button>
+      <Button appearance="secondary">Cancel</Button>
+    </Dialog.Footer>
   </Dialog>
 ))
