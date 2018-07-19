@@ -17,6 +17,10 @@ const Wrapper = styled.div`
     &:hover {
       cursor: pointer;
       color: ${colors.base.default};
+      .breadcrumb-link-icon {
+        position: relative;
+        top: -2px;
+      }
       .breadcrumb-link-icon path {
         fill: ${colors.base.default};
       }
@@ -39,6 +43,8 @@ const Wrapper = styled.div`
   ${/* code for separator: */ ''};
 
   ${Icon.Element} {
+    position: relative;
+    top: -2px;
     margin: 0 ${spacing.small};
   }
 
@@ -52,14 +58,13 @@ const Breadcrumb = props => <Wrapper {...props} />
 Breadcrumb.Link = props => (
   <Link>
     {props.icon && (
-      <Icon className="breadcrumb-link-icon" name={props.icon} size={15} color="grayDarkest" />
+      <Icon className="breadcrumb-link-icon" name={props.icon} size={12} color="grayDarkest" />
     )}
     {props.children}
     <Icon
-      name="chevron-down"
+      name="chevron-right-fill"
       className="cosmos-breadcrumb-separator"
-      style={{ transform: 'rotate(-90deg)' }}
-      size={15}
+      size={12}
       color="grayMedium"
     />
   </Link>
