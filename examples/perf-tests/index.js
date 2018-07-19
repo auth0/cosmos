@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-const App = () => {
-  return <h1>Hello world</h1>
-}
+import App from './src/with-cosmos'
 
 ReactDOM.render(<App />, document.getElementById('root'))
+
+if (module && module.hot) module.hot.accept()
