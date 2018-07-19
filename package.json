@@ -12,7 +12,8 @@
     "internal/overview",
     "internal/docs",
     "examples/manage",
-    "examples/webpack-hello-world"
+    "examples/webpack-hello-world",
+    "examples/perf-tests"
   ],
   "scripts": {
     "scripts": "nps -s",
