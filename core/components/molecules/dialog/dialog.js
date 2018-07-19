@@ -10,7 +10,7 @@ import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 
 const Dialog = props => (
   <Overlay {...props}>
-    <DialogElement width={props.width}>
+    <DialogElement width={props.size === 'large' ? 750 : 500}>
       <DialogTitleBar>
         <span>{props.title}</span>
         <Link onClick={props.onClose}>
@@ -59,12 +59,12 @@ Dialog.Footer = DialogFooter
 
 Dialog.propTypes = {
   title: PropTypes.string.isRequired,
-  width: PropTypes.number,
+  size: PropTypes.oneOf(['default', 'large']),
   onClose: PropTypes.func
 }
 
 Dialog.defaultProps = {
-  width: 500
+  size: 'default'
 }
 
 export default Dialog

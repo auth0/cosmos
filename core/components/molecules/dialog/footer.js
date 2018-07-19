@@ -7,7 +7,7 @@ import { ButtonGroup } from '@auth0/cosmos'
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding: ${spacing.small};
+  padding: ${spacing.small} 0;
   border-top: 1px solid ${colors.base.grayLight};
 `
 

@@ -48,7 +48,7 @@ class DialogContainer extends React.Component {
 
 ## Form inside Dialog
 
-You can choose not to render `Dialog.Footer` if the body has a component with actions. Use the `width` prop to modify the size of the dialog
+You can use add actions inside `Dialog.Footer` for the form. Use the `size` prop to get a wider dialog.
 
 ```js
 class DialogContainer extends React.Component {
@@ -61,6 +61,8 @@ class DialogContainer extends React.Component {
     this.setState({ open })
   }
 
+  save() {}
+
   render() {
     return (
       <div>
@@ -68,7 +70,7 @@ class DialogContainer extends React.Component {
         <Dialog
           open={this.state.open}
           title="Example Dialog"
-          width={750}
+          size="large"
           onClose={() => this.setDialogState(false)}
         >
           <Dialog.Body>
@@ -88,12 +90,14 @@ class DialogContainer extends React.Component {
                 ]}
                 helpText="The type of application will determine which settings you can configure from the dashboard."
               />
-              <Form.Actions
-                primaryAction={{ label: 'Save Changes', handler: () => {} }}
-                secondaryActions={[{ label: 'Cancel', handler: () => {} }]}
-              />
             </Form>
           </Dialog.Body>
+          <Dialog.Footer>
+            <Button appearance="primary" onClick={() => this.save}>
+              Save Changes
+            </Button>
+            <Button onClick={() => this.setDialogState(false)}>Cancel</Button>
+          </Dialog.Footer>
         </Dialog>
       </div>
     )
