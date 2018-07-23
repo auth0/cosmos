@@ -73,8 +73,8 @@ class DialogContainer extends React.Component {
           size="large"
           onClose={() => this.setDialogState(false)}
         >
-          <Dialog.Body>
-            <Form>
+          <Form>
+            <Dialog.Body>
               <Form.TextInput
                 label="Application Name"
                 type="text"
@@ -90,14 +90,14 @@ class DialogContainer extends React.Component {
                 ]}
                 helpText="The type of application will determine which settings you can configure from the dashboard."
               />
-            </Form>
-          </Dialog.Body>
-          <Dialog.Footer>
-            <Button appearance="primary" onClick={() => this.save}>
-              Save Changes
-            </Button>
-            <Button onClick={() => this.setDialogState(false)}>Cancel</Button>
-          </Dialog.Footer>
+            </Dialog.Body>
+            <Dialog.Footer>
+              <Button appearance="primary" onClick={() => this.save}>
+                Save Changes
+              </Button>
+              <Button onClick={() => this.setDialogState(false)}>Cancel</Button>
+            </Dialog.Footer>
+          </Form>
         </Dialog>
       </div>
     )
