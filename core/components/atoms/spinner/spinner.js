@@ -44,3 +44,4 @@ Spinner.defaultProps = {
 }
 
 export default Spinner
+export { StyledSpinner }
