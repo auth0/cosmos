@@ -38,7 +38,10 @@ const LabelLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).labelWidth};
   margin: ${props => getLayoutValues(props.layout).labelMargin};
   text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
-  padding-right: ${spacing.medium};
+  padding-right: ${props => (props.layout === 'label-on-left' ? spacing.medium : 'none')};
+  padding-top: ${props => (props.layout === 'label-on-left' ? '11px' : '0')};
+  min-height: ${props => (props.layout === 'label-on-left' ? '44px' : 'none')};
+  margin-bottom: ${props => (props.layout === 'label-on-top' ? '8px' : '0')};
 `
 const ContentLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).contentWidth};
