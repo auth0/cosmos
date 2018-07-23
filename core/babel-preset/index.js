@@ -5,5 +5,5 @@
 
 module.exports = {
   presets: ['env', 'react', 'es2015'],
-  plugins: ['transform-object-rest-spread', 'transform-class-properties']
+  plugins: ['styled-components', 'transform-object-rest-spread', 'transform-class-properties']
 }
