@@ -92,10 +92,10 @@ class DialogContainer extends React.Component {
               />
             </Dialog.Body>
             <Dialog.Footer>
-              <Button appearance="primary" onClick={() => this.save}>
-                Save Changes
-              </Button>
-              <Button onClick={() => this.setDialogState(false)}>Cancel</Button>
+              <Form.Actions
+                primaryAction={{ label: 'Save Changes', handler: () => {} }}
+                secondaryActions={[{ label: 'Cancel', handler: () => {} }]}
+              />
             </Dialog.Footer>
           </Form>
         </Dialog>
