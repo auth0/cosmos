@@ -74,8 +74,8 @@ saved successfully.
 <div>
   <Stack>
     <Button disabled>Disabled</Button>
-    <Button loading>Button</Button>
-    <Button success>Button</Button>
+    <Button loading>Loading</Button>
+    <Button success>Success</Button>
   </Stack>
 </div>
 ```
