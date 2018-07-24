@@ -35,7 +35,7 @@ Sometimes you just need one link
 
 ```js
 <Breadcrumb>
-  <Breadcrumb.Link href="/home" icon="arrow-left">
+  <Breadcrumb.Link href="/home" icon="arrow-left-fill">
     Back to applications
   </Breadcrumb.Link>
 </Breadcrumb>
