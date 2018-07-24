@@ -12,7 +12,7 @@ class ApplicationDetail extends React.Component {
     return (
       <div>
         <Breadcrumb>
-          <Breadcrumb.Link href="/home" icon="arrow-left-fill">
+          <Breadcrumb.Link href="#/applications" icon="arrow-left-fill">
             Back to Applications
           </Breadcrumb.Link>
         </Breadcrumb>
