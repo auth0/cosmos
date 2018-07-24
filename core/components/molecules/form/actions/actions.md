@@ -65,6 +65,7 @@ You can pass any prop that `Button` accepts in a `props` object:
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   <Form.Actions
     primaryAction={{ label: 'Save Changes', props: { disabled: true }, handler: () => {} }}
+    destructiveAction={{ label: 'Delete', props: { disabled: true }, handler: () => {} }}
   />
 </Form>
 ```
