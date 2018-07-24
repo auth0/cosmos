@@ -55,3 +55,16 @@ In case you want to represent a dangerous or unrecoverable action, you can pass 
   />
 </Form>
 ```
+
+### Passing button props
+
+You can pass any prop that `Button` accepts in a `props` object:
+
+```js
+<Form>
+  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Actions
+    primaryAction={{ label: 'Save Changes', props: { disabled: true }, handler: () => {} }}
+  />
+</Form>
+```

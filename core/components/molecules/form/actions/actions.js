@@ -33,6 +33,7 @@ const Actions = props => {
                 appearance="primary"
                 icon={primaryAction.icon}
                 onClick={primaryAction.handler}
+                {...primaryAction.props}
               >
                 {primaryAction.label}
               </Button>
