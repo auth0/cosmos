@@ -17,7 +17,7 @@ storiesOf('Breadcrumb').add('default', () => (
 storiesOf('Breadcrumb').add('with icon', () => (
   <Example title="with icon">
     <Breadcrumb>
-      <Breadcrumb.Link href="/home" icon="arrow-left">
+      <Breadcrumb.Link href="/home" icon="home-fill">
         Home
       </Breadcrumb.Link>
       <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
@@ -29,7 +29,7 @@ storiesOf('Breadcrumb').add('with icon', () => (
 storiesOf('Breadcrumb').add('single link', () => (
   <Example title="single link">
     <Breadcrumb>
-      <Breadcrumb.Link href="/home" icon="arrow-left">
+      <Breadcrumb.Link href="/home" icon="arrow-left-fill">
         Back to applications
       </Breadcrumb.Link>
     </Breadcrumb>
