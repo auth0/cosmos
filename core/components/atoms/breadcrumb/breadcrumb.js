@@ -8,7 +8,7 @@ import Icon, { StyledIcon } from '../icon'
 import Link, { StyledLink } from '../link'
 
 const Separator = styled(Icon)`
-  margin: 0 ${spacing.small};
+  margin: 0 ${spacing.xsmall};
 `
 
 const LinkIcon = styled(Icon)`
