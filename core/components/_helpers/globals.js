@@ -1,7 +1,14 @@
 import { injectGlobal } from 'styled-components'
 import { fonts, misc } from '@auth0/cosmos-tokens'
 
-injectGlobal`
+let includeGlobals = true
+
+if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
+  includeGlobals = false
+}
+
+if (includeGlobals) {
+  injectGlobal`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -125,3 +132,4 @@ injectGlobal`
   }
 
 `
+}
