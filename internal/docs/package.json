@@ -4,27 +4,25 @@
   "description": "Documentation for cosmos components",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-serve --content public",
-    "build": "NODE_ENV=production webpack-cli",
-    "start": "serve public"
+    "dev": "engine dev",
+    "build": "engine build",
+    "start": "engine start"
   },
   "dependencies": {
     "@auth0/cosmos": "0.2.4",
     "fuzzysearch": "1.0.3",
+    "js-beautify": "1.7.5",
     "lodash.kebabcase": "4.1.1",
     "lodash.startcase": "4.4.0",
-    "markdown-to-jsx": "6.6.6",
+    "markdown-to-jsx": "6.6.8",
     "react": "16.3.0",
     "react-dom": "16.3.0",
+    "react-helmet": "5.2.0",
+    "react-highlight": "0.12.0",
     "react-live": "1.10.1",
     "yamljs": "0.3.0"
   },
   "devDependencies": {
-    "@auth0/babel-preset-cosmos": "0.2.4",
-    "babel-loader": "7.1.4",
-    "serve": "6.5.3",
-    "webpack": "4.12.0",
-    "webpack-cli": "3.0.3",
-    "webpack-serve": "1.0.4"
+    "@auth0/cosmos-engine": "0.0.1"
   }
 }

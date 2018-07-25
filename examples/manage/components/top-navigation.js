@@ -159,12 +159,12 @@ const TopNavigation = () => (
     <StyledContainer>
       <TopNavWrapper>
         <Logo>
-          <a href="/manage/clients">
+          <a href="/manage/applications">
             <LogoImage />
           </a>
         </Logo>
         <div>
-          <InputSearch placeholder="Search for clients or features" />
+          <InputSearch placeholder="Search for applications or features" />
         </div>
         <Links>
           <ul>
@@ -179,7 +179,7 @@ const TopNavigation = () => (
             </li>
             <li>
               <a href="" className="notifications">
-                <Icon name="notifications" size={16} color={colors.base.default} />
+                <Icon name="notifications" size={16} />
               </a>
             </li>
             <li>
@@ -190,7 +190,7 @@ const TopNavigation = () => (
                     size="small"
                     image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
                   />
-                  <Icon name="chevron-down" size={10} color={colors.text.default} />
+                  <Icon name="chevron-down" size={10} />
                 </UserDropdown>
               </a>
             </li>

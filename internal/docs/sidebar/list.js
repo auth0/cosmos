@@ -37,7 +37,12 @@ const List = props => {
       <Group label="Getting started">
         <StyledLink>
           <NavLink to="/" activeClassName="selected">
-            Install guide
+            Getting started
+          </NavLink>
+        </StyledLink>
+        <StyledLink>
+          <NavLink exact to="/usage" activeClassName="selected">
+            How to use Cosmos?
           </NavLink>
         </StyledLink>
         <StyledLink>
@@ -58,6 +63,11 @@ const List = props => {
         <StyledLink>
           <NavLink to="/changes" activeClassName="selected">
             Changelog
+          </NavLink>
+        </StyledLink>
+        <StyledLink>
+          <NavLink to="/overview" activeClassName="selected">
+            Component overview
           </NavLink>
         </StyledLink>
       </Group>

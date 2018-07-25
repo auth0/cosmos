@@ -1,4 +1,7 @@
-const { series: { nps: series }, concurrent: { nps: parallel } } = require('nps-utils')
+const {
+  series: { nps: series },
+  concurrent: { nps: parallel }
+} = require('nps-utils')
 
 module.exports = {
   scripts: {
@@ -6,16 +9,21 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'production.directory',
           'icons.build',
-          'overview.build',
           'metadata.build',
           'docs.build',
           'production.copy.docs',
           'manage.build',
           'production.copy.manage',
-          'sandbox.build'
+          'sandbox.build',
+          'production.copy.redirect'
         ),
         description: 'Build for production'
+      },
+      directory: {
+        script: 'mkdir -p build',
+        description: 'Create build directory'
       },
       copy: {
         docs: {
@@ -25,6 +33,10 @@ module.exports = {
         manage: {
           script: 'cp -r examples/manage/public build/manage',
           description: 'Copy generated manage POC to main production build'
+        },
+        redirect: {
+          script: 'cp -r internal/redirect/* build/',
+          description: 'Copy redirection script'
         }
       },
       start: {
@@ -55,16 +67,6 @@ module.exports = {
       build: {
         script: 'node tooling/component-metadata',
         description: 'Generate metadata from components'
-      }
-    },
-    overview: {
-      dev: {
-        script: 'react-scripts start',
-        description: 'Start overview site in dev mode'
-      },
-      build: {
-        script: 'react-scripts build',
-        description: 'Build overview site'
       }
     },
     docs: {
@@ -103,7 +105,7 @@ module.exports = {
     },
     sandbox: {
       dev: {
-        script: 'start-storybook -p 9001 -s public',
+        script: 'start-storybook -p 9001 -s build',
         description: 'Start sandbox in dev mode'
       },
       build: {
@@ -130,7 +132,7 @@ module.exports = {
       }
     },
     codemods: {
-      script: 'jscodeshift -t src/codemods src/components/',
+      script: 'jscodeshift -t core/codemods core/components/',
       description: 'Run codemod on components'
     },
     deploy: {

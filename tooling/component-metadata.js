@@ -8,6 +8,7 @@ const camelCase = require('lodash.camelcase')
 const propTypesToTS = require('proptypes-to-ts-declarations')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
+const colors = require('@auth0/cosmos-tokens/colors')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -15,11 +16,11 @@ const debug = process.argv.includes('-d') || process.argv.includes('--debug')
 let warning = 0
 
 /* Ensure meta directory exists */
-fs.ensureDirSync('src/components/meta')
+fs.ensureDirSync('core/components/meta')
 
 /* Get list of js and md files from atoms and molecules */
-const javascriptFiles = glob.sync('src/components/+(atoms|molecules)/**/*.js')
-let markdownFiles = glob.sync('src/components/+(atoms|molecules)/**/*.md')
+const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.js')
+let markdownFiles = glob.sync('core/components/+(atoms|molecules)/**/*.md')
 
 const run = () => {
   info('DOCS', 'Generating metadata')
@@ -55,6 +56,11 @@ const run = () => {
             if (prop.type.name === 'enum' && prop.type.value === '__ICONNAMES__') {
               /* create an array of all the icons with an empty string as first element */
               prop.type.value = [{ value: '' }].concat(Object.keys(icons).map(value => ({ value })))
+            }
+
+            if (prop.type.name === 'enum' && prop.type.value === '__COLORS__') {
+              /* create an array of all the base colors */
+              prop.type.value = Object.keys(colors.base).map(value => ({ value }))
             }
 
             /* remove redundant quotes from enum values in prop types */
@@ -137,7 +143,7 @@ const run = () => {
     TODO: Rethink tooling for docs which works across packages
   */
   fs.writeFileSync(
-    'src/components/meta/metadata.json',
+    'core/components/meta/metadata.json',
     JSON.stringify({ metadata }, null, 2),
     'utf8'
   )
@@ -148,18 +154,24 @@ const run = () => {
   info('DOCS', 'Generating changelog')
   const changelog = fs.readFileSync('changelog.md', 'utf8')
   fs.writeFileSync(
-    'src/components/meta/changelog.json',
+    'core/components/meta/changelog.json',
     JSON.stringify({ changelog }, null, 2),
     'utf8'
   )
 
   // Write typescript definitions to index.d.ts.
   info('DOCS', 'Generating TypeScript definitions')
-  propTypesToTS('@auth0/cosmos', './src/components/**/*.js', './src/components/meta/index.d.ts', {
-    oneOfResolvers: {
-      __ICONNAMES__: Object.keys(icons)
+  propTypesToTS(
+    '@auth0/cosmos',
+    'core/components/+(atoms|molecules)/**/*.js',
+    './core/components/meta/index.d.ts',
+    {
+      oneOfResolvers: {
+        __ICONNAMES__: Object.keys(icons),
+        __COLORS__: Object.keys(colors.base)
+      }
     }
-  })
+  )
 
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
@@ -170,8 +182,8 @@ const run = () => {
 if (watch) {
   console.log('running in watch mode')
   chokidar
-    .watch('src/components', {
-      ignored: ['node_modules', 'src/components/meta']
+    .watch('core/components', {
+      ignored: ['node_modules', 'core/components/meta']
     })
     .on('ready', run)
     .on('change', run)

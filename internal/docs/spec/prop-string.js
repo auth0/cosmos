@@ -14,9 +14,13 @@ const getPropString = propData => {
     /*
       Case 1: Falsy boolean
       These should be ignored: primary="false" / name="null"
+      for cases where default is "false" as well
      */
     if (['null', 'false'].includes(propData[name].value)) {
-      return false
+      if (propData[name].defaultValue && propData[name].defaultValue.value === 'true') {
+        propString += ` ${name}={false}`
+        return true
+      } else return false
     }
 
     /*
@@ -46,7 +50,7 @@ const getPropString = propData => {
       Example: <Icon size={20}>
     */
 
-    if (propData[name].type.name === 'number') {
+    if (propData[name].type.name === 'number' && propData[name].value) {
       propString += ` ${name}={${propData[name].value}}`
       return true
     }
