@@ -24,6 +24,12 @@ const misc = {
     default: { height: '44px' },
     compressed: { height: '36px' },
     small: { height: '32px' }
+  },
+  spinner: {
+    xsmall: '1em',
+    small: '1.5em',
+    medium: '3em',
+    large: '4em'
   }
 }
 

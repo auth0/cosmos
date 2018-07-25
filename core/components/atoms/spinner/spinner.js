@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
+import { misc } from '@auth0/cosmos-tokens'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
@@ -26,21 +27,24 @@ const StyledSpinner = styled.span`
   border-bottom: 2px solid ${props => getColor(props)};
   border-left: 2px solid ${props => getColor(props, true)};
   border-radius: 50%;
-  width: 1em;
-  height: 1em;
+  width: ${props => misc.spinner[props.size]};
+  height: ${props => misc.spinner[props.size]};
   vertical-align: text-bottom;
   animation: ${rotate} 0.8s infinite linear;
 `
 
-const Spinner = props => <StyledSpinner {...props} />
+const Spinner = props => <StyledSpinner size={props.size} {...props} />
 
 Spinner.propTypes = {
   /** Invert for dark background */
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
+  /** Size of the Spinner */
+  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large'])
 }
 
 Spinner.defaultProps = {
-  inverse: false
+  inverse: false,
+  size: 'xsmall'
 }
 
 export default Spinner
