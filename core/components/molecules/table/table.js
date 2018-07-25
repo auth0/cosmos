@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, spacing } from '../../tokens'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { misc, colors } from '../../../tokens'
+import { misc, colors } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
 import {
   changePageIfAppropiate,
