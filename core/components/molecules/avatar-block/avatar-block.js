@@ -5,6 +5,9 @@ import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 
+/* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
+import { StyledLink } from '@auth0/cosmos/atoms/link'
+
 const avatarSizes = {
   compact: 'small',
   default: 'medium',
@@ -18,20 +21,23 @@ const StyledAvatarBlock = styled.span`
 `
 
 const Text = styled.div`
-  line-height: 1;
   margin-left: ${spacing.small};
 `
 
-const Title = styled.div`
+const Title = styled.span`
+  line-height: normal;
   color: ${colors.text.default};
-  line-height: 1;
   font-weight: ${fonts.weight.medium};
+
+  ${StyledLink} {
+    line-height: normal;
+  }
 `
 
-const Subtitle = styled.div`
+const Subtitle = styled.span`
+  line-height: normal;
   color: ${colors.text.secondary};
-  line-height: 1;
-  margin-top: ${spacing.xsmall};
+  margin-top: ${spacing.xxsmall};
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
