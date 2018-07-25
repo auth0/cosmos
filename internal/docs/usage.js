@@ -86,6 +86,24 @@ class Usage extends React.Component {
           </Link>{' '}
           where you can learn how to use it.
         </Text>
+
+        <Heading2>Disable global resets</Heading2>
+        <Text>
+          Cosmos adds a set of resets the same resets to your application, if you already have some
+          resets in place, you can disable the resets from Cosmos by setting an environment variable
+          with webpack
+          <CodeBlock language="javascript">
+            {`
+{
+   plugins: [
+      new webpack.EnvironmentPlugin({
+         COSMOS_DISABLE_RESETS: true
+      })
+   ]
+}
+`}
+          </CodeBlock>
+        </Text>
       </div>
     )
   }
