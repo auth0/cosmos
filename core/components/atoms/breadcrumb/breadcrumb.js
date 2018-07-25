@@ -59,7 +59,7 @@ const Wrapper = styled.div`
 const Breadcrumb = props => <Wrapper {...props} />
 
 Breadcrumb.Link = props => (
-  <Link>
+  <Link {...props}>
     {props.icon && (
       <LinkIcon className="cs-breadcrumb-icon" name={props.icon} size={12} color="grayDarkest" />
     )}
