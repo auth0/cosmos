@@ -246,11 +246,18 @@ Button.Element = styled.button`
   }
 `
 
-Button.LinkElement = Button.Element.withComponent('a')
-
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
+`
+
+Button.LinkElement = Button.Element.withComponent('a').extend`
+  display: table;
+  text-decoration: none;
+
+  ${Button.Text} {
+    display: table-cell;
+  }
 `
 
 Button.propTypes = {
