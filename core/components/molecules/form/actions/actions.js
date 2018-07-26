@@ -30,6 +30,7 @@ const Actions = props => {
           <ButtonGroup>
             {primaryAction && (
               <Button
+                {...primaryAction}
                 appearance="primary"
                 icon={primaryAction.icon}
                 onClick={primaryAction.handler}
@@ -41,6 +42,7 @@ const Actions = props => {
             {secondaryActions &&
               secondaryActions.map((action, index) => (
                 <Button
+                  {...action}
                   appearance="secondary"
                   icon={action.icon}
                   key={index}
@@ -53,6 +55,7 @@ const Actions = props => {
             {destructiveAction && (
               <Right>
                 <Button
+                  {...destructiveAction}
                   appearance="destructive"
                   icon={destructiveAction.icon}
                   onClick={destructiveAction.handler}
