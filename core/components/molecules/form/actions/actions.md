@@ -58,14 +58,18 @@ In case you want to represent a dangerous or unrecoverable action, you can pass 
 
 ### Passing button props
 
-You can pass any prop that `Button` accepts in a `props` object:
+You can pass any prop that `Button` accepts and they will be forwarded
 
 ```js
 <Form>
   <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
   <Form.Actions
-    primaryAction={{ label: 'Save Changes', props: { disabled: true }, handler: () => {} }}
-    destructiveAction={{ label: 'Delete', props: { disabled: true }, handler: () => {} }}
+    primaryAction={{ label: 'Save Changes', loading: true, handler: () => {} }}
+    destructiveAction={{
+      label: 'Delete',
+      disabled: true,
+      handler: () => {}
+    }}
   />
 </Form>
 ```
