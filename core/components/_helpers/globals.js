@@ -1,14 +1,19 @@
 import { injectGlobal } from 'styled-components'
 import { fonts, misc } from '@auth0/cosmos-tokens'
 
-let includeGlobals = true
+let includeResets = true
 
 if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
-  includeGlobals = false
+  includeResets = false
 }
 
-if (includeGlobals) {
-  injectGlobal`
+let globalStyles = `
+   [class^="sc-"] {
+      line-height: ${misc.lineHeight};
+   }
+`
+
+const resets = `
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -81,9 +86,6 @@ if (includeGlobals) {
     Note: This will break on applications that already use styled-components
   */ ''
   }
-  [class^="sc-"] {
-    line-height: ${misc.lineHeight};
-  }
 
   @font-face {
     font-family: fakt-web;
@@ -130,6 +132,8 @@ if (includeGlobals) {
     src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v5/hMqPNLsu_dywMa4C_DEpY4gp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
   }
-
 `
-}
+
+if (includeResets) globalStyles += resets
+
+injectGlobal`${globalStyles}`
