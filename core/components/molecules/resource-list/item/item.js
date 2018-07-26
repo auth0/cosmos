@@ -76,8 +76,9 @@ const ResourceListItem = props => {
     subtitle = <ListItemSubtitle>{props.subtitle}</ListItemSubtitle>
   }
 
-  const handleActionClick = handler => evt => {
-    handler(evt, props.item)
+  const callHandler = handler => {
+    if (!handler) return null
+    return evt => handler(evt, props.item)
   }
 
   if (props.actions) {
@@ -87,7 +88,7 @@ const ResourceListItem = props => {
           <Button
             key={index}
             icon={action.icon}
-            onClick={handleActionClick(action.handler)}
+            onClick={callHandler(action.handler)}
             label={action.label}
             disabled={action.disabled}
           />
@@ -97,7 +98,7 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem>
+    <StyledListItem onClick={callHandler(props.onClick)}>
       <ListItemHeader>
         {image}
         <div>
@@ -122,6 +123,8 @@ ResourceListItem.propTypes = {
   image: PropTypes.string,
   /** An icon to display as a thumbnail image for the list item. */
   icon: PropTypes.oneOf(__ICONNAMES__),
+  /** A function that will be called when the list item is clicked. */
+  onClick: PropTypes.func,
   /** The actions to display for the list item. */
   actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
