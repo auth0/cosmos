@@ -1,43 +1,80 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 
 import Button from '../../atoms/button'
+import Icon from '../../atoms/icon'
 import {
   getPaginationSlice,
   changePageIfAppropiate,
   pagesFromItems
 } from '../../_helpers/pagination'
 
-const defaultPaginationAppearance = 'link'
-
 const StyledPagination = styled.div`
   display: flex;
   justify-content: center;
 `
 const StyledPaginationItem = styled(Button)`
-  margin-right: 3px;
+  margin-right: ${spacing.small};
+  min-width: ${spacing.large};
+  position: relative;
 
   &:last-child {
     margin-right: 0;
   }
+
+  ${props => props.left && `padding-left: ${spacing.large};`} 
+  ${props => props.right && `padding-right: ${spacing.large};`} 
+
+  ${Icon.Element} {
+    position: absolute;
+    margin: 0;
+    padding-top: ${spacing.xsmall};
+    height: calc(${misc.button.small.height} - 2px);
+    width: 20px;
+    
+    svg {
+      width: 15px;
+      height: 15px; 
+    }
+
+    ${props =>
+      props.left &&
+      `
+      left: ${spacing.xxsmall};
+      padding-right: ${spacing.xxsmall};
+      border-right: 1px solid ${colors.base.grayLight}
+    `};
+    ${props =>
+      props.right &&
+      `
+      right: calc(${spacing.xxsmall});
+      padding-left: ${spacing.xxsmall};
+      border-left: 1px solid ${colors.base.grayLight}
+    `};
+  }
 `
 
-const PaginationItem = props => (
+const renderPaginationItem = ({
+  toPage,
+  content,
+  appearance,
+  items,
+  perPage,
+  onPageChanged,
+  left = false,
+  right = false
+}) => (
   <StyledPaginationItem
-    {...props}
-    appearance={props.selected ? 'primary' : props.appearance || defaultPaginationAppearance}
-    size="small"
-  />
-)
-
-const renderPaginationItem = ({ toPage, content, appearance, items, perPage, onPageChanged }) => (
-  <PaginationItem
+    left={left}
+    right={right}
     appearance={appearance}
+    size="small"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
   >
     {content}
-  </PaginationItem>
+  </StyledPaginationItem>
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
@@ -46,44 +83,49 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
 
+const firstPageButton = (
+  <span>
+    <Icon name="chevron-left" /> First
+  </span>
+)
+const lastPageButton = (
+  <span>
+    Last <Icon name="chevron-right" />
+  </span>
+)
+
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
   <StyledPagination>
-    {renderPaginationItem({ toPage: 1, content: '<<', appearance, items, perPage, onPageChanged })}
     {renderPaginationItem({
-      toPage: page - 1,
-      content: '<',
+      toPage: 1,
+      content: firstPageButton,
       appearance,
       items,
       perPage,
-      onPageChanged
+      onPageChanged,
+      left: true
     })}
 
     {getPaginationSlice(page, items, perPage).map(page => (
-      <PaginationItem
+      <StyledPaginationItem
         key={page.label}
         appearance={appearance}
         selected={page.selected}
+        size="small"
         onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
       >
         {page.label}
-      </PaginationItem>
+      </StyledPaginationItem>
     ))}
 
     {renderPaginationItem({
-      toPage: page + 1,
-      content: '>',
-      appearance,
-      items,
-      perPage,
-      onPageChanged
-    })}
-    {renderPaginationItem({
       toPage: pagesFromItems(items, perPage),
-      content: '>>',
+      content: lastPageButton,
       appearance,
       items,
       perPage,
-      onPageChanged
+      onPageChanged,
+      right: true
     })}
   </StyledPagination>
 )
