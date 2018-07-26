@@ -13,6 +13,7 @@ const StyledListItem = styled.li`
   flex-flow: row nowrap;
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
+  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
     background: ${colors.list.backgroundHover};
   }
@@ -76,10 +77,7 @@ const ResourceListItem = props => {
     subtitle = <ListItemSubtitle>{props.subtitle}</ListItemSubtitle>
   }
 
-  const callHandler = handler => {
-    if (!handler) return null
-    return evt => handler(evt, props.item)
-  }
+  const callHandler = handler => evt => handler(evt, props.item)
 
   if (props.actions) {
     actions = (
@@ -88,7 +86,7 @@ const ResourceListItem = props => {
           <Button
             key={index}
             icon={action.icon}
-            onClick={callHandler(action.handler)}
+            onClick={action.handler ? callHandler(action.handler) : null}
             label={action.label}
             disabled={action.disabled}
           />
@@ -98,7 +96,7 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem onClick={callHandler(props.onClick)}>
+    <StyledListItem onClick={props.onClick ? callHandler(props.onClick) : null}>
       <ListItemHeader>
         {image}
         <div>
