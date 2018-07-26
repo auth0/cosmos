@@ -13,7 +13,7 @@ const Icon = props => {
   const color = colors.base[props.color] || props.color
 
   return (
-    <Icon.Element>
+    <Icon.Element {...props}>
       <Image
         width={props.size}
         height={props.size}
