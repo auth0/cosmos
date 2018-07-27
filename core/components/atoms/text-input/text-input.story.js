@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { TextInput } from '@auth0/cosmos'
+import { Button, TextInput } from '@auth0/cosmos'
 
 storiesOf('TextInput').add('simple', () => (
   <Example title="simple">
@@ -40,5 +40,32 @@ storiesOf('TextInput').add('readonly', () => (
 storiesOf('TextInput').add('masked', () => (
   <Example title="masked">
     <TextInput defaultValue="secret-client-hash" masked />
+  </Example>
+))
+
+storiesOf('TextInput').add('sizes', () => (
+  <Example title="sizes">
+    <Stack style={{ marginBottom: '1em' }}>
+      <TextInput size="large" defaultValue="Size large" />
+      <Button size="large" appearance="primary">
+        Button
+      </Button>
+    </Stack>
+    <Stack style={{ marginBottom: '1em' }}>
+      <TextInput label="This field has text" defaultValue="Size normal" />
+      <Button appearance="primary">Button</Button>
+    </Stack>
+    <Stack style={{ marginBottom: '1em' }}>
+      <TextInput size="compressed" defaultValue="Size compressed" />
+      <Button size="compressed" appearance="primary">
+        Button
+      </Button>
+    </Stack>
+    <Stack style={{ marginBottom: '1em' }}>
+      <TextInput size="small" defaultValue="Size small" />
+      <Button size="small" appearance="primary">
+        Button
+      </Button>
+    </Stack>
   </Example>
 ))
