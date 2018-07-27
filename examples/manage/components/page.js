@@ -15,7 +15,11 @@ import UsersIndex from '../pages/users'
 
 const Page = props => {
   if (window.location.hash === '#/' && props.defaultRoute) {
-    return <Redirect to={props.defaultRoute} />
+    return (
+      <Router>
+        <Redirect to={props.defaultRoute} />
+      </Router>
+    )
   }
   return (
     <Router>
