@@ -17,26 +17,26 @@ const StyledPagination = styled.div`
 `
 const StyledPaginationItem = styled(Button)`
   margin-right: ${spacing.small};
-  min-width: ${spacing.large};
+  min-width: ${spacing.medium};
   position: relative;
 
   &:last-child {
     margin-right: 0;
   }
 
-  ${props => props.left && `padding-left: ${spacing.large};`} 
-  ${props => props.right && `padding-right: ${spacing.large};`} 
+  ${props => props.left && `padding-left: ${spacing.xlarge};`} 
+  ${props => props.right && `padding-right: ${spacing.xlarge};`} 
 
   ${Icon.Element} {
     position: absolute;
     margin: 0;
-    padding-top: ${spacing.xsmall};
-    height: calc(${misc.button.small.height} - 2px);
+    padding-top: 10px;
+    height: calc(${misc.button.compressed.height} - 2px);
     width: 20px;
     
     svg {
       width: 15px;
-      height: 15px; 
+      height: 15px;
     }
 
     ${props =>
@@ -70,7 +70,7 @@ const renderPaginationItem = ({
     left={left}
     right={right}
     appearance={appearance}
-    size="small"
+    size="compressed"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
   >
     {content}
@@ -111,7 +111,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         key={page.label}
         appearance={appearance}
         selected={page.selected}
-        size="small"
+        size="compressed"
         onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
       >
         {page.label}
