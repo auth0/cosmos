@@ -3,6 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { misc, colors } from '../../../tokens'
 import TextInput from '../../atoms/text-input'
+import Button from '../../atoms/button'
+import ButtonGroup from '../../molecules/button-group'
+
+import Icon from '../../atoms/icon'
 import {
   changePageIfAppropiate,
   pageInputWidth,
@@ -15,24 +19,9 @@ const StyledPaginationToolbar = styled.div`
   justify-content: space-between;
 `
 
-const StyledPagerButton = styled.button`
-  background-color: ${colors.button.default.background};
-  display: inline-block;
-  align-items: center;
-  border: none;
-  outline: none;
-  height: 30px;
-
-  &:hover {
-    background-color: ${colors.button.default.backgroundHover};
-  }
-
-  &:first-child {
-    border-radius: ${misc.radius} 0 0 ${misc.radius};
-  }
-
-  &:last-child {
-    border-radius: 0 ${misc.radius} ${misc.radius} 0;
+const StyledPagerButton = styled(Button)`
+  ${Icon.Element} {
+    margin: 0;
   }
 `
 
@@ -55,11 +44,14 @@ const StyledPageSelector = styled.div`
 `
 
 const Pager = ({ onPrevPressed, onNextPressed }) => (
-  <div>
-    {/* TODO: Remove usage of '<' and '>' characters, replace with proper icons. */}
-    <StyledPagerButton onClick={onPrevPressed}>{'<'}</StyledPagerButton>
-    <StyledPagerButton onClick={onNextPressed}>{'>'}</StyledPagerButton>
-  </div>
+  <ButtonGroup compressed>
+    <StyledPagerButton size="compressed" onClick={onPrevPressed}>
+      <Icon name="chevron-left" />
+    </StyledPagerButton>
+    <StyledPagerButton size="compressed" onClick={onNextPressed}>
+      <Icon name="chevron-right" />
+    </StyledPagerButton>
+  </ButtonGroup>
 )
 
 const PaginationToolbar = ({ onPageChanged, page, perPage, items, showTotals }) => (
