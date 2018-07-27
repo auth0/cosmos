@@ -18,6 +18,7 @@ import Avatar from './atoms/avatar'
 import Badge from './atoms/badge'
 import Breadcrumb from './atoms/breadcrumb'
 import Button from './atoms/button'
+import Checkbox from './atoms/checkbox'
 import Code from './atoms/code'
 import Heading from './atoms/heading'
 import Icon from './atoms/icon'
@@ -25,7 +26,6 @@ import Image from './atoms/image'
 import Label from './atoms/label'
 import Link from './atoms/link'
 import Logo from './atoms/logo'
-import Overlay from './atoms/overlay'
 import Paragraph from './atoms/paragraph'
 import Radio from './atoms/radio'
 import Select from './atoms/select'
@@ -65,6 +65,7 @@ export {
   Breadcrumb,
   Button,
   ButtonGroup,
+  Checkbox,
   Code,
   Dialog,
   EmptyState,
@@ -77,7 +78,6 @@ export {
   Link,
   List,
   Logo,
-  Overlay,
   PageHeader,
   Pagination,
   PaginationToolbar,

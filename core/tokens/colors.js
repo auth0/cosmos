@@ -15,6 +15,7 @@ const colors = {
     orange: '#eb5424',
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
+    orangeDark: '#FF3E00',
     green: '#4CD964',
     red: '#FF0000'
   },
@@ -68,7 +69,7 @@ const colors = {
       backgroundFocus: '#E9E8E8',
       backgroundActive: '#DADADA',
       text: '#333',
-      icon: '#333',
+      icon: 'default',
       border: '#F1F1F1',
       borderHover: '#E9E8E8',
       borderFocus: '#E9E8E8',
@@ -80,7 +81,7 @@ const colors = {
       backgroundFocus: '#13B7ED',
       backgroundActive: '#11A7D9',
       text: '#FAFAFA',
-      icon: '#FAFAFA',
+      icon: 'white',
       border: '#44C7F4',
       borderHover: '#13B7ED',
       borderFocus: '#13B7ED',
@@ -92,7 +93,7 @@ const colors = {
       backgroundFocus: 'rgba(0,0,0,0.05)',
       backgroundActive: '#DADADA',
       text: '#333',
-      icon: '#333',
+      icon: 'default',
       border: '#D0D2D3',
       borderHover: '#B5B7B8',
       borderFocus: '#B5B7B8',
@@ -104,7 +105,7 @@ const colors = {
       backgroundFocus: '#D94514',
       backgroundActive: '#BF3A11',
       text: '#FAFAFA',
-      icon: '#FAFAFA',
+      icon: 'white',
       border: '#EB5424',
       borderHover: '#D94514',
       borderFocus: '#D94514',
@@ -116,7 +117,7 @@ const colors = {
       backgroundFocus: '#E40002',
       backgroundActive: '#BE0001',
       text: '#FAFAFA',
-      icon: '#FAFAFA',
+      icon: 'white',
       border: '#FF0000',
       borderHover: '#E40002',
       borderFocus: '#E40002',
@@ -127,7 +128,7 @@ const colors = {
       backgroundHover: '#4CD964',
       backgroundFocus: '#4CD964',
       text: '#FAFAFA',
-      icon: '#FAFAFA',
+      icon: 'white',
       border: '#4CD964',
       borderHover: '#4CD964',
       borderFocus: '#4CD964',
@@ -135,14 +136,17 @@ const colors = {
     },
     link: {
       text: '#0a84ae',
-      icon: '#0a84ae',
+      icon: 'blue',
       hover: '#0a84ae',
       focus: '#0a84ae'
     }
   },
   icon: {
     default: '#333',
-    light: '#A8A8A8'
+    light: '#A8A8A8',
+    sidebar: 'default',
+    sidebarHover: 'orangeDark',
+    sidebarFocus: 'orangeDark'
   },
   list: {
     backgroundHover: '#FAFAFA',
@@ -194,4 +198,4 @@ const colors = {
   }
 }
 
-export default colors
+module.exports = colors

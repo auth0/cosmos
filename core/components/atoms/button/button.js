@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
-import Spinner from '../spinner'
+import Spinner, { StyledSpinner } from '../spinner'
 import Tooltip from '../tooltip'
 
 const appearances = {
@@ -152,44 +152,34 @@ const getAttributes = props => {
   if (props.icon && !props.text) {
     styles.padding = 0
     styles.minWidth = '36px'
+    styles.icon = colors.button.link.icon
   }
 
   return styles
 }
 
 const ButtonContent = props => {
-  let content
+  let content = []
 
-  if (props.icon && props.text) {
-    // The button contains both an icon and text.
-    content = [
-      <Icon key="icon" size={16} name={props.icon} color={getAttributes(props).icon} />,
-      <Button.Text key="text">{props.text}</Button.Text>
-    ]
-  } else if (props.icon && !props.text) {
-    // The button contains just an icon.
-    content = <Icon size={16} name={props.icon} color={colors.button.link.icon} />
-  } else {
-    // The button contains just text.
-    content = <Button.Text>{props.text}</Button.Text>
+  let icon = props.success ? 'check' : props.icon
+
+  if (props.loading) {
+    content.push(<Spinner key="spinner" inverse={props.primary} />)
+  } else if (icon) {
+    content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
+  }
+
+  if (props.text) {
+    content.push(<Button.Text key="text">{props.text}</Button.Text>)
   }
 
   const Element = props.href ? Button.LinkElement : Button.Element
 
-  return <Element {...props}>{props.override || content}</Element>
+  return <Element {...props}>{content}</Element>
 }
 
 const Button = ({ children, ...props }) => {
-  let override
-
-  // Some of the state properties will override the content of the button.
-  if (props.success) {
-    override = <Icon size={16} color={colors.base.white} name="check" type="success" />
-  } else if (props.loading) {
-    override = <Spinner inverse={props.primary} />
-  }
-
-  let button = <ButtonContent {...props} text={children} override={override} />
+  let button = <ButtonContent {...props} text={children} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
@@ -230,7 +220,11 @@ Button.Element = styled.button`
     position: relative;
     top: -1px;
     color: ${props => getAttributes(props).text};
-    margin-right: ${props => (props.text && !props.loading && !props.success ? spacing.xsmall : 0)};
+    margin-right: ${props => (props.text ? spacing.xsmall : 0)};
+  }
+
+  ${StyledSpinner} {
+    margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
   &:hover {

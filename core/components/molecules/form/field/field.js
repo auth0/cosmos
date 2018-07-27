@@ -38,7 +38,10 @@ const LabelLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).labelWidth};
   margin: ${props => getLayoutValues(props.layout).labelMargin};
   text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
-  padding-right: ${spacing.medium};
+  padding-right: ${props => (props.layout === 'label-on-left' ? spacing.medium : 'none')};
+  padding-top: ${props => (props.layout === 'label-on-left' ? '11px' : '0')};
+  min-height: ${props => (props.layout === 'label-on-left' ? '44px' : 'none')};
+  margin-bottom: ${props => (props.layout === 'label-on-top' ? '8px' : '0')};
 `
 const ContentLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).contentWidth};
@@ -47,6 +50,7 @@ const ContentLayout = styled.div`
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
+  const { error, ...fieldProps } = props
 
   return (
     <FormContext.Consumer>
@@ -56,7 +60,11 @@ const Field = props => {
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
           </LabelLayout>
           <ContentLayout layout={context.layout}>
-            {props.fieldComponent ? <props.fieldComponent id={id} {...props} /> : props.children}
+            {props.fieldComponent ? (
+              <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
+            ) : (
+              props.children
+            )}
             {props.error ? <StyledError>{props.error}</StyledError> : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
           </ContentLayout>

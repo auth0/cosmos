@@ -28,9 +28,9 @@ class SideNavigation extends React.Component {
           />
           <Sidebar.Link
             icon="clients"
-            label="Clients"
-            url="#/clients"
-            selected={this.isSelected('/clients')}
+            label="Applications"
+            url="#/applications"
+            selected={this.isSelected('/applications')}
           />
           <Sidebar.Link icon="apis" label="APIs" url="#/apis" selected={this.isSelected('/apis')} />
           <Sidebar.Link

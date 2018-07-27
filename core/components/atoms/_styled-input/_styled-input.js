@@ -27,7 +27,7 @@ const config = {
 
 const getAttributes = props => {
   if (props.readOnly) return config.readOnly
-  else if (props.error) return config.error
+  else if (props.hasError || props.error) return config.error
   else return config.basic
 }
 

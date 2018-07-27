@@ -11,6 +11,7 @@ A `ResourceList.Item` is a single item that is displayed in a [ResourceList](#/c
   subtitle="Example Subtitle"
   href="https://auth0.com/"
   icon="clients"
+  onClick={evt => alert('Clicked!')}
   actions={[
     { icon: 'settings', label: 'Settings', handler: function(){} },
     { icon: 'delete', label: 'Delete', handler: function(){} }
@@ -74,6 +75,22 @@ between the header (title, subtitle, etc.) and the actions. This is the main rea
   actions={[
     { icon: 'settings', label: 'Settings', handler: function() {} },
     { icon: 'delete', label: 'Delete', handler: function() {} }
+  ]}
+>
+  This is the list item's body
+</ResourceList.Item>
+```
+
+## Disabled Actions
+
+```js
+<ResourceList.Item
+  title="A List Item"
+  subtitle="Example Subtitle"
+  icon="clients"
+  actions={[
+    { icon: 'settings', label: 'Settings', handler: function() {} },
+    { icon: 'delete', label: 'Delete', handler: function() {}, disabled: true }
   ]}
 >
   This is the list item's body

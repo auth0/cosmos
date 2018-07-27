@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -12,7 +12,8 @@
     "internal/overview",
     "internal/docs",
     "examples/manage",
-    "examples/webpack-hello-world"
+    "examples/webpack-hello-world",
+    "examples/perf-tests"
   ],
   "scripts": {
     "scripts": "nps -s",
@@ -37,6 +38,7 @@
     "@storybook/addon-links": "4.0.0-alpha.12",
     "@storybook/addons": "4.0.0-alpha.12",
     "@storybook/react": "4.0.0-alpha.12",
+    "babel-cli": "6.26.0",
     "chokidar": "2.0.4",
     "execa": "0.10.0",
     "fs-extra": "6.0.1",

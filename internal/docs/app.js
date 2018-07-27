@@ -1,28 +1,54 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
+import { Icon } from '@auth0/cosmos'
 
 import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
 import GuidingPrinciples from './guiding-principles'
+import Usage from './usage'
 import ContributionGuide from './contribution-guide'
 import FAQS from './faqs'
 import Changes from './changes'
-
-const Layout = styled.div`
-  position: relative;
-  width: 100%;
-`
+import Overview from './overview'
 
 const SideContent = styled.div`
   width: 19rem;
   position: fixed;
+  transition: width 0.25s;
+
+  @media (max-width: 800px) {
+    width: ${props => (props.visible ? '19rem' : '0rem')};
+    z-index: 2;
+  }
+`
+const SidebarToggle = styled.div`
+  padding: 16px;
+  position: fixed;
+  left: ${props => (props.sidebarVisible ? '19rem' : '0rem')};
+  transition: left 0.25s;
+  z-index: 3;
+
+  &:hover {
+    svg path {
+      fill: ${props => (props.sidebarVisible ? '#E40002' : '#0a84ae')};
+    }
+  }
+
+  display: none;
+  @media (max-width: 800px) {
+    display: block;
+  }
 `
 
 const MainContent = styled.div`
   padding-left: 19rem;
   padding-bottom: 4rem;
+
+  @media (max-width: 800px) {
+    padding-left: 4rem;
+  }
 `
 
 const Body = styled.div`
@@ -32,7 +58,20 @@ const Body = styled.div`
   padding: 2.1rem 1.05rem;
 `
 
+const Layout = styled.div`
+  position: relative;
+  width: 100%;
+`
+
 class App extends React.Component {
+  constructor() {
+    super()
+
+    this.state = { sidebarVisible: false }
+  }
+  toggleSidebar = () => {
+    this.setState({ sidebarVisible: !this.state.sidebarVisible })
+  }
   componentDidMount() {
     // Copied from: https://github.com/ReactTraining/react-router/issues/394#issuecomment-128148470
     // Decode entities in the URL
@@ -43,6 +82,8 @@ class App extends React.Component {
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
         document.querySelector(`#${hash}`).scrollIntoView()
+      } else {
+        document.querySelector('#main').scrollIntoView()
       }
     }
     scrollToAnchor()
@@ -52,18 +93,23 @@ class App extends React.Component {
     return (
       <Router>
         <Layout>
-          <SideContent>
+          <SidebarToggle sidebarVisible={this.state.sidebarVisible} onClick={this.toggleSidebar}>
+            <Icon name={this.state.sidebarVisible ? 'close' : 'arrow-right'} />
+          </SidebarToggle>
+          <SideContent visible={this.state.sidebarVisible}>
             <Sidebar />
           </SideContent>
-          <MainContent>
+          <MainContent id="main">
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
+              <Route path="/usage" component={Usage} />
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
               <Route exact path="/changes" component={Changes} />
               <Route exact path="/component/:componentName" component={Spec} />
               <Route exact path="/" component={Home} />
             </Body>
+            <Route exact path="/overview" component={Overview} />
           </MainContent>
         </Layout>
       </Router>

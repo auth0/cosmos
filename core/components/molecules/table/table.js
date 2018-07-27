@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, spacing } from '../../tokens'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 
@@ -48,9 +48,13 @@ class Table extends React.Component {
     else return Table.compare.strings
   }
 
+  handleRowClicked = item => evt => {
+    this.props.onRowClick(evt, item)
+  }
+
   render() {
     const rows = this.state.items.map((item, index) => (
-      <Table.Row key={`row-${index}`}>
+      <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)}>
         {this.columns.map(column => {
           const cellRenderer = column.children || defaultCellRenderer
           return (
@@ -90,7 +94,9 @@ Table.Element = styled.table`
 
 Table.Body = styled.tbody``
 
-Table.Row = styled.tr``
+Table.Row = styled.tr`
+  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+`
 
 Table.Cell = styled.td`
   padding: ${spacing.xsmall};
@@ -102,11 +108,16 @@ Table.Cell = styled.td`
 `
 
 Table.propTypes = {
+  /** The items in the table. */
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  /** A function that will be called when a row is clicked. */
+  onRowClick: PropTypes.func,
+  /** A function that will be called when the table is re-sorted via clicking a header. */
   onSort: PropTypes.func
 }
 
 Table.defaultProps = {
+  onRowClick: () => null,
   onSort: () => null
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Icon, Tooltip } from '@auth0/cosmos'
-import { spacing, colors } from '@auth0/cosmos/tokens'
+import { spacing } from '@auth0/cosmos/tokens'
 import uniqueId from '@auth0/cosmos/_helpers/uniqueId'
 
 const Wrapper = styled.div`
@@ -46,11 +46,7 @@ class CopyButton extends React.Component {
       <Wrapper onClick={this.copyCode.bind(this)}>
         <input id={this.state.uniqueId} value={this.props.code} onChange={() => {}} />
         <Tooltip content={this.state.copied ? 'Copied!' : 'Copy code'}>
-          <Icon
-            name="copy"
-            label="Copy code"
-            color={this.state.copied ? colors.base.green : colors.base.grayLight}
-          />
+          <Icon name="copy" label="Copy code" color={this.state.copied ? 'green' : 'grayLight'} />
         </Tooltip>
       </Wrapper>
     )

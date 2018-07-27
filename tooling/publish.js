@@ -73,7 +73,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   try {
     directories.forEach(directory => {
       const dir = directory.replace('core', 'dist')
-      execa.shellSync(`cd ${dir} && npm publish`)
+      execa.shellSync(`cd ${dir} && npm publish --tag beta`)
       info('PUBLISH', `published ${dir}`)
     })
   } catch (err) {

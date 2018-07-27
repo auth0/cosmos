@@ -1,4 +1,7 @@
-const { series: { nps: series }, concurrent: { nps: parallel } } = require('nps-utils')
+const {
+  series: { nps: series },
+  concurrent: { nps: parallel }
+} = require('nps-utils')
 
 module.exports = {
   scripts: {
@@ -8,8 +11,6 @@ module.exports = {
         script: series(
           'production.directory',
           'icons.build',
-          'overview.build',
-          'production.copy.overview',
           'metadata.build',
           'docs.build',
           'production.copy.docs',
@@ -25,10 +26,6 @@ module.exports = {
         description: 'Create build directory'
       },
       copy: {
-        overview: {
-          script: 'cp -r internal/overview/public build/overview',
-          description: 'Copy generated overview to main production build'
-        },
         docs: {
           script: 'cp -r internal/docs/public build/docs',
           description: 'Copy generated docs site to main production build'
@@ -70,16 +67,6 @@ module.exports = {
       build: {
         script: 'node tooling/component-metadata',
         description: 'Generate metadata from components'
-      }
-    },
-    overview: {
-      dev: {
-        script: 'cd internal/overview && yarn dev',
-        description: 'Start overview site in dev mode'
-      },
-      build: {
-        script: 'cd internal/overview && yarn build',
-        description: 'Build overview site'
       }
     },
     docs: {

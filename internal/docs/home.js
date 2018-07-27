@@ -4,61 +4,57 @@ import Helmet from 'react-helmet'
 
 import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
 import CodeBlock from './docs-components/code-block'
-import { Code } from '@auth0/cosmos'
+import Tag from './docs-components/tag'
 
-const Container = styled.div``
+import { Code, Icon, List, Badge } from '@auth0/cosmos'
 
 class Home extends React.Component {
   render() {
     return (
       <div>
         <Helmet title="Documentation &mdash; Cosmos" />
-        <Container>
-          <Heading1>Getting Started</Heading1>
-          <Subheader>Cosmos is a Design System to build Auth0 products.</Subheader>
-          <Heading2>Installation</Heading2>
-          <Text>
-            To add <Code>cosmos</Code> to your react application, run
-            <CodeBlock language="shell">$ yarn add @auth0/cosmos</CodeBlock>
-            If you prefer npm, run this command instead:
-            <CodeBlock language="shell">$ npm install --save @auth0/cosmos</CodeBlock>
-            That is all you need to do, you are now ready to use it in your app, no build step
-            needed.
-            <br />
-            (This is the temporary package name, it will soon move to the <Code>auth0/cosmos</Code>)
-          </Text>
+        <Heading1>Getting Started</Heading1>
+        <Subheader>Cosmos is a Design System to build Auth0 products.</Subheader>
 
-          <Heading2>Usage</Heading2>
-          <Text>
-            Import components that you want from the library
-            <CodeBlock language="javascript">{`import { Button } from '@auth0/cosmos'`}</CodeBlock>
-            and use them along with you React components:
-            <CodeBlock language="javascript">{`
-const Actions = () => <div>
-  <Button appearance="primary" onClick={this.save}>Save changes</Button>
-  <Button onClick={this.clear}>Clear</Button>
-</div>
-            `}</CodeBlock>
-          </Text>
+        <Heading2>Installation</Heading2>
+        <Text>
+          To add <Code>cosmos</Code> to your react application, run
+          <CodeBlock language="shell">$ yarn add @auth0/cosmos</CodeBlock>
+          If you prefer npm, run this command instead:
+          <CodeBlock language="shell">$ npm install --save @auth0/cosmos</CodeBlock>
+          That is all you need to do, you are now ready to use it in your app, no build step needed.
+          <br />
+          <br />
+          Continue to the <Link href="#/usage">usage section</Link> to read more.
+        </Text>
 
-          <Text>
-            To learn more about the components and the <Code>props</Code> they offer, pick a
-            component from the sidebar on the left.
-          </Text>
-          <Text>
-            You can also look at example code from our Manage Clients{' '}
-            <Link href="https://github.com/auth0/cosmos/tree/master/src/manage">
-              proof of concept repo.
-            </Link>
-          </Text>
+        <Heading2>Examples</Heading2>
+        <Text>
+          <div>We have created some applications with cosmos:</div>
+          <br />
+          <Link href="/?url=manage/#/clients">PoC of manage</Link>
+          <br />
+          <br />
+          <Link href="#/overview">Overview of components</Link>
+          <br />
+          <br />
+          <Link href="https://github.com/auth0/cosmos/tree/master/examples/webpack-hello-world">
+            Hello world
+          </Link>
+        </Text>
 
-          <Heading2>Feedback</Heading2>
-          <Text>
-            Issues or feature requests can be created on
-            <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
-            <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.
-          </Text>
-        </Container>
+        <Heading2>Feedback</Heading2>
+        <Text>
+          Issues or feature requests can be created on
+          <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
+          <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.
+        </Text>
+
+        <Heading2>Useful links</Heading2>
+        <Link href="/sandbox">Sandbox</Link>
+        <br />
+        <br />
+        <Link href="#">Sketch UI Kit (coming soon)</Link>
       </div>
     )
   }

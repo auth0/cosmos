@@ -51,7 +51,7 @@ export function totals(page, perPage, items) {
   const fromRecord = toRecord - perPage + 1
 
   if (toRecord > items) toRecord = items
-
+  
   return `Showing ${fromRecord} - ${toRecord} of ${items}`
 }
 

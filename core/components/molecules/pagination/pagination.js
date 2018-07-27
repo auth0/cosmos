@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
-
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
+
 import {
   getPaginationSlice,
   changePageIfAppropiate,
@@ -75,6 +75,7 @@ const renderPaginationItem = ({
   >
     {content}
   </StyledPaginationItem>
+
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
@@ -82,6 +83,7 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
+
 
 const firstPageButton = (
   <span>

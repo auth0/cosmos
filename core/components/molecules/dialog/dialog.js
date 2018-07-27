@@ -3,13 +3,24 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
-import Overlay from '../../atoms/overlay'
+import Overlay from '../../atoms/_overlay'
 import Icon from '../../atoms/icon'
 import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 
 const createButtonForAction = (action, index) => {
+  // As we also support passing raw <Button> components
+  // as actions, we only need to create buttons for actions
+  // when the action is instance of DialogAction.
+  if (!(action instanceof DialogAction)) {
+    if (action.displayName !== Button.displayName) {
+      throw new Error('Invalid action component passed to Dialog.')
+    }
+
+    return action
+  }
+
   const buttonProps = {
     onClick: action.handler,
     appearance: action.appearance
@@ -80,7 +91,9 @@ Dialog.Action = DialogAction
 Dialog.Element = DialogElement
 
 Dialog.propTypes = {
-  actions: PropTypes.arrayOf(PropTypes.instanceOf(DialogAction)).isRequired,
+  actions: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
+  ).isRequired,
   title: PropTypes.string.isRequired,
   width: PropTypes.number,
   onClose: PropTypes.func

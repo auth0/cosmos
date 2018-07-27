@@ -1,12 +1,18 @@
 const webpack = require('webpack')
 const path = require('path')
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: ['react-hot-loader/patch', path.resolve(process.cwd(), './index.js')],
+  entry: [
+    path.join(__dirname, '../utils/prop-type-errors.js'),
+    'react-hot-loader/patch',
+    path.resolve(process.cwd(), './index.js')
+  ],
   output: {
     path: path.resolve(process.cwd(), 'public')
   },
+  devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: path.resolve(process.cwd(), 'public')
   },
@@ -25,6 +31,7 @@ module.exports = {
       }
     ]
   },
+  plugins: [new ErrorOverlayPlugin()],
   node: {
     fs: 'empty'
   }

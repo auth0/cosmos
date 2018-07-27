@@ -5,8 +5,8 @@ import { misc, colors } from '../../../tokens'
 import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
-
 import Icon from '../../atoms/icon'
+
 import {
   changePageIfAppropiate,
   pageInputWidth,
