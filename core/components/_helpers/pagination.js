@@ -47,8 +47,10 @@ export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
  * @param {number} items
  */
 export function totals(page, perPage, items) {
-  const toRecord = page * perPage
+  let toRecord = page * perPage
   const fromRecord = toRecord - perPage + 1
+
+  if (toRecord > items) toRecord = items
 
   return `Showing ${fromRecord} - ${toRecord} of ${items}`
 }
