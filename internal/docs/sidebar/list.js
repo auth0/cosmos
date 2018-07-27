@@ -70,6 +70,11 @@ const List = props => {
             Component overview
           </NavLink>
         </StyledLink>
+        <StyledLink>
+          <NavLink to="/playground" activeClassName="selected">
+            Cosmos playground
+          </NavLink>
+        </StyledLink>
       </Group>
 
       <Group label="Building blocks" open>
