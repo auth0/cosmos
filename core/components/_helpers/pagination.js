@@ -47,9 +47,11 @@ export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
  * @param {number} items
  */
 export function totals(page, perPage, items) {
-  const toRecord = page * perPage
+  let toRecord = page * perPage
   const fromRecord = toRecord - perPage + 1
 
+  if (toRecord > items) toRecord = items
+  
   return `Showing ${fromRecord} - ${toRecord} of ${items}`
 }
 
@@ -60,17 +62,17 @@ export function totals(page, perPage, items) {
  *  Given the page 77 with a pages-per-slice value of 10,
  *  we would obtain the following range:
  *
- *    70, 71, 72, [[73]], 74, 75, 76, 77, 78, 79, ..., 310
+ *    70, 71, 72, [[73]], 74, 75, 76, 77, 78, 79
  *
  *  with the format:
- *    { label: number | string, selected: boolean, clickable: boolean }.
+ *    { label: number | string, selected: boolean }.
  *
  * @param {number} page
  * @param {number} items
  * @param {number} itemsPerPage
  * @param {number} pagesPerSlice
  */
-export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 10) {
+export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 5) {
   const actualPage = page - 1
   const minPage = actualPage - (actualPage % pagesPerSlice)
   const maxPage = pagesFromItems(items, itemsPerPage)
@@ -82,13 +84,6 @@ export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 10
       return { label: pageNumber, selected }
     })
     .filter(i => i.label <= maxPage)
-
-  const rangeLabels = range.map(x => x.label)
-  if (rangeLabels.indexOf(maxPage) === -1) {
-    const rangeWithEllipsis = [...range, { label: '…', clickable: false }, { label: maxPage }]
-
-    return rangeWithEllipsis
-  }
 
   return range
 }
