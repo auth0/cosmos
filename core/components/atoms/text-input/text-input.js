@@ -15,7 +15,7 @@ const TextInput = ({ defaultValue, type, ...props }) => {
 }
 
 TextInput.Element = StyledInput.extend`
-  height: ${misc.input.default.height};
+  height: ${props => misc.input[props.size].height};
 `
 
 TextInput.propTypes = {
@@ -37,6 +37,8 @@ TextInput.propTypes = {
   defaultValue: PropTypes.string,
   /** The (HTML) type for the input. */
   type: PropTypes.string,
+  /** The size of the input. */
+  size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -47,7 +49,8 @@ TextInput.defaultProps = {
   code: false,
   error: null,
   onChange: null,
-  type: 'text'
+  type: 'text',
+  size: 'default'
 }
 
 export default TextInput

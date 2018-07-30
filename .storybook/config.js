@@ -2,11 +2,17 @@ import { configure } from '@storybook/react'
 import { getStorybook } from '@storybook/react'
 import 'react-chromatic/storybook-addon'
 
-let req = require.context('../core/components/', true, /story\.js$/)
-if (process.env.SKETCH) req = require.context('../core/components/', true, /sketch\.js$/)
+/* This line loads all the .story files from the components */
+const components = require.context('../core/components/', true, /story\.js$/)
+const sketchStories = require.context('../core/components/', true, /sketch\.js$/)
+const examples = require.context('../examples/', true, /story\.js$/)
 
 function loadStories() {
-  req.keys().forEach(req)
+  if (process.env.SKETCH) sketchStories.keys().forEach(sketchStories)
+  else {
+    components.keys().forEach(components)
+    examples.keys().forEach(examples)
+  }
 }
 
 configure(loadStories, module)
