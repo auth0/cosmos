@@ -4,7 +4,7 @@
 ```
 
 ```jsx
-<Pager {props} defaults={{items: 20372, perPage: 10, page: 3}} />
+<Pager {props} defaults={{items: "20372", perPage: "10", page: "3"}} />
 ```
 
 ## Example

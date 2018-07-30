@@ -6,7 +6,7 @@
 A `<PaginationToolbar />` component is meant to be used along `ResourceList` and `Table`.
 
 ```jsx
-<PaginationToolbar {props} defaults={{items: 20372, perPage: 10, page: 3, showTotals: false}} />
+<PaginationToolbar {props} defaults={{items: "20372", perPage: "10", page: "3", showTotals: "false"}} />
 ```
 
 ## Example
@@ -193,4 +193,3 @@ class PaginatedResourceList extends React.Component {
   }
 }
 ```
-
