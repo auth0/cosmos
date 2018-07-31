@@ -118,7 +118,7 @@ ResourceListItem.propTypes = {
   /** If specified, the main text will be rendered as a hyperlink with this as the target. */
   href: PropTypes.string,
   /** An image URL to display as a thumbnail image for the list item. */
-  image: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** An icon to display as a thumbnail image for the list item. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** A function that will be called when the list item is clicked. */

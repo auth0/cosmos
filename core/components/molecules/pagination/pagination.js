@@ -75,6 +75,7 @@ const renderPaginationItem = ({
   >
     {content}
   </StyledPaginationItem>
+
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {

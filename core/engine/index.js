@@ -1,9 +1,10 @@
-#!/usr/bin/env node
+/* This file contains helpers that can be imported by the application */
 
-const argv = require('yargs').argv
-const command = argv._[0]
+const path = require('path')
 
-if (command === 'start') require('./start')
-else if (command === 'build') require('./build')
-else if (command === 'dev') require('./dev')
-else console.log('command not found')
+const getConfig = mode => {
+  const configPath = path.join(__dirname, `./configs/webpack.${mode}.config.js`)
+  return require(configPath)
+}
+
+module.exports = { getConfig }

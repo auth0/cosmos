@@ -187,6 +187,7 @@ const TopNavigation = () => (
                 <UserDropdown>
                   <div className="tenant-name">cosmos-demo</div>
                   <Avatar
+                    type="resource"
                     size="small"
                     image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
                   />
