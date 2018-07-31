@@ -60,6 +60,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items, showTotals }) 
       <div>Page</div>
       <TextInput
         type="number"
+        size="compressed"
         value={page.toString()}
         onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
       />

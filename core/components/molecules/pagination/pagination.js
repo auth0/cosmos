@@ -17,7 +17,7 @@ const StyledPagination = styled.div`
 `
 const StyledPaginationItem = styled(Button)`
   margin-right: ${spacing.small};
-  min-width: ${spacing.medium};
+  min-width: ${spacing.small};
   position: relative;
 
   &:last-child {
@@ -75,7 +75,6 @@ const renderPaginationItem = ({
   >
     {content}
   </StyledPaginationItem>
-
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
@@ -83,7 +82,6 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
-
 
 const firstPageButton = (
   <span>

@@ -37,7 +37,13 @@ export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
   const pageCount = pagesFromItems(total, perPage)
   const nextPageExists = nextPage > 0 && nextPage <= pageCount
 
-  if (nextPageExists) handlerFn(nextPage)
+  if (nextPageExists) {
+    if (handlerFn) {
+      handlerFn(nextPage)
+    } else {
+      console.error('You must define an onPageChange function.')
+    }
+  }
 }
 
 /**
@@ -51,7 +57,7 @@ export function totals(page, perPage, items) {
   const fromRecord = toRecord - perPage + 1
 
   if (toRecord > items) toRecord = items
-  
+
   return `Showing ${fromRecord} - ${toRecord} of ${items}`
 }
 
