@@ -49,6 +49,10 @@
 </Table>
 ```
 
+## Examples
+
+### Sorting
+
 ```js
 /* you have access to all cosmos components here */
 
