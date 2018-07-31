@@ -1,6 +1,7 @@
 ```meta
   category: Layout
   description: "Paginate resources with a handy pagination component"
+  unstable: true
 ```
 
 ```jsx
