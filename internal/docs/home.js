@@ -48,6 +48,10 @@ class Home extends React.Component {
           Issues or feature requests can be created on
           <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
           <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.
+          <br />
+          <br />
+          You can use the <Link href="#/playground">playground</Link> to test and share code, report
+          bugs and ask for feedback.
         </Text>
 
         <Heading2>Useful links</Heading2>
