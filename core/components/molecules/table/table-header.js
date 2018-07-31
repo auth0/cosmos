@@ -44,6 +44,10 @@ TableHeader.Cell = styled.th`
   vertical-align: bottom;
   line-height: 2;
   cursor: ${props => (props.column.sortable || props.column.sort ? 'pointer' : 'auto')};
+  &:hover {
+    color: ${props =>
+      props.column.sortable || props.column.sort ? colors.link.default : 'inherit'};
+  }
 `
 
 TableHeader.SortIndicator = styled.span`

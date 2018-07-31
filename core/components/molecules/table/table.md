@@ -54,8 +54,6 @@
 ### Sorting
 
 ```js
-/* you have access to all cosmos components here */
-
 class Example extends React.Component {
   constructor() {
     super()
@@ -103,7 +101,8 @@ class Example extends React.Component {
         <Table.Column field="image" width="50px">
           {item => <Avatar type="user" image={item.image} />}
         </Table.Column>
-        <Table.Column field="name" title="Name" width="40%" />
+        <Table.Column field="name" title="Name" width="30%" />
+        <Table.Column field="country" title="Country" />
         <Table.Column
           field="goals"
           title="Goals"
