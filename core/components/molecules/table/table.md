@@ -48,3 +48,72 @@
   <Table.Column field="died" title="Died" sortable />
 </Table>
 ```
+
+```js
+/* you have access to all cosmos components here */
+
+class Example extends React.Component {
+  constructor() {
+    super()
+    this.state = { sortOn: 'goals', direction: 'desc' }
+  }
+  onSort(column) {
+    const direction = column.sort === 'asc' ? 'desc' : 'asc'
+    this.setState({ sortOn: column.field, direction })
+  }
+  render() {
+    return (
+      <Table
+        items={[
+          {
+            name: 'Harry Kane',
+            goals: 6,
+            assists: 0,
+            country: '🇬🇧',
+            image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+          },
+          {
+            name: 'Romelu Lukaku',
+            goals: 4,
+            assists: 1,
+            country: '🇧🇪',
+            image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+          },
+          {
+            name: 'Antoine Griezmann',
+            goals: 4,
+            assists: 2,
+            country: '🇫🇷',
+            image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+          },
+          {
+            name: 'Ivan Perišić',
+            goals: 3,
+            assists: 1,
+            country: '🇭🇷',
+            image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+          }
+        ]}
+        onSort={this.onSort.bind(this)}
+      >
+        <Table.Column field="image" width="50px">
+          {item => <Avatar type="user" image={item.image} />}
+        </Table.Column>
+        <Table.Column field="name" title="Name" width="40%" />
+        <Table.Column
+          field="goals"
+          title="Goals"
+          sortable
+          sort={this.state.sortOn === 'goals' ? this.state.direction : null}
+        />
+        <Table.Column
+          field="assists"
+          title="Assists"
+          sortable
+          sort={this.state.sortOn === 'assists' ? this.state.direction : null}
+        />
+      </Table>
+    )
+  }
+}
+```

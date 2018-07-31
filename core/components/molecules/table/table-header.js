@@ -11,13 +11,15 @@ const TableHeader = props => {
     if (column.sort) {
       const order = column.sort || 'asc'
       const icon = order === 'asc' ? '↑' : '↓'
-      sortIndicator = (
-        <TableHeader.SortIndicator onClick={props.onSort(column)}>{icon}</TableHeader.SortIndicator>
-      )
+      sortIndicator = <TableHeader.SortIndicator>{icon}</TableHeader.SortIndicator>
     }
 
     return (
-      <TableHeader.Cell key={`row-header-${index}`} column={column}>
+      <TableHeader.Cell
+        key={`row-header-${index}`}
+        column={column}
+        onClick={() => column.sortable && props.onSort(column)}
+      >
         {column.title}
         {sortIndicator}
       </TableHeader.Cell>
