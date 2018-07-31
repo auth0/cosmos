@@ -34,7 +34,7 @@ const colors = {
   input: {
     background: '#FFF',
     backgroundReadOnly: '#F3F4F4',
-    border: '#D9D9D9',
+    border: '#CCCCCC',
     borderHover: '#B7B7B7',
     borderFocus: '#0a84ae',
     borderError: '#FF0000',
