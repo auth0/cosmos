@@ -198,6 +198,7 @@ Button.Element = styled.button`
 
   text-transform: uppercase;
   text-align: center;
+  white-space: nowrap;
   letter-spacing: 1px;
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
