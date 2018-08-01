@@ -44,7 +44,7 @@
     {item => <Avatar type="user" image={item.image} />}
   </Table.Column>
   <Table.Column field="name" title="Name" width="40%" />
-  <Table.Column field="born" title="Born" sortable sort="asc" />
+  <Table.Column field="born" title="Born" sortable />
   <Table.Column field="died" title="Died" sortable />
 </Table>
 ```
