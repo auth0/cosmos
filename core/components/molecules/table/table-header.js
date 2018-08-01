@@ -8,8 +8,8 @@ const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
     let sortIndicator
 
-    if (column.sort) {
-      const order = column.sort || 'asc'
+    if (column.field === props.sortingColumn.field) {
+      const order = props.sortDirection || 'asc'
       const icon = order === 'asc' ? '↑' : '↓'
       sortIndicator = <TableHeader.SortIndicator>{icon}</TableHeader.SortIndicator>
     }
@@ -18,7 +18,7 @@ const TableHeader = props => {
       <TableHeader.Cell
         key={`row-header-${index}`}
         column={column}
-        onClick={() => column.sortable && props.onSort(column)}
+        onClick={() => column.sortable && props.onSort(column.field)}
       >
         {column.title}
         {sortIndicator}

@@ -57,11 +57,11 @@
 class Example extends React.Component {
   constructor() {
     super()
-    this.state = { sortOn: 'goals', direction: 'desc' }
+    this.state = { sortOn: 'assists', sortDirection: 'desc' }
   }
-  onSort(column) {
-    const direction = column.sort === 'asc' ? 'desc' : 'asc'
-    this.setState({ sortOn: column.field, direction })
+  onSort(sortOn) {
+    const sortDirection = this.state.sortDirection === 'asc' ? 'desc' : 'asc'
+    this.setState({ sortOn, sortDirection })
   }
   render() {
     return (
@@ -96,25 +96,18 @@ class Example extends React.Component {
             image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
           }
         ]}
+        sortOn={this.state.sortOn}
+        sortDirection={this.state.sortDirection}
         onSort={this.onSort.bind(this)}
+        onRowClick={(event, row) => alert(row.name + '!!')}
       >
         <Table.Column field="image" width="50px">
           {item => <Avatar type="user" image={item.image} />}
         </Table.Column>
         <Table.Column field="name" title="Name" width="30%" />
         <Table.Column field="country" title="Country" />
-        <Table.Column
-          field="goals"
-          title="Goals"
-          sortable
-          sort={this.state.sortOn === 'goals' ? this.state.direction : null}
-        />
-        <Table.Column
-          field="assists"
-          title="Assists"
-          sortable
-          sort={this.state.sortOn === 'assists' ? this.state.direction : null}
-        />
+        <Table.Column field="goals" title="Goals" sortable />
+        <Table.Column field="assists" title="Assists" sortable />
       </Table>
     )
   }
