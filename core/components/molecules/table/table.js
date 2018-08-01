@@ -17,8 +17,11 @@ class Table extends React.Component {
       /* find matching column by field prop */
       return columns.find(column => column.field === sortOn)
     } else {
-      /* default to the first column that has sortable prop */
-      return columns.find(column => column.sortable)
+      /*
+        default to the first column that has sortable prop
+        if there are no columns with sortable, return empty
+      */
+      return columns.find(column => column.sortable) || {}
     }
   }
 
