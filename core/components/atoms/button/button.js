@@ -217,15 +217,14 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${Icon.Element} {
+  ${Icon.Element}, ${StyledSpinner} {
     position: relative;
     top: -1px;
-    color: ${props => getAttributes(props).text};
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
-  ${StyledSpinner} {
-    margin-right: ${props => (props.text ? spacing.xsmall : 0)};
+  ${Icon.Element} {
+    color: ${props => getAttributes(props).text};
   }
 
   &:hover {
