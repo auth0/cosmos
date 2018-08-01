@@ -18,7 +18,8 @@ const TableHeader = props => {
       <TableHeader.Cell
         key={`row-header-${index}`}
         column={column}
-        onClick={() => column.sortable && props.onSort(column.field)}
+        sortable={column.sortable && props.onSort}
+        onClick={() => column.sortable && props.onSort && props.onSort(column.field)}
       >
         {column.title}
         {sortIndicator}
@@ -43,10 +44,9 @@ TableHeader.Cell = styled.th`
   text-align: left;
   vertical-align: bottom;
   line-height: 2;
-  cursor: ${props => (props.column.sortable || props.column.sort ? 'pointer' : 'auto')};
+  cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
   &:hover {
-    color: ${props =>
-      props.column.sortable || props.column.sort ? colors.link.default : 'inherit'};
+    color: ${props => (props.sortable ? colors.link.default : 'inherit')};
   }
 `
 

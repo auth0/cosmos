@@ -129,7 +129,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
   onRowClick: () => null,
-  onSort: () => null,
+  onSort: null,
   sortDirection: 'asc'
 }
 
