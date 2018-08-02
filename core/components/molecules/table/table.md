@@ -113,3 +113,61 @@ class Example extends React.Component {
   }
 }
 ```
+
+## Table Column
+
+### Title
+
+You can define a custom title for each column.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo" />
+  <Table.Column field="bar" title="Bar" />
+</Table>
+```
+
+### Width
+
+By default, columns are evenly spaced. You can set custom per-column widths using the `width` prop.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo" width="80%" />
+  <Table.Column field="bar" title="Bar" />
+</Table>
+```
+
+### Custom cell rendering
+
+You can render each cell on a given column by using passing a render prop to the column component.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo">
+    {row => <Tag>{row.foo}</Tag>}
+  </Table.Column>
+  <Table.Column field="bar" title="Bar" />
+</Table>
+```
