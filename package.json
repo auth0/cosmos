@@ -32,6 +32,11 @@
       "git add"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 100
+  },
   "dependencies": {},
   "devDependencies": {
     "@storybook/addon-actions": "4.0.0-alpha.12",
