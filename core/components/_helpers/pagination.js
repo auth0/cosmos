@@ -37,13 +37,7 @@ export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
   const pageCount = pagesFromItems(total, perPage)
   const nextPageExists = nextPage > 0 && nextPage <= pageCount
 
-  if (nextPageExists) {
-    if (handlerFn) {
-      handlerFn(nextPage)
-    } else {
-      console.error('You must define an onPageChange function.')
-    }
-  }
+  if (nextPageExists) handlerFn(nextPage)
 }
 
 /**
