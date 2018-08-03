@@ -38,7 +38,9 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props)
     this.tabs = React.Children.toArray(props.children)
-    this.state = { selectedIndex: this.getSelectedTabFromChildProps(this.tabs) }
+    this.state = {
+      selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
+    }
   }
 
   componentDidUpdate() {
@@ -53,7 +55,9 @@ class Tabs extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.tabs = React.Children.toArray(newProps.children)
-    this.setState({ selectedIndex: this.getSelectedTabFromChildProps(this.tabs) })
+    this.setState({
+      selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
+    })
   }
 
   getSelectedTabFromChildProps(tabs) {
@@ -68,15 +72,15 @@ class Tabs extends React.Component {
   }
 
   changeTab(nextIndex) {
-    const currentIndex = this.props.selected; 
+    const currentIndex = this.props.selected
 
     if (currentIndex !== nextIndex) {
-        this.props.onSelect(nextIndex)
+      this.props.onSelect(nextIndex)
     }
   }
 
   render() {
-    const { selected: selectedIndex } = this.props;
+    const { selected: selectedIndex } = this.props
 
     return (
       <Wrapper>
@@ -112,4 +116,4 @@ Tabs.defaultProps = {
   children: []
 }
 
-export default Tabs 
+export default Tabs
