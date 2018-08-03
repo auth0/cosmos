@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Tabs } from '@auth0/cosmos'
+import { Avatar, Tabs, Breadcrumb } from '@auth0/cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
@@ -11,6 +11,11 @@ class ApplicationDetail extends React.Component {
   render() {
     return (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Link href="#/applications" icon="arrow-left-fill">
+            Back to Applications
+          </Breadcrumb.Link>
+        </Breadcrumb>
         <ApplicationPageHeader
           title="API Explorer Application"
           type={{

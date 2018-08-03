@@ -13,6 +13,7 @@ const StyledListItem = styled.li`
   flex-flow: row nowrap;
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
+  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
     background: ${colors.list.backgroundHover};
   }
@@ -76,9 +77,7 @@ const ResourceListItem = props => {
     subtitle = <ListItemSubtitle>{props.subtitle}</ListItemSubtitle>
   }
 
-  const handleActionClick = handler => evt => {
-    handler(evt, props.item)
-  }
+  const callHandler = handler => evt => handler(evt, props.item)
 
   if (props.actions) {
     actions = (
@@ -87,7 +86,7 @@ const ResourceListItem = props => {
           <Button
             key={index}
             icon={action.icon}
-            onClick={handleActionClick(action.handler)}
+            onClick={action.handler ? callHandler(action.handler) : null}
             label={action.label}
             disabled={action.disabled}
           />
@@ -97,7 +96,7 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem>
+    <StyledListItem onClick={props.onClick ? callHandler(props.onClick) : null}>
       <ListItemHeader>
         {image}
         <div>
@@ -119,9 +118,11 @@ ResourceListItem.propTypes = {
   /** If specified, the main text will be rendered as a hyperlink with this as the target. */
   href: PropTypes.string,
   /** An image URL to display as a thumbnail image for the list item. */
-  image: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** An icon to display as a thumbnail image for the list item. */
   icon: PropTypes.oneOf(__ICONNAMES__),
+  /** A function that will be called when the list item is clicked. */
+  onClick: PropTypes.func,
   /** The actions to display for the list item. */
   actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
