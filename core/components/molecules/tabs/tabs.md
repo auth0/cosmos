@@ -4,11 +4,26 @@
 ```
 
 ```jsx
-<Tabs selected={0} onSelect={() => {}}>
-  <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
-  <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
-  <Tabs.Tab label="Tab 3">Third tab's the charm!</Tabs.Tab>
-</Tabs>
+class TabContainer extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selected: 0 }
+  }
+
+  handleSelected(selected) {
+    this.setState({ selected })
+  }
+
+  render() {
+    return (
+      <Tabs onSelect={nextIndex => this.handleSelected(nextIndex)} selected={this.state.selected}>
+        <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+        <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
+        <Tabs.Tab label="Tab 3">Third tabs the charm!</Tabs.Tab>
+      </Tabs>
+    )
+  }
+}
 ```
 
 ## Example
@@ -53,4 +68,3 @@ class TabContainer extends React.Component {
   }
 }
 ```
-
