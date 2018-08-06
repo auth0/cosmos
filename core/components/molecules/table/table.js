@@ -6,16 +6,45 @@ import TableColumn from './table-column'
 import TableHeader from './table-header'
 
 class Table extends React.Component {
+  constructor(props) {
+    super(props)
+
+    /*
+      This component can exists in 2 modes:
+
+      1. Automatic sorting
+         We initialse sortingColumn and sortDirection in internal state to
+         work with defaultOnSort
+
+      2. Controlled sorting
+         The internal state is completely bipassed, we expect the user to send
+         sortedItems directly.
+    */
+
+    if (!props.onSort) {
+      // automatic mode
+      this.state = {
+        sortingColumn: this.getSortingColumn(),
+        sortDirection: 'asc'
+      }
+    }
+  }
   defaultCellRenderer = (item, column) => item[column.field]
+
+  defaultOnSort = (sortOnField, sortDirection) => {
+    const sortingColumn = this.getSortingColumn(sortOnField)
+    this.setState({ sortingColumn, sortDirection })
+  }
 
   inferColumnsFromChildren(children) {
     return React.Children.toArray(children).map(element => element.props)
   }
 
-  getSortingColumn(sortOn, columns) {
-    if (sortOn) {
+  getSortingColumn(sortOnField) {
+    const columns = this.inferColumnsFromChildren(this.props.children)
+    if (sortOnField) {
       /* find matching column by field prop */
-      return columns.find(column => column.field === sortOn)
+      return columns.find(column => column.field === sortOnField)
     } else {
       /*
         default to the first column that has sortable prop
@@ -36,16 +65,16 @@ class Table extends React.Component {
     else return Table.compare.strings
   }
 
-  sortItems = ({ allItems, sortingColumn, sortDirection }) => {
+  sortItems = ({ unsortedItems, sortingColumn, sortDirection }) => {
     /* create a copy of allItems */
-    const items = [...allItems]
+    const items = [...unsortedItems]
 
     /* if there are no items or no sorting column sorting code breaks */
     if (!sortingColumn || items.length === 0) return items
 
     const comparator = this.getComparator(items, sortingColumn)
 
-    items.sort((row1, row2) => comparator(sortingColumn, row1, row2))
+    items.sort((row1, row2) => comparator(row1, row2, sortingColumn))
     if (sortDirection === 'desc') items.reverse()
 
     return items
@@ -57,13 +86,27 @@ class Table extends React.Component {
 
   render() {
     const columns = this.inferColumnsFromChildren(this.props.children)
-    const sortingColumn = this.getSortingColumn(this.props.sortOn, columns)
+    let sortedItems, sortingColumn, sortDirection, onSort
 
-    const sortedItems = this.sortItems({
-      allItems: this.props.items,
-      sortDirection: this.props.sortDirection,
-      sortingColumn
-    })
+    if (this.props.onSort) {
+      // User-controlled sorting mode: items are already sorted
+
+      onSort = this.props.onSort
+      sortingColumn = this.getSortingColumn(this.props.sortOn) // field:string to sortingColumn:object
+      sortDirection = this.props.sortDirection
+      sortedItems = this.props.items
+    } else {
+      //  Automatic sorting mode: use internal state
+
+      onSort = this.defaultOnSort
+      sortingColumn = this.state.sortingColumn
+      sortDirection = this.state.sortDirection
+      sortedItems = this.sortItems({
+        unsortedItems: this.props.items,
+        sortDirection,
+        sortingColumn
+      })
+    }
 
     const rows = sortedItems.map((item, index) => (
       <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)}>
@@ -80,7 +123,12 @@ class Table extends React.Component {
 
     return (
       <Table.Element>
-        <Table.Header columns={columns} sortingColumn={sortingColumn} {...this.props} />
+        <Table.Header
+          columns={columns}
+          sortingColumn={sortingColumn}
+          sortDirection={sortDirection}
+          onSort={onSort}
+        />
         <Table.Body>{rows}</Table.Body>
       </Table.Element>
     )
@@ -91,8 +139,8 @@ Table.Header = TableHeader
 Table.Column = TableColumn
 
 Table.compare = {
-  numbers: (column, row1, row2) => Number(row1[column.field]) - Number(row2[column.field]),
-  strings: (column, row1, row2) =>
+  numbers: (row1, row2, column) => Number(row1[column.field]) - Number(row2[column.field]),
+  strings: (row1, row2, column) =>
     String(row1[column.field]).toLowerCase() - String(row2[column.field]).toLowerCase()
 }
 

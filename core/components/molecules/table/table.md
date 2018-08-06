@@ -98,15 +98,70 @@ You can add `sortable` prop to `Table.Column` that you want the `Table` to be so
 </Table>
 ```
 
+### Custom compare function
+
+Pass a `comparator` function to `Table.Column` to define your own custom sorting logic.
+
+```js
+<Table
+  items={[
+    {
+      name: 'Harry Kane',
+      goals: 6,
+      assists: 0,
+      country: '🇬🇧',
+      image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+    },
+    {
+      name: 'Romelu Lukaku',
+      goals: 4,
+      assists: 1,
+      country: '🇧🇪',
+      image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+    },
+    {
+      name: 'Antoine Griezmann',
+      goals: 4,
+      assists: 2,
+      country: '🇫🇷',
+      image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+    },
+    {
+      name: 'Ivan Perišić',
+      goals: 3,
+      assists: 1,
+      country: '🇭🇷',
+      image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+    }
+  ]}
+>
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+  <Table.Column
+    field="points"
+    title="Points"
+    sortable
+    comparator={(a, b) => {
+      return a.goals + a.assists - b.goals - b.assists
+    }}
+  >
+    {item => item.goals + item.assists}
+  </Table.Column>
+</Table>
+```
+
 ### Controlled sorting
 
-You can fine tune sorting by adjusting 2 props:
+If you'd like to sort the items yourselves, you can pass a `onSort` function to `Table` which will be called when a column header is clicked.
 
-1.  Pass a `comparator` function to `Table.Column` to define the sorting logic.
+This function receives the new `sortOn` and `sortDirection` as arguments
 
-TODO: Add example.
-
-2.  Define a `onSort` function to call
+Note: The component expects `sortOn` and `sortDirection` back to decide styles for the header.
 
 ```js
 class Example extends React.Component {
@@ -142,11 +197,11 @@ class Example extends React.Component {
         image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
       }
     ]
-    this.state = { items, sortOn: 'assists', sortDirection: 'desc' }
+    this.state = { items, sortOn: 'goals', sortDirection: 'desc' }
   }
   onSort(sortOn, sortDirection) {
     let items = this.state.items.sort((a, b) => {
-      a[sortOn] - b[sortOn]
+      return a[sortOn] - b[sortOn]
     })
 
     if (sortDirection === 'desc') items.reverse()

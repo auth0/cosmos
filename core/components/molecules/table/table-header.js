@@ -14,12 +14,27 @@ const TableHeader = props => {
       sortIndicator = <TableHeader.SortIndicator>{icon}</TableHeader.SortIndicator>
     }
 
+    const onClick = column => {
+      if (!column.sortable) return
+
+      let sortDirection
+
+      if (column.field === props.sortingColumn.field) {
+        /* if the selected column is clicked, flip sort direction */
+        sortDirection = props.sortDirection === 'asc' ? 'desc' : 'asc'
+      } else {
+        /* otherwise initialise with asc */
+        sortDirection = 'asc'
+      }
+      props.onSort(column.field, sortDirection)
+    }
+
     return (
       <TableHeader.Cell
         key={`row-header-${index}`}
         column={column}
         sortable={column.sortable && props.onSort}
-        onClick={() => column.sortable && props.onSort && props.onSort(column.field)}
+        onClick={_ => onClick(column)}
       >
         {column.title}
         {sortIndicator}
