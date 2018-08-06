@@ -12,6 +12,7 @@ import ContributionGuide from './contribution-guide'
 import FAQS from './faqs'
 import Changes from './changes'
 import Overview from './overview'
+import Playground from './playground'
 
 const SideContent = styled.div`
   width: 19rem;
@@ -106,6 +107,7 @@ class App extends React.Component {
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
               <Route exact path="/changes" component={Changes} />
+              <Route exact path="/playground" component={Playground} />
               <Route exact path="/component/:componentName" component={Spec} />
               <Route exact path="/" component={Home} />
             </Body>
