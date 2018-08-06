@@ -38,7 +38,9 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props)
     this.tabs = React.Children.toArray(props.children)
-    this.state = { selectedIndex: this.getSelectedTabFromChildProps(this.tabs) }
+    this.state = {
+      selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
+    }
   }
 
   componentDidUpdate() {
@@ -53,7 +55,9 @@ class Tabs extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.tabs = React.Children.toArray(newProps.children)
-    this.setState({ selectedIndex: this.getSelectedTabFromChildProps(this.tabs) })
+    this.setState({
+      selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
+    })
   }
 
   getSelectedTabFromChildProps(tabs) {
@@ -68,33 +72,15 @@ class Tabs extends React.Component {
   }
 
   changeTab(nextIndex) {
-    const currentIndex = this.getSelectedTabFromPropsOrState()
+    const currentIndex = this.props.selected
 
     if (currentIndex !== nextIndex) {
-      if (this.props.onSelect) {
-        this.props.onSelect(nextIndex)
-      } else {
-        const { cosmosKey } = this.props
-        if (cosmosKey) {
-          tabStore[cosmosKey] = nextIndex
-        }
-
-        this.setState({ selectedIndex: nextIndex })
-      }
+      this.props.onSelect(nextIndex)
     }
   }
 
-  getSelectedTabFromPropsOrState() {
-    const stateSelectedIndex = this.state.selectedIndex
-    const propsSelectedIndex = this.props.selected
-    const selectedIndex =
-      typeof propsSelectedIndex !== 'undefined' ? propsSelectedIndex : stateSelectedIndex
-
-    return selectedIndex
-  }
-
   render() {
-    const selectedIndex = this.getSelectedTabFromPropsOrState()
+    const { selected: selectedIndex } = this.props
 
     return (
       <Wrapper>
@@ -102,7 +88,7 @@ class Tabs extends React.Component {
           {this.tabs.map((tab, index) => (
             <TabLink
               onClick={() => this.changeTab(index)}
-              key={tab.props.label}
+              key={index}
               selected={selectedIndex === index}
             >
               {tab.props.label}
@@ -121,35 +107,13 @@ Tabs.propTypes = {
   /** Children should be an array of Tabs.Tab */
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   /** Selected should be the index of the desired selected tab */
-  selected: PropTypes.number,
+  selected: PropTypes.number.isRequired,
   /** onSelect will be called with the new index when a new tab is selected by the user */
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func.isRequired
 }
 
 Tabs.defaultProps = {
   children: []
 }
 
-const generateKey = WrappedComponent =>
-  class KeyWrapper extends React.Component {
-    shouldComponentUpdate(nextProps) {
-      const { selected } = this.props
-      if (typeof selected === 'undefined') return false
-
-      return selected !== nextProps.selected
-    }
-
-    render() {
-      const key = makeId('tab')
-      return this.props.selected ? (
-        <WrappedComponent {...this.props} />
-      ) : (
-        <WrappedComponent {...this.props} cosmosKey={key} />
-      )
-    }
-  }
-
-const TabWithKey = generateKey(Tabs)
-TabWithKey.Tab = TabContent
-
-export default TabWithKey
+export default Tabs
