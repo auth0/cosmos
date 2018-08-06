@@ -6,13 +6,14 @@ import TableColumn from './table-column'
 
 const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
-    let sortIndicator
-
-    if (column.field === props.sortingColumn.field) {
-      const order = props.sortDirection || 'asc'
-      const icon = order === 'asc' ? '↑' : '↓'
-      sortIndicator = <TableHeader.SortIndicator>{icon}</TableHeader.SortIndicator>
-    }
+    const shouldDisplaySortingIndicator = column.field === props.sortingColumn.field
+    const order = props.sortDirection || 'asc'
+    const icon = order === 'asc' ? '↑' : '↓'
+    const sortIndicator = (
+      <TableHeader.SortIndicator display={shouldDisplaySortingIndicator}>
+        {icon}
+      </TableHeader.SortIndicator>
+    )
 
     const onClick = column => {
       if (!column.sortable) return
@@ -67,6 +68,7 @@ TableHeader.Cell = styled.th`
 
 TableHeader.SortIndicator = styled.span`
   padding-left: ${spacing.xsmall};
+  visibility: ${props => (props.display ? 'initial' : 'hidden')};
 `
 
 TableHeader.propTypes = {
