@@ -20,6 +20,18 @@ const StyledActions = styled.div`
   margin-bottom: ${spacing.small};
 `
 
+const getButtonProps = action => {
+  const props = { ...action }
+  props.icon = action.icon
+  props.onClick = action.handler
+  /*
+    label should not be passed on to Button,
+    it's a deprecated way of showing tooltips
+  */
+  delete props.label
+  return props
+}
+
 const Actions = props => {
   const { primaryAction, secondaryActions, destructiveAction } = props
 
@@ -29,37 +41,21 @@ const Actions = props => {
         <StyledActions layout={context.layout}>
           <ButtonGroup>
             {primaryAction && (
-              <Button
-                {...primaryAction}
-                appearance="primary"
-                icon={primaryAction.icon}
-                onClick={primaryAction.handler}
-              >
+              <Button {...getButtonProps(primaryAction)} appearance="primary">
                 {primaryAction.label}
               </Button>
             )}
 
             {secondaryActions &&
               secondaryActions.map((action, index) => (
-                <Button
-                  {...action}
-                  appearance="secondary"
-                  icon={action.icon}
-                  key={index}
-                  onClick={action.handler}
-                >
+                <Button {...getButtonProps(action)} appearance="secondary" key={index}>
                   {action.label}
                 </Button>
               ))}
 
             {destructiveAction && (
               <Right>
-                <Button
-                  {...destructiveAction}
-                  appearance="destructive"
-                  icon={destructiveAction.icon}
-                  onClick={destructiveAction.handler}
-                >
+                <Button {...getButtonProps(destructiveAction)} appearance="destructive">
                   {destructiveAction.label}
                 </Button>
               </Right>

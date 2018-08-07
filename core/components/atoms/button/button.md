@@ -39,7 +39,7 @@ their attention to it.
     <Button appearance="secondary">secondary</Button>
     <Button>default</Button>
     <Button appearance="destructive">destructive</Button>
-    <Button appearance="link" icon="copy" label="I'm a button, but look like a link." />
+    <Button appearance="link" icon="copy" tooltip="I'm a button, but look like a link." />
   </Stack>
 </div>
 ```
@@ -95,10 +95,10 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 
 ### Adding tooltips
 
-You can set the `label` property to add a tooltip that will appear when the user hovers over
+You can set the `tooltip` property to add a tooltip that will appear when the user hovers over
 the button. This can help clarify the purpose of the button, and is especially useful with
 buttons that only have an icon and no text.
 
 ```js
-<Button icon="copy" label="Copy to clipboard" />
+<Button icon="copy" tooltip="Copy to clipboard" />
 ```

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { subtract } from '../../_helpers/pixel-calc'
+import { deprecate } from '../../_helpers/custom-validations'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner, { StyledSpinner } from '../spinner'
@@ -181,9 +182,9 @@ const ButtonContent = props => {
 const Button = ({ children, ...props }) => {
   let button = <ButtonContent {...props} text={children} />
 
-  // If a label was specified, wrap the Button in a Tooltip.
-  if (props.label) {
-    return <Tooltip content={props.label}>{button}</Tooltip>
+  // If a tooltip or label (deprecated) was specified, wrap the Button in a Tooltip.
+  if (props.tooltip || props.label) {
+    return <Tooltip content={props.tooltip || props.label}>{button}</Tooltip>
   }
 
   return button
@@ -271,6 +272,9 @@ Button.propTypes = {
   icon: PropTypes.oneOf(__ICONNAMES__),
 
   /** Tooltip to show when the user hovers over the button */
+  tooltip: PropTypes.string,
+
+  /** (DEPRECATED) Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
 
   /** The URL to navigate to when the button is clicked */
@@ -286,7 +290,10 @@ Button.propTypes = {
   loading: PropTypes.bool,
 
   /** Successful state when action is completed successfuly */
-  success: PropTypes.bool
+  success: PropTypes.bool,
+
+  /** deprecate label prop */
+  _label: props => deprecate(props, { name: 'label', replacement: 'tooltip' })
 }
 
 Button.defaultProps = {
