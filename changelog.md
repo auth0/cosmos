@@ -17,7 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - **Unstable**: Style improvements to `Pagination` [#741]
 - Bring manage PoC closer to real manage [#745]
-- **DEPRECATED**: Replace label prop with tooltip in Button [#760]
 
 ### Fixed
 
