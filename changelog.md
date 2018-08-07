@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
-## 0.3.3 [August 6, 2018]
+## 0.3.3 [August 7, 2018]
 
 ### Added
 
@@ -17,11 +17,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - **Unstable**: Style improvements to `Pagination` [#741]
 - Bring manage PoC closer to real manage [#745]
+- **DEPRECATED**: Replace label prop with tooltip in Button [#760]
 
 ### Fixed
 
 - Pass `Form` actions through to underlying `Button` [#718]
 - Fix `Button` appearance with url prop [#728]
+- Fix wrapping for long text in Button [#751]
+- **BREAKING**: Fix state updates inside `Tabs` (end support for uncontrolled state) [#754]
 
 ## 0.3.2 [July 25, 2018]
 
