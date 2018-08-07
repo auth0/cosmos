@@ -16,7 +16,7 @@ class RulesIndex extends React.Component {
           primaryAction={{
             label: 'Create Rule',
             icon: 'plus',
-            handler: null
+            handler: () => {}
           }}
           secondaryAction={{
             label: 'Tutorial',

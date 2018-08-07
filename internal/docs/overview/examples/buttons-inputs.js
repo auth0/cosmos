@@ -8,7 +8,7 @@ const ButtonInputs = () => (
   <Section>
     <Example title="Inputs + Buttons">
       <Stack style={{ marginBottom: '1em' }}>
-        <TextInput size="large" defaultValue="Size large (not implemented)" />
+        <TextInput size="large" defaultValue="Size large" />
         <Button size="large" appearance="primary">
           Button
         </Button>
@@ -18,13 +18,13 @@ const ButtonInputs = () => (
         <Button appearance="primary">Button</Button>
       </Stack>
       <Stack style={{ marginBottom: '1em' }}>
-        <TextInput size="compressed" defaultValue="Size compressed (not implemented)" />
+        <TextInput size="compressed" defaultValue="Size compressed" />
         <Button size="compressed" appearance="primary">
           Button
         </Button>
       </Stack>
       <Stack style={{ marginBottom: '1em' }}>
-        <TextInput size="small" defaultValue="Size small (not implemented)" />
+        <TextInput size="small" defaultValue="Size small" />
         <Button size="small" appearance="primary">
           Button
         </Button>

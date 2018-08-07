@@ -1,8 +1,5 @@
-const path = require('path')
 const task = require('./task')
-
-/* load config from cosmos-cli */
-const configPath = path.join(__dirname, 'configs/webpack.dev.config.js')
+const configPath = require('./utils/config-loader')('development')
 
 task({
   label: 'Running in dev mode',

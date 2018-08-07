@@ -1,4 +1,4 @@
 {
   "prettier.trailingComma": "es5",
-  "editor.formatOnSave": false
+  "editor.formatOnSave": true
 }

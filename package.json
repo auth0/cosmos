@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -28,9 +28,14 @@
   },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write --single-quote --no-semi --print-width 100",
+      "prettier --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 100
   },
   "dependencies": {},
   "devDependencies": {
