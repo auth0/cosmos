@@ -15,17 +15,22 @@ const StyledPagination = styled.div`
   display: flex;
   justify-content: center;
 `
+
 const StyledPaginationItem = styled(Button)`
   margin-right: ${spacing.small};
-  min-width: ${spacing.small};
   position: relative;
 
   &:last-child {
     margin-right: 0;
   }
 
+  min-width: ${props => (props.left || props.right ? '95px' : spacing.small)};
+
   ${props => props.left && `padding-left: ${spacing.xlarge};`} 
   ${props => props.right && `padding-right: ${spacing.xlarge};`} 
+  ${props => props.iconOnly && `padding-left: 0;`}
+
+  ${props => props.selected && `background-color: rgba(0,0,0,0.2);`}
 
   ${Icon.Element} {
     position: absolute;
@@ -56,6 +61,17 @@ const StyledPaginationItem = styled(Button)`
   }
 `
 
+const IconButton = styled(Button)`
+  margin-right: ${spacing.small};
+  min-width: ${spacing.small};
+  padding-left: ${spacing.xsmall};
+  padding-right: 0;
+
+  ${Icon.Element} {
+    padding-top: 3px;
+  }
+`
+
 const renderPaginationItem = ({
   toPage,
   content,
@@ -64,18 +80,19 @@ const renderPaginationItem = ({
   perPage,
   onPageChanged,
   left = false,
-  right = false
+  right = false,
+  iconOnly = false
 }) => (
   <StyledPaginationItem
     left={left}
     right={right}
+    iconOnly={iconOnly}
     appearance={appearance}
     size="compressed"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
   >
     {content}
   </StyledPaginationItem>
-
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
@@ -107,6 +124,13 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       left: true
     })}
 
+    <IconButton
+      size="compressed"
+      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
+    >
+      <Icon name="chevron-left" />
+    </IconButton>
+
     {getPaginationSlice(page, items, perPage).map(page => (
       <StyledPaginationItem
         key={page.label}
@@ -118,6 +142,13 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         {page.label}
       </StyledPaginationItem>
     ))}
+
+    <IconButton
+      size="compressed"
+      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
+    >
+      <Icon name="chevron-right" />
+    </IconButton>
 
     {renderPaginationItem({
       toPage: pagesFromItems(items, perPage),
