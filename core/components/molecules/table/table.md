@@ -44,7 +44,130 @@
     {item => <Avatar type="user" image={item.image} />}
   </Table.Column>
   <Table.Column field="name" title="Name" width="40%" />
-  <Table.Column field="born" title="Born" sortable sort="asc" />
+  <Table.Column field="born" title="Born" sortable />
   <Table.Column field="died" title="Died" sortable />
+</Table>
+```
+
+## Examples
+
+### Sorting
+
+```js
+class Example extends React.Component {
+  constructor() {
+    super()
+    this.state = { sortOn: 'assists', sortDirection: 'desc' }
+  }
+  onSort(sortOn) {
+    const sortDirection = this.state.sortDirection === 'asc' ? 'desc' : 'asc'
+    this.setState({ sortOn, sortDirection })
+  }
+  render() {
+    return (
+      <Table
+        items={[
+          {
+            name: 'Harry Kane',
+            goals: 6,
+            assists: 0,
+            country: '🇬🇧',
+            image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+          },
+          {
+            name: 'Romelu Lukaku',
+            goals: 4,
+            assists: 1,
+            country: '🇧🇪',
+            image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+          },
+          {
+            name: 'Antoine Griezmann',
+            goals: 4,
+            assists: 2,
+            country: '🇫🇷',
+            image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+          },
+          {
+            name: 'Ivan Perišić',
+            goals: 3,
+            assists: 1,
+            country: '🇭🇷',
+            image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+          }
+        ]}
+        sortOn={this.state.sortOn}
+        sortDirection={this.state.sortDirection}
+        onSort={this.onSort.bind(this)}
+        onRowClick={(event, row) => alert(row.name + '!!')}
+      >
+        <Table.Column field="image" width="50px">
+          {item => <Avatar type="user" image={item.image} />}
+        </Table.Column>
+        <Table.Column field="name" title="Name" width="30%" />
+        <Table.Column field="country" title="Country" />
+        <Table.Column field="goals" title="Goals" sortable />
+        <Table.Column field="assists" title="Assists" sortable />
+      </Table>
+    )
+  }
+}
+```
+
+## Table Column
+
+### Title
+
+You can define a custom title for each column.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo" />
+  <Table.Column field="bar" title="Bar" />
+</Table>
+```
+
+### Width
+
+By default, columns are evenly spaced. You can set custom per-column widths using the `width` prop.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo" width="80%" />
+  <Table.Column field="bar" title="Bar" />
+</Table>
+```
+
+### Custom cell rendering
+
+You can render each cell on a given column by using passing a render prop to the column component.
+
+```js
+<Table
+  items={[
+    { foo: 'Bar 1', bar: 'Foo 1' },
+    { foo: 'Bar 2', bar: 'Foo 2' },
+    { foo: 'Bar 3', bar: 'Foo 3' },
+    { foo: 'Bar 4', bar: 'Foo 4' }
+  ]}
+>
+  <Table.Column field="foo" title="Foo">
+    {row => <Tag>{row.foo}</Tag>}
+  </Table.Column>
+  <Table.Column field="bar" title="Bar" />
 </Table>
 ```

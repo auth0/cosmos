@@ -8,7 +8,6 @@ TableColumn.propTypes = {
   title: PropTypes.string,
   width: PropTypes.string,
   sortable: PropTypes.bool,
-  sort: PropTypes.oneOf(['asc', 'desc']),
   comparator: PropTypes.func
 }
 

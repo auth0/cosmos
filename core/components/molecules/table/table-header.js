@@ -6,18 +6,21 @@ import TableColumn from './table-column'
 
 const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
-    let sortIndicator
-
-    if (column.sort) {
-      const order = column.sort || 'asc'
-      const icon = order === 'asc' ? '↑' : '↓'
-      sortIndicator = (
-        <TableHeader.SortIndicator onClick={props.onSort(column)}>{icon}</TableHeader.SortIndicator>
-      )
-    }
+    const order = props.sortDirection || 'asc'
+    const icon = order === 'asc' ? '↑' : '↓'
+    const sortIndicator = (
+      <TableHeader.SortIndicator visible={column.field === props.sortingColumn.field}>
+        {icon}
+      </TableHeader.SortIndicator>
+    )
 
     return (
-      <TableHeader.Cell key={`row-header-${index}`} column={column}>
+      <TableHeader.Cell
+        key={`row-header-${index}`}
+        column={column}
+        sortable={column.sortable && props.onSort}
+        onClick={() => column.sortable && props.onSort && props.onSort(column.field)}
+      >
         {column.title}
         {sortIndicator}
       </TableHeader.Cell>
@@ -41,11 +44,16 @@ TableHeader.Cell = styled.th`
   text-align: left;
   vertical-align: bottom;
   line-height: 2;
-  cursor: ${props => (props.column.sortable || props.column.sort ? 'pointer' : 'auto')};
+  cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
+  &:hover {
+    color: ${props => (props.sortable ? colors.link.default : 'inherit')};
+  }
 `
 
 TableHeader.SortIndicator = styled.span`
   padding-left: ${spacing.xsmall};
+
+  visibility: ${props => (props.visible ? 'initial' : 'hidden')};
 `
 
 TableHeader.propTypes = {
