@@ -74,7 +74,7 @@ storiesOf('Table').add('sorting', () => (
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
-      <Table.Column field="born" title="Born" sortable sort="asc" />
+      <Table.Column field="born" title="Born" sortable />
       <Table.Column field="died" title="Died" sortable />
     </Table>
   </Example>

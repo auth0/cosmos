@@ -6,18 +6,37 @@ import TableColumn from './table-column'
 
 const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
-    let sortIndicator
+    const shouldDisplaySortingIndicator = column.field === props.sortingColumn.field
+    const order = props.sortDirection || 'asc'
+    const icon = order === 'asc' ? '↑' : '↓'
+    const sortIndicator = (
+      <TableHeader.SortIndicator display={shouldDisplaySortingIndicator}>
+        {icon}
+      </TableHeader.SortIndicator>
+    )
 
-    if (column.sort) {
-      const order = column.sort || 'asc'
-      const icon = order === 'asc' ? '↑' : '↓'
-      sortIndicator = (
-        <TableHeader.SortIndicator onClick={props.onSort(column)}>{icon}</TableHeader.SortIndicator>
-      )
+    const onClick = column => {
+      if (!column.sortable) return
+
+      let sortDirection
+
+      if (column.field === props.sortingColumn.field) {
+        /* if the selected column is clicked, flip sort direction */
+        sortDirection = props.sortDirection === 'asc' ? 'desc' : 'asc'
+      } else {
+        /* otherwise initialise with asc */
+        sortDirection = 'asc'
+      }
+      props.onSort(column.field, sortDirection)
     }
 
     return (
-      <TableHeader.Cell key={`row-header-${index}`} column={column}>
+      <TableHeader.Cell
+        key={`row-header-${index}`}
+        column={column}
+        sortable={column.sortable && props.onSort}
+        onClick={_ => onClick(column)}
+      >
         {column.title}
         {sortIndicator}
       </TableHeader.Cell>
@@ -41,11 +60,15 @@ TableHeader.Cell = styled.th`
   text-align: left;
   vertical-align: bottom;
   line-height: 2;
-  cursor: ${props => (props.column.sortable || props.column.sort ? 'pointer' : 'auto')};
+  cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
+  &:hover {
+    color: ${props => (props.sortable ? colors.link.default : 'inherit')};
+  }
 `
 
 TableHeader.SortIndicator = styled.span`
   padding-left: ${spacing.xsmall};
+  visibility: ${props => (props.display ? 'initial' : 'hidden')};
 `
 
 TableHeader.propTypes = {

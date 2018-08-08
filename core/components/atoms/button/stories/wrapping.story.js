@@ -1,9 +1,9 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { Example } from "@auth0/cosmos/_helpers/story-helpers";
-import { Button } from "@auth0/cosmos";
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Button } from '@auth0/cosmos'
 
-storiesOf("Button").add("wrapping", () => (
+storiesOf('Button').add('wrapping', () => (
   <div>
     <Example title="Button Wrapping" align="center">
       <div style={{ width: 150 }}>
@@ -42,4 +42,4 @@ storiesOf("Button").add("wrapping", () => (
       </div>
     </Example>
   </div>
-));
+))

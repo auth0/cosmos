@@ -55,7 +55,7 @@ Pager.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
   items: PropTypes.number.isRequired,
-  onPageChanged: PropTypes.func,
+  onPageChanged: PropTypes.func
 }
 
 export default Pager
