@@ -35,19 +35,26 @@ const Subtitle = styled.div`
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
-const AvatarBlock = props => {
-  let title
-  let subtitle
+const getTitle = props => {
+  let contents
 
-  if (props.href) {
-    title = (
-      <Title>
-        <Link href={props.href}>{props.title}</Link>
-      </Title>
+  if (!props.href) {
+    contents = props.title
+  } else if (typeof props.href === 'string') {
+    contents = <Link href={props.href}>{props.title}</Link>
+  } else if (typeof props.href === 'object') {
+    contents = (
+      <Link href={props.href.url} target={props.href.target}>
+        {props.title}
+      </Link>
     )
-  } else {
-    title = <Title>{props.title}</Title>
   }
+  return <Title>{contents}</Title>
+}
+
+const AvatarBlock = props => {
+  let title = getTitle(props)
+  let subtitle
 
   if (props.subtitle) {
     subtitle = <Subtitle size={props.size}>{props.subtitle}</Subtitle>
@@ -70,8 +77,6 @@ const AvatarBlock = props => {
 }
 
 AvatarBlock.propTypes = {
-  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
-  href: PropTypes.string,
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** An image URL to display. */
@@ -83,7 +88,15 @@ AvatarBlock.propTypes = {
   /** The size of the avatar block. */
   size: PropTypes.PropTypes.oneOf(['compact', 'default', 'large']),
   /** The secondary line of text to display. */
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
+  href: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      url: PropTypes.string,
+      target: PropTypes.string
+    })
+  ])
 }
 
 AvatarBlock.defaultProps = {

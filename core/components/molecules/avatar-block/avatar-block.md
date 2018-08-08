@@ -60,3 +60,24 @@ You can use the `size` prop to render `AvatarBlocks` of various sizes. Note: usi
   />
 </Stack>
 ```
+
+You can pass a `href` prop to link the title to another page
+
+```js
+<Stack>
+  <AvatarBlock
+    type="user"
+    image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+    title="Title"
+    href="https://auth0.com"
+    subtitle="Link opens in same tab"
+  />
+  <AvatarBlock
+    type="user"
+    image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+    title="Title"
+    href={{ url: 'https://auth0.com', target: '_blank' }}
+    subtitle="Link opens in new tab"
+  />
+</Stack>
+```
