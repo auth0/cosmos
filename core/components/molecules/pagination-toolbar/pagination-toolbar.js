@@ -1,22 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { misc, colors } from '../../../tokens'
+import { misc, colors } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
 import Icon from '../../atoms/icon'
 
-import {
-  changePageIfAppropiate,
-  pageInputWidth,
-  pagesFromItems,
-  totals
-} from '../../_helpers/pagination'
+import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from '../../_helpers/pagination'
 
 const StyledPaginationToolbar = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 `
 
 const StyledPagerButton = styled(Button)`
@@ -54,17 +50,17 @@ const Pager = ({ onPrevPressed, onNextPressed }) => (
   </ButtonGroup>
 )
 
-const PaginationToolbar = ({ onPageChanged, page, perPage, items, showTotals }) => (
+const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => (
   <StyledPaginationToolbar>
     <StyledPageSelector page={page}>
       <div>Page</div>
       <TextInput
         type="number"
-        value={page}
+        size="compressed"
+        value={page.toString()}
         onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
       />
       <div>of {pagesFromItems(items, perPage)}</div>
-      {showTotals && <div>– {totals(page, perPage, items)}</div>}
     </StyledPageSelector>
     <Pager
       onNextPressed={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
@@ -77,8 +73,7 @@ PaginationToolbar.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
   items: PropTypes.number.isRequired,
-  onPageChanged: PropTypes.func,
-  showTotals: PropTypes.bool
+  onPageChanged: PropTypes.func
 }
 
 export default PaginationToolbar

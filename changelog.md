@@ -4,6 +4,63 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.3.3 [August 7, 2018]
+
+### Added
+
+- Add support for multiple links in `Breadcrumbs` [#695]
+- Added click handler props to ResourceList and Table [#735]
+- Add document playground for folks to report issues [#738]
+- Add support for `size` prop to `TextInput` [#739]
+
+### Changed
+
+- **Unstable**: Style improvements to `Pagination` [#741]
+- Bring manage PoC closer to real manage [#745]
+
+### Fixed
+
+- Pass `Form` actions through to underlying `Button` [#718]
+- Fix `Button` appearance with url prop [#728]
+- Fix wrapping for long text in Button [#751]
+- **BREAKING**: Fix state updates inside `Tabs` (end support for uncontrolled state) [#754]
+
+## 0.3.2 [July 25, 2018]
+
+### Fixed
+
+- Fix deployment tooling [#726]
+
+## 0.3.1 [July 25, 2018]
+
+### Added
+
+- Add `Checkbox` component [#612]
+- Add support for disabling actions in `ResourceListItem` [#647]
+- `Avatar` now accepts an `<svg>` for its image prop [#650]
+- Support `<Button/>` in dialog actions [#660]
+- Alerts can now be dismissed [#688]
+- Support text in `loading` + `success` state for `Button` [#714]
+- Add option to disable global styles [#719]
+- Add documentation for using `styled` [#629]
+- **Unstable**: Pagination component base [#666]
+- Add documentation for contributing components [#638]
+
+### Changed
+
+- **BREAKING**: Use color name instead of hex codes for `Icon` [#684]
+- **DEPRECATED**: Replace input `error` prop with `hasError` [#690]
+- Rename clients to applications in manage PoC [#636]
+- Change `Overlay` to be a hidden component [#693]
+- Make the sidebar foldable in documentation [#686]
+
+### Fixed
+
+- Update PoC link in docs [#646]
+- Default `<input>` to `type=text` [#691]
+- Fix `styled` export [#701]
+- Fix form layouts leaking into each other [#716]
+
 ## 0.3.0 [June 25, 2018]
 
 ### Added
