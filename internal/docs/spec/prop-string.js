@@ -69,11 +69,26 @@ const getPropString = propData => {
     /*
       Case 6: Enum
       The value for enum should be printed depending on their value
-      Currently supports number and string
+      Currently supports only number and string
       Example: <From layout="label-on-left">, <Header size={2}>
     */
 
     if (propData[name].type.name === 'enum') {
+      if (propData[name].value === 'number') {
+        propString += ` ${name}={${propData[name].value}}`
+        return true
+      } else if (typeof propData[name].value === 'string' && propData[name].value.length > 0) {
+        propString += ` ${name}="${propData[name].value}"`
+        return true
+      }
+    }
+
+    /*
+      Case 6: Union
+      The value for enum should be printed depending on their value
+      Currently supports only number and string
+    */
+    if (propData[name].type.name === 'union') {
       if (propData[name].value === 'number') {
         propString += ` ${name}={${propData[name].value}}`
         return true
