@@ -97,12 +97,6 @@ export default () => (
         </a>
       </li>
       <li>
-        <a href="/?url=manage/#/clients" target="_blank">
-          <Icon name="clients" color="grayLightest" size={20} />
-          <span>PoC</span>
-        </a>
-      </li>
-      <li>
         <a href="/">
           <IconSketch />
           <span>UI Kit</span>
