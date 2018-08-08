@@ -1,12 +1,13 @@
 ```meta
   category: Layout
   description: "Paginate resource lists and tables"
+  unstable: true
 ```
 
 A `<PaginationToolbar />` component is meant to be used along `ResourceList` and `Table`.
 
 ```jsx
-<PaginationToolbar {props} defaults={{items: 20372, perPage: 10, page: 3, showTotals: false}} />
+<PaginationToolbar {props} defaults={{items: "20372", perPage: "10", page: "3"}} />
 ```
 
 ## Example
@@ -31,39 +32,6 @@ class PaginatedResource extends React.Component {
         perPage={perPage}
         items={items}
         onPageChanged={this.onPageChange.bind(this)}
-      />
-    )
-  }
-}
-```
-
-### Example with totals
-
-You may want to show a little bit more detail of the content you are
-displaying, so we let you show the totals for the current page by passing the `showTotals`
-prop to the `<PaginationToolbar>` component.
-
-```js
-class PaginatedResourceWithTotals extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { page: 1, perPage: 15, items: 7500 }
-  }
-
-  onPageChange(page) {
-    this.setState({ page })
-  }
-
-  render() {
-    const { page, perPage, items } = this.state
-    return (
-      <PaginationToolbar
-        page={page}
-        perPage={perPage}
-        items={items}
-        onPageChanged={this.onPageChange.bind(this)}
-        showTotals
       />
     )
   }
@@ -186,7 +154,6 @@ class PaginatedResourceList extends React.Component {
           perPage={perPage}
           items={items.length}
           onPageChanged={this.onPageChange.bind(this)}
-          showTotals
         />
       </React.Fragment>
     )
@@ -194,3 +161,66 @@ class PaginatedResourceList extends React.Component {
 }
 ```
 
+## Usage with Table
+
+```js
+class PaginatedTable extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      items: [
+        { avatar: 'https://cdn.auth0.com/avatars/aa.png', name: 'Airline 1' },
+        { avatar: 'https://cdn.auth0.com/avatars/ab.png', name: 'Airline 2' },
+        { avatar: 'https://cdn.auth0.com/avatars/ac.png', name: 'Airline 3' },
+        { avatar: 'https://cdn.auth0.com/avatars/ad.png', name: 'Airline 4' },
+        { avatar: 'https://cdn.auth0.com/avatars/ae.png', name: 'Airline 5' },
+        { avatar: 'https://cdn.auth0.com/avatars/af.png', name: 'Airline 6' },
+        { avatar: 'https://cdn.auth0.com/avatars/ag.png', name: 'Airline 7' },
+        { avatar: 'https://cdn.auth0.com/avatars/ah.png', name: 'Airline 8' },
+        { avatar: 'https://cdn.auth0.com/avatars/ai.png', name: 'Airline 9' },
+        { avatar: 'https://cdn.auth0.com/avatars/aj.png', name: 'Airline 10' },
+        { avatar: 'https://cdn.auth0.com/avatars/ak.png', name: 'Airline 11' },
+        { avatar: 'https://cdn.auth0.com/avatars/al.png', name: 'Airline 12' },
+        { avatar: 'https://cdn.auth0.com/avatars/am.png', name: 'Airline 13' },
+        { avatar: 'https://cdn.auth0.com/avatars/an.png', name: 'Airline 14' },
+        { avatar: 'https://cdn.auth0.com/avatars/ao.png', name: 'Airline 15' },
+        { avatar: 'https://cdn.auth0.com/avatars/ap.png', name: 'Airline 16' },
+        { avatar: 'https://cdn.auth0.com/avatars/aq.png', name: 'Airline 17' }
+      ],
+      perPage: 5,
+      page: 1
+    }
+  }
+
+  onPageChange(page) {
+    this.setState({ page })
+  }
+
+  getCurrentItems() {
+    const { page, perPage, items } = this.state
+    const from = (page - 1) * perPage
+    const to = from + perPage
+    return items.slice(from, to)
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Table items={this.getCurrentItems()}>
+          <Table.Column field="avatar" width="65px">
+            {row => <img src={row.avatar} style={{ width: 50, borderRadius: '50%' }} />}
+          </Table.Column>
+          <Table.Column field="name" title="Name" />
+        </Table>
+        <PaginationToolbar
+          items={this.state.items.length}
+          perPage={this.state.perPage}
+          page={this.state.page}
+          onPageChanged={this.onPageChange.bind(this)}
+        />
+      </React.Fragment>
+    )
+  }
+}
+```
