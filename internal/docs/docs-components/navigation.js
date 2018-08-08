@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Icon, Logo } from '@auth0/cosmos'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 import IconSketch from './sketch-icon'
+import { version } from '@auth0/cosmos/package.json'
 
 const Navigation = styled.nav`
   padding: 0 ${spacing.medium};
@@ -22,7 +23,6 @@ const Navigation = styled.nav`
     display: flex;
     align-items: center;
     .logo-word {
-      text-transform: uppercase;
       font-size: 14px;
       letter-spacing: 1.4px;
       display: inline-block;
@@ -58,7 +58,7 @@ export default () => (
       <div className="nav-left">
         <h1 className="logo">
           <Logo />
-          <span className="logo-word">Cosmos</span>
+          <span className="logo-word">COSMOS v{version}</span>
         </h1>
       </div>
       <div className="nav-right">
