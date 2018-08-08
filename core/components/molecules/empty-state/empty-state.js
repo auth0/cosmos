@@ -37,7 +37,6 @@ const EmptyState = props => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
   text-align: center;
 `
 const Body = styled.div`
