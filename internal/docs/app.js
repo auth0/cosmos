@@ -95,7 +95,6 @@ class App extends React.Component {
     return (
       <Router>
         <Layout>
-          <Navigation />
           <SidebarToggle sidebarVisible={this.state.sidebarVisible} onClick={this.toggleSidebar}>
             <Icon name={this.state.sidebarVisible ? 'close' : 'arrow-right'} />
           </SidebarToggle>
@@ -103,6 +102,7 @@ class App extends React.Component {
             <Sidebar />
           </SideContent>
           <MainContent id="main">
+            <Navigation />
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
               <Route path="/usage" component={Usage} />
