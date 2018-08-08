@@ -9,17 +9,32 @@ import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
-const EmptyState = props => {
-  let helpLink
-  if (props.helpUrl) {
-    helpLink = (
-      <LearnMore>
-        <Link href={props.helpUrl} target="_blank">
-          Learn More <i> </i>
-        </Link>
-      </LearnMore>
-    )
+const getHelpLink = helpUrl => {
+  if (!helpUrl) return
+
+  let url, target
+
+  /* helpUrl supports both formats: string and object */
+  if (typeof helpUrl === 'object') {
+    url = helpUrl.url
+    target = helpUrl.target || '_blank'
+  } else {
+    url = helpUrl // must be string
+    target = '_blank'
   }
+
+  return (
+    <LearnMore>
+      <Link href={url} target={target}>
+        Learn More <i> </i>
+      </Link>
+    </LearnMore>
+  )
+}
+
+const EmptyState = props => {
+  let helpLink = getHelpLink(props.helpUrl)
+
   return (
     <Wrapper>
       <Title size={1}>{props.title}</Title>

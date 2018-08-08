@@ -16,3 +16,21 @@ Empty states are displayed when a page has no content.
   }}
 />
 ```
+
+## Examples
+
+You can change how the help link opens by passing an `object` with `target` instead of `string` to `helpUrl`
+
+```js
+<EmptyState
+  icon="clients"
+  text="No items have been added to this section."
+  title="Clients"
+  helpUrl={{ url: 'https://auth0.com', target: '_self' }}
+  action={{
+    icon: 'plus',
+    label: 'Create Client',
+    handler: () => {}
+  }}
+/>
+```
