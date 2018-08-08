@@ -85,7 +85,7 @@ export default () => (
         </a>
       </li>
       <li>
-        <a href="/#/playground">
+        <a href="/docs/#/playground">
           <Icon name="code" color="grayLightest" size={16} />
           <span>Playground</span>
         </a>
