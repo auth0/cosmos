@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Icon, Logo } from '@auth0/cosmos'
+import { Icon, Logo, Label } from '@auth0/cosmos'
+import { StyledLabel } from '../../../core/components/atoms/label'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 import IconSketch from './sketch-icon'
+import IconGithub from './github-icon'
 
 import { version } from '@auth0/cosmos/package.json'
 
@@ -37,9 +39,15 @@ const Navigation = styled.nav`
     margin-right: ${spacing.xsmall};
   }
 
+  ${StyledLabel} {
+    display: inline-block;
+    margin-left: 1em;
+    font-size: 0.65em;
+  }
+
   ul > li {
     display: inline-block;
-    margin-left: ${spacing.medium};
+    margin-left: ${spacing.large};
   }
 `
 
@@ -77,27 +85,35 @@ export default () => (
         </a>
       </li>
       <li>
-        <a href="/sandbox">
-          <Icon name="extensions" color="grayLightest" size={20} />
+        <a href="/#/playground">
+          <Icon name="code" color="grayLightest" size={16} />
+          <span>Playground</span>
+        </a>
+      </li>
+      <li>
+        <a href="/sandbox" target="_blank">
+          <Icon name="support" color="grayLightest" size={20} />
           <span>Stories</span>
         </a>
       </li>
       <li>
-        <a href="/?url=manage/#/clients">
+        <a href="/?url=manage/#/clients" target="_blank">
           <Icon name="clients" color="grayLightest" size={20} />
-          <span>PoC Manage</span>
+          <span>PoC</span>
         </a>
       </li>
       <li>
         <a href="/">
           <IconSketch />
-          <span>Sketch UI Kit</span>
+          <span>UI Kit</span>
+          <Label appearance="information">Soon</Label>
         </a>
       </li>
 
       <li>
         <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
-          <Icon name="code" color="grayLightest" size={16} />
+          <IconGithub />
+
           <span>Github</span>
         </a>
       </li>
