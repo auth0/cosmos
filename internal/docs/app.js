@@ -13,6 +13,7 @@ import FAQS from './faqs'
 import Changes from './changes'
 import Overview from './overview'
 import Playground from './playground'
+import Navigation from './docs-components/navigation'
 
 const SideContent = styled.div`
   width: 19rem;
@@ -84,7 +85,7 @@ class App extends React.Component {
         const hash = hashParts.slice(-1)[0]
         document.querySelector(`#${hash}`).scrollIntoView()
       } else {
-        document.querySelector('#main').scrollIntoView()
+        document.querySelector('nav').scrollIntoView()
       }
     }
     scrollToAnchor()
@@ -94,6 +95,7 @@ class App extends React.Component {
     return (
       <Router>
         <Layout>
+          <Navigation />
           <SidebarToggle sidebarVisible={this.state.sidebarVisible} onClick={this.toggleSidebar}>
             <Icon name={this.state.sidebarVisible ? 'close' : 'arrow-right'} />
           </SidebarToggle>

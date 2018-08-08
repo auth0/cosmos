@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors } from '@auth0/cosmos/tokens'
-import LogoContainer from './logo'
 import SearchBox from './search.js'
 import List from './list'
 
@@ -33,7 +32,6 @@ class Sidebar extends React.Component {
   render() {
     return (
       <StyledSidebar>
-        <LogoContainer />
         <SearchBox onChange={this.filter.bind(this)} />
 
         <List components={this.state.filteredComponents} />
