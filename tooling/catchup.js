@@ -30,6 +30,7 @@ const dependants = [
   'internal/docs',
   'core/engine',
   'examples/manage',
+  'examples/perf-tests',
   'examples/webpack-hello-world'
 ]
 const packages = ['@auth0/cosmos', '@auth0/cosmos-tokens', '@auth0/babel-preset-cosmos']
