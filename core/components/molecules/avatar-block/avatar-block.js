@@ -44,7 +44,7 @@ const getTitle = props => {
     contents = <Link href={props.href}>{props.title}</Link>
   } else if (typeof props.href === 'object') {
     contents = (
-      <Link href={props.href.url} target={props.href.target}>
+      <Link href={props.href.href} target={props.href.target}>
         {props.title}
       </Link>
     )
@@ -93,7 +93,7 @@ AvatarBlock.propTypes = {
   href: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      url: PropTypes.string,
+      href: PropTypes.string,
       target: PropTypes.string
     })
   ])

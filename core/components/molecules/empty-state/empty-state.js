@@ -12,20 +12,20 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 const getHelpLink = helpUrl => {
   if (!helpUrl) return
 
-  let url, target
+  let href, target
 
   /* helpUrl supports both formats: string and object */
   if (typeof helpUrl === 'object') {
-    url = helpUrl.url
+    href = helpUrl.href
     target = helpUrl.target || '_blank'
   } else {
-    url = helpUrl // must be string
+    href = helpUrl // must be string
     target = '_blank'
   }
 
   return (
     <LearnMore>
-      <Link href={url} target={target}>
+      <Link href={href} target={target}>
         Learn More <i> </i>
       </Link>
     </LearnMore>
@@ -95,7 +95,7 @@ EmptyState.propTypes = {
   helpUrl: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
-      url: PropTypes.string,
+      href: PropTypes.string,
       target: PropTypes.string
     })
   ]),

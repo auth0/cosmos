@@ -76,7 +76,7 @@ You can pass a `href` prop to link the title to another page
     type="user"
     image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
     title="Title"
-    href={{ url: 'https://auth0.com', target: '_blank' }}
+    href={{ href: 'https://auth0.com', target: '_blank' }}
     subtitle="Link opens in new tab"
   />
 </Stack>
