@@ -93,7 +93,7 @@ Alert.propTypes = {
   title: PropTypes.string.isRequired,
 
   /** Details */
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 
   /** Link to documentation */
   link: PropTypes.string,
