@@ -6,7 +6,6 @@ import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
-import Paragraph from '../../atoms/paragraph'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 import { renderText } from '../../_helpers/free-text'
 
@@ -26,7 +25,7 @@ const EmptyState = props => {
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        {renderText(props.text, props.children)}
+        {renderText(props.text, props.children, { useParagraph: true })}
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
@@ -43,6 +42,7 @@ const Wrapper = styled.div`
 const Body = styled.div`
   max-width: 400px;
   margin: 0 auto ${spacing.small} auto;
+
   > ${Icon.Element} {
     margin-bottom: ${spacing.xsmall};
     line-height: 1em;
