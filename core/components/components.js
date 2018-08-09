@@ -28,6 +28,7 @@ import Link from './atoms/link'
 import Logo from './atoms/logo'
 import Paragraph from './atoms/paragraph'
 import Radio from './atoms/radio'
+import ResetsWrapper from './atoms/resets-wrapper'
 import Select from './atoms/select'
 import Spinner from './atoms/spinner'
 import Switch from './atoms/switch'
@@ -84,6 +85,7 @@ export {
   Pager,
   Paragraph,
   Radio,
+  ResetsWrapper,
   ResourceList,
   Select,
   Sidebar,
