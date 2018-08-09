@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { renderText } from '../../_helpers/free-text'
 
 class Alert extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class Alert extends React.Component {
       return (
         <Alert.Element type={this.props.type}>
           <Paragraph>
-            <em>{this.props.title}</em> {this.props.text}
+            <em>{this.props.title}</em> {renderText(this.props.text, this.props.children)}
             {this.props.link && (
               <Link href={this.props.link} target="_blank">
                 Read more

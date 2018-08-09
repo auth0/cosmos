@@ -1,25 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
 import Paragraph from '../../atoms/paragraph'
-import { colors, spacing } from '@auth0/cosmos-tokens'
-import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
-
-/**
- * Returns either a string with styles
- * or the raw text prop depending on its type.
- */
-function renderText(text) {
-  if (typeof text === 'string') {
-    return <Text>{text}</Text>
-  }
-
-  return text
-}
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
+import { renderText } from '../../_helpers/free-text'
 
 const EmptyState = props => {
   let helpLink
@@ -37,7 +26,7 @@ const EmptyState = props => {
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        {renderText(props.text)}
+        {renderText(props.text, props.children)}
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
@@ -62,9 +51,6 @@ const Body = styled.div`
 `
 const Title = styled(Heading)`
   margin: 0 0 ${spacing.xlarge} 0;
-`
-const Text = styled(Paragraph)`
-  margin: 0;
 `
 
 const LearnMore = styled.div`

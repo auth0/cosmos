@@ -25,7 +25,8 @@ const StyledPageHeader = styled.div`
   }
 `
 
-function renderDescription(description) {
+function renderDescription(description, children) {
+  if (children) return <DescriptionParagraph>{children}</DescriptionParagraph>
   if (!description) return null
 
   if (descriptionIsObject(description)) {
@@ -63,7 +64,7 @@ const PageHeader = props => {
 
       <Heading size={1}>{props.title}</Heading>
 
-      {renderDescription(props.description)}
+      {renderDescription(props.description, props.children)}
     </StyledPageHeader>
   )
 }
