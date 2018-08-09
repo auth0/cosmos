@@ -80,7 +80,7 @@ Field.propTypes = {
   /** Form Label */
   label: PropTypes.string.isRequired,
   /** Text that further explains the purpose of the field, or provides more detail */
-  helpText: PropTypes.node,
+  helpText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */
