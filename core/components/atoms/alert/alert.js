@@ -5,6 +5,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
 import { renderText } from '../../_helpers/free-text'
+import { deprecate } from '../../_helpers/custom-validations'
 
 class Alert extends React.Component {
   constructor(props) {
@@ -93,7 +94,7 @@ Alert.propTypes = {
   title: PropTypes.string.isRequired,
 
   /** Details */
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Link to documentation */
   link: PropTypes.string,
@@ -105,7 +106,9 @@ Alert.propTypes = {
   onDismiss: PropTypes.func,
 
   /** Automatically dismiss after N seconds */
-  dismissAfterSeconds: PropTypes.number
+  dismissAfterSeconds: PropTypes.number,
+
+  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
 }
 
 Alert.defaultProps = {

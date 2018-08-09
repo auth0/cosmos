@@ -8,6 +8,7 @@ import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 import { renderText } from '../../_helpers/free-text'
+import { deprecate } from '../../_helpers/custom-validations'
 
 const EmptyState = props => {
   let helpLink
@@ -77,11 +78,9 @@ EmptyState.propTypes = {
   helpUrl: PropTypes.string,
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  title: PropTypes.string.isRequired
-}
+  title: PropTypes.string.isRequired,
 
-EmptyState.defaultProps = {
-  text: 'No items have been added to this section.'
+  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
 }
 
 export default EmptyState
