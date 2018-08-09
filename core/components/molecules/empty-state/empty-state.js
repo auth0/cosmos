@@ -9,6 +9,18 @@ import Paragraph from '../../atoms/paragraph'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 
+/**
+ * Returns either a string with styles
+ * or the raw text prop depending on its type.
+ */
+function renderText(text) {
+  if (typeof text === 'string') {
+    return <Text>{text}</Text>
+  }
+
+  return text
+}
+
 const EmptyState = props => {
   let helpLink
   if (props.helpUrl) {
@@ -25,7 +37,7 @@ const EmptyState = props => {
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        <Text>{props.text}</Text>
+        {renderText(props.text)}
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
@@ -78,7 +90,7 @@ EmptyState.propTypes = {
   action: actionShapeWithRequiredIcon.isRequired,
   helpUrl: PropTypes.string,
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-  text: PropTypes.string,
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   title: PropTypes.string.isRequired
 }
 
