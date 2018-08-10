@@ -23,13 +23,23 @@ storiesOf('Badge').add('no appearance specified', () => (
 ))
 
 storiesOf('Badge').add('stressed', () => (
-  <Example title="stressed - 119 characters">
+  <Example title="stressed">
     <Stack>
-      <Badge appearance="default">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Badge>
-      <Badge appearance="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Badge>
-      <Badge appearance="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Badge>
-      <Badge appearance="warning">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Badge>
-      <Badge appearance="danger">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Badge>
+      <Badge appearance="default">
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      </Badge>
+      <Badge appearance="information">
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      </Badge>
+      <Badge appearance="success">
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      </Badge>
+      <Badge appearance="warning">
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      </Badge>
+      <Badge appearance="danger">
+        100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+      </Badge>
     </Stack>
   </Example>
 ))
