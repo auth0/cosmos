@@ -10,11 +10,11 @@ import ApplicationTypeImages from '../../components/application-types-images'
 class ApplicationDetail extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { selected: 1 }
+    this.state = { selectedTab: 1 }
   }
 
-  handleSelected(selected) {
-    this.setState({ selected })
+  handleSelected(selectedTab) {
+    this.setState({ selectedTab })
   }
 
   render() {
@@ -40,7 +40,7 @@ class ApplicationDetail extends React.Component {
             link: '/#/applications'
           }}
         />
-        <Tabs onSelect={nextIndex => this.handleSelected(nextIndex)} selected={this.state.selected}>
+        <Tabs selected={this.state.selectedTab} onSelect={this.handleSelected.bind(this)}>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
             <Settings applicationId={applicationId} />
