@@ -8,6 +8,15 @@ import ApplicationPageHeader from '../../components/application-page-header'
 import ApplicationTypeImages from '../../components/application-types-images'
 
 class ApplicationDetail extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selectedTab: 1 }
+  }
+
+  handleSelected(selectedTab) {
+    this.setState({ selectedTab })
+  }
+
   render() {
     return (
       <div>
@@ -30,7 +39,7 @@ class ApplicationDetail extends React.Component {
             link: '/#/applications'
           }}
         />
-        <Tabs>
+        <Tabs selected={this.state.selectedTab} onSelect={this.handleSelected.bind(this)}>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
             <Settings applicationId={this.props.match.params.applicationId} />

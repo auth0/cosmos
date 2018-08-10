@@ -1,10 +1,11 @@
 ```meta
   category: Layout
   description: "Paginate resources with a handy pagination component"
+  unstable: true
 ```
 
 ```jsx
-<Pagination {props} defaults={{items: 20372, perPage: 10, page: 3}} />
+<Pagination {props} defaults={{items: "20372", perPage: "10", page: "3":}} />
 ```
 
 ## Example

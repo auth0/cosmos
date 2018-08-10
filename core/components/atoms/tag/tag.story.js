@@ -29,3 +29,15 @@ storiesOf('Tag').add('tag group', () => (
     </Tag.Group>
   </Example>
 ))
+
+storiesOf('Tag').add('stressed', () => (
+  <Example title="stressed - 119 characters per tag">
+    <Tag.Group>
+      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+    </Tag.Group>
+  </Example>
+))

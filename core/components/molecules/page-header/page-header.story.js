@@ -15,12 +15,12 @@ storiesOf('Page Header').add('default', () => (
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
-        handler: () => {}
+        handler: () => { }
       }}
       secondaryAction={{
         label: 'Tutorial',
         icon: 'play-circle',
-        handler: () => {}
+        handler: () => { }
       }}
     />
   </Example>
@@ -61,7 +61,7 @@ storiesOf('Page Header').add('only primary action', () => (
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
-        handler: () => {}
+        handler: () => { }
       }}
     />
   </Example>
@@ -78,7 +78,7 @@ storiesOf('Page Header').add('only secondary action', () => (
       secondaryAction={{
         label: 'Tutorial',
         icon: 'play-circle',
-        handler: () => {}
+        handler: () => { }
       }}
     />
   </Example>

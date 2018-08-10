@@ -6,8 +6,7 @@ import { spacing, colors } from '@auth0/cosmos/tokens'
 
 const StyledSearchBox = styled(TextInput)`
   border-radius: 0;
-  border-right: none;
-  border-left: none;
+  border-right: 1px solid ${colors.base.grayLightest};
   padding: 14px ${spacing.medium};
   border-color: ${colors.base.grayLightest};
   &:hover  {
