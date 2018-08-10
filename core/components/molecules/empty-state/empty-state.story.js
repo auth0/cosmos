@@ -14,7 +14,23 @@ storiesOf('EmptyState').add('default', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => {}
+        handler: () => { }
+      }}
+    />
+  </Example>
+))
+
+storiesOf('EmptyState').add('stressed', () => (
+  <Example title="stressed - 119 characters in title and text">
+    <EmptyState
+      title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut."
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut."
+      icon="users"
+      helpUrl="https://auth0.com"
+      action={{
+        icon: 'plus',
+        label: 'Create Client',
+        handler: () => { }
       }}
     />
   </Example>

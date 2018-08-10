@@ -35,3 +35,19 @@ storiesOf('Tabs').add('null tab in children', () => (
     </Tabs>
   </Example>
 ))
+
+storiesOf('Tabs').add('stressed', () => (
+  <Example title="stressed - 9 tabs with 26 characters labels">
+    <Tabs selected={0}>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 1</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 2</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 3</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 4</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 5</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 6</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 7</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 8</Tabs.Tab>
+      <Tabs.Tab label="Lorem ipsum dolor sit amet">This is tab 9</Tabs.Tab>
+    </Tabs>
+  </Example>
+))
