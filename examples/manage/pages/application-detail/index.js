@@ -18,6 +18,7 @@ class ApplicationDetail extends React.Component {
   }
 
   render() {
+    const applicationId = this.props.match.params.applicationId
     return (
       <div>
         <Breadcrumb>
@@ -29,7 +30,7 @@ class ApplicationDetail extends React.Component {
           title="API Explorer Application"
           type={{
             name: 'Non Interactive',
-            applicationId: this.props.match.params.applicationId
+            applicationId: applicationId
           }}
           logo={
             <Avatar type="resource" size="xlarge" image={ApplicationTypeImages.non_interactive} />
@@ -42,13 +43,13 @@ class ApplicationDetail extends React.Component {
         <Tabs onSelect={nextIndex => this.handleSelected(nextIndex)} selected={this.state.selected}>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
-            <Settings applicationId={this.props.match.params.applicationId} />
+            <Settings applicationId={applicationId} />
           </Tabs.Tab>
           <Tabs.Tab label="Connections">
             <Connections />
           </Tabs.Tab>
           <Tabs.Tab label="Advanced">
-            <Advanced applicationId={this.props.match.params.applicationId} />
+            <Advanced applicationId={applicationId} />
           </Tabs.Tab>
         </Tabs>
       </div>
