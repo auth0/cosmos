@@ -14,13 +14,6 @@ import ApisIndex from '../pages/apis'
 import UsersIndex from '../pages/users'
 
 const Page = props => {
-  if (window.location.hash === '#/' && props.defaultRoute) {
-    return (
-      <Router>
-        <Redirect to={props.defaultRoute} />
-      </Router>
-    )
-  }
   return (
     <Router>
       <React.Fragment>

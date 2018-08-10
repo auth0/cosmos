@@ -10,7 +10,7 @@ import ApplicationTypeImages from '../../components/application-types-images'
 class ApplicationDetail extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { selectedTab: 0 }
+    this.state = { selectedTab: 1 }
   }
 
   handleSelected(selectedTab) {
