@@ -27,7 +27,7 @@ const StyledPageHeader = styled.div`
   }
 `
 
-function renderDescription(description, children) {
+const SoftDescription = ({ description, children }) => {
   if (children) return <DescriptionParagraph>{children}</DescriptionParagraph>
   if (!description) return null
 
@@ -65,8 +65,7 @@ const PageHeader = props => {
       </ButtonGroup>
 
       <Heading size={1}>{props.title}</Heading>
-
-      {renderDescription(props.description, props.children)}
+      <SoftDescription {...props} />
     </StyledPageHeader>
   )
 }

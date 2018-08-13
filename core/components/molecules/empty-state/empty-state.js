@@ -7,7 +7,7 @@ import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
-import { renderText } from '../../_helpers/free-text'
+import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 
 const EmptyState = props => {
@@ -26,7 +26,7 @@ const EmptyState = props => {
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        {renderText(props.text, props.children, { useParagraph: true })}
+        <Text {...props} useParagraph />
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>

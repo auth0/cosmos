@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
-import { renderText } from '../../_helpers/free-text'
+import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 
 class Alert extends React.Component {
@@ -12,12 +12,14 @@ class Alert extends React.Component {
     super(props)
     this.state = { visible: true }
   }
+
   componentDidMount() {
     if (this.props.dismissAfterSeconds) {
       /* timer to auto dismiss the component */
       this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000)
     }
   }
+
   componentWillUnmount() {
     /*
       clear timer on unmount
@@ -28,16 +30,18 @@ class Alert extends React.Component {
     */
     if (this.timer) window.clearTimeout(this.timer)
   }
+
   dismiss = () => {
     this.setState({ visible: false })
     if (typeof this.props.onDismiss === 'function') this.props.onDismiss()
   }
+
   render() {
     if (this.state.visible) {
       return (
         <Alert.Element type={this.props.type}>
           <Paragraph>
-            <em>{this.props.title}</em> {renderText(this.props.text, this.props.children)}
+            <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
               <Link href={this.props.link} target="_blank">
                 Read more
@@ -91,9 +95,10 @@ Alert.propTypes = {
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
   /** Title text (in bold) */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 
   /** Details */
+  // @deprecated
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Link to documentation */

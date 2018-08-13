@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Paragraph from '../atoms/paragraph'
 
-const Text = styled(Paragraph)`
+const StyledText = styled(Paragraph)`
   margin: 0;
 `
 
@@ -10,15 +10,14 @@ const Text = styled(Paragraph)`
  * Returns either a string with styles
  * or the raw text prop depending on its type.
  */
-export function renderText(text, children, { useParagraph = false } = {}) {
+export const Text = ({ text, children, useParagraph = false }) => {
   if (children) {
-    if (useParagraph) return <Text>{children}</Text>
+    if (useParagraph) return <StyledText>{children}</StyledText>
     return children
   }
 
   if (typeof text === 'string') {
-    if (useParagraph) return <Text>{text}</Text>
-    console.log({ useParagraph })
+    if (useParagraph) return <StyledText>{text}</StyledText>
     return text
   }
 
