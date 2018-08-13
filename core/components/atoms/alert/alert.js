@@ -7,6 +7,15 @@ import Paragraph, { StyledParagraph } from '../paragraph'
 import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 
+const ReadMoreLink = styled(Link)`
+  color: ${props => colors.alert[props.type].text};
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  margin-left: ${spacing.xxsmall};
+`
+
 class Alert extends React.Component {
   constructor(props) {
     super(props)
@@ -43,9 +52,9 @@ class Alert extends React.Component {
           <Paragraph>
             <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
-              <Link href={this.props.link} target="_blank">
+              <ReadMoreLink type="default" href={this.props.link} target="_blank">
                 Read more
-              </Link>
+              </ReadMoreLink>
             )}
           </Paragraph>
           {this.props.dismissible && <Cross onClick={this.dismiss} />}
@@ -76,7 +85,6 @@ Alert.Element = styled.div`
   ${StyledLink} {
     color: ${props => colors.alert[props.type].text};
     text-decoration: underline;
-    margin-left: 4px;
     &:hover {
       text-decoration: none;
     }
