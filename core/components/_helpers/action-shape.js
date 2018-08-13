@@ -9,10 +9,16 @@ const actionShape = PropTypes.shape({
   handler: PropTypes.func.isRequired
 })
 
+const actionShapeWithoutRequiredHandler = PropTypes.shape({
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.oneOf(__ICONNAMES__),
+  handler: PropTypes.func
+})
+
 const actionShapeWithRequiredIcon = PropTypes.shape({
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
   handler: PropTypes.func.isRequired
 })
 
-export { actionShape, actionShapeWithRequiredIcon, shapeForDocs }
+export { actionShape, actionShapeWithRequiredIcon, actionShapeWithoutRequiredHandler, shapeForDocs }
