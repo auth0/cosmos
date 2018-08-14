@@ -4,17 +4,11 @@ import { fonts, misc } from '@auth0/cosmos-tokens'
 const BaseComponent = styled.div`
   box-sizing: border-box;
   line-height: ${misc.lineHeight};
-
-  input&,
-  textarea&,
-  button&,
-  select& {
-    font-family: ${fonts.family.text};
-    font-weight: ${fonts.weight.normal};
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+  font-family: ${fonts.family.text};
+  font-weight: ${fonts.weight.normal};
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   strong&,
   em& {
