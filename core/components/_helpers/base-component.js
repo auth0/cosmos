@@ -5,8 +5,12 @@ const BaseComponent = styled.div`
   box-sizing: border-box;
   line-height: ${misc.lineHeight};
   font-family: ${fonts.family.text};
+
   font-weight: ${fonts.weight.normal};
+  font-weight: inherit;
+
   font-size: 14px;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
