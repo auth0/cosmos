@@ -8,45 +8,22 @@ storiesOf('Page Header').add('default', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
-      description={{
-        text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-        learnMore: '/clients'
-      }}
+      description={
+        <span>
+          Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+        </span>
+      }
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
-        handler: () => { }
+        handler: () => {}
       }}
       secondaryAction={{
         label: 'Tutorial',
         icon: 'play-circle',
-        handler: () => { }
+        handler: () => {}
       }}
     />
-  </Example>
-))
-
-storiesOf('Page Header').add('default with description as children', () => (
-  <Example title="default">
-    <PageHeader
-      title="Clients"
-      description={{
-        text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-        learnMore: '/clients'
-      }}
-      primaryAction={{
-        label: 'Create Client',
-        icon: 'plus',
-        handler: () => {}
-      }}
-      secondaryAction={{
-        label: 'Tutorial',
-        icon: 'play-circle',
-        handler: () => {}
-      }}
-    >
-      Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
-    </PageHeader>
   </Example>
 ))
 
@@ -61,7 +38,7 @@ storiesOf('Page Header').add('only primary action', () => (
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>
@@ -78,7 +55,7 @@ storiesOf('Page Header').add('only secondary action', () => (
       secondaryAction={{
         label: 'Tutorial',
         icon: 'play-circle',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>
