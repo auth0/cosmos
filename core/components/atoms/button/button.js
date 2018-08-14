@@ -206,8 +206,8 @@ Button.Element = styled.button`
   text-align: center;
   white-space: nowrap;
   letter-spacing: 1px;
-  font-size: 13px;
-  font-weight: ${fonts.weight.medium};
+  font-size: 13px !important;
+  font-weight: ${fonts.weight.medium} !important;
 
   background: ${props => getAttributes(props).background};
   border: 1px solid;
