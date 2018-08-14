@@ -7,7 +7,7 @@ let config = getConfig('production')
 /* Pass a hint to cosmos to disable resets */
 config.plugins.push(
   new webpack.EnvironmentPlugin({
-    COSMOS_DISABLE_RESETS: true
+    // COSMOS_DISABLE_RESETS: true
   })
 )
 
