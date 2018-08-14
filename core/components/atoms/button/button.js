@@ -196,7 +196,7 @@ const Button = ({ children, ...props }) => {
   return button
 }
 
-Button.Element = BaseComponent.withComponent('button').extend`
+Button.Element = styled.button`
   display: inline-block;
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};

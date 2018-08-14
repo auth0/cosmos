@@ -9,6 +9,7 @@
 
 /* resets for font */
 import './_helpers/globals'
+import ResetWrapper from './_helpers/reset-wrapper'
 
 /* demo */
 import Box from './atoms/_box'
@@ -84,6 +85,7 @@ export {
   Pager,
   Paragraph,
   Radio,
+  ResetWrapper,
   ResourceList,
   Select,
   Sidebar,
