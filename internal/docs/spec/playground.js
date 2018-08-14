@@ -110,3 +110,5 @@ class Playground extends React.Component {
 }
 
 export default Playground
+
+export { Container }

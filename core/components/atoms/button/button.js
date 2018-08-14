@@ -19,7 +19,8 @@ const appearances = {
     focusBackground: colors.button.default.backgroundFocus,
     focusBorder: colors.button.default.borderFocus,
     activeBackground: colors.button.default.backgroundActive,
-    activeBorder: colors.button.default.borderActive
+    activeBorder: colors.button.default.borderActive,
+    loadingInverse: false
   },
   primary: {
     text: colors.button.primary.text,
@@ -31,7 +32,8 @@ const appearances = {
     focusBackground: colors.button.primary.backgroundFocus,
     focusBorder: colors.button.primary.borderFocus,
     activeBackground: colors.button.primary.backgroundActive,
-    activeBorder: colors.button.primary.borderActive
+    activeBorder: colors.button.primary.borderActive,
+    loadingInverse: true
   },
   secondary: {
     text: colors.button.secondary.text,
@@ -43,7 +45,8 @@ const appearances = {
     focusBackground: colors.button.secondary.backgroundFocus,
     focusBorder: colors.button.secondary.borderFocus,
     activeBackground: colors.button.secondary.backgroundActive,
-    activeBorder: colors.button.secondary.borderActive
+    activeBorder: colors.button.secondary.borderActive,
+    loadingInverse: false
   },
   cta: {
     text: colors.button.cta.text,
@@ -55,7 +58,8 @@ const appearances = {
     focusBackground: colors.button.cta.backgroundFocus,
     focusBorder: colors.button.cta.borderFocus,
     activeBackground: colors.button.cta.backgroundActive,
-    activeBorder: colors.button.cta.borderActive
+    activeBorder: colors.button.cta.borderActive,
+    loadingInverse: true
   },
   destructive: {
     text: colors.button.destructive.text,
@@ -67,7 +71,8 @@ const appearances = {
     focusBackground: colors.button.destructive.backgroundFocus,
     focusBorder: colors.button.destructive.borderFocus,
     activeBackground: colors.button.destructive.backgroundActive,
-    activeBorder: colors.button.destructive.borderActive
+    activeBorder: colors.button.destructive.borderActive,
+    loadingInverse: true
   },
   link: {
     text: colors.button.link.text,
@@ -79,7 +84,8 @@ const appearances = {
     hoverBorder: 'transparent',
     focusText: colors.button.link.focus,
     focusBackground: 'transparent',
-    focusBorder: 'transparent'
+    focusBorder: 'transparent',
+    loadingInverse: false
   }
 }
 
@@ -164,7 +170,7 @@ const ButtonContent = props => {
   let icon = props.success ? 'check' : props.icon
 
   if (props.loading) {
-    content.push(<Spinner key="spinner" inverse={props.primary} />)
+    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
   } else if (icon) {
     content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
   }
@@ -198,6 +204,7 @@ Button.Element = styled.button`
 
   text-transform: uppercase;
   text-align: center;
+  white-space: nowrap;
   letter-spacing: 1px;
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
@@ -216,15 +223,14 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${Icon.Element} {
+  ${Icon.Element}, ${StyledSpinner} {
     position: relative;
     top: -1px;
-    color: ${props => getAttributes(props).text};
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
-  ${StyledSpinner} {
-    margin-right: ${props => (props.text ? spacing.xsmall : 0)};
+  ${Icon.Element} {
+    color: ${props => getAttributes(props).text};
   }
 
   &:hover {
@@ -246,11 +252,18 @@ Button.Element = styled.button`
   }
 `
 
-Button.LinkElement = Button.Element.withComponent('a')
-
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
+`
+
+Button.LinkElement = Button.Element.withComponent('a').extend`
+  display: table;
+  text-decoration: none;
+
+  ${Button.Text} {
+    display: table-cell;
+  }
 `
 
 Button.propTypes = {

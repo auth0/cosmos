@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Tabs } from '@auth0/cosmos'
+import { Avatar, Tabs, Breadcrumb } from '@auth0/cosmos'
 
 import Settings from './settings'
 import Advanced from './advanced'
@@ -8,9 +8,23 @@ import ApplicationPageHeader from '../../components/application-page-header'
 import ApplicationTypeImages from '../../components/application-types-images'
 
 class ApplicationDetail extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selectedTab: 1 }
+  }
+
+  handleSelected(selectedTab) {
+    this.setState({ selectedTab })
+  }
+
   render() {
     return (
       <div>
+        <Breadcrumb>
+          <Breadcrumb.Link href="#/applications" icon="arrow-left-fill">
+            Back to Applications
+          </Breadcrumb.Link>
+        </Breadcrumb>
         <ApplicationPageHeader
           title="API Explorer Application"
           type={{
@@ -25,7 +39,7 @@ class ApplicationDetail extends React.Component {
             link: '/#/applications'
           }}
         />
-        <Tabs>
+        <Tabs selected={this.state.selectedTab} onSelect={this.handleSelected.bind(this)}>
           <Tabs.Tab label="Quick Start">Quickstart</Tabs.Tab>
           <Tabs.Tab label="Settings" selected>
             <Settings applicationId={this.props.match.params.applicationId} />

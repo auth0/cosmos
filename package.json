@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.3.0",
+  "version": "0.3.3",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -28,9 +28,14 @@
   },
   "lint-staged": {
     "*.{js,json,md}": [
-      "prettier --write --single-quote --no-semi --print-width 100",
+      "prettier --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "printWidth": 100
   },
   "dependencies": {},
   "devDependencies": {
@@ -38,6 +43,7 @@
     "@storybook/addon-links": "4.0.0-alpha.12",
     "@storybook/addons": "4.0.0-alpha.12",
     "@storybook/react": "4.0.0-alpha.12",
+    "babel-cli": "6.26.0",
     "chokidar": "2.0.4",
     "execa": "0.10.0",
     "fs-extra": "6.0.1",

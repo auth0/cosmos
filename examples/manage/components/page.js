@@ -13,30 +13,32 @@ import LogsIndex from '../pages/slogs'
 import ApisIndex from '../pages/apis'
 import UsersIndex from '../pages/users'
 
-const Page = () => (
-  <Router>
-    <React.Fragment>
-      <SideNavigation />
-      <div
-        style={{
-          width: '836px',
-          marginLeft: '198px',
-          paddingBottom: '50px'
-        }}
-      >
-        <Route exact path="/welcome" component={WelcomeIndex} />
-        <Route exact path="/applications" component={ApplicationIndex} />
-        <Route exact path="/applications/:applicationId" component={ApplicationDetail} />
-        <Route exact path="/emails" component={EmailsIndex} />
-        <Route exact path="/rules" component={RulesIndex} />
-        <Route exact path="/logs" component={LogsIndex} />
-        <Route exact path="/users" component={UsersIndex} />
-        <Route exact path="/apis" component={ApisIndex} />
-        <Route exact path="/anomaly" component={AnomalyDetectionIndex} />
-        <Route exact path="/sso-integrations" component={SsoIndex} />
-      </div>
-    </React.Fragment>
-  </Router>
-)
+const Page = props => {
+  return (
+    <Router>
+      <React.Fragment>
+        <SideNavigation />
+        <div
+          style={{
+            width: '836px',
+            marginLeft: '198px',
+            paddingBottom: '50px'
+          }}
+        >
+          <Route exact path="/welcome" component={WelcomeIndex} />
+          <Route exact path="/applications" component={ApplicationIndex} />
+          <Route exact path="/applications/:applicationId" component={ApplicationDetail} />
+          <Route exact path="/emails" component={EmailsIndex} />
+          <Route exact path="/rules" component={RulesIndex} />
+          <Route exact path="/logs" component={LogsIndex} />
+          <Route exact path="/users" component={UsersIndex} />
+          <Route exact path="/apis" component={ApisIndex} />
+          <Route exact path="/anomaly" component={AnomalyDetectionIndex} />
+          <Route exact path="/sso-integrations" component={SsoIndex} />
+        </div>
+      </React.Fragment>
+    </Router>
+  )
+}
 
 export default Page

@@ -11,6 +11,7 @@ A `ResourceList.Item` is a single item that is displayed in a [ResourceList](#/c
   subtitle="Example Subtitle"
   href="https://auth0.com/"
   icon="clients"
+  onClick={evt => alert('Clicked!')}
   actions={[
     { icon: 'settings', label: 'Settings', handler: function(){} },
     { icon: 'delete', label: 'Delete', handler: function(){} }

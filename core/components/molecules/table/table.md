@@ -38,12 +38,193 @@
         'data:image/jpeg;base64,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'
     }
   ]}
+  onRowClick={(evt, item) => alert(`${item.name} was clicked!`)}
 >
   <Table.Column field="image" width="50px">
-    {item => <Avatar image={item.image} />}
+    {item => <Avatar type="user" image={item.image} />}
   </Table.Column>
   <Table.Column field="name" title="Name" width="40%" />
-  <Table.Column field="born" title="Born" sortable sort="asc" />
+  <Table.Column field="born" title="Born" sortable />
   <Table.Column field="died" title="Died" sortable />
 </Table>
+```
+
+## Examples
+
+### Automatic sorting
+
+You can add `sortable` prop to `Table.Column` that you want the `Table` to be sorted on
+
+```js
+<Table
+  items={[
+    {
+      name: 'Harry Kane',
+      goals: 6,
+      assists: 0,
+      country: '🇬🇧',
+      image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+    },
+    {
+      name: 'Romelu Lukaku',
+      goals: 4,
+      assists: 1,
+      country: '🇧🇪',
+      image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+    },
+    {
+      name: 'Antoine Griezmann',
+      goals: 4,
+      assists: 2,
+      country: '🇫🇷',
+      image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+    },
+    {
+      name: 'Ivan Perišić',
+      goals: 3,
+      assists: 1,
+      country: '🇭🇷',
+      image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+    }
+  ]}
+>
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+</Table>
+```
+
+### Custom compare function
+
+Pass a `comparator` function to `Table.Column` to define your own custom sorting logic.
+
+```js
+<Table
+  items={[
+    {
+      name: 'Harry Kane',
+      goals: 6,
+      assists: 0,
+      country: '🇬🇧',
+      image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+    },
+    {
+      name: 'Romelu Lukaku',
+      goals: 4,
+      assists: 1,
+      country: '🇧🇪',
+      image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+    },
+    {
+      name: 'Antoine Griezmann',
+      goals: 4,
+      assists: 2,
+      country: '🇫🇷',
+      image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+    },
+    {
+      name: 'Ivan Perišić',
+      goals: 3,
+      assists: 1,
+      country: '🇭🇷',
+      image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+    }
+  ]}
+>
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+  <Table.Column
+    field="points"
+    title="Points"
+    sortable
+    comparator={(a, b) => {
+      return a.goals + a.assists - b.goals - b.assists
+    }}
+  >
+    {item => item.goals + item.assists}
+  </Table.Column>
+</Table>
+```
+
+### Controlled sorting
+
+If you'd like to sort the items yourselves, you can pass a `onSort` function to `Table` which will be called when a column header is clicked.
+
+This function receives the new `sortOn` and `sortDirection` as arguments
+
+Note: The component expects `sortOn` and `sortDirection` back to decide styles for the header.
+
+```js
+class Example extends React.Component {
+  constructor() {
+    super()
+    const items = [
+      {
+        name: 'Harry Kane',
+        goals: 6,
+        assists: 0,
+        country: '🇬🇧',
+        image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+      },
+      {
+        name: 'Romelu Lukaku',
+        goals: 4,
+        assists: 1,
+        country: '🇧🇪',
+        image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+      },
+      {
+        name: 'Antoine Griezmann',
+        goals: 4,
+        assists: 2,
+        country: '🇫🇷',
+        image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+      },
+      {
+        name: 'Ivan Perišić',
+        goals: 3,
+        assists: 1,
+        country: '🇭🇷',
+        image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+      }
+    ]
+    this.state = { items, sortOn: 'goals', sortDirection: 'desc' }
+  }
+  onSort(sortOn, sortDirection) {
+    let items = this.state.items.sort((a, b) => {
+      return a[sortOn] - b[sortOn]
+    })
+
+    if (sortDirection === 'desc') items.reverse()
+
+    this.setState({ items, sortOn, sortDirection })
+  }
+  render() {
+    return (
+      <Table
+        sortOn={this.state.sortOn}
+        sortDirection={this.state.sortDirection}
+        onSort={this.onSort.bind(this)}
+        items={this.state.items}
+      >
+        <Table.Column field="image" width="50px">
+          {item => <Avatar type="user" image={item.image} />}
+        </Table.Column>
+        <Table.Column field="name" title="Name" width="30%" />
+        <Table.Column field="country" title="Country" />
+        <Table.Column field="goals" title="Goals" sortable />
+        <Table.Column field="assists" title="Assists" sortable />
+      </Table>
+    )
+  }
+}
 ```

@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "engine": "index.js"
+    "engine": "cli.js"
   },
+  "main": "index.js",
   "scripts": {},
   "keywords": [],
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@auth0/babel-preset-cosmos": "0.2.4",
+    "@auth0/babel-preset-cosmos": "0.3.3",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
