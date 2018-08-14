@@ -12,8 +12,6 @@ import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { descriptionIsObject } from '../../_helpers/page-header'
 
-import { deprecate } from '../../_helpers/custom-validations'
-
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
 
@@ -27,8 +25,7 @@ const StyledPageHeader = styled.div`
   }
 `
 
-const SoftDescription = ({ description, children }) => {
-  if (children) return <DescriptionParagraph>{children}</DescriptionParagraph>
+const SoftDescription = ({ description }) => {
   if (!description) return null
 
   if (descriptionIsObject(description)) {
@@ -82,12 +79,10 @@ PageHeader.propTypes = {
       learnMore: PropTypes.string
     }),
     PropTypes.node
-  ]),
+  ]).isRequired,
   /** Actions to be attached on top */
   primaryAction: actionShapeWithRequiredIcon,
-  secondaryAction: actionShapeWithRequiredIcon,
-
-  _error: props => deprecate(props, { name: 'description', replacement: 'children' })
+  secondaryAction: actionShapeWithRequiredIcon
 }
 
 PageHeader.defaultProps = {
