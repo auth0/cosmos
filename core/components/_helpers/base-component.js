@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { fonts, misc } from '@auth0/cosmos-tokens'
 
 const BaseComponent = styled.div`
   box-sizing: border-box;
