@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 import { subtract } from '../../_helpers/pixel-calc'
@@ -7,7 +7,6 @@ import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner, { StyledSpinner } from '../spinner'
 import Tooltip from '../tooltip'
-import BaseComponent from '../../_helpers/base-component'
 
 const appearances = {
   default: {
@@ -196,7 +195,7 @@ const Button = ({ children, ...props }) => {
   return button
 }
 
-Button.Element = BaseComponent.withComponent('button').extend`
+Button.Element = styled.button`
   display: inline-block;
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
