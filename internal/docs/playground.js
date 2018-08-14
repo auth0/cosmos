@@ -2,10 +2,13 @@ import React from 'react'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import { Container } from './spec/playground'
 import * as Components from '@auth0/cosmos'
-import styled from '@auth0/cosmos/styled'
+import styled, { injectGlobal, css, keyframes } from '@auth0/cosmos/styled'
 import { Button, TextInput } from '@auth0/cosmos'
 
 Components.styled = styled
+Components.injectGlobal = injectGlobal
+Component.css = css
+Components.keyframes = keyframes
 
 const demoCode = `
 /* you have access to all cosmos components here */
