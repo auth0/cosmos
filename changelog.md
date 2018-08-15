@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - Style and documenation improvements for `Pagination` [#750]
 - Add automatic sorting for `Table` [#758]
+- Support free texts in Page Header, Empty State and Alert [#782]
 
 ### Fixed
 
