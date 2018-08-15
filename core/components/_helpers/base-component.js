@@ -4,7 +4,6 @@ import { fonts, misc } from '@auth0/cosmos-tokens'
 const BaseComponent = styled.div`
   box-sizing: border-box;
   line-height: 1.6;
-  color: red !important;
 
   strong&,
   em& {
