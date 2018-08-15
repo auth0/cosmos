@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
 import { colors, spacing } from '@auth0/cosmos-tokens'
