@@ -9,10 +9,7 @@
 <PageHeader
   {props}
   defaults={{ title: "Clients" }}
-  description={{
-    text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-    learnMore: '/clients'
-  }}
+  description={<span>Setup a mobile, web or IoT application to use Auth0 for Authentication. <Link href="/clients">Learn more</Link></span>}
   primaryAction={{
     label: 'Create Client',
     icon: 'plus',
@@ -23,7 +20,9 @@
     icon: 'play-circle',
     handler: () => {}
   }}
-/>
+>
+
+</PageHeader>
 ```
 
 ## Examples
@@ -35,15 +34,17 @@ A Page header can have a single primary action:
 ```js
 <PageHeader
   title="Clients"
-  description={{
-    text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-    learnMore: '/clients'
-  }}
   primaryAction={{
     label: 'Create Client',
     icon: 'plus',
     handler: () => {}
   }}
+  description={
+    <span>
+      Setup a mobile, web or IoT application to use Auth0 for Authentication.{' '}
+      <Link href="/clients">Learn more</Link>
+    </span>
+  }
 />
 ```
 
@@ -52,14 +53,16 @@ A Page header can also have a single secondary action:
 ```js
 <PageHeader
   title="Clients"
-  description={{
-    text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-    learnMore: '/clients'
-  }}
   secondaryAction={{
     label: 'Tutorial',
     icon: 'play-circle',
     handler: () => {}
   }}
+  description={
+    <span>
+      Setup a mobile, web or IoT application to use Auth0 for Authentication.{' '}
+      <Link href="/clients">Learn more</Link>
+    </span>
+  }
 />
 ```

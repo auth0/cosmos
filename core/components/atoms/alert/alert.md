@@ -9,7 +9,7 @@
 The `Alert` component should be used to draw the user's attention to a message.
 
 ```jsx
-<Alert {props} defaults={{type: "warning", title: "Notice!", text: "This is an important message!"}} />
+<Alert {props} defaults={{type: "warning", title: "Notice!"}}>This is an important message!</Alert>
 ```
 
 ## Examples
@@ -20,15 +20,25 @@ There are multiple alert types for different situations
 
 ```js
 <div>
-  <Alert type="default" title="FYI!" text="Just a regular message" />
+  <Alert type="default" title="FYI!">
+    Just a regular message
+  </Alert>
   <br />
-  <Alert type="information" title="Hi!" text="You should probably know this" />
+  <Alert type="information" title="Hi!">
+    You should probably know this
+  </Alert>
   <br />
-  <Alert type="success" title="Good job!" text="You did the thing!" />
+  <Alert type="success" title="Good job!">
+    You did the thing!
+  </Alert>
   <br />
-  <Alert type="danger" title="Oh no!" text="We've got bad news" />
+  <Alert type="danger" title="Oh no!">
+    We've got bad news
+  </Alert>
   <br />
-  <Alert type="warning" title="Notice!" text="You should pay attention" />
+  <Alert type="warning" title="Notice!">
+    You should pay attention
+  </Alert>
 </div>
 ```
 
@@ -38,9 +48,13 @@ By default, alerts can be dismissed by the user. You can disable that behaviour 
 
 ```js
 <div>
-  <Alert type="information" title="Notice!" text="You can dismiss me. Go ahead and try" />
+  <Alert type="information" title="Notice!">
+    You can dismiss me. Go ahead and try
+  </Alert>
   <br />
-  <Alert dismissible={false} type="warning" title="Notice!" text="There's no cross button on me" />
+  <Alert dismissible={false} type="warning" title="Notice!">
+    There's no cross button on me
+  </Alert>
 </div>
 ```
 
@@ -53,11 +67,8 @@ Alerts can be made to dismiss on their own by using the `dismissAfterSeconds` pr
   There was an alert here ⬇️
   <br />
   <br />
-  <Alert
-    dismissAfterSeconds={10}
-    type="warning"
-    title="Notice!"
-    text="I'm going to disappear soon"
-  />
+  <Alert dismissAfterSeconds={10} type="warning" title="Notice!">
+    I'm going to disappear soon
+  </Alert>
 </div>
 ```

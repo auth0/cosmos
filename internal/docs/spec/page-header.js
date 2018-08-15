@@ -14,11 +14,10 @@ const Header = props => {
   let warning
   if (props.unstable === true) {
     warning = (
-      <Alert
-        type="warning"
-        title="Be careful!"
-        text="This component is currently unstable, and may change or be removed entirely in future versions."
-      />
+      <Alert type="warning" title="Be careful!">
+        This component is currently unstable, and may change or be removed entirely in future
+        versions.
+      </Alert>
     )
   }
 

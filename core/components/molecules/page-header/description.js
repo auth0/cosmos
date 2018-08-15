@@ -17,7 +17,7 @@ const ArrowMore = styled.i`
   border-color: transparent transparent transparent ${colors.link.default};
 `
 
-const StyledParagraph = styled(Paragraph)`
+export const StyledParagraph = styled(Paragraph)`
   margin-top: ${spacing.large};
   margin-bottom: 0;
 `
