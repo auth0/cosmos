@@ -15,7 +15,7 @@ const App = props => (
           paddingTop: '110px'
         }}
       >
-        <Page />
+        <Page defaultRoute={props.defaultRoute} />
       </div>
     </Container>
   </div>

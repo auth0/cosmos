@@ -84,6 +84,10 @@ class Table extends React.Component {
     this.props.onRowClick(evt, item)
   }
 
+  handleRowClicked = item => evt => {
+    this.props.onRowClick(evt, item)
+  }
+
   render() {
     const columns = this.inferColumnsFromChildren(this.props.children)
     let sortedItems, sortingColumn, sortDirection, onSort
@@ -112,6 +116,7 @@ class Table extends React.Component {
       <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)}>
         {columns.map(column => {
           const cellRenderer = column.children || this.defaultCellRenderer
+
           return (
             <Table.Cell key={column.field} column={column}>
               {cellRenderer(item, column)}
