@@ -264,6 +264,12 @@ Button.LinkElement = Button.Element.withComponent('a').extend`
   ${Button.Text} {
     display: table-cell;
   }
+
+  ${Icon.Element} {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: ${props => (props.text ? spacing.xsmall : 0)};
+  }
 `
 
 Button.propTypes = {
