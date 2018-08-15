@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 
 import Button from '../../atoms/button'
 import { spacing } from '@auth0/cosmos-tokens'

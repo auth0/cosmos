@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Button from '../../atoms/button'

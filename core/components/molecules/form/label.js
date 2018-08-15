@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { fonts, colors } from '@auth0/cosmos-tokens'
 

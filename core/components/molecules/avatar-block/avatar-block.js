@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'

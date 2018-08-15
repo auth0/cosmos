@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from '@auth0/cosmos/styled'
 import { fonts, misc } from '@auth0/cosmos-tokens'
 
 let includeGlobals = true

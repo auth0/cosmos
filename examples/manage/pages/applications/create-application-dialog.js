@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { Dialog, Form, Paragraph, Stack } from '@auth0/cosmos'
 import { colors, misc, spacing } from '@auth0/cosmos/tokens'
 import { StyledHeading } from '@auth0/cosmos/atoms/heading'
