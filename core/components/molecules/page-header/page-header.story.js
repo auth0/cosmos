@@ -61,7 +61,7 @@ storiesOf('Page Header').add('only secondary action', () => (
   </Example>
 ))
 
-storiesOf('Page Header').add('only primary action with description as children', () => (
+storiesOf('Page Header').add('only primary action with description', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
@@ -70,13 +70,16 @@ storiesOf('Page Header').add('only primary action with description as children',
         icon: 'plus',
         handler: () => {}
       }}
-    >
-      Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
-    </PageHeader>
+      description={
+        <span>
+          Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+        </span>
+      }
+    />
   </Example>
 ))
 
-storiesOf('Page Header').add('only secondary action with description as children', () => (
+storiesOf('Page Header').add('only secondary action with description', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
