@@ -40,8 +40,8 @@ const StyledInput = styled.input`
   border-color: ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  font-size: ${props => (props.code ? '13px' : 'inherit')};
+  font-family: ${props => (props.code ? fonts.family.code + ' !important' : 'inherit')};
+  font-size: ${props => (props.code ? '13px !important' : 'inherit')};
   color: ${colors.text.inputs};
 
   padding: ${misc.inputs.padding} ${spacing.small};
