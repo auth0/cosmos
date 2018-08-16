@@ -195,6 +195,16 @@ const colors = {
     background: '#DBF4FD',
     border: '#3BC0F2',
     text: '#3BC0F2'
+  },
+  card: {
+    border: '#F1F1F1',
+    borderHover: '#E9E8E8',
+    borderActive: '#DADADA',
+    borderchecked: '#4cd964',
+    borderDisabled: 'F1F1F1',
+    backgroundDisabled: 'F1F1F1',
+    backgroundWhite: '#FFFFFF',
+    backgroundGray: '#FBFBFB'
   }
 }
 

@@ -36,6 +36,7 @@ import Text from './atoms/text'
 import TextArea from './atoms/textarea'
 import TextInput from './atoms/text-input'
 import Tooltip from './atoms/tooltip'
+import Card from './atoms/card'
 
 /* molecules */
 import Alert from './atoms/alert'
@@ -55,6 +56,7 @@ import Sidebar from './molecules/sidebar'
 import Stack from './molecules/stack'
 import Table from './molecules/table'
 import Tabs from './molecules/tabs'
+import CardList from './molecules/card-list'
 
 export {
   Alert,
@@ -67,6 +69,8 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  Card,
+  CardList,
   Dialog,
   EmptyState,
   Form,

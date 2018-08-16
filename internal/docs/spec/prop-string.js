@@ -83,6 +83,16 @@ const getPropString = propData => {
       }
     }
 
+    if (propData[name].type.name === 'union') {
+      if (typeof propData[name].value === 'string') {
+        propString += ` ${name}="${propData[name].value}"`
+        return true
+      } else {
+        propString += ` ${name}={${propData[name].value}}`
+        return true
+      }
+    }
+
     /*
       Default case:
       If something reaches here, we probably don't know what to do with yet.
