@@ -35,7 +35,6 @@ storiesOf('Page Header').add('only primary action', () => (
       description={
         <span>
           Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
-          <Link href="/test">Learn more</Link>
         </span>
       }
       learnMore="/link"
