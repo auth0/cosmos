@@ -9,7 +9,8 @@
 <PageHeader
   {props}
   defaults={{ title: "Clients" }}
-  description={<span>Setup a mobile, web or IoT application to use Auth0 for Authentication. <Link href="/clients">Learn more</Link></span>}
+  description={<span>Setup a mobile, web or IoT application to use Auth0 for Authentication.</span>}
+  learnMore="/link"
   primaryAction={{
     label: 'Create Client',
     icon: 'plus',
@@ -20,9 +21,7 @@
     icon: 'play-circle',
     handler: () => {}
   }}
->
-
-</PageHeader>
+/>
 ```
 
 ## Examples

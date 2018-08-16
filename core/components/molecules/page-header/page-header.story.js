@@ -13,6 +13,7 @@ storiesOf('Page Header').add('default', () => (
           Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
         </span>
       }
+      learnMore="/link"
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
@@ -34,8 +35,10 @@ storiesOf('Page Header').add('only primary action', () => (
       description={
         <span>
           Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+          <Link href="/test">Learn more</Link>
         </span>
       }
+      learnMore="/link"
       primaryAction={{
         label: 'Create Client',
         icon: 'plus',
@@ -54,6 +57,7 @@ storiesOf('Page Header').add('only secondary action', () => (
           Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
         </span>
       }
+      learnMore="/link"
       secondaryAction={{
         label: 'Tutorial',
         icon: 'play-circle',
