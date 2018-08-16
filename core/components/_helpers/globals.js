@@ -24,7 +24,7 @@ const insertAtTheStart = styles => {
 }
 
 if (includeGlobals) {
-  insertAtTheStart`
+  insertAtTheStart(`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -88,15 +88,13 @@ if (includeGlobals) {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  ${
-    /*
+  /*
     The only difference between the resets styleguide and cosmos is line-height
     We want cosmos components to have our line-height, but not break everything else,
     hence as a hack, we're setting it on styled-components elements.
 
     Note: This will break on applications that already use styled-components
-  */ ''
-  }
+  */
   [class^="sc-"] {
     line-height: ${misc.lineHeight};
   }
@@ -147,10 +145,10 @@ if (includeGlobals) {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
   }
 
-`
+`)
 } else {
   /* We still insert some styles to add missing fonts and keep other things sane 😅 */
-  insertAtTheStart`
+  insertAtTheStart(`
     * {
       box-sizing: border-box;
     }
@@ -169,8 +167,8 @@ if (includeGlobals) {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    /* Cosmos globals */
 
+    /* Cosmos globals */
     [class^="sc-"] {
       line-height: 1.6;
     }
@@ -193,5 +191,5 @@ if (includeGlobals) {
       src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v5/hMqPNLsu_dywMa4C_DEpY4gp9Q8gbYrhqGlRav_IXfk.woff2) format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
     }
-  `
+  `)
 }
