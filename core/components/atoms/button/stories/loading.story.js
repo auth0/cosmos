@@ -14,6 +14,9 @@ storiesOf('Button').add('loading state', () => (
       <Button loading appearance="secondary">
         Secondary
       </Button>
+      <Button loading appearance="cta">
+        CTA
+      </Button>
       <Button loading appearance="link">
         Link
       </Button>

@@ -21,7 +21,9 @@
     icon: 'play-circle',
     handler: () => {}
   }}
-/>
+>
+
+</PageHeader>
 ```
 
 ## Examples

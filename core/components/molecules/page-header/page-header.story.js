@@ -97,6 +97,8 @@ storiesOf('Page Header').add('only secondary action with deprecated API', () => 
         icon: 'play-circle',
         handler: () => {}
       }}
-    />
+    >
+      Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+    </PageHeader>
   </Example>
 ))

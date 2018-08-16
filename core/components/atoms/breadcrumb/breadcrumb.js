@@ -49,6 +49,11 @@ const Wrapper = styled.div`
   ${/* fix alignment with text for all icons (including separator) */ ''};
   ${LinkIcon}, ${Separator} {
     position: relative;
+    top: -2px;
+  }
+
+  ${StyledLink}:last-child ${Separator} {
+    display: none;
   }
   ${LinkIcon} {
     top: -2px;
