@@ -1,4 +1,3 @@
-import { injectGlobal } from 'styled-components'
 import { fonts, misc } from '@auth0/cosmos-tokens'
 
 let includeGlobals = true
@@ -7,8 +6,25 @@ if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
   includeGlobals = false
 }
 
+const insertAtTheStart = styles => {
+  let tag = document.getElementById('cosmos-globals')
+
+  if (tag) {
+    tag.innerHTML = styles
+  } else {
+    tag = document.createElement('style')
+    tag.type = 'text/css'
+    tag.id = 'cosmos-globals'
+    tag.innerHTML = styles
+
+    // Register the resets before anything else
+    const head = document.getElementsByTagName('head')[0]
+    head.insertBefore(tag, document.getElementsByTagName('link')[0])
+  }
+}
+
 if (includeGlobals) {
-  injectGlobal`
+  insertAtTheStart`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -133,8 +149,8 @@ if (includeGlobals) {
 
 `
 } else {
-  /* We still insert some styles to keep things sane 😅 */
-  injectGlobal`
+  /* We still insert some styles to add missing fonts and keep other things sane 😅 */
+  insertAtTheStart`
     * {
       box-sizing: border-box;
     }
