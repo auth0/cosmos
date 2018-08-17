@@ -9,7 +9,8 @@
 <PageHeader
   {props}
   defaults={{ title: "Clients" }}
-  description={<span>Setup a mobile, web or IoT application to use Auth0 for Authentication. <Link href="/clients">Learn more</Link></span>}
+  description={<span>Setup a mobile, web or <Link href="#/iot-apps">IoT application</Link> to use Auth0 for Authentication.</span>}
+  learnMore="/link"
   primaryAction={{
     label: 'Create Client',
     icon: 'plus',
@@ -39,10 +40,11 @@ A Page header can have a single primary action:
     icon: 'plus',
     handler: () => {}
   }}
+  learnMore="/link"
   description={
     <span>
-      Setup a mobile, web or IoT application to use Auth0 for Authentication.{' '}
-      <Link href="/clients">Learn more</Link>
+      Setup a mobile, web or <Link href="#/iot-apps">IoT application</Link> to use Auth0 for
+      Authentication.
     </span>
   }
 />
@@ -58,10 +60,11 @@ A Page header can also have a single secondary action:
     icon: 'play-circle',
     handler: () => {}
   }}
+  learnMore="/link"
   description={
     <span>
-      Setup a mobile, web or IoT application to use Auth0 for Authentication.{' '}
-      <Link href="/clients">Learn more</Link>
+      Setup a mobile, web or <Link href="#/iot-apps">IoT application</Link> to use Auth0 for
+      Authentication.
     </span>
   }
 />

@@ -25,14 +25,16 @@ const StyledPageHeader = styled.div`
   }
 `
 
-const SoftDescription = ({ description }) => {
+const SoftDescription = ({ description, learnMore }) => {
   if (!description) return null
 
   if (descriptionIsObject(description)) {
     return <Description>{description}</Description>
   }
 
-  return <DescriptionParagraph>{description}</DescriptionParagraph>
+  let descriptionCompat = { text: description, learnMore }
+
+  return <Description>{descriptionCompat}</Description>
 }
 
 const PageHeader = props => {
@@ -80,6 +82,8 @@ PageHeader.propTypes = {
     }),
     PropTypes.node
   ]).isRequired,
+  /** URL to be used as the target of the 'Learn more' link */
+  learnMore: PropTypes.string,
   /** Actions to be attached on top */
   primaryAction: actionShapeWithRequiredIcon,
   secondaryAction: actionShapeWithRequiredIcon
