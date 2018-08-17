@@ -21,3 +21,15 @@ storiesOf('Label').add('no appearance specified', () => (
     <Label>Example</Label>
   </Example>
 ))
+
+storiesOf('Label').add('stressed', () => (
+  <Example title="stressed - 119 characters">
+    <Stack>
+      <Label appearance="default">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+      <Label appearance="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+      <Label appearance="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+      <Label appearance="warning">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+      <Label appearance="danger">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+    </Stack>
+  </Example>
+))

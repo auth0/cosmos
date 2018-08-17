@@ -5,11 +5,12 @@ import styled from 'styled-components'
 import { spacing } from '@auth0/cosmos-tokens'
 
 import Heading, { StyledHeading } from '../../atoms/heading'
-import Description from './description'
+import Description, { StyledParagraph as DescriptionParagraph } from './description'
 
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
+import { descriptionIsObject } from '../../_helpers/page-header'
 
 const StyledPageHeader = styled.div`
   margin-bottom: ${spacing.large};
@@ -23,6 +24,18 @@ const StyledPageHeader = styled.div`
     margin-bottom: ${spacing.xsmall};
   }
 `
+
+const SoftDescription = ({ description, learnMore }) => {
+  if (!description) return null
+
+  if (descriptionIsObject(description)) {
+    return <Description>{description}</Description>
+  }
+
+  let descriptionCompat = { text: description, learnMore }
+
+  return <Description>{descriptionCompat}</Description>
+}
 
 const PageHeader = props => {
   return (
@@ -51,8 +64,7 @@ const PageHeader = props => {
       </ButtonGroup>
 
       <Heading size={1}>{props.title}</Heading>
-
-      {props.description ? <Description>{props.description}</Description> : null}
+      <SoftDescription {...props} />
     </StyledPageHeader>
   )
 }
@@ -63,10 +75,15 @@ PageHeader.propTypes = {
   /** Page title of the section */
   title: PropTypes.string.isRequired,
   /** Description to give more information to the user */
-  description: PropTypes.shape({
-    text: PropTypes.string,
-    learnMore: PropTypes.string
-  }),
+  description: PropTypes.oneOfType([
+    PropTypes.shape({
+      text: PropTypes.string,
+      learnMore: PropTypes.string
+    }),
+    PropTypes.node
+  ]).isRequired,
+  /** URL to be used as the target of the 'Learn more' link */
+  learnMore: PropTypes.string,
   /** Actions to be attached on top */
   primaryAction: actionShapeWithRequiredIcon,
   secondaryAction: actionShapeWithRequiredIcon

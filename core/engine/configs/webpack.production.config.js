@@ -24,5 +24,6 @@ module.exports = {
   },
   node: {
     fs: 'empty'
-  }
+  },
+  plugins: []
 }

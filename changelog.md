@@ -4,6 +4,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.4.0 [August 17, 2018]
+
+### Added
+
+- Style and documenation improvements for `Pagination` [#750]
+- Add automatic sorting for `Table` [#758]
+- Support free texts in Page Header, Empty State and Alert [#782]
+
+### Changed
+
+- Primary action handler is now optional in `Form` [#790]
+
+### Fixed
+
+- Fixed styles for `Breadcrumbs` [#773]
+- Fixed background color for loading states in `Button` [#777]
+- Fixed border color for input to match Manage [#786]
+- Fixed alignment for `AvatarBlock` with link [#810]
+- Fixed issues with global styles and resets in styleguide [#814]
+
 ## 0.3.3 [August 7, 2018]
 
 ### Added

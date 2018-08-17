@@ -1,21 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { Text } from '../../_helpers/free-text'
+import { deprecate } from '../../_helpers/custom-validations'
+
+const ReadMoreLink = styled(Link)`
+  color: ${props => colors.alert[props.type].text};
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  margin-left: ${spacing.xxsmall};
+`
 
 class Alert extends React.Component {
   constructor(props) {
     super(props)
     this.state = { visible: true }
   }
+
   componentDidMount() {
     if (this.props.dismissAfterSeconds) {
       /* timer to auto dismiss the component */
       this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000)
     }
   }
+
   componentWillUnmount() {
     /*
       clear timer on unmount
@@ -26,20 +39,22 @@ class Alert extends React.Component {
     */
     if (this.timer) window.clearTimeout(this.timer)
   }
+
   dismiss = () => {
     this.setState({ visible: false })
     if (typeof this.props.onDismiss === 'function') this.props.onDismiss()
   }
+
   render() {
     if (this.state.visible) {
       return (
         <Alert.Element type={this.props.type}>
           <Paragraph>
-            <em>{this.props.title}</em> {this.props.text}
+            <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
-              <Link href={this.props.link} target="_blank">
+              <ReadMoreLink type="default" href={this.props.link} target="_blank">
                 Read more
-              </Link>
+              </ReadMoreLink>
             )}
           </Paragraph>
           {this.props.dismissible && <Cross onClick={this.dismiss} />}
@@ -70,7 +85,6 @@ Alert.Element = styled.div`
   ${StyledLink} {
     color: ${props => colors.alert[props.type].text};
     text-decoration: underline;
-    margin-left: 4px;
     &:hover {
       text-decoration: none;
     }
@@ -89,10 +103,11 @@ Alert.propTypes = {
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
   /** Title text (in bold) */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 
   /** Details */
-  text: PropTypes.string.isRequired,
+  // @deprecated
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Link to documentation */
   link: PropTypes.string,
@@ -104,7 +119,9 @@ Alert.propTypes = {
   onDismiss: PropTypes.func,
 
   /** Automatically dismiss after N seconds */
-  dismissAfterSeconds: PropTypes.number
+  dismissAfterSeconds: PropTypes.number,
+
+  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
 }
 
 Alert.defaultProps = {

@@ -9,7 +9,7 @@ import FormContext from '../form-context'
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
 import { Right, Clear } from '../../../_helpers/float'
-import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
+import { actionShape, actionShapeWithoutRequiredHandler } from '@auth0/cosmos/_helpers/action-shape'
 
 const StyledActions = styled.div`
   width: ${props => getLayoutValues(props.layout).formWidth};
@@ -71,7 +71,7 @@ const Actions = props => {
 Actions.displayName = 'Form Actions'
 
 Actions.propTypes = {
-  primaryAction: actionShape,
+  primaryAction: actionShapeWithoutRequiredHandler,
   secondaryActions: PropTypes.arrayOf(actionShape),
   destructiveAction: actionShape
 }
