@@ -8,11 +8,13 @@ class EmailsIndex extends React.Component {
       <div>
         <PageHeader
           title="Email Templates"
-          description={{
-            text:
-              'Standard welcome, password reset, and account verification email-based workflows, built right into Auth0.',
-            learnMore: '/manage/clients'
-          }}
+          description={
+            <span>
+              Standard welcome, password reset, and account verification email-based workflows,
+              built right into Auth0.
+            </span>
+          }
+          learnMore="/manage/clients"
         />
       </div>
     )

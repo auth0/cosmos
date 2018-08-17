@@ -19,10 +19,10 @@ class ApplicationIndex extends React.Component {
       <div>
         <PageHeader
           title="Applications"
-          description={{
-            text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
-            learnMore: '/manage/applications'
-          }}
+          description={
+            <span>Setup a mobile, web or IoT application to use Auth0 for Authentication.</span>
+          }
+          learnMore="/manage/applications"
           primaryAction={{
             label: 'Create Application',
             icon: 'plus',

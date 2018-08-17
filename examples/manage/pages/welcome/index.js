@@ -13,9 +13,9 @@ class WelcomeIndex extends React.Component {
       <div>
         <PageHeader
           title="Getting Started"
-          description={{
-            text: 'Get started with integrating Auth0 by the following guided tutorial below'
-          }}
+          description={
+            <span>Get started with integrating Auth0 by the following guided tutorial below.</span>
+          }
         />
         <div>
           <WelcomeCard imagePath="customer-icon.svg" paragraph="Single Page Web applications" />

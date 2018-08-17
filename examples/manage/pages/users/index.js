@@ -8,11 +8,13 @@ class UsersIndex extends React.Component {
       <div>
         <PageHeader
           title="Users"
-          description={{
-            text:
-              'An easy to use UI to help administrators manage user identities including password resets, creating and provisioning, blocking and deleting users.',
-            learnMore: '/'
-          }}
+          description={
+            <span>
+              An easy to use UI to help administrators manage user identities including password
+              resets, creating and provisioning, blocking and deleting users.
+            </span>
+          }
+          learnMore="/"
           primaryAction={{
             label: 'Create User',
             icon: 'plus',
