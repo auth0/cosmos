@@ -93,8 +93,8 @@ You can add `sortable` prop to `Table.Column` that you want the `Table` to be so
   </Table.Column>
   <Table.Column field="name" title="Name" width="30%" />
   <Table.Column field="country" title="Country" />
-  <Table.Column field="goals" title="Goals" sortable />
-  <Table.Column field="assists" title="Assists" sortable />
+  <Table.Column field="goals" title="Goals" align="right" sortable />
+  <Table.Column field="assists" title="Assists" align="right" sortable />
 </Table>
 ```
 
