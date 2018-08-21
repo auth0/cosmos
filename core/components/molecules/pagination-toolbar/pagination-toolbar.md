@@ -10,7 +10,7 @@ A `<PaginationToolbar />` component is meant to be used along `ResourceList` and
 <PaginationToolbar {props} defaults={{items: "20372", perPage: "10", page: "3"}} />
 ```
 
-> **Warning**: The pagination toolbar will not appear if there is only one page.
+> ⚠️ **Warning**: The pagination toolbar will not appear if there is only one page.
 
 ## Example
 
