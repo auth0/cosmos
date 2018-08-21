@@ -5,6 +5,6 @@ node_js:
 cache: yarn
 after_success:
   - cp tooling/deployment-package.json build/package.json
-  - cd build && npx now-cd --team auth0-design --alias "master=auth0-cosmos-master.now.sh" --alias "stable=auth0-cosmos.now.sh"
+  - npm run scripts deploy.catchup && cd build && npx now-cd --team auth0-design --alias "master=auth0-cosmos-master.now.sh" --alias "stable=auth0-cosmos.now.sh"
 notifications:
   email: false
