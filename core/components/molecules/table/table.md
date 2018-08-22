@@ -234,31 +234,79 @@ class Example extends React.Component {
 You can pass an `<EmptyState />` component instance to the table and it will be shown if there are no items in the dataset.
 
 ```js
-<Table
-  items={[]}
-  emptyState={
-    <EmptyState
-      helpUrl="auth0.com"
-      icon="users"
-      title="Users"
-      action={{
-        icon: 'plus',
-        label: 'Create one manually',
-        handler: function() {
-          /*...*/
-        }
-      }}
-    >
-      You don't have any users in your tenant at the moment
-    </EmptyState>
+class Example extends React.Component {
+  constructor() {
+    super()
+    const items = [
+      {
+        name: 'Harry Kane',
+        goals: 6,
+        assists: 0,
+        country: '🇬🇧',
+        image: 'https://twitter-avatar.now.sh/HKane'
+      },
+      {
+        name: 'Romelu Lukaku',
+        goals: 4,
+        assists: 1,
+        country: '🇧🇪',
+        image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
+      },
+      {
+        name: 'Antoine Griezmann',
+        goals: 4,
+        assists: 2,
+        country: '🇫🇷',
+        image: 'https://twitter-avatar.now.sh/AntoGriezmann'
+      },
+      {
+        name: 'Ivan Perišić',
+        goals: 3,
+        assists: 1,
+        country: '🇭🇷',
+        image: 'https://twitter-avatar.now.sh/ivanperisic44'
+      }
+    ]
+    this.state = { items, simulateEmpty: false }
   }
->
-  <Table.Column field="image" width="50px">
-    {item => <Avatar type="user" image={item.image} />}
-  </Table.Column>
-  <Table.Column field="name" title="Name" width="30%" />
-  <Table.Column field="country" title="Country" />
-  <Table.Column field="goals" title="Goals" sortable />
-  <Table.Column field="assists" title="Assists" sortable />
-</Table>
+
+  render() {
+    return (
+      <>
+        <Checkbox
+          name="simulateEmpty"
+          onChange={event => this.setState({ simulateEmpty: event.target.checked })}
+        />{' '}
+        Table is empty
+        <Table
+          items={this.state.simulateEmpty ? [] : this.state.items}
+          emptyState={
+            <EmptyState
+              helpUrl="auth0.com"
+              icon="users"
+              title="Users"
+              action={{
+                icon: 'plus',
+                label: 'Create one manually',
+                handler: function() {
+                  /*...*/
+                }
+              }}
+            >
+              You don't have any users in your tenant at the moment
+            </EmptyState>
+          }
+        >
+          <Table.Column field="image" width="50px">
+            {item => <Avatar type="user" image={item.image} />}
+          </Table.Column>
+          <Table.Column field="name" title="Name" width="30%" />
+          <Table.Column field="country" title="Country" />
+          <Table.Column field="goals" title="Goals" sortable />
+          <Table.Column field="assists" title="Assists" sortable />
+        </Table>
+      </>
+    )
+  }
+}
 ```
