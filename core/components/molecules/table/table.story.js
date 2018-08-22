@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Avatar, Table } from '@auth0/cosmos'
+import { Avatar, Table, EmptyState } from '@auth0/cosmos'
 
 const items = [
   {
@@ -82,15 +82,26 @@ storiesOf('Table').add('sorting', () => (
 
 storiesOf('Table').add('stressed', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
-    <Table items={[{
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }]}>
+    <Table
+      items={[
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    >
       <Table.Column field="data" title="Field 1" />
       <Table.Column field="data" title="Field 2" />
       <Table.Column field="data" title="Field 3" />
@@ -102,3 +113,34 @@ storiesOf('Table').add('stressed', () => (
   </Example>
 ))
 
+storiesOf('Table').add('with no items', () => (
+  <Example title="no items">
+    <Table
+      items={[]}
+      emptyState={
+        <EmptyState
+          helpUrl="auth0.com"
+          icon="users"
+          title="Users"
+          action={{
+            icon: 'plus',
+            label: 'Create one manually',
+            handler: function() {
+              /*...*/
+            }
+          }}
+        >
+          You don't have any users in your tenant at the moment
+        </EmptyState>
+      }
+    >
+      <Table.Column field="image" width="50px">
+        {item => <Avatar type="user" image={item.image} />}
+      </Table.Column>
+      <Table.Column field="name" title="Name" width="30%" />
+      <Table.Column field="country" title="Country" />
+      <Table.Column field="goals" title="Goals" sortable />
+      <Table.Column field="assists" title="Assists" sortable />
+    </Table>
+  </Example>
+))

@@ -126,6 +126,8 @@ class Table extends React.Component {
       </Table.Row>
     ))
 
+    if (rows.length === 0 && this.props.emptyState) return this.props.emptyState
+
     return (
       <Table.Element>
         <Table.Header
@@ -180,7 +182,9 @@ Table.propTypes = {
   /** A function that will be called when a row is clicked. */
   onRowClick: PropTypes.func,
   /** A function that will be called when the table is re-sorted via clicking a header. */
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
+  /** A EmptyState instance to display when there is not data in the table's dataset */
+  emptyState: PropTypes.node
 }
 
 Table.defaultProps = {
