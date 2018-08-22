@@ -228,3 +228,37 @@ class Example extends React.Component {
   }
 }
 ```
+
+## Empty table
+
+You can pass an `<EmptyState />` component instance to the table and it will be shown if there are no items in the dataset.
+
+```js
+<Table
+  items={[]}
+  emptyState={
+    <EmptyState
+      helpUrl="auth0.com"
+      icon="users"
+      title="Users"
+      action={{
+        icon: 'plus',
+        label: 'Create one manually',
+        handler: function() {
+          /*...*/
+        }
+      }}
+    >
+      You don't have any users in your tenant at the moment
+    </EmptyState>
+  }
+>
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+</Table>
+```
