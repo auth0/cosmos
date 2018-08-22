@@ -20,7 +20,7 @@ const appearances = {
     focusBorder: colors.button.default.borderFocus,
     activeBackground: colors.button.default.backgroundActive,
     activeBorder: colors.button.default.borderActive,
-    loadingInverse: false
+    spinnerStyle: 'normal'
   },
   primary: {
     text: colors.button.primary.text,
@@ -33,7 +33,7 @@ const appearances = {
     focusBorder: colors.button.primary.borderFocus,
     activeBackground: colors.button.primary.backgroundActive,
     activeBorder: colors.button.primary.borderActive,
-    loadingInverse: true
+    spinnerStyle: 'inverse'
   },
   secondary: {
     text: colors.button.secondary.text,
@@ -46,7 +46,7 @@ const appearances = {
     focusBorder: colors.button.secondary.borderFocus,
     activeBackground: colors.button.secondary.backgroundActive,
     activeBorder: colors.button.secondary.borderActive,
-    loadingInverse: false
+    spinnerStyle: 'gray'
   },
   cta: {
     text: colors.button.cta.text,
@@ -59,7 +59,7 @@ const appearances = {
     focusBorder: colors.button.cta.borderFocus,
     activeBackground: colors.button.cta.backgroundActive,
     activeBorder: colors.button.cta.borderActive,
-    loadingInverse: true
+    spinnerStyle: 'inverse'
   },
   destructive: {
     text: colors.button.destructive.text,
@@ -72,7 +72,7 @@ const appearances = {
     focusBorder: colors.button.destructive.borderFocus,
     activeBackground: colors.button.destructive.backgroundActive,
     activeBorder: colors.button.destructive.borderActive,
-    loadingInverse: true
+    spinnerStyle: 'inverse'
   },
   link: {
     text: colors.button.link.text,
@@ -85,7 +85,7 @@ const appearances = {
     focusText: colors.button.link.focus,
     focusBackground: 'transparent',
     focusBorder: 'transparent',
-    loadingInverse: false
+    spinnerStyle: 'gray'
   }
 }
 
@@ -170,7 +170,7 @@ const ButtonContent = props => {
   let icon = props.success ? 'check' : props.icon
 
   if (props.loading) {
-    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
+    content.push(<Spinner key="spinner" type={getAttributes(props).spinnerStyle} />)
   } else if (icon) {
     content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
   }

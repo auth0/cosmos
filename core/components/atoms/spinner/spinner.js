@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
+import { deprecate } from '../../_helpers/custom-validations'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
@@ -10,10 +11,18 @@ const rotate = keyframes`
 const getColor = (props, highlight) => {
   let color = '0, 0, 0'
   let opacity = highlight ? 0.4 : 0.08
+  let type = props.type
 
-  if (props.inverse) {
+  if (props.inverse) type = 'inverse'
+
+  if (type === 'inverse') {
     color = '255, 255, 255'
     opacity = highlight ? 0.85 : 0.2
+  }
+
+  if (type === 'gray') {
+    color = '150, 150, 150'
+    opacity = highlight ? 0.65 : 0.1
   }
 
   return `rgba(${color}, ${opacity})`
@@ -36,10 +45,15 @@ const Spinner = props => <StyledSpinner {...props} />
 
 Spinner.propTypes = {
   /** Invert for dark background */
-  inverse: PropTypes.bool
+  type: PropTypes.oneOf(['normal', 'inverse', 'gray']),
+  inverse: PropTypes.bool,
+
+  /** deprecate boolean inverse prop */
+  _error: props => deprecate(props, { name: 'inverse', replacement: 'type' })
 }
 
 Spinner.defaultProps = {
+  type: 'normal',
   inverse: false
 }
 
