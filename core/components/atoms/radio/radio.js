@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const CheckMark = styled.span``
 const Label = styled.span``
@@ -93,6 +94,8 @@ const StyledRadio = styled.div`
 const RadioOption = props => (
   <StyledRadioOption readOnly={props.readOnly}>
     <input
+      {...Automation('radio.option')}
+      pepe="test"
       type="radio"
       name={props.name}
       value={props.value}
@@ -106,7 +109,7 @@ const RadioOption = props => (
 )
 
 const Radio = props => (
-  <StyledRadio {...props}>
+  <StyledRadio {...props} {...Automation('radio')}>
     {React.Children.map(props.children, child => {
       return React.cloneElement(child, {
         name: props.name,

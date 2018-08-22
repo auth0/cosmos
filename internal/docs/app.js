@@ -12,6 +12,7 @@ import ContributionGuide from './contribution-guide'
 import FAQS from './faqs'
 import Changes from './changes'
 import Overview from './overview'
+import AutomationGlossary from './automation-glossary'
 import Playground from './playground'
 import Navigation from './docs-components/navigation'
 
@@ -111,6 +112,7 @@ class App extends React.Component {
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
               <Route exact path="/changes" component={Changes} />
+              <Route exact path="/automation" component={AutomationGlossary} />
               <Route exact path="/playground" component={Playground} />
               <Route exact path="/component/:componentName" component={Spec} />
               <Route exact path="/" component={Home} />

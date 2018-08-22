@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ResourceListItem from './item'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
+import Automation from '../../_helpers/automation-attribute'
 
 const StyledList = styled.ul`
   margin: ${spacing.large} 0;
@@ -13,7 +14,7 @@ const StyledList = styled.ul`
 const defaultItemRenderer = (item, index) => <ResourceListItem {...item} />
 
 const ResourceList = props => (
-  <StyledList>
+  <StyledList {...Automation('resource-list')}>
     {props.items.map((item, index) => {
       const itemRenderer = props.renderItem || defaultItemRenderer
       return React.cloneElement(itemRenderer(item, index), {

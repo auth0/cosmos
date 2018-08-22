@@ -8,6 +8,7 @@ import Icon from '../../atoms/icon'
 import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -34,15 +35,15 @@ const createButtonForAction = (action, index) => {
 
 const Dialog = props => (
   <Overlay {...props}>
-    <DialogElement width={props.width}>
-      <DialogTitleBar>
+    <DialogElement width={props.width} {...Automation('dialog')}>
+      <DialogTitleBar {...Automation('dialog.title')}>
         <span>{props.title}</span>
         <Link onClick={props.onClose}>
           <Icon name="close" size={16} />
         </Link>
       </DialogTitleBar>
-      <DialogBody>{props.children}</DialogBody>
-      <DialogFooter>
+      <DialogBody {...Automation('dialog.body')}>{props.children}</DialogBody>
+      <DialogFooter {...Automation('dialog.footer')}>
         <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
       </DialogFooter>
     </DialogElement>

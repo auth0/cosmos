@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
+import Automation from '../../_helpers/automation-attribute'
 
 const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
@@ -44,7 +45,7 @@ const TableHeader = props => {
   })
 
   return (
-    <TableHeader.Element>
+    <TableHeader.Element {...Automation('table.header')}>
       <TableHeader.Row>{cells}</TableHeader.Row>
     </TableHeader.Element>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 
@@ -90,7 +91,7 @@ class Switch extends React.Component {
       and is itself a readOnly component
     */
     return (
-      <StyledSwitch onClick={this.onToggle.bind(this)}>
+      <StyledSwitch onClick={this.onToggle.bind(this)} {...Automation('switch')}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
         <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>

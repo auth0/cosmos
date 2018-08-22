@@ -7,6 +7,7 @@ import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner, { StyledSpinner } from '../spinner'
 import Tooltip from '../tooltip'
+import Automation from '../../_helpers/automation-attribute'
 
 const appearances = {
   default: {
@@ -185,7 +186,7 @@ const ButtonContent = props => {
 }
 
 const Button = ({ children, ...props }) => {
-  let button = <ButtonContent {...props} text={children} />
+  let button = <ButtonContent {...props} text={children} {...Automation('button')} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
