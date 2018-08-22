@@ -41,6 +41,7 @@ import Tooltip from './atoms/tooltip'
 import Alert from './atoms/alert'
 import AvatarBlock from './molecules/avatar-block'
 import ButtonGroup from './molecules/button-group'
+import DangerZone from './molecules/danger-zone'
 import Dialog from './molecules/dialog'
 import EmptyState from './molecules/empty-state'
 import Form from './molecules/form'
@@ -67,6 +68,7 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  DangerZone,
   Dialog,
   EmptyState,
   Form,
