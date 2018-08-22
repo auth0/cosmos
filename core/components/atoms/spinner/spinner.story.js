@@ -12,6 +12,18 @@ storiesOf('Spinner').add('default', () => (
 
 storiesOf('Spinner').add('dark background', () => (
   <Example title="Spinner" background="dark">
-    <Spinner inverse />
+    <Spinner type="inverse" />
+  </Example>
+))
+
+storiesOf('Spinner').add('neutral gray', () => (
+  <Example title="Spinner">
+    <Spinner type="gray" />
+  </Example>
+))
+
+storiesOf('Spinner').add('neutral gray with dark background', () => (
+  <Example title="Spinner" background="dark">
+    <Spinner type="gray" />
   </Example>
 ))
