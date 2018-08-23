@@ -234,64 +234,13 @@ class Example extends React.Component {
 You can optionally pass an message to the table and it will be shown if there are no items in the dataset. In case you don't provide it, we will use "There are no items to display" as the default.
 
 ```js
-class Example extends React.Component {
-  constructor() {
-    super()
-    const items = [
-      {
-        name: 'Harry Kane',
-        goals: 6,
-        assists: 0,
-        country: '🇬🇧',
-        image: 'https://twitter-avatar.now.sh/HKane'
-      },
-      {
-        name: 'Romelu Lukaku',
-        goals: 4,
-        assists: 1,
-        country: '🇧🇪',
-        image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
-      },
-      {
-        name: 'Antoine Griezmann',
-        goals: 4,
-        assists: 2,
-        country: '🇫🇷',
-        image: 'https://twitter-avatar.now.sh/AntoGriezmann'
-      },
-      {
-        name: 'Ivan Perišić',
-        goals: 3,
-        assists: 1,
-        country: '🇭🇷',
-        image: 'https://twitter-avatar.now.sh/ivanperisic44'
-      }
-    ]
-    this.state = { items, simulateEmpty: false }
-  }
-
-  render() {
-    return (
-      <>
-        <Checkbox
-          name="simulateEmpty"
-          onChange={event => this.setState({ simulateEmpty: event.target.checked })}
-        />{' '}
-        Table is empty
-        <Table
-          items={this.state.simulateEmpty ? [] : this.state.items}
-          emptyMessage="You don't have any users in your tenant at the moment."
-        >
-          <Table.Column field="image" width="50px">
-            {item => <Avatar type="user" image={item.image} />}
-          </Table.Column>
-          <Table.Column field="name" title="Name" width="30%" />
-          <Table.Column field="country" title="Country" />
-          <Table.Column field="goals" title="Goals" sortable />
-          <Table.Column field="assists" title="Assists" sortable />
-        </Table>
-      </>
-    )
-  }
-}
+<Table items={[]} emptyMessage="You don't have any users in your tenant at the moment.">
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+</Table>
 ```
