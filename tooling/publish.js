@@ -11,7 +11,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   /* if the latest version is already published, skip this entire script */
   if (publishedVersion === version) {
     warn(`This version (${version}) is already published.`)
-    process.exit(0)
+    //process.exit(0)
   }
 
   const directories = ['core/babel-preset', 'core/components']
