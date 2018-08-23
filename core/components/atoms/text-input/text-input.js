@@ -27,7 +27,7 @@ TextInput.propTypes = {
   code: PropTypes.bool,
   /** Pass hasError to show error state */
   hasError: PropTypes.bool,
-  /** Pass error string directly to show error state */
+  /** @deprecated Pass error string directly to show error state */
   error: PropTypes.string,
   /** onChange transparently passed to the input */
   onChange: PropTypes.func,
