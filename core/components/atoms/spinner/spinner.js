@@ -46,6 +46,7 @@ const Spinner = props => <StyledSpinner {...props} />
 Spinner.propTypes = {
   /** Invert for dark background */
   type: PropTypes.oneOf(['normal', 'inverse', 'gray']),
+  /** @deprecated Shows a white spinner instead of the default. */
   inverse: PropTypes.bool,
 
   /** deprecate boolean inverse prop */
