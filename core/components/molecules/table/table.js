@@ -177,7 +177,7 @@ Table.EmptyState = ({ rows, children }) => {
   if (rows.length > 0 || !children) return null
 
   const TableEmptyState = styled.div`
-    padding: ${spacing.xsmall} 0;
+    padding: ${spacing.small};
     background-color: rgb(250, 250, 250);
     border-radius: 5px;
     text-align: center;
