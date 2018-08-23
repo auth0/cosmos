@@ -5,7 +5,6 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 
-const defaultEmptyMessage = 'There are no items to display'
 class Table extends React.Component {
   constructor(props) {
     super(props)
@@ -175,9 +174,8 @@ Table.Cell = styled.td`
 `
 
 Table.EmptyState = ({ rows, children }) => {
-  if (rows.length > 0) return null
+  if (rows.length > 0 || !children) return null
 
-  const text = children || defaultEmptyMessage
   const TableEmptyState = styled.div`
     padding: ${spacing.xsmall} 0;
     background-color: rgb(250, 250, 250);
@@ -186,7 +184,7 @@ Table.EmptyState = ({ rows, children }) => {
     margin-top: ${spacing.xsmall};
   `
 
-  return <TableEmptyState>{text}</TableEmptyState>
+  return <TableEmptyState>{children}</TableEmptyState>
 }
 
 Table.propTypes = {
@@ -207,7 +205,8 @@ Table.propTypes = {
 Table.defaultProps = {
   onRowClick: () => null,
   onSort: null,
-  sortDirection: 'asc'
+  sortDirection: 'asc',
+  emptyMessage: 'There are no items to display'
 }
 
 export default Table
