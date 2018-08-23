@@ -126,18 +126,19 @@ class Table extends React.Component {
       </Table.Row>
     ))
 
-    if (rows.length === 0 && this.props.emptyState) return this.props.emptyState
-
     return (
-      <Table.Element>
-        <Table.Header
-          columns={columns}
-          sortingColumn={sortingColumn}
-          sortDirection={sortDirection}
-          onSort={onSort}
-        />
-        <Table.Body>{rows}</Table.Body>
-      </Table.Element>
+      <React.Fragment>
+        <Table.Element>
+          <Table.Header
+            columns={columns}
+            sortingColumn={sortingColumn}
+            sortDirection={sortDirection}
+            onSort={onSort}
+          />
+          <Table.Body>{rows}</Table.Body>
+        </Table.Element>
+        <Table.EmptyState rows={rows}>{this.props.emptyMessage}</Table.EmptyState>
+      </React.Fragment>
     )
   }
 }
@@ -172,6 +173,21 @@ Table.Cell = styled.td`
   width: ${props => props.column.width || 'auto'};
 `
 
+Table.EmptyState = ({ rows, children }) => {
+  console.log({ rows, children })
+  if (rows.length > 0 || !children) return null
+
+  const TableEmptyState = styled.div`
+    padding: ${spacing.xsmall} 0;
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: ${spacing.xsmall};
+  `
+
+  return <TableEmptyState>{children}</TableEmptyState>
+}
+
 Table.propTypes = {
   /** The items in the table. */
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -183,8 +199,8 @@ Table.propTypes = {
   onRowClick: PropTypes.func,
   /** A function that will be called when the table is re-sorted via clicking a header. */
   onSort: PropTypes.func,
-  /** A EmptyState instance to display when there is not data in the table's dataset */
-  emptyState: PropTypes.node
+  /** A message to show to the user in case there */
+  emptyMessage: PropTypes.node
 }
 
 Table.defaultProps = {
