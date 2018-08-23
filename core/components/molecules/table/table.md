@@ -231,7 +231,7 @@ class Example extends React.Component {
 
 ### Empty table
 
-You can pass an `<EmptyState />` component instance to the table and it will be shown if there are no items in the dataset.
+You can optionally pass an message to the table and it will be shown if there are no items in the dataset. In case you don't provide it, we will use "There are no items to display" as the default.
 
 ```js
 class Example extends React.Component {
