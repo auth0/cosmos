@@ -82,15 +82,26 @@ storiesOf('Table').add('sorting', () => (
 
 storiesOf('Table').add('stressed', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
-    <Table items={[{
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }]}>
+    <Table
+      items={[
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    >
       <Table.Column field="data" title="Field 1" />
       <Table.Column field="data" title="Field 2" />
       <Table.Column field="data" title="Field 3" />
@@ -102,3 +113,8 @@ storiesOf('Table').add('stressed', () => (
   </Example>
 ))
 
+storiesOf('Table').add('loading', () => (
+  <Example title="loading table">
+    <Table items={[]} loading />
+  </Example>
+))

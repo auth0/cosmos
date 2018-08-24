@@ -228,3 +228,19 @@ class Example extends React.Component {
   }
 }
 ```
+
+### Loading State
+
+When you are loading the data for your table, you may want to use the `loading` prop. It will make the table show a spinner to indicate the user you are waiting for something.
+
+```js
+<Table items={[]} loading>
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+</Table>
+```
