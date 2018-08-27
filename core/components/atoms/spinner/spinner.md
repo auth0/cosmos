@@ -3,7 +3,11 @@ category: Miscellaneous
 desciption: Spinner is useful to notify the user of background activity
 ```
 
----
+`import { Spinner } from '@auth0/cosmos'`
+
+```jsx
+<Spinner {props} />
+```
 
 ## Examples
 
