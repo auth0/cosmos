@@ -24,7 +24,7 @@ class Table extends React.Component {
     if (!props.onSort) {
       // automatic mode
       this.state = {
-        sortingColumn: this.getSortingColumn(),
+        sortingColumn: this.getSortingColumn(props.sortOn),
         sortDirection: 'asc'
       }
     }
