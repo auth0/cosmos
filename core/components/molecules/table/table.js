@@ -159,7 +159,7 @@ Table.Body = styled.tbody``
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
-    background: ${props => (props.onClick ? colors.base.grayLightest : 'inherit')};
+    background: ${colors.base.grayLightest};
   }
 `
 
