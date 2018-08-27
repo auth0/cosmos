@@ -85,7 +85,12 @@ const DangerZone = ({ items }) => (
 )
 
 DangerZone.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      action: PropTypes.function
+    })
+  ).isRequired
 }
 
 export default DangerZone
