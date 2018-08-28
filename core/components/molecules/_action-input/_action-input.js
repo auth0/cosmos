@@ -9,6 +9,19 @@ import { multiply } from '../../_helpers/pixel-calc'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
+const topMarginForActionsWithSize = size => {
+  switch (size) {
+    case 'small':
+      return '0'
+    case 'compressed':
+      return '2px'
+    case 'large':
+      return '8px'
+    default:
+      return '6px'
+  }
+}
+
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
 
@@ -26,7 +39,12 @@ const Wrapper = styled.div`
   ${StyledButtonGroup} {
     position: absolute;
     right: 4px;
-    top: 6px;
+    top: ${props => topMarginForActionsWithSize(props.size)};
+    height: 30px;
+
+    ${Button.Element} {
+      margin: 0;
+    }
   }
 `
 
@@ -37,7 +55,7 @@ const Wrapper = styled.div`
 const ActionInput = props => {
   if (props.actions) {
     return (
-      <Wrapper actions={props.actions}>
+      <Wrapper actions={props.actions} size={props.size}>
         <TextInput {...props} />
         <ButtonGroup compressed>
           {props.actions.map((action, index) => (
