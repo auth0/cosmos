@@ -8,3 +8,15 @@ storiesOf('Pagination Toolbar').add('default', () => (
     <PaginationToolbar items={20372} perPage={10} page={3} />
   </Example>
 ))
+
+storiesOf('Pagination Toolbar').add('first page', () => (
+  <Example>
+    <PaginationToolbar items={20372} perPage={10} page={1} />
+  </Example>
+))
+
+storiesOf('Pagination Toolbar').add('last page', () => (
+  <Example>
+    <PaginationToolbar items={20372} perPage={10} page={2038} />
+  </Example>
+))
