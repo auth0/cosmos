@@ -7,7 +7,9 @@ import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Container = styled.div``
+const Container = styled.div`
+  margin-top: ${spacing.xlarge};
+`
 
 const MainTitle = styled(Heading).attrs({
   size: 3
