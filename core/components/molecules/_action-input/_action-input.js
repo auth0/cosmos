@@ -9,18 +9,13 @@ import { multiply } from '../../_helpers/pixel-calc'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
-const topMarginForActionsWithSize = size => {
-  switch (size) {
-    case 'small':
-      return '0'
-    case 'compressed':
-      return '2px'
-    case 'large':
-      return '8px'
-    default:
-      return '6px'
-  }
-}
+const topMarginForActionsWithSize = size =>
+  ({
+    small: '0',
+    compressed: '2px',
+    large: '8px',
+    default: '6px'
+  }[size])
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
