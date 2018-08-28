@@ -7,8 +7,12 @@ import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Container = styled.div`
-  margin-top: 32px;
+const Container = styled.div``
+
+const MainTitle = styled(Heading).attrs({
+  size: 3
+})`
+  margin-top: 0;
 `
 
 const TempStack = styled.div`
@@ -56,7 +60,7 @@ const Action = styled.div`
 
 const DangerZone = ({ items }) => (
   <Container>
-    <Heading size={3}>Danger Zone</Heading>
+    <MainTitle>Danger Zone</MainTitle>
     <ItemsContainer>
       {items.map(item => (
         <Item key={item.title}>
