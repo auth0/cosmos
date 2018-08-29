@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
-import makeId from '../../_helpers/uniqueId'
 
 const Wrapper = styled.div``
 
