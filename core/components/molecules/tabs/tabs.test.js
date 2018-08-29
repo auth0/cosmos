@@ -9,9 +9,9 @@ function tabsFactory() {
     third: <div className="content-3" />
   }
 
-  const generator = index =>
+  const generator = (index = 0, onSelect = () => {}) =>
     shallow(
-      <Tabs selected={index} onSelect={() => {}}>
+      <Tabs selected={index} onSelect={onSelect}>
         <Tabs.Tab title="Title 1">{content.first}</Tabs.Tab>
         <Tabs.Tab title="Title 2">{content.second}</Tabs.Tab>
         <Tabs.Tab title="Title 3">{content.third}</Tabs.Tab>
@@ -61,5 +61,20 @@ describe('Tabs tests', () => {
     )
     const tabLinks = wrapper.find(TabLink)
     expect(tabLinks).toHaveLength(2)
+  })
+
+  it('onSelect is called on tab title click', () => {
+    const { generator } = tabsFactory()
+    const selectedHandler = jest.fn()
+
+    const wrapper = generator(0, selectedHandler)
+    const unSelectedTab = wrapper
+      .find(TabLink)
+      .filter({ selected: false })
+      .first()
+
+    unSelectedTab.simulate('click')
+
+    expect(selectedHandler).toHaveBeenCalled()
   })
 })
