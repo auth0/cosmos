@@ -80,12 +80,11 @@ class Table extends React.Component {
     return items
   }
 
-  handleRowClicked = item => evt => {
-    this.props.onRowClick(evt, item)
-  }
-
-  handleRowClicked = item => evt => {
-    this.props.onRowClick(evt, item)
+  handleRowClicked = item => {
+    if (!this.props.onRowClick) return null
+    return evt => {
+      this.props.onRowClick(evt, item)
+    }
   }
 
   render() {
@@ -159,6 +158,9 @@ Table.Body = styled.tbody``
 
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  &:hover {
+    background: ${colors.list.backgroundHover};
+  }
 `
 
 Table.Cell = styled.td`
@@ -184,7 +186,7 @@ Table.propTypes = {
 }
 
 Table.defaultProps = {
-  onRowClick: () => null,
+  onRowClick: null,
   onSort: null,
   sortDirection: 'asc'
 }
