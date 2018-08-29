@@ -57,6 +57,16 @@ module.exports = {
       chromatic: {
         script: 'chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes',
         description: 'Run chromatic visual tests in CI'
+      },
+      components: {
+        ci: {
+          script: 'jest --ci',
+          description: 'Run component tests'
+        },
+        watch: {
+          script: 'jest --watch',
+          description: 'Run component tests'
+        }
       }
     },
     metadata: {
