@@ -6,16 +6,9 @@ import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
+import { topMarginForActions } from '../../_helpers/action-spacing'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
-
-const topMarginForActionsWithSize = size =>
-  ({
-    small: '0',
-    compressed: '2px',
-    large: '8px',
-    default: '6px'
-  }[size])
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
@@ -34,7 +27,7 @@ const Wrapper = styled.div`
   ${StyledButtonGroup} {
     position: absolute;
     right: 4px;
-    top: ${props => topMarginForActionsWithSize(props.size)};
+    top: ${props => topMarginForActions[props.size]};
     height: 30px;
 
     ${Button.Element} {
