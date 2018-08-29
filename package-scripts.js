@@ -61,11 +61,15 @@ module.exports = {
       components: {
         ci: {
           script: 'jest --ci',
-          description: 'Run component tests'
+          description: 'Run component tests in a non interactive way'
         },
         watch: {
           script: 'jest --watch',
           description: 'Run component tests'
+        },
+        coverage: {
+          script: 'jest --coverage',
+          description: 'Reports current code coverage'
         }
       }
     },
