@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import StyledDivider from './divider'
+import Automation from '../../../_helpers/automation-attribute'
 
 const StyledFieldSet = styled.fieldset`
   border: none;
@@ -15,7 +16,7 @@ const StyledFieldSet = styled.fieldset`
 `
 
 const FieldSet = props => (
-  <StyledFieldSet>
+  <StyledFieldSet {...Automation('form.fieldset')}>
     <StyledDivider>{props.label}</StyledDivider>
     {props.children}
   </StyledFieldSet>

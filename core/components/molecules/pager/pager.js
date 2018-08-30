@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
@@ -30,7 +31,7 @@ const StyledButton = styled(Button)`
 `
 
 const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <StyledPager>
+  <StyledPager {...Automation('pager')}>
     <StyledButton
       position="left"
       size="compressed"

@@ -71,6 +71,14 @@ module.exports = {
           script: 'jest --coverage',
           description: 'Reports current code coverage'
         }
+      },
+      snapshot: {
+        script: 'cd test && yarn test-snapshot',
+        description: 'Run snapshot tests'
+      },
+      unit: {
+        script: 'cd test && yarn test-unit',
+        description: 'Run unit tests'
       }
     },
     metadata: {

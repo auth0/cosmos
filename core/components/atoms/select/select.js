@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
@@ -17,9 +18,9 @@ const Select = ({ options, ...props }) => {
   if (props.readOnly) props.disabled = true
 
   return (
-    <StyledSelect {...props}>
+    <StyledSelect {...props} {...Automation('select')}>
       {options.map((option, index) => (
-        <option key={index} value={option.value}>
+        <option key={index} value={option.value} {...Automation('select.option')}>
           {option.text}
         </option>
       ))}

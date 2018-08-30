@@ -6,6 +6,7 @@ import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
 import Icon from '../../atoms/icon'
+import Automation from '../../_helpers/automation-attribute'
 
 import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from '../../_helpers/pagination'
 
@@ -55,7 +56,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
   if (pages === 1) return null
 
   return (
-    <PaginationToolbar.Element>
+    <PaginationToolbar.Element {...Automation('pagination-toolbar')}>
       <StyledPageSelector page={page}>
         <div>Page</div>
         <TextInput

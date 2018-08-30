@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
+import Automation from '../../_helpers/automation-attribute'
+
 const Wrapper = styled.div``
 
 export const TabLink = styled.a`
@@ -82,10 +84,11 @@ class Tabs extends React.Component {
     const { selected: selectedIndex } = this.props
 
     return (
-      <Wrapper>
+      <Wrapper {...Automation('tabs')}>
         <TabLinkGroup>
           {this.tabs.map((tab, index) => (
             <TabLink
+              {...Automation('tabs.item')}
               onClick={() => this.changeTab(index)}
               key={index}
               selected={selectedIndex === index}
@@ -104,7 +107,7 @@ Tabs.Tab = TabContent
 
 Tabs.propTypes = {
   /** Children should be an array of Tabs.Tab */
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.node.isRequired,
   /** Selected should be the index of the desired selected tab */
   selected: PropTypes.number.isRequired,
   /** onSelect will be called with the new index when a new tab is selected by the user */
