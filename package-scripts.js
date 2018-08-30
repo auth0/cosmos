@@ -46,8 +46,8 @@ module.exports = {
     },
     test: {
       default: {
-        script: parallel('production.build', 'test.ci'),
-        description: 'Check if applications build + Run visual tests'
+        script: parallel('production.build', 'test.ci', 'test.unit'),
+        description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       ci: {
         script:
@@ -63,7 +63,7 @@ module.exports = {
         description: 'Run snapshot tests'
       },
       unit: {
-        ci: {
+        default: {
           script: 'cd test && yarn test-unit',
           description: 'Run unit tests'
         },
