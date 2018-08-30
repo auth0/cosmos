@@ -8,10 +8,12 @@ class AnomalyDetectionIndex extends React.Component {
       <div>
         <PageHeader
           title="Anomaly Detection"
-          description={{
-            text:
-              'Provide extra layer of security to your customers by enabling shields​ that protect you and your users against different types of attacks and user access anomalies.'
-          }}
+          description={
+            <span>
+              Provide extra layer of security to your customers by enabling shields​ that protect
+              you and your users against different types of attacks and user access anomalies.
+            </span>
+          }
         />
       </div>
     )

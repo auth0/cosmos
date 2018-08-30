@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
+import Automation from '../../_helpers/automation-attribute'
 
 import {
   getPaginationSlice,
@@ -45,15 +46,15 @@ const StyledPaginationItem = styled(Button)`
     }
 
     ${props =>
-      props.left &&
-      `
+    props.left &&
+    `
       left: ${spacing.xxsmall};
       padding-right: ${spacing.xxsmall};
       border-right: 1px solid ${colors.base.grayLight}
     `};
     ${props =>
-      props.right &&
-      `
+    props.right &&
+    `
       right: calc(${spacing.xxsmall});
       padding-left: ${spacing.xxsmall};
       border-left: 1px solid ${colors.base.grayLight}
@@ -83,17 +84,17 @@ const renderPaginationItem = ({
   right = false,
   iconOnly = false
 }) => (
-  <StyledPaginationItem
-    left={left}
-    right={right}
-    iconOnly={iconOnly}
-    appearance={appearance}
-    size="compressed"
-    onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
-  >
-    {content}
-  </StyledPaginationItem>
-)
+    <StyledPaginationItem
+      left={left}
+      right={right}
+      iconOnly={iconOnly}
+      appearance={appearance}
+      size="compressed"
+      onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
+    >
+      {content}
+    </StyledPaginationItem>
+  )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   if (page.clickable === false) return
@@ -113,7 +114,7 @@ const lastPageButton = (
 )
 
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <StyledPagination>
+  <StyledPagination {...Automation('pagination')}>
     {renderPaginationItem({
       toPage: 1,
       content: firstPageButton,

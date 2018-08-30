@@ -8,11 +8,13 @@ class RulesIndex extends React.Component {
       <div>
         <PageHeader
           title="Rules"
-          description={{
-            text:
-              'Custom Javascript snippets that run in a secure, isolated sandbox in the Auth0 service as part of your authentication pipeline.',
-            learnMore: '/'
-          }}
+          description={
+            <span>
+              Custom Javascript snippets that run in a secure, isolated sandbox in the Auth0 service
+              as part of your authentication pipeline.
+            </span>
+          }
+          learnMore=""
           primaryAction={{
             label: 'Create Rule',
             icon: 'plus',

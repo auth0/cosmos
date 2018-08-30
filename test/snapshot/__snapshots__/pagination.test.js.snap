@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders with automation attribute 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c1 {
+  margin-right: 16px;
+  position: relative;
+  min-width: 95px;
+  padding-left: 40px;
+}
+
+.c1:last-child {
+  margin-right: 0;
+}
+
+.c1 .c4 {
+  position: absolute;
+  margin: 0;
+  padding-top: 10px;
+  height: calc(36px - 2px);
+  width: 20px;
+  left: 4px;
+  padding-right: 4px;
+  border-right: 1px solid #D9D9D9;
+}
+
+.c1 .c4 svg {
+  width: 15px;
+  height: 15px;
+}
+
+.c8 {
+  margin-right: 16px;
+  position: relative;
+  min-width: 16px;
+}
+
+.c8:last-child {
+  margin-right: 0;
+}
+
+.c8 .c4 {
+  position: absolute;
+  margin: 0;
+  padding-top: 10px;
+  height: calc(36px - 2px);
+  width: 20px;
+}
+
+.c8 .c4 svg {
+  width: 15px;
+  height: 15px;
+}
+
+.c9 {
+  margin-right: 16px;
+  position: relative;
+  min-width: 16px;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.c9:last-child {
+  margin-right: 0;
+}
+
+.c9 .c4 {
+  position: absolute;
+  margin: 0;
+  padding-top: 10px;
+  height: calc(36px - 2px);
+  width: 20px;
+}
+
+.c9 .c4 svg {
+  width: 15px;
+  height: 15px;
+}
+
+.c10 {
+  margin-right: 16px;
+  position: relative;
+  min-width: 95px;
+  padding-right: 40px;
+}
+
+.c10:last-child {
+  margin-right: 0;
+}
+
+.c10 .c4 {
+  position: absolute;
+  margin: 0;
+  padding-top: 10px;
+  height: calc(36px - 2px);
+  width: 20px;
+  right: calc(4px);
+  padding-left: 4px;
+  border-left: 1px solid #D9D9D9;
+}
+
+.c10 .c4 svg {
+  width: 15px;
+  height: 15px;
+}
+
+.c2 {
+  display: inline-block;
+  min-height: 34px;
+  line-height: 34px;
+  min-width: auto;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #F1F1F1;
+  border: 1px solid;
+  border-color: #F1F1F1;
+  border-radius: 3px;
+  color: #333;
+  padding: 0 16px;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transition: border-color 0.25s,background 0.25s;
+  transition: border-color 0.25s,background 0.25s;
+}
+
+.c2 .c4,
+.c2 .sc-dnqmqq {
+  position: relative;
+  top: -1px;
+  margin-right: 8px;
+}
+
+.c2 .c4 {
+  color: #333;
+}
+
+.c2:hover {
+  color: #333;
+  background: #E9E8E8;
+  border-color: #E9E8E8;
+}
+
+.c2:focus {
+  background: #E9E8E8;
+  border-color: #E9E8E8;
+  outline: none;
+}
+
+.c2:active {
+  background: #DADADA;
+  border-color: #DADADA;
+  outline: none;
+}
+
+.c3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c5 {
+  display: inline-block;
+  line-height: 1;
+}
+
+.c6 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.c6 path {
+  fill: #333;
+}
+
+.c7 {
+  margin-right: 16px;
+  min-width: 16px;
+  padding-left: 8px;
+  padding-right: 0;
+}
+
+.c7 .c4 {
+  padding-top: 3px;
+}
+
+<div
+  className="c0"
+  data-cosmos-key="pagination"
+>
+  <button
+    className="c1 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      <span>
+        <i
+          className="c4 c5"
+          color="default"
+          name="chevron-left"
+          size={20}
+        >
+          <svg
+            className="c6"
+            color="#333"
+            height={20}
+            viewBox="0 0 20 20"
+            width={20}
+          >
+            <path
+              d="M6 9.659a.524.524 0 0 0 .152.394c.024.024.06.017.086.035l6.618 6.072a.53.53 0 0 0 .748-.749L7.331 9.657l6.274-5.755a.528.528 0 1 0-.748-.747L6.24 9.223c-.028.02-.065.013-.09.038a.522.522 0 0 0-.15.398z"
+            />
+          </svg>
+        </i>
+         First
+      </span>
+    </span>
+  </button>
+  <button
+    className="c7 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      <i
+        className="c4 c5"
+        color="default"
+        name="chevron-left"
+        size={20}
+      >
+        <svg
+          className="c6"
+          color="#333"
+          height={20}
+          viewBox="0 0 20 20"
+          width={20}
+        >
+          <path
+            d="M6 9.659a.524.524 0 0 0 .152.394c.024.024.06.017.086.035l6.618 6.072a.53.53 0 0 0 .748-.749L7.331 9.657l6.274-5.755a.528.528 0 1 0-.748-.747L6.24 9.223c-.028.02-.065.013-.09.038a.522.522 0 0 0-.15.398z"
+          />
+        </svg>
+      </i>
+    </span>
+  </button>
+  <button
+    className="c8 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    selected={false}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      1
+    </span>
+  </button>
+  <button
+    className="c8 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    selected={false}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      2
+    </span>
+  </button>
+  <button
+    className="c9 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    selected={true}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      3
+    </span>
+  </button>
+  <button
+    className="c8 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    selected={false}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      4
+    </span>
+  </button>
+  <button
+    className="c8 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    selected={false}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      5
+    </span>
+  </button>
+  <button
+    className="c7 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      <i
+        className="c4 c5"
+        color="default"
+        name="chevron-right"
+        size={20}
+      >
+        <svg
+          className="c6"
+          color="#333"
+          height={20}
+          viewBox="0 0 20 20"
+          width={20}
+        >
+          <path
+            d="M13.76 9.659a.524.524 0 0 1-.152.394c-.024.024-.06.017-.087.035L6.903 16.16a.53.53 0 0 1-.747-.749l6.273-5.754-6.274-5.755a.528.528 0 1 1 .748-.747l6.616 6.068c.028.02.065.013.09.038.11.109.156.254.15.398z"
+          />
+        </svg>
+      </i>
+    </span>
+  </button>
+  <button
+    className="c10 c2"
+    data-cosmos-key="button"
+    disabled={false}
+    icon={null}
+    onClick={[Function]}
+    size="compressed"
+  >
+    <span
+      className="c3"
+    >
+      <span>
+        Last 
+        <i
+          className="c4 c5"
+          color="default"
+          name="chevron-right"
+          size={20}
+        >
+          <svg
+            className="c6"
+            color="#333"
+            height={20}
+            viewBox="0 0 20 20"
+            width={20}
+          >
+            <path
+              d="M13.76 9.659a.524.524 0 0 1-.152.394c-.024.024-.06.017-.087.035L6.903 16.16a.53.53 0 0 1-.747-.749l6.273-5.754-6.274-5.755a.528.528 0 1 1 .748-.747l6.616 6.068c.028.02.065.013.09.038.11.109.156.254.15.398z"
+            />
+          </svg>
+        </i>
+      </span>
+    </span>
+  </button>
+</div>
+`;

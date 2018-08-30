@@ -6,6 +6,7 @@ import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
 import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
+import Automation from '../../_helpers/automation-attribute'
 
 const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.type].text};
@@ -48,7 +49,7 @@ class Alert extends React.Component {
   render() {
     if (this.state.visible) {
       return (
-        <Alert.Element type={this.props.type}>
+        <Alert.Element type={this.props.type} {...Automation('alert')}>
           <Paragraph>
             <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
@@ -57,7 +58,9 @@ class Alert extends React.Component {
               </ReadMoreLink>
             )}
           </Paragraph>
-          {this.props.dismissible && <Cross onClick={this.dismiss} />}
+          {this.props.dismissible && (
+            <Cross onClick={this.dismiss} {...Automation('alert.dismiss')} />
+          )}
         </Alert.Element>
       )
     } else return null
@@ -105,8 +108,7 @@ Alert.propTypes = {
   /** Title text (in bold) */
   title: PropTypes.string,
 
-  /** Details */
-  // @deprecated
+  /** @deprecated Details */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Link to documentation */

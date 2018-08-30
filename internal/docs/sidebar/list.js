@@ -71,6 +71,11 @@ const List = props => {
           </NavLink>
         </StyledLink>
         <StyledLink>
+          <NavLink to="/automation" activeClassName="selected">
+            Automation Glossary
+          </NavLink>
+        </StyledLink>
+        <StyledLink>
           <NavLink to="/playground" activeClassName="selected">
             Cosmos playground
           </NavLink>

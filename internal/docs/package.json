@@ -9,7 +9,7 @@
     "start": "engine start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.3.3",
+    "@auth0/cosmos": "0.4.0",
     "fuzzysearch": "1.0.3",
     "js-beautify": "1.7.5",
     "lodash.kebabcase": "4.1.1",

@@ -4,11 +4,17 @@ import PropTypes from 'prop-types'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
+const getColor = props => {
+  if (props.warning) return colors.base.orangeLighter
+  else if (props.error) return colors.base.red
+  else return colors.base.gray
+}
+
 const StyledTag = styled.span`
   display: inline-block;
-  color: ${props => (props.warning ? colors.base.orangeLighter : colors.base.gray)};
+  color: ${props => getColor(props)};
   border: 1px solid;
-  border-color: ${props => (props.warning ? colors.base.orangeLighter : colors.base.gray)};
+  border-color: ${props => getColor(props)};
   border-radius: 5px;
   min-width: 10px;
   padding: 4px 8px;

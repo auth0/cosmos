@@ -63,28 +63,28 @@ You can add `sortable` prop to `Table.Column` that you want the `Table` to be so
       goals: 6,
       assists: 0,
       country: '🇬🇧',
-      image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/HKane'
     },
     {
       name: 'Romelu Lukaku',
       goals: 4,
       assists: 1,
       country: '🇧🇪',
-      image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
     },
     {
       name: 'Antoine Griezmann',
       goals: 4,
       assists: 2,
       country: '🇫🇷',
-      image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/AntoGriezmann'
     },
     {
       name: 'Ivan Perišić',
       goals: 3,
       assists: 1,
       country: '🇭🇷',
-      image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/ivanperisic44'
     }
   ]}
 >
@@ -110,28 +110,28 @@ Pass a `comparator` function to `Table.Column` to define your own custom sorting
       goals: 6,
       assists: 0,
       country: '🇬🇧',
-      image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/HKane'
     },
     {
       name: 'Romelu Lukaku',
       goals: 4,
       assists: 1,
       country: '🇧🇪',
-      image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
     },
     {
       name: 'Antoine Griezmann',
       goals: 4,
       assists: 2,
       country: '🇫🇷',
-      image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/AntoGriezmann'
     },
     {
       name: 'Ivan Perišić',
       goals: 3,
       assists: 1,
       country: '🇭🇷',
-      image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+      image: 'https://twitter-avatar.now.sh/ivanperisic44'
     }
   ]}
 >
@@ -173,28 +173,28 @@ class Example extends React.Component {
         goals: 6,
         assists: 0,
         country: '🇬🇧',
-        image: 'https://pbs.twimg.com/profile_images/1003716794807472128/dVSKF_JW_400x400.jpg'
+        image: 'https://twitter-avatar.now.sh/HKane'
       },
       {
         name: 'Romelu Lukaku',
         goals: 4,
         assists: 1,
         country: '🇧🇪',
-        image: 'https://pbs.twimg.com/profile_images/897150891928768513/zCfcNxyN_400x400.jpg'
+        image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
       },
       {
         name: 'Antoine Griezmann',
         goals: 4,
         assists: 2,
         country: '🇫🇷',
-        image: 'https://pbs.twimg.com/profile_images/1018891158506934272/zsyrrVly_400x400.jpg'
+        image: 'https://twitter-avatar.now.sh/AntoGriezmann'
       },
       {
         name: 'Ivan Perišić',
         goals: 3,
         assists: 1,
         country: '🇭🇷',
-        image: 'https://pbs.twimg.com/profile_images/1017172183620124673/f-1YQjcy_400x400.jpg'
+        image: 'https://twitter-avatar.now.sh/ivanperisic44'
       }
     ]
     this.state = { items, sortOn: 'goals', sortDirection: 'desc' }

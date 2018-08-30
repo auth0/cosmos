@@ -1,6 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import styled from 'styled-components'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors } from '@auth0/cosmos-tokens'
 
@@ -12,7 +13,7 @@ const StyledLink = styled.a`
   }
 `
 
-const Link = props => <StyledLink {...props}>{props.children}</StyledLink>
+const Link = props => <StyledLink {...props} {...Automation('link')}>{props.children}</StyledLink>
 
 Link.propTypes = {
   /** URL to follow */
