@@ -9,6 +9,7 @@ import Heading from '../../atoms/heading'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
+import Automation from '../../_helpers/automation-attribute'
 
 const EmptyState = props => {
   let helpLink
@@ -22,7 +23,7 @@ const EmptyState = props => {
     )
   }
   return (
-    <Wrapper>
+    <Wrapper {...Automation('empty-state')}>
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />

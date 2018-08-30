@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import Well from '../../atoms/_well'
 import { spacing } from '@auth0/cosmos-tokens'
@@ -17,7 +18,7 @@ const FormGroup = props => {
     return <StyledFormWrapper>{child}</StyledFormWrapper>
   })
 
-  return <StyledFormGroup>{children}</StyledFormGroup>
+  return <StyledFormGroup {...Automation('form-group')}>{children}</StyledFormGroup>
 }
 
 FormGroup.propTypes = {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Icon from '../icon'
 import { spacing, fonts, colors, misc } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const StyledTag = styled.span`
   display: inline-block;
@@ -40,21 +41,21 @@ const Tag = props => {
       props.onRemove(evt)
     }
     icon = (
-      <a onClick={handleRemove}>
+      <a onClick={handleRemove} {...Automation('tag.remove')}>
         <Icon name="close" size={9} />
       </a>
     )
   }
 
   return (
-    <StyledTag onClick={props.onClick}>
+    <StyledTag onClick={props.onClick} {...Automation('tag')}>
       {props.children}
       {icon}
     </StyledTag>
   )
 }
 
-Tag.Group = TagGroup
+Tag.Group = ({ children }) => <TagGroup {...Automation('tag.group')}>{children}</TagGroup>
 
 Tag.propTypes = {
   /** The function to call when a user clicks the tag */
