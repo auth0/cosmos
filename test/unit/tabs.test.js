@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Tabs, { TabLink } from './tabs'
+import Tabs, { TabLink } from '@auth0/cosmos/molecules/tabs/tabs'
 
 function tabsFactory() {
   const content = {
@@ -28,10 +28,6 @@ describe('Tabs tests', () => {
 
     // Create three <Tabs> instances with different tabs selected
     const [first, second, third] = [generator(0), generator(1), generator(2)]
-
-    expect(first).toMatchSnapshot()
-    expect(second).toMatchSnapshot()
-    expect(third).toMatchSnapshot()
 
     expect(first.contains(content.first)).toBe(true)
     expect(first.contains(content.second)).toBe(false)
@@ -66,7 +62,6 @@ describe('Tabs tests', () => {
     )
     const tabLinks = wrapper.find(TabLink)
     expect(tabLinks).toHaveLength(2)
-    expect(wrapper).toMatchSnapshot()
   })
 
   it('onSelect is called on tab title click', () => {
@@ -82,6 +77,5 @@ describe('Tabs tests', () => {
     unSelectedTab.simulate('click')
 
     expect(selectedHandler).toHaveBeenCalled()
-    expect(wrapper).toMatchSnapshot()
   })
 })
