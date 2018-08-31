@@ -8,10 +8,10 @@ class ApisIndex extends React.Component {
       <div>
         <PageHeader
           title="APIs"
-          description={{
-            text: 'Define APIs that you can consume from your authorized applications.',
-            learnMore: '/'
-          }}
+          description={
+            <span>Define APIs that you can consume from your authorized applications.</span>
+          }
+          learnMore="/"
           primaryAction={{
             label: 'Create API',
             icon: 'plus',

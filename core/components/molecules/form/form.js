@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import ActionInput from '../../molecules/_action-input'
 import TextArea from '../../atoms/textarea'
@@ -15,7 +16,7 @@ import FormContext from './form-context'
 
 const Form = props => (
   <FormContext.Provider value={{ layout: props.layout }}>
-    <form {...props} />
+    <form {...props} {...Automation('form')} />
   </FormContext.Provider>
 )
 

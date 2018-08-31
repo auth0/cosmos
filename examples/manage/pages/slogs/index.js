@@ -8,11 +8,13 @@ class LogsIndex extends React.Component {
       <div>
         <PageHeader
           title="Logs"
-          description={{
-            text:
-              'Storage of log data of both actions taken in the dashboard by the administrators, as well as authentications made by your users.',
-            learnMore: '/'
-          }}
+          description={
+            <span>
+              Storage of log data of both actions taken in the dashboard by the administrators, as
+              well as authentications made by your users.
+            </span>
+          }
+          learnMore="/"
         />
       </div>
     )

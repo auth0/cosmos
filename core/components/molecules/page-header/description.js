@@ -16,10 +16,20 @@ const ArrowMore = styled.i`
   border-width: 4px 0 4px 6px;
   border-color: transparent transparent transparent ${colors.link.default};
 `
+// Required to style hover from parent element
+const StyledLink = styled(Link)``
 
-const StyledParagraph = styled(Paragraph)`
+export const StyledParagraph = styled(Paragraph)`
   margin-top: ${spacing.large};
   margin-bottom: 0;
+
+  &:hover ${ArrowMore} {
+    border-color: transparent transparent transparent ${colors.link.defaultHover};
+  }
+
+  &:hover ${StyledLink} {
+    color: ${colors.link.defaultHover};
+  }
 `
 
 const Description = props => {
@@ -27,9 +37,9 @@ const Description = props => {
     <StyledParagraph>
       {props.children.text}{' '}
       {props.children.learnMore ? (
-        <Link href={props.children.learnMore}>
+        <StyledLink href={props.children.learnMore}>
           Learn more <ArrowMore />
-        </Link>
+        </StyledLink>
       ) : null}
     </StyledParagraph>
   )

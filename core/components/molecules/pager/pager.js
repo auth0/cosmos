@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Button from '../../atoms/button'
+import Automation from '../../_helpers/automation-attribute'
 
+import Button from '../../atoms/button'
+import Icon from '../../atoms/icon'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
 const StyledPager = styled.div`
@@ -17,23 +19,36 @@ const StyledPageSelector = styled.div`
   align-items: center;
 `
 
+const StyledButton = styled(Button)`
+  ${props => (props.position === 'left' ? 'padding-right' : 'padding-left')}: 11px;
+  ${props => (props.position === 'left' ? 'padding-left' : 'padding-right')}: 7px;
+
+  padding-top: 2px;
+
+  ${Icon.Element} {
+    margin: 0;
+  }
+`
+
 const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <StyledPager>
-    <Button
-      size="small"
+  <StyledPager {...Automation('pager')}>
+    <StyledButton
+      position="left"
+      size="compressed"
       appearance="secondary"
       onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
     >
-      {'<'} Newer
-    </Button>
+      <Icon name="chevron-left" /> Newer
+    </StyledButton>
     <StyledPageSelector page={page}>{totals(page, perPage, items)}</StyledPageSelector>
-    <Button
-      size="small"
+    <StyledButton
+      position="right"
+      size="compressed"
       appearance="secondary"
       onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
     >
-      Older {'>'}
-    </Button>
+      Older <Icon name="chevron-right" />
+    </StyledButton>
   </StyledPager>
 )
 

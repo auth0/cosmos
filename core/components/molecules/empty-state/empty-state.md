@@ -14,7 +14,9 @@ Empty states are displayed when a page has no content.
     label: 'Create Client',
     handler: function() { /*...*/ }
   }}
-/>
+>
+  No items have been added to this section.
+</EmptyState>
 ```
 
 ## Examples

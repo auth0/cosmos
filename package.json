@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.3.3",
+  "version": "0.5.0",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -13,7 +13,8 @@
     "internal/docs",
     "examples/manage",
     "examples/webpack-hello-world",
-    "examples/perf-tests"
+    "examples/perf-tests",
+    "test"
   ],
   "scripts": {
     "scripts": "nps -s",
@@ -23,7 +24,7 @@
     "start": "nps -s production.start",
     "test": "nps -s test",
     "sandbox": "start-storybook -p 9001 -s build",
-    "precommit": "lint-staged && nps icons.build",
+    "precommit": "nps icons.build && lint-staged",
     "chromatic": "chromatic test --storybook-addon --script-name sandbox --exit-zero-on-changes"
   },
   "lint-staged": {

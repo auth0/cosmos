@@ -7,6 +7,7 @@ import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner, { StyledSpinner } from '../spinner'
 import Tooltip from '../tooltip'
+import Automation from '../../_helpers/automation-attribute'
 
 const appearances = {
   default: {
@@ -19,7 +20,8 @@ const appearances = {
     focusBackground: colors.button.default.backgroundFocus,
     focusBorder: colors.button.default.borderFocus,
     activeBackground: colors.button.default.backgroundActive,
-    activeBorder: colors.button.default.borderActive
+    activeBorder: colors.button.default.borderActive,
+    loadingInverse: false
   },
   primary: {
     text: colors.button.primary.text,
@@ -31,7 +33,8 @@ const appearances = {
     focusBackground: colors.button.primary.backgroundFocus,
     focusBorder: colors.button.primary.borderFocus,
     activeBackground: colors.button.primary.backgroundActive,
-    activeBorder: colors.button.primary.borderActive
+    activeBorder: colors.button.primary.borderActive,
+    loadingInverse: true
   },
   secondary: {
     text: colors.button.secondary.text,
@@ -43,7 +46,8 @@ const appearances = {
     focusBackground: colors.button.secondary.backgroundFocus,
     focusBorder: colors.button.secondary.borderFocus,
     activeBackground: colors.button.secondary.backgroundActive,
-    activeBorder: colors.button.secondary.borderActive
+    activeBorder: colors.button.secondary.borderActive,
+    loadingInverse: false
   },
   cta: {
     text: colors.button.cta.text,
@@ -55,7 +59,8 @@ const appearances = {
     focusBackground: colors.button.cta.backgroundFocus,
     focusBorder: colors.button.cta.borderFocus,
     activeBackground: colors.button.cta.backgroundActive,
-    activeBorder: colors.button.cta.borderActive
+    activeBorder: colors.button.cta.borderActive,
+    loadingInverse: true
   },
   destructive: {
     text: colors.button.destructive.text,
@@ -67,7 +72,8 @@ const appearances = {
     focusBackground: colors.button.destructive.backgroundFocus,
     focusBorder: colors.button.destructive.borderFocus,
     activeBackground: colors.button.destructive.backgroundActive,
-    activeBorder: colors.button.destructive.borderActive
+    activeBorder: colors.button.destructive.borderActive,
+    loadingInverse: true
   },
   link: {
     text: colors.button.link.text,
@@ -79,7 +85,8 @@ const appearances = {
     hoverBorder: 'transparent',
     focusText: colors.button.link.focus,
     focusBackground: 'transparent',
-    focusBorder: 'transparent'
+    focusBorder: 'transparent',
+    loadingInverse: false
   }
 }
 
@@ -164,7 +171,7 @@ const ButtonContent = props => {
   let icon = props.success ? 'check' : props.icon
 
   if (props.loading) {
-    content.push(<Spinner key="spinner" inverse={props.primary} />)
+    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
   } else if (icon) {
     content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
   }
@@ -179,7 +186,7 @@ const ButtonContent = props => {
 }
 
 const Button = ({ children, ...props }) => {
-  let button = <ButtonContent {...props} text={children} />
+  let button = <ButtonContent {...props} text={children} {...Automation('button')} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
@@ -257,6 +264,12 @@ Button.LinkElement = Button.Element.withComponent('a').extend`
 
   ${Button.Text} {
     display: table-cell;
+  }
+
+  ${Icon.Element} {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 `
 

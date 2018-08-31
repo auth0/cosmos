@@ -35,3 +35,19 @@ storiesOf('Breadcrumb').add('single link', () => (
     </Breadcrumb>
   </Example>
 ))
+
+storiesOf('Breadcrumb').add('stressed', () => (
+  <Example title="stressed - 56 characters per link">
+    <Breadcrumb>
+      <Breadcrumb.Link href="/home">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+    </Breadcrumb>
+  </Example>
+))

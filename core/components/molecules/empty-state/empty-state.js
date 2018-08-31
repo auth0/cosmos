@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
-import Paragraph from '../../atoms/paragraph'
-import { colors, spacing } from '@auth0/cosmos-tokens'
-import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
+import { Text } from '../../_helpers/free-text'
+import { deprecate } from '../../_helpers/custom-validations'
+import Automation from '../../_helpers/automation-attribute'
 
 const getHelpLink = helpUrl => {
   if (!helpUrl) return
@@ -36,11 +38,11 @@ const EmptyState = props => {
   let helpLink = getHelpLink(props.helpUrl)
 
   return (
-    <Wrapper>
+    <Wrapper {...Automation('empty-state')}>
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        <Text>{props.text}</Text>
+        <Text {...props} useParagraph />
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
@@ -52,12 +54,12 @@ const EmptyState = props => {
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100%;
   text-align: center;
 `
 const Body = styled.div`
   max-width: 400px;
   margin: 0 auto ${spacing.small} auto;
+
   > ${Icon.Element} {
     margin-bottom: ${spacing.xsmall};
     line-height: 1em;
@@ -66,9 +68,6 @@ const Body = styled.div`
 `
 const Title = styled(Heading)`
   margin: 0 0 ${spacing.xlarge} 0;
-`
-const Text = styled(Paragraph)`
-  margin: 0;
 `
 
 const LearnMore = styled.div`
@@ -100,12 +99,10 @@ EmptyState.propTypes = {
     })
   ]),
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-  text: PropTypes.string,
-  title: PropTypes.string.isRequired
-}
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  title: PropTypes.string.isRequired,
 
-EmptyState.defaultProps = {
-  text: 'No items have been added to this section.'
+  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
 }
 
 export default EmptyState

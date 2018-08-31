@@ -1,8 +1,9 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Manage from './index'
+import ApplicationIndex from './pages/applications'
+import ApplicationDetail from './pages/application-detail'
 
-storiesOf('Manage').add('applications index', () => <Manage defaultRoute="applications" />)
-storiesOf('Manage').add('application', () => (
-  <Manage defaultRoute="applications/apXVn76xBT7WougWj17MGXHSthfrBB" />
-))
+storiesOf('Manage').add('applications index', () => <ApplicationIndex />)
+
+const routerMock = { match: { params: { applicationId: 'apXVn76xBT7WougWj17MGXHSthfrBB' } } }
+storiesOf('Manage').add('application', () => <ApplicationDetail {...routerMock} />)
