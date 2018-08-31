@@ -44,20 +44,20 @@ const Subtitle = styled.span`
 
 const getTitle = props => {
   let contents
-  const link = props.href || props.link
+  let link = props.href || props.link
 
-  if (!link) {
-    contents = props.title
-  } else if (typeof link === 'string') {
-    contents = <Link href={link}>{props.title}</Link>
-  } else if (typeof link === 'object') {
-    contents = (
-      <Link href={link.href} target={link.target}>
-        {props.title}
-      </Link>
-    )
+  if (!link) return <Title>{props.title}</Title>
+
+  /* link supports both formats: string and object */
+  if (typeof link === 'string') {
+    link = { href: link, target: '_blank' } // defaults
   }
-  return <Title>{contents}</Title>
+
+  return (
+    <Title>
+      <Link {...link}>{props.title}</Link>
+    </Title>
+  )
 }
 
 const AvatarBlock = props => {

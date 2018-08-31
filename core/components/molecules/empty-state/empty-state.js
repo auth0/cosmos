@@ -14,20 +14,14 @@ import Automation from '../../_helpers/automation-attribute'
 const getHelpLink = link => {
   if (!link) return
 
-  let href, target
-
   /* link supports both formats: string and object */
-  if (typeof link === 'object') {
-    href = link.href
-    target = link.target || '_blank'
-  } else {
-    href = link // must be string
-    target = '_blank'
+  if (typeof link === 'string') {
+    link = { href: link, target: '_blank' } // defaults
   }
 
   return (
     <LearnMore>
-      <Link href={href} target={target}>
+      <Link {...link}>
         Learn More <i> </i>
       </Link>
     </LearnMore>
