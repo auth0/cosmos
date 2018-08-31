@@ -58,7 +58,7 @@ TableHeader.Row = styled.tr``
 TableHeader.Cell = styled.th`
   padding: ${spacing.xsmall};
   border-bottom: 2px solid ${colors.base.grayLight};
-  text-align: left;
+  text-align: ${props => props.column.align};
   vertical-align: bottom;
   line-height: 2;
   cursor: ${props => (props.sortable ? 'pointer' : 'auto')};

@@ -167,7 +167,7 @@ Table.Row = styled.tr`
 Table.Cell = styled.td`
   padding: ${spacing.xsmall};
   border-top: 1px solid ${colors.base.grayLight};
-  text-align: left;
+  text-align: ${props => props.column.align};
   vertical-align: middle;
   line-height: 2;
   width: ${props => props.column.width || 'auto'};

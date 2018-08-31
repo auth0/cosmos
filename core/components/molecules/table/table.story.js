@@ -54,6 +54,16 @@ storiesOf('Table').add('explicit widths', () => (
   </Example>
 ))
 
+storiesOf('Table').add('alignment', () => (
+  <Example title="alignment">
+    <Table items={items}>
+      <Table.Column field="name" title="Name" width="70%" align="center" />
+      <Table.Column field="born" title="Born" align="right" />
+      <Table.Column field="died" title="Died" align="right" />
+    </Table>
+  </Example>
+))
+
 storiesOf('Table').add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
@@ -82,15 +92,26 @@ storiesOf('Table').add('sorting', () => (
 
 storiesOf('Table').add('stressed', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
-    <Table items={[{
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }, {
-      data: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
-    }]}>
+    <Table
+      items={[
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    >
       <Table.Column field="data" title="Field 1" />
       <Table.Column field="data" title="Field 2" />
       <Table.Column field="data" title="Field 3" />
@@ -101,4 +122,3 @@ storiesOf('Table').add('stressed', () => (
     </Table>
   </Example>
 ))
-
