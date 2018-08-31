@@ -11,4 +11,8 @@ TableColumn.propTypes = {
   comparator: PropTypes.func
 }
 
+TableColumn.defaultProps = {
+  sortable: false
+}
+
 export default TableColumn

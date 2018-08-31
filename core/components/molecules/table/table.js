@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
+import Automation from '../../_helpers/automation-attribute'
 
 class Table extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Table extends React.Component {
     if (!props.onSort) {
       // automatic mode
       this.state = {
-        sortingColumn: this.getSortingColumn(),
+        sortingColumn: this.getSortingColumn(props.sortOn),
         sortDirection: 'asc'
       }
     }
@@ -80,12 +81,11 @@ class Table extends React.Component {
     return items
   }
 
-  handleRowClicked = item => evt => {
-    this.props.onRowClick(evt, item)
-  }
-
-  handleRowClicked = item => evt => {
-    this.props.onRowClick(evt, item)
+  handleRowClicked = item => {
+    if (!this.props.onRowClick) return null
+    return evt => {
+      this.props.onRowClick(evt, item)
+    }
   }
 
   render() {
@@ -113,7 +113,7 @@ class Table extends React.Component {
     }
 
     const rows = sortedItems.map((item, index) => (
-      <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)}>
+      <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)} {...Automation('table.row')}>
         {columns.map(column => {
           const cellRenderer = column.children || this.defaultCellRenderer
 
@@ -128,14 +128,14 @@ class Table extends React.Component {
 
     return (
       <React.Fragment>
-        <Table.Element>
+        <Table.Element {...Automation('table')}>
           <Table.Header
             columns={columns}
             sortingColumn={sortingColumn}
             sortDirection={sortDirection}
             onSort={onSort}
           />
-          <Table.Body>{rows}</Table.Body>
+          <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
         </Table.Element>
         <Table.EmptyState rows={rows}>{this.props.emptyMessage}</Table.EmptyState>
       </React.Fragment>
@@ -162,6 +162,9 @@ Table.Body = styled.tbody``
 
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  &:hover {
+    background: ${colors.list.backgroundHover};
+  }
 `
 
 Table.Cell = styled.td`
@@ -203,7 +206,7 @@ Table.propTypes = {
 }
 
 Table.defaultProps = {
-  onRowClick: () => null,
+  onRowClick: null,
   onSort: null,
   sortDirection: 'asc',
   emptyMessage: 'There are no items to display'
