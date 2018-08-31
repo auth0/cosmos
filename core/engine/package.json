@@ -11,7 +11,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@auth0/babel-preset-cosmos": "0.4.0",
+    "@auth0/babel-preset-cosmos": "0.5.0",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
