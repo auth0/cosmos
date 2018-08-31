@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
+import { deprecate } from '../../_helpers/custom-validations'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
@@ -43,14 +44,15 @@ const Subtitle = styled.span`
 
 const getTitle = props => {
   let contents
+  const link = props.href || props.link
 
-  if (!props.href) {
+  if (!link) {
     contents = props.title
-  } else if (typeof props.href === 'string') {
-    contents = <Link href={props.href}>{props.title}</Link>
-  } else if (typeof props.href === 'object') {
+  } else if (typeof link === 'string') {
+    contents = <Link href={link}>{props.title}</Link>
+  } else if (typeof link === 'object') {
     contents = (
-      <Link href={props.href.href} target={props.href.target}>
+      <Link href={link.href} target={link.target}>
         {props.title}
       </Link>
     )
@@ -95,14 +97,18 @@ AvatarBlock.propTypes = {
   size: PropTypes.PropTypes.oneOf(['compact', 'default', 'large']),
   /** The secondary line of text to display. */
   subtitle: PropTypes.string,
-  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
-  href: PropTypes.oneOfType([
+  /** @deprecated If specified, the main text will be rendered as a hyperlink */
+  href: PropTypes.string,
+  /** If specified, the main text will be rendered as a hyperlink */
+  link: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       href: PropTypes.string,
       target: PropTypes.string
     })
-  ])
+  ]),
+
+  _deprecation_href: props => deprecate(props, { name: 'href', replacement: 'link' })
 }
 
 AvatarBlock.defaultProps = {
