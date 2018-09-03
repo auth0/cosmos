@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const CheckMark = styled.span``
 const Label = styled.span``
@@ -90,7 +91,7 @@ const StyledCheckbox = styled.div`
 `
 
 const Checkbox = props => (
-  <StyledCheckboxOption readOnly={props.readOnly}>
+  <StyledCheckboxOption readOnly={props.readOnly} {...Automation('checkbox')}>
     <input
       type="checkbox"
       name={props.name}
@@ -106,7 +107,7 @@ const Checkbox = props => (
 )
 
 const CheckboxGroup = props => (
-  <StyledCheckbox {...props}>
+  <StyledCheckbox {...props} {...Automation('checkbox.group')}>
     {React.Children.map(props.children, child => {
       return React.cloneElement(child, {
         name: props.name,

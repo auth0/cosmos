@@ -4,14 +4,30 @@ import PropTypes from 'prop-types'
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
+import Automation from '../../_helpers/automation-attribute'
 
 const TextInput = ({ defaultValue, type, ...props }) => {
   if (props.masked) {
     const length = defaultValue ? defaultValue.length : 8
     const maskedValue = new Array(length).join('•')
-    return <TextInput.Element type={type} {...props} placeholder={maskedValue} readOnly />
+    return (
+      <TextInput.Element
+        type={type}
+        {...props}
+        placeholder={maskedValue}
+        readOnly
+        {...Automation('text-input')}
+      />
+    )
   }
-  return <TextInput.Element type={type} defaultValue={defaultValue} {...props} />
+  return (
+    <TextInput.Element
+      {...Automation('text-input')}
+      type={type}
+      defaultValue={defaultValue}
+      {...props}
+    />
+  )
 }
 
 TextInput.Element = StyledInput.extend`
@@ -27,7 +43,7 @@ TextInput.propTypes = {
   code: PropTypes.bool,
   /** Pass hasError to show error state */
   hasError: PropTypes.bool,
-  /** Pass error string directly to show error state */
+  /** @deprecated Pass error string directly to show error state */
   error: PropTypes.string,
   /** onChange transparently passed to the input */
   onChange: PropTypes.func,

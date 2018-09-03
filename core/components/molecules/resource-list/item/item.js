@@ -7,6 +7,7 @@ import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
+import Automation from '../../../_helpers/automation-attribute'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -96,7 +97,10 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem onClick={props.onClick ? callHandler(props.onClick) : null}>
+    <StyledListItem
+      onClick={props.onClick ? callHandler(props.onClick) : null}
+      {...Automation('resource-list.item')}
+    >
       <ListItemHeader>
         {image}
         <div>

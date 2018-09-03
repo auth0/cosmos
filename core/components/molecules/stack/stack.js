@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
@@ -50,14 +51,18 @@ const Stack = props => {
       let width = 0
       if (props.widths) width = `${props.widths[index]}` || 0
 
-      return <StackedItem width={width}>{child}</StackedItem>
+      return (
+        <StackedItem width={width} {...Automation('stack.item')}>
+          {child}
+        </StackedItem>
+      )
     })
   } else {
     children = props.children
   }
 
   return (
-    <StyledStack {...props} align={props.align}>
+    <StyledStack {...props} align={props.align} {...Automation('stack')}>
       {children}
     </StyledStack>
   )

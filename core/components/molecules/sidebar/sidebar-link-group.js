@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import SidebarLink from './sidebar-link'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import Automation from '../../_helpers/automation-attribute'
 
 class SidebarLinkGroup extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class SidebarLinkGroup extends React.Component {
     const { icon, label, children } = this.props
     const { open } = this.state
     return (
-      <SidebarLinkGroup.Element>
+      <SidebarLinkGroup.Element {...Automation('sidebar.group')}>
         <SidebarLink icon={icon} label={label} onClick={this.handleClick} />
         <SidebarLinkGroup.Content open={open}>{children}</SidebarLinkGroup.Content>
       </SidebarLinkGroup.Element>

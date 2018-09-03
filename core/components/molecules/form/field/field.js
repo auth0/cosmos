@@ -6,6 +6,7 @@ import { spacing, misc } from '@auth0/cosmos-tokens'
 import getLayoutValues from '../layout'
 import uniqueId from '../../../_helpers/uniqueId'
 import FormContext from '../form-context'
+import Automation from '../../../_helpers/automation-attribute'
 
 import StyledLabel from '../label'
 import StyledError from '../error'
@@ -55,7 +56,7 @@ const Field = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <StyledField layout={context.layout}>
+        <StyledField layout={context.layout} {...Automation('form.field')}>
           <LabelLayout layout={context.layout}>
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
           </LabelLayout>

@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -10,6 +12,7 @@ module.exports = {
     path.resolve(process.cwd(), './index.js')
   ],
   output: {
+    filename: 'main.[hash].js',
     path: path.resolve(process.cwd(), 'public')
   },
   devtool: 'cheap-module-source-map',
@@ -31,7 +34,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ErrorOverlayPlugin()],
+  plugins: [
+    new ErrorOverlayPlugin(),
+    new CleanWebpackPlugin(['*.js'], { root: path.resolve(process.cwd(), 'public') }),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      inject: true
+    })
+  ],
   node: {
     fs: 'empty'
   }

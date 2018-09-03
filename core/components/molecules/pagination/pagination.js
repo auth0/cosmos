@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
+import Automation from '../../_helpers/automation-attribute'
 
 import {
   getPaginationSlice,
@@ -113,7 +114,7 @@ const lastPageButton = (
 )
 
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <StyledPagination>
+  <StyledPagination {...Automation('pagination')}>
     {renderPaginationItem({
       toPage: 1,
       content: firstPageButton,

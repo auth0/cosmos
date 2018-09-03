@@ -1,0 +1,27 @@
+{
+  "name": "@auth0/cosmos-tests",
+  "description": "Tests for Auth0 Cosmos",
+  "version": "0.4.0",
+  "repository": "auth0/cosmos",
+  "author": "siddharthkp",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --no-cache",
+    "test-snapshot": "jest snapshot --no-cache",
+    "test-unit": "jest unit --no-cache"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js?$": "<rootDir>/jestPreprocess.js"
+    }
+  },
+  "devDependencies": {
+    "@auth0/cosmos": "0.4.0",
+    "babel-jest": "^23.4.2",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "jest": "^23.5.0",
+    "jest-styled-components": "^6.1.1"
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
@@ -27,13 +28,15 @@ const StyledList = styled.div`
 
 const List = props => {
   return (
-    <StyledList>
+    <StyledList {...Automation('list')}>
       {props.label ? (
         <StyledLabel>
           <Heading size={4}>{props.label}</Heading>
         </StyledLabel>
       ) : null}
-      {React.Children.map(props.children, child => <StyledRow>{child}</StyledRow>)}
+      {React.Children.map(props.children, child => (
+        <StyledRow {...Automation('list.item')}>{child}</StyledRow>
+      ))}
     </StyledList>
   )
 }

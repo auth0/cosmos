@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput renders with automation attribute 1`] = `
+.c0 {
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFF;
+  border: 1px solid;
+  border-color: #CCCCCC;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  color: #555;
+  padding: 10px 16px;
+  cursor: auto;
+  -webkit-transition: border-color 0.25s,box-shadow 0.25s;
+  transition: border-color 0.25s,box-shadow 0.25s;
+  height: 44px;
+}
+
+.c0:hover {
+  border-color: #B7B7B7;
+}
+
+.c0:focus {
+  border-color: #0a84ae;
+  box-shadow: 0px 0px 0 1px #0a84ae;
+  outline: none;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #B2B2B2;
+}
+
+<input
+  className="c0"
+  data-cosmos-key="text-input"
+  onChange={null}
+  readOnly={false}
+  size="default"
+  type="text"
+/>
+`;
