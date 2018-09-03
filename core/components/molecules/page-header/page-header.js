@@ -82,7 +82,7 @@ PageHeader.propTypes = {
       learnMore: PropTypes.string
     }),
     PropTypes.node
-  ]).isRequired,
+  ]),
   /** URL to be used as the target of the 'Learn more' link */
   learnMore: PropTypes.string,
   /** Actions to be attached on top */
