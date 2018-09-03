@@ -12,7 +12,7 @@ const StyledSidebar = styled.div`
   background: ${colors.base.grayLightest};
   height: 100vh;
   overflow: scroll;
-  padding-bottom: 2rem;
+  padding-bottom: calc(2rem + 80px);
 `
 
 class Sidebar extends React.Component {
