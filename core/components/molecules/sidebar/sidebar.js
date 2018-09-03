@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
+import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import Icon from '../../atoms/icon'
 
 const Sidebar = props => {
-  return <Sidebar.Element {...props} />
+  return <Sidebar.Element {...props} {...Automation('sidebar')} />
 }
 
 Sidebar.Element = styled.div`

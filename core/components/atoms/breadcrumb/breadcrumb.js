@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
 
@@ -67,10 +68,10 @@ const Wrapper = styled.div`
   }
 `
 
-const Breadcrumb = props => <Wrapper {...props} />
+const Breadcrumb = props => <Wrapper {...props} {...Automation('breadcrumb')} />
 
 Breadcrumb.Link = props => (
-  <Link {...props}>
+  <Link {...props} {...Automation('breadcrumb.link')}>
     {props.icon && <LinkIcon name={props.icon} size={12} color="grayDarkest" />}
     {props.children}
     <Separator name="chevron-right-fill" size={12} color="grayMedium" />

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb renders with automation attribute 1`] = `
+.c0 .c1 {
+  color: #676767;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.c0 .c1:hover {
+  cursor: pointer;
+  color: #0a84ae;
+}
+
+.c0 .c1:hover .sc-gzVnrw path {
+  fill: #0a84ae;
+}
+
+.c0 .c1:last-child {
+  color: #333;
+  cursor: default;
+}
+
+.c0 .c1:first-child {
+  color: #676767;
+  cursor: pointer;
+}
+
+.c0 .c1:first-child:hover {
+  color: #0a84ae;
+}
+
+.c0 .sc-gzVnrw,
+.c0 .c3 {
+  position: relative;
+  top: -2px;
+}
+
+.c0 .c1:last-child .c3 {
+  display: none;
+}
+
+.c0 .sc-gzVnrw {
+  top: -2px;
+}
+
+.c0 .c3 {
+  top: -1px;
+}
+
+.c0 .c1:last-child .c3 {
+  display: none;
+}
+
+.c2 {
+  color: #0a84ae;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c2:hover {
+  color: #053b4e;
+}
+
+.c4 {
+  margin: 0 16px;
+}
+
+.c5 {
+  display: inline-block;
+  line-height: 1;
+}
+
+.c6 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.c6 path {
+  fill: #A8A8A8;
+}
+
+<div
+  className="c0"
+  data-cosmos-key="breadcrumb"
+>
+  <a
+    className="c1 c2"
+    data-cosmos-key="link"
+    href="/home"
+    target="_self"
+  >
+    Home
+    <i
+      className="c3 c4 c5"
+      color="grayMedium"
+      name="chevron-right-fill"
+      size={12}
+    >
+      <svg
+        className="c6"
+        color="#A8A8A8"
+        height={12}
+        viewBox="0 0 20 20"
+        width={12}
+      >
+        <path
+          d="M7.903 2L6 3.88 12.18 10 6 16.12 7.903 18 16 10z"
+        />
+      </svg>
+    </i>
+  </a>
+</div>
+`;

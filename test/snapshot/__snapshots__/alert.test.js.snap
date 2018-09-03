@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders with automation attribute 1`] = `
+.c0 {
+  padding: 16px 16px;
+  background-color: #F0F0F0;
+  border-radius: 3px;
+  position: relative;
+}
+
+.c0 .c1 {
+  margin: 0;
+  color: #333;
+}
+
+.c0 .sc-EHOje {
+  color: #333;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c0 .sc-EHOje:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 .c3 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #333;
+  padding: 16px 16px;
+}
+
+.c2 {
+  margin: 1em 0;
+  color: #212121;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c4 {
+  cursor: pointer;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.c4:after {
+  content: '×';
+}
+
+<div
+  className="c0"
+  data-cosmos-key="alert"
+  type="default"
+>
+  <p
+    className="c1 c2"
+  >
+    <em />
+     
+    Text
+  </p>
+  <a
+    className="c3 c4"
+    data-cosmos-key="alert.dismiss"
+    onClick={[Function]}
+  />
+</div>
+`;

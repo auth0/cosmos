@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 
 const SidebarLink = props => {
   return (
-    <SidebarLink.Element href={props.url} onClick={props.onClick} selected={props.selected}>
+    <SidebarLink.Element href={props.url} onClick={props.onClick} selected={props.selected} {...Automation('sidebar.link')}>
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}
         size={18}

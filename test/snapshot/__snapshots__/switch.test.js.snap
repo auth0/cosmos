@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch renders with automation attribute 1`] = `
+.c0 {
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+  position: relative;
+}
+
+.c1 {
+  width: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.c2 {
+  display: inline-block;
+  width: 55px;
+  height: 32px;
+  border-radius: 21px;
+  background: #D9D9D9;
+  cursor: pointer;
+  position: relative;
+}
+
+.c2:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background: #FFF;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.25),0 4px 11px 0 rgba(0,0,0,0.08), -1px 3px 3px 0 rgba(0,0,0,0.14);
+  -webkit-transition: -webkit-transform 0.25s ease,width 0.25s, left 0.25s;
+  -webkit-transition: transform 0.25s ease,width 0.25s, left 0.25s;
+  transition: transform 0.25s ease,width 0.25s, left 0.25s;
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.c2:active:before {
+  width: 30px;
+  left: 6px;
+}
+
+.c3 {
+  vertical-align: top;
+  line-height: 32px;
+  font-size: 13px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #757575;
+  padding-left: 16px;
+}
+
+<span
+  className="c0"
+  data-cosmos-key="switch"
+  onClick={[Function]}
+>
+  <input
+    checked={false}
+    className="c1"
+    readOnly={true}
+    type="checkbox"
+  />
+  <span
+    className="c2"
+    readOnly={false}
+  />
+  <label
+    className="c3"
+  >
+    Disabled
+  </label>
+</span>
+`;

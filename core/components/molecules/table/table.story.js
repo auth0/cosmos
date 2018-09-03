@@ -80,6 +80,19 @@ storiesOf('Table').add('sorting', () => (
   </Example>
 ))
 
+storiesOf('Table').add('initial sort props', () => (
+  <Example title="default">
+    <Table items={items} sortOn="died" sortDirection="desc">
+      <Table.Column field="image" width="50px">
+        {item => <Avatar image={item.image} size="large" />}
+      </Table.Column>
+      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="born" title="Born" sortable />
+      <Table.Column field="died" title="Died" sortable />
+    </Table>
+  </Example>
+))
+
 storiesOf('Table').add('stressed', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
     <Table

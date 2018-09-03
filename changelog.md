@@ -4,6 +4,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.5.1 [September 3, 2018]
+
+### Added
+
+- Component: Danger Zone (experimental) [#847]
+
+### Fixed
+
+- Table: Add support for a Table that isn't sortable + improve documentation [#865]
+- Docs: Fix production version + implement cache busting [#876]
+
+## 0.5.0 [August 30, 2018]
+
+### Added
+
+- Testing: Adding support for attributes for automation [#850]
+
+### Changed
+
+- Manage Example: Update Page Header usage [#822]
+- Pagination toolbar: disable buttons on edge pages & hide on one page [#845]
+- Docs: Add deprecated tag in prop table [#852]
+
+### Fixed
+
+- Table: Improve interactivity of rows [#830]
+- Website: Fix nav version in navigation [#834]
+- Page Header: Fixed learn more arrow icon on hover [#844]
+
 ## 0.4.0 [August 17, 2018]
 
 ### Added
