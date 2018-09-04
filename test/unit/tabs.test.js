@@ -22,7 +22,7 @@ function tabsFactory() {
   return { generator, content }
 }
 
-describe('Tabs tests', () => {
+describe('Tabs', () => {
   it('renders only selected tab content', () => {
     const { generator, content } = tabsFactory()
 
