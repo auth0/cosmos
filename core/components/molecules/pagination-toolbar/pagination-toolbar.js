@@ -86,7 +86,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
 PaginationToolbar.Element = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: ${spacing.medium};
 `
 
 PaginationToolbar.propTypes = {
