@@ -11,10 +11,10 @@
     "core/engine",
     "internal/overview",
     "internal/docs",
+    "internal/test",
     "examples/manage",
     "examples/webpack-hello-world",
-    "examples/perf-tests",
-    "test"
+    "examples/perf-tests"
   ],
   "scripts": {
     "scripts": "nps -s",

@@ -59,25 +59,25 @@ module.exports = {
         description: 'Run chromatic visual tests in CI'
       },
       snapshot: {
-        script: 'cd test && yarn test-snapshot',
+        script: 'cd internal/test && yarn test-snapshot',
         description: 'Run snapshot tests'
       },
       unit: {
         default: {
-          script: 'cd test && yarn test-unit',
+          script: 'cd internal/test && yarn test-unit',
           description: 'Run unit tests'
         },
         watch: {
-          script: 'cd test && yarn test-unit-watch',
+          script: 'cd internal/test && yarn test-unit-watch',
           description: 'Run unit tests in watch mode'
         }
       },
       watch: {
-        script: 'cd test && yarn test-watch',
+        script: 'cd internal/test && yarn test-watch',
         description: 'Run all tests in watch mode'
       },
       coverage: {
-        script: 'cd test && yarn coverage',
+        script: 'cd internal/test && yarn coverage',
         description: 'Run a coverage report'
       }
     },
