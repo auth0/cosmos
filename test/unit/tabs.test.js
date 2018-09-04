@@ -24,22 +24,9 @@ function tabsFactory() {
 
 describe('Tabs', () => {
   it('renders only selected tab content', () => {
-    const { generator, content } = tabsFactory()
+    const { generator: wrapper } = tabsFactory()
 
-    // Create three <Tabs> instances with different tabs selected
-    const [first, second, third] = [generator(0), generator(1), generator(2)]
-
-    expect(first.contains(content.first)).toBe(true)
-    expect(first.contains(content.second)).toBe(false)
-    expect(first.contains(content.third)).toBe(false)
-
-    expect(second.contains(content.first)).toBe(false)
-    expect(second.contains(content.second)).toBe(true)
-    expect(second.contains(content.third)).toBe(false)
-
-    expect(third.contains(content.first)).toBe(false)
-    expect(third.contains(content.second)).toBe(false)
-    expect(third.contains(content.third)).toBe(true)
+    expect(wrapper).toMatchSnapshot()
   })
 
   it('only render one tab title as selected', () => {
@@ -48,20 +35,9 @@ describe('Tabs', () => {
     // Create three <Tabs> instances with different tabs selected
     const [first, second, third] = [generator(0), generator(1), generator(2)]
 
-    expect(first.find(TabLink).filter({ selected: true })).toHaveLength(1)
-    expect(second.find(TabLink).filter({ selected: true })).toHaveLength(1)
-    expect(third.find(TabLink).filter({ selected: true })).toHaveLength(1)
-  })
-
-  it('render item titles', () => {
-    const wrapper = shallow(
-      <Tabs selected={0} onSelect={() => {}}>
-        <Tabs.Tab title="First title">First content</Tabs.Tab>
-        <Tabs.Tab title="Second Title">Second Content</Tabs.Tab>
-      </Tabs>
-    )
-    const tabLinks = wrapper.find(TabLink)
-    expect(tabLinks).toHaveLength(2)
+    expect(first).toMatchSnapshot()
+    expect(second).toMatchSnapshot()
+    expect(third).toMatchSnapshot()
   })
 
   it('onSelect is called on tab title click', () => {
