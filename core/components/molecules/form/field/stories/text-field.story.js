@@ -25,18 +25,26 @@ storiesOf('Form').add('text field + error', () => (
   </Example>
 ))
 
+const textInputForSize = size => (
+  <Form.TextInput
+    label="Field label"
+    type="text"
+    size={size}
+    placeholder="Enter something"
+    actions={[
+      { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
+      { icon: 'delete', handler: () => {}, label: 'Delete' }
+    ]}
+  />
+)
+
 storiesOf('Form').add('text field + actions', () => (
   <Example title="text field + actions">
     <Form>
-      <Form.TextInput
-        label="Field label"
-        type="text"
-        placeholder="Enter something"
-        actions={[
-          { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
-          { icon: 'delete', handler: () => {}, label: 'Delete' }
-        ]}
-      />
+      {textInputForSize('default')}
+      {textInputForSize('large')}
+      {textInputForSize('small')}
+      {textInputForSize('compressed')}
     </Form>
   </Example>
 ))
