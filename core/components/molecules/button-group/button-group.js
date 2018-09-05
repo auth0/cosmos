@@ -36,13 +36,17 @@ const StyledButtonGroup = styled.div`
 
   ${Button.Element} {
     ${props => (props.align === 'left' ? 'margin-right' : 'margin-left')}: ${props =>
-    props.compressed ? 0 : spacing.xsmall};
+      props.compressed ? 0 : spacing.xsmall};
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
 `
 
-const ButtonGroup = props => <StyledButtonGroup {...props} {...Automation('button-group')}>{props.children}</StyledButtonGroup>
+const ButtonGroup = props => (
+  <StyledButtonGroup {...props} {...Automation('button-group')}>
+    {props.children}
+  </StyledButtonGroup>
+)
 
 ButtonGroup.propTypes = {
   /** Make Buttons are ordered with the correct space between them  */

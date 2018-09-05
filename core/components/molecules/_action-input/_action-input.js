@@ -6,7 +6,7 @@ import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { multiply } from '../../_helpers/pixel-calc'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing, misc } from '@auth0/cosmos-tokens'
 import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
 /* TODO: width of button should be exported by button component */
@@ -26,7 +26,12 @@ const Wrapper = styled.div`
   ${StyledButtonGroup} {
     position: absolute;
     right: 4px;
-    top: 6px;
+    top: 0; 
+
+    ${Button.Element} {
+      height: ${(props) => misc.input[props.size].height};
+      margin: 0;
+    }
   }
 `
 
@@ -37,7 +42,7 @@ const Wrapper = styled.div`
 const ActionInput = props => {
   if (props.actions) {
     return (
-      <Wrapper actions={props.actions}>
+      <Wrapper actions={props.actions} size={props.size}>
         <TextInput {...props} />
         <ButtonGroup compressed>
           {props.actions.map((action, index) => (

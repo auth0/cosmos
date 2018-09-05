@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
+import { deprecate } from '../../_helpers/custom-validations'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
@@ -41,19 +42,27 @@ const Subtitle = styled.span`
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
-const AvatarBlock = props => {
-  let title
-  let subtitle
+const getTitle = props => {
+  let contents
+  let link = props.href || props.link
 
-  if (props.href) {
-    title = (
-      <Title>
-        <Link href={props.href}>{props.title}</Link>
-      </Title>
-    )
-  } else {
-    title = <Title>{props.title}</Title>
+  if (!link) return <Title>{props.title}</Title>
+
+  /* link supports both formats: string and object */
+  if (typeof link === 'string') {
+    link = { href: link, target: '_blank' } // defaults
   }
+
+  return (
+    <Title>
+      <Link {...link}>{props.title}</Link>
+    </Title>
+  )
+}
+
+const AvatarBlock = props => {
+  let title = getTitle(props)
+  let subtitle
 
   if (props.subtitle) {
     subtitle = <Subtitle size={props.size}>{props.subtitle}</Subtitle>
@@ -76,8 +85,6 @@ const AvatarBlock = props => {
 }
 
 AvatarBlock.propTypes = {
-  /** If specified, the main text will be rendered as a hyperlink with this as the target. */
-  href: PropTypes.string,
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** An image URL to display. */
@@ -89,7 +96,19 @@ AvatarBlock.propTypes = {
   /** The size of the avatar block. */
   size: PropTypes.PropTypes.oneOf(['compact', 'default', 'large']),
   /** The secondary line of text to display. */
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  /** @deprecated If specified, the main text will be rendered as a hyperlink */
+  href: PropTypes.string,
+  /** If specified, the main text will be rendered as a hyperlink */
+  link: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      href: PropTypes.string,
+      target: PropTypes.string
+    })
+  ]),
+
+  _deprecation_href: props => deprecate(props, { name: 'href', replacement: 'link' })
 }
 
 AvatarBlock.defaultProps = {
