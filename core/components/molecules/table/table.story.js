@@ -125,3 +125,9 @@ storiesOf('Table').add('stressed', () => (
     </Table>
   </Example>
 ))
+
+storiesOf('Table').add('loading', () => (
+  <Example title="loading table">
+    <Table items={[]} loading />
+  </Example>
+))
