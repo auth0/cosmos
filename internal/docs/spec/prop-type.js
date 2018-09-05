@@ -2,7 +2,7 @@ import { shapeForDocs } from '@auth0/cosmos/_helpers/action-shape'
 
 const parseType = type => {
   if (type.name === 'shape') {
-    return getShape(type.value)
+    return 'shape ' + getShape(type.value)
   } else if (type.name === 'arrayOf') {
     if (type.value.name === 'shape') return `arrayOf(${getShape(type.value.value)})`
     if (type.value.name === 'custom') return `arrayOf(${replaceRaw(type.value.raw)})`
@@ -11,6 +11,8 @@ const parseType = type => {
     return 'one of:'
   } else if (type.name === 'custom') {
     return replaceRaw(type.raw)
+  } else if (type.name === 'union') {
+    return 'one of: ' + getArray(type.value).join(' or ')
   } else {
     return type.name
   }
@@ -30,6 +32,10 @@ const getShape = value => {
   })
 
   return JSON.stringify(shape, null, 2)
+}
+
+const getArray = value => {
+  return value.map(v => parseType(v))
 }
 
 export default parseType
