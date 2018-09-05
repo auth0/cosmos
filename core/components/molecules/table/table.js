@@ -25,7 +25,7 @@ class Table extends React.Component {
     if (!props.onSort) {
       // automatic mode
       this.state = {
-        sortingColumn: this.getSortingColumn(),
+        sortingColumn: this.getSortingColumn(props.sortOn),
         sortDirection: 'asc'
       }
     }
@@ -113,7 +113,11 @@ class Table extends React.Component {
     }
 
     const rows = sortedItems.map((item, index) => (
-      <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)} {...Automation('table.row')}>
+      <Table.Row
+        key={`row-${index}`}
+        onClick={this.handleRowClicked(item)}
+        {...Automation('table.row')}
+      >
         {columns.map(column => {
           const cellRenderer = column.children || this.defaultCellRenderer
 

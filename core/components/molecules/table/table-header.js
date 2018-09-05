@@ -7,14 +7,16 @@ import Automation from '../../_helpers/automation-attribute'
 
 const TableHeader = props => {
   const cells = props.columns.map((column, index) => {
-    const shouldDisplaySortingIndicator = column.field === props.sortingColumn.field
+    const isSortedBy = column.field === props.sortingColumn.field
     const order = props.sortDirection || 'asc'
     const icon = order === 'asc' ? '↑' : '↓'
-    const sortIndicator = (
-      <TableHeader.SortIndicator display={shouldDisplaySortingIndicator}>
-        {icon}
-      </TableHeader.SortIndicator>
-    )
+
+    let sortIndicator
+    if (column.sortable) {
+      sortIndicator = (
+        <TableHeader.SortIndicator isSortedBy={isSortedBy}>{icon}</TableHeader.SortIndicator>
+      )
+    }
 
     const onClick = column => {
       if (!column.sortable) return
@@ -55,6 +57,11 @@ TableHeader.Element = styled.thead``
 
 TableHeader.Row = styled.tr``
 
+TableHeader.SortIndicator = styled.span`
+  padding-left: ${spacing.xsmall};
+  visibility: ${props => (props.isSortedBy ? 'visible' : 'hidden')};
+`
+
 TableHeader.Cell = styled.th`
   padding: ${spacing.xsmall};
   border-bottom: 2px solid ${colors.base.grayLight};
@@ -64,12 +71,10 @@ TableHeader.Cell = styled.th`
   cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
   &:hover {
     color: ${props => (props.sortable ? colors.link.default : 'inherit')};
+    ${TableHeader.SortIndicator} {
+      visibility: visible;
+    }
   }
-`
-
-TableHeader.SortIndicator = styled.span`
-  padding-left: ${spacing.xsmall};
-  visibility: ${props => (props.display ? 'initial' : 'hidden')};
 `
 
 TableHeader.propTypes = {

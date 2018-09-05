@@ -9,6 +9,7 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'deploy.catchup',
           'production.directory',
           'icons.build',
           'metadata.build',
@@ -46,7 +47,7 @@ module.exports = {
     },
     test: {
       default: {
-        script: parallel('production.build', 'test.ci'),
+        script: series('production.build', 'test.ci'),
         description: 'Check if applications build + Run visual tests'
       },
       ci: {
