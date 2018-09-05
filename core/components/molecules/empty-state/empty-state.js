@@ -11,17 +11,26 @@ import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 
-const EmptyState = props => {
-  let helpLink
-  if (props.helpUrl) {
-    helpLink = (
-      <LearnMore>
-        <Link href={props.helpUrl} target="_blank">
-          Learn More <i> </i>
-        </Link>
-      </LearnMore>
-    )
+const getHelpLink = link => {
+  if (!link) return
+
+  /* link supports both formats: string and object */
+  if (typeof link === 'string') {
+    link = { href: link, target: '_blank' } // defaults
   }
+
+  return (
+    <LearnMore>
+      <Link {...link}>
+        Learn More <i> </i>
+      </Link>
+    </LearnMore>
+  )
+}
+
+const EmptyState = props => {
+  let helpLink = getHelpLink(props.link || props.helpUrl)
+
   return (
     <Wrapper {...Automation('empty-state')}>
       <Title size={1}>{props.title}</Title>
@@ -75,13 +84,35 @@ const LearnMore = styled.div`
 EmptyState.displayName = 'EmptyState'
 
 EmptyState.propTypes = {
-  action: actionShapeWithRequiredIcon.isRequired,
-  helpUrl: PropTypes.string,
-  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /** Big heading for section */
   title: PropTypes.string.isRequired,
+  /** Icon associated with section */
+  icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
+  /** @deprecated Message */
+  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  /** Message */
+  children: PropTypes.node.isRequired,
+  /** @deprecated url and target for "Learn more" */
+  helpUrl: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      href: PropTypes.string,
+      target: PropTypes.string
+    })
+  ]),
+  /** url and target for "Learn more" */
+  link: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      href: PropTypes.string,
+      target: PropTypes.string
+    })
+  ]),
+  /** Primary call to action */
+  action: actionShapeWithRequiredIcon.isRequired,
 
-  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
+  _deprecation_text: props => deprecate(props, { name: 'text', replacement: 'children' }),
+  _deprecation_helpUrl: props => deprecate(props, { name: 'helpUrl', replacement: 'link' })
 }
 
 export default EmptyState

@@ -9,12 +9,15 @@ class SsoIndex extends React.Component {
         <EmptyState
           title="SSO Integrations"
           icon="sso-integrations"
-          helpUrl="http://auth0.com"
+          link="http://auth0.com"
           action={{
+            label: 'Create SSO Integration',
             icon: 'plus',
-            text: 'Create SSO Integration'
+            handler: () => {}
           }}
-        />
+        >
+          There are no SSO integrations
+        </EmptyState>
       </div>
     )
   }

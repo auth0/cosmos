@@ -245,4 +245,5 @@ class Example extends React.Component {
       </Table>
     )
   }
-}
+```
+
