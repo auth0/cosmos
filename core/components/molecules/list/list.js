@@ -34,7 +34,9 @@ const List = props => {
           <Heading size={4}>{props.label}</Heading>
         </StyledLabel>
       ) : null}
-      {React.Children.map(props.children, child => <StyledRow {...Automation('list.item')}>{child}</StyledRow>)}
+      {React.Children.map(props.children, child => (
+        <StyledRow {...Automation('list.item')}>{child}</StyledRow>
+      ))}
     </StyledList>
   )
 }

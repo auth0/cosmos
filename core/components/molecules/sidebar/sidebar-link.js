@@ -8,7 +8,12 @@ import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 
 const SidebarLink = props => {
   return (
-    <SidebarLink.Element href={props.url} onClick={props.onClick} selected={props.selected} {...Automation('sidebar.link')}>
+    <SidebarLink.Element
+      href={props.url}
+      onClick={props.onClick}
+      selected={props.selected}
+      {...Automation('sidebar.link')}
+    >
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}
         size={18}
