@@ -77,6 +77,7 @@ if (includeGlobals) {
   }
 
   strong, em {
+    font-style: normal;
     font-weight: ${fonts.weight.bold};
   }
 
@@ -154,6 +155,7 @@ if (includeGlobals) {
     }
     strong,
     em {
+      font-style: normal;
       font-weight: 700;
     }
 
@@ -170,7 +172,7 @@ if (includeGlobals) {
 
     /* Cosmos globals */
     [class^="sc-"] {
-      line-height: 1.6;
+      line-height: ${misc.lineHeight};
     }
 
     @font-face {
@@ -181,6 +183,17 @@ if (includeGlobals) {
         url(https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Medium.ttf)
           format('truetype');
       font-weight: ${fonts.weight.medium};
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: fakt-web;
+      src: url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff2)
+          format('woff2'),
+        url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff) format('woff'),
+        url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold_web.ttf)
+          format('truetype');
+      font-weight: ${fonts.weight.bold};
       font-style: normal;
     }
 
