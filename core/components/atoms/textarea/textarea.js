@@ -10,7 +10,9 @@ const StyledTextArea = StyledInput.withComponent('textarea').extend`
   font-size: ${props => (props.code ? '13px' : 'inherit')};
 `
 
-const TextArea = props => <StyledTextArea rows={props.length} {...props} {...Automation('text-area')} />
+const TextArea = props => (
+  <StyledTextArea rows={props.length} {...props} {...Automation('text-area')} />
+)
 
 TextArea.propTypes = {
   /** Length of the textarea in rows */

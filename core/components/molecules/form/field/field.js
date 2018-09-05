@@ -64,8 +64,8 @@ const Field = props => {
             {props.fieldComponent ? (
               <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
             ) : (
-                props.children
-              )}
+              props.children
+            )}
             {props.error ? <StyledError>{props.error}</StyledError> : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
           </ContentLayout>

@@ -97,7 +97,10 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem onClick={props.onClick ? callHandler(props.onClick) : null} {...Automation('resource-list.item')}>
+    <StyledListItem
+      onClick={props.onClick ? callHandler(props.onClick) : null}
+      {...Automation('resource-list.item')}
+    >
       <ListItemHeader>
         {image}
         <div>

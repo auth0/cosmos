@@ -51,7 +51,11 @@ const Stack = props => {
       let width = 0
       if (props.widths) width = `${props.widths[index]}` || 0
 
-      return <StackedItem width={width} {...Automation('stack.item')}>{child}</StackedItem>
+      return (
+        <StackedItem width={width} {...Automation('stack.item')}>
+          {child}
+        </StackedItem>
+      )
     })
   } else {
     children = props.children

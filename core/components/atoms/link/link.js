@@ -13,7 +13,11 @@ const StyledLink = styled.a`
   }
 `
 
-const Link = props => <StyledLink {...props} {...Automation('link')}>{props.children}</StyledLink>
+const Link = props => (
+  <StyledLink {...props} {...Automation('link')}>
+    {props.children}
+  </StyledLink>
+)
 
 Link.propTypes = {
   /** URL to follow */
