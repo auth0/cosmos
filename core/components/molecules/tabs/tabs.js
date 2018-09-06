@@ -17,7 +17,7 @@ const TabLink = styled.a`
   margin-bottom: -1px;
 
   &:hover {
-    color: ${props => (!props.selected ? colors.link.defaultHover : null)};
+    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
 `
 
