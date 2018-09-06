@@ -46,10 +46,14 @@ module.exports = {
     },
     test: {
       default: {
-        script: parallel('production.build', 'test.ci', 'test.unit'),
+        script: series('production.build', 'test.ci'),
         description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       ci: {
+        script: parallel('test.chromaticci', 'test.unit'),
+        description: 'Check if applications build + Run visual tests + Run unit tests'
+      },
+      chromaticci: {
         script:
           'if-env TRAVIS_EVENT_TYPE=push && yarn scripts test.chromatic || echo "Skip chromatic"',
         description: 'Check if CI event is push and then run chromatic'
