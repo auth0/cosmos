@@ -9,6 +9,7 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'deploy.catchup',
           'production.directory',
           'icons.build',
           'metadata.build',
