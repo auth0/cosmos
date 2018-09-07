@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { misc, colors } from '@auth0/cosmos-tokens'
+import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
@@ -10,20 +10,12 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from '../../_helpers/pagination'
 
-const StyledPagerButton = styled(Button)`
-  ${Icon.Element} {
-    margin: 0;
-  }
-`
-
 const StyledPageSelector = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
   & > * {
-    margin-right: 5px;
-
+    margin-right: ${spacing.xsmall};
     &:last-child {
       margin-right: 0;
     }
@@ -34,17 +26,31 @@ const StyledPageSelector = styled.div`
   }
 `
 
+const StyledPagerButton = styled(Button)`
+  ${Icon.Element} {
+    path {
+      fill: ${colors.text.inputs};
+    }
+  }
+`
+
 const Pager = ({ page, pages, onPrevPressed, onNextPressed }) => {
   const inFirstPage = page === 1
   const inLastPage = page === pages
   return (
     <ButtonGroup compressed>
-      <StyledPagerButton size="compressed" onClick={onPrevPressed} disabled={inFirstPage}>
-        <Icon name="chevron-left" />
-      </StyledPagerButton>
-      <StyledPagerButton size="compressed" onClick={onNextPressed} disabled={inLastPage}>
-        <Icon name="chevron-right" />
-      </StyledPagerButton>
+      <StyledPagerButton
+        icon="chevron-left"
+        size="compressed"
+        onClick={onPrevPressed}
+        disabled={inFirstPage}
+      />
+      <StyledPagerButton
+        icon="chevron-right"
+        size="compressed"
+        onClick={onNextPressed}
+        disabled={inLastPage}
+      />
     </ButtonGroup>
   )
 }
@@ -80,7 +86,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
 PaginationToolbar.Element = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: ${spacing.medium};
 `
 
 PaginationToolbar.propTypes = {

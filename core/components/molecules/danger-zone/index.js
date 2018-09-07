@@ -1,3 +1,3 @@
-import DangerZone from "./danger-zone";
+import DangerZone from './danger-zone'
 
-export default DangerZone;
+export default DangerZone

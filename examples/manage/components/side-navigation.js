@@ -36,8 +36,8 @@ class SideNavigation extends React.Component {
           <Sidebar.Link
             icon="sso-integrations"
             label="SSO Integrations"
-            url="#/sso-integration"
-            selected={this.isSelected('/sso-integration')}
+            url="#/sso-integrations"
+            selected={this.isSelected('/sso-integrations')}
           />
           <Sidebar.LinkGroup icon="connections" label="Connections">
             <Sidebar.Link

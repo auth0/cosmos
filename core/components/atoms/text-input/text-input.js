@@ -10,9 +10,24 @@ const TextInput = ({ defaultValue, type, ...props }) => {
   if (props.masked) {
     const length = defaultValue ? defaultValue.length : 8
     const maskedValue = new Array(length).join('•')
-    return <TextInput.Element type={type} {...props} placeholder={maskedValue} readOnly {...Automation('text-input')} />
+    return (
+      <TextInput.Element
+        type={type}
+        {...props}
+        placeholder={maskedValue}
+        readOnly
+        {...Automation('text-input')}
+      />
+    )
   }
-  return <TextInput.Element {...Automation('text-input')} type={type} defaultValue={defaultValue} {...props} />
+  return (
+    <TextInput.Element
+      {...Automation('text-input')}
+      type={type}
+      defaultValue={defaultValue}
+      {...props}
+    />
+  )
 }
 
 TextInput.Element = StyledInput.extend`

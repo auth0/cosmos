@@ -11,13 +11,13 @@ const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
-  color: ${props => (props.selected ? colors.base.text : colors.link.default)};
+  color: ${props => (props.selected ? colors.text.default : colors.link.default)};
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
   border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
   margin-bottom: -1px;
 
   &:hover {
-    color: ${props => (!props.selected ? colors.link.defaultHover : null)};
+    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
 `
 
