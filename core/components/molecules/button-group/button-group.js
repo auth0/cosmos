@@ -32,7 +32,14 @@ const marginForButton = props => {
   if (isSingleButton || props.compressed) return noMargins
 
   const property = props.align === 'left' ? 'margin-right' : 'margin-left'
-  return `${property}: ${spacing.xsmall}`
+  const trailing = props.align === 'left' ? '&:last-child' : '&:first-child'
+  return `
+  ${property}: ${spacing.xsmall};
+
+  ${trailing} {
+    ${property}: 0;
+  }
+  `
 }
 
 const StyledButtonGroup = styled.div`

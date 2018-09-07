@@ -36,40 +36,28 @@ storiesOf('ButtonGroup').add('alignment', () => (
   </div>
 ))
 
-storiesOf('ButtonGroup').add('single button', () => (
+storiesOf('ButtonGroup').add('single button margin', () => (
   <div>
     <Example title="left with explicit borders">
       <ButtonGroup align="left">
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
+        <Button appearance="secondary">Save changes</Button>
       </ButtonGroup>
     </Example>
     <Example title="left with explicit borders">
       <ButtonGroup align="left">
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
+        <Button appearance="secondary">Save changes</Button>
+        <Button appearance="secondary">Save changes</Button>
       </ButtonGroup>
     </Example>
     <Example title="right with explicit borders">
       <ButtonGroup align="right">
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
+        <Button appearance="secondary">Save changes</Button>
       </ButtonGroup>
     </Example>
     <Example title="right with explicit borders">
       <ButtonGroup align="right">
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
-        <div style={{ border: '1px solid red' }}>
-          <Button appearance="secondary">Save changes</Button>
-        </div>
+        <Button appearance="secondary">Save changes</Button>
+        <Button appearance="secondary">Save changes</Button>
       </ButtonGroup>
     </Example>
   </div>
