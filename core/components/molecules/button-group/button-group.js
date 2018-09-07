@@ -25,6 +25,16 @@ const groupRadiusStyles = css`
   }
 `
 
+const marginForButton = props => {
+  const noMargins = ''
+  const isSingleButton = props.children.constructor.name !== 'Array'
+
+  if (isSingleButton || props.compressed) return noMargins
+
+  const property = props.align === 'left' ? 'margin-right' : 'margin-left'
+  return `${property}: ${spacing.xsmall}`
+}
+
 const StyledButtonGroup = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
@@ -35,8 +45,7 @@ const StyledButtonGroup = styled.div`
   }
 
   ${Button.Element} {
-    ${props => (props.align === 'left' ? 'margin-right' : 'margin-left')}: ${props =>
-      props.compressed || props.children.length < 2 ? 0 : spacing.xsmall};
+    ${marginForButton};
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
