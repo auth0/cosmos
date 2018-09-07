@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
+import Spinner from '@auth0/cosmos/atoms/spinner/spinner'
 import Automation from '../../_helpers/automation-attribute'
 
 class Table extends React.Component {
@@ -131,15 +132,18 @@ class Table extends React.Component {
     ))
 
     return (
-      <Table.Element {...Automation('table')}>
-        <Table.Header
-          columns={columns}
-          sortingColumn={sortingColumn}
-          sortDirection={sortDirection}
-          onSort={onSort}
-        />
-        <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
-      </Table.Element>
+      <React.Fragment>
+        <Table.Element {...Automation('table')}>
+          <Table.Header
+            columns={columns}
+            sortingColumn={sortingColumn}
+            sortDirection={sortDirection}
+            onSort={onSort}
+          />
+          <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
+        </Table.Element>
+        <Table.LoadingSpinner {...this.props} />
+      </React.Fragment>
     )
   }
 }
@@ -177,6 +181,23 @@ Table.Cell = styled.td`
   width: ${props => props.column.width || 'auto'};
 `
 
+Table.LoadingSpinner = props => {
+  if (!props.loading) return null
+
+  const SpinnerContainer = styled.div`
+    margin-top: ${spacing.large};
+    width: 100%;
+    text-align: center;
+  `
+
+  // TODO: Replace with bigger spinner (when available)
+  return (
+    <SpinnerContainer>
+      <Spinner />
+    </SpinnerContainer>
+  )
+}
+
 Table.propTypes = {
   /** The items in the table. */
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -187,13 +208,16 @@ Table.propTypes = {
   /** A function that will be called when a row is clicked. */
   onRowClick: PropTypes.func,
   /** A function that will be called when the table is re-sorted via clicking a header. */
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
+  /** Whether the data for the table is being loaded or not. */
+  loading: PropTypes.bool
 }
 
 Table.defaultProps = {
   onRowClick: null,
   onSort: null,
-  sortDirection: 'asc'
+  sortDirection: 'asc',
+  loading: false
 }
 
 export default Table
