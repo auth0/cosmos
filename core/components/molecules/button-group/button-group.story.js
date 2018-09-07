@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { ButtonGroup, Button } from '@auth0/cosmos'
+import { ButtonGroup, Button, Box } from '@auth0/cosmos'
 
 storiesOf('ButtonGroup').add('default', () => (
   <Example title="default">
@@ -31,6 +31,23 @@ storiesOf('ButtonGroup').add('alignment', () => (
         <Button appearance="secondary" icon="play">
           Try
         </Button>
+      </ButtonGroup>
+    </Example>
+  </div>
+))
+
+storiesOf('ButtonGroup').add('single button', () => (
+  <div>
+    <Example title="default">
+      <ButtonGroup>
+        <Button appearance="primary">Save changes</Button>
+      </ButtonGroup>
+    </Example>
+    <Example title="default with explicit borders">
+      <ButtonGroup align="right">
+        <div style={{ border: '1px solid red' }}>
+          <Button appearance="primary">Save changes</Button>
+        </div>
       </ButtonGroup>
     </Example>
   </div>
