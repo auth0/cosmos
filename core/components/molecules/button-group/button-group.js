@@ -36,7 +36,7 @@ const StyledButtonGroup = styled.div`
 
   ${Button.Element} {
     ${props => (props.align === 'left' ? 'margin-right' : 'margin-left')}: ${props =>
-      props.compressed ? 0 : spacing.xsmall};
+      props.compressed || props.children.length < 2 ? 0 : spacing.xsmall};
   }
 
   ${props => (props.compressed ? groupRadiusStyles : null)};
