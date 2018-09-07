@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 import Automation from '../../_helpers/automation-attribute'
@@ -113,7 +113,11 @@ class Table extends React.Component {
     }
 
     const rows = sortedItems.map((item, index) => (
-      <Table.Row key={`row-${index}`} onClick={this.handleRowClicked(item)} {...Automation('table.row')}>
+      <Table.Row
+        key={`row-${index}`}
+        onClick={this.handleRowClicked(item)}
+        {...Automation('table.row')}
+      >
         {columns.map(column => {
           const cellRenderer = column.children || this.defaultCellRenderer
 
@@ -182,9 +186,10 @@ Table.EmptyState = ({ rows, children }) => {
   const TableEmptyState = styled.div`
     padding: ${spacing.small};
     background-color: rgb(250, 250, 250);
-    border-radius: 5px;
+    border-radius: ${misc.radius};
     text-align: center;
     margin-top: ${spacing.xsmall};
+    color: ${colors.text.default};
   `
 
   return <TableEmptyState>{children}</TableEmptyState>
