@@ -208,9 +208,7 @@ Table.propTypes = {
   /** A function that will be called when a row is clicked. */
   onRowClick: PropTypes.func,
   /** A function that will be called when the table is re-sorted via clicking a header. */
-  onSort: PropTypes.func,
-  /** Whether the data for the table is being loaded or not. */
-  loading: PropTypes.bool
+  onSort: PropTypes.func
 }
 
 Table.defaultProps = {
