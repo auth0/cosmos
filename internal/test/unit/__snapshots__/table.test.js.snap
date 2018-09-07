@@ -10,6 +10,7 @@ exports[`Table renders properly 1`] = `
         Object {
           "children": [Function],
           "field": "image",
+          "sortable": false,
           "width": "50px",
         },
         Object {
@@ -20,14 +21,17 @@ exports[`Table renders properly 1`] = `
         },
         Object {
           "field": "country",
+          "sortable": false,
           "title": "Country",
         },
         Object {
           "field": "goals",
+          "sortable": false,
           "title": "Goals",
         },
         Object {
           "field": "assists",
+          "sortable": false,
           "title": "Assists",
         },
       ]
@@ -56,6 +60,7 @@ exports[`Table renders properly 1`] = `
           Object {
             "children": [Function],
             "field": "image",
+            "sortable": false,
             "width": "50px",
           }
         }
@@ -84,6 +89,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "country",
+            "sortable": false,
             "title": "Country",
           }
         }
@@ -95,6 +101,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "goals",
+            "sortable": false,
             "title": "Goals",
           }
         }
@@ -106,6 +113,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "assists",
+            "sortable": false,
             "title": "Assists",
           }
         }
@@ -124,6 +132,7 @@ exports[`Table renders properly 1`] = `
           Object {
             "children": [Function],
             "field": "image",
+            "sortable": false,
             "width": "50px",
           }
         }
@@ -152,6 +161,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "country",
+            "sortable": false,
             "title": "Country",
           }
         }
@@ -163,6 +173,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "goals",
+            "sortable": false,
             "title": "Goals",
           }
         }
@@ -174,6 +185,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "assists",
+            "sortable": false,
             "title": "Assists",
           }
         }
@@ -192,6 +204,7 @@ exports[`Table renders properly 1`] = `
           Object {
             "children": [Function],
             "field": "image",
+            "sortable": false,
             "width": "50px",
           }
         }
@@ -220,6 +233,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "country",
+            "sortable": false,
             "title": "Country",
           }
         }
@@ -231,6 +245,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "goals",
+            "sortable": false,
             "title": "Goals",
           }
         }
@@ -242,6 +257,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "assists",
+            "sortable": false,
             "title": "Assists",
           }
         }
@@ -260,6 +276,7 @@ exports[`Table renders properly 1`] = `
           Object {
             "children": [Function],
             "field": "image",
+            "sortable": false,
             "width": "50px",
           }
         }
@@ -288,6 +305,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "country",
+            "sortable": false,
             "title": "Country",
           }
         }
@@ -299,6 +317,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "goals",
+            "sortable": false,
             "title": "Goals",
           }
         }
@@ -310,6 +329,7 @@ exports[`Table renders properly 1`] = `
         column={
           Object {
             "field": "assists",
+            "sortable": false,
             "title": "Assists",
           }
         }
