@@ -26,13 +26,13 @@ const groupRadiusStyles = css`
 `
 
 const marginForButton = props => {
-  const noMargins = ''
-  const isSingleButton = props.children.constructor.name !== 'Array'
+  const isSingleChild = props.children.constructor.name !== 'Array'
 
-  if (isSingleButton || props.compressed) return noMargins
+  if (isSingleChild || props.compressed) return null
 
   const property = props.align === 'left' ? 'margin-right' : 'margin-left'
   const trailing = props.align === 'left' ? '&:last-child' : '&:first-child'
+
   return `
   ${property}: ${spacing.xsmall};
 
