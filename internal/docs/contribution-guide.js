@@ -206,6 +206,27 @@ storiesOf('Avatar', module).add('small', () => (
             </ListItem>
           </List>
 
+          <Heading2>Automation attributes</Heading2>
+          <Text>
+            In order for Auth0 teams to write end-to-end tests with ease using tools like
+            Webdriver.io or Chrome Puppeteer, please add automation attributes describing your
+            component's name in <Code>snake-case</Code>.
+          </Text>
+          <Text>Here's an example of that implementation:</Text>
+          <CodeBlock language="javascript">
+            {`
+// ... 
+import Automation from '../../_helpers/automation-attribute' 
+
+// ... 
+
+const MyComponent = <MyComponent.Element 
+  {...Automation('my-component')} // Here goes the automation attribute
+  {...props} text={children}  
+/>
+`}
+          </CodeBlock>
+
           <Heading2>Testing components</Heading2>
           <Text>
             In order to ensure the reliability and mantainability of the component, please write
@@ -230,7 +251,9 @@ it('Button', () => {
           <Heading3>What do I test?</Heading3>
           <Text>
             Please test the most possible out of our component including: prop-based rendering
-            behaviors, handler calling, among others.
+            branches, handler/callback props being called accordingly, user-action based rendering
+            branches (i.e. component visually changing based on user actions within the component),
+            among others.
           </Text>
 
           <Heading3>Rendering tests</Heading3>
