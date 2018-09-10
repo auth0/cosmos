@@ -12,7 +12,8 @@ import domElements from 'styled-components/src/utils/domElements'
 const BaseComponent = styled.div.attrs({ className: 'cs' })``
 
 /* modify styled so that it always uses BaseComponent under the hood */
-let modified = styled
+
+let modified = tag => styled(tag)
 domElements.forEach(domElement => {
   modified[domElement] = BaseComponent.withComponent(domElement).extend
 })
