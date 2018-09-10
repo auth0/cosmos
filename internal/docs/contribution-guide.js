@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import {
   Heading1,
   Heading2,
+  Heading3,
   Heading4,
   Text,
   Link,
@@ -204,6 +205,48 @@ storiesOf('Avatar', module).add('small', () => (
               <Text>+ you can add as many files as you need</Text>
             </ListItem>
           </List>
+
+          <Heading2>Testing components</Heading2>
+          <Text>
+            In order to ensure the reliability and mantainability of the component, please write
+            snapshot and unit tests. Each component should have a test file located in
+            <Code>internal/test/unit/component.test.js</Code> containing all test cases you
+            consider.
+          </Text>
+          <Text>
+            Additionally, add a test case in{' '}
+            <Code>internal/test/unit/automation-attributes.test.js</Code> checking your component's
+            automation attribute is present. Here is an example:
+            <CodeBlock language="javascript">
+              {`
+it('Button', () => {
+  const button = shallow(<Button />)
+
+  expect(button.prop('data-cosmos-key')).toEqual('button')
+})`}
+            </CodeBlock>
+          </Text>
+
+          <Heading3>What do I test?</Heading3>
+          <Text>
+            Please test the most possible out of our component including: prop-based rendering
+            behaviors, handler calling, among others.
+          </Text>
+
+          <Heading3>Rendering tests</Heading3>
+          <Text>
+            Please, do not write functional tests in order to test rendering features. Use{' '}
+            <Link href="https://jestjs.io/docs/en/snapshot-testing">snapshot testing</Link> instead.
+            Take a look at the <Code>Table</Code> component tests located in{' '}
+            <Code>internal/test/unit/table.test.js</Code> as an example of a component that include
+            both functional and snapshot rendering tests.
+          </Text>
+
+          <Heading3>Test ownership</Heading3>
+          <Text>
+            Ideally, each test should be written/fixed by the same person implemented the
+            component/fix/feature in Cosmos.
+          </Text>
         </Container>
       </div>
     )
