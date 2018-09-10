@@ -1,3 +1,3 @@
-const namedIndex = require('./named-index')
+const namedIndex = require('./replace-styled-components')
 
 module.exports = namedIndex
