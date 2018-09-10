@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { List, Switch, Stack, Icon } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos-tokens'

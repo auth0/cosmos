@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 const LogoWrapper = styled.span`
   display: inline-block;

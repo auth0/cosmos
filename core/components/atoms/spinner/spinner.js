@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 const rotate = keyframes`

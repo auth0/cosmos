@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 import TextInput from '../../atoms/text-input'
@@ -26,10 +26,10 @@ const Wrapper = styled.div`
   ${StyledButtonGroup} {
     position: absolute;
     right: 4px;
-    top: 0; 
+    top: 0;
 
     ${Button.Element} {
-      height: ${(props) => misc.input[props.size].height};
+      height: ${props => misc.input[props.size].height};
       margin: 0;
     }
   }

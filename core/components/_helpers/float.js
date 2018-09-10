@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 const Left = styled.div`
   float: left;

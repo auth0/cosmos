@@ -6,11 +6,17 @@ import styled, {
   ThemeProvider
 } from 'styled-components'
 
-export default styled
-export {
-  keyframes,
-  css,
-  injectGlobal,
-  StyledComponent,
-  ThemeProvider
-}
+import domElements from 'styled-components/src/utils/domElements'
+
+/* Always add cs class to component */
+const BaseComponent = styled.div.attrs({ className: 'cs' })``
+
+/* modify styled so that it always uses BaseComponent under the hood */
+
+let modified = tag => styled(tag)
+domElements.forEach(domElement => {
+  modified[domElement] = BaseComponent.withComponent(domElement).extend
+})
+
+export default modified
+export { keyframes, css, injectGlobal, StyledComponent, ThemeProvider }
