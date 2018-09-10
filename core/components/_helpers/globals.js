@@ -90,12 +90,9 @@ if (includeGlobals) {
 
   /*
     The only difference between the resets styleguide and cosmos is line-height
-    We want cosmos components to have our line-height, but not break everything else,
-    hence as a hack, we're setting it on styled-components elements.
-
-    Note: This will break on applications that already use styled-components
+    We want cosmos components to have our line-height.
   */
-  [class^="sc-"] {
+  .cs {
     line-height: ${misc.lineHeight};
   }
 
@@ -169,7 +166,7 @@ if (includeGlobals) {
     }
 
     /* Cosmos globals */
-    [class^="sc-"] {
+    .cs {
       line-height: 1.6;
     }
 
