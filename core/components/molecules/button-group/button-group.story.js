@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { ButtonGroup, Button } from '@auth0/cosmos'
 
@@ -31,6 +31,33 @@ storiesOf('ButtonGroup').add('alignment', () => (
         <Button appearance="secondary" icon="play">
           Try
         </Button>
+      </ButtonGroup>
+    </Example>
+  </div>
+))
+
+storiesOf('ButtonGroup').add('single button margin', () => (
+  <div>
+    <Example title="left single">
+      <ButtonGroup align="left">
+        <Button appearance="secondary">Save changes</Button>
+      </ButtonGroup>
+    </Example>
+    <Example title="left">
+      <ButtonGroup align="left">
+        <Button appearance="secondary">Save changes</Button>
+        <Button appearance="secondary">Save changes</Button>
+      </ButtonGroup>
+    </Example>
+    <Example title="right single">
+      <ButtonGroup align="right">
+        <Button appearance="secondary">Save changes</Button>
+      </ButtonGroup>
+    </Example>
+    <Example title="right">
+      <ButtonGroup align="right">
+        <Button appearance="secondary">Save changes</Button>
+        <Button appearance="secondary">Save changes</Button>
       </ButtonGroup>
     </Example>
   </div>
