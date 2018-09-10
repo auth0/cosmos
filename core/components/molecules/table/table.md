@@ -247,3 +247,20 @@ class Example extends React.Component {
   }
 }
 ```
+
+### Empty table
+
+You can optionally pass an message to the table and it will be shown if there are no items in the dataset. In case you don't provide it, we will use "There are no items to display" as the default.
+
+```js
+<Table items={[]} emptyMessage="You don't have any users in your tenant at the moment.">
+  <Table.Column field="image" width="50px">
+    {item => <Avatar type="user" image={item.image} />}
+  </Table.Column>
+  <Table.Column field="name" title="Name" width="30%" />
+  <Table.Column field="country" title="Country" />
+  <Table.Column field="goals" title="Goals" sortable />
+  <Table.Column field="assists" title="Assists" sortable />
+</Table>
+```
+

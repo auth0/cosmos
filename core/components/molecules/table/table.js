@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 import Automation from '../../_helpers/automation-attribute'
@@ -131,15 +131,18 @@ class Table extends React.Component {
     ))
 
     return (
-      <Table.Element {...Automation('table')}>
-        <Table.Header
-          columns={columns}
-          sortingColumn={sortingColumn}
-          sortDirection={sortDirection}
-          onSort={onSort}
-        />
-        <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
-      </Table.Element>
+      <React.Fragment>
+        <Table.Element {...Automation('table')}>
+          <Table.Header
+            columns={columns}
+            sortingColumn={sortingColumn}
+            sortDirection={sortDirection}
+            onSort={onSort}
+          />
+          <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
+        </Table.Element>
+        <Table.EmptyState rows={rows}>{this.props.emptyMessage}</Table.EmptyState>
+      </React.Fragment>
     )
   }
 }
@@ -177,6 +180,21 @@ Table.Cell = styled.td`
   width: ${props => props.column.width || 'auto'};
 `
 
+Table.EmptyState = ({ rows, children }) => {
+  if (rows.length > 0 || !children) return null
+
+  const TableEmptyState = styled.div`
+    padding: ${spacing.small};
+    background-color: rgb(250, 250, 250);
+    border-radius: ${misc.radius};
+    text-align: center;
+    margin-top: ${spacing.xsmall};
+    color: ${colors.text.default};
+  `
+
+  return <TableEmptyState>{children}</TableEmptyState>
+}
+
 Table.propTypes = {
   /** The items in the table. */
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -187,13 +205,16 @@ Table.propTypes = {
   /** A function that will be called when a row is clicked. */
   onRowClick: PropTypes.func,
   /** A function that will be called when the table is re-sorted via clicking a header. */
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
+  /** A message to show to the user in case there */
+  emptyMessage: PropTypes.node
 }
 
 Table.defaultProps = {
   onRowClick: null,
   onSort: null,
-  sortDirection: 'asc'
+  sortDirection: 'asc',
+  emptyMessage: 'There are no items to display'
 }
 
 export default Table
