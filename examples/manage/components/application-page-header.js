@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { spacing, colors } from '@auth0/cosmos-tokens'
 import { Breadcrumb, Code, Heading } from '@auth0/cosmos'
@@ -10,7 +10,7 @@ import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
 const StyledApplicationPageHeader = styled.div`
   margin-bottom: ${spacing.large};
-  line-height: 1.6;
+
   ${StyledHeading[1]} {
     margin: 0;
     margin-bottom: ${spacing.xsmall};
