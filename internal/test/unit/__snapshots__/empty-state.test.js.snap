@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty State renders properly 1`] = `
+<styled.div
+  data-cosmos-key="empty-state"
+>
+  <Styled(Heading)
+    size={1}
+  >
+    Some title
+  </Styled(Heading)>
+  <styled.div>
+    <Icon
+      color="blue"
+      name="copy"
+      size={110}
+    />
+    <Text
+      action={
+        Object {
+          "handler": [Function],
+          "icon": "copy",
+          "label": "Something",
+        }
+      }
+      helpUrl="/some-place"
+      icon="copy"
+      text="Some description"
+      title="Some title"
+      useParagraph={true}
+    />
+    <styled.div>
+      <Link
+        href="/some-place"
+        target="_blank"
+      >
+        Learn More 
+        <i>
+           
+        </i>
+      </Link>
+    </styled.div>
+  </styled.div>
+  <Button
+    appearance="cta"
+    disabled={false}
+    icon="copy"
+    loading={false}
+    onClick={[Function]}
+    size="large"
+    success={false}
+  >
+    Something
+  </Button>
+</styled.div>
+`;
+
+exports[`Empty State renders properly without help link 1`] = `
+<styled.div
+  data-cosmos-key="empty-state"
+>
+  <Styled(Heading)
+    size={1}
+  >
+    Some title
+  </Styled(Heading)>
+  <styled.div>
+    <Icon
+      color="blue"
+      name="copy"
+      size={110}
+    />
+    <Text
+      action={
+        Object {
+          "handler": [Function],
+          "icon": "copy",
+          "label": "Something",
+        }
+      }
+      helpUrl={null}
+      icon="copy"
+      text="Some description"
+      title="Some title"
+      useParagraph={true}
+    />
+  </styled.div>
+  <Button
+    appearance="cta"
+    disabled={false}
+    icon="copy"
+    loading={false}
+    onClick={[Function]}
+    size="large"
+    success={false}
+  >
+    Something
+  </Button>
+</styled.div>
+`;
+
+exports[`Empty State renders properly without text 1`] = `
+<styled.div
+  data-cosmos-key="empty-state"
+>
+  <Styled(Heading)
+    size={1}
+  >
+    Some title
+  </Styled(Heading)>
+  <styled.div>
+    <Icon
+      color="blue"
+      name="copy"
+      size={110}
+    />
+    <Text
+      action={
+        Object {
+          "handler": [Function],
+          "icon": "copy",
+          "label": "Something",
+        }
+      }
+      helpUrl="/some-place"
+      icon="copy"
+      text={null}
+      title="Some title"
+      useParagraph={true}
+    />
+    <styled.div>
+      <Link
+        href="/some-place"
+        target="_blank"
+      >
+        Learn More 
+        <i>
+           
+        </i>
+      </Link>
+    </styled.div>
+  </styled.div>
+  <Button
+    appearance="cta"
+    disabled={false}
+    icon="copy"
+    loading={false}
+    onClick={[Function]}
+    size="large"
+    success={false}
+  >
+    Something
+  </Button>
+</styled.div>
+`;

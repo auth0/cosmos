@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
-import makeId from '../../_helpers/uniqueId'
+
 import Automation from '../../_helpers/automation-attribute'
 
 const Wrapper = styled.div``
 
-const TabLink = styled.a`
+export const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
@@ -21,7 +21,7 @@ const TabLink = styled.a`
   }
 `
 
-const TabLinkGroup = styled.div`
+export const TabLinkGroup = styled.div`
   border-bottom: 1px solid ${colors.base.grayLight};
   ${TabLink}:last-child {
     margin-right: 0;

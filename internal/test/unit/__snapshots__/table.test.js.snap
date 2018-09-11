@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders properly 1`] = `
+<styled.table
+  data-cosmos-key="table"
+>
+  <TableHeader
+    columns={
+      Array [
+        Object {
+          "children": [Function],
+          "field": "image",
+          "sortable": false,
+          "width": "50px",
+        },
+        Object {
+          "field": "name",
+          "sortable": true,
+          "title": "Name",
+          "width": "30%",
+        },
+        Object {
+          "field": "country",
+          "sortable": false,
+          "title": "Country",
+        },
+        Object {
+          "field": "goals",
+          "sortable": false,
+          "title": "Goals",
+        },
+        Object {
+          "field": "assists",
+          "sortable": false,
+          "title": "Assists",
+        },
+      ]
+    }
+    onSort={[Function]}
+    sortDirection="asc"
+    sortingColumn={
+      Object {
+        "field": "name",
+        "sortable": true,
+        "title": "Name",
+        "width": "30%",
+      }
+    }
+  />
+  <styled.tbody
+    data-cosmos-key="table.body"
+  >
+    <styled.tr
+      data-cosmos-key="table.row"
+      key="row-0"
+      onClick={[Function]}
+    >
+      <styled.td
+        column={
+          Object {
+            "children": [Function],
+            "field": "image",
+            "sortable": false,
+            "width": "50px",
+          }
+        }
+        key="image"
+      >
+        <Avatar
+          image="https://twitter-avatar.now.sh/HKane"
+          size="medium"
+          type="user"
+        />
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "name",
+            "sortable": true,
+            "title": "Name",
+            "width": "30%",
+          }
+        }
+        key="name"
+      >
+        Harry Kane
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "country",
+            "sortable": false,
+            "title": "Country",
+          }
+        }
+        key="country"
+      >
+        🇬🇧
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "goals",
+            "sortable": false,
+            "title": "Goals",
+          }
+        }
+        key="goals"
+      >
+        6
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "assists",
+            "sortable": false,
+            "title": "Assists",
+          }
+        }
+        key="assists"
+      >
+        0
+      </styled.td>
+    </styled.tr>
+    <styled.tr
+      data-cosmos-key="table.row"
+      key="row-1"
+      onClick={[Function]}
+    >
+      <styled.td
+        column={
+          Object {
+            "children": [Function],
+            "field": "image",
+            "sortable": false,
+            "width": "50px",
+          }
+        }
+        key="image"
+      >
+        <Avatar
+          image="https://twitter-avatar.now.sh/Romelu_lukaku9"
+          size="medium"
+          type="user"
+        />
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "name",
+            "sortable": true,
+            "title": "Name",
+            "width": "30%",
+          }
+        }
+        key="name"
+      >
+        Romelu Lukaku
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "country",
+            "sortable": false,
+            "title": "Country",
+          }
+        }
+        key="country"
+      >
+        🇧🇪
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "goals",
+            "sortable": false,
+            "title": "Goals",
+          }
+        }
+        key="goals"
+      >
+        4
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "assists",
+            "sortable": false,
+            "title": "Assists",
+          }
+        }
+        key="assists"
+      >
+        1
+      </styled.td>
+    </styled.tr>
+    <styled.tr
+      data-cosmos-key="table.row"
+      key="row-2"
+      onClick={[Function]}
+    >
+      <styled.td
+        column={
+          Object {
+            "children": [Function],
+            "field": "image",
+            "sortable": false,
+            "width": "50px",
+          }
+        }
+        key="image"
+      >
+        <Avatar
+          image="https://twitter-avatar.now.sh/AntoGriezmann"
+          size="medium"
+          type="user"
+        />
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "name",
+            "sortable": true,
+            "title": "Name",
+            "width": "30%",
+          }
+        }
+        key="name"
+      >
+        Antoine Griezmann
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "country",
+            "sortable": false,
+            "title": "Country",
+          }
+        }
+        key="country"
+      >
+        🇫🇷
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "goals",
+            "sortable": false,
+            "title": "Goals",
+          }
+        }
+        key="goals"
+      >
+        4
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "assists",
+            "sortable": false,
+            "title": "Assists",
+          }
+        }
+        key="assists"
+      >
+        2
+      </styled.td>
+    </styled.tr>
+    <styled.tr
+      data-cosmos-key="table.row"
+      key="row-3"
+      onClick={[Function]}
+    >
+      <styled.td
+        column={
+          Object {
+            "children": [Function],
+            "field": "image",
+            "sortable": false,
+            "width": "50px",
+          }
+        }
+        key="image"
+      >
+        <Avatar
+          image="https://twitter-avatar.now.sh/ivanperisic44"
+          size="medium"
+          type="user"
+        />
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "name",
+            "sortable": true,
+            "title": "Name",
+            "width": "30%",
+          }
+        }
+        key="name"
+      >
+        Ivan Perišić
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "country",
+            "sortable": false,
+            "title": "Country",
+          }
+        }
+        key="country"
+      >
+        🇭🇷
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "goals",
+            "sortable": false,
+            "title": "Goals",
+          }
+        }
+        key="goals"
+      >
+        3
+      </styled.td>
+      <styled.td
+        column={
+          Object {
+            "field": "assists",
+            "sortable": false,
+            "title": "Assists",
+          }
+        }
+        key="assists"
+      >
+        1
+      </styled.td>
+    </styled.tr>
+  </styled.tbody>
+</styled.table>
+`;

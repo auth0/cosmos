@@ -7,21 +7,30 @@
   "license": "MIT",
   "scripts": {
     "test": "jest --no-cache",
+    "test-watch": "jest --watch --no-cache",
     "test-snapshot": "jest snapshot --no-cache",
-    "test-unit": "jest unit --no-cache"
+    "test-unit": "jest unit --no-cache",
+    "test-unit-watch": "jest unit --no-cache --watch",
+    "coverage": "jest --coverage"
   },
   "jest": {
     "verbose": true,
+    "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "transform": {
       "^.+\\.js?$": "<rootDir>/jestPreprocess.js"
     }
   },
   "devDependencies": {
-    "@auth0/cosmos": "0.4.0",
     "babel-jest": "^23.4.2",
-    "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.5.0",
+    "enzyme-adapter-react-16": "^1.3.0",
     "jest": "^23.5.0",
     "jest-styled-components": "^6.1.1"
+  },
+  "dependencies": {
+    "enzyme-to-json": "^3.3.4"
   }
 }

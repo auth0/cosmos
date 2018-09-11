@@ -48,9 +48,13 @@ module.exports = {
     test: {
       default: {
         script: series('production.build', 'test.ci'),
-        description: 'Check if applications build + Run visual tests'
+        description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       ci: {
+        script: parallel('test.chromaticci', 'test.unit'),
+        description: 'Check if applications build + Run visual tests + Run unit tests'
+      },
+      chromaticci: {
         script:
           'if-env TRAVIS_EVENT_TYPE=push && yarn scripts test.chromatic || echo "Skip chromatic"',
         description: 'Check if CI event is push and then run chromatic'
@@ -60,12 +64,26 @@ module.exports = {
         description: 'Run chromatic visual tests in CI'
       },
       snapshot: {
-        script: 'cd test && yarn test-snapshot',
+        script: 'cd internal/test && yarn test-snapshot',
         description: 'Run snapshot tests'
       },
       unit: {
-        script: 'cd test && yarn test-unit',
-        description: 'Run unit tests'
+        default: {
+          script: 'cd internal/test && yarn test-unit',
+          description: 'Run unit tests'
+        },
+        watch: {
+          script: 'cd internal/test && yarn test-unit-watch',
+          description: 'Run unit tests in watch mode'
+        }
+      },
+      watch: {
+        script: 'cd internal/test && yarn test-watch',
+        description: 'Run all tests in watch mode'
+      },
+      coverage: {
+        script: 'cd internal/test && yarn coverage',
+        description: 'Run a coverage report'
       }
     },
     metadata: {
