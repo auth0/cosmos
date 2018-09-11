@@ -20,20 +20,19 @@ exports[`Table renders with automation attribute 1`] = `
   color: inherit;
 }
 
-.c2 {
-  padding-left: 8px;
-  visibility: hidden;
+.c1:hover .sc-gojNiO {
+  visibility: visible;
 }
 
-.c3 {
+.c2 {
   cursor: inherit;
 }
 
-.c3:hover {
+.c2:hover {
   background: #FAFAFA;
 }
 
-.c4 {
+.c3 {
   padding: 8px;
   border-top: 1px solid #D9D9D9;
   text-align: left;
@@ -58,12 +57,6 @@ exports[`Table renders with automation attribute 1`] = `
         onClick={[Function]}
       >
         Name
-        <span
-          className="c2"
-          display={false}
-        >
-          ↑
-        </span>
       </th>
     </tr>
   </thead>
@@ -72,12 +65,12 @@ exports[`Table renders with automation attribute 1`] = `
     data-cosmos-key="table.body"
   >
     <tr
-      className="c3"
+      className="c2"
       data-cosmos-key="table.row"
       onClick={null}
     >
       <td
-        className="c4"
+        className="c3"
       >
         john
       </td>

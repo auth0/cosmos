@@ -273,11 +273,18 @@ describe('Automation data attributes', () => {
         <Table.Column field="name" title="Name" width="30%" />
       </Table>
     )
+    expect(table.childAt(0).prop('data-cosmos-key')).toEqual('table')
 
-    expect(table.prop('data-cosmos-key')).toEqual('table')
-    expect(table.childAt(1).prop('data-cosmos-key')).toEqual('table.body')
     expect(
       table
+        .childAt(0)
+        .childAt(1)
+        .prop('data-cosmos-key')
+    ).toEqual('table.body')
+
+    expect(
+      table
+        .childAt(0)
         .childAt(1)
         .children()
         .prop('data-cosmos-key')
