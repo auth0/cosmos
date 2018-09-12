@@ -57,7 +57,7 @@ storiesOf('Table').add('explicit widths', () => (
 storiesOf('Table').add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="60px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
@@ -70,7 +70,7 @@ storiesOf('Table').add('cell renderer', () => (
 storiesOf('Table').add('sorting', () => (
   <Example title="default">
     <Table items={items}>
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="60px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
@@ -83,7 +83,7 @@ storiesOf('Table').add('sorting', () => (
 storiesOf('Table').add('initial sort props', () => (
   <Example title="default">
     <Table items={items} sortOn="died" sortDirection="desc">
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="60px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="70%" />
@@ -115,13 +115,10 @@ storiesOf('Table').add('stressed', () => (
         }
       ]}
     >
-      <Table.Column field="data" title="Field 1" />
-      <Table.Column field="data" title="Field 2" />
-      <Table.Column field="data" title="Field 3" />
-      <Table.Column field="data" title="Field 4" />
-      <Table.Column field="data" title="Field 5" />
-      <Table.Column field="data" title="Field 6" />
-      <Table.Column field="data" title="Field 7" />
+      <Table.Column field="data" title="Field 1" width="25px" />
+      <Table.Column field="data" title="Field 2" width="250px" />
+      <Table.Column field="data" title="Field 3" width="25px" />
+      <Table.Column field="data" title="Field 4" width="25px" />
     </Table>
   </Example>
 ))
@@ -147,7 +144,7 @@ storiesOf('Table').add('with no items', () => (
         </EmptyState>
       }
     >
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="60px">
         {item => <Avatar type="user" image={item.image} />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="30%" />

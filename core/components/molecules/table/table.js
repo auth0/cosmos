@@ -2,9 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
+
 import TableColumn from './table-column'
 import TableHeader from './table-header'
+
 import Automation from '../../_helpers/automation-attribute'
+import truncateSelf from '../../_helpers/truncating'
 
 class Table extends React.Component {
   constructor(props) {
@@ -178,6 +181,8 @@ Table.Cell = styled.td`
   vertical-align: middle;
   line-height: 2;
   width: ${props => props.column.width || 'auto'};
+
+  ${props => truncateSelf(props.column.truncating)};
 `
 
 Table.EmptyState = ({ rows, children }) => {
