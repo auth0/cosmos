@@ -47,11 +47,7 @@ module.exports = {
     },
     test: {
       default: {
-        script: series('production.build', 'test.ci'),
-        description: 'Check if applications build + Run visual tests + Run unit tests'
-      },
-      ci: {
-        script: series('test.chromaticci', 'test.unit'),
+        script: series('production.build', 'test.chromaticci', 'test.unit'),
         description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       chromaticci: {
