@@ -122,7 +122,35 @@ storiesOf('Table').add('stressed', () => (
     </Table>
   </Example>
 ))
-
+storiesOf('Table').add('stressed with truncating disabled', () => (
+  <Example title="stressed - 7 columns with 119 characters per row">
+    <Table
+      items={[
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    >
+      <Table.Column field="data" title="Field 1" width="65px" truncating={false} />
+      <Table.Column field="data" title="Field 2" width="150px" truncating={false} />
+      <Table.Column field="data" title="Field 3" width="65px" truncating={false} />
+      <Table.Column field="data" title="Field 4" width="65px" truncating={false} />
+    </Table>
+  </Example>
+))
 storiesOf('Table').add('with no items', () => (
   <Example title="no items">
     <Table
