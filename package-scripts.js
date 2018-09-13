@@ -52,12 +52,8 @@ module.exports = {
       },
       chromaticci: {
         script:
-          'if-env TRAVIS_EVENT_TYPE=push && yarn scripts test.chromatic || echo "Skip chromatic"',
+          'if-env TRAVIS_EVENT_TYPE=push && chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes || echo "Skip chromatic"',
         description: 'Check if CI event is push and then run chromatic'
-      },
-      chromatic: {
-        script: 'chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes',
-        description: 'Run chromatic visual tests in CI'
       },
       snapshot: {
         script: 'cd internal/test && yarn test-snapshot',
