@@ -182,7 +182,7 @@ Table.Cell = styled.td`
   line-height: 2;
   width: ${props => props.column.width || 'auto'};
 
-  ${props => truncateSelf(props.column.truncating)};
+  ${props => truncateSelf(props.column.truncating, props.column.width || 'auto')};
 `
 
 Table.EmptyState = ({ rows, children }) => {

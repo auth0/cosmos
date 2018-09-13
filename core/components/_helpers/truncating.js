@@ -1,9 +1,9 @@
 import { css } from 'styled-components'
 
-export default truncate => {
+export default (truncate, maxWidth = 0) => {
   if (truncate) {
     return css`
-      max-width: 0;
+      max-width: ${maxWidth};
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow-x: hidden;
