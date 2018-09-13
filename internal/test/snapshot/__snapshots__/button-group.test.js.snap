@@ -16,10 +16,6 @@ exports[`ButtonGroup renders with automation attribute 1`] = `
   left: 40%;
 }
 
-.c0 .sc-gqjmRU {
-  margin-right: 8px;
-}
-
 <div
   className="c0"
   data-cosmos-key="button-group"

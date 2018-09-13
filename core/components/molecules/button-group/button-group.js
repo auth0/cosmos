@@ -26,6 +26,8 @@ const groupRadiusStyles = css`
 `
 
 const marginForButton = props => {
+  if (!props.children) return ''
+
   const isSingleChild = props.children.constructor.name !== 'Array'
 
   if (isSingleChild || props.compressed) return null
