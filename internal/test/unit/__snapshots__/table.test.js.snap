@@ -12,28 +12,33 @@ exports[`Table renders properly 1`] = `
             "children": [Function],
             "field": "image",
             "sortable": false,
+            "truncating": true,
             "width": "50px",
           },
           Object {
             "field": "name",
             "sortable": true,
             "title": "Name",
+            "truncating": true,
             "width": "30%",
           },
           Object {
             "field": "country",
             "sortable": false,
             "title": "Country",
+            "truncating": true,
           },
           Object {
             "field": "goals",
             "sortable": false,
             "title": "Goals",
+            "truncating": true,
           },
           Object {
             "field": "assists",
             "sortable": false,
             "title": "Assists",
+            "truncating": true,
           },
         ]
       }
@@ -44,6 +49,7 @@ exports[`Table renders properly 1`] = `
           "field": "name",
           "sortable": true,
           "title": "Name",
+          "truncating": true,
           "width": "30%",
         }
       }
@@ -62,6 +68,7 @@ exports[`Table renders properly 1`] = `
               "children": [Function],
               "field": "image",
               "sortable": false,
+              "truncating": true,
               "width": "50px",
             }
           }
@@ -79,6 +86,7 @@ exports[`Table renders properly 1`] = `
               "field": "name",
               "sortable": true,
               "title": "Name",
+              "truncating": true,
               "width": "30%",
             }
           }
@@ -92,6 +100,7 @@ exports[`Table renders properly 1`] = `
               "field": "country",
               "sortable": false,
               "title": "Country",
+              "truncating": true,
             }
           }
           key="country"
@@ -104,6 +113,7 @@ exports[`Table renders properly 1`] = `
               "field": "goals",
               "sortable": false,
               "title": "Goals",
+              "truncating": true,
             }
           }
           key="goals"
@@ -116,6 +126,7 @@ exports[`Table renders properly 1`] = `
               "field": "assists",
               "sortable": false,
               "title": "Assists",
+              "truncating": true,
             }
           }
           key="assists"
@@ -134,6 +145,7 @@ exports[`Table renders properly 1`] = `
               "children": [Function],
               "field": "image",
               "sortable": false,
+              "truncating": true,
               "width": "50px",
             }
           }
@@ -151,6 +163,7 @@ exports[`Table renders properly 1`] = `
               "field": "name",
               "sortable": true,
               "title": "Name",
+              "truncating": true,
               "width": "30%",
             }
           }
@@ -164,6 +177,7 @@ exports[`Table renders properly 1`] = `
               "field": "country",
               "sortable": false,
               "title": "Country",
+              "truncating": true,
             }
           }
           key="country"
@@ -176,6 +190,7 @@ exports[`Table renders properly 1`] = `
               "field": "goals",
               "sortable": false,
               "title": "Goals",
+              "truncating": true,
             }
           }
           key="goals"
@@ -188,6 +203,7 @@ exports[`Table renders properly 1`] = `
               "field": "assists",
               "sortable": false,
               "title": "Assists",
+              "truncating": true,
             }
           }
           key="assists"
@@ -206,6 +222,7 @@ exports[`Table renders properly 1`] = `
               "children": [Function],
               "field": "image",
               "sortable": false,
+              "truncating": true,
               "width": "50px",
             }
           }
@@ -223,6 +240,7 @@ exports[`Table renders properly 1`] = `
               "field": "name",
               "sortable": true,
               "title": "Name",
+              "truncating": true,
               "width": "30%",
             }
           }
@@ -236,6 +254,7 @@ exports[`Table renders properly 1`] = `
               "field": "country",
               "sortable": false,
               "title": "Country",
+              "truncating": true,
             }
           }
           key="country"
@@ -248,6 +267,7 @@ exports[`Table renders properly 1`] = `
               "field": "goals",
               "sortable": false,
               "title": "Goals",
+              "truncating": true,
             }
           }
           key="goals"
@@ -260,6 +280,7 @@ exports[`Table renders properly 1`] = `
               "field": "assists",
               "sortable": false,
               "title": "Assists",
+              "truncating": true,
             }
           }
           key="assists"
@@ -278,6 +299,7 @@ exports[`Table renders properly 1`] = `
               "children": [Function],
               "field": "image",
               "sortable": false,
+              "truncating": true,
               "width": "50px",
             }
           }
@@ -295,6 +317,7 @@ exports[`Table renders properly 1`] = `
               "field": "name",
               "sortable": true,
               "title": "Name",
+              "truncating": true,
               "width": "30%",
             }
           }
@@ -308,6 +331,7 @@ exports[`Table renders properly 1`] = `
               "field": "country",
               "sortable": false,
               "title": "Country",
+              "truncating": true,
             }
           }
           key="country"
@@ -320,6 +344,7 @@ exports[`Table renders properly 1`] = `
               "field": "goals",
               "sortable": false,
               "title": "Goals",
+              "truncating": true,
             }
           }
           key="goals"
@@ -332,6 +357,7 @@ exports[`Table renders properly 1`] = `
               "field": "assists",
               "sortable": false,
               "title": "Assists",
+              "truncating": true,
             }
           }
           key="assists"
@@ -354,6 +380,7 @@ exports[`Table renders properly 1`] = `
                 "children": [Function],
                 "field": "image",
                 "sortable": false,
+                "truncating": true,
                 "width": "50px",
               }
             }
@@ -370,6 +397,7 @@ exports[`Table renders properly 1`] = `
                 "field": "name",
                 "sortable": true,
                 "title": "Name",
+                "truncating": true,
                 "width": "30%",
               }
             }
@@ -382,6 +410,7 @@ exports[`Table renders properly 1`] = `
                 "field": "country",
                 "sortable": false,
                 "title": "Country",
+                "truncating": true,
               }
             }
           >
@@ -393,6 +422,7 @@ exports[`Table renders properly 1`] = `
                 "field": "goals",
                 "sortable": false,
                 "title": "Goals",
+                "truncating": true,
               }
             }
           >
@@ -404,6 +434,7 @@ exports[`Table renders properly 1`] = `
                 "field": "assists",
                 "sortable": false,
                 "title": "Assists",
+                "truncating": true,
               }
             }
           >
@@ -420,6 +451,7 @@ exports[`Table renders properly 1`] = `
                 "children": [Function],
                 "field": "image",
                 "sortable": false,
+                "truncating": true,
                 "width": "50px",
               }
             }
@@ -436,6 +468,7 @@ exports[`Table renders properly 1`] = `
                 "field": "name",
                 "sortable": true,
                 "title": "Name",
+                "truncating": true,
                 "width": "30%",
               }
             }
@@ -448,6 +481,7 @@ exports[`Table renders properly 1`] = `
                 "field": "country",
                 "sortable": false,
                 "title": "Country",
+                "truncating": true,
               }
             }
           >
@@ -459,6 +493,7 @@ exports[`Table renders properly 1`] = `
                 "field": "goals",
                 "sortable": false,
                 "title": "Goals",
+                "truncating": true,
               }
             }
           >
@@ -470,6 +505,7 @@ exports[`Table renders properly 1`] = `
                 "field": "assists",
                 "sortable": false,
                 "title": "Assists",
+                "truncating": true,
               }
             }
           >
@@ -486,6 +522,7 @@ exports[`Table renders properly 1`] = `
                 "children": [Function],
                 "field": "image",
                 "sortable": false,
+                "truncating": true,
                 "width": "50px",
               }
             }
@@ -502,6 +539,7 @@ exports[`Table renders properly 1`] = `
                 "field": "name",
                 "sortable": true,
                 "title": "Name",
+                "truncating": true,
                 "width": "30%",
               }
             }
@@ -514,6 +552,7 @@ exports[`Table renders properly 1`] = `
                 "field": "country",
                 "sortable": false,
                 "title": "Country",
+                "truncating": true,
               }
             }
           >
@@ -525,6 +564,7 @@ exports[`Table renders properly 1`] = `
                 "field": "goals",
                 "sortable": false,
                 "title": "Goals",
+                "truncating": true,
               }
             }
           >
@@ -536,6 +576,7 @@ exports[`Table renders properly 1`] = `
                 "field": "assists",
                 "sortable": false,
                 "title": "Assists",
+                "truncating": true,
               }
             }
           >
@@ -552,6 +593,7 @@ exports[`Table renders properly 1`] = `
                 "children": [Function],
                 "field": "image",
                 "sortable": false,
+                "truncating": true,
                 "width": "50px",
               }
             }
@@ -568,6 +610,7 @@ exports[`Table renders properly 1`] = `
                 "field": "name",
                 "sortable": true,
                 "title": "Name",
+                "truncating": true,
                 "width": "30%",
               }
             }
@@ -580,6 +623,7 @@ exports[`Table renders properly 1`] = `
                 "field": "country",
                 "sortable": false,
                 "title": "Country",
+                "truncating": true,
               }
             }
           >
@@ -591,6 +635,7 @@ exports[`Table renders properly 1`] = `
                 "field": "goals",
                 "sortable": false,
                 "title": "Goals",
+                "truncating": true,
               }
             }
           >
@@ -602,6 +647,7 @@ exports[`Table renders properly 1`] = `
                 "field": "assists",
                 "sortable": false,
                 "title": "Assists",
+                "truncating": true,
               }
             }
           >
