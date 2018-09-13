@@ -60,7 +60,7 @@ storiesOf('Table').add('cell renderer', () => (
       <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" />
       <Table.Column field="died" title="Died" />
     </Table>
@@ -73,7 +73,7 @@ storiesOf('Table').add('sorting', () => (
       <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" sortable />
       <Table.Column field="died" title="Died" sortable />
     </Table>
@@ -86,7 +86,7 @@ storiesOf('Table').add('initial sort props', () => (
       <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" sortable />
       <Table.Column field="died" title="Died" sortable />
     </Table>
@@ -115,10 +115,10 @@ storiesOf('Table').add('stressed', () => (
         }
       ]}
     >
-      <Table.Column field="data" title="Field 1" width="25px" />
-      <Table.Column field="data" title="Field 2" width="250px" />
-      <Table.Column field="data" title="Field 3" width="25px" />
-      <Table.Column field="data" title="Field 4" width="25px" />
+      <Table.Column field="data" title="Field 1" width="65px" />
+      <Table.Column field="data" title="Field 2" width="150px" />
+      <Table.Column field="data" title="Field 3" width="65px" />
+      <Table.Column field="data" title="Field 4" width="65px" />
     </Table>
   </Example>
 ))
