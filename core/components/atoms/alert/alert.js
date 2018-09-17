@@ -7,6 +7,7 @@ import Paragraph, { StyledParagraph } from '../paragraph'
 import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
+import Icon, { __ICONNAMES__ } from '../icon'
 
 const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.type].text};
@@ -51,6 +52,7 @@ class Alert extends React.Component {
       return (
         <Alert.Element type={this.props.type} {...Automation('alert')}>
           <Paragraph>
+            {this.props.icon && <Icon name={this.props.icon} />}
             <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
@@ -81,6 +83,9 @@ Alert.Element = styled.div`
   background-color: ${props => colors.alert[props.type].background};
   border-radius: 3px;
   position: relative;
+  ${Icon.Element} {
+    margin-right: ${spacing.xsmall};
+  }
   ${StyledParagraph} {
     margin: 0;
     color: ${props => colors.alert[props.type].text};
@@ -104,6 +109,9 @@ Alert.Element = styled.div`
 Alert.propTypes = {
   /** Style of alert to show */
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
+
+  /** Name of icon */
+  icon: PropTypes.oneOf(__ICONNAMES__),
 
   /** Title text (in bold) */
   title: PropTypes.string,

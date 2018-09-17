@@ -9,7 +9,7 @@
 The `Alert` component should be used to draw the user's attention to a message.
 
 ```jsx
-<Alert {props} defaults={{type: "warning", title: "Notice!"}}>This is an important message!</Alert>
+<Alert {props} defaults={{type: "warning", icon:"help", title: "Notice!"}}>This is an important message!</Alert>
 ```
 
 ## Examples
@@ -20,23 +20,23 @@ There are multiple alert types for different situations
 
 ```js
 <div>
-  <Alert type="default" title="FYI!">
+  <Alert icon="help" type="default" title="FYI!">
     Just a regular message
   </Alert>
   <br />
-  <Alert type="information" title="Hi!">
+  <Alert icon="support" type="information" title="Hi!">
     You should probably know this
   </Alert>
   <br />
-  <Alert type="success" title="Good job!">
+  <Alert icon="check" type="success" title="Good job!">
     You did the thing!
   </Alert>
   <br />
-  <Alert type="danger" title="Oh no!">
+  <Alert icon="close" type="danger" title="Oh no!">
     We've got bad news
   </Alert>
   <br />
-  <Alert type="warning" title="Notice!">
+  <Alert icon="hourglass" type="warning" title="Notice!">
     You should pay attention
   </Alert>
 </div>
