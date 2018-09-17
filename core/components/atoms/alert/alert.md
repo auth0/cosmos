@@ -20,15 +20,15 @@ There are multiple alert types for different situations
 
 ```js
 <div>
-  <Alert icon="help" type="default" title="FYI!">
+  <Alert icon="notes" type="default" title="FYI!">
     Just a regular message
   </Alert>
   <br />
-  <Alert icon="support" type="information" title="Hi!">
+  <Alert icon="megaphone" type="information" title="Hi!">
     You should probably know this
   </Alert>
   <br />
-  <Alert icon="check" type="success" title="Good job!">
+  <Alert icon="check-circle" type="success" title="Good job!">
     You did the thing!
   </Alert>
   <br />
@@ -36,7 +36,7 @@ There are multiple alert types for different situations
     We've got bad news
   </Alert>
   <br />
-  <Alert icon="hourglass" type="warning" title="Notice!">
+  <Alert icon="warning" type="warning" title="Notice!">
     You should pay attention
   </Alert>
 </div>
