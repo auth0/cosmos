@@ -52,7 +52,9 @@ class Alert extends React.Component {
       return (
         <Alert.Element type={this.props.type} {...Automation('alert')}>
           <Paragraph>
-            {this.props.icon && <Icon name={this.props.icon} />}
+            {this.props.icon && (
+              <Icon name={this.props.icon} color={console.log(iconColorMap[this.props.type])} />
+            )}
             <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
@@ -105,6 +107,18 @@ Alert.Element = styled.div`
     padding: ${spacing.small} ${spacing.small};
   }
 `
+
+/*
+  Icon only accepts colors from colors.base
+  This is a map between alert types and base colors
+*/
+const iconColorMap = {
+  default: 'default',
+  information: 'blueDarker',
+  success: 'greenDarker',
+  warning: 'yellow',
+  danger: 'redDarker'
+}
 
 Alert.propTypes = {
   /** Style of alert to show */
