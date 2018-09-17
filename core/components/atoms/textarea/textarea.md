@@ -12,7 +12,7 @@ Note: `TextArea` is camelcased, it's not `Textarea`.
 
 ### Length of the TextArea
 
-You can make the `TextArea` longer by using the `length` prop. By default, it's 5 rows long.
+You can make the `TextArea` longer by using the `length` prop. By default, it's 3 rows long.
 
 ```js
 <div>
