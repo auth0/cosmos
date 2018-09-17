@@ -118,7 +118,8 @@ module.exports = {
         description: 'Build icons with watch mode'
       },
       build: {
-        script: 'node tooling/update-icons',
+        script:
+          'node tooling/update-icons && prettier --write core/components/atoms/icon/icons.json',
         description: 'Build icons'
       }
     },
