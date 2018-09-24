@@ -43,9 +43,11 @@ const Type = styled.div`
   left: -${spacing.xsmall};
 `
 
-const Deprecated = Type.withComponent('span').extend`
+const Deprecated = styled(Type.withComponent('span'))`
   color: ${colors.text.error};
-  &:after { content: '(deprecated)' }
+  &:after {
+    content: '(deprecated)';
+  }
 `
 
 const Required = styled.span`
