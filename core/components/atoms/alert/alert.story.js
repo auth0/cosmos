@@ -5,7 +5,16 @@ import { Alert, Link } from '@auth0/cosmos'
 
 const alertForTypes = props => {
   const types = ['default', 'information', 'success', 'warning', 'danger']
-  return <Example>{types.map(type => <Alert key={type} type={type} {...props} />)}</Example>
+  return (
+    <Example>
+      {types.map(type => (
+        <div>
+          <Alert key={type} type={type} {...props} />
+          <br />
+        </div>
+      ))}
+    </Example>
+  )
 }
 
 storiesOf('Alert').add('default', () =>
@@ -64,5 +73,13 @@ storiesOf('Alert').add('with icon', () =>
         This is the <strong>alert</strong>
       </span>
     )
+  })
+)
+
+storiesOf('Alert').add('streesed content', () =>
+  alertForTypes({
+    icon: 'warning',
+    text:
+      'This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content.'
   })
 )

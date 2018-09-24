@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Paragraph, { StyledParagraph } from '../paragraph'
@@ -50,7 +50,11 @@ class Alert extends React.Component {
   render() {
     if (this.state.visible) {
       return (
-        <Alert.Element type={this.props.type} {...Automation('alert')}>
+        <Alert.Element
+          type={this.props.type}
+          dismissible={this.props.dismissible}
+          {...Automation('alert')}
+        >
           {this.props.icon && (
             <Icon name={this.props.icon} color={console.log(iconColorMap[this.props.type])} />
           )}
@@ -80,8 +84,14 @@ const Cross = styled.a`
   }
 `
 
+const styledForCross = css`
+  padding-right: ${spacing.large};
+`
+
 Alert.Element = styled.div`
   padding: ${spacing.small} ${spacing.small};
+  ${props => props.dismissible && styledForCross};
+
   background-color: ${props => colors.alert[props.type].background};
   border-radius: 3px;
   position: relative;
