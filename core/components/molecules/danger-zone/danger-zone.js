@@ -34,6 +34,8 @@ const ItemsContainer = styled.ul`
   border: 1px solid ${colors.text.error};
   border-radius: ${misc.radius};
   list-style: none;
+  ${'' /* reset the padding-inline for ul */};
+  padding-inline-start: 0;
   > ${Item}:last-child {
       border-bottom: none;
     }
