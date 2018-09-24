@@ -35,7 +35,7 @@ const Text = props => {
 }
 
 Text.propTypes = {
-  type: PropTypes.oneOf(['allcaps', 'subdued'])
+  type: PropTypes.oneOf(['allcaps', 'subdued', 'strong'])
 }
 
 Text.defaultProps = {}
