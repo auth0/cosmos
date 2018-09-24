@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 
-const StyledTextArea = StyledInput.withComponent('textarea').extend`
+const StyledTextArea = styled(StyledInput.withComponent('textarea'))`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
   font-size: ${props => (props.code ? '13px' : 'inherit')};
 `

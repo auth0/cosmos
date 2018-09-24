@@ -1,10 +1,14 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
   100% { transform: rotate(1turn) }
+`
+
+const animationRule = css`
+  ${rotate} 0.8s infinite linear;
 `
 
 const getColor = (props, highlight) => {
@@ -29,7 +33,7 @@ const StyledSpinner = styled.span`
   width: 1em;
   height: 1em;
   vertical-align: text-bottom;
-  animation: ${rotate} 0.8s infinite linear;
+  animation: ${animationRule};
 `
 
 const Spinner = props => <StyledSpinner {...props} />

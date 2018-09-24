@@ -258,7 +258,7 @@ Button.Text = styled.span`
   vertical-align: middle;
 `
 
-Button.LinkElement = Button.Element.withComponent('a').extend`
+Button.LinkElement = styled(Button.Element.withComponent('a'))`
   display: table;
   text-decoration: none;
 

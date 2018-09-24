@@ -12,21 +12,21 @@ const BaseHeading = styled.h1`
 
 const StyledHeading = []
 
-StyledHeading[1] = BaseHeading.withComponent('h1').extend`
+StyledHeading[1] = styled(BaseHeading.withComponent('h1'))`
   font-size: 36px;
 `
 
-StyledHeading[2] = BaseHeading.withComponent('h2').extend`
+StyledHeading[2] = styled(BaseHeading.withComponent('h2'))`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-StyledHeading[3] = BaseHeading.withComponent('h3').extend`
+StyledHeading[3] = styled(BaseHeading.withComponent('h3'))`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-StyledHeading[4] = BaseHeading.withComponent('h4').extend`
+StyledHeading[4] = styled(BaseHeading.withComponent('h4'))`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
