@@ -63,7 +63,7 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
-                component: 'switch',
+                component: 'Switch',
                 selectors: ['$(\'span[data-cosmos-key="switch"] input\')']
               },
               {
@@ -162,7 +162,7 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
-                component: 'tabs',
+                component: 'Tabs',
                 selectors: [
                   '$(\'div[data-cosmos-key="tabs"]\')',
                   '$(\'div[data-cosmos-key="tabs"] a[data-cosmos-key="tabs.item"]\')'
@@ -172,7 +172,15 @@ class AutomationGlossary extends React.Component {
           >
             <Table.Column field="component" title="Component" width="75px" />
             <Table.Column field="selectors" title="Selectors">
-              {item => <ul>{item.selectors.map(i => <li>{i}</li>)}</ul>}
+              {item => (
+                <ul>
+                  {item.selectors.map(i => (
+                    <li>
+                      <Code>{i}</Code>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </Table.Column>
           </Table>
         </Container>
