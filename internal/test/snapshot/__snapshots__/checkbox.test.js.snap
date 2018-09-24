@@ -74,6 +74,7 @@ exports[`Checkbox renders with automation attribute single checkbox 1`] = `
 }
 
 .c0 .c1:after {
+  box-sizing: content-box;
   width: 4px;
   height: 8px;
   border: solid #FFF;
