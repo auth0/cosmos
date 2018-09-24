@@ -14,12 +14,7 @@ const Icon = props => {
 
   return (
     <Icon.Element {...props}>
-      <Image
-        width={props.size}
-        height={props.size}
-        viewBox={`0 0 ${icon.width} ${icon.height}`}
-        color={color}
-      >
+      <Image size={props.size} viewBox={`0 0 ${icon.width} ${icon.height}`} color={color}>
         {icon.paths.map((path, index) => <path key={index} d={path} />)}
       </Image>
     </Icon.Element>
@@ -29,17 +24,17 @@ const Icon = props => {
 Icon.Element = styled.i`
   display: inline-block;
   line-height: 1;
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${props => props.size}px;
+  height: ${props => props.size}px;
 `
 const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-  width: ${props => props.size};
-  height: ${props => props.size};
+  width: ${imageProps => imageProps.size}px;
+  height: ${imageProps => imageProps.size}px;
   path {
-    fill: ${props => props.color};
+    fill: ${imageProps => imageProps.color};
   }
 `
 
