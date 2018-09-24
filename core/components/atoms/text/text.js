@@ -17,12 +17,19 @@ const StyledTextAllCaps = styled.span`
   text-transform: uppercase;
 `
 
+const Strong = styled.strong`
+  font-weight: ${fonts.weight.bold};
+`
+
 const Text = props => {
   if (props.type === 'subdued') {
     return <StyledTextSubdued {...props}>{props.children}</StyledTextSubdued>
   }
   if (props.type === 'allcaps') {
     return <StyledTextAllCaps {...props}>{props.children}</StyledTextAllCaps>
+  }
+  if (props.type === 'strong') {
+    return <Strong {...props}>{props.children}</Strong>
   }
   return props.children
 }
@@ -34,4 +41,4 @@ Text.propTypes = {
 Text.defaultProps = {}
 
 export default Text
-export { StyledTextAllCaps, StyledTextSubdued }
+export { StyledTextAllCaps, StyledTextSubdued, Strong }
