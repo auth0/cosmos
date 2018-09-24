@@ -185,6 +185,17 @@ if (includeGlobals) {
     }
 
     @font-face {
+      font-family: fakt-web;
+      src: url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff2)
+          format('woff2'),
+        url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold.woff) format('woff'),
+        url(https://cdn.auth0.com/website/ds/fonts/fakt/FaktPro-SemiBold_web.ttf)
+          format('truetype');
+      font-weight: ${fonts.weight.bold};
+      font-style: normal;
+    }s
+
+    @font-face {
       font-family: 'Roboto Mono';
       font-style: normal;
       font-weight: ${fonts.weight.semibold};
