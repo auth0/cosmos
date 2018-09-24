@@ -53,3 +53,10 @@ storiesOf('Alert').add('with title and link', () =>
     )
   })
 )
+
+storiesOf('Alert').add('with no children/text', () =>
+  alertForTypes({
+    title: 'A title',
+    link: '/test'
+  })
+)

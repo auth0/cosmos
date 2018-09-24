@@ -51,8 +51,7 @@ class Alert extends React.Component {
       return (
         <Alert.Element type={this.props.type} {...Automation('alert')}>
           <Paragraph>
-            <em>{this.props.title}</em>
-            {this.props.children && <Text> {this.props.children}</Text>}
+            <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
                 Read more
