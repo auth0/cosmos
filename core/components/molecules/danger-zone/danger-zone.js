@@ -25,12 +25,12 @@ const TempStack = styled.div`
     flex: 0 auto;
   }
 `
-const Item = styled.li`
+const Item = styled.div`
   padding: ${spacing.medium};
   border-bottom: 1px solid ${colors.text.error};
 `
 
-const ItemsContainer = styled.ul`
+const ItemsContainer = styled.div`
   border: 1px solid ${colors.text.error};
   border-radius: ${misc.radius};
   > ${Item}:last-child {
