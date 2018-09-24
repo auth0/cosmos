@@ -1,4 +1,4 @@
-<img src="/assets/cosmos.png">
+<img src="https://raw.githubusercontent.com/auth0/cosmos/master/assets/cosmos.png">
 
 &nbsp;&nbsp;
 
