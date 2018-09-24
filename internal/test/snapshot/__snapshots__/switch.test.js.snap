@@ -52,6 +52,7 @@ exports[`Switch renders with automation attribute 1`] = `
   vertical-align: top;
   line-height: 32px;
   font-size: 13px;
+  font-weight: 400;
   -webkit-letter-spacing: 1px;
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
