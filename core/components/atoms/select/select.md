@@ -32,6 +32,7 @@ You can also indicate that a `<Select>` should be read-only by setting the `read
 ```js
 <Select
   readOnly
+  value={1}
   options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
   onChange={event => console.log(event)}
 />
