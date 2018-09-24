@@ -66,6 +66,7 @@ const StyledCheckboxOption = styled.label`
   }
 
   ${CheckMark}:after {
+    box-sizing: content-box;
     width: 4px;
     height: 8px;
     border: solid ${colors.base.white};
