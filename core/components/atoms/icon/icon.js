@@ -29,11 +29,15 @@ const Icon = props => {
 Icon.Element = styled.i`
   display: inline-block;
   line-height: 1;
+  width: ${props => props.size};
+  height: ${props => props.size};
 `
 const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: ${props => props.size};
+  height: ${props => props.size};
   path {
     fill: ${props => props.color};
   }
