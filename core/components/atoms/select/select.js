@@ -19,7 +19,7 @@ const Select = ({ options, ...props }) => {
 
   return (
     <StyledSelect {...props} {...Automation('select')}>
-      <option disabled selected={!props.value} value="">
+      <option disabled hidden selected={!props.value} value="" {...Automation('select.option')}>
         {props.emptyLabel}
       </option>
       {options.map((option, index) => (
