@@ -39,6 +39,10 @@ exports[`Table renders with automation attribute 1`] = `
   vertical-align: middle;
   line-height: 2;
   width: 30%;
+  max-width: 30%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 
 <table

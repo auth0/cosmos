@@ -50,6 +50,17 @@
 </Table>
 ```
 
+### Table Column
+
+| Field        | Type   | Default | Required | Description                                |
+| ------------ | ------ | ------- | -------- | ------------------------------------------ |
+| `field`      | string |         | true     | Which field from data to display           |
+| `title`      | string |         | false    | Title for the column                       |
+| `width`      | string |         | false    | Column width                               |
+| `sortable`   | bool   | false   | false    | Whether to make the column sortable or not |
+| `comparator` | func   |         | false    | Custom comparator function for sorting     |
+| `truncating` | bool   | true    | false    | Whether to truncate the cell text or not   |
+
 ## Examples
 
 ### Automatic sorting
@@ -263,4 +274,3 @@ You can optionally pass an message to the table and it will be shown if there ar
   <Table.Column field="assists" title="Assists" sortable />
 </Table>
 ```
-
