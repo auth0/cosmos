@@ -10,7 +10,7 @@ storiesOf('Alert').add('default', () => (
     {types.map(type => (
       <Alert type={type} key={type}>
         <span>
-          This is the <Link href="#">content</Link>.
+          This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
         </span>
       </Alert>
     ))}
@@ -50,7 +50,7 @@ storiesOf('Alert').add('with title and link', () => (
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" key={type}>
         <span>
-          This is the <Text type="strong">alert</Text>s <Link href="#">content</Link>.
+          This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
         </span>
       </Alert>
     ))}
