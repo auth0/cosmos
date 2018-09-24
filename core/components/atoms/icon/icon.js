@@ -14,7 +14,12 @@ const Icon = props => {
 
   return (
     <Icon.Element {...props}>
-      <Image size={props.size} viewBox={`0 0 ${icon.width} ${icon.height}`} color={color}>
+      <Image
+        width={props.size}
+        height={props.size}
+        viewBox={`0 0 ${icon.width} ${icon.height}`}
+        color={color}
+      >
         {icon.paths.map((path, index) => <path key={index} d={path} />)}
       </Image>
     </Icon.Element>
@@ -31,8 +36,8 @@ const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-  width: ${imageProps => imageProps.size}px;
-  height: ${imageProps => imageProps.size}px;
+  width: ${imageProps => imageProps.width}px;
+  height: ${imageProps => imageProps.height}px;
   path {
     fill: ${imageProps => imageProps.color};
   }
