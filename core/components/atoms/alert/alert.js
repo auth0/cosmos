@@ -51,10 +51,10 @@ class Alert extends React.Component {
     if (this.state.visible) {
       return (
         <Alert.Element type={this.props.type} {...Automation('alert')}>
+          {this.props.icon && (
+            <Icon name={this.props.icon} color={console.log(iconColorMap[this.props.type])} />
+          )}
           <Paragraph>
-            {this.props.icon && (
-              <Icon name={this.props.icon} color={console.log(iconColorMap[this.props.type])} />
-            )}
             <em>{this.props.title}</em> <Text {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
@@ -85,8 +85,14 @@ Alert.Element = styled.div`
   background-color: ${props => colors.alert[props.type].background};
   border-radius: 3px;
   position: relative;
+  display: flex;
   ${Icon.Element} {
-    margin-right: ${spacing.xsmall};
+    margin-right: 12px;
+    position: relative;
+    top: 1px;
+    path {
+      fill: ${props => colors.alert[props.type].text};
+    }
   }
   ${StyledParagraph} {
     margin: 0;
