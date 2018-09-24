@@ -21,8 +21,8 @@ const numberOfValues = (elements, expectedCount) => {
 }
 
 const deprecate = (props, { name, replacement }) => {
-  let message = `'${name}' prop has been deprecated.`
-  if (replacement) message += ` Use '${replacement}' instead.`
+  let message = `'Hi 👋, ${name}' prop will be deprecated in 1.0.0`
+  if (replacement) message += ` You might want to use '${replacement}' instead.`
   if (props[name]) return new Error(message)
 }
 

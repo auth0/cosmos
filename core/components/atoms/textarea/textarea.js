@@ -21,7 +21,9 @@ TextArea.propTypes = {
   readOnly: PropTypes.bool,
   /** Use when the expected input is code */
   code: PropTypes.bool,
-  /** Pass error string directly to show error state */
+  /** Pass hasError to show error state */
+  hasError: PropTypes.bool,
+  /** @deprecated Pass error string directly to show error state */
   error: PropTypes.string,
   /** Allow resizing of the textarea */
   resizable: PropTypes.bool,
