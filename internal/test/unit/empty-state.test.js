@@ -8,7 +8,7 @@ const emptyStateFactory = ({
   helpUrl = '/some-place',
   action = { label: 'Something', icon: 'copy', handler: () => {} }
 } = {}) => (
-  <EmptyState title={title} text={text} icon={icon} action={action} helpUrl={helpUrl}>
+  <EmptyState title={title} icon={icon} action={action} helpUrl={helpUrl}>
     Some description
   </EmptyState>
 )
