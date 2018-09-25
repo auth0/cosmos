@@ -23,7 +23,7 @@ const getColor = (props, highlight) => {
 const spinners = {
   small: {
     logo: null,
-    width: 14
+    width: 13
   },
   default: {
     logo: 'tiny',
