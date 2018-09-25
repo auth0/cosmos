@@ -1,9 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+
+import { Example, Stack, IconStoryBox } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Icon } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos/tokens'
+import { icons } from './icons.json'
 
 storiesOf('Icon').add('default', () => (
   <Example title="Icons">
@@ -57,5 +59,18 @@ storiesOf('Icon').add('dark-background', () => (
       <Icon name="analytics" color="green" />
       <Icon name="analytics" color="red" />
     </Stack>
+  </Example>
+))
+
+storiesOf('Icon').add('named icons', () => (
+  <Example>
+    <div>
+      {Object.keys(icons).map(name => (
+        <IconStoryBox>
+          <Icon name={name} size={40} />
+          <p>{name}</p>
+        </IconStoryBox>
+      ))}
+    </div>
   </Example>
 ))
