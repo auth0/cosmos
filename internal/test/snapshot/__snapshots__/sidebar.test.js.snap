@@ -43,12 +43,16 @@ exports[`Sidebar renders with automation attribute 1`] = `
 .c3 {
   display: inline-block;
   line-height: 1;
+  width: 18px;
+  height: 18px;
 }
 
 .c4 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: 18px;
+  height: 18px;
 }
 
 .c4 path {

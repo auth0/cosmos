@@ -29,11 +29,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   left: 58%;
 }
 
-.c2 .sc-gqjmRU {
+.c2 .sc-jTzLTM {
   margin-left: 8px;
 }
 
-.c2 .sc-gqjmRU:first-child {
+.c2 .sc-jTzLTM:first-child {
   margin-left: 0;
 }
 
@@ -50,11 +50,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   margin-bottom: 0;
 }
 
-.c5:hover .sc-RefOD {
+.c5:hover .sc-iQKALj {
   border-color: transparent transparent transparent #053b4e;
 }
 
-.c5:hover .sc-iQKALj {
+.c5:hover .sc-bwCtUz {
   color: #053b4e;
 }
 

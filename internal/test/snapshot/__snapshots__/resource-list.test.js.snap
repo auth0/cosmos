@@ -120,11 +120,11 @@ exports[`ResourceList renders with automation attribute 1`] = `
   left: 58%;
 }
 
-.c7 .sc-gqjmRU {
+.c7 .sc-jTzLTM {
   margin-left: 8px;
 }
 
-.c7 .sc-gqjmRU:first-child {
+.c7 .sc-jTzLTM:first-child {
   margin-left: 0;
 }
 
