@@ -27,8 +27,8 @@ const StyledPaginationItem = styled(Button)`
 
   min-width: ${props => (props.left || props.right ? '95px' : spacing.small)};
 
-  ${props => props.left && `padding-left: ${spacing.xlarge};`} 
-  ${props => props.right && `padding-right: ${spacing.xlarge};`} 
+  ${props => props.left && `padding-left: ${spacing.xlarge};`}
+  ${props => props.right && `padding-right: ${spacing.xlarge};`}
   ${props => props.iconOnly && `padding-left: 0;`}
 
   ${props => props.selected && `background-color: rgba(0,0,0,0.2);`}
@@ -39,7 +39,7 @@ const StyledPaginationItem = styled(Button)`
     padding-top: 10px;
     height: calc(${misc.button.compressed.height} - 2px);
     width: 20px;
-    
+
     svg {
       width: 15px;
       height: 15px;
@@ -67,9 +67,9 @@ const IconButton = styled(Button)`
   min-width: ${spacing.small};
   padding-left: ${spacing.xsmall};
   padding-right: 0;
-
   ${Icon.Element} {
-    padding-top: 3px;
+    position: relative;
+    top: 1px;
   }
 `
 
