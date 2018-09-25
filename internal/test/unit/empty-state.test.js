@@ -4,11 +4,14 @@ import { EmptyState, Icon, Heading } from '@auth0/cosmos'
 
 const emptyStateFactory = ({
   title = 'Some title',
-  text = 'Some description',
   icon = 'copy',
   helpUrl = '/some-place',
   action = { label: 'Something', icon: 'copy', handler: () => {} }
-} = {}) => <EmptyState title={title} text={text} icon={icon} action={action} helpUrl={helpUrl} />
+} = {}) => (
+  <EmptyState title={title} text={text} icon={icon} action={action} helpUrl={helpUrl}>
+    Some description
+  </EmptyState>
+)
 
 describe('Empty State', () => {
   it('renders properly', () => {

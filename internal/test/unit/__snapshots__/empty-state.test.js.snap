@@ -15,7 +15,7 @@ exports[`Empty State renders properly 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
@@ -70,7 +70,7 @@ exports[`Empty State renders properly without help link 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
@@ -114,7 +114,7 @@ exports[`Empty State renders properly without text 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
