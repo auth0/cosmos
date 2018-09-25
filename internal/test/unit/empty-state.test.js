@@ -5,10 +5,10 @@ import { EmptyState, Icon, Heading } from '@auth0/cosmos'
 const emptyStateFactory = ({
   title = 'Some title',
   icon = 'copy',
-  helpUrl = '/some-place',
+  link = '/some-place',
   action = { label: 'Something', icon: 'copy', handler: () => {} }
 } = {}) => (
-  <EmptyState title={title} icon={icon} action={action} helpUrl={helpUrl}>
+  <EmptyState title={title} icon={icon} action={action} link={link}>
     Some description
   </EmptyState>
 )
@@ -20,7 +20,7 @@ describe('Empty State', () => {
   })
 
   it('renders properly without help link', () => {
-    const wrapper = shallow(emptyStateFactory({ helpUrl: null }))
+    const wrapper = shallow(emptyStateFactory({ link: null }))
     expect(wrapper).toMatchSnapshot()
   })
 
