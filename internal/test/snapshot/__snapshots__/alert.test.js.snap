@@ -3,9 +3,24 @@
 exports[`Alert renders with automation attribute 1`] = `
 .c0 {
   padding: 16px 16px;
+  padding-right: 32px;
   background-color: #F0F0F0;
   border-radius: 3px;
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .sc-bwzfXH {
+  margin-right: 12px;
+  position: relative;
+  top: 1px;
+}
+
+.c0 .sc-bwzfXH path {
+  fill: #333;
 }
 
 .c0 .c1 {

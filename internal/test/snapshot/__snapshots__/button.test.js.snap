@@ -26,12 +26,21 @@ exports[`Button renders with automation attribute 1`] = `
   cursor: pointer;
   -webkit-transition: border-color 0.25s,background 0.25s;
   transition: border-color 0.25s,background 0.25s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-.c0 .sc-bwzfXH,
-.c0 .sc-dnqmqq {
-  position: relative;
-  top: -1px;
+.c0 > *:not(:last-child):not(:only-child) {
   margin-right: 0;
 }
 
