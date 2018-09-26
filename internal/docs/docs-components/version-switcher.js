@@ -10,9 +10,7 @@ const lines = changelog.match(regex)
 let versions = lines.map(line => line.split('## ')[1].split(' [')[0])
 
 /* remove versions older than 0.5.1 */
-console.log(versions)
 versions = versions.filter(version => version > '0.5.0')
-console.log(versions)
 
 const Wrapper = styled.span`
   font-size: 14px;
@@ -35,10 +33,15 @@ const VersionSwitcher = () => (
     COSMOS
     <select
       onChange={event => {
-        window.location.href = `https:auth0-cosmos-${event.target.value.replace(/\./g, '-')}.now.sh`
+        const version = event.target.value.replace(/\./g, '-')
+        window.location.href = `https://auth0-cosmos-${version}.now.sh`
       }}
     >
-      {versions.map(v => <option value={v}>{v}</option>)}
+      {versions.map(v => (
+        <option key={v} value={v}>
+          {v}
+        </option>
+      ))}
     </select>
   </Wrapper>
 )
