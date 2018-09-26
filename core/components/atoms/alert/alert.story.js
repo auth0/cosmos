@@ -83,3 +83,10 @@ storiesOf('Alert').add('streesed content', () =>
       'This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content. This is the alert content.'
   })
 )
+
+storiesOf('Alert').add('with no children/text', () =>
+  alertForTypes({
+    title: 'A title',
+    link: '/test'
+  })
+)

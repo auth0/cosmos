@@ -21,5 +21,7 @@ export const Text = ({ text, children, useParagraph = false }) => {
     return text
   }
 
-  return text
+  if (text) return text
+
+  return null
 }
