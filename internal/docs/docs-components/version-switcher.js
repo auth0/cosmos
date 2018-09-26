@@ -2,7 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '@auth0/cosmos/tokens'
 
-const versions = ['0.5.2', '0.5.1']
+import { changelog } from '@auth0/cosmos/meta/changelog'
+
+/* grab lines that start with ## */
+const regex = /^## (.*)$/gm
+const lines = changelog.match(regex)
+let versions = lines.map(line => line.split('## ')[1].split(' [')[0])
+
+/* remove versions older than 0.5.1 */
+console.log(versions)
+versions = versions.filter(version => version > '0.5.0')
+console.log(versions)
 
 const Wrapper = styled.span`
   font-size: 14px;
