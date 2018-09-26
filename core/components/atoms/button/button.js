@@ -170,14 +170,17 @@ const ButtonContent = props => {
 
   let icon = props.success ? 'check' : props.icon
 
-  if (props.loading) {
-    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
-  } else if (icon) {
-    content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
-  }
-
   if (props.text) {
     content.push(<Button.Text key="text">{props.text}</Button.Text>)
+  }
+
+  if (props.loading) {
+    content.unshift(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
+  } else if (icon) {
+    const iconNode = <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
+
+    if (props.iconAlign === 'left') content.unshift(iconNode)
+    else content.push(iconNode)
   }
 
   const Element = props.href ? Button.LinkElement : Button.Element
@@ -224,9 +227,11 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${Icon.Element}, ${StyledSpinner} {
-    position: relative;
-    top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > *:not(:last-child):not(:only-child) {
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
@@ -283,6 +288,9 @@ Button.propTypes = {
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
 
+  /** Name of icon */
+  iconAlign: PropTypes.oneOf(['left', 'right']),
+
   /** Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
 
@@ -306,6 +314,7 @@ Button.defaultProps = {
   size: 'default',
   appearance: 'default',
   icon: null,
+  iconAlign: 'left',
   disabled: false,
   loading: false,
   success: false
