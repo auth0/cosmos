@@ -21,7 +21,7 @@ const Select = ({ options, ...props }) => {
     <StyledSelect {...props} {...Automation('select')}>
       {/* First option will be selected if there is no value passed as a prop */}
       <option disabled hidden selected={!props.value} value="" {...Automation('select.option')}>
-        {props.emptyLabel}
+        {props.placeholder}
       </option>
 
       {options.map((option, index) => (
@@ -48,12 +48,12 @@ Select.propTypes = {
   /** onChange transparently passed to select */
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */
-  emptyLabel: PropTypes.string
+  placeholder: PropTypes.string
 }
 
 Select.defaultProps = {
   readOnly: false,
-  emptyLabel: ''
+  placeholder: ''
 }
 
 export default Select
