@@ -200,9 +200,11 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
+  display: inline-block;
+  vertical-align: middle;
+
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
-  box-sizing: border-box;
 
   text-transform: uppercase;
   white-space: nowrap;
@@ -211,8 +213,7 @@ Button.Element = styled.button`
   font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
-  border: 1px solid;
-  border-color: ${props => getAttributes(props).border};
+  border: 1px solid ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
   color: ${props => getAttributes(props).text};
@@ -224,11 +225,18 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  display: flex;
-  align-items: center;
-
   > *:not(:last-child):not(:only-child) {
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
+  }
+
+  ${Icon.Element}, ${StyledSpinner} {
+    position: relative;
+    top: -1px;
+
+    // Specific override for chevron icons because of they shape.
+    &[name^='chevron-'] {
+      top: 0;
+    }
   }
 
   ${Icon.Element} {
