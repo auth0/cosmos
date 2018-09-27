@@ -157,7 +157,7 @@ const getAttributes = props => {
 
   // If the button contains only an icon and no text, override some of the styles.
   if (props.icon && !props.text) {
-    styles.padding = 0
+    styles.padding = spacing.xsmall
     styles.minWidth = '36px'
     styles.icon = colors.button.link.icon
   }
@@ -200,14 +200,11 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  display: inline-block;
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
-  min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
 
   text-transform: uppercase;
-  text-align: center;
   white-space: nowrap;
   letter-spacing: 1px;
   font-size: 13px;
@@ -229,7 +226,6 @@ Button.Element = styled.button`
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
   > *:not(:last-child):not(:only-child) {
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
