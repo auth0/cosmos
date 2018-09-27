@@ -77,7 +77,7 @@ storiesOf('DangerZone').add('stress', () => (
           }
         },
         {
-          title: 'Delete this application',
+          title: 'Destroy this application',
           description: 'All your projects using this application will stop.',
           action: {
             label: 'Delete button has a very long text',
