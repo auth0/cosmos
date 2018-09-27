@@ -203,6 +203,7 @@ Button.Element = styled.button`
   display: inline-block;
   vertical-align: middle;
 
+  min-width: ${props => getAttributes(props).minWidth};
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
 
