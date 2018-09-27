@@ -115,7 +115,7 @@ storiesOf('Table').add('stressed', () => (
         }
       ]}
     >
-      <Table.Column field="data1" title="Field 1" />
+      <Table.Column field="data" title="Field 1" />
       <Table.Column field="data" title="Field 2" />
       <Table.Column field="data" title="Field 3" />
       <Table.Column field="data" title="Field 4" />
