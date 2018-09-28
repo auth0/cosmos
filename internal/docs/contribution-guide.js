@@ -299,10 +299,10 @@ it('Button', () => {
             You can import `parentStyles` into container/wrapper components
             <CodeBlock language="javascript">
               {`
-import parentStyles from '@auth0/cosmos/_helpers/parent-styles'
+import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 
 const Paragraph = styled.p\`
-  \${parentStyles};
+  \${containerStyles};
   color: \${colors.text};
 \`
               `}

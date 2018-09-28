@@ -7,6 +7,7 @@ import Paragraph, { StyledParagraph } from '../paragraph'
 import { Text } from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 import Icon, { __ICONNAMES__ } from '../icon'
 
 const ReadMoreLink = styled(Link)`
@@ -87,6 +88,7 @@ const styledForCross = css`
 `
 
 Alert.Element = styled.div`
+  ${containerStyles};
   padding: ${spacing.small} ${spacing.small};
   ${props => props.dismissible && styledForCross};
 
