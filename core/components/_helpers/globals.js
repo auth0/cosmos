@@ -95,9 +95,6 @@ if (includeGlobals) {
 
     Note: This will break on applications that already use styled-components
   */
-  [class^="sc-"] {
-    line-height: ${misc.lineHeight};
-  }
 
   @font-face {
     font-family: fakt-web;
@@ -168,10 +165,7 @@ if (includeGlobals) {
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Cosmos globals */
-    [class^="sc-"] {
-      line-height: 1.6;
-    }
+    /* Fonts */
 
     @font-face {
       font-family: fakt-web;
