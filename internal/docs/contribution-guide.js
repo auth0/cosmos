@@ -271,7 +271,7 @@ it('Button', () => {
             component/fix/feature in Cosmos.
           </Text>
 
-          <Heading2>Line height strategy</Heading2>
+          <Heading2 id="line-height-strategy">Line height strategy</Heading2>
           <Text>
             The <Code>line-height</Code> used in{' '}
             <Link href="https://styleguide.auth0.com">styleguide</Link> and cosmos are different.
