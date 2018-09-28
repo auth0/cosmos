@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { PageHeader } from '@auth0/cosmos'
+import { PageHeader, Text } from '@auth0/cosmos'
 
 storiesOf('Page Header').add('default', () => (
   <Example title="default">
@@ -10,7 +10,8 @@ storiesOf('Page Header').add('default', () => (
       title="Clients"
       description={
         <span>
-          Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
         </span>
       }
       learnMore="/link"
@@ -34,7 +35,8 @@ storiesOf('Page Header').add('only primary action', () => (
       title="Clients"
       description={
         <span>
-          Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
         </span>
       }
       learnMore="/link"
@@ -53,7 +55,8 @@ storiesOf('Page Header').add('only secondary action', () => (
       title="Clients"
       description={
         <span>
-          Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
         </span>
       }
       learnMore="/link"
@@ -97,7 +100,8 @@ storiesOf('Page Header').add('only secondary action with deprecated API', () => 
         handler: () => {}
       }}
     >
-      Setup a mobile, web or IoT application to <strong>use Auth0 for Authentication</strong>.
+      Setup a mobile, web or IoT application to{' '}
+      <Text type="strong">use Auth0 for Authentication</Text>.
     </PageHeader>
   </Example>
 ))

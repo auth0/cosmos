@@ -8,6 +8,7 @@ import Automation from '../../_helpers/automation-attribute'
 const StyledTextArea = StyledInput.withComponent('textarea').extend`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
   font-size: ${props => (props.code ? '13px' : 'inherit')};
+  display: block;
 `
 
 const TextArea = props => (

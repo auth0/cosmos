@@ -69,12 +69,16 @@ exports[`Breadcrumb renders with automation attribute 1`] = `
 .c5 {
   display: inline-block;
   line-height: 1;
+  width: 12px;
+  height: 12px;
 }
 
 .c6 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: 12px;
+  height: 12px;
 }
 
 .c6 path {
