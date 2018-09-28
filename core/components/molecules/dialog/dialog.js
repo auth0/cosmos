@@ -19,7 +19,8 @@ const createButtonForAction = (action, index) => {
       throw new Error('Invalid action component passed to Dialog.')
     }
 
-    return action
+    /* Add index to the button component as a key prop */
+    return React.cloneElement(action, { key: index })
   }
 
   const buttonProps = {

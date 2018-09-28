@@ -91,7 +91,7 @@ EmptyState.propTypes = {
   /** @deprecated Message */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Message */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /** @deprecated url and target for "Learn more" */
   helpUrl: PropTypes.oneOfType([
     PropTypes.string,

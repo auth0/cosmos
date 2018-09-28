@@ -66,7 +66,7 @@ storiesOf('Icon').add('named icons', () => (
   <Example>
     <div>
       {Object.keys(icons).map(name => (
-        <IconStoryBox>
+        <IconStoryBox key={name}>
           <Icon name={name} size={40} />
           <p>{name}</p>
         </IconStoryBox>
