@@ -15,7 +15,7 @@ import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
 import { StyledRadio } from '../../../atoms/radio'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
-import containerStyles from '../../_helpers/container-styles'
+import containerStyles from '../../../_helpers/container-styles'
 
 const StyledField = styled.div`
   ${containerStyles};
