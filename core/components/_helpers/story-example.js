@@ -12,6 +12,7 @@ const Title = styled.div`
 `
 
 const Wrapper = styled.div`
+  line-height: 1.6;
   padding: 4.5rem 3rem 3rem 3rem;
   position: relative;
   border: 1px solid rgb(236, 236, 236);
