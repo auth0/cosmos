@@ -230,16 +230,6 @@ Button.Element = styled.button`
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
-  ${Icon.Element}, ${StyledSpinner} {
-    position: relative;
-    top: -1px;
-
-    // Specific override for chevron icons because of they shape.
-    &[name^='chevron-'] {
-      top: 0;
-    }
-  }
-
   ${Icon.Element} {
     color: ${props => getAttributes(props).text};
   }
