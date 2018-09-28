@@ -296,7 +296,7 @@ it('Button', () => {
             `}
           </CodeBlock>
           <Text>
-            You can import `parentStyles` into container/wrapper components
+            You can import `containerStyles` into container/wrapper components
             <CodeBlock language="javascript">
               {`
 import containerStyles from '@auth0/cosmos/_helpers/container-styles'
