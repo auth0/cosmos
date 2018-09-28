@@ -67,14 +67,6 @@ class Props extends React.Component {
       if (propData[key]) propData[key].value = defaultsFromDocs[key]
     })
 
-    /* mark deprecations */
-    Object.keys(propData).forEach(key => {
-      if (propData[key].description && propData[key].description.includes('@deprecated')) {
-        propData[key].deprecated = true
-        propData[key].description = propData[key].description.replace('@deprecated', '')
-      }
-    })
-
     this.state = { propData: propData }
     this.props.onPropsChange(propData)
   }

@@ -1,7 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example as ExampleHelper } from '@auth0/cosmos/_helpers/story-helpers'
 import { Alert, Link, Text } from '@auth0/cosmos'
+
+const Example = styled(ExampleHelper)`
+  ${Alert.Element} {
+    margin-bottom: 22px;
+  }
+`
 
 const types = ['default', 'information', 'success', 'warning', 'danger']
 
@@ -9,9 +16,7 @@ storiesOf('Alert').add('default', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} key={type}>
-        <span>
-          This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
-        </span>
+        This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
       </Alert>
     ))}
   </Example>
@@ -49,10 +54,36 @@ storiesOf('Alert').add('with title and link', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" key={type}>
-        <span>
-          This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
-        </span>
+        This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
       </Alert>
     ))}
+  </Example>
+))
+
+storiesOf('Alert').add('with icon', () => (
+  <Example>
+    {types.map(type => (
+      <Alert type={type} title="A title" link="/test" icon="hourglass" key={type}>
+        This is the <Text type="strong">alert</Text>
+      </Alert>
+    ))}
+  </Example>
+))
+
+storiesOf('Alert').add('stressed content', () => (
+  <Example>
+    {types.map(type => (
+      <Alert type={type} title="A title" link="/test" key={type}>
+        This is the alert content. This is the alert content. This is the alert content. This is the
+        alert content. This is the alert content. This is the alert content. This is the alert
+        content. This is the alert content. This is the alert content.
+      </Alert>
+    ))}
+  </Example>
+))
+
+storiesOf('Alert').add('with no children/text', () => (
+  <Example>
+    {types.map(type => <Alert type={type} title="A title" link="/test" key={type} />)}
   </Example>
 ))

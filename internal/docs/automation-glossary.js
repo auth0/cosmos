@@ -174,9 +174,9 @@ class AutomationGlossary extends React.Component {
             <Table.Column field="selectors" title="Selectors">
               {item => (
                 <ul>
-                  {item.selectors.map(i => (
-                    <li>
-                      <Code>{i}</Code>
+                  {item.selectors.map((selector, index) => (
+                    <li key={index}>
+                      <Code>{selector}</Code>
                     </li>
                   ))}
                 </ul>

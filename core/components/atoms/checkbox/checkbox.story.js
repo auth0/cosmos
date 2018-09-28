@@ -6,10 +6,18 @@ import { Checkbox } from '@auth0/cosmos'
 
 const CheckBoxExample = () => (
   <Checkbox.Group name="example1" selected={['one', 'two']}>
-    <Checkbox value="one">Option 1</Checkbox>
-    <Checkbox value="two">Option 2</Checkbox>
-    <Checkbox value="three">Option 3</Checkbox>
-    <Checkbox value="four">Option 4</Checkbox>
+    <Checkbox name="one" value="one">
+      Option 1
+    </Checkbox>
+    <Checkbox name="two" value="two">
+      Option 2
+    </Checkbox>
+    <Checkbox name="three" value="three">
+      Option 3
+    </Checkbox>
+    <Checkbox name="four" value="four">
+      Option 4
+    </Checkbox>
   </Checkbox.Group>
 )
 

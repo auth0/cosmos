@@ -9,6 +9,7 @@ const colors = {
     grayMedium: '#A8A8A8',
     grayLight: '#D9D9D9',
     grayLightest: '#F1F1F1',
+    blueDarker: '#097093',
     blue: '#0a84ae',
     blueLight: '#44c7f4',
     blueLightest: '#f5f7f9',
@@ -16,8 +17,11 @@ const colors = {
     orangeLighter: '#ff784d',
     orangeLightest: '#ffb299',
     orangeDark: '#FF3E00',
+    greenDarker: '#3F6910',
     green: '#4CD964',
-    red: '#FF0000'
+    red: '#FF0000',
+    redDarker: '#801F00',
+    yellow: '#786600'
   },
   text: {
     default: '#212121',

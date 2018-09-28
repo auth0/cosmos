@@ -74,7 +74,12 @@ const getPropString = propData => {
     */
 
     if (propData[name].type.name === 'enum') {
-      if (propData[name].value === 'number') {
+      /*
+        react-docgen convers everything to a string :/
+        so we need to find out if there is a number
+        inside the string
+      */
+      if (isNumber(propData[name].value)) {
         propString += ` ${name}={${propData[name].value}}`
         return true
       } else if (typeof propData[name].value === 'string' && propData[name].value.length > 0) {
@@ -110,6 +115,19 @@ const getPropString = propData => {
   })
 
   return propString
+}
+
+const isNumber = value => {
+  const parsedValue = Number(value)
+  /*
+    Number("42") => 42
+    Number("42px") => NaN
+
+    We can use isNaN to detect if the parsed value
+    is not a number
+  */
+  if (isNaN(parsedValue)) return false
+  return true
 }
 
 export default getPropString

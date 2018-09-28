@@ -21,7 +21,9 @@ const FreeText = ({ text, children, useParagraph = false }) => {
     return text
   }
 
-  return text
+  if (text) return text
+
+  return null
 }
 
 export default FreeText

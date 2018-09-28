@@ -6,8 +6,7 @@ import { StyledLabel } from '../../../core/components/atoms/label'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 import IconSketch from './sketch-icon'
 import IconGithub from './github-icon'
-
-import { version } from '@auth0/cosmos/package.json'
+import VersionSwitcher from './version-switcher'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -55,27 +54,13 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  h1 {
-    font-size: 14px;
-    letter-spacing: 1.4px;
-    display: inline-block;
-    color: ${colors.base.grayLightest};
-    font-weight: 700;
-    margin-left: 12px;
-  }
-  h1 > span {
-    font-size: 0.85em;
-    color: ${colors.base.grayLight};
-  }
 `
 
 export default () => (
   <Navigation>
     <LogoContainer>
       <Logo />
-      <h1>
-        COSMOS <span>v{version}</span>
-      </h1>
+      <VersionSwitcher />
     </LogoContainer>
     <ul>
       <li>
