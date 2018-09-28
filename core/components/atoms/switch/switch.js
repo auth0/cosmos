@@ -63,6 +63,7 @@ const Label = styled.label`
   vertical-align: top;
   line-height: ${height};
   font-size: ${fonts.size.small};
+  font-weight: ${fonts.weight.normal};
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};

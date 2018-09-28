@@ -24,7 +24,7 @@ exports[`Alert renders with automation attribute 1`] = `
   text-decoration: none;
 }
 
-.c0 .c3 {
+.c0 .c4 {
   position: absolute;
   right: 0;
   top: 0;
@@ -39,13 +39,17 @@ exports[`Alert renders with automation attribute 1`] = `
   font-weight: 400;
 }
 
-.c4 {
+.c3 {
+  font-weight: 700;
+}
+
+.c5 {
   cursor: pointer;
   font-size: 1.5em;
   line-height: 1;
 }
 
-.c4:after {
+.c5:after {
   content: '×';
 }
 
@@ -57,12 +61,15 @@ exports[`Alert renders with automation attribute 1`] = `
   <p
     className="c1 c2"
   >
-    <em />
+    <strong
+      className="c3"
+      type="strong"
+    />
      
     Text
   </p>
   <a
-    className="c3 c4"
+    className="c4 c5"
     data-cosmos-key="alert.dismiss"
     onClick={[Function]}
   />

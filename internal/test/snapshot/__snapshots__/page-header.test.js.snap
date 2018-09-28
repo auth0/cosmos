@@ -50,11 +50,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   margin-bottom: 0;
 }
 
-.c5:hover .sc-RefOD {
+.c5:hover .sc-iQKALj {
   border-color: transparent transparent transparent #053b4e;
 }
 
-.c5:hover .sc-iQKALj {
+.c5:hover .sc-bwCtUz {
   color: #053b4e;
 }
 

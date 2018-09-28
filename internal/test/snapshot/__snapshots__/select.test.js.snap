@@ -35,8 +35,18 @@ exports[`Select renders with automation attribute 1`] = `
 <select
   className="c0"
   data-cosmos-key="select"
+  placeholder=""
   readOnly={false}
 >
+  <option
+    data-cosmos-key="select.option"
+    disabled={true}
+    hidden={true}
+    selected={true}
+    value=""
+  >
+    
+  </option>
   <option
     data-cosmos-key="select.option"
     value={1}
