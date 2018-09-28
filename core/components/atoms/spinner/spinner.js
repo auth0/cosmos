@@ -25,7 +25,7 @@ const spinners = {
     logo: null,
     width: 14
   },
-  default: {
+  medium: {
     logo: 'tiny',
     width: 40
   },
@@ -85,12 +85,12 @@ const Spinner = props => {
 Spinner.propTypes = {
   /** Invert for dark background */
   inverse: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'default', 'large'])
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
 Spinner.defaultProps = {
   inverse: false,
-  size: 'default'
+  size: 'small'
 }
 
 export default Spinner

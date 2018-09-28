@@ -13,6 +13,8 @@ desciption: Spinner is useful to notify the user of background activity
 <Spinner {props} />
 ```
 
+**Warning:** The default spinner size will change from `small` to `medium` on version 1.0.0 of Cosmos.
+
 ### Invert for dark background
 
 ```js
@@ -21,7 +23,7 @@ desciption: Spinner is useful to notify the user of background activity
 		<Spinner size="small" inverse />
 	</div>
 	<div style={{ marginTop: 10 }}>
-		<Spinner inverse />
+		<Spinner size="medium" inverse />
 	</div>
 	<div style={{ marginTop: 10 }}>
 		<Spinner size="large" inverse />
