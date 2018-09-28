@@ -13,6 +13,16 @@ storiesOf('Select').add('simple', () => (
   </Example>
 ))
 
+storiesOf('Select').add('with placeholder', () => (
+  <Example title="Code">
+    <Select
+      placeholder="Select an option..."
+      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+      onChange={event => console.log(event)}
+    />
+  </Example>
+))
+
 storiesOf('Select').add('default value', () => (
   <Example title="Code">
     <Select
