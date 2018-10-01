@@ -21,15 +21,26 @@ storiesOf('Tooltip').add('with button', () =>
 storiesOf('Tooltip').add('with button group', () =>
   positions.map(position => (
     <Example title={position}>
-      <div style={{ marginLeft: position === 'left' ? 120 : 0 }}>
-        <ButtonGroup>
+      <ButtonGroup>
+        <Button>Something</Button>
+        <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
           <Button>Something</Button>
-          <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
-            <Button>Something</Button>
-          </Tooltip>
+        </Tooltip>
+        <Button>Something</Button>
+      </ButtonGroup>
+    </Example>
+  ))
+)
+storiesOf('Tooltip').add('with compressed button group', () =>
+  positions.map(position => (
+    <Example title={position}>
+      <ButtonGroup compressed>
+        <Button>Something</Button>
+        <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
           <Button>Something</Button>
-        </ButtonGroup>
-      </div>
+        </Tooltip>
+        <Button>Something</Button>
+      </ButtonGroup>
     </Example>
   ))
 )
