@@ -116,15 +116,11 @@ exports[`ResourceList renders with automation attribute 1`] = `
   justify-content: flex-end;
 }
 
-.c7 .cosmos-tooltip {
-  left: 58%;
-}
-
-.c7 .sc-gqjmRU {
+.c7 > * {
   margin-left: 8px;
 }
 
-.c7 .sc-gqjmRU:first-child {
+.c7 > *:first-child {
   margin-left: 0;
 }
 

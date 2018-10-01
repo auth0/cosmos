@@ -81,10 +81,6 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
   justify-content: flex-start;
 }
 
-.c4 .cosmos-tooltip {
-  left: 40%;
-}
-
 .c4 .c6:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -162,12 +158,16 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
 .c9 {
   display: inline-block;
   line-height: 1;
+  width: 16px;
+  height: 16px;
 }
 
 .c10 {
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: 16px;
+  height: 16px;
 }
 
 .c10 path {

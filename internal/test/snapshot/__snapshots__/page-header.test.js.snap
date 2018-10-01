@@ -25,15 +25,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   justify-content: flex-end;
 }
 
-.c2 .cosmos-tooltip {
-  left: 58%;
-}
-
-.c2 .sc-gqjmRU {
+.c2 > * {
   margin-left: 8px;
 }
 
-.c2 .sc-gqjmRU:first-child {
+.c2 > *:first-child {
   margin-left: 0;
 }
 
