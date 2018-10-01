@@ -94,7 +94,7 @@ storiesOf('Table').add('initial sort props', () => (
 ))
 
 storiesOf('Table').add('stressed', () => (
-  <Example title="stressed - 7 columns with 119 characters per row">
+  <Example title="stressed - 4 columns with 119 characters per row">
     <Table
       items={[
         {
@@ -122,7 +122,8 @@ storiesOf('Table').add('stressed', () => (
     </Table>
   </Example>
 ))
-storiesOf('Table').add('stressed with truncating disabled', () => (
+
+storiesOf('Table').add('stressed with truncating', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
     <Table
       items={[
@@ -151,6 +152,7 @@ storiesOf('Table').add('stressed with truncating disabled', () => (
     </Table>
   </Example>
 ))
+
 storiesOf('Table').add('with no items', () => (
   <Example title="no items">
     <Table
