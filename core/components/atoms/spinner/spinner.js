@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
 import Logo from '../logo'
+import defaultPropChangeWarning from '../../_helpers/default-prop-change'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
@@ -73,6 +74,8 @@ const spinnerWithLogo = (variant, props) => {
 }
 
 const Spinner = props => {
+  defaultPropChangeWarning(Spinner, 'size', props.size, 'medium', '1.0.0')
+
   const variant = spinners[props.size]
 
   return variant.logo ? (

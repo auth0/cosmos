@@ -24,7 +24,7 @@ storiesOf('Spinner').add('dark background', () => (
 			<Spinner inverse size="small" />
 		</Example>
 		<Example title="Spinner – default" background="dark">
-			<Spinner inverse />
+			<Spinner inverse size="medium" />
 		</Example>
 		<Example title="Spinner – large" background="dark">
 			<Spinner inverse size="large" />
