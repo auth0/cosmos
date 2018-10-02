@@ -26,34 +26,53 @@ Form is a compound component that ships with extra props for elements that take 
 Form is composed of Form Fields, read more about them [here](#/component/form-field).
 
 ```js
-<Form>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    helpText="This is some helper text"
-  />
-  <Form.TextArea
-    label="Long input"
-    placeholder="Add a lot of text here"
-    error="Can't leave this empty"
-  />
-  <Form.Select
-    label="Options list"
-    options={[
-      { text: 'First option', value: '1', defaultSelected: true },
-      { text: 'Second option', value: '2' },
-      { text: 'Third option', value: '3' },
-      { text: 'Fourth option', value: '4' }
-    ]}
-  />
-  <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
-  <Form.Radio name="Radio" selected="one">
-    <Form.Radio.Option value="React">React</Form.Radio.Option>
-    <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
-  </Form.Radio>
-  <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
-</Form>
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selected: 'React' }
+  }
+
+  handleChange(evt) {
+    this.setState({ selected: evt.target.value })
+  }
+
+  render() {
+    return (
+      <Form>
+        <Form.TextInput
+          label="Field label"
+          type="text"
+          placeholder="Enter something"
+          helpText="This is some helper text"
+        />
+        <Form.TextArea
+          label="Long input"
+          placeholder="Add a lot of text here"
+          error="Can't leave this empty"
+        />
+        <Form.Select
+          label="Options list"
+          options={[
+            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'Second option', value: '2' },
+            { text: 'Third option', value: '3' },
+            { text: 'Fourth option', value: '4' }
+          ]}
+        />
+        <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
+        <Form.Radio
+          name="Radio"
+          selected={this.state.selected}
+          onChange={evt => this.handleChange(evt)}
+        >
+          <Form.Radio.Option value="React">React</Form.Radio.Option>
+          <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
+        </Form.Radio>
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
+      </Form>
+    )
+  }
+}
 ```
 
 ### Grouping fields
