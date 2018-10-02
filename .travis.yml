@@ -6,6 +6,5 @@ cache: yarn
 after_success:
   - 'if [ "$TRAVIS_REPO_SLUG" = "auth0/cosmos" ]; cp tooling/deployment-package.json build/package.json'
   - 'if [ "$TRAVIS_REPO_SLUG" = "auth0/cosmos" ]; then cd build && npx now-cd --team auth0-design --alias "master=auth0-cosmos-master.now.sh" --alias "stable=auth0-cosmos.now.sh"'
-  - 'if [[ $TRAVIS_EVENT_TYPE != "pull_request" -o  $TRAVIS_PULL_REQUEST_SLUG != $TRAVIS_REPO_SLUG ]]; then chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes'
 notifications:
   email: false
