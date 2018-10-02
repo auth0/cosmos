@@ -9,19 +9,25 @@ exports[`Tabs only render one tab title as selected 1`] = `
       data-cosmos-key="tabs.item"
       key="0"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={true}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
   </styled.div>
   <styled.div
@@ -44,19 +50,25 @@ exports[`Tabs only render one tab title as selected 2`] = `
       data-cosmos-key="tabs.item"
       key="0"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={true}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
   </styled.div>
   <styled.div
@@ -79,19 +91,25 @@ exports[`Tabs only render one tab title as selected 3`] = `
       data-cosmos-key="tabs.item"
       key="0"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={false}
+      tabIndex="0"
     />
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
       onClick={[Function]}
+      onKeyPress={[Function]}
       selected={true}
+      tabIndex="0"
     />
   </styled.div>
   <styled.div
