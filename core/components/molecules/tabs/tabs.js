@@ -80,6 +80,12 @@ class Tabs extends React.Component {
     }
   }
 
+  handleKeyPress(e, index) {
+    if (e.key === 'Enter') {
+      this.changeTab(index)
+    }
+  }
+
   render() {
     const { selected: selectedIndex } = this.props
 
@@ -92,6 +98,8 @@ class Tabs extends React.Component {
               onClick={() => this.changeTab(index)}
               key={index}
               selected={selectedIndex === index}
+              tabIndex="0"
+              onKeyPress={e => this.handleKeyPress(e, index)}
             >
               {tab.props.label}
             </TabLink>
