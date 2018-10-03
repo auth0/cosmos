@@ -17,6 +17,7 @@ const Navigation = styled.nav`
   background-color: #222;
   height: 80px;
   padding: 0 ${spacing.medium};
+  min-width: 400px;
 
   display: flex;
   flex-wrap: nowrap;
@@ -47,6 +48,9 @@ const Navigation = styled.nav`
   ul > li {
     display: inline-block;
     margin-left: ${spacing.large};
+    @media (max-width: 880px) {
+      margin-left: ${spacing.xsmall};
+    }
   }
 `
 
@@ -59,12 +63,21 @@ const LogoName = styled.h1`
   margin-left: 16px;
   margin-right: 0.75em;
   text-transform: uppercase;
+  @media (max-width: 480px) {
+    font-size: 0;
+  }
 `
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+const ResponsiveSpan = styled.span`
+  @media (max-width: 880px) {
+    font-size: 0;
+  }
 `
 
 export default () => (
@@ -78,25 +91,25 @@ export default () => (
       <li>
         <a href="/?url=docs">
           <Icon name="logs" color="grayLightest" size={20} />
-          <span>Documentation</span>
+          <ResponsiveSpan>Documentation</ResponsiveSpan>
         </a>
       </li>
       <li>
         <a href="/docs/#/playground">
           <Icon name="code" color="grayLightest" size={16} />
-          <span>Playground</span>
+          <ResponsiveSpan>Playground</ResponsiveSpan>
         </a>
       </li>
       <li>
         <a href="/sandbox" target="_blank">
           <Icon name="support" color="grayLightest" size={20} />
-          <span>Stories</span>
+          <ResponsiveSpan>Stories</ResponsiveSpan>
         </a>
       </li>
       <li>
         <a href="/">
           <IconSketch />
-          <span>UI Kit</span>
+          <ResponsiveSpan>UI Kit</ResponsiveSpan>
           <Label appearance="information">Soon</Label>
         </a>
       </li>
@@ -105,7 +118,7 @@ export default () => (
         <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer">
           <IconGithub />
 
-          <span>Github</span>
+          <ResponsiveSpan>Github</ResponsiveSpan>
         </a>
       </li>
     </ul>
