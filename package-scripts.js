@@ -52,7 +52,7 @@ module.exports = {
       },
       chromaticci: {
         script:
-          'if-env TRAVIS_EVENT_TYPE=push && chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes || echo "Skip chromatic"',
+          'if [ $TRAVIS_EVENT_TYPE != "pull_request" -o "$TRAVIS_PULL_REQUEST_SLUG" != "$TRAVIS_REPO_SLUG" ]; then chromatic test --storybook-addon --script-name=sandbox --exit-zero-on-changes; fi;',
         description: 'Check if CI event is push and then run chromatic'
       },
       snapshot: {
