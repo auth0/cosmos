@@ -190,7 +190,7 @@ const Button = ({ children, ...props }) => {
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
-    return <Tooltip content={props.label}>{button}</Tooltip>
+    return <Tooltip content={props.label} defaultVisible={props.labelDefaultVisible}>{button}</Tooltip>
   }
 
   return button

@@ -57,6 +57,7 @@ storiesOf('Tooltip').add('with button group', () => (
     ))}
   </Example>
 ))
+
 storiesOf('Tooltip').add('with compressed button group', () => (
   <Example title="with compressed button group">
     {positions.map(position => (
@@ -72,3 +73,14 @@ storiesOf('Tooltip').add('with compressed button group', () => (
     ))}
   </Example>
 ))
+
+storiesOf('Tooltip').add('with icon only button', () => (
+  <Example title="with icon only button">
+      <ExampleContainer position="top">
+        <Button icon="analytics" label="this is the label" labelDefaultVisible></Button>
+      </ExampleContainer>
+  </Example>
+))
+
+
+
