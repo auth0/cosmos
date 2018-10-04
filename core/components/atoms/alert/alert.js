@@ -122,8 +122,8 @@ Alert.Element = styled.div`
     opacity: .2;
     padding: ${spacing.small} ${spacing.small};
     &:hover {
-      color: rgba(0,0,0,0);
-      opacity: 0;
+      color: rgba(0,0,0);
+      opacity: 0.5;
     }
   }
 `
