@@ -6,11 +6,11 @@ import { Spinner } from '@auth0/cosmos'
 
 storiesOf('Spinner').add('default', () => (
 	<React.Fragment>
-		<Example title="Spinner – small">
+		<Example title="Spinner – default">
 			<Spinner size="small" />
 		</Example>
-		<Example title="Spinner – default">
-			<Spinner />
+		<Example title="Spinner – medium">
+			<Spinner size="medium"/>
 		</Example>
 		<Example title="Spinner – large">
 			<Spinner size="large" />
