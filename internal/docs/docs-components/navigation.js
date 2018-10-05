@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Icon, Logo, Label } from '@auth0/cosmos'
 import { StyledLabel } from '../../../core/components/atoms/label'
 import { colors, spacing } from '@auth0/cosmos/tokens'
+import HamburgerButton from './hamburger-button'
 import IconSketch from './sketch-icon'
 import IconGithub from './github-icon'
 import VersionSwitcher from './version-switcher'
@@ -37,7 +38,7 @@ const NavigationContainer = styled.nav`
   }
 
   a > span + span {
-    margin-left: 8px;
+    margin-left: ${spacing.xsmall};
   }
 
   a > ${Icon.Element} {
@@ -82,80 +83,14 @@ const NavigationLinks = styled.ul`
     }
 
     li {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid ${colors.base.default};
       display: block;
       margin-left: 0;
       padding: 0 ${spacing.medium};
     }
 
     li:first-child {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  }
-`
-
-const MobileButton = styled.button`
-  background-color: transparent;
-  border: 0;
-  display: none;
-  height: 18px;
-  margin-top: 31px;
-  margin-bottom: 31px;
-  padding: 0;
-  position: relative;
-  width: 26px;
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-  }
-
-  @media (max-width: 960px) {
-    display: block;
-
-    .icon-bar {
-      display: block;
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      left: 0;
-      right: 0;
-      background-color: #FFFFFF;
-      transition: .25s ease-in-out;
-      border-radius: 1px;
-    }
-
-    .icon-bar:nth-of-type(2) {
-      top: 0;
-    }
-
-    .icon-bar:nth-of-type(3),
-    .icon-bar:nth-of-type(4) {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .icon-bar:nth-of-type(5) {
-      top: calc(100% - 2px);
-    }
-
-    &.is-open .icon-bar:nth-of-type(2),
-    &.is-open .icon-bar:nth-of-type(5) {
-      opacity: 0;
-    }
-
-    &.is-open .icon-bar:nth-of-type(3) {
-      transform: rotate(45deg);
-    }
-
-    &.is-open .icon-bar:nth-of-type(4) {
-      transform: rotate(-45deg);
+      border-top: 1px solid ${colors.base.default};
     }
   }
 `
@@ -208,16 +143,10 @@ class Navigation extends Component {
             <LogoName>Cosmos</LogoName>
             <VersionSwitcher />
           </LogoContainer>
-          <MobileButton
-            className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}
+          <HamburgerButton
+            isOpen={this.state.isOpen}
             onClick={() => this.toggleMenu()}
-            type="button">
-            <span className="sr-only">Toggle navigation</span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-            <span className="icon-bar"></span>
-          </MobileButton>
+          />
         </Header>
         <NavigationLinks className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}>
           <li>
