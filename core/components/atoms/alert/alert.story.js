@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example as ExampleHelper } from '@auth0/cosmos/_helpers/story-helpers'
 import { Alert, Link, Text } from '@auth0/cosmos'
+import Icon, { __ICONNAMES__ } from '../icon'
 
 const Example = styled(ExampleHelper)`
   ${Alert.Element} {
@@ -64,6 +65,16 @@ storiesOf('Alert').add('with icon', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" icon="hourglass" key={type}>
+        This is the <Text type="strong">alert</Text>
+      </Alert>
+    ))}
+  </Example>
+))
+
+storiesOf('Alert').add('with icon component', () => (
+  <Example>
+    {types.map(type => (
+      <Alert type={type} title="A title" link="/test" icon={<Icon name="check" />} key={type}>
         This is the <Text type="strong">alert</Text>
       </Alert>
     ))}
