@@ -74,7 +74,7 @@ storiesOf('Alert').add('with icon', () => (
 storiesOf('Alert').add('with icon component', () => (
   <Example>
     {types.map(type => (
-      <Alert type={type} title="A title" link="/test" icon={<Icon name="check" />} key={type}>
+      <Alert type={type} title="A title" link="/test" icon={<Icon name="hourglass" />} key={type}>
         This is the <Text type="strong">alert</Text>
       </Alert>
     ))}

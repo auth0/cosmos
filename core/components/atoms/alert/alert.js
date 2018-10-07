@@ -11,8 +11,10 @@ import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
 
 const createIconForAlert = (icon, color) => {
-  // We also support passing raw <Icon> components and need to override the
-  // color prop in that case.
+  const iconIsName = typeof icon === 'string'
+  if (iconIsName) {
+    return <Icon name={icon} color={color} />
+  }
 
   return React.cloneElement(icon, { color })
 }
@@ -57,20 +59,13 @@ class Alert extends React.Component {
 
   render() {
     if (this.state.visible) {
-      const iconIsName = typeof this.props.icon === 'string'
-
       return (
         <Alert.Element
           type={this.props.type}
           dismissible={this.props.dismissible}
           {...Automation('alert')}
         >
-          {this.props.icon &&
-            (iconIsName ? (
-              <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />
-            ) : (
-              createIconForAlert(this.props.icon, iconColorMap[this.props.type])
-            ))}
+          {this.props.icon && createIconForAlert(this.props.icon, iconColorMap[this.props.type])}
           <Paragraph>
             <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
