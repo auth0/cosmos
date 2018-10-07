@@ -17,10 +17,10 @@ about: Checklist while adding or updating a component
 - [ ] 3. Updated manage POC?
 
 #### Code quality
-- [ ] 1. Does it use tokens instead of using hard coded values 🤖
+- [ ] 1. Does it use tokens instead of using hard coded values? 🤖
 - [ ] 2. Does it follow consistent coding patterns? 📄
-- [ ] 3. Does it follow consistent folder structure 🤖📄
-- [ ] 4. Does it add an identifier for automation testsing?
+- [ ] 3. Does it follow consistent folder structure? 🤖📄
+- [ ] 4. Does it add an identifier for automation testing?
 
 #### Tests
 
