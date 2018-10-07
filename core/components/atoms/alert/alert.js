@@ -148,8 +148,8 @@ Alert.propTypes = {
   /** Style of alert to show */
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
-  /** Name of icon */
-  icon: PropTypes.oneOfType([PropTypes.oneOf(__ICONNAMES__), PropTypes.element]),
+  /** Icon element or name of Icon*/
+  icon: PropTypes.oneOfType([PropTypes.element, PropTypes.oneOf(__ICONNAMES__)]),
 
   /** Title text (in bold) */
   title: PropTypes.string,
@@ -169,7 +169,12 @@ Alert.propTypes = {
   /** Automatically dismiss after N seconds */
   dismissAfterSeconds: PropTypes.number,
 
-  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
+  _error: props =>
+    deprecate(
+      props,
+      { name: 'text', replacement: 'children' },
+      { name: 'icon', type: 'string', typeReplacement: 'element' }
+    )
 }
 
 Alert.defaultProps = {

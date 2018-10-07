@@ -20,10 +20,22 @@ const numberOfValues = (elements, expectedCount) => {
   }
 }
 
-const deprecate = (props, { name, replacement }) => {
-  let message = `'Hi 👋, ${name}' prop will be deprecated in 1.0.0`
-  if (replacement) message += ` You might want to use '${replacement}' instead.`
-  if (props[name]) return new Error(message)
+const deprecate = (props, ...deprecatedProps) => {
+  for (let i = 0; i < deprecatedProps.length; i++) {
+    const { name, replacement, type, typeReplacement } = deprecatedProps[i];
+
+    let nameWithType = `'${name}' prop`;
+    if (type) nameWithType += ` with type '${type}'`;
+    let message = `Hi 👋, ${nameWithType} will be deprecated in 1.0.0.`
+    if (replacement || typeReplacement) {
+      let replacementOrType = `'${replacement}'`;
+      if (typeReplacement) replacementOrType = `type '${typeReplacement}'`
+
+      message += ` You might want to use ${replacementOrType} instead.`
+    }
+    const hasDeprecatedProp = type ? typeof props[name] === type : props[name];
+    if (hasDeprecatedProp) return new Error(message)
+  }
 }
 
 export { onlyOneOf, sumOfElements, numberOfValues, deprecate }
