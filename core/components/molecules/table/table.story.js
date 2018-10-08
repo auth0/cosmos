@@ -157,3 +157,67 @@ storiesOf('Table').add('with no items', () => (
     </Table>
   </Example>
 ))
+
+storiesOf('Table').add('loading state with data', () => (
+  <Example title="loading">
+    <Table
+      loading
+      items={[
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        }
+      ]}
+    >
+      <Table.Column field="data" title="Field 1" />
+      <Table.Column field="data" title="Field 2" />
+      <Table.Column field="data" title="Field 3" />
+      <Table.Column field="data" title="Field 4" />
+      <Table.Column field="data" title="Field 7" />
+    </Table>
+  </Example>
+))
+
+storiesOf('Table').add('loading state without data', () => (
+  <Example title="loading">
+    <Table loading items={[]}>
+      <Table.Column field="data" title="Field 1" />
+      <Table.Column field="data" title="Field 2" />
+      <Table.Column field="data" title="Field 3" />
+      <Table.Column field="data" title="Field 4" />
+      <Table.Column field="data" title="Field 7" />
+    </Table>
+  </Example>
+))
