@@ -145,10 +145,10 @@ storiesOf('Table').add('stressed with truncating', () => (
         }
       ]}
     >
-      <Table.Column field="data" title="Field 1" width="65px" truncating={false} />
-      <Table.Column field="data" title="Field 2" width="150px" truncating={false} />
-      <Table.Column field="data" title="Field 3" width="65px" truncating={false} />
-      <Table.Column field="data" title="Field 4" width="65px" truncating={false} />
+      <Table.Column field="data" title="Field 1" width="65px" truncating />
+      <Table.Column field="data" title="Field 2" width="150px" truncating />
+      <Table.Column field="data" title="Field 3" width="65px" truncating />
+      <Table.Column field="data" title="Field 4" width="65px" truncating />
     </Table>
   </Example>
 ))
