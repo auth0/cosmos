@@ -59,7 +59,7 @@
 | `width`      | string |         | false    | Column width                               |
 | `sortable`   | bool   | false   | false    | Whether to make the column sortable or not |
 | `comparator` | func   |         | false    | Custom comparator function for sorting     |
-| `truncating` | bool   | true    | false    | Whether to truncate the cell text or not   |
+| `truncate`   | bool   | true    | false    | Whether to truncate the cell text or not   |
 
 ## Examples
 

@@ -4,17 +4,17 @@ import PropTypes from 'prop-types'
 const TableColumn = props => null
 
 TableColumn.propTypes = {
-	field: PropTypes.string.isRequired,
-	title: PropTypes.string,
-	width: PropTypes.string,
-	sortable: PropTypes.bool,
-	comparator: PropTypes.func,
-	truncating: PropTypes.bool
+  field: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  width: PropTypes.string,
+  sortable: PropTypes.bool,
+  comparator: PropTypes.func,
+  truncate: PropTypes.bool
 }
 
 TableColumn.defaultProps = {
-	sortable: false,
-	truncating: false
+  sortable: false,
+  truncate: false
 }
 
 export default TableColumn
