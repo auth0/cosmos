@@ -29,7 +29,7 @@ exports[`Button renders with automation attribute 1`] = `
 }
 
 .c0 .sc-bwzfXH,
-.c0 .sc-dnqmqq {
+.c0 .sc-iwsKbI {
   position: relative;
   top: -1px;
   margin-right: 0;

@@ -171,7 +171,9 @@ const ButtonContent = props => {
   let icon = props.success ? 'check' : props.icon
 
   if (props.loading) {
-    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
+    content.push(
+      <Spinner key="spinner" size="small" inverse={getAttributes(props).loadingInverse} />
+    )
   } else if (icon) {
     content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
   }
