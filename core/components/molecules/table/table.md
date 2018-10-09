@@ -40,10 +40,9 @@
   ]}
   onRowClick={(evt, item) => alert(`${item.name} was clicked!`)}
 >
-  <Table.Column field="image" width="50px">
-    {item => <Avatar type="user" image={item.image} />}
+  <Table.Column field="name" title="Name" width="30%">
+    {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
   </Table.Column>
-  <Table.Column field="name" title="Name" width="30%" />
   <Table.Column field="country" title="Country" />
   <Table.Column field="goals" title="Goals" />
   <Table.Column field="assists" title="Assists" />
@@ -93,10 +92,9 @@ by specifying the column to sort by in the `sortOn` prop.
   ]}
   sortOn="assists"
 >
-  <Table.Column field="image" width="50px">
-    {item => <Avatar type="user" image={item.image} />}
+  <Table.Column field="name" title="Name" width="30%">
+    {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
   </Table.Column>
-  <Table.Column field="name" title="Name" width="30%" />
   <Table.Column field="country" title="Country" />
   <Table.Column field="goals" title="Goals" sortable />
   <Table.Column field="assists" title="Assists" sortable />
@@ -148,10 +146,9 @@ comparator function using the `comparator` prop.
     }
   ]}
 >
-  <Table.Column field="image" width="50px">
-    {item => <Avatar type="user" image={item.image} />}
+  <Table.Column field="name" title="Name" width="30%">
+    {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
   </Table.Column>
-  <Table.Column field="name" title="Name" width="30%" />
   <Table.Column field="country" title="Country" />
   <Table.Column field="goals" title="Goals" sortable />
   <Table.Column field="assists" title="Assists" sortable />
@@ -235,10 +232,9 @@ class Example extends React.Component {
         onSort={this.onSort.bind(this)}
         items={this.state.items}
       >
-        <Table.Column field="image" width="50px">
-          {item => <Avatar type="user" image={item.image} />}
+        <Table.Column field="name" title="Name" width="30%">
+          {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
         </Table.Column>
-        <Table.Column field="name" title="Name" width="30%" />
         <Table.Column field="country" title="Country" />
         <Table.Column field="goals" title="Goals" sortable />
         <Table.Column field="assists" title="Assists" sortable />
@@ -254,10 +250,9 @@ You can optionally pass an message to the table and it will be shown if there ar
 
 ```js
 <Table items={[]} emptyMessage="You don't have any users in your tenant at the moment.">
-  <Table.Column field="image" width="50px">
-    {item => <Avatar type="user" image={item.image} />}
+  <Table.Column field="name" title="Name" width="30%">
+    {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
   </Table.Column>
-  <Table.Column field="name" title="Name" width="30%" />
   <Table.Column field="country" title="Country" />
   <Table.Column field="goals" title="Goals" sortable />
   <Table.Column field="assists" title="Assists" sortable />
