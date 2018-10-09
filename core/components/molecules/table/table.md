@@ -282,26 +282,20 @@ class TableWithActions extends React.Component {
         items={[
           {
             name: 'Management API',
-            base_url: 'https://management.example.com/api/v2/',
-            live: true
+            base_url: 'https://management.example.com/api/v2/'
           },
           {
             name: 'Authentication API',
-            base_url: 'https://id.example.com/',
-            live: true
+            base_url: 'https://id.example.com/'
           },
           {
             name: 'Feature flags API',
-            base_url: 'https://internal.example.com/flags/api/v1/',
-            live: false
+            base_url: 'https://internal.example.com/flags/api/v1/'
           }
         ]}
       >
         <Table.Column field="name" width="30%" title="Name" />
         <Table.Column field="base_url" width="50%" title="Client ID" />
-        <Table.Column field="live" width="10%" title="Live">
-          {item => <Icon name={item.live ? 'check' : 'close'} />}
-        </Table.Column>
         <Table.Column field="actions">
           {item => (
             <ButtonGroup align="right">
