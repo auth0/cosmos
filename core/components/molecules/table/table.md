@@ -264,3 +264,48 @@ You can optionally pass an message to the table and it will be shown if there ar
 </Table>
 ```
 
+### Actions in tables
+
+You may want the user to execute action based on items you display on a table.
+In that case, que can use a render function to get the current item for a column
+and render actions the user can interact with.
+
+```js
+class TableWithActions extends React.Component {
+  handleActionPressed(item, action) {
+    alert(`You have pressed "${action}" for item "${item.name}"`)
+  }
+
+  render() {
+    return (
+      <Table
+        items={[
+          {
+            name: 'Management API',
+            base_url: 'https://management.example.com/api/v2/'
+          },
+          {
+            name: 'Authentication API',
+            base_url: 'https://id.example.com/'
+          },
+          {
+            name: 'Feature flags API',
+            base_url: 'https://internal.example.com/flags/api/v1/'
+          }
+        ]}
+      >
+        <Table.Column field="name" width="30%" title="Name" />
+        <Table.Column field="base_url" width="50%" title="Client ID" />
+        <Table.Column field="actions">
+          {item => (
+            <ButtonGroup align="right">
+              <Button icon="pencil" onClick={() => this.handleActionPressed(item, 'edit')} />
+              <Button icon="delete" onClick={() => this.handleActionPressed(item, 'delete')} />
+            </ButtonGroup>
+          )}
+        </Table.Column>
+      </Table>
+    )
+  }
+}
+```
