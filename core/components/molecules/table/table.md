@@ -266,6 +266,10 @@ You can optionally pass an message to the table and it will be shown if there ar
 
 ### Actions in tables
 
+You may want the user to execute action based on items you display on a table.
+In that case, que can use a render function to get the current item for a column
+and render actions the user can interact with.
+
 ```js
 class TableWithActions extends React.Component {
   handleActionPressed(item, action) {
