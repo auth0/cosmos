@@ -259,6 +259,77 @@ You can optionally pass an message to the table and it will be shown if there ar
 </Table>
 ```
 
+### Initial loading state
+
+When you are fetching your table's initial data.
+You can use the `loading` prop to show a spinner and
+let the user know you are wairing for something to load.
+
+```js
+<Table loading items={[]}>
+  <Table.Column field="data" title="Field 1" />
+  <Table.Column field="data" title="Field 2" />
+  <Table.Column field="data" title="Field 3" />
+  <Table.Column field="data" title="Field 4" />
+  <Table.Column field="data" title="Field 7" />
+</Table>
+```
+
+### Loading table
+
+In case you have to re-fetch data, or switch between pages with async pagination.
+Using the `loading` prop won't hide the current data and will still show the spinner.
+
+```js
+<Table
+  loading
+  items={[
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    },
+    {
+      data: 'Lorem ipsum dolor sit amet.'
+    }
+  ]}
+>
+  <Table.Column field="data" title="Field 1" />
+  <Table.Column field="data" title="Field 2" />
+  <Table.Column field="data" title="Field 3" />
+  <Table.Column field="data" title="Field 4" />
+  <Table.Column field="data" title="Field 7" />
+</Table>
+```
+
 ### Actions in tables
 
 You may want the user to execute action based on items you display on a table.
