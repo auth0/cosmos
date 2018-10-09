@@ -50,7 +50,7 @@ Icon.propTypes = {
   /** Icon name */
   name: PropTypes.oneOf(__ICONNAMES__).isRequired,
   /** Icon size */
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Icon foreground color */
   color: PropTypes.oneOf(__COLORS__)
 }

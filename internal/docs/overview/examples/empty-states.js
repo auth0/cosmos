@@ -10,8 +10,7 @@ const EmptyStates = () => (
       <EmptyState
         icon="clients"
         title="Clients"
-        text="No items have been added to this section."
-        helpUrl="https://auth0.com"
+        link="https://auth0.com"
         action={{
           icon: 'plus',
           label: 'Create Client',
@@ -19,7 +18,9 @@ const EmptyStates = () => (
             /*...*/
           }
         }}
-      />
+      >
+        No items have been added to this section.
+      </EmptyState>
     </Example>
   </Section>
 )

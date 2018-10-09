@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
+import Text from '../text'
 import Paragraph, { StyledParagraph } from '../paragraph'
-import { Text } from '../../_helpers/free-text'
+import FreeText from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
@@ -55,11 +56,9 @@ class Alert extends React.Component {
           dismissible={this.props.dismissible}
           {...Automation('alert')}
         >
-          {this.props.icon && (
-            <Icon name={this.props.icon} color={console.log(iconColorMap[this.props.type])} />
-          )}
+          {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
           <Paragraph>
-            <em>{this.props.title}</em> <Text {...this.props} />
+            <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
                 Read more

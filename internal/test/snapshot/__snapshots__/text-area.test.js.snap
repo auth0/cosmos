@@ -17,6 +17,7 @@ exports[`TextArea renders with automation attribute 1`] = `
   transition: border-color 0.25s,box-shadow 0.25s;
   resize: vertical;
   font-size: inherit;
+  display: block;
 }
 
 .c0:hover {
