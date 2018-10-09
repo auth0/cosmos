@@ -12,10 +12,6 @@ exports[`ButtonGroup renders with automation attribute 1`] = `
   justify-content: flex-start;
 }
 
-.c0 .cosmos-tooltip {
-  left: 40%;
-}
-
 <div
   className="c0"
   data-cosmos-key="button-group"

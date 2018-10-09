@@ -25,15 +25,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   justify-content: flex-end;
 }
 
-.c2 .cosmos-tooltip {
-  left: 58%;
-}
-
-.c2 .sc-jTzLTM {
+.c2 > * {
   margin-left: 8px;
 }
 
-.c2 .sc-jTzLTM:first-child {
+.c2 > *:first-child {
   margin-left: 0;
 }
 
@@ -50,11 +46,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   margin-bottom: 0;
 }
 
-.c5:hover .sc-iQKALj {
+.c5:hover .sc-bwCtUz {
   border-color: transparent transparent transparent #053b4e;
 }
 
-.c5:hover .sc-bwCtUz {
+.c5:hover .sc-hrWEMg {
   color: #053b4e;
 }
 

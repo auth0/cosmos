@@ -25,7 +25,7 @@ exports[`Table renders with automation attribute 1`] = `
   color: inherit;
 }
 
-.c2:hover .sc-bXGyLb {
+.c1:hover .sc-bXGyLb {
   visibility: visible;
 }
 
