@@ -2,12 +2,17 @@
 
 exports[`Table renders with automation attribute 1`] = `
 .c0 {
-  width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
+  position: relative;
 }
 
 .c1 {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  opacity: 1;
+}
+
+.c2 {
   padding: 8px;
   border-bottom: 2px solid #D9D9D9;
   text-align: left;
@@ -16,23 +21,23 @@ exports[`Table renders with automation attribute 1`] = `
   cursor: auto;
 }
 
-.c1:hover {
+.c2:hover {
   color: inherit;
 }
 
-.c1:hover .sc-daURTG {
+.c2:hover .sc-bXGyLb {
   visibility: visible;
 }
 
-.c2 {
+.c3 {
   cursor: inherit;
 }
 
-.c2:hover {
+.c3:hover {
   background: #FAFAFA;
 }
 
-.c3 {
+.c4 {
   padding: 8px;
   border-top: 1px solid #D9D9D9;
   text-align: left;
@@ -41,40 +46,65 @@ exports[`Table renders with automation attribute 1`] = `
   width: 30%;
 }
 
-<table
+<div
   className="c0"
-  data-cosmos-key="table"
 >
-  <thead
-    className=""
-    data-cosmos-key="table.header"
+  <table
+    className="c1"
+    data-cosmos-key="table"
+    rows={
+      Array [
+        <styled.tr
+          data-cosmos-key="table.row"
+          onClick={null}
+        >
+          <styled.td
+            column={
+              Object {
+                "field": "name",
+                "sortable": false,
+                "title": "Name",
+                "width": "30%",
+              }
+            }
+          >
+            john
+          </styled.td>
+        </styled.tr>,
+      ]
+    }
   >
-    <tr
+    <thead
       className=""
+      data-cosmos-key="table.header"
     >
-      <th
-        className="c1"
-        onClick={[Function]}
+      <tr
+        className=""
       >
-        Name
-      </th>
-    </tr>
-  </thead>
-  <tbody
-    className=""
-    data-cosmos-key="table.body"
-  >
-    <tr
-      className="c2"
-      data-cosmos-key="table.row"
-      onClick={null}
+        <th
+          className="c2"
+          onClick={[Function]}
+        >
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+      data-cosmos-key="table.body"
     >
-      <td
+      <tr
         className="c3"
+        data-cosmos-key="table.row"
+        onClick={null}
       >
-        john
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <td
+          className="c4"
+        >
+          john
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
