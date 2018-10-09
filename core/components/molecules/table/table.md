@@ -264,3 +264,50 @@ You can optionally pass an message to the table and it will be shown if there ar
 </Table>
 ```
 
+### Actions in tables
+
+```js
+class TableWithActions extends React.Component {
+  handleActionPressed(item, action) {
+    alert(`You have pressed "${action}" for item "${item.name}"`)
+  }
+
+  render() {
+    return (
+      <Table
+        items={[
+          {
+            name: 'Management API',
+            base_url: 'https://management.example.com/api/v2/',
+            live: true
+          },
+          {
+            name: 'Authentication API',
+            base_url: 'https://id.example.com/',
+            live: true
+          },
+          {
+            name: 'Feature flags API',
+            base_url: 'https://internal.example.com/flags/api/v1/',
+            live: false
+          }
+        ]}
+      >
+        <Table.Column field="name" width="30%" title="Name" />
+        <Table.Column field="base_url" width="50%" title="Client ID" />
+        <Table.Column field="live" width="10%" title="Live">
+          {item => <Icon name={item.live ? 'check' : 'close'} />}
+        </Table.Column>
+        <Table.Column field="actions">
+          {item => (
+            <ButtonGroup align="right">
+              <Button icon="pencil" onClick={() => this.handleActionPressed(item, 'edit')} />
+              <Button icon="delete" onClick={() => this.handleActionPressed(item, 'delete')} />
+            </ButtonGroup>
+          )}
+        </Table.Column>
+      </Table>
+    )
+  }
+}
+```
