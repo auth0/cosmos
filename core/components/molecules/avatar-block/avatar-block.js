@@ -15,6 +15,8 @@ const avatarSizes = {
   large: 'large'
 }
 
+const textSpacing = '12px'
+
 const StyledAvatarBlock = styled.span`
   display: flex;
   align-items: center;
@@ -22,7 +24,7 @@ const StyledAvatarBlock = styled.span`
 `
 
 const Text = styled.div`
-  margin-left: ${spacing.small};
+  margin-left: ${textSpacing};
 `
 
 const Title = styled.span`
