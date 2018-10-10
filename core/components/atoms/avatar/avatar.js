@@ -15,6 +15,7 @@ const iconSizes = {
 }
 
 const StyledAvatar = styled.span`
+  min-width: ${props => misc.avatar[props.size]};
   width: ${props => misc.avatar[props.size]};
   height: ${props => misc.avatar[props.size]};
   background-color: ${colors.base.grayLightest};
