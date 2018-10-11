@@ -44,26 +44,33 @@ const Subtitle = styled.span`
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
-const getTitle = props => {
-  let contents
+const getLinkedElement = props => element => {
   let link = props.href || props.link
 
-  if (!link) return <Title>{props.title}</Title>
+  if (!link) return element
 
-  /* link supports both formats: string and object */
   if (typeof link === 'string') {
-    link = { href: link, target: '_blank' } // defaults
+    link = { href: link, target: '_blank' }
   }
 
-  return (
-    <Title>
-      <Link {...link}>{props.title}</Link>
-    </Title>
-  )
+  return <Link {...link}>{element}</Link>
 }
 
+const getTitle = props => <Title>{getLinkedElement(props)(props.title)}</Title>
+
+const getAvatar = props =>
+  getLinkedElement(props)(
+    <Avatar
+      icon={props.icon}
+      image={props.image}
+      size={avatarSizes[props.size]}
+      type={props.type}
+    />
+  )
+
 const AvatarBlock = props => {
-  let title = getTitle(props)
+  const title = getTitle(props)
+  const avatar = getAvatar(props)
   let subtitle
 
   if (props.subtitle) {
@@ -72,12 +79,7 @@ const AvatarBlock = props => {
 
   return (
     <StyledAvatarBlock>
-      <Avatar
-        icon={props.icon}
-        image={props.image}
-        size={avatarSizes[props.size]}
-        type={props.type}
-      />
+      {avatar}
       <Text>
         {title}
         {subtitle}
