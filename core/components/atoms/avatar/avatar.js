@@ -5,6 +5,8 @@ import { Image } from '@auth0/cosmos'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 
+import EmptyUser from './assets/EmptyUser'
+
 const iconSizes = {
   xsmall: 14,
   small: 16,
@@ -47,6 +49,8 @@ const Avatar = props => {
     image = <Icon name={props.icon} size={iconSizes[props.size]} />
   } else if (typeof props.image === 'string') {
     image = <Image source={props.image} />
+  } else if (!props.image && props.type === 'user') {
+    image = <EmptyUser width={misc.avatar[props.size]} />
   } else {
     image = props.image
   }
