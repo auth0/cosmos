@@ -42,18 +42,16 @@ const StyledAvatar = styled.span`
   }
 `
 
-const Avatar = props => {
-  let image
+const getImageForAvatar = props => {
+  if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
+  if (typeof props.image === 'string') return <Image source={props.image} />
+  if (!props.image && props.type === 'user') return <EmptyUser width={misc.avatar[props.size]} />
 
-  if (props.icon) {
-    image = <Icon name={props.icon} size={iconSizes[props.size]} />
-  } else if (typeof props.image === 'string') {
-    image = <Image source={props.image} />
-  } else if (!props.image && props.type === 'user') {
-    image = <EmptyUser width={misc.avatar[props.size]} />
-  } else {
-    image = props.image
-  }
+  return props.image
+}
+
+const Avatar = props => {
+  const image = getImageForAvatar(props)
 
   return (
     <StyledAvatar type={props.type} size={props.size}>
