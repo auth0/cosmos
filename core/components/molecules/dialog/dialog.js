@@ -37,66 +37,76 @@ const createButtonForAction = (action, index) => {
 
 // TODO: move this to a helper
 const withFocusTrap = Element => props => (
-  <FocusTrap active={open} onExit={onClose}>
+  <FocusTrap active={props.open} onExit={props.onClose}>
     <Element {...props} />
   </FocusTrap>
 )
 
-const Dialog = props =>
-  withFocusTrap(
-    <Overlay {...props}>
-      {/* Can I change this name to DialogBox? */}
-      <DialogBox
-        width={props.width}
-        {...Automation('dialog')}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="dialog-title"
+const DialogElement = props => (
+  <Overlay {...props}>
+    <DialogBox
+      width={props.width}
+      {...Automation('dialog')}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialog-title"
 
-        // 1- Add focus trap
-        //
-        // 2- Dialog types:
-        // - Default: focus goes to the main action
-        // - Irreversibel (aka destructive):
-        //   - focus goes to close button
-        //   - add `aria-describedby="dialog-description"`
-        // - With forms: focus goes to the first focusable form element (for example an input)
-      >
-        <DialogClose>
-          {/* We needto make this icon better */}
-          <Button
-            aria-label="Close"
-            size="default"
-            appearance="action"
-            icon="close"
-            onClick={props.onClose}
-          />
+      // 1- Add focus trap
+      //
+      // 2- Dialog types:
+      // - Default: focus goes to the main action
 
-          {/* <Link >
-          <Icon name="close" size={16} />
-        </Link> */}
-        </DialogClose>
+      // - flag Irreversibel (aka destructive):
+      //   - focus goes to close button
+      //   - add `aria-describedby="dialog-description"`
 
-        <DialogHeader {...Automation('dialog.title')}>
-          <DialogTitle id="dialog-title">{props.title}</DialogTitle>
-        </DialogHeader>
+      // - With forms: focus goes to the first focusable form element (for example an input)
 
-        <DialogBody id="dialog-description" {...Automation('dialog.body')}>
-          {props.children}
-        </DialogBody>
+      // 3- Esc - close the dialog
 
-        <DialogFooter {...Automation('dialog.footer')}>
-          <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-        </DialogFooter>
-      </DialogBox>
-    </Overlay>
-  )
+      // 4- sizes ?
+
+      // sm 480px
+      // default 640px
+      // lg 800px
+
+      // 5- what happens if it has no footer or header?
+    >
+      <DialogClose>
+        <Button
+          aria-label="Close"
+          size="default"
+          appearance="action"
+          icon="close"
+          onClick={props.onClose}
+        />
+      </DialogClose>
+
+      <DialogHeader {...Automation('dialog.title')}>
+        <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+      </DialogHeader>
+
+      <DialogBody id="dialog-description" {...Automation('dialog.body')}>
+        {props.children}
+      </DialogBody>
+
+      <DialogFooter {...Automation('dialog.footer')}>
+        <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+      </DialogFooter>
+    </DialogBox>
+  </Overlay>
+)
+
+const Dialog = withFocusTrap(DialogElement)
 
 const DialogBox = styled.div`
   position: relative;
 
   /* Max width makes it responsive, no need for media queries */
   /* min-width: ${props => props.width}px; */
+
+
+
   max-width: ${props => props.width}px;
   max-height: calc(100vh - ${spacing.xlarge});
   margin-right: ${spacing.small};
@@ -138,7 +148,6 @@ const DialogHeader = styled.header`
 // The author should be able to change the header level
 const DialogTitle = styled.h1`
   font-weight: ${fonts.weight.medium};
-  }
 `
 
 const DialogBody = styled.div`
