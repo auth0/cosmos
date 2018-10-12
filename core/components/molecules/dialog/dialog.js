@@ -11,6 +11,12 @@ import Automation from '../../_helpers/automation-attribute'
 
 import FocusTrap from 'react-focus-trap'
 
+const dialogSizes = {
+  small: '480px',
+  medium: '640px',
+  large: '800px'
+}
+
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
   // as actions, we only need to create buttons for actions
@@ -35,83 +41,80 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-// TODO: move this to a helper
-const withFocusTrap = Element => props => (
-  <FocusTrap active={props.open} onExit={props.onClose}>
-    <Element {...props} />
-  </FocusTrap>
-)
+const getSizeForDialog = propValue => {
+  if (typeof propValue === 'number') return `${propValue}px`
 
-const DialogElement = props => (
+  return dialogSizes[propValue]
+}
+
+const Dialog = props => (
   <Overlay {...props}>
-    <DialogBox
-      width={props.width}
-      {...Automation('dialog')}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="dialog-title"
+    <FocusTrap active={props.open} onExit={props.onClose}>
+      <DialogBox
+        width={props.width}
+        {...Automation('dialog')}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
 
-      // 1- Add focus trap
-      //
-      // 2- Dialog types:
-      // - Default: focus goes to the main action
+        // 1- Add focus trap
+        //
+        // 2- Dialog types:
+        // - Default: focus goes to the main action
 
-      // - flag Irreversibel (aka destructive):
-      //   - focus goes to close button
-      //   - add `aria-describedby="dialog-description"`
+        // - flag Irreversibel (aka destructive):
+        //   - focus goes to close button
+        //   - add `aria-describedby="dialog-description"`
 
-      // - With forms: focus goes to the first focusable form element (for example an input)
+        // - With forms: focus goes to the first focusable form element (for example an input)
 
-      // 3- Esc - close the dialog
+        // 3- Esc - close the dialog
 
-      // 4- sizes ?
+        // 4- sizes ?
 
-      // sm 480px
-      // default 640px
-      // lg 800px
+        // sm 480px
+        // default 640px
+        // lg 800px
 
-      // 5- what happens if it has no footer or header?
-    >
-      <DialogClose>
-        <Button
-          aria-label="Close"
-          size="default"
-          appearance="action"
-          icon="close"
-          onClick={props.onClose}
-        />
-      </DialogClose>
+        // 5- what happens if it has no footer or header?
+      >
+        <DialogClose>
+          <Button
+            aria-label="Close"
+            size="default"
+            appearance="action"
+            icon="close"
+            onClick={props.onClose}
+          />
+        </DialogClose>
 
-      {props.title && (
-        <DialogHeader {...Automation('dialog.title')}>
-          <DialogTitle id="dialog-title">{props.title}</DialogTitle>
-        </DialogHeader>
-      )}
+        {props.title && (
+          <DialogHeader {...Automation('dialog.title')}>
+            <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+          </DialogHeader>
+        )}
 
-      <DialogBody id="dialog-description" {...Automation('dialog.body')}>
-        {props.children}
-      </DialogBody>
+        <DialogBody id="dialog-description" {...Automation('dialog.body')}>
+          {props.children}
+        </DialogBody>
 
-      {props.actions && (
-        <DialogFooter {...Automation('dialog.footer')}>
-          <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-        </DialogFooter>
-      )}
-    </DialogBox>
+        {props.actions && (
+          <DialogFooter {...Automation('dialog.footer')}>
+            <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+          </DialogFooter>
+        )}
+      </DialogBox>
+    </FocusTrap>
   </Overlay>
 )
-
-const Dialog = withFocusTrap(DialogElement)
 
 const DialogBox = styled.div`
   position: relative;
 
   /* Max width makes it responsive, no need for media queries */
   /* min-width: ${props => props.width}px; */
-
-
-
-  max-width: ${props => props.width}px;
+  max-width: ${props =>
+    console.log({ ahre: getSizeForDialog(props.width) }) || getSizeForDialog(props.width)};
   max-height: calc(100vh - ${spacing.xlarge});
   margin-right: ${spacing.small};
   margin-left: ${spacing.small};
@@ -184,12 +187,12 @@ Dialog.propTypes = {
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
   title: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(dialogSizes))]),
   onClose: PropTypes.func
 }
 
 Dialog.defaultProps = {
-  width: 500
+  width: 'medium'
 }
 
 export default Dialog
