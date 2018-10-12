@@ -53,14 +53,14 @@ const Dialog = props =>
         aria-modal="true"
         aria-labelledby="dialog-title"
 
-        // 1- Add focus trap
-        //
-        // 2- Dialog types:
-        // - Default: focus goes to the main action
-        // - Irreversibel (aka destructive):
-        //   - focus goes to close button
-        //   - add `aria-describedby="dialog-description"`
-        // - With forms: focus goes to the first focusable form element (for example an input)
+      // 1- Add focus trap
+      //
+      // 2- Dialog types:
+      // - Default: focus goes to the main action
+      // - Irreversibel (aka destructive):
+      //   - focus goes to close button
+      //   - add `aria-describedby="dialog-description"`
+      // - With forms: focus goes to the first focusable form element (for example an input)
       >
         <DialogClose>
           {/* We needto make this icon better */}
@@ -138,7 +138,6 @@ const DialogHeader = styled.header`
 // The author should be able to change the header level
 const DialogTitle = styled.h1`
   font-weight: ${fonts.weight.medium};
-  }
 `
 
 const DialogBody = styled.div`

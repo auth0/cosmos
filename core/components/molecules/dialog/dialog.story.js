@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Paragraph, Text } from '@auth0/cosmos'
+import { Dialog, Form, Link, Tabs, Paragraph, Text } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;

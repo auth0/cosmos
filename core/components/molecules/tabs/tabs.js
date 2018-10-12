@@ -29,24 +29,8 @@ export const TabLink = styled.a`
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${colors.link.default};
-  }
-  &:active {
-    border-bottom: 1px solid ${colors.base.text};
-  }
-  ${props =>
-    props.selected &&
-    css`
-      border-bottom: 1px solid ${colors.base.text};
-      cursor: default;
-      color: ${colors.text.default};
-      &:focus {
-        border-bottom: 1px solid ${colors.base.text};
-      }
-    `};
 `
+
 
 
 const TabContent = styled.div`
