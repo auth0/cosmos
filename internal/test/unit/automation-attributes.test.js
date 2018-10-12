@@ -294,8 +294,9 @@ describe('Automation data attributes', () => {
     expect(tabs.prop('data-cosmos-key')).toEqual('tabs')
     expect(
       tabs
-        .children()
-        .children()
+        .children() // TabList
+        .children() // TabListItem
+        .children() // TabLink
         .prop('data-cosmos-key')
     ).toEqual('tabs.item')
   })
