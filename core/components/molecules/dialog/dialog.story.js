@@ -110,16 +110,15 @@ storiesOf('Dialog').add('with tabs', () => (
       ]}
       width={600}
     >
-      <Paragraph>
-        This is a brief introduction to the form. This is a short text that goes before the form
-        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
-        <Text type="strong">bold</Text> text.
-      </Paragraph>
-      <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
-      </Form>
+      Tabs
+      {/* <Tabs selected={2} onSelect={_ => { }}>
+        <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+        <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
+        <Tabs.Tab selected label="Tab 3">
+          Look, third tab is selected by default!
+        </Tabs.Tab>
+      </Tabs> */}
+
     </Dialog>
   </StyledExample>
 ))

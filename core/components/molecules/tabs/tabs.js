@@ -4,10 +4,22 @@ import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
-const Wrapper = styled.div``
 
+const TabNav = styled.nav`
+  `
+
+export const TabList = styled.ul`
+  border-bottom: 1px solid ${colors.base.grayLight};
+  display: flex;
+  ${TabLink}:last-child {
+    margin-right: 0;
+  }
+`
+
+export const TabListItem = styled.li`
+`
 export const TabLink = styled.a`
-  display: inline-block;
+  display: block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
   color: ${colors.link.default};
@@ -36,12 +48,6 @@ export const TabLink = styled.a`
     `};
 `
 
-export const TabLinkGroup = styled.div`
-  border-bottom: 1px solid ${colors.base.grayLight};
-  ${TabLink}:last-child {
-    margin-right: 0;
-  }
-`
 
 const TabContent = styled.div`
   padding-top: ${spacing.large};
@@ -105,23 +111,23 @@ class Tabs extends React.Component {
     const { selected: selectedIndex } = this.props
 
     return (
-      <Wrapper {...Automation('tabs')}>
-        <TabLinkGroup>
+      <TabNav {...Automation('tabs')}>
+        <TabList>
           {this.tabs.map((tab, index) => (
-            <TabLink
-              {...Automation('tabs.item')}
-              onClick={() => this.changeTab(index)}
-              key={index}
-              selected={selectedIndex === index}
-              tabIndex="0"
-              onKeyPress={e => this.handleKeyPress(e, index)}
-            >
-              {tab.props.label}
-            </TabLink>
+            <TabListItem>
+              <TabLink
+                {...Automation('tabs.item')}
+                onClick={() => this.changeTab(index)}
+                key={index}
+                selected={selectedIndex === index}
+              >
+                {tab.props.label}
+              </TabLink>
+            </TabListItem>
           ))}
-        </TabLinkGroup>
+        </TabList>
         {this.tabs[selectedIndex]}
-      </Wrapper>
+      </TabNav>
     )
   }
 }

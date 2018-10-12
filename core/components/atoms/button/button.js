@@ -90,7 +90,7 @@ const appearances = {
   },
   action: {
     text: colors.button.default.text,
-    icon: colors.button.link.icon,
+    icon: colors.button.default.text,
     background: 'transparent',
     border: 'transparent',
     hoverText: colors.button.link.hover,
@@ -172,7 +172,6 @@ const getAttributes = props => {
   if (props.icon && !props.text) {
     styles.padding = spacing.xsmall
     styles.minWidth = '36px'
-    styles.icon = colors.button.link.icon
   }
 
   return styles
