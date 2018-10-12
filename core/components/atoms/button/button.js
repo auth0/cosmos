@@ -90,7 +90,7 @@ const appearances = {
   },
   action: {
     text: colors.button.default.text,
-    icon: colors.button.default.text,
+    icon: 'grayDarkest', // TODO: tokenise
     background: 'transparent',
     border: 'transparent',
     hoverText: colors.button.link.hover,
@@ -306,7 +306,15 @@ Button.propTypes = {
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
   /** The visual style used to convey the button's purpose */
-  appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
+  appearance: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'cta',
+    'link',
+    'destructive',
+    'action'
+  ]),
 
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
