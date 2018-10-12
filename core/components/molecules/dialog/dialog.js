@@ -11,6 +11,12 @@ import Automation from '../../_helpers/automation-attribute'
 
 import FocusTrap from 'react-focus-trap'
 
+const dialogSizes = {
+  small: '480px',
+  medium: '640px',
+  large: '800px'
+}
+
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
   // as actions, we only need to create buttons for actions
@@ -35,17 +41,15 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-// TODO: move this to a helper
-const withFocusTrap = Element => props => (
-  <FocusTrap active={open} onExit={onClose}>
-    <Element {...props} />
-  </FocusTrap>
-)
+const getSizeForDialog = propValue => {
+  if (typeof propValue === 'number') return `${propValue}px`
 
-const Dialog = props =>
-  withFocusTrap(
-    <Overlay {...props}>
-      {/* Can I change this name to DialogBox? */}
+  return dialogSizes[propValue]
+}
+
+const Dialog = props => (
+  <Overlay {...props}>
+    <FocusTrap active={props.open} onExit={props.onClose}>
       <DialogBox
         width={props.width}
         {...Automation('dialog')}
@@ -57,9 +61,11 @@ const Dialog = props =>
       //
       // 2- Dialog types:
       // - Default: focus goes to the main action
-      // - Irreversibel (aka destructive):
+
+      // - flag Irreversibel (aka destructive):
       //   - focus goes to close button
       //   - add `aria-describedby="dialog-description"`
+
       // - With forms: focus goes to the first focusable form element (for example an input)
 
       // 3- Esc - close the dialog
@@ -98,17 +104,17 @@ const Dialog = props =>
           </DialogFooter>
         )}
       </DialogBox>
-    </Overlay>
-  )
-
-const Dialog = withFocusTrap(DialogElement)
+    </FocusTrap>
+  </Overlay>
+)
 
 const DialogBox = styled.div`
   position: relative;
 
   /* Max width makes it responsive, no need for media queries */
   /* min-width: ${props => props.width}px; */
-  max-width: ${props => props.width}px;
+  max-width: ${props =>
+    console.log({ ahre: getSizeForDialog(props.width) }) || getSizeForDialog(props.width)};
   max-height: calc(100vh - ${spacing.xlarge});
   margin-right: ${spacing.small};
   margin-left: ${spacing.small};
@@ -181,12 +187,12 @@ Dialog.propTypes = {
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
   title: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(dialogSizes))]),
   onClose: PropTypes.func
 }
 
 Dialog.defaultProps = {
-  width: 500
+  width: 'medium'
 }
 
 export default Dialog
