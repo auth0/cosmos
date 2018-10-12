@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
+import Tabs from '../../molecules/tabs'
 import Overlay from '../../atoms/_overlay'
 // import Icon from '../../atoms/icon'
 // import Link from '../../atoms/link'
@@ -37,7 +38,6 @@ const createButtonForAction = (action, index) => {
 const Dialog = props => (
   <Overlay {...props}>
 
-    {/* Can I change this name to DialogBox? */}
     <DialogBox
       width={props.width}
       {...Automation('dialog')}
@@ -45,18 +45,31 @@ const Dialog = props => (
       aria-modal="true"
       aria-labelledby="dialog-title"
 
-      // only when it's just text
-      aria-describedby="dialog-description"
+    // 1- Add focus trap
+    //
+    // 2- Dialog types:
+    // - Default: focus goes to the main action 
+
+    // - flag Irreversibel (aka destructive): 
+    //   - focus goes to close button
+    //   - add `aria-describedby="dialog-description"`
+
+    // - With forms: focus goes to the first focusable form element (for example an input)
+
+    // 3- Esc - close the dialog
+
+    // 4- sizes ?
+
+    // sm 480px
+    // default 640px
+    // lg 800px 
+
+
+    // 5- what happens if it has no footer or header?
     >
       <DialogClose>
-
-        {/* We needto make this icon better */}
         <Button aria-label="Close" size="default" appearance="action" icon="close" onClick={props.onClose}>
         </Button>
-
-        {/* <Link >
-          <Icon name="close" size={16} />
-        </Link> */}
       </DialogClose>
 
       <DialogHeader {...Automation('dialog.title')}>
@@ -83,6 +96,10 @@ const DialogBox = styled.div`
   position: relative;
 
   /* Max width makes it responsive, no need for media queries */
+  /* min-width: ${props => props.width}px; */
+
+
+
   max-width: ${props => props.width}px;
   max-height: calc(100vh - ${spacing.xlarge});
   margin-right: ${spacing.small};
@@ -113,7 +130,7 @@ const DialogHeader = styled.header`
   ::after {
     content: "";
     position: absolute;
-    bottom: -${spacing.large} ;
+    bottom: -${spacing.large};
     left: 0;
     width: 100%;
     height: ${spacing.large};
@@ -125,7 +142,6 @@ const DialogHeader = styled.header`
 // The author should be able to change the header level 
 const DialogTitle = styled.h1`
   font-weight: ${fonts.weight.medium};
-  }
 `
 
 const DialogBody = styled.div`
