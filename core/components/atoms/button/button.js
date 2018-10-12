@@ -87,6 +87,19 @@ const appearances = {
     focusBackground: 'transparent',
     focusBorder: 'transparent',
     loadingInverse: false
+  },
+  action: {
+    text: colors.button.default.text,
+    icon: colors.button.link.icon,
+    background: 'transparent',
+    border: 'transparent',
+    hoverText: colors.button.link.hover,
+    hoverBackground: 'transparent',
+    hoverBorder: 'transparent',
+    focusText: colors.button.link.focus,
+    focusBackground: 'transparent',
+    focusBorder: 'transparent',
+    loadingInverse: false
   }
 }
 

@@ -12,6 +12,7 @@ storiesOf('Button').add('appearance', () => (
       <Button appearance="secondary">Secondary</Button>
       <Button appearance="link">Link</Button>
       <Button appearance="destructive">Destructive</Button>
+      <Button appearance="action">Action</Button>
     </Stack>
   </Example>
 ))

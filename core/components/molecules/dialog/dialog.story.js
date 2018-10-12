@@ -13,10 +13,10 @@ storiesOf('Dialog').add('default', () => (
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => {}}
+      onClose={() => { }}
       actions={[
-        new Dialog.Action('OK', () => {}, 'primary'),
-        new Dialog.Action('Cancel', () => {})
+        new Dialog.Action('OK', () => { }, 'primary'),
+        new Dialog.Action('Cancel', () => { })
       ]}
     >
       Are you sure?
@@ -29,8 +29,8 @@ storiesOf('Dialog').add('with primary button only', () => (
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => {}}
-      actions={[new Dialog.Action('OK', () => {}, 'primary')]}
+      onClose={() => { }}
+      actions={[new Dialog.Action('OK', () => { }, 'primary')]}
     >
       Are you sure?
     </Dialog>
@@ -42,8 +42,8 @@ storiesOf('Dialog').add('with secondary button only', () => (
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => {}}
-      actions={[new Dialog.Action('Dismiss', () => {})]}
+      onClose={() => { }}
+      actions={[new Dialog.Action('Dismiss', () => { })]}
     >
       Are you sure?
     </Dialog>
@@ -55,10 +55,10 @@ storiesOf('Dialog').add('with form', () => (
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => {}}
+      onClose={() => { }}
       actions={[
-        new Dialog.Action('OK', () => {}, 'primary'),
-        new Dialog.Action('Cancel', () => {})
+        new Dialog.Action('OK', () => { }, 'primary'),
+        new Dialog.Action('Cancel', () => { })
       ]}
       width={600}
     >
@@ -76,10 +76,10 @@ storiesOf('Dialog').add('with introduction + form', () => (
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => {}}
+      onClose={() => { }}
       actions={[
-        new Dialog.Action('OK', () => {}, 'primary'),
-        new Dialog.Action('Cancel', () => {})
+        new Dialog.Action('OK', () => { }, 'primary'),
+        new Dialog.Action('Cancel', () => { })
       ]}
       width={600}
     >
@@ -93,6 +93,136 @@ storiesOf('Dialog').add('with introduction + form', () => (
         <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
         <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
       </Form>
+    </Dialog>
+  </StyledExample>
+))
+
+
+storiesOf('Dialog').add('with tabs', () => (
+  <StyledExample title="with tabs">
+    <Dialog
+      open
+      title="Example Dialog"
+      onClose={() => { }}
+      actions={[
+        new Dialog.Action('OK', () => { }, 'primary'),
+        new Dialog.Action('Cancel', () => { })
+      ]}
+      width={600}
+    >
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+      <Form layout="label-on-top">
+        <Form.TextInput label="First Name" type="text" placeholder="John" />
+        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
+        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+      </Form>
+    </Dialog>
+  </StyledExample>
+))
+
+storiesOf('Dialog').add('stressed', () => (
+  <StyledExample title="stressed">
+    <Dialog
+      open
+      title="Thisisaverylongstringoftexttotestworkbreakandoverlowingofthecomponentwhenithasaverylongstringoftest"
+      onClose={() => { }}
+      actions={[
+        new Dialog.Action('OK', () => { }, 'primary'),
+        new Dialog.Action('Cancel', () => { })
+      ]}
+    >
+      Thisisaverylongstringoftexttotestworkbreakandoverlowingofthecomponentwhenithasaverylongstringoftest
+
+      This is a brief introduction to the form. This is a short text that goes before the form starts and may include <Link href="#">links to other sites</Link> and/or{' '} <Text type="strong">bold</Text> text.
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
+      <Paragraph>
+        This is a brief introduction to the form. This is a short text that goes before the form
+        starts and may include <Link href="#">links to other sites</Link> and/or{' '}
+        <Text type="strong">bold</Text> text.
+      </Paragraph>
+
     </Dialog>
   </StyledExample>
 ))
