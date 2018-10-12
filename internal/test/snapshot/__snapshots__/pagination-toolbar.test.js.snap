@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationToolbar renders with automation attribute 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 > * {
+  margin-right: 8px;
+}
+
+.c1 > *:last-child {
+  margin-right: 0;
+}
+
+.c1 .c2 {
+  width: 58px;
+}
+
+.c3 {
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFF;
+  border: 1px solid;
+  border-color: #CCCCCC;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: inherit;
+  color: #555;
+  padding: 10px 16px;
+  cursor: auto;
+  -webkit-transition: border-color 0.25s,box-shadow 0.25s;
+  transition: border-color 0.25s,box-shadow 0.25s;
+  height: 36px;
+}
+
+.c3:hover {
+  border-color: #B7B7B7;
+}
+
+.c3:focus {
+  border-color: #0a84ae;
+  box-shadow: 0px 0px 0 1px #0a84ae;
+  outline: none;
+}
+
+.c3::-webkit-input-placeholder {
+  color: #B2B2B2;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c4 .c6:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c4 .c6:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c4 .c6:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.c5 .c8 path {
+  fill: #555;
+}
+
+.c7 {
+  display: inline-block;
+  min-height: 34px;
+  line-height: 34px;
+  min-width: 36px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #F1F1F1;
+  border: 1px solid;
+  border-color: #F1F1F1;
+  border-radius: 3px;
+  color: #333;
+  padding: 0 0;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transition: border-color 0.25s,background 0.25s;
+  transition: border-color 0.25s,background 0.25s;
+}
+
+.c7 .c8,
+.c7 .sc-iwsKbI {
+  position: relative;
+  top: -1px;
+  margin-right: 0;
+}
+
+.c7 .c8 {
+  color: #333;
+}
+
+.c7:hover {
+  color: #333;
+  background: #E9E8E8;
+  border-color: #E9E8E8;
+}
+
+.c7:focus {
+  background: #E9E8E8;
+  border-color: #E9E8E8;
+  outline: none;
+}
+
+.c7:active {
+  background: #DADADA;
+  border-color: #DADADA;
+  outline: none;
+}
+
+.c9 {
+  display: inline-block;
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+}
+
+.c10 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  width: 16px;
+  height: 16px;
+}
+
+.c10 path {
+  fill: #333;
+}
+
+<div
+  className="c0"
+  data-cosmos-key="pagination-toolbar"
+>
+  <div
+    className="c1"
+  >
+    <div>
+      Page
+    </div>
+    <input
+      className="c2 c3"
+      data-cosmos-key="text-input"
+      onChange={[Function]}
+      readOnly={false}
+      size="compressed"
+      type="number"
+      value="3"
+    />
+    <div>
+      of 
+      2038
+    </div>
+  </div>
+  <div
+    className="c4"
+    data-cosmos-key="button-group"
+  >
+    <button
+      className="c5 c6 c7"
+      data-cosmos-key="button"
+      disabled={false}
+      icon="chevron-left"
+      onClick={[Function]}
+      size="compressed"
+    >
+      <i
+        className="c8 c9"
+        color="default"
+        name="chevron-left"
+        size={16}
+      >
+        <svg
+          className="c10"
+          color="#333"
+          height={16}
+          viewBox="0 0 20 20"
+          width={16}
+        >
+          <path
+            d="M6 9.659a.524.524 0 0 0 .152.394c.024.024.06.017.086.035l6.618 6.072a.53.53 0 0 0 .748-.749L7.331 9.657l6.274-5.755a.528.528 0 1 0-.748-.747L6.24 9.223c-.028.02-.065.013-.09.038a.522.522 0 0 0-.15.398z"
+          />
+        </svg>
+      </i>
+    </button>
+    <button
+      className="c5 c6 c7"
+      data-cosmos-key="button"
+      disabled={false}
+      icon="chevron-right"
+      onClick={[Function]}
+      size="compressed"
+    >
+      <i
+        className="c8 c9"
+        color="default"
+        name="chevron-right"
+        size={16}
+      >
+        <svg
+          className="c10"
+          color="#333"
+          height={16}
+          viewBox="0 0 20 20"
+          width={16}
+        >
+          <path
+            d="M13.76 9.659a.524.524 0 0 1-.152.394c-.024.024-.06.017-.087.035L6.903 16.16a.53.53 0 0 1-.747-.749l6.273-5.754-6.274-5.755a.528.528 0 1 1 .748-.747l6.616 6.068c.028.02.065.013.09.038.11.109.156.254.15.398z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
+</div>
+`;

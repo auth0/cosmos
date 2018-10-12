@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders with automation attribute 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c1 {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  opacity: 1;
+}
+
+.c2 {
+  padding: 8px;
+  border-bottom: 2px solid #D9D9D9;
+  text-align: left;
+  vertical-align: bottom;
+  line-height: 2;
+  cursor: auto;
+}
+
+.c2:hover {
+  color: inherit;
+}
+
+.c2:hover .sc-dUjcNx {
+  visibility: visible;
+}
+
+.c3 {
+  cursor: inherit;
+}
+
+.c3:hover {
+  background: #FAFAFA;
+}
+
+.c4 {
+  padding: 8px;
+  border-top: 1px solid #D9D9D9;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 2;
+  width: 30%;
+}
+
+<div
+  className="c0"
+>
+  <table
+    className="c1"
+    data-cosmos-key="table"
+    rows={
+      Array [
+        <styled.tr
+          data-cosmos-key="table.row"
+          onClick={null}
+        >
+          <styled.td
+            column={
+              Object {
+                "field": "name",
+                "sortable": false,
+                "title": "Name",
+                "width": "30%",
+              }
+            }
+          >
+            john
+          </styled.td>
+        </styled.tr>,
+      ]
+    }
+  >
+    <thead
+      className=""
+      data-cosmos-key="table.header"
+    >
+      <tr
+        className=""
+      >
+        <th
+          className="c2"
+          onClick={[Function]}
+        >
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+      data-cosmos-key="table.body"
+    >
+      <tr
+        className="c3"
+        data-cosmos-key="table.row"
+        onClick={null}
+      >
+        <td
+          className="c4"
+        >
+          john
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs only render one tab title as selected 1`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
+<<<<<<< HEAD
   <styled.div>
     <styled.a
       data-cosmos-key="tabs.item"
@@ -30,6 +31,34 @@ exports[`Tabs only render one tab title as selected 1`] = `
       tabIndex="0"
     />
   </styled.div>
+=======
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+  </styled.ul>
+>>>>>>> 7f2f6c1c... Update snapshots
   <styled.div
     key=".0"
     title="Title 1"
@@ -38,13 +67,14 @@ exports[`Tabs only render one tab title as selected 1`] = `
       className="content-1"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs only render one tab title as selected 2`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
+<<<<<<< HEAD
   <styled.div>
     <styled.a
       data-cosmos-key="tabs.item"
@@ -71,6 +101,34 @@ exports[`Tabs only render one tab title as selected 2`] = `
       tabIndex="0"
     />
   </styled.div>
+=======
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+  </styled.ul>
+>>>>>>> 7f2f6c1c... Update snapshots
   <styled.div
     key=".1"
     title="Title 2"
@@ -79,13 +137,14 @@ exports[`Tabs only render one tab title as selected 2`] = `
       className="content-2"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs only render one tab title as selected 3`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
+<<<<<<< HEAD
   <styled.div>
     <styled.a
       data-cosmos-key="tabs.item"
@@ -112,6 +171,34 @@ exports[`Tabs only render one tab title as selected 3`] = `
       tabIndex="0"
     />
   </styled.div>
+=======
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+  </styled.ul>
+>>>>>>> 7f2f6c1c... Update snapshots
   <styled.div
     key=".2"
     title="Title 3"
@@ -120,7 +207,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
       className="content-3"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs renders only selected tab content 1`] = `[Function]`;
