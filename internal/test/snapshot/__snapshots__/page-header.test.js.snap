@@ -19,6 +19,9 @@ exports[`PageHeader renders with automation attribute 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -46,11 +49,11 @@ exports[`PageHeader renders with automation attribute 1`] = `
   margin-bottom: 0;
 }
 
-.c5:hover .sc-bwCtUz {
+.c5:hover .sc-bsbRJL {
   border-color: transparent transparent transparent #053b4e;
 }
 
-.c5:hover .sc-hrWEMg {
+.c5:hover .sc-hZSUBg {
   color: #053b4e;
 }
 

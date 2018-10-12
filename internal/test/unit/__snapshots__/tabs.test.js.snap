@@ -1,29 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tabs only render one tab title as selected 1`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
-  <styled.div>
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="0"
-      onClick={[Function]}
-      selected={true}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="1"
-      onClick={[Function]}
-      selected={false}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="2"
-      onClick={[Function]}
-      selected={false}
-    />
-  </styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+  </styled.ul>
   <styled.div
     key=".0"
     title="Title 1"
@@ -32,33 +38,39 @@ exports[`Tabs only render one tab title as selected 1`] = `
       className="content-1"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs only render one tab title as selected 2`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
-  <styled.div>
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="0"
-      onClick={[Function]}
-      selected={false}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="1"
-      onClick={[Function]}
-      selected={true}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="2"
-      onClick={[Function]}
-      selected={false}
-    />
-  </styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+  </styled.ul>
   <styled.div
     key=".1"
     title="Title 2"
@@ -67,33 +79,39 @@ exports[`Tabs only render one tab title as selected 2`] = `
       className="content-2"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs only render one tab title as selected 3`] = `
-<styled.div
+<styled.nav
   data-cosmos-key="tabs"
 >
-  <styled.div>
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="0"
-      onClick={[Function]}
-      selected={false}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="1"
-      onClick={[Function]}
-      selected={false}
-    />
-    <styled.a
-      data-cosmos-key="tabs.item"
-      key="2"
-      onClick={[Function]}
-      selected={true}
-    />
-  </styled.div>
+  <styled.ul>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="0"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="1"
+        onClick={[Function]}
+        selected={false}
+      />
+    </styled.li>
+    <styled.li>
+      <styled.a
+        data-cosmos-key="tabs.item"
+        key="2"
+        onClick={[Function]}
+        selected={true}
+      />
+    </styled.li>
+  </styled.ul>
   <styled.div
     key=".2"
     title="Title 3"
@@ -102,7 +120,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
       className="content-3"
     />
   </styled.div>
-</styled.div>
+</styled.nav>
 `;
 
 exports[`Tabs renders only selected tab content 1`] = `[Function]`;
