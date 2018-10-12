@@ -61,9 +61,18 @@ const Dialog = props =>
       //   - focus goes to close button
       //   - add `aria-describedby="dialog-description"`
       // - With forms: focus goes to the first focusable form element (for example an input)
+
+      // 3- Esc - close the dialog
+
+      // 4- sizes ?
+
+      // sm 480px
+      // default 640px
+      // lg 800px
+
+      // 5- what happens if it has no footer or header?
       >
         <DialogClose>
-          {/* We needto make this icon better */}
           <Button
             aria-label="Close"
             size="default"
@@ -71,26 +80,28 @@ const Dialog = props =>
             icon="close"
             onClick={props.onClose}
           />
-
-          {/* <Link >
-          <Icon name="close" size={16} />
-        </Link> */}
         </DialogClose>
 
-        <DialogHeader {...Automation('dialog.title')}>
-          <DialogTitle id="dialog-title">{props.title}</DialogTitle>
-        </DialogHeader>
+        {props.title && (
+          <DialogHeader {...Automation('dialog.title')}>
+            <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+          </DialogHeader>
+        )}
 
         <DialogBody id="dialog-description" {...Automation('dialog.body')}>
           {props.children}
         </DialogBody>
 
-        <DialogFooter {...Automation('dialog.footer')}>
-          <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-        </DialogFooter>
+        {props.actions && (
+          <DialogFooter {...Automation('dialog.footer')}>
+            <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+          </DialogFooter>
+        )}
       </DialogBox>
     </Overlay>
   )
+
+const Dialog = withFocusTrap(DialogElement)
 
 const DialogBox = styled.div`
   position: relative;
@@ -168,8 +179,8 @@ Dialog.Element = DialogBox
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
-  ).isRequired,
-  title: PropTypes.string.isRequired,
+  ),
+  title: PropTypes.string,
   width: PropTypes.number,
   onClose: PropTypes.func
 }
