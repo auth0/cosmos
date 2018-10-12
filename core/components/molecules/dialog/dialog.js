@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
 import Overlay from '../../atoms/_overlay'
-import Icon from '../../atoms/icon'
-import Link from '../../atoms/link'
+// import Icon from '../../atoms/icon'
+// import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
@@ -36,61 +36,122 @@ const createButtonForAction = (action, index) => {
 
 const Dialog = props => (
   <Overlay {...props}>
-    <DialogElement width={props.width} {...Automation('dialog')}>
-      <DialogTitleBar {...Automation('dialog.title')}>
-        <span>{props.title}</span>
-        <Link onClick={props.onClose}>
+
+    {/* Can I change this name to DialogBox? */}
+    <DialogBox
+      width={props.width}
+      {...Automation('dialog')}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialog-title"
+
+      // only when it's just text
+      aria-describedby="dialog-description"
+    >
+      <DialogClose>
+
+        {/* We needto make this icon better */}
+        <Button aria-label="Close" size="default" appearance="action" icon="close" onClick={props.onClose}>
+        </Button>
+
+        {/* <Link >
           <Icon name="close" size={16} />
-        </Link>
-      </DialogTitleBar>
-      <DialogBody {...Automation('dialog.body')}>{props.children}</DialogBody>
+        </Link> */}
+      </DialogClose>
+
+      <DialogHeader {...Automation('dialog.title')}>
+        <DialogTitle id="dialog-title">
+          {props.title}
+        </DialogTitle>
+      </DialogHeader>
+
+      <DialogBody
+        id="dialog-description"
+        {...Automation('dialog.body')}>
+        {props.children}
+      </DialogBody>
+
       <DialogFooter {...Automation('dialog.footer')}>
         <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
       </DialogFooter>
-    </DialogElement>
+
+    </DialogBox>
   </Overlay>
 )
 
-const DialogElement = styled.div`
+const DialogBox = styled.div`
   position: relative;
-  overflow: hidden;
-  width: ${props => props.width}px;
-  background: ${colors.base.white};
+
+  /* Max width makes it responsive, no need for media queries */
+  max-width: ${props => props.width}px;
+  max-height: calc(100vh - ${spacing.xlarge});
+  margin-right: ${spacing.small};
+  margin-left: ${spacing.small};
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.base.white};
   border-radius: 3px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 `
 
-const DialogTitleBar = styled.div`
-  display: flex;
+const DialogClose = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
+const DialogHeader = styled.header`
   position: relative;
-  overflow: hidden;
-  padding: ${spacing.small};
-  padding-bottom: 0;
+  padding: ${spacing.small} ${spacing.large} ${spacing.xsmall} ${spacing.large};
   color: ${colors.text.default};
-  font-weight: ${fonts.weight.medium};
+  word-break: break-word;
+
+  /* Making the text center on the header is very opiniated */
   text-align: center;
-  span {
-    flex: 1;
+
+  /* Creates a small fade for the scrolling body */
+  ::after {
+    content: "";
+    position: absolute;
+    bottom: -${spacing.large} ;
+    left: 0;
+    width: 100%;
+    height: ${spacing.large};
+    background-image: linear-gradient(to bottom, white, transparent);
   }
-  & ${Icon.Element} {
-    flex: none;
-    cursor: pointer;
+
+`
+
+// The author should be able to change the header level 
+const DialogTitle = styled.h1`
+  font-weight: ${fonts.weight.medium};
   }
 `
 
 const DialogBody = styled.div`
-  padding: ${spacing.medium} ${spacing.large};
+  padding: ${spacing.small} ${spacing.medium} ${spacing.large} ${spacing.medium};
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  word-break: break-word;
+
+  /* Clears the margin of the last item of the body */
+  > * {
+    margin-bottom: 0;
+  }
 `
 
-const DialogFooter = styled.div`
+const DialogFooter = styled.footer`
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
   padding: ${spacing.small};
   border-top: 1px solid ${colors.base.grayLight};
 `
 
 Dialog.Action = DialogAction
-Dialog.Element = DialogElement
+Dialog.Element = DialogBox
 
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(

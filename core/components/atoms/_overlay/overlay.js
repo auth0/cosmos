@@ -83,8 +83,6 @@ Overlay.Backdrop = styled.div`
 `
 
 Overlay.Element = styled.div`
-  flex: none;
-  z-index: ${layers.overlay};
 `
 
 Overlay.propTypes = {
