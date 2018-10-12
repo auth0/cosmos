@@ -113,8 +113,7 @@ const DialogBox = styled.div`
 
   /* Max width makes it responsive, no need for media queries */
   /* min-width: ${props => props.width}px; */
-  max-width: ${props =>
-    console.log({ ahre: getSizeForDialog(props.width) }) || getSizeForDialog(props.width)};
+  max-width: ${props => getSizeForDialog(props.width)};
   max-height: calc(100vh - ${spacing.xlarge});
   margin-right: ${spacing.small};
   margin-left: ${spacing.small};
