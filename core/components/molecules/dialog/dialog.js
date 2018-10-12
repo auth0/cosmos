@@ -5,11 +5,11 @@ import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
 import Tabs from '../../molecules/tabs'
 import Overlay from '../../atoms/_overlay'
-// import Icon from '../../atoms/icon'
-// import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+
+import FocusTrap from 'react-focus-trap'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -35,57 +35,62 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-const Dialog = props => (
-  <Overlay {...props}>
+// TODO: move this to a helper
+const withFocusTrap = Element => props => (
+  <FocusTrap active={open} onExit={onClose}>
+    <Element {...props} />
+  </FocusTrap>
+)
 
-    {/* Can I change this name to DialogBox? */}
-    <DialogBox
-      width={props.width}
-      {...Automation('dialog')}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="dialog-title"
+const Dialog = props =>
+  withFocusTrap(
+    <Overlay {...props}>
+      {/* Can I change this name to DialogBox? */}
+      <DialogBox
+        width={props.width}
+        {...Automation('dialog')}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
 
-    // 1- Add focus trap
-    //
-    // 2- Dialog types:
-    // - Default: focus goes to the main action 
-    // - Irreversibel (aka destructive): 
-    //   - focus goes to close button
-    //   - add `aria-describedby="dialog-description"`
-    // - With forms: focus goes to the first focusable form element (for example an input)
+        // 1- Add focus trap
+        //
+        // 2- Dialog types:
+        // - Default: focus goes to the main action
+        // - Irreversibel (aka destructive):
+        //   - focus goes to close button
+        //   - add `aria-describedby="dialog-description"`
+        // - With forms: focus goes to the first focusable form element (for example an input)
+      >
+        <DialogClose>
+          {/* We needto make this icon better */}
+          <Button
+            aria-label="Close"
+            size="default"
+            appearance="action"
+            icon="close"
+            onClick={props.onClose}
+          />
 
-    >
-      <DialogClose>
-
-        {/* We needto make this icon better */}
-        <Button aria-label="Close" size="default" appearance="action" icon="close" onClick={props.onClose}>
-        </Button>
-
-        {/* <Link >
+          {/* <Link >
           <Icon name="close" size={16} />
         </Link> */}
-      </DialogClose>
+        </DialogClose>
 
-      <DialogHeader {...Automation('dialog.title')}>
-        <DialogTitle id="dialog-title">
-          {props.title}
-        </DialogTitle>
-      </DialogHeader>
+        <DialogHeader {...Automation('dialog.title')}>
+          <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+        </DialogHeader>
 
-      <DialogBody
-        id="dialog-description"
-        {...Automation('dialog.body')}>
-        {props.children}
-      </DialogBody>
+        <DialogBody id="dialog-description" {...Automation('dialog.body')}>
+          {props.children}
+        </DialogBody>
 
-      <DialogFooter {...Automation('dialog.footer')}>
-        <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-      </DialogFooter>
-
-    </DialogBox>
-  </Overlay>
-)
+        <DialogFooter {...Automation('dialog.footer')}>
+          <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+        </DialogFooter>
+      </DialogBox>
+    </Overlay>
+  )
 
 const DialogBox = styled.div`
   position: relative;
@@ -120,7 +125,7 @@ const DialogHeader = styled.header`
 
   /* Creates a small fade for the scrolling body */
   ::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -${spacing.large};
     left: 0;
@@ -128,10 +133,9 @@ const DialogHeader = styled.header`
     height: ${spacing.large};
     background-image: linear-gradient(to bottom, white, transparent);
   }
-
 `
 
-// The author should be able to change the header level 
+// The author should be able to change the header level
 const DialogTitle = styled.h1`
   font-weight: ${fonts.weight.medium};
   }
