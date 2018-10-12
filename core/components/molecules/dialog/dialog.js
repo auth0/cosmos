@@ -82,17 +82,21 @@ const DialogElement = props => (
         />
       </DialogClose>
 
-      <DialogHeader {...Automation('dialog.title')}>
-        <DialogTitle id="dialog-title">{props.title}</DialogTitle>
-      </DialogHeader>
+      {props.title && (
+        <DialogHeader {...Automation('dialog.title')}>
+          <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+        </DialogHeader>
+      )}
 
       <DialogBody id="dialog-description" {...Automation('dialog.body')}>
         {props.children}
       </DialogBody>
 
-      <DialogFooter {...Automation('dialog.footer')}>
-        <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-      </DialogFooter>
+      {props.actions && (
+        <DialogFooter {...Automation('dialog.footer')}>
+          <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+        </DialogFooter>
+      )}
     </DialogBox>
   </Overlay>
 )
@@ -178,8 +182,8 @@ Dialog.Element = DialogBox
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
-  ).isRequired,
-  title: PropTypes.string.isRequired,
+  ),
+  title: PropTypes.string,
   width: PropTypes.number,
   onClose: PropTypes.func
 }
