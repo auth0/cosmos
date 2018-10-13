@@ -57,26 +57,26 @@ const Dialog = props => (
         aria-modal="true"
         aria-labelledby="dialog-title"
 
-        // 1- Add focus trap
-        //
-        // 2- Dialog types:
-        // - Default: focus goes to the main action
+      // 1- Add focus trap
+      //
+      // 2- Dialog types:
+      // - Default: focus goes to the main action
 
-        // - flag Irreversibel (aka destructive):
-        //   - focus goes to close button
-        //   - add `aria-describedby="dialog-description"`
+      // - flag Irreversibel (aka destructive):
+      //   - focus goes to close button
+      //   - add `aria-describedby="dialog-description"`
 
-        // - With forms: focus goes to the first focusable form element (for example an input)
+      // - With forms: focus goes to the first focusable form element (for example an input)
 
-        // 3- Esc - close the dialog
+      // 3- Esc - close the dialog
 
-        // 4- sizes ?
+      // 4- sizes ?
 
-        // sm 480px
-        // default 640px
-        // lg 800px
+      // sm 480px
+      // default 640px
+      // lg 800px
 
-        // 5- what happens if it has no footer or header?
+      // 5- what happens if it has no footer or header?
       >
         <DialogClose>
           <Button

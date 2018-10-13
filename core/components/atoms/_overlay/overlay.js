@@ -60,9 +60,10 @@ class Overlay extends React.Component {
     if (open) {
       content = (
         <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-          <Overlay.Element innerRef={el => (this.contentElement = el)}>
-            {children}
-          </Overlay.Element>
+          {children}
+          {/* <Overlay.Element innerRef={el => (this.contentElement = el)}>
+            
+          </Overlay.Element> */}
         </Overlay.Backdrop>
       )
     }
