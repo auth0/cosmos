@@ -118,3 +118,17 @@ Lastly, you can display an avatar with an SVG as the image:
   size="large"
 />
 ```
+
+## Gravatar images and initials
+
+You may use user's email to fetch it's default gravatar image on its initials from the Auth0 CDN. Try changing one of the `example@auth0.com` emails below to your Gravatar email.
+
+```js
+<Stack>
+  <Avatar size="xsmall" email="example@auth0.com" initials="AB" />
+  <Avatar size="small" email="example@auth0.com" initials="CD" />
+  <Avatar size="medium" email="example@auth0.com" initials="EF" />
+  <Avatar size="large" email="example@auth0.com" initials="GH" />
+  <Avatar size="xlarge" email="example@auth0.com" initials="IJ" />
+</Stack>
+```
