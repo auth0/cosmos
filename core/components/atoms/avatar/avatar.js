@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Image } from '@auth0/cosmos'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
+import getUserAvatarUrl from '../../_helpers/avatar-url'
 
 import EmptyUser from './assets/EmptyUser'
 
@@ -44,7 +45,8 @@ const StyledAvatar = styled.span`
 
 const getImageForAvatar = props => {
   if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
-  if (typeof props.image === 'string') return <Image source={props.image} />
+  if (typeof props.image === 'string' || (props.email && props.initials))
+    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
   if (!props.image && props.type === 'user') return <EmptyUser width={misc.avatar[props.size]} />
 
   return props.image
@@ -68,7 +70,11 @@ Avatar.propTypes = {
   /** The size of the avatar. */
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
   /** The type of item represented by the avatar. */
-  type: PropTypes.oneOf(['user', 'resource']).isRequired
+  type: PropTypes.oneOf(['user', 'resource']).isRequired,
+  /** Initials of the user */
+  initials: PropTypes.string,
+  /** E-mail of the user */
+  email: PropTypes.string
 }
 
 Avatar.defaultProps = {
