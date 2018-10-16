@@ -20,12 +20,13 @@ export const TabListItem = styled.li`
   }
 `
 
-export const TabLink = styled.a`
+export const TabLink = styled.button`
   display: block;
-  padding-top: ${spacing.small};
-  padding-bottom: ${spacing.small};
+  padding: ${spacing.small} 0;
   color: ${props => (props.selected ? colors.text.default : colors.link.default)};
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
+  border: none;
+  background-color: transparent;
   border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
   /* background-image: linear-gradient(to top, ${props => (props.selected ? colors.base.text : 'transparent')} 1px, transparent 1px); */
   
@@ -97,12 +98,15 @@ class Tabs extends React.Component {
       <TabNav {...Automation('tabs')}>
         <TabList role="tablist">
           {this.tabs.map((tab, index) => (
-            <TabListItem role="tab">
+            <TabListItem>
               <TabLink
                 {...Automation('tabs.item')}
                 onClick={() => this.changeTab(index)}
                 key={index}
                 selected={selectedIndex === index}
+                aria-selected="false"
+                tabindex="-1"
+                role="tab"
               >
                 {tab.props.label}
               </TabLink>
