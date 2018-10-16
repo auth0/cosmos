@@ -44,8 +44,6 @@ const focusOnFormInput = ({ current }) => {
   if (!firstInput) return
 
   firstInput.focus()
-
-  console.log({ form, firstInput })
 }
 
 const roleDependantProp = (props, requiredRole, propObject) =>
