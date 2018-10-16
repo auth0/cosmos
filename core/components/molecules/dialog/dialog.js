@@ -3,18 +3,11 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
-import Overlay from '../../atoms/_overlay'
+import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
-
 import FocusTrap from 'react-focus-lock'
-
-const dialogSizes = {
-  small: '480px',
-  medium: '640px',
-  large: '800px'
-}
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -40,14 +33,8 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-const getSizeForDialog = propValue => {
-  if (typeof propValue === 'number') return `${propValue}px`
-
-  return dialogSizes[propValue]
-}
-
 const Dialog = props => (
-  <Overlay {...props}>
+  <Overlay contentSize={props.width} {...props}>
     <FocusTrap persistentFocus={props.open} onExit={props.onClose}>
       <DialogBox
         width={props.width}
@@ -110,7 +97,7 @@ const Dialog = props => (
 const DialogBox = styled.div`
   position: relative;
   /* Max width makes it responsive, no need for media queries */
-  /* max-width: ${props => getSizeForDialog(props.width)}; */
+
   max-height: calc(100vh - ${spacing.xlarge});
   display: flex;
   flex-direction: column;
@@ -175,13 +162,13 @@ const DialogFooter = styled.footer`
 
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
-
+console.log({ overlayContentSizes })
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
   title: PropTypes.string,
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(dialogSizes))]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
   onClose: PropTypes.func
 }
 

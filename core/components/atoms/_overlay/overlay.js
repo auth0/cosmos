@@ -14,12 +14,24 @@ const keyCodes = {
   escape: 27
 }
 
+export const overlayContentSizes = {
+  small: '480px',
+  medium: '640px',
+  large: '800px'
+}
+
 class Overlay extends React.Component {
   constructor(props) {
     super(props)
     this.state = { hasBeenMounted: false }
     this.mountElement = document.createElement('div')
     this.contentElement = null
+  }
+
+  static getSizeForOverlay(propValue) {
+    if (typeof propValue === 'number') return `${propValue}px`
+
+    return overlayContentSizes[propValue]
   }
 
   componentDidMount() {
@@ -53,7 +65,7 @@ class Overlay extends React.Component {
   }
 
   render() {
-    const { open, children } = this.props
+    const { open, children, contentSize } = this.props
 
     if (!this.state.hasBeenMounted) return null
 
@@ -61,7 +73,7 @@ class Overlay extends React.Component {
     if (open) {
       content = (
         <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-          <Overlay.Element innerRef={el => (this.contentElement = el)}>
+          <Overlay.Element contentSize={contentSize} innerRef={el => (this.contentElement = el)}>
             {children}
           </Overlay.Element>
         </Overlay.Backdrop>
@@ -91,14 +103,18 @@ Overlay.Element = styled.div`
   margin-left: ${spacing.small};
 
   /* Since the focus trap is adding divs around the dialog box, the max width prop should be here */
-  max-width: 600px;
+  max-width: ${props => Overlay.getSizeForOverlay(props.contentSize)};
 `
 
 Overlay.propTypes = {
   closeOnBackdropClick: PropTypes.bool.isRequired,
   closeOnEscape: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool.isRequired,
+  contentSize: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(Object.keys(overlayContentSizes))
+  ])
 }
 
 Overlay.defaultProps = {
