@@ -119,7 +119,7 @@ class CreateApplicationDialog extends React.Component {
               <ApplicationType
                 image={ApplicationTypeImages.native}
                 name="Native App"
-                description="Mobile or Desktop, an app that run natively in a device."
+                description="Mobile or Desktop, an app that runs natively in a device."
                 example="iOS SDK"
                 onClick={this.setValue('type', 'native')}
                 selected={type === 'native'}
