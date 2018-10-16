@@ -4898,6 +4898,11 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
+focus-lock@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/focus-lock/-/focus-lock-0.4.2.tgz#3e91141ac911352d4831215fba300d02b9faa6b4"
+  integrity sha512-jqjj49iZEVT/X8yidEMmP8oWmDKJlJy/um7OyYP42CZ0y4icCp6Fm2lTkZVcFVpt4mZ/hPtbs9ikqId7YhUelw==
+
 follow-redirects@^1.0.0, follow-redirects@^1.2.5:
   version "1.5.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.5.0.tgz#234f49cf770b7f35b40e790f636ceba0c3a0ab77"
@@ -9321,6 +9326,13 @@ react-chromatic@0.8.4:
     node-ask "^1.0.1"
     tree-kill "^1.1.0"
 
+react-clientside-effect@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.0.0.tgz#81c4f91bd4ec0f8792ba76fe29c1d09e37fff062"
+  integrity sha512-XYOjooNlAEos60o4ha9zDb1R9h3LMJUdXJOjFH6fNUwFxXu2k+Wq4Cd0JWmurgeY0DWTzGvpNJ0cY6eHyfhL1Q==
+  dependencies:
+    shallowequal "^1.1.0"
+
 react-dev-utils@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-5.0.1.tgz#1f396e161fe44b595db1b186a40067289bf06613"
@@ -9417,12 +9429,14 @@ react-error-overlay@^4.0.0:
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
   integrity sha512-FlsPxavEyMuR6TjVbSSywovXSEyOg6ZDj5+Z8nbsRl9EkOzAhEIcS+GLoQDC5fz/t9suhUXWmUrOBrgeUvrMxw==
 
-react-focus-trap@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/react-focus-trap/-/react-focus-trap-2.6.0.tgz#2b4f787b16a247c202beea5848ab9b3bfeda7fab"
-  integrity sha512-LV+WOX6Rlfa7eZR3pIOrP9hjNm5iE6+eTtnpWnrLepuX2kEFrBpSDsz5DDAlUgYe2iUgxbO4xiQDPGo14tejSQ==
+react-focus-lock@^1.14.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-1.14.1.tgz#58a259443a03fcca6817cb05b8239d6aa756e1ac"
+  integrity sha512-hcZ/ZxLiQyVsUFzTVB692xQy7BKgs/XksDC4rw6Z9vDE/joXADWTLZ5jHt8FNixnClOM6882b6iKXH14fnAWzQ==
   dependencies:
-    babel-preset-react "^6.24.1"
+    focus-lock "^0.4.2"
+    prop-types "^15.6.2"
+    react-clientside-effect "^1.0.0"
 
 react-fuzzy@^0.5.2:
   version "0.5.2"
@@ -10366,7 +10380,7 @@ shallowequal@^0.2.2:
   dependencies:
     lodash.keys "^3.1.2"
 
-shallowequal@^1.0.1, shallowequal@^1.0.2:
+shallowequal@^1.0.1, shallowequal@^1.0.2, shallowequal@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
