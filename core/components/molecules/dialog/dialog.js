@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
+import Heading from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
 import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
@@ -76,7 +77,9 @@ const Dialog = props => (
 
         {props.title && (
           <DialogHeader {...Automation('dialog.title')}>
-            <DialogTitle id="dialog-title">{props.title}</DialogTitle>
+            <DialogTitle size={props.titleElement} id="dialog-title">
+              {props.title}
+            </DialogTitle>
           </DialogHeader>
         )}
 
@@ -133,9 +136,10 @@ const DialogHeader = styled.header`
   }
 `
 
-// The author should be able to change the header level
-const DialogTitle = styled.h1`
+const DialogTitle = styled(Heading)`
   font-weight: ${fonts.weight.medium};
+  font-size: 1em;
+  margin: 0;
 `
 
 const DialogBody = styled.div`
@@ -162,18 +166,19 @@ const DialogFooter = styled.footer`
 
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
-console.log({ overlayContentSizes })
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
   title: PropTypes.string,
+  titleElement: PropTypes.oneOf([1, 2, 3, 4]),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
   onClose: PropTypes.func
 }
 
 Dialog.defaultProps = {
-  width: 'medium'
+  width: 'medium',
+  titleElement: 2
 }
 
 export default Dialog
