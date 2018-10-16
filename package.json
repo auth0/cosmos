@@ -6,6 +6,7 @@
   "workspaces": [
     "core/components",
     "core/tokens",
+    "core/cosmos-fonts",
     "core/babel-preset",
     "core/codemods",
     "core/engine",

@@ -1,0 +1,10 @@
+{
+  "name": "@auth0/cosmos-fonts",
+  "version": "0.0.1",
+  "description": "font loader for cosmos",
+  "main": "index.js",
+  "author": "auth0",
+  "peerDependencies": {
+    "@auth0/cosmos-tokens": ">=0.0.3"
+  }
+}

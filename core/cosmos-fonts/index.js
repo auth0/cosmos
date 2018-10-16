@@ -1,11 +1,22 @@
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
+import { fonts, misc } from '@auth0/cosmos-tokens'
+
+const insertAtTheStart = styles => {
+  let tag = document.getElementById('cosmos-fonts')
+
+  if (tag) {
+    tag.innerHTML = styles
+  } else {
+    tag = document.createElement('style')
+    tag.type = 'text/css'
+    tag.id = 'cosmos-globals'
+    tag.innerHTML = styles
+
+    const head = document.getElementsByTagName('head')[0]
+    head.insertBefore(tag, document.getElementsByTagName('link')[0])
   }
+}
 
-  /* copied from @auth0/cosmos-fonts */
-
+insertAtTheStart(`
   @font-face {
     font-family: fakt-web;
     src: url('https://cdn.auth0.com/styleguide/core/2.0.4/fonts/fakt/FaktPro-Normal.woff2')
@@ -47,5 +58,4 @@
     src: local('Roboto Mono'), local('RobotoMono-Regular'), url('https://fonts.gstatic.com/s/robotomono/v5/hMqPNLsu_dywMa4C_DEpY4gp9Q8gbYrhqGlRav_IXfk.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
   }
-}
-</style>
+`)
