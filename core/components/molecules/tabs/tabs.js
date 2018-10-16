@@ -9,32 +9,37 @@ const TabNav = styled.nav`
   `
 
 export const TabList = styled.ul`
-  border-bottom: 1px solid ${colors.base.grayLight};
+  /* border-bottom: 1px solid ${colors.base.grayLight}; */
+  background-image: linear-gradient(to top, ${colors.base.grayLight} 1px, transparent 1px);
   display: flex;
-  ${TabLink}:last-child {
-    margin-right: 0;
-  }
 `
 
 export const TabListItem = styled.li`
+  :not(:last-of-type) {
+    margin-right: ${spacing.large};
+  }
 `
+
 export const TabLink = styled.a`
   display: block;
-  padding: ${spacing.small} 0;
-  margin-right: ${spacing.large};
-  color: ${colors.link.default};
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
+  padding-top: ${spacing.small};
+  padding-bottom: ${spacing.small};
+  color: ${props => (props.selected ? colors.text.default : colors.link.default)};
+  cursor: ${props => (props.selected ? 'default' : 'pointer')};
+  border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
+  /* background-image: linear-gradient(to top, ${props => (props.selected ? colors.base.text : 'transparent')} 1px, transparent 1px); */
+  
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
 `
 
-
-
 const TabContent = styled.div`
   padding-top: ${spacing.large};
+  padding-bottom: ${spacing.large};
+  > * {
+    margin-bottom: 0;
+  }
 `
 
 /* Used to keep selected tab on uncontrolled Tabs instances */
@@ -96,9 +101,9 @@ class Tabs extends React.Component {
 
     return (
       <TabNav {...Automation('tabs')}>
-        <TabList>
+        <TabList role="tablist">
           {this.tabs.map((tab, index) => (
-            <TabListItem>
+            <TabListItem role="tab">
               <TabLink
                 {...Automation('tabs.item')}
                 onClick={() => this.changeTab(index)}

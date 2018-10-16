@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { spacing } from '@auth0/cosmos-tokens'
 
 // TODO: create tokens?
 const layers = {
@@ -60,10 +61,9 @@ class Overlay extends React.Component {
     if (open) {
       content = (
         <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-          {children}
-          {/* <Overlay.Element innerRef={el => (this.contentElement = el)}>
-            
-          </Overlay.Element> */}
+          <Overlay.Element innerRef={el => (this.contentElement = el)}>
+            {children}
+          </Overlay.Element>
         </Overlay.Backdrop>
       )
     }
@@ -86,7 +86,12 @@ Overlay.Backdrop = styled.div`
 `
 
 Overlay.Element = styled.div`
-/* width: 100%; */
+  width: 100%;
+  margin-right: ${spacing.small};
+  margin-left: ${spacing.small};
+
+  /* Since the focus trap is adding divs around the dialog box, the max width prop should be here */
+  max-width: 600px;
 `
 
 Overlay.propTypes = {

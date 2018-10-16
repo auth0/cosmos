@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
-import Tabs from '../../molecules/tabs'
 import Overlay from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
@@ -110,13 +109,9 @@ const Dialog = props => (
 
 const DialogBox = styled.div`
   position: relative;
-
   /* Max width makes it responsive, no need for media queries */
-  /* min-width: ${props => props.width}px; */
-  max-width: ${props => getSizeForDialog(props.width)};
+  /* max-width: ${props => getSizeForDialog(props.width)}; */
   max-height: calc(100vh - ${spacing.xlarge});
-  margin-right: ${spacing.small};
-  margin-left: ${spacing.small};
   display: flex;
   flex-direction: column;
   background-color: ${colors.base.white};
