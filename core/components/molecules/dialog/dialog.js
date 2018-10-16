@@ -37,7 +37,7 @@ const createButtonForAction = (action, index) => {
 
 const focusOnFormInput = ({ current }) => {
   const node = ReactDOM.findDOMNode(current)
-  const form = node.children[0]
+  const form = node.querySelector('form')
   if (!form) return
 
   const firstInput = form.querySelector('input')
