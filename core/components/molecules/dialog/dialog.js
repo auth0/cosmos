@@ -40,7 +40,7 @@ const focusOnFormInput = ({ current }) => {
   const form = node.children[0]
   if (!form) return
 
-  const firstInput = form[0]
+  const firstInput = form.querySelector('input')
   if (!firstInput) return
 
   firstInput.focus()
