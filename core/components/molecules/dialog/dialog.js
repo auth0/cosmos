@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
@@ -34,68 +35,107 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-const Dialog = props => (
-  <Overlay contentSize={props.width} {...props}>
-    <FocusTrap persistentFocus={props.open} onExit={props.onClose}>
-      <DialogBox
-        width={props.width}
-        {...Automation('dialog')}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="dialog-title"
+const focusOnFormInput = ({ current }) => {
+  const node = ReactDOM.findDOMNode(current)
+  const form = node.children[0]
+  if (!form) return
 
-        // 1- Add focus trap
-        //
-        // 2- Dialog types:
-        // - Default: focus goes to the main action
+  const firstInput = form[0]
+  if (!firstInput) return
 
-        // - flag Irreversibel (aka destructive):
-        //   - focus goes to close button
-        //   - add `aria-describedby="dialog-description"`
+  firstInput.focus()
 
-        // - With forms: focus goes to the first focusable form element (for example an input)
+  console.log({ form, firstInput })
+}
 
-        // 3- Esc - close the dialog
+const roleDependantProp = (props, requiredRole, propObject) =>
+  props.role === requiredRole ? propObject : {}
 
-        // 4- sizes ?
+class Dialog extends React.Component {
+  constructor(props) {
+    super(props)
+    this.childrenRef = React.createRef()
+  }
 
-        // sm 480px
-        // default 640px
-        // lg 800px
+  componentDidMount() {
+    if (this.props.role === 'form') {
+      setTimeout(() => focusOnFormInput(this.childrenRef), 0)
+    }
+  }
 
-        // 5- what happens if it has no footer or header?
-      >
-        <DialogClose>
-          <Button
-            aria-label="Close"
-            size="default"
-            appearance="action"
-            icon="close"
-            onClick={props.onClose}
-          />
-        </DialogClose>
+  render() {
+    const props = this.props
+    return (
+      <Overlay contentSize={props.width} {...props}>
+        <FocusTrap persistentFocus={props.open} onExit={props.onClose}>
+          <DialogBox
+            width={props.width}
+            {...Automation('dialog')}
+            {...roleDependantProp(props, 'destructive', {
+              'aria-describedby': 'dialog-description'
+            })}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
 
-        {props.title && (
-          <DialogHeader {...Automation('dialog.title')}>
-            <DialogTitle size={props.titleElement} id="dialog-title">
-              {props.title}
-            </DialogTitle>
-          </DialogHeader>
-        )}
+            // 1- Add focus trap
+            //
+            // 2- Dialog types:
+            // - Default: focus goes to the main action
 
-        <DialogBody id="dialog-description" {...Automation('dialog.body')}>
-          {props.children}
-        </DialogBody>
+            // - flag Irreversibel (aka destructive):
+            //   - focus goes to close button
+            //   - add `aria-describedby="dialog-description"`
 
-        {props.actions && (
-          <DialogFooter {...Automation('dialog.footer')}>
-            <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-          </DialogFooter>
-        )}
-      </DialogBox>
-    </FocusTrap>
-  </Overlay>
-)
+            // - With forms: focus goes to the first focusable form element (for example an input)
+
+            // 3- Esc - close the dialog
+
+            // 4- sizes ?
+
+            // sm 480px
+            // default 640px
+            // lg 800px
+
+            // 5- what happens if it has no footer or header?
+          >
+            <DialogClose>
+              <Button
+                aria-label="Close"
+                size="default"
+                appearance="action"
+                icon="close"
+                onClick={props.onClose}
+              />
+            </DialogClose>
+
+            {props.title && (
+              <DialogHeader {...Automation('dialog.title')}>
+                <DialogTitle size={props.titleElement} id="dialog-title">
+                  {props.title}
+                </DialogTitle>
+              </DialogHeader>
+            )}
+
+            <DialogBody
+              ref={this.childrenRef}
+              id="dialog-description"
+              {...Automation('dialog.body')}
+            >
+              {props.children}
+            </DialogBody>
+
+            {props.actions && (
+              <DialogFooter {...Automation('dialog.footer')}>
+                <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+              </DialogFooter>
+            )}
+          </DialogBox>
+        </FocusTrap>
+      </Overlay>
+    )
+  }
+}
 
 const DialogBox = styled.div`
   position: relative;
@@ -173,7 +213,8 @@ Dialog.propTypes = {
   title: PropTypes.string,
   titleElement: PropTypes.oneOf([1, 2, 3, 4]),
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  role: PropTypes.oneOf(['form', 'destructive'])
 }
 
 Dialog.defaultProps = {
