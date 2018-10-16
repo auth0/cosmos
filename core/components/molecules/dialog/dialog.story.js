@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Tabs, Paragraph, Text } from '@auth0/cosmos'
+import { Dialog, Form, Link, Tabs, Paragraph, Text, Button } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -39,6 +39,7 @@ storiesOf('Dialog').add('with primary button only', () => (
 
 storiesOf('Dialog').add('with secondary button only', () => (
   <StyledExample title="with secondary button only">
+    <Button>test</Button>
     <Dialog
       open
       title="Example Dialog"
@@ -47,6 +48,7 @@ storiesOf('Dialog').add('with secondary button only', () => (
     >
       Are you sure?
     </Dialog>
+    <Button>test</Button>
   </StyledExample>
 ))
 
