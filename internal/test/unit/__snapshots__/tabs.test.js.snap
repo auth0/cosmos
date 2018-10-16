@@ -5,6 +5,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
   data-cosmos-key="tabs"
 >
 <<<<<<< HEAD
+<<<<<<< HEAD
   <styled.div>
     <styled.a
       data-cosmos-key="tabs.item"
@@ -33,28 +34,42 @@ exports[`Tabs only render one tab title as selected 1`] = `
   </styled.div>
 =======
   <styled.ul>
+=======
+  <styled.ul
+    role="tablist"
+  >
+>>>>>>> 1150e8c8... Update snapshots
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="0"
         onClick={[Function]}
+        role="tab"
         selected={true}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="1"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="2"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
   </styled.ul>
@@ -75,6 +90,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
   data-cosmos-key="tabs"
 >
 <<<<<<< HEAD
+<<<<<<< HEAD
   <styled.div>
     <styled.a
       data-cosmos-key="tabs.item"
@@ -103,28 +119,42 @@ exports[`Tabs only render one tab title as selected 2`] = `
   </styled.div>
 =======
   <styled.ul>
+=======
+  <styled.ul
+    role="tablist"
+  >
+>>>>>>> 1150e8c8... Update snapshots
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="0"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="1"
         onClick={[Function]}
+        role="tab"
         selected={true}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="2"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
   </styled.ul>
@@ -144,6 +174,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
 <styled.nav
   data-cosmos-key="tabs"
 >
+<<<<<<< HEAD
 <<<<<<< HEAD
   <styled.div>
     <styled.a
@@ -173,28 +204,42 @@ exports[`Tabs only render one tab title as selected 3`] = `
   </styled.div>
 =======
   <styled.ul>
+=======
+  <styled.ul
+    role="tablist"
+  >
+>>>>>>> 1150e8c8... Update snapshots
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="0"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="1"
         onClick={[Function]}
+        role="tab"
         selected={false}
+        tabindex="-1"
       />
     </styled.li>
     <styled.li>
-      <styled.a
+      <styled.button
+        aria-selected="false"
         data-cosmos-key="tabs.item"
         key="2"
         onClick={[Function]}
+        role="tab"
         selected={true}
+        tabindex="-1"
       />
     </styled.li>
   </styled.ul>
