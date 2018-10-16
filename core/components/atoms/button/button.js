@@ -261,13 +261,11 @@ Button.Element = styled.button`
   &:focus {
     background: ${props => getAttributes(props).focusBackground};
     border-color: ${props => getAttributes(props).focusBorder};
-    outline: none;
   }
 
   &:active {
     background: ${props => getAttributes(props).activeBackground};
     border-color: ${props => getAttributes(props).activeBorder};
-    outline: none;
   }
 `
 
