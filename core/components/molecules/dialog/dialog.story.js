@@ -13,6 +13,7 @@ storiesOf('Dialog').add('default', () => (
     <Dialog
       open
       title="Example Dialog"
+      role="destructive"
       onClose={() => {}}
       actions={[
         new Dialog.Action('OK', () => {}, 'primary'),
@@ -57,6 +58,7 @@ storiesOf('Dialog').add('with form', () => (
     <Dialog
       open
       title="Example Dialog"
+      role="form"
       onClose={() => {}}
       actions={[
         new Dialog.Action('OK', () => {}, 'primary'),
