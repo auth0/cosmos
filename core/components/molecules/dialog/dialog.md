@@ -82,10 +82,6 @@ class DialogContainer extends React.Component {
 }
 ```
 
-## Input dialog
-
-Here goes a react description on how to make the submit btn work even though it's not part of the form.
-
 ## Usage
 
 As a general rule, try to avoid using dialogs: They are disruptive, invasive, and interrupt the user's flow.
@@ -102,6 +98,13 @@ Try to avoid dialogs for:
 - **Input:** Dialogs that include forms.
 
 When you see the need to create a dialog, ask yourself if this interaction must completly stop the user's flow. If the answer is no, then consider other options to display the information.
+
+## Examples
+
+- Default passive modal
+- Transactional modal
+- Modal with form
+- Modal with tabs
 
 ## Accecibility
 

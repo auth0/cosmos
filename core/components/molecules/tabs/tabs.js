@@ -5,7 +5,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 
-const TabNav = styled.nav`
+export const TabNav = styled.nav`
   `
 
 export const TabList = styled.ul`
