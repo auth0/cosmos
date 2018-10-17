@@ -91,7 +91,7 @@ Overlay.Backdrop = styled.div`
   bottom: 0;
   right: 0;
   z-index: ${layers.overlayBackdrop};
-  background: rgba(0, 0, 0, 0.7);
+  background: hsla(0,12%,95%,.95);
   display: flex;
   justify-content: center;
 `
