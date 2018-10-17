@@ -10,6 +10,7 @@ import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import FocusTrap from 'react-focus-lock'
+import { TabList } from '../../molecules/tabs'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -75,27 +76,6 @@ class Dialog extends React.Component {
             role="dialog"
             aria-modal="true"
             aria-labelledby="dialog-title"
-
-            // 1- Add focus trap
-            //
-            // 2- Dialog types:
-            // - Default: focus goes to the main action
-
-            // - flag Irreversibel (aka destructive):
-            //   - focus goes to close button
-            //   - add `aria-describedby="dialog-description"`
-
-            // - With forms: focus goes to the first focusable form element (for example an input)
-
-            // 3- Esc - close the dialog
-
-            // 4- sizes ?
-
-            // sm 480px
-            // default 640px
-            // lg 800px
-
-            // 5- what happens if it has no footer or header?
           >
             <DialogClose>
               <Button
@@ -137,9 +117,7 @@ class Dialog extends React.Component {
 
 const DialogBox = styled.div`
   position: relative;
-  /* Max width makes it responsive, no need for media queries */
-
-  max-height: calc(100vh - ${spacing.xlarge});
+  max-height: calc(100vh - (${spacing.xlarge} * 2));
   display: flex;
   flex-direction: column;
   background-color: ${colors.base.white};
@@ -158,20 +136,9 @@ const DialogHeader = styled.header`
   padding: ${spacing.small} ${spacing.large} ${spacing.xsmall} ${spacing.large};
   color: ${colors.text.default};
   word-break: break-word;
-
-  /* Making the text center on the header is very opiniated */
+  white-space: pre-wrap;
+  word-wrap: break-word;
   text-align: center;
-
-  /* Creates a small fade for the scrolling body */
-  ::after {
-    content: '';
-    position: absolute;
-    bottom: -${spacing.large};
-    left: 0;
-    width: 100%;
-    height: ${spacing.large};
-    background-image: linear-gradient(to bottom, white, transparent);
-  }
 `
 
 const DialogTitle = styled(Heading)`
@@ -187,10 +154,19 @@ const DialogBody = styled.div`
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   word-break: break-word;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
 
   /* Clears the margin of the last item of the body */
   > * {
     margin-bottom: 0;
+  }
+
+  ${TabList} {
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
   }
 `
 
