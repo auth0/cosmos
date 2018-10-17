@@ -34,12 +34,6 @@ const items = [
   }
 ]
 
-const columns = (<div>
-  <Table.Column field="name" title="Name" />
-  <Table.Column field="born" title="Born" />
-  <Table.Column field="died" title="Died" />
-</div>)
-
 storiesOf('Table').add('default', () => (
   <Example title="default">
     <Table items={items}>
@@ -50,13 +44,22 @@ storiesOf('Table').add('default', () => (
   </Example>
 ))
 
-storiesOf('Table').add('column as variable', () => (
-  <Example title="default">
-    <Table items={items}>
-      {columns}
-    </Table>
-  </Example>
-))
+storiesOf('Table').add('column as variable', () => {
+  const columns = (
+    <React.Fragment>
+      <Table.Column field="name" title="Name" />
+      <Table.Column field="born" title="Born" />
+      <Table.Column field="died" title="Died" />
+    </React.Fragment>
+  )
+
+  return (
+    <Example title="default">
+      <Table items={items}>{columns}</Table>
+    </Example>
+  )
+})
+
 storiesOf('Table').add('explicit widths', () => (
   <Example title="default">
     <Table items={items}>
@@ -151,7 +154,7 @@ storiesOf('Table').add('with no items', () => (
           action={{
             icon: 'plus',
             label: 'Create one manually',
-            handler: function () {
+            handler: function() {
               /*...*/
             }
           }}
