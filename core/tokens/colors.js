@@ -98,7 +98,7 @@ const colors = {
       backgroundActive: '#DADADA',
       text: '#333',
       icon: 'default',
-      border: '#D0D2D3',
+      border: '#696969',
       borderHover: '#B5B7B8',
       borderFocus: '#B5B7B8',
       borderActive: '#DADADA'
