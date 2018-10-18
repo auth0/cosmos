@@ -75,6 +75,9 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -171,7 +174,7 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
 }
 
 .c10 path {
-  fill: #0a84ae;
+  fill: #333;
 }
 
 <div
@@ -212,13 +215,13 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
     >
       <i
         className="c8 c9"
-        color="blue"
+        color="default"
         name="chevron-left"
         size={16}
       >
         <svg
           className="c10"
-          color="#0a84ae"
+          color="#333"
           height={16}
           viewBox="0 0 20 20"
           width={16}
@@ -239,13 +242,13 @@ exports[`PaginationToolbar renders with automation attribute 1`] = `
     >
       <i
         className="c8 c9"
-        color="blue"
+        color="default"
         name="chevron-right"
         size={16}
       >
         <svg
           className="c10"
-          color="#0a84ae"
+          color="#333"
           height={16}
           viewBox="0 0 20 20"
           width={16}

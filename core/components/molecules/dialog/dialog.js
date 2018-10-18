@@ -1,14 +1,16 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
+import Heading from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
-import Overlay from '../../atoms/_overlay'
-import Icon from '../../atoms/icon'
-import Link from '../../atoms/link'
+import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import FocusTrap from 'react-focus-lock'
+import { TabList } from '../../molecules/tabs'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -34,75 +36,164 @@ const createButtonForAction = (action, index) => {
   )
 }
 
-const Dialog = props => (
-  <Overlay {...props}>
-    <DialogElement width={props.width} {...Automation('dialog')}>
-      <DialogTitleBar {...Automation('dialog.title')}>
-        <span>{props.title}</span>
-        <Link onClick={props.onClose}>
-          <Icon name="close" size={16} />
-        </Link>
-      </DialogTitleBar>
-      <DialogBody {...Automation('dialog.body')}>{props.children}</DialogBody>
-      <DialogFooter {...Automation('dialog.footer')}>
-        <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-      </DialogFooter>
-    </DialogElement>
-  </Overlay>
-)
+const focusOnFormInput = ({ current }) => {
+  const node = ReactDOM.findDOMNode(current)
+  const form = node.querySelector('form')
+  if (!form) return
 
-const DialogElement = styled.div`
+  const firstInput = form.querySelector('input')
+  if (!firstInput) return
+
+  firstInput.focus()
+}
+
+const roleDependantProp = (props, requiredRole, propObject) =>
+  props.role === requiredRole ? propObject : {}
+
+class Dialog extends React.Component {
+  constructor(props) {
+    super(props)
+    this.childrenRef = React.createRef()
+  }
+
+  componentDidMount() {
+    if (this.props.role === 'form') {
+      setTimeout(() => focusOnFormInput(this.childrenRef), 0)
+    }
+  }
+
+  render() {
+    const props = this.props
+    return (
+      <Overlay contentSize={props.width} {...props}>
+        <FocusTrap persistentFocus={props.open} onExit={props.onClose}>
+          <DialogBox
+            width={props.width}
+            {...Automation('dialog')}
+            {...roleDependantProp(props, 'destructive', {
+              'aria-describedby': 'dialog-description'
+            })}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+          >
+            <DialogClose>
+              <Button
+                aria-label="Close"
+                size="default"
+                appearance="action"
+                icon="close"
+                onClick={props.onClose}
+              />
+            </DialogClose>
+
+            {props.title && (
+              <DialogHeader {...Automation('dialog.title')}>
+                <DialogTitle size={props.titleElement} id="dialog-title">
+                  {props.title}
+                </DialogTitle>
+              </DialogHeader>
+            )}
+
+            <DialogBody
+              ref={this.childrenRef}
+              id="dialog-description"
+              {...Automation('dialog.body')}
+            >
+              {props.children}
+            </DialogBody>
+
+            {props.actions && (
+              <DialogFooter {...Automation('dialog.footer')}>
+                <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+              </DialogFooter>
+            )}
+          </DialogBox>
+        </FocusTrap>
+      </Overlay>
+    )
+  }
+}
+
+const DialogBox = styled.div`
   position: relative;
-  overflow: hidden;
-  width: ${props => props.width}px;
-  background: ${colors.base.white};
+  max-height: calc(100vh - (${spacing.xlarge} * 2));
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.base.white};
   border-radius: 3px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 `
 
-const DialogTitleBar = styled.div`
-  display: flex;
+const DialogClose = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
+const DialogHeader = styled.header`
   position: relative;
-  overflow: hidden;
-  padding: ${spacing.small};
-  padding-bottom: 0;
+  padding: ${spacing.small} ${spacing.large} ${spacing.xsmall} ${spacing.large};
   color: ${colors.text.default};
-  font-weight: ${fonts.weight.medium};
+  word-break: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   text-align: center;
-  span {
-    flex: 1;
-  }
-  & ${Icon.Element} {
-    flex: none;
-    cursor: pointer;
-  }
+`
+
+const DialogTitle = styled(Heading)`
+  font-weight: ${fonts.weight.medium};
+  font-size: 1em;
+  margin: 0;
 `
 
 const DialogBody = styled.div`
-  padding: ${spacing.medium} ${spacing.large};
+  padding: ${spacing.small} ${spacing.medium} ${spacing.large} ${spacing.medium};
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  word-break: break-word;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+
+  /* Clears the margin of the last item of the body */
+  > * {
+    margin-bottom: 0;
+  }
+
+  ${TabList} {
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
+  }
 `
 
-const DialogFooter = styled.div`
+const DialogFooter = styled.footer`
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
   padding: ${spacing.small};
   border-top: 1px solid ${colors.base.grayLight};
 `
 
 Dialog.Action = DialogAction
-Dialog.Element = DialogElement
-
+Dialog.Element = DialogBox
 Dialog.propTypes = {
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-  width: PropTypes.number,
-  onClose: PropTypes.func
+  ),
+  title: PropTypes.string,
+  titleElement: PropTypes.oneOf([1, 2, 3, 4]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
+  onClose: PropTypes.func,
+  role: PropTypes.oneOf(['form', 'destructive'])
 }
 
 Dialog.defaultProps = {
-  width: 500
+  width: 'medium',
+  titleElement: 2
 }
 
 export default Dialog

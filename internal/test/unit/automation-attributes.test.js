@@ -135,30 +135,18 @@ describe('Automation data attributes', () => {
   })
 
   it('Dialog', () => {
-    const dialog = shallow(<Dialog open actions={[]} title="Dialog" onClose={() => {}} />)
+    const overlay = shallow(<Dialog open actions={[]} title="Dialog" onClose={() => {}} />)
 
-    expect(dialog.children().prop('data-cosmos-key')).toEqual('dialog')
-    expect(
-      dialog
-        .children()
-        .first()
-        .childAt(0)
-        .prop('data-cosmos-key')
-    ).toEqual('dialog.title')
-    expect(
-      dialog
-        .children()
-        .first()
-        .childAt(1)
-        .prop('data-cosmos-key')
-    ).toEqual('dialog.body')
-    expect(
-      dialog
-        .children()
-        .first()
-        .childAt(2)
-        .prop('data-cosmos-key')
-    ).toEqual('dialog.footer')
+    const focusTrap = overlay.childAt(0)
+    const dialog = focusTrap.childAt(0)
+    const dialogHeader = dialog.childAt(1)
+    const dialogBody = dialog.childAt(2)
+    const dialogFooter = dialog.childAt(3)
+
+    expect(dialog.prop('data-cosmos-key')).toEqual('dialog')
+    expect(dialogHeader.prop('data-cosmos-key')).toEqual('dialog.title')
+    expect(dialogBody.prop('data-cosmos-key')).toEqual('dialog.body')
+    expect(dialogFooter.prop('data-cosmos-key')).toEqual('dialog.footer')
   })
 
   it('EmptyState', () => {
@@ -306,8 +294,9 @@ describe('Automation data attributes', () => {
     expect(tabs.prop('data-cosmos-key')).toEqual('tabs')
     expect(
       tabs
-        .children()
-        .children()
+        .children() // TabList
+        .children() // TabListItem
+        .children() // TabLink
         .prop('data-cosmos-key')
     ).toEqual('tabs.item')
   })

@@ -12,6 +12,7 @@
   "dependencies": {
     "@auth0/cosmos-tokens": "0.6.0",
     "prop-types": "15.6.1",
+    "react-focus-lock": "^1.14.1",
     "styled-components": "3.1.6"
   },
   "peerDependencies": {
