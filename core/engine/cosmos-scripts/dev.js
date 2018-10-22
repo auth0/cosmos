@@ -1,5 +1,5 @@
-const task = require('./task')
-const configPath = require('./utils/config-loader')('development')
+const task = require('../utils/task')
+const configPath = require('../utils/config-loader')('development')
 
 task({
   label: 'Running in dev mode',
