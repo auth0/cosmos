@@ -8,6 +8,11 @@ import getUserAvatarUrl from '../../_helpers/avatar-url'
 
 import EmptyUser from './assets/EmptyUser'
 
+const PLACEHOLDERS = {
+  USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
+  RESOURCE: 'https://cdn.auth0.com/website/cosmos/avatar-resource-default.svg'
+}
+
 const iconSizes = {
   xsmall: 14,
   small: 16,
@@ -47,7 +52,8 @@ const getImageForAvatar = props => {
   if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
   if (typeof props.image === 'string' || (props.email && props.initials))
     return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
-  if (!props.image && props.type === 'user') return <EmptyUser width={misc.avatar[props.size]} />
+  if (!props.image)
+    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
 
   return props.image
 }

@@ -81,3 +81,15 @@ You can pass a `link` prop to link the title to another page. It supports both `
   />
 </Stack>
 ```
+
+## Default placeholder
+
+If you don't provide an image or initials to the avatar block, it will display a default avatar.
+
+```js
+<AvatarBlock type="user" title="John Appleseed" subtitle="john.appleseed@auth0.com" />
+```
+
+```js
+<AvatarBlock type="resource" title="Some Auth0 Resource" subtitle="Example Application" />
+```
