@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import '@auth0/cosmos-fonts'
 
 import TopNavigation from './components/top-navigation'
 import Container from './components/container'
