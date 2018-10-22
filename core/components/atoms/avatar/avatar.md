@@ -132,3 +132,26 @@ You may use user's email to fetch it's default gravatar image on its initials fr
   <Avatar size="xlarge" email="example@auth0.com" initials="IJ" />
 </Stack>
 ```
+
+## Default placeholder
+
+If you don't provide an image or initials to the avatar block, it will display a default avatar.
+
+```js
+<div>
+  <Stack>
+    <Avatar type="user" size="xsmall" />
+    <Avatar type="user" size="small" />
+    <Avatar type="user" size="medium" />
+    <Avatar type="user" size="large" />
+    <Avatar type="user" size="xlarge" />
+  </Stack>
+  <Stack style={{ marginTop: 20 }}>
+    <Avatar type="resource" size="xsmall" />
+    <Avatar type="resource" size="small" />
+    <Avatar type="resource" size="medium" />
+    <Avatar type="resource" size="large" />
+    <Avatar type="resource" size="xlarge" />
+  </Stack>
+</div>
+```
