@@ -4337,9 +4337,9 @@ from@~0:
   version "0.1.7"
   resolved "https://registry.npmjs.org/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
 
-fs-extra@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-6.0.1.tgz#8abc128f7946e310135ddc93b98bddb410e7a34b"
+fs-extra@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-7.0.0.tgz#8cc3f47ce07ef7b3593a11b9fb245f7e34c041d6"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
@@ -4474,9 +4474,9 @@ glob-to-regexp@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
 
-glob@7.1.3:
+glob@7.1.3, glob@^7.1.1:
   version "7.1.3"
-  resolved "https://registry.npmjs.org/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -4498,17 +4498,6 @@ glob@^6.0.1:
 glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
   version "7.1.2"
   resolved "https://registry.npmjs.org/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-glob@^7.1.1:
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.3.tgz#3960832d3f1574108342dafd3a67b332c0969df1"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -8141,9 +8130,19 @@ react-docgen-deprecation-handler@1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/react-docgen-deprecation-handler/-/react-docgen-deprecation-handler-1.0.0.tgz#2dcc39f92ee787a4ffd75d6ec3b46eeb4a2a26f6"
 
+react-docgen-deprecation-handler@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/react-docgen-deprecation-handler/-/react-docgen-deprecation-handler-1.0.1.tgz#136d7a5a136850a9f0b6bbf9203bbf55cc2ff8b1"
+
 react-docgen-displayname-handler@2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/react-docgen-displayname-handler/-/react-docgen-displayname-handler-2.1.0.tgz#2efed6a3459ef7f7feefd6ff513c770d89b11062"
+
+react-docgen-displayname-handler@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/react-docgen-displayname-handler/-/react-docgen-displayname-handler-2.1.1.tgz#a7863a2cc0058ac3c72e6348fa5e40cc4278c5ae"
+  dependencies:
+    ast-types "0.11.5"
 
 react-docgen@2.20.1:
   version "2.20.1"
