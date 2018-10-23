@@ -10,7 +10,7 @@
     "start": "engine start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.7.0",
+    "@auth0/cosmos": "0.7.1",
     "@auth0/cosmos-fonts": "0.0.1",
     "react": "16.3.0",
     "react-dom": "16.3.0"
