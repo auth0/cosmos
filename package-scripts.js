@@ -55,10 +55,6 @@ module.exports = {
           'if [ $TRAVIS_EVENT_TYPE != "pull_request" -o "$TRAVIS_PULL_REQUEST_SLUG" != "$TRAVIS_REPO_SLUG" ]; then chromatic test --app-code=wuz4h54syum --storybook-addon --script-name=sandbox --exit-zero-on-changes; fi;',
         description: 'Check if CI event is push and then run chromatic'
       },
-      snapshot: {
-        script: 'cd internal/test && yarn test-snapshot',
-        description: 'Run snapshot tests'
-      },
       unit: {
         default: {
           script: 'cd internal/test && yarn test-unit',
