@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import { Icon } from '@auth0/cosmos'
+import '@auth0/cosmos-fonts'
 
 import Sidebar from './sidebar'
 import Spec from './spec'
