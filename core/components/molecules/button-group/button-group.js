@@ -29,7 +29,6 @@ const marginForButton = props => {
   if (!props.children) return ''
 
   const isSingleChild = props.children.constructor.name !== 'Array'
-
   if (isSingleChild || props.compressed) return null
 
   const property = props.align === 'left' ? 'margin-right' : 'margin-left'
@@ -48,12 +47,7 @@ const StyledButtonGroup = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
-  // Adjust tooltip offset when used inside button groups
-  & .cosmos-tooltip {
-    left: ${props => (props.align === 'left' ? '40%' : '58%')};
-  }
-
-  ${Button.Element} {
+  & > * {
     ${marginForButton};
   }
 

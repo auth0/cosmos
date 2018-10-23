@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.6.0",
+  "version": "0.7.1",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -61,7 +61,7 @@
     "lodash.frompairs": "4.0.1",
     "nps": "5.9.2",
     "nps-utils": "1.6.0",
-    "prettier": "1.13.7",
+    "prettier": "1.14.3",
     "prettycli": "1.4.3",
     "proptypes-to-ts-declarations": "0.8.3",
     "react-chromatic": "0.8.4",

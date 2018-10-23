@@ -50,6 +50,17 @@ const Navigation = styled.nav`
   }
 `
 
+const LogoName = styled.h1`
+  font-size: 14px;
+  letter-spacing: 1.4px;
+  display: inline-block;
+  color: ${colors.base.grayLightest};
+  font-weight: 700;
+  margin-left: 16px;
+  margin-right: 0.75em;
+  text-transform: uppercase;
+`
+
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -60,6 +71,7 @@ export default () => (
   <Navigation>
     <LogoContainer>
       <Logo />
+      <LogoName>Cosmos</LogoName>
       <VersionSwitcher />
     </LogoContainer>
     <ul>
