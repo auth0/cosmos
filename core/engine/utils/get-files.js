@@ -1,11 +1,21 @@
-const glob = require('glob')
 const path = require('path')
+const glob = require('glob')
+
+const patterns = {
+  md: '**/*.md',
+  js: '**/*.*(js|jsx|ts)',
+  story: '**/*.story.*(js|jsx|ts)',
+  sketch: '**/*.sketch.*(js|jsx|ts)'
+}
 
 const getFiles = componentsDir => {
-  const javascriptFiles = glob.sync(path.join(componentsDir, '**/*.js'))
-  const markdownFiles = glob.sync(path.join(componentsDir, '**/*.md'))
+  const componentFiles = glob.sync(path.join(componentsDir, patterns.js), {
+    ignore: [patterns.story, patterns.sketch]
+  })
+  const markdownFiles = glob.sync(path.join(componentsDir, patterns.md))
+  const storyFiles = glob.sync(path.join(componentsDir, patterns.story))
 
-  return { javascriptFiles, markdownFiles }
+  return { componentFiles, markdownFiles, storyFiles }
 }
 
 module.exports = getFiles
