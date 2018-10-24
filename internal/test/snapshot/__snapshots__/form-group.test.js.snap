@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`FormGroup renders with automation attribute 1`] = `
-<div
-  className=""
-  data-cosmos-key="form-group"
-/>
-`;

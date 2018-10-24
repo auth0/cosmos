@@ -8,6 +8,6 @@
 
 The `Logo` component exports an SVG version of the logo.
 
-```js
-<Logo />
+```jsx
+<Logo {props} />
 ```

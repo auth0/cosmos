@@ -1,6 +1,8 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
+import Logo from '../logo'
+import defaultPropChangeWarning from '../../_helpers/default-prop-change'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
@@ -19,6 +21,21 @@ const getColor = (props, highlight) => {
   return `rgba(${color}, ${opacity})`
 }
 
+const spinners = {
+  small: {
+    logo: null,
+    width: 14
+  },
+  medium: {
+    logo: 'tiny',
+    width: 40
+  },
+  large: {
+    logo: 'small',
+    width: 60
+  }
+}
+
 const StyledSpinner = styled.span`
   display: inline-block;
   border-top: 2px solid ${props => getColor(props)};
@@ -26,21 +43,57 @@ const StyledSpinner = styled.span`
   border-bottom: 2px solid ${props => getColor(props)};
   border-left: 2px solid ${props => getColor(props, true)};
   border-radius: 50%;
-  width: 1em;
-  height: 1em;
   vertical-align: text-bottom;
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
   animation: ${rotate} 0.8s infinite linear;
 `
 
-const Spinner = props => <StyledSpinner {...props} />
+const SpinnerContainer = styled.div`
+  position: relative;
+  width: ${p => p.variant.width}px;
+  height: ${p => p.variant.width}px;
+
+  ${Logo.Element} {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`
+
+const spinnerWithLogo = (variant, props) => {
+  const iconColor = props.inverse ? 'light' : 'dark'
+
+  return (
+    <SpinnerContainer variant={variant}>
+      <StyledSpinner {...props} width={variant.width} />
+      <Logo size={variant.logo} color={iconColor} />
+    </SpinnerContainer>
+  )
+}
+
+const Spinner = props => {
+  defaultPropChangeWarning(Spinner, 'size', props.size, 'medium', '1.0.0')
+
+  const variant = spinners[props.size]
+
+  return variant.logo ? (
+    spinnerWithLogo(variant, props)
+  ) : (
+    <StyledSpinner {...props} width={variant.width} />
+  )
+}
 
 Spinner.propTypes = {
   /** Invert for dark background */
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
+  size: PropTypes.oneOf(['small', 'medium', 'large'])
 }
 
 Spinner.defaultProps = {
-  inverse: false
+  inverse: false,
+  size: 'small'
 }
 
 export default Spinner
