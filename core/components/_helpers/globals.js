@@ -19,7 +19,7 @@ const insertAtTheStart = styles => {
 
     // Register the resets before anything else
     const head = document.getElementsByTagName('head')[0]
-    head.insertBefore(tag, document.getElementsByTagName('link')[0])
+    head.prepend(tag)
   }
 }
 

@@ -192,7 +192,11 @@ const Button = ({ children, ...props }) => {
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
-    return <Tooltip content={props.label} defaultVisible={props.labelDefaultVisible}>{button}</Tooltip>
+    return (
+      <Tooltip content={props.label} defaultVisible={props.labelDefaultVisible}>
+        {button}
+      </Tooltip>
+    )
   }
 
   return button
@@ -204,6 +208,11 @@ Button.Element = styled.button`
   line-height: ${props => getAttributes(props).lineHeight};
   min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
+
+  /* Safari button margins reset */
+  /* See https://github.com/google/material-design-lite/issues/4008 */
+  margin-top: 0;
+  margin-left: 0;
 
   text-transform: uppercase;
   text-align: center;
