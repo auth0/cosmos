@@ -2,12 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
 const StyledPager = styled.div`
+  ${containerStyles};
   display: flex;
   justify-content: space-between;
   align-items: center;
