@@ -9,10 +9,9 @@ const Title = styled.div`
   color: rgb(168, 168, 168);
   top: 1.5em;
   left: 2em;
-`
-// TODO: Move this line-height to Title
-const Wrapper = styled.div`
   line-height: 1.6;
+`
+const Wrapper = styled.div`
   padding: 4.5rem 3rem 3rem 3rem;
   position: relative;
   border: 1px solid rgb(236, 236, 236);
