@@ -22,6 +22,9 @@ const StyledPageSelector = styled.div`
 const StyledButton = styled(Button)`
   ${props => (props.position === 'left' ? 'padding-right' : 'padding-left')}: 11px;
   ${props => (props.position === 'left' ? 'padding-left' : 'padding-right')}: 7px;
+  ${Icon.Element} {
+    margin: 0;
+  }
 `
 
 const Pager = ({ onPageChanged, page, perPage, items }) => (
