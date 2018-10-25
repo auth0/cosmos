@@ -119,7 +119,11 @@ Alert.Element = styled.div`
     right: 0;
     top: 0;
     color: ${props => colors.alert[props.type].text};
+    opacity: .2;
     padding: ${spacing.small} ${spacing.small};
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 
