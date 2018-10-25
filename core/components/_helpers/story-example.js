@@ -10,7 +10,7 @@ const Title = styled.div`
   top: 1.5em;
   left: 2em;
 `
-
+// TODO: Move this line-height to Title
 const Wrapper = styled.div`
   line-height: 1.6;
   padding: 4.5rem 3rem 3rem 3rem;
