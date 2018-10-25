@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import { spacing } from '@auth0/cosmos-tokens'
 
@@ -14,6 +15,7 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 import { descriptionIsObject } from '../../_helpers/page-header'
 
 const StyledPageHeader = styled.div`
+  ${containerStyles};
   margin-bottom: ${spacing.large};
 
   ${StyledButtonGroup} {
