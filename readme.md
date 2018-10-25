@@ -12,4 +12,4 @@
 
 > “Set of shared and integrated principles and patterns that define the overall design of a product.” — Karri Saarinen @ Airbnb
 
-&nbsp;
+&nbsp;&nbsp;

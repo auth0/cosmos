@@ -7,12 +7,6 @@ import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 
 const height = '32px'
 
-const StyledSwitch = styled.span`
-  display: inline-block;
-  vertical-align: middle;
-  height: ${height};
-  position: relative;
-`
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
@@ -57,6 +51,16 @@ const Toggle = styled.span`
             }
           }
         `};
+`
+const StyledSwitch = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  height: ${height};
+  position: relative;
+
+  input:focus ~ ${Toggle} {
+    box-shadow: 0 0 0 2px ${colors.base.blue};
+  }
 `
 
 const Label = styled.label`
