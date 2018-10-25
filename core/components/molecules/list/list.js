@@ -14,7 +14,7 @@ const StyledLabel = styled.div`
   }
 `
 
-const StyledRow = styled.div`
+const StyledRow = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   &:hover {
@@ -22,7 +22,7 @@ const StyledRow = styled.div`
   }
 `
 
-const StyledList = styled.div`
+const StyledList = styled.ul`
   margin: ${spacing.large} 0;
 `
 
