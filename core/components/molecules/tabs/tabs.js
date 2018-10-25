@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const Wrapper = styled.div``
 
@@ -22,6 +23,7 @@ export const TabLink = styled.a`
 `
 
 export const TabLinkGroup = styled.div`
+  ${containerStyles};
   border-bottom: 1px solid ${colors.base.grayLight};
   ${TabLink}:last-child {
     margin-right: 0;
