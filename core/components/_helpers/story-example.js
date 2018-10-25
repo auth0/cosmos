@@ -7,10 +7,12 @@ const Title = styled.div`
   font-family: 'Roboto Mono';
   font-size: 12px;
   color: rgb(168, 168, 168);
+  top: 1.5em;
   left: 2em;
 `
 
 const Wrapper = styled.div`
+  line-height: inherit;
   padding: 4.5rem 3rem 3rem 3rem;
   position: relative;
   border: 1px solid rgb(236, 236, 236);
