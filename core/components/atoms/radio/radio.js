@@ -53,6 +53,11 @@ const StyledRadioOption = styled.label`
     border: 1px solid ${colors.radio.borderSelected};
   }
 
+  input:focus ~ ${CheckMark} {
+    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow},
+      0 0 0 2px ${colors.base.blue};
+  }
+
   ${CheckMark}:after {
     content: '';
     position: absolute;
