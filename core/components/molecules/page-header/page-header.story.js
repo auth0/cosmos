@@ -29,6 +29,32 @@ storiesOf('Page Header').add('default', () => (
   </Example>
 ))
 
+storiesOf('Page Header').add('with subtitle', () => (
+  <Example title="default">
+    <PageHeader
+      title="Clients"
+      subtitle="The API consumers"
+      description={
+        <span>
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
+        </span>
+      }
+      learnMore="/link"
+      primaryAction={{
+        label: 'Create Client',
+        icon: 'plus',
+        handler: () => {}
+      }}
+      secondaryAction={{
+        label: 'Tutorial',
+        icon: 'play-circle',
+        handler: () => {}
+      }}
+    />
+  </Example>
+))
+
 storiesOf('Page Header').add('only primary action', () => (
   <Example title="default">
     <PageHeader

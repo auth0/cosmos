@@ -26,6 +26,13 @@ const StyledPageHeader = styled.div`
   }
 `
 
+const StyledSubtitle = styled.div`
+  color: gray;
+  margin-top: 0;
+  margin-bottom: -12px;
+  padding-left: ${spacing.xxsmall};
+`
+
 const SoftDescription = ({ description, learnMore }) => {
   if (!description) return null
 
@@ -39,6 +46,38 @@ const SoftDescription = ({ description, learnMore }) => {
 }
 
 const PageHeader = props => {
+  if (props.subtitle) {
+    return (
+      <StyledPageHeader {...Automation('page-header')}>
+        <ButtonGroup align="right">
+          {props.secondaryAction && (
+            <Button
+              size="large"
+              appearance="secondary"
+              icon={props.secondaryAction.icon}
+              onClick={props.secondaryAction.handler}
+            >
+              {props.secondaryAction.label}
+            </Button>
+          )}
+          {props.primaryAction && (
+            <Button
+              size="large"
+              appearance="cta"
+              icon={props.primaryAction.icon}
+              onClick={props.primaryAction.handler}
+            >
+              {props.primaryAction.label}
+            </Button>
+          )}
+        </ButtonGroup>
+  
+        <Heading size={1} style={{marginBottom:-10 +"px"}}>{props.title}</Heading>
+        <StyledSubtitle>{props.subtitle}</StyledSubtitle>
+        <SoftDescription {...props} />
+      </StyledPageHeader>
+    )
+  }
   return (
     <StyledPageHeader {...Automation('page-header')}>
       <ButtonGroup align="right">
