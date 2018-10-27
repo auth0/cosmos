@@ -23,28 +23,34 @@ Your feedback helps us shape Cosmos.
 #### Installation
 To add Cosmos to your React application, run
 
-    $ yarn add @auth0/cosmos
+```
+$ yarn add @auth0/cosmos
+```
 
 If you prefer npm, run this command instead:
 
-    $ npm install --save @auth0/cosmos
+```
+$ npm install --save @auth0/cosmos
+```
 
 That's all you need to do: no build required.
 
 #### Usage
 Cosmos uses [styled-components](https://www.styled-components.com) under the hood, so creating a button is as easy as
 
-    import styled from '@auth0/cosmos/styled'
-    
-    const Wrapper = styled.div`
-      background-color: grey;
-    `
+```js
+import styled from '@auth0/cosmos/styled'
 
-    const Actions = () => (
-      <Wrapper>
-        <Button appearance="primary" onClick={this.save}>Save changes</Button>
-        <Button onClick={this.clear}>Clear</Button>
-      </Wrapper>
-    )
+const Wrapper = styled.div`
+  background-color: grey;
+`
+
+const Actions = () => (
+  <Wrapper>
+    <Button appearance="primary" onClick={this.save}>Save changes</Button>
+    <Button onClick={this.clear}>Clear</Button>
+  </Wrapper>
+)
+```
 
 Check out more examples in the [sandbox](https://auth0-cosmos.now.sh/sandbox).
