@@ -3,7 +3,11 @@
 
 &nbsp;
 
-# A Design System For Auth0 Products
+# [Cosmos](https://auth0-cosmos.now.sh/)
+
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+
+> A Design System For Auth0 Products.
 
 ## What is a design system?
 
@@ -11,15 +15,22 @@
 
 The aim of Cosmos is to help Auth0 designers and developers deliver work faster and better. It provides teams with a common language and encourages adherence to design guidelines with compliant components right out of the box.
 
-We are currently building our roadmap and initial components inventory to estimate the v1 release date. We are in active development and testing with selected teams, so the components API may change frequently. However, you can play with the alpha version today!
-
-Your feedback will help us shape Cosmos.
+We are currently building our roadmap and initial components inventory to estimate the v1 release date. We are in active development and testing with selected teams, so the components API may change frequently. However, you can play with the alpha version today! Your feedback will help us shape Cosmos.
 
 ## Usage
 
 ### Getting Started
 
-Check out all available components in the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Each component has examples and configuration options. 
+See the documentation at https://auth0-cosmos.now.sh/docs/ for more information about using Cosmos.
+
+#### Quicklinks:
+
+- [Getting started](https://auth0-cosmos.now.sh/docs/)
+- [How to use Cosmos](https://auth0-cosmos.now.sh/docs/#/usage)
+- [Sandbox](https://auth0-cosmos.now.sh/sandbox) - Storybook
+- [Contribution Guide](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
+- [Components Overview](https://auth0-cosmos.now.sh/docs/#/overview)
+- [Playground](https://auth0-cosmos.now.sh/docs/#/playground) 
 
 ### Installation
 
@@ -40,28 +51,22 @@ That's all you need to do: no build required!
 
 ### Using Cosmos components in your application
 
-Check out this example `app.js` file:
-
 ```js
-import React from 'react'
 import { Button } from '@auth0/cosmos'
-
-class App extends React.Component {
- 
-  render() {
-    return (
-      <div>
-	<h1>Hello Word!</h1>
-	<Button size="default" appearance="cta" href="https://auth0-cosmos.now.sh/">Cosmos Documentation</Button>
-      </div>
-    )
-  }
-}
-
-export default App
 ```
 
-Check out more examples in the [sandbox](https://auth0-cosmos.now.sh/sandbox).
+and use them along with you React components:
+
+``` js
+  const Actions = () => (
+    <div>
+      	<h1>Hello Word!</h1>
+	<Button size="default" appearance="cta" onClick>Cosmos Documentation</Button>
+    </div>
+  )
+```
+            
+To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options. 
 
 
 ## Development
