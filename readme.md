@@ -51,11 +51,13 @@ That's all you need to do: no build required!
 
 ### Using Cosmos components in your application
 
+1. Include any of available components:
+
 ```js
 import { Button } from '@auth0/cosmos'
 ```
 
-and use them along with you React components:
+2. Use them along your React components:
 
 ``` js
   const Actions = () => (
