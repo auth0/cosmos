@@ -9,6 +9,7 @@ import FormContext from '../form-context'
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
 import TextInput from '../../../atoms/text-input/text-input'
+import Stack from '../../stack/stack';
 import { Right, Clear } from '../../../_helpers/float'
 import { actionShape, actionShapeWithoutRequiredHandler } from '@auth0/cosmos/_helpers/action-shape'
 
@@ -18,6 +19,7 @@ let StyledActions = styled.div`
     props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
   margin-bottom: ${spacing.small};
+  margin-top: ${spacing.medium};
 `
 
 const getButtonProps = action => {
@@ -35,24 +37,26 @@ const getButtonProps = action => {
 const Actions = props => {
   const { primaryAction, secondaryActions, destructiveAction } = props
 
-  if (TextInput.propTypes.error != null) {
-    StyledActions = styled.div`
+  if (Stack.propTypes.hasActions) {
+    if (TextInput.propTypes.error != null) {
+      StyledActions = styled.div`
     width: ${props => getLayoutValues(props.layout).formWidth};
     padding-left: ${props =>
-        props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
+          props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
     margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
     margin-bottom: ${spacing.small};
     margin-top: ${spacing.xxsmall};
     `
-  } else {
-    StyledActions = styled.div`
+    } else {
+      StyledActions = styled.div`
     width: ${props => getLayoutValues(props.layout).formWidth};
     padding-left: ${props =>
-        props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
+          props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
     margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
     margin-bottom: ${spacing.small};
     margin-top: ${spacing.large};
     `
+    }
   }
 
   return (

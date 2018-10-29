@@ -15,6 +15,7 @@ exports[`Button inline with(out) error message should be inline with error 1`] =
     <Stack
       align="fill"
       alignVertical="center"
+      hasActions={true}
       widths={
         Array [
           45,
@@ -65,6 +66,7 @@ exports[`Button inline with(out) error message should be inline without error 1`
     <Stack
       align="fill"
       alignVertical="center"
+      hasActions={true}
       widths={
         Array [
           45,

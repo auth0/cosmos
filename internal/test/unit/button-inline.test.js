@@ -12,7 +12,7 @@ const form_example = ({
     error = 'whats up'
 } = {}) => (
         < Form layout="label-on-top" >
-            <Stack widths={[45, 45, 10]}>
+            <Stack widths={[45, 45, 10]} hasActions={true}>
                 <Form.TextInput
                     label="Name"
                     type="text"

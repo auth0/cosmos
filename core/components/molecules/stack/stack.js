@@ -80,7 +80,9 @@ Stack.propTypes = {
   /* sum of width values should be 100% */
   _sum: props => sumOfElements(props.widths, 100),
   /* the number of widths should match number of children */
-  _numberOfValues: props => numberOfValues(props.widths, React.Children.count(props.children))
+  _numberOfValues: props => numberOfValues(props.widths, React.Children.count(props.children)),
+  /** Check if Stack has Actions inside*/
+  hasActions: PropTypes.bool
 }
 
 Stack.defaultProps = {
