@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button inline with(out) error message should be inline with error 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "layout": "label-on-top",
+    }
+  }
+>
+  <form
+    data-cosmos-key="form"
+    layout="label-on-top"
+  >
+    <Stack
+      align="fill"
+      alignVertical="center"
+      widths={
+        Array [
+          45,
+          45,
+          10,
+        ]
+      }
+    >
+      <Component
+        error="whats up"
+        label="Name"
+        name="name"
+        placeholder="read:appointment"
+        type="text"
+      />
+      <Component
+        error="whats up"
+        label="Description"
+        name="description"
+        placeholder="Read your appointments"
+        type="text"
+      />
+      <Form Actions
+        primaryAction={
+          Object {
+            "handler": [Function],
+            "label": "Save Changes",
+          }
+        }
+      />
+    </Stack>
+  </form>
+</ContextProvider>
+`;
+
+exports[`Button inline with(out) error message should be inline without error 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "layout": "label-on-top",
+    }
+  }
+>
+  <form
+    data-cosmos-key="form"
+    layout="label-on-top"
+  >
+    <Stack
+      align="fill"
+      alignVertical="center"
+      widths={
+        Array [
+          45,
+          45,
+          10,
+        ]
+      }
+    >
+      <Component
+        error={null}
+        label="Name"
+        name="name"
+        placeholder="read:appointment"
+        type="text"
+      />
+      <Component
+        error={null}
+        label="Description"
+        name="description"
+        placeholder="Read your appointments"
+        type="text"
+      />
+      <Form Actions
+        primaryAction={
+          Object {
+            "handler": [Function],
+            "label": "Save Changes",
+          }
+        }
+      />
+    </Stack>
+  </form>
+</ContextProvider>
+`;

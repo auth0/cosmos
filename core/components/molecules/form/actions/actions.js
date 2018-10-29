@@ -8,15 +8,15 @@ import FormContext from '../form-context'
 
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
+import TextInput from '../../../atoms/text-input/text-input'
 import { Right, Clear } from '../../../_helpers/float'
 import { actionShape, actionShapeWithoutRequiredHandler } from '@auth0/cosmos/_helpers/action-shape'
 
-const StyledActions = styled.div`
+let StyledActions = styled.div`
   width: ${props => getLayoutValues(props.layout).formWidth};
   padding-left: ${props =>
     props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
-  margin-top: ${spacing.medium};
   margin-bottom: ${spacing.small};
 `
 
@@ -34,6 +34,26 @@ const getButtonProps = action => {
 
 const Actions = props => {
   const { primaryAction, secondaryActions, destructiveAction } = props
+
+  if (TextInput.propTypes.error != null) {
+    StyledActions = styled.div`
+    width: ${props => getLayoutValues(props.layout).formWidth};
+    padding-left: ${props =>
+        props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
+    margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+    margin-bottom: ${spacing.small};
+    margin-top: ${spacing.xxsmall};
+    `
+  } else {
+    StyledActions = styled.div`
+    width: ${props => getLayoutValues(props.layout).formWidth};
+    padding-left: ${props =>
+        props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
+    margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+    margin-bottom: ${spacing.small};
+    margin-top: ${spacing.large};
+    `
+  }
 
   return (
     <FormContext.Consumer>
