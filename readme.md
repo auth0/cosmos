@@ -9,7 +9,7 @@
 
 > A Design System For Auth0 Products.
 
-## What is a design system?
+### What is a design system?
 
 > “A set of shared and integrated principles and patterns that define the overall design of a product.” — Karri Saarinen @ Airbnb
 
