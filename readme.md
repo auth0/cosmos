@@ -59,7 +59,7 @@ import { Button } from '@auth0/cosmos'
 
 2. Use them along your React components:
 
-``` js
+```js
   const Actions = () => (
     <div>
       	<h1>Hello Word!</h1>
@@ -78,14 +78,16 @@ Cosmos uses [styled-components](https://www.styled-components.com) under the hoo
 ```js
 import styled from '@auth0/cosmos/styled'
 
+// ...
+
 const Wrapper = styled.div`
   background-color: grey;
 `
 
 const Actions = () => (
   <Wrapper>
-    <Button appearance="primary" onClick={this.save}>Save changes</Button>
-    <Button onClick={this.clear}>Clear</Button>
+    <Button appearance="primary" onClick={save}>Save changes</Button>
+    <Button onClick={clear}>Clear</Button>
   </Wrapper>
 )
 ```
