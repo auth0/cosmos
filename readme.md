@@ -42,7 +42,7 @@ That's all you need to do: no build required!
 
 Check out this example `app.js` file:
 
-```
+```js
 import React from 'react'
 import { Button } from '@auth0/cosmos'
 
