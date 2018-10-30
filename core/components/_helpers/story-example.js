@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   border: 1px solid rgb(236, 236, 236);
   margin-bottom: 1rem;
   border-radius: 3px;
+  line-height: inherit;
 
   &.align-center {
     display: flex;

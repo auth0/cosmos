@@ -116,9 +116,9 @@ const Header = styled.div`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0 ${spacing.medium};
 
   @media (max-width: 960px) {
+    padding: 0 ${spacing.medium};
     width: 100%;
   }
 `
@@ -143,10 +143,7 @@ class Navigation extends Component {
             <LogoName>Cosmos</LogoName>
             <VersionSwitcher />
           </LogoContainer>
-          <HamburgerButton
-            isOpen={this.state.isOpen}
-            onClick={() => this.toggleMenu()}
-          />
+          <HamburgerButton isOpen={this.state.isOpen} onClick={() => this.toggleMenu()} />
         </Header>
         <NavigationLinks className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}>
           <li>
@@ -175,7 +172,12 @@ class Navigation extends Component {
             </a>
           </li>
           <li>
-            <a href="https://github.com/auth0/cosmos" target="_blank" rel="noopener noreferrer" onClick={() => this.toggleMenu()}>
+            <a
+              href="https://github.com/auth0/cosmos"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => this.toggleMenu()}
+            >
               <IconGithub />
               <span>Github</span>
             </a>
