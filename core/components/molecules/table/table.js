@@ -6,6 +6,7 @@ import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 class Table extends React.Component {
   constructor(props) {
@@ -162,6 +163,7 @@ Table.compare = {
 }
 
 Table.Container = styled.div`
+  ${containerStyles};
   position: relative;
 `
 
