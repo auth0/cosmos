@@ -113,7 +113,7 @@ const sizes = {
     padding: spacing.medium
   },
   default: {
-    lineHeight: misc.button.default.height,
+    height: misc.button.default.height,
     lineHeight: subtract(misc.button.default.height, '2px'),
     minWidth: '96px',
     padding: spacing.small
