@@ -4,11 +4,11 @@ import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
-import Paragraph, { StyledParagraph } from '../paragraph'
 import FreeText from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
+import containerStyles from '../../_helpers/container-styles'
 
 const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.type].text};
@@ -57,14 +57,14 @@ class Alert extends React.Component {
           {...Automation('alert')}
         >
           {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
-          <Paragraph>
+          <span>
             <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
               <ReadMoreLink type="default" href={this.props.link} target="_blank">
                 Read more
               </ReadMoreLink>
             )}
-          </Paragraph>
+          </span>
           {this.props.dismissible && (
             <Cross onClick={this.dismiss} {...Automation('alert.dismiss')} />
           )}
@@ -88,10 +88,12 @@ const styledForCross = css`
 `
 
 Alert.Element = styled.div`
+  ${containerStyles};
   padding: ${spacing.small} ${spacing.small};
   ${props => props.dismissible && styledForCross};
 
   background-color: ${props => colors.alert[props.type].background};
+  color: ${props => colors.alert[props.type].text};
   border-radius: 3px;
   position: relative;
   display: flex;
@@ -102,10 +104,6 @@ Alert.Element = styled.div`
     path {
       fill: ${props => colors.alert[props.type].text};
     }
-  }
-  ${StyledParagraph} {
-    margin: 0;
-    color: ${props => colors.alert[props.type].text};
   }
   ${StyledLink} {
     color: ${props => colors.alert[props.type].text};

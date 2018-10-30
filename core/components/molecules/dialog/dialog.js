@@ -9,6 +9,7 @@ import Link from '../../atoms/link'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -52,6 +53,7 @@ const Dialog = props => (
 )
 
 const DialogElement = styled.div`
+  ${containerStyles};
   position: relative;
   overflow: hidden;
   width: ${props => props.width}px;

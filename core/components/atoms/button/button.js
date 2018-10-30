@@ -107,21 +107,25 @@ const states = {
 
 const sizes = {
   large: {
+    height: misc.button.large.height,
     lineHeight: subtract(misc.button.large.height, '2px'),
     minWidth: '96px',
     padding: spacing.medium
   },
   default: {
+    lineHeight: misc.button.default.height,
     lineHeight: subtract(misc.button.default.height, '2px'),
     minWidth: '96px',
     padding: spacing.small
   },
   compressed: {
+    height: misc.button.compressed.height,
     lineHeight: subtract(misc.button.compressed.height, '2px'),
     minWidth: 'auto',
     padding: spacing.small
   },
   small: {
+    height: misc.button.small.height,
     lineHeight: subtract(misc.button.small.height, '2px'),
     minWidth: 'auto',
     padding: spacing.xsmall
@@ -204,7 +208,7 @@ const Button = ({ children, ...props }) => {
 
 Button.Element = styled.button`
   display: inline-block;
-  min-height: ${props => getAttributes(props).lineHeight};
+  height: ${props => getAttributes(props).height};
   line-height: ${props => getAttributes(props).lineHeight};
   min-width: ${props => getAttributes(props).minWidth};
   box-sizing: border-box;
@@ -265,7 +269,6 @@ Button.Element = styled.button`
 `
 
 Button.Text = styled.span`
-  display: inline-block;
   vertical-align: middle;
 `
 

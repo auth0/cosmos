@@ -6,8 +6,10 @@ import Automation from '../../_helpers/automation-attribute'
 import Button from '../../atoms/button'
 import Icon from '../../atoms/icon'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
+import containerStyles from '../../_helpers/container-styles'
 
 const StyledPager = styled.div`
+  ${containerStyles};
   display: flex;
   justify-content: space-between;
   align-items: center;

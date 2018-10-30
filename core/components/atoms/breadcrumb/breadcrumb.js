@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
+import containerStyles from '../../_helpers/container-styles'
 
 import Icon, { StyledIcon } from '../icon'
 import Link, { StyledLink } from '../link'
@@ -17,8 +18,9 @@ const LinkIcon = styled(Icon)`
 `
 
 const Wrapper = styled.div`
-  ${/* overrides for link */ ''};
+  ${containerStyles};
 
+  ${/* overrides for link */ ''};
   ${StyledLink} {
     color: ${colors.base.grayDarkest};
     font-size: 13px;
