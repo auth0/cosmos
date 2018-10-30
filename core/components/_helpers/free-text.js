@@ -10,7 +10,7 @@ const StyledText = styled(Paragraph)`
  * Returns either a string with styles
  * or the raw text prop depending on its type.
  */
-export const Text = ({ text, children, useParagraph = false }) => {
+const FreeText = ({ text, children, useParagraph = false }) => {
   if (children) {
     if (useParagraph) return <StyledText>{children}</StyledText>
     return children
@@ -21,5 +21,9 @@ export const Text = ({ text, children, useParagraph = false }) => {
     return text
   }
 
-  return text
+  if (text) return text
+
+  return null
 }
+
+export default FreeText

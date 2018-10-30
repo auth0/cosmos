@@ -118,15 +118,15 @@ class CreateApplicationDialog extends React.Component {
             <ApplicationStack alignVertical="top">
               <ApplicationType
                 image={ApplicationTypeImages.native}
-                name="Native"
-                description="Mobile or Desktop, apps that run natively in a device."
+                name="Native App"
+                description="Mobile or Desktop, an app that runs natively in a device."
                 example="iOS SDK"
                 onClick={this.setValue('type', 'native')}
                 selected={type === 'native'}
               />
               <ApplicationType
                 image={ApplicationTypeImages.spa}
-                name="Single Page Web Applications"
+                name="Single Page Web App"
                 description="A JavaScript front-end app that uses an API."
                 example="Angular.JS + NodeJS"
                 onClick={this.setValue('type', 'spa')}
@@ -134,7 +134,7 @@ class CreateApplicationDialog extends React.Component {
               />
               <ApplicationType
                 image={ApplicationTypeImages.regular_web}
-                name="Regular Web Applications"
+                name="Regular Web App"
                 description="Traditional web app (with refresh)."
                 example="Java ASP.NET"
                 onClick={this.setValue('type', 'regular_web')}
@@ -142,8 +142,8 @@ class CreateApplicationDialog extends React.Component {
               />
               <ApplicationType
                 image={ApplicationTypeImages.non_interactive}
-                name="Machine to machine"
-                description="CLI, Daemons or Services running on your backend."
+                name="Machine to Machine App"
+                description="A CLI, Daemon, or Service running on your backend."
                 example="Shell Script"
                 onClick={this.setValue('type', 'non_interactive')}
                 selected={type === 'non_interactive'}

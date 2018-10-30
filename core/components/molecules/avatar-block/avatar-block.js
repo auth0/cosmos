@@ -88,7 +88,7 @@ AvatarBlock.propTypes = {
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** An image URL to display. */
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   /** The primary line of text to display. */
   title: PropTypes.string.isRequired,
   /** The type of item represented by the avatar block. */

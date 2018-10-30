@@ -20,7 +20,9 @@ const Icon = props => {
         viewBox={`0 0 ${icon.width} ${icon.height}`}
         color={color}
       >
-        {icon.paths.map((path, index) => <path key={index} d={path} />)}
+        {icon.paths.map((path, index) => (
+          <path key={index} d={path} />
+        ))}
       </Image>
     </Icon.Element>
   )
@@ -50,7 +52,7 @@ Icon.propTypes = {
   /** Icon name */
   name: PropTypes.oneOf(__ICONNAMES__).isRequired,
   /** Icon size */
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Icon foreground color */
   color: PropTypes.oneOf(__COLORS__)
 }

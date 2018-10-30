@@ -1,7 +1,10 @@
 const fs = require('fs-extra')
 const glob = require('glob')
+
 const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
+const deprecationHandler = require('react-docgen-deprecation-handler')
+
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
@@ -35,7 +38,9 @@ const run = () => {
         if (!path.includes(`${directoryName}.js`)) return
 
         /* append display name handler to handlers list */
-        const handlers = docgen.defaultHandlers.concat(createDisplayNameHandler(path))
+        const handlers = docgen.defaultHandlers
+          .concat(createDisplayNameHandler(path))
+          .concat(deprecationHandler)
 
         /* read file to get source code */
         const code = fs.readFileSync(path, 'utf8')
