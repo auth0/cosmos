@@ -1,6 +1,7 @@
 
 <img src="https://cdn.auth0.com/website/cosmos/github/readme-header.png">
 
+
 &nbsp;
 
 # [Cosmos](https://auth0-cosmos.now.sh/)
