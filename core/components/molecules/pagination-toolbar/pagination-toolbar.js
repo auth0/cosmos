@@ -59,7 +59,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is only one page
-  if (pages === 1) return null
+  if (pages <= 1) return null
 
   return (
     <PaginationToolbar.Element {...Automation('pagination-toolbar')}>
