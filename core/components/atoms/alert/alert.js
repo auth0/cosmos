@@ -93,6 +93,7 @@ Alert.Element = styled.div`
   ${props => props.dismissible && styledForCross};
 
   background-color: ${props => colors.alert[props.type].background};
+  color: ${props => colors.alert[props.type].text};
   border-radius: 3px;
   position: relative;
   display: flex;
