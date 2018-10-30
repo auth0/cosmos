@@ -36,6 +36,7 @@ const StyledStack = styled.div`
 
 const StackedItem = styled.div`
   flex-basis: ${props => props.width}%;
+  line-height: inherit;
 `
 
 /*
