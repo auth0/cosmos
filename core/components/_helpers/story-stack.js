@@ -24,6 +24,7 @@ const StyledStack = styled.div`
   flex-wrap: nowrap;
   align-items: ${props => alignItems[props.alignVertical]};
   justify-content: ${props => justifyContent[props.align]};
+  line-height: inherit;
   > * {
     flex: ${props => (props.align === 'fill' ? 1 : 'none')};
     margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
