@@ -6,8 +6,10 @@ import Stack from '../stack'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import containerStyles from '../../_helpers/container-styles'
 
 const Container = styled.div`
+  ${containerStyles};
   margin-top: ${spacing.xlarge};
 `
 

@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const CheckMark = styled.span``
 const Label = styled.span``
 
 const StyledCheckboxOption = styled.label`
+  ${containerStyles};
   position: relative;
   cursor: pointer;
   margin-bottom: 0;
@@ -56,8 +58,7 @@ const StyledCheckboxOption = styled.label`
   }
 
   input:focus ~ ${CheckMark} {
-    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow},
-      0 0 0 2px ${colors.base.blue};
+    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow}, 0 0 0 2px ${colors.base.blue};
   }
 
   ${CheckMark}:after {
