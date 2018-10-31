@@ -6,7 +6,7 @@
 
 # [Cosmos](https://auth0-cosmos.now.sh/)
 
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) [![npm version](https://img.shields.io/npm/v/@auth0/cosmos.svg)](https://npmjs.com/@auth0/cosmos)
 
 > A Design System For Auth0 Products.
 
@@ -18,20 +18,23 @@ The aim of Cosmos is to help Auth0 designers and developers deliver work faster 
 
 We are currently building our roadmap and initial components inventory to estimate the v1 release date. We are in active development and testing with selected teams, so the components API may change frequently. However, you can play with the alpha version today! Your feedback will help us shape Cosmos.
 
-## Usage
+See the documentation at https://auth0-cosmos.now.sh/docs
 
-### Getting Started
-
-See the documentation at https://auth0-cosmos.now.sh/docs/ for more information about using Cosmos.
+&nbsp;
+&nbsp;
 
 #### Quicklinks:
 
 - [Getting started](https://auth0-cosmos.now.sh/docs/)
 - [How to use Cosmos](https://auth0-cosmos.now.sh/docs/#/usage)
-- [Sandbox](https://auth0-cosmos.now.sh/sandbox) - Storybook
-- [Contribution Guide](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
 - [Components Overview](https://auth0-cosmos.now.sh/docs/#/overview)
 - [Playground](https://auth0-cosmos.now.sh/docs/#/playground) 
+- [Sandbox](https://auth0-cosmos.now.sh/sandbox) - Storybook
+- [Contribution Guide](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
+
+
+&nbsp;
+&nbsp;
 
 ### Installation
 
@@ -47,8 +50,10 @@ If you prefer npm, run this command instead:
 $ npm install --save @auth0/cosmos
 ```
 
-That's all you need to do: no build required!
+That's all you need to do: no config changes required!
 
+&nbsp;
+&nbsp;
 
 ### Using Cosmos components in your application
 
@@ -72,29 +77,16 @@ import { Button } from '@auth0/cosmos'
 To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options. 
 
 
-## Development
+&nbsp;
+&nbsp;
 
-Cosmos uses [styled-components](https://www.styled-components.com) under the hood, so creating a button is as easy as
+## Contribute
 
-```js
-import styled from '@auth0/cosmos/styled'
+There's a lot to write here, we maintain it in our docs: [Contribution guidelines](https://auth0-cosmos.now.sh/docs/#/contribution-guide) 
 
-// ...
-
-const Wrapper = styled.div`
-  background-color: grey;
-`
-
-const Actions = () => (
-  <Wrapper>
-    <Button appearance="primary" onClick={save}>Save changes</Button>
-    <Button onClick={clear}>Clear</Button>
-  </Wrapper>
-)
-```
-
-Please check out our [Contribution guidelines](https://auth0-cosmos.now.sh/docs/#/contribution-guide) for detailed information on how to contribute to the project.
+&nbsp;
+&nbsp;
 
 ## Feedback
 
-Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X). You can use the [playground](https://auth0-cosmos.now.sh/docs/#/playground) to test and share code, report bugs and ask for feedback.
+Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X) (internal). You can use the [playground](https://auth0-cosmos.now.sh/docs/#/playground) to test and share code, report bugs and ask for feedback.
