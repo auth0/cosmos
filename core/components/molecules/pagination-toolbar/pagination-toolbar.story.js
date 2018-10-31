@@ -20,3 +20,10 @@ storiesOf('Pagination Toolbar').add('last page', () => (
     <PaginationToolbar items={20372} perPage={10} page={2038} />
   </Example>
 ))
+
+storiesOf('Pagination Toolbar').add('only 1 page', () => (
+  <Example>
+    <div>toolbar should not be visible if there is just one page</div>
+    <PaginationToolbar items={5} perPage={10} />
+  </Example>
+))
