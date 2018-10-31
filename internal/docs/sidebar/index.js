@@ -10,8 +10,6 @@ import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 
 const StyledSidebar = styled.div`
   background: ${colors.base.grayLightest};
-  height: 100vh;
-  overflow: scroll;
   padding-bottom: calc(2rem + 80px);
 `
 

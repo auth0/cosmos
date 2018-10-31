@@ -10,6 +10,7 @@ const fonts = {
     bold: 700
   },
   size: {
+    default: '14px',
     small: '13px'
   }
 }

@@ -9,6 +9,7 @@ const Title = styled.div`
   color: rgb(168, 168, 168);
   top: 1.5em;
   left: 2em;
+  line-height: 1.6;
 `
 
 const Wrapper = styled.div`
@@ -17,6 +18,7 @@ const Wrapper = styled.div`
   border: 1px solid rgb(236, 236, 236);
   margin-bottom: 1rem;
   border-radius: 3px;
+  line-height: inherit;
 
   &.align-center {
     display: flex;

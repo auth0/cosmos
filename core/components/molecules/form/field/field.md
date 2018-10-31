@@ -23,29 +23,48 @@ In addition to their own [native props](#/component/text-input), we add a few mo
 ## Examples
 
 ```js
-<Form>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-    actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
-  />
-  <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
-  <Form.Select
-    label="Options list"
-    options={[
-      { text: 'First option', value: '1', defaultSelected: true },
-      { text: 'Second option', value: '2' },
-      { text: 'Third option', value: '3' },
-      { text: 'Fourth option', value: '4' }
-    ]}
-  />
-  <Form.Switch label="Subscribe" on />
-  <Form.Radio name="example1" selected="one">
-    <Form.Radio.Option value="one">One</Form.Radio.Option>
-    <Form.Radio.Option value="two">Two</Form.Radio.Option>
-  </Form.Radio>
-</Form>
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selected: 'one' }
+  }
+
+  handleChange(evt) {
+    this.setState({ selected: evt.target.value })
+  }
+
+  render() {
+    return (
+      <Form>
+        <Form.TextInput
+          label="Field label"
+          type="text"
+          placeholder="Enter something"
+          actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
+        />
+        <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
+        <Form.Select
+          label="Options list"
+          options={[
+            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'Second option', value: '2' },
+            { text: 'Third option', value: '3' },
+            { text: 'Fourth option', value: '4' }
+          ]}
+        />
+        <Form.Switch label="Subscribe" on />
+        <Form.Radio
+          name="example1"
+          selected={this.state.selected}
+          onChange={evt => this.handleChange(evt)}
+        >
+          <Form.Radio.Option value="one">One</Form.Radio.Option>
+          <Form.Radio.Option value="two">Two</Form.Radio.Option>
+        </Form.Radio>
+      </Form>
+    )
+  }
+}
 ```
 
 ### Help text

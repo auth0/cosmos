@@ -4,7 +4,7 @@
   unstable: true
 ```
 
-`import Alert from '@auth0/cosmos'`
+`import { Alert } from '@auth0/cosmos'`
 
 The `Alert` component should be used to draw the user's attention to a message.
 
