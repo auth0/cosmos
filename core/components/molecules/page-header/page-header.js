@@ -64,7 +64,7 @@ const PageHeader = props => {
         )}
       </ButtonGroup>
 
-      <Heading size={1}>{props.title}</Heading>
+      <Heading inverse={false} size={1}>{props.title}</Heading>
       <SoftDescription {...props} />
     </StyledPageHeader>
   )

@@ -56,6 +56,7 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    inverse={false}
     size={1}
   />
   <SoftDescription
@@ -132,6 +133,7 @@ exports[`Page Header renders primary action only 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    inverse={false}
     size={1}
   />
   <SoftDescription
@@ -190,6 +192,7 @@ exports[`Page Header renders secondary action only 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    inverse={false}
     size={1}
   />
   <SoftDescription
