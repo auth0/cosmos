@@ -268,6 +268,7 @@ Button.Element = styled.button`
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
+  margin-top: 1px;
 `
 
 Button.LinkElement = Button.Element.withComponent('a').extend`
