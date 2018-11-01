@@ -43,6 +43,8 @@ const renderPaginationItem = ({
 )
 
 const BlackIconButton = styled(Button)`
+  // Override icon-only button color
+  // See: https://github.com/auth0/cosmos/pull/1033
   ${Icon.Element} {
     path {
       fill: black;
