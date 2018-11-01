@@ -15,6 +15,7 @@ export const TabLink = styled.a`
   cursor: ${props => (props.selected ? 'default' : 'pointer')};
   border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
   margin-bottom: -1px;
+
   word-wrap: break-word;
   word-break: break-all;
   hyphens: auto;
