@@ -84,7 +84,12 @@ describe('Automation data attributes', () => {
     const select = shallow(<Select options={[{ text: 'One', value: 1 }]} />)
 
     expect(select.prop('data-cosmos-key')).toEqual('select')
-    expect(select.children().prop('data-cosmos-key')).toEqual('select.option')
+    expect(
+      select
+        .children()
+        .first()
+        .prop('data-cosmos-key')
+    ).toEqual('select.option')
   })
 
   it('Switch', () => {

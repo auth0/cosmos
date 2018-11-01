@@ -8,7 +8,6 @@
   "scripts": {
     "test": "jest --no-cache",
     "test-watch": "jest --watch --no-cache",
-    "test-snapshot": "jest snapshot --no-cache",
     "test-unit": "jest unit --no-cache",
     "test-unit-watch": "jest unit --no-cache --watch",
     "coverage": "jest --coverage"

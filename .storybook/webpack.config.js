@@ -4,8 +4,8 @@ module.exports = storybookBaseConfig => {
   const plugins = storybookBaseConfig.plugins
 
   // plugins.push(
-  //   new webpack.DefinePlugin({
-  //     'process.env': { SKETCH: process.env.SKETCH }
+  //   new webpack.EnvironmentPlugin({
+  //     COSMOS_DISABLE_RESETS: true
   //   })
   // )
   const newConfig = { ...storybookBaseConfig }

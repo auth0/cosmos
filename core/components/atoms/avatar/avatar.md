@@ -95,9 +95,9 @@ Lastly, you can display an avatar with an SVG as the image:
   type="resource"
   image={
     <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path d="M0 0h48v48H0z" />
-        <g fill-rule="nonzero">
+        <g fillRule="nonzero">
           <path
             d="M31.332 11.027A15.433 15.433 0 0 0 23.667 9v10.075c.868-.001 1.749.216 2.555.675 2.444 1.39 3.281 4.471 1.87 6.88l8.851 5.037c4.234-7.227 1.722-16.468-5.611-20.64"
             fill="#16214D"

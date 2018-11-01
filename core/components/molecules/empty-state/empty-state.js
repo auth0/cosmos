@@ -7,7 +7,7 @@ import Button from '../../atoms/button'
 import Link from '../../atoms/link'
 import Heading from '../../atoms/heading'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
-import { Text } from '../../_helpers/free-text'
+import FreeText from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 
@@ -36,7 +36,7 @@ const EmptyState = props => {
       <Title size={1}>{props.title}</Title>
       <Body>
         <Icon name={props.icon} size={110} color="blue" />
-        <Text {...props} useParagraph />
+        <FreeText {...props} useParagraph />
         {helpLink}
       </Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
@@ -91,7 +91,7 @@ EmptyState.propTypes = {
   /** @deprecated Message */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Message */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   /** @deprecated url and target for "Learn more" */
   helpUrl: PropTypes.oneOfType([
     PropTypes.string,

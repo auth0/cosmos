@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { HashRouter as Router, Link, Route } from 'react-router-dom'
 import { Icon } from '@auth0/cosmos'
+import '@auth0/cosmos-fonts'
 
 import Sidebar from './sidebar'
 import Spec from './spec'
@@ -19,6 +20,8 @@ import Navigation from './docs-components/navigation'
 const SideContent = styled.div`
   width: 19rem;
   position: fixed;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
   transition: width 0.25s;
 
   @media (max-width: 800px) {
