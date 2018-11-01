@@ -208,6 +208,7 @@ Button.Element = styled.button`
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
+  justify-content: center;
 
   min-width: ${props => getAttributes(props).minWidth};
   min-height: ${props => getAttributes(props).lineHeight};
