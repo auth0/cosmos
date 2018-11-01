@@ -19,36 +19,28 @@ const StyledPageSelector = styled.div`
   align-items: center;
 `
 
-const StyledButton = styled(Button)`
-  ${props => (props.position === 'left' ? 'padding-right' : 'padding-left')}: 11px;
-  ${props => (props.position === 'left' ? 'padding-left' : 'padding-right')}: 7px;
-
-  padding-top: 2px;
-
-  ${Icon.Element} {
-    margin: 0;
-  }
-`
-
 const Pager = ({ onPageChanged, page, perPage, items }) => (
   <StyledPager {...Automation('pager')}>
-    <StyledButton
+    <Button
       position="left"
       size="compressed"
       appearance="secondary"
       onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
+      icon="chevron-left"
     >
-      <Icon name="chevron-left" /> Newer
-    </StyledButton>
+      Newer
+    </Button>
     <StyledPageSelector page={page}>{totals(page, perPage, items)}</StyledPageSelector>
-    <StyledButton
+    <Button
       position="right"
       size="compressed"
       appearance="secondary"
+      icon="chevron-right"
+      iconAlign="right"
       onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
     >
-      Older <Icon name="chevron-right" />
-    </StyledButton>
+      Older
+    </Button>
   </StyledPager>
 )
 
