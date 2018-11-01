@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { styled, css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
@@ -11,14 +11,24 @@ export const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
-  color: ${props => (props.selected ? colors.text.default : colors.link.default)};
-  cursor: ${props => (props.selected ? 'default' : 'pointer')};
-  border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
+  color: ${colors.link.default};
+  border-bottom: 1px solid transparent';
   margin-bottom: -1px;
-
+  &:focus {
+    outline: none;
+    border-bottom-color: ${colors.link.default};
+    color: ${colors.link.default};
+  }
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
+  ${props =>
+    props.selected &&
+    css`
+      cursor: pointer;
+      color: ${colors.text.default};
+      border-bottom-color: ${colors.base.text};
+    `};
 `
 
 export const TabLinkGroup = styled.div`
