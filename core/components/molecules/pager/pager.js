@@ -4,23 +4,10 @@ import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
-import Icon from '../../atoms/icon'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
-const StyledPager = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const StyledPageSelector = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`
-
 const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <StyledPager {...Automation('pager')}>
+  <Pager.Element {...Automation('pager')}>
     <Button
       position="left"
       size="compressed"
@@ -30,7 +17,7 @@ const Pager = ({ onPageChanged, page, perPage, items }) => (
     >
       Newer
     </Button>
-    <StyledPageSelector page={page}>{totals(page, perPage, items)}</StyledPageSelector>
+    <Pager.PageSelector page={page}>{totals(page, perPage, items)}</Pager.PageSelector>
     <Button
       position="right"
       size="compressed"
@@ -41,8 +28,20 @@ const Pager = ({ onPageChanged, page, perPage, items }) => (
     >
       Older
     </Button>
-  </StyledPager>
+  </Pager.Element>
 )
+
+Pager.Element = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+Pager.PageSelector = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 
 Pager.propTypes = {
   page: PropTypes.number.isRequired,
