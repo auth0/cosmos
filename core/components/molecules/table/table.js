@@ -170,6 +170,7 @@ Table.compare = {
     String(row1[column.field]).toLowerCase() - String(row2[column.field]).toLowerCase()
 }
 
+
 Table.Container = styled.div`
   position: relative;
 `
