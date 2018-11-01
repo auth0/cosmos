@@ -44,6 +44,22 @@ storiesOf('Table').add('default', () => (
   </Example>
 ))
 
+storiesOf('Table').add('column as variable', () => {
+  const columns = (
+    <React.Fragment>
+      <Table.Column field="name" title="Name" />
+      <Table.Column field="born" title="Born" />
+      <Table.Column field="died" title="Died" />
+    </React.Fragment>
+  )
+
+  return (
+    <Example title="default">
+      <Table items={items}>{columns}</Table>
+    </Example>
+  )
+})
+
 storiesOf('Table').add('explicit widths', () => (
   <Example title="default">
     <Table items={items}>

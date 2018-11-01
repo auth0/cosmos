@@ -90,7 +90,7 @@ class Table extends React.Component {
   }
 
   render() {
-    const columns = this.inferColumnsFromChildren(this.props.children)
+    let columns = this.inferColumnsFromChildren(this.props.children)
     let sortedItems, sortingColumn, sortDirection, onSort
     const { loading } = this.props
 
@@ -112,6 +112,15 @@ class Table extends React.Component {
         sortDirection,
         sortingColumn
       })
+    }
+
+    // If columns are passed as a variable or as a child to <div> element
+    if (columns[0].children != undefined && columns[0].children.length > 1) {
+      let nestedColumns = []
+      columns[0].children.map(column => {
+        nestedColumns.push(column.props)
+      })
+      columns = nestedColumns
     }
 
     const rows = sortedItems.map((item, index) => (
@@ -160,6 +169,7 @@ Table.compare = {
   strings: (row1, row2, column) =>
     String(row1[column.field]).toLowerCase() - String(row2[column.field]).toLowerCase()
 }
+
 
 Table.Container = styled.div`
   position: relative;
