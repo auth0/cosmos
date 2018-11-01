@@ -19,14 +19,14 @@ desciption: Spinner is useful to notify the user of background activity
 
 ```js
 <div style={{ background: '#333', padding: '20px' }}>
-	<div style={{ marginTop: 10 }}>
-		<Spinner size="small" inverse />
-	</div>
-	<div style={{ marginTop: 10 }}>
-		<Spinner size="medium" inverse />
-	</div>
-	<div style={{ marginTop: 10 }}>
-		<Spinner size="large" inverse />
-	</div>
+  <div style={{ marginTop: 10 }}>
+    <Spinner size="small" inverse />
+  </div>
+  <div style={{ marginTop: 10 }}>
+    <Spinner size="medium" inverse />
+  </div>
+  <div style={{ marginTop: 10 }}>
+    <Spinner size="large" inverse />
+  </div>
 </div>
 ```
