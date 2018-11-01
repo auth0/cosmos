@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { styled, css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
-
 const Wrapper = styled.div``
 
 export const TabLink = styled.a`
