@@ -107,22 +107,22 @@ const states = {
 
 const sizes = {
   large: {
-    lineHeight: subtract(misc.button.large.height, '2px'),
+    lineHeight: misc.button.large.height,
     minWidth: '96px',
     padding: spacing.medium
   },
   default: {
-    lineHeight: subtract(misc.button.default.height, '2px'),
+    lineHeight: misc.button.default.height,
     minWidth: '96px',
     padding: spacing.small
   },
   compressed: {
-    lineHeight: subtract(misc.button.compressed.height, '2px'),
+    lineHeight: misc.button.compressed.height,
     minWidth: 'auto',
     padding: spacing.small
   },
   small: {
-    lineHeight: subtract(misc.button.small.height, '2px'),
+    lineHeight: misc.button.small.height,
     minWidth: 'auto',
     padding: spacing.xsmall
   }
