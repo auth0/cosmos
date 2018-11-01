@@ -18,7 +18,7 @@ const MobileButton = styled.button`
     margin: -1px;
     padding: 0;
     overflow: hidden;
-    clip: rect(0,0,0,0);
+    clip: rect(0, 0, 0, 0);
     border: 0;
   }
 
@@ -32,8 +32,8 @@ const MobileButton = styled.button`
       height: 2px;
       left: 0;
       right: 0;
-      background-color: #FFFFFF;
-      transition: .25s ease-in-out;
+      background-color: #ffffff;
+      transition: 0.25s ease-in-out;
       border-radius: 1px;
     }
 
@@ -70,12 +70,13 @@ const HamburgerButton = ({ isOpen, onClick }) => (
   <MobileButton
     className={`${isOpen ? 'is-open' : 'is-closed'}`}
     onClick={() => onClick()}
-    type="button">
+    type="button"
+  >
     <span className="sr-only">Toggle navigation</span>
-    <span className="icon-bar"></span>
-    <span className="icon-bar"></span>
-    <span className="icon-bar"></span>
-    <span className="icon-bar"></span>
+    <span className="icon-bar" />
+    <span className="icon-bar" />
+    <span className="icon-bar" />
+    <span className="icon-bar" />
   </MobileButton>
 )
 

@@ -24,7 +24,9 @@ storiesOf('Alert').add('default', () => (
 
 storiesOf('Alert').add('with string text', () => (
   <Example>
-    {types.map(type => <Alert type={type} key={type} text="This is the alert content" />)}
+    {types.map(type => (
+      <Alert type={type} key={type} text="This is the alert content" />
+    ))}
   </Example>
 ))
 
@@ -84,6 +86,8 @@ storiesOf('Alert').add('stressed content', () => (
 
 storiesOf('Alert').add('with no children/text', () => (
   <Example>
-    {types.map(type => <Alert type={type} title="A title" link="/test" key={type} />)}
+    {types.map(type => (
+      <Alert type={type} title="A title" link="/test" key={type} />
+    ))}
   </Example>
 ))

@@ -15,61 +15,9 @@ import {
 const StyledPagination = styled.div`
   display: flex;
   justify-content: center;
-`
 
-const StyledPaginationItem = styled(Button)`
-  margin-right: ${spacing.small};
-  position: relative;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  min-width: ${props => (props.left || props.right ? '95px' : spacing.small)};
-
-  ${props => props.left && `padding-left: ${spacing.xlarge};`} 
-  ${props => props.right && `padding-right: ${spacing.xlarge};`} 
-  ${props => props.iconOnly && `padding-left: 0;`}
-
-  ${props => props.selected && `background-color: rgba(0,0,0,0.2);`}
-
-  ${Icon.Element} {
-    position: absolute;
-    margin: 0;
-    padding-top: 10px;
-    height: calc(${misc.button.compressed.height} - 2px);
-    width: 20px;
-    
-    svg {
-      width: 15px;
-      height: 15px;
-    }
-
-    ${props =>
-      props.left &&
-      `
-      left: ${spacing.xxsmall};
-      padding-right: ${spacing.xxsmall};
-      border-right: 1px solid ${colors.base.grayLight}
-    `};
-    ${props =>
-      props.right &&
-      `
-      right: calc(${spacing.xxsmall});
-      padding-left: ${spacing.xxsmall};
-      border-left: 1px solid ${colors.base.grayLight}
-    `};
-  }
-`
-
-const IconButton = styled(Button)`
-  margin-right: ${spacing.small};
-  min-width: ${spacing.small};
-  padding-left: ${spacing.xsmall};
-  padding-right: 0;
-
-  ${Icon.Element} {
-    padding-top: 3px;
+  ${Button.Element} {
+    margin-right: ${spacing.small};
   }
 `
 
@@ -81,20 +29,28 @@ const renderPaginationItem = ({
   perPage,
   onPageChanged,
   left = false,
-  right = false,
-  iconOnly = false
+  right = false
 }) => (
-  <StyledPaginationItem
-    left={left}
-    right={right}
-    iconOnly={iconOnly}
+  <Button
+    icon={`chevron-${right ? 'right' : 'left'}`}
+    iconAlign={right ? 'right' : 'left'}
     appearance={appearance}
     size="compressed"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
   >
     {content}
-  </StyledPaginationItem>
+  </Button>
 )
+
+const BlackIconButton = styled(Button)`
+  // Override icon-only button color
+  // See: https://github.com/auth0/cosmos/pull/1033
+  ${Icon.Element} {
+    path {
+      fill: black;
+    }
+  }
+`
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   if (page.clickable === false) return
@@ -102,22 +58,11 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
 
-const firstPageButton = (
-  <span>
-    <Icon name="chevron-left" /> First
-  </span>
-)
-const lastPageButton = (
-  <span>
-    Last <Icon name="chevron-right" />
-  </span>
-)
-
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
   <StyledPagination {...Automation('pagination')}>
     {renderPaginationItem({
       toPage: 1,
-      content: firstPageButton,
+      content: 'First',
       appearance,
       items,
       perPage,
@@ -125,15 +70,14 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       left: true
     })}
 
-    <IconButton
+    <BlackIconButton
       size="compressed"
       onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
-    >
-      <Icon name="chevron-left" />
-    </IconButton>
+      icon="chevron-left"
+    />
 
     {getPaginationSlice(page, items, perPage).map(page => (
-      <StyledPaginationItem
+      <Button
         key={page.label}
         appearance={appearance}
         selected={page.selected}
@@ -141,19 +85,18 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
       >
         {page.label}
-      </StyledPaginationItem>
+      </Button>
     ))}
 
-    <IconButton
+    <BlackIconButton
       size="compressed"
       onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
-    >
-      <Icon name="chevron-right" />
-    </IconButton>
+      icon="chevron-right"
+    />
 
     {renderPaginationItem({
       toPage: pagesFromItems(items, perPage),
-      content: lastPageButton,
+      content: 'Last',
       appearance,
       items,
       perPage,
