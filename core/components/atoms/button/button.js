@@ -169,19 +169,20 @@ const ButtonContent = props => {
   let content = []
 
   let icon = props.success ? 'check' : props.icon
+  const iconNode = icon ? (
+    <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
+  ) : null
 
-  if (props.text) {
-    content.push(<Button.Text key="text">{props.text}</Button.Text>)
-  }
+  // Button left icon or loading
+  if (props.loading)
+    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
+  else if (iconNode && props.iconAlign === 'left') content.push(iconNode)
 
-  if (props.loading) {
-    content.unshift(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
-  } else if (icon) {
-    const iconNode = <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
+  // Button text
+  if (props.text) content.push(<Button.Text key="text">{props.text}</Button.Text>)
 
-    if (props.iconAlign === 'left') content.unshift(iconNode)
-    else content.push(iconNode)
-  }
+  // Button right icon
+  if (iconNode && props.iconAlign === 'right') content.push(iconNode)
 
   const Element = props.href ? Button.LinkElement : Button.Element
 
