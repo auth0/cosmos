@@ -205,8 +205,9 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  display: inline-block;
+  display: inline-flex;
   vertical-align: middle;
+  align-items: center;
 
   min-width: ${props => getAttributes(props).minWidth};
   min-height: ${props => getAttributes(props).lineHeight};
