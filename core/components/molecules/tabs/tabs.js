@@ -11,22 +11,28 @@ export const TabLink = styled.a`
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
   color: ${colors.link.default};
-  border-bottom: 1px solid transparent';
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
   margin-bottom: -1px;
-  &:focus {
-    outline: none;
-    border-bottom-color: ${colors.link.default};
-    color: ${colors.link.default};
-  }
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${colors.link.default};
+  }
+  &:active {
+    border-bottom: 1px solid ${colors.base.text};
   }
   ${props =>
     props.selected &&
     css`
-      cursor: pointer;
+      border-bottom: 1px solid ${colors.base.text};
+      cursor: default;
       color: ${colors.text.default};
-      border-bottom-color: ${colors.base.text};
+      &:focus {
+        border-bottom: 1px solid ${colors.base.text};
+      }
     `};
 `
 
