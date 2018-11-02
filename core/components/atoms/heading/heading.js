@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, fonts } from '@auth0/cosmos-tokens'
+import margin from '../../_helpers/margin'
 
 const BaseHeading = styled.h1`
   margin: 1em 0;
+  ${margin}; /* overrides */
   color: ${colors.text.default};
   font-weight: ${fonts.weight.normal};
   line-height: 1.3;

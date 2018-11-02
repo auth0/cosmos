@@ -10,11 +10,6 @@ import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
 const StyledApplicationPageHeader = styled.div`
   margin-bottom: ${spacing.large};
-
-  ${StyledHeading[1]} {
-    margin: 0;
-    margin-bottom: ${spacing.xsmall};
-  }
 `
 
 /* Should be a Css Component */
@@ -56,7 +51,9 @@ const ApplicationPageHeader = props => {
       <TitleGroup>
         {props.logo ? <StyledLogo>{props.logo}</StyledLogo> : null}
         <div>
-          <Heading size={1}>{props.title}</Heading>
+          <Heading size={1} margin={{ top: 0, bottom: 'xsmall' }}>
+            {props.title}
+          </Heading>
           <Type>{props.type.name}</Type>
           <ApplicationID>Application ID</ApplicationID>
           <Code>{props.type.applicationId}</Code>
