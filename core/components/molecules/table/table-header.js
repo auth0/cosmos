@@ -18,7 +18,7 @@ const TableHeader = props => {
       )
     }
 
-    const onClick = column => {
+    const sortColumn = column => {
       if (!column.sortable) return
 
       let sortDirection
@@ -33,12 +33,20 @@ const TableHeader = props => {
       props.onSort(column.field, sortDirection)
     }
 
+    const handleKeyPress = (e, column) => {
+      if(e.key === 'Enter') {
+        sortColumn(column)
+      }
+    }
+
     return (
       <TableHeader.Cell
         key={`row-header-${index}`}
         column={column}
         sortable={column.sortable && props.onSort}
-        onClick={_ => onClick(column)}
+        tabIndex={0}
+        onClick={_ => sortColumn(column)}
+        onKeyPress={e => handleKeyPress(e, column)}
         width={column.width}
       >
         {column.title}

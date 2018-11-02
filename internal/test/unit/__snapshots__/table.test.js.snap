@@ -44,6 +44,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -110,6 +112,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -176,6 +180,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -242,6 +248,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -359,6 +367,8 @@ exports[`Table renders properly 1`] = `
         data-cosmos-key="table.row"
         key="row-0"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
       >
         <styled.td
           column={
@@ -431,6 +441,8 @@ exports[`Table renders properly 1`] = `
         data-cosmos-key="table.row"
         key="row-1"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
       >
         <styled.td
           column={
@@ -503,6 +515,8 @@ exports[`Table renders properly 1`] = `
         data-cosmos-key="table.row"
         key="row-2"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
       >
         <styled.td
           column={
@@ -575,6 +589,8 @@ exports[`Table renders properly 1`] = `
         data-cosmos-key="table.row"
         key="row-3"
         onClick={[Function]}
+        onKeyPress={[Function]}
+        tabIndex={0}
       >
         <styled.td
           column={
@@ -651,6 +667,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -717,6 +735,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -783,6 +803,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -849,6 +871,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -923,6 +947,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -989,6 +1015,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -1055,6 +1083,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
@@ -1121,6 +1151,8 @@ exports[`Table renders properly 1`] = `
         <styled.tr
           data-cosmos-key="table.row"
           onClick={[Function]}
+          onKeyPress={[Function]}
+          tabIndex={0}
         >
           <styled.td
             column={
