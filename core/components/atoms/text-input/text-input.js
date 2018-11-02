@@ -5,6 +5,7 @@ import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
+import add from '../../_helpers/input-addons'
 
 const TextInput = ({ defaultValue, type, ...props }) => {
   if (props.masked) {
@@ -69,5 +70,8 @@ TextInput.defaultProps = {
   size: 'default'
 }
 
-export default TextInput
+const EnhancedInput = add(TextInput)
+
+export default EnhancedInput
+
 export { StyledInput }

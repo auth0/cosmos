@@ -54,3 +54,14 @@ The `onChange` prop is transparently passed to the input
 ```js
 <TextInput onChange={event => console.log(event.target.value)} placeholder="change my text" />
 ```
+
+### Append
+
+```js
+<TextInput
+  onChange={event => console.log(event.target.value)}
+  placeholder="change my text"
+  defaultValue="kiouysabduoahdbuiasodabisdusdbiadbasdiubdoiasubdasds"
+  append=".auth0.com"
+/>
+```

@@ -1,4 +1,4 @@
-import TextInput, { StyledInput } from './text-input'
+import TextInput, { StyledInput, InternalInput } from './text-input'
 
 export default TextInput
-export { StyledInput }
+export { StyledInput, InternalInput }
