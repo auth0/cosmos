@@ -107,22 +107,22 @@ const states = {
 
 const sizes = {
   large: {
-    lineHeight: subtract(misc.button.large.height, '2px'),
+    lineHeight: misc.button.large.height,
     minWidth: '96px',
     padding: spacing.medium
   },
   default: {
-    lineHeight: subtract(misc.button.default.height, '2px'),
+    lineHeight: misc.button.default.height,
     minWidth: '96px',
     padding: spacing.small
   },
   compressed: {
-    lineHeight: subtract(misc.button.compressed.height, '2px'),
+    lineHeight: misc.button.compressed.height,
     minWidth: 'auto',
     padding: spacing.small
   },
   small: {
-    lineHeight: subtract(misc.button.small.height, '2px'),
+    lineHeight: misc.button.small.height,
     minWidth: 'auto',
     padding: spacing.xsmall
   }
@@ -157,7 +157,7 @@ const getAttributes = props => {
 
   // If the button contains only an icon and no text, override some of the styles.
   if (props.icon && !props.text) {
-    styles.padding = 0
+    styles.padding = spacing.xsmall
     styles.minWidth = '36px'
     styles.icon = colors.button.link.icon
   }
@@ -169,18 +169,20 @@ const ButtonContent = props => {
   let content = []
 
   let icon = props.success ? 'check' : props.icon
+  const iconNode = icon ? (
+    <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
+  ) : null
 
-  if (props.loading) {
-    content.push(
-      <Spinner key="spinner" size="small" inverse={getAttributes(props).loadingInverse} />
-    )
-  } else if (icon) {
-    content.push(<Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />)
-  }
+  // Button left icon or loading
+  if (props.loading)
+    content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
+  else if (iconNode && props.iconAlign === 'left') content.push(iconNode)
 
-  if (props.text) {
-    content.push(<Button.Text key="text">{props.text}</Button.Text>)
-  }
+  // Button text
+  if (props.text) content.push(<Button.Text key="text">{props.text}</Button.Text>)
+
+  // Button right icon
+  if (iconNode && props.iconAlign === 'right') content.push(iconNode)
 
   const Element = props.href ? Button.LinkElement : Button.Element
 
@@ -203,11 +205,14 @@ const Button = ({ children, ...props }) => {
 }
 
 Button.Element = styled.button`
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+
+  min-width: ${props => getAttributes(props).minWidth};
   min-height: ${props => getAttributes(props).lineHeight};
   line-height: ${props => getAttributes(props).lineHeight};
-  min-width: ${props => getAttributes(props).minWidth};
-  box-sizing: border-box;
 
   /* Safari button margins reset */
   /* See https://github.com/google/material-design-lite/issues/4008 */
@@ -215,15 +220,13 @@ Button.Element = styled.button`
   margin-left: 0;
 
   text-transform: uppercase;
-  text-align: center;
   white-space: nowrap;
   letter-spacing: 1px;
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
 
   background: ${props => getAttributes(props).background};
-  border: 1px solid;
-  border-color: ${props => getAttributes(props).border};
+  border: 1px solid ${props => getAttributes(props).border};
   border-radius: ${misc.radius};
 
   color: ${props => getAttributes(props).text};
@@ -235,9 +238,7 @@ Button.Element = styled.button`
   pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
-  ${Icon.Element}, ${StyledSpinner} {
-    position: relative;
-    top: -1px;
+  > *:not(:last-child):not(:only-child) {
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
@@ -267,6 +268,10 @@ Button.Element = styled.button`
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
+
+  /* Sub-pixel position adjustment */
+  /* See: https://github.com/auth0/cosmos/pull/947 */
+  margin-top: 2px;
 `
 
 Button.LinkElement = Button.Element.withComponent('a').extend`
@@ -294,6 +299,9 @@ Button.propTypes = {
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
 
+  /** Name of icon */
+  iconAlign: PropTypes.oneOf(['left', 'right']),
+
   /** Tooltip to show when the user hovers over the button */
   label: PropTypes.string,
 
@@ -317,6 +325,7 @@ Button.defaultProps = {
   size: 'default',
   appearance: 'default',
   icon: null,
+  iconAlign: 'left',
   disabled: false,
   loading: false,
   success: false

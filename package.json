@@ -60,6 +60,7 @@
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
     "nps": "5.9.2",
+    "nps-i": "1.0.2",
     "nps-utils": "1.6.0",
     "prettier": "1.14.3",
     "prettycli": "1.4.3",
