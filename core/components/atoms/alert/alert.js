@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
 import FreeText from '../../_helpers/free-text'
@@ -80,6 +80,7 @@ const Cross = styled.a`
   line-height: 1;
   &:after {
     content: '×';
+    font-weight: ${fonts.weight.bold};
   }
 `
 
@@ -117,7 +118,11 @@ Alert.Element = styled.div`
     right: 0;
     top: 0;
     color: ${props => colors.alert[props.type].text};
+    opacity: 0.3;
     padding: ${spacing.small} ${spacing.small};
+    &:hover {
+      opacity: 0.5;
+    }
   }
 `
 

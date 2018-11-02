@@ -62,7 +62,9 @@ const List = props => {
       </Group>
 
       <Group label="Building blocks" open>
-        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
+        {groups.atoms.map((component, index) => (
+          <Link key={index} component={component} />
+        ))}
       </Group>
 
       <Group label="Compound components">

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
@@ -14,14 +14,30 @@ export const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
   margin-right: ${spacing.large};
-  color: ${props => (props.selected ? colors.text.default : colors.link.default)};
-  cursor: ${props => (props.selected ? 'default' : 'pointer')};
-  border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
+  color: ${colors.link.default};
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
   margin-bottom: -1px;
-
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${colors.link.default};
+  }
+  &:active {
+    border-bottom: 1px solid ${colors.base.text};
+  }
+  ${props =>
+    props.selected &&
+    css`
+      border-bottom: 1px solid ${colors.base.text};
+      cursor: default;
+      color: ${colors.text.default};
+      &:focus {
+        border-bottom: 1px solid ${colors.base.text};
+      }
+    `};
 `
 
 export const TabLinkGroup = styled.div`
@@ -83,6 +99,12 @@ class Tabs extends React.Component {
     }
   }
 
+  handleKeyPress(e, index) {
+    if (e.key === 'Enter') {
+      this.changeTab(index)
+    }
+  }
+
   render() {
     const { selected: selectedIndex } = this.props
 
@@ -95,6 +117,8 @@ class Tabs extends React.Component {
               onClick={() => this.changeTab(index)}
               key={index}
               selected={selectedIndex === index}
+              tabIndex="0"
+              onKeyPress={e => this.handleKeyPress(e, index)}
             >
               {tab.props.label}
             </TabLink>
