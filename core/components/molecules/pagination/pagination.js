@@ -12,15 +12,6 @@ import {
   pagesFromItems
 } from '../../_helpers/pagination'
 
-const StyledPagination = styled.div`
-  display: flex;
-  justify-content: center;
-
-  ${Button.Element} {
-    margin-right: ${spacing.small};
-  }
-`
-
 const renderPaginationItem = ({
   toPage,
   content,
@@ -28,7 +19,6 @@ const renderPaginationItem = ({
   items,
   perPage,
   onPageChanged,
-  left = false,
   right = false
 }) => (
   <Button
@@ -42,16 +32,6 @@ const renderPaginationItem = ({
   </Button>
 )
 
-const BlackIconButton = styled(Button)`
-  // Override icon-only button color
-  // See: https://github.com/auth0/cosmos/pull/1033
-  ${Icon.Element} {
-    path {
-      fill: black;
-    }
-  }
-`
-
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   if (page.clickable === false) return
 
@@ -59,18 +39,17 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 }
 
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <StyledPagination {...Automation('pagination')}>
+  <Pagination.Element {...Automation('pagination')}>
     {renderPaginationItem({
       toPage: 1,
       content: 'First',
       appearance,
       items,
       perPage,
-      onPageChanged,
-      left: true
+      onPageChanged
     })}
 
-    <BlackIconButton
+    <Pagination.IconOnlyButton
       size="compressed"
       onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
       icon="chevron-left"
@@ -88,7 +67,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       </Button>
     ))}
 
-    <BlackIconButton
+    <Pagination.IconOnlyButton
       size="compressed"
       onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
       icon="chevron-right"
@@ -103,8 +82,27 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       onPageChanged,
       right: true
     })}
-  </StyledPagination>
+  </Pagination.Element>
 )
+
+Pagination.Element = styled.div`
+  display: flex;
+  justify-content: center;
+
+  ${Button.Element} {
+    margin-right: ${spacing.small};
+  }
+`
+
+Pagination.IconOnlyButton = styled(Button)`
+  /* Override icon-only button color */
+  /* See: https://github.com/auth0/cosmos/pull/1033 */
+  ${Icon.Element} {
+    path {
+      fill: black;
+    }
+  }
+`
 
 Pagination.propTypes = {
   page: PropTypes.number.isRequired,
