@@ -5,7 +5,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 import { Select } from '@auth0/cosmos'
 
 storiesOf('Select').add('simple', () => (
-  <Example title="Code">
+  <Example title="Select: simple">
     <Select
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
@@ -14,7 +14,7 @@ storiesOf('Select').add('simple', () => (
 ))
 
 storiesOf('Select').add('with placeholder', () => (
-  <Example title="Code">
+  <Example title="Select: with placeholder">
     <Select
       placeholder="Select an option..."
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
@@ -24,7 +24,7 @@ storiesOf('Select').add('with placeholder', () => (
 ))
 
 storiesOf('Select').add('default value', () => (
-  <Example title="Code">
+  <Example title="Select: with default value">
     <Select
       value={2}
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
@@ -34,7 +34,7 @@ storiesOf('Select').add('default value', () => (
 ))
 
 storiesOf('Select').add('readonly', () => (
-  <Example title="Code">
+  <Example title="Select: readonly">
     <Select
       value={2}
       readonly
@@ -44,8 +44,19 @@ storiesOf('Select').add('readonly', () => (
   </Example>
 ))
 
+storiesOf('Select').add('readonly option', () => (
+  <Example title="Select: readonly option">
+    <Select
+      placeholder="Selct from the enabled options"
+      readonly
+      options={[{ text: 'One', value: 1, readonly: true }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+      onChange={event => console.log(event)}
+    />
+  </Example>
+))
+
 storiesOf('Select').add('stressed', () => (
-  <Example title="stressed - 56 characters with 300px width">
+  <Example title="Select: stressed - 56 characters with 300px width">
     <Select
       value={1}
       style={{ width: 300 }}
