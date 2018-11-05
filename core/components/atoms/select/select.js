@@ -1,14 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { css } from 'styled-components'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
+const disabledOpacity = 0.5
 const PLACEHOLDER_VALUE = '__select_placeholder'
+
+const disabledState = props =>
+  props.disabled
+    ? css`
+        opacity: ${disabledOpacity};
+      `
+    : null
 
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
+  ${disabledState}
 `
 
 const Select = ({ options, ...props }) => {
