@@ -66,6 +66,7 @@ dist
 
 # ignore generated files
 core/components/meta
+core/components/.meta
 internal/docs/public/main.js
 internal/overview/public/main.js
 *.d.ts

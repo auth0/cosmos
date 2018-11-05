@@ -159,6 +159,10 @@ module.exports = {
         script: 'node tooling/catchup.js && yarn install',
         description: 'Catch up with deployed version'
       }
+    },
+    engine: {
+      default: 'node core/engine/scripts/start.js',
+      description: 'Testing the new engine'
     }
   }
 }

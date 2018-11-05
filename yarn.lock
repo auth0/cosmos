@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@auth0/babel-preset-cosmos@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.7.1.tgz#854a92f268b816433cf691dae53cc91deea9045d"
-  dependencies:
-    babel-plugin-styled-components "1.5.1"
-    babel-plugin-transform-class-properties "6.24.1"
-    babel-plugin-transform-object-rest-spread "6.26.0"
-    babel-preset-es2015 "6.24.1"
-    babel-preset-react "6.24.1"
-
 "@auth0/cosmos-fonts@0.0.1":
   version "0.0.1"
   resolved "https://registry.npmjs.org/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.1.tgz#6c39b18df820511f2c80a3504a63e2c14a7af12a"

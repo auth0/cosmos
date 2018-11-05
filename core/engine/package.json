@@ -1,0 +1,14 @@
+{
+  "name": "@auth0/cosmos-engine",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "engine": "scripts/start.js"
+  },
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "siddharthkp",
+  "license": "MIT",
+  "dependencies": {}
+}
