@@ -50,6 +50,7 @@ dependants.forEach(directory => {
   /* apps should import the same version of components, tokens and babel-preset */
   packages.forEach(package => {
     if (content.dependencies[package]) content.dependencies[package] = version
+    if (content.devDependencies[package]) content.devDependencies[package] = version
   })
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })

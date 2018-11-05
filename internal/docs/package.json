@@ -24,6 +24,6 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
-    "@auth0/cosmos-scripts": "0.0.1"
+    "@auth0/cosmos-scripts": "0.7.2"
   }
 }
