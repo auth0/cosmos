@@ -29,16 +29,18 @@ directories.forEach(directory => {
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
 
-// core/engine/package.json
-
 const dependants = [
   'internal/docs',
-  'core/engine',
   'examples/manage',
   'examples/perf-tests',
   'examples/webpack-hello-world'
 ]
-const packages = ['@auth0/cosmos', '@auth0/cosmos-tokens', '@auth0/babel-preset-cosmos']
+const packages = [
+  '@auth0/cosmos',
+  '@auth0/cosmos-tokens',
+  '@auth0/babel-preset-cosmos',
+  '@auth0/cosmos-scripts'
+]
 
 /* copy version to all dependants */
 dependants.forEach(directory => {
