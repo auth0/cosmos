@@ -4,9 +4,9 @@
   "description": "proof of concept of manage with cosmos",
   "main": "index.js",
   "scripts": {
-    "dev": "engine dev",
-    "build": "engine build",
-    "start": "engine start"
+    "dev": "cosmos-scripts dev",
+    "build": "cosmos-scripts build",
+    "start": "cosmos-scripts start"
   },
   "dependencies": {
     "@auth0/cosmos": "0.7.1",
@@ -16,6 +16,6 @@
     "react-router-dom": "4.2.2"
   },
   "devDependencies": {
-    "@auth0/cosmos-engine": "0.0.1"
+    "@auth0/cosmos-scripts": "0.0.1"
   }
 }
