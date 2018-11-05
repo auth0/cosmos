@@ -38,3 +38,33 @@ You can also indicate that a `<Select>` should be read-only by setting the `disa
   onChange={event => console.log(event)}
 />
 ```
+
+## Groups
+
+You can make groups of options inside a select:
+
+```js
+<Select
+  placeholder="Groups"
+  value={11}
+  onChange={event => console.log(event)}
+  options={[
+    {
+      groupName: 'Group one',
+      items: [
+        { text: 'One one', value: 11 },
+        { text: 'One two', value: 12 },
+        { text: 'One three', value: 13 }
+      ]
+    },
+    {
+      groupName: 'Group two',
+      items: [
+        { text: 'Two one', value: 21 },
+        { text: 'Two two', value: 22 },
+        { text: 'Two three', value: 23 }
+      ]
+    }
+  ]}
+/>
+```

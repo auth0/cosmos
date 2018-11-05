@@ -69,7 +69,7 @@ const selectOptionShape = PropTypes.shape({
 Select.propTypes = {
   /** Options to render inside select */
   options: PropTypes.arrayOf(
-    PropTypes.oneOf([
+    PropTypes.oneOfType([
       selectOptionShape,
       PropTypes.shape({
         groupName: PropTypes.string.isRequired,
