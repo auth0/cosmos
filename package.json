@@ -8,7 +8,7 @@
     "core/tokens",
     "core/babel-preset",
     "core/codemods",
-    "core/engine",
+    "internal/cosmos-scripts",
     "internal/overview",
     "internal/docs",
     "internal/test",

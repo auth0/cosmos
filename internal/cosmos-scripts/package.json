@@ -1,9 +1,9 @@
 {
-  "name": "@auth0/cosmos-engine",
-  "version": "0.0.1",
+  "name": "@auth0/cosmos-scripts",
+  "version": "0.7.2",
   "description": "",
   "bin": {
-    "engine": "cli.js"
+    "cosmos-scripts": "cli.js"
   },
   "main": "index.js",
   "scripts": {},
@@ -11,7 +11,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "@auth0/babel-preset-cosmos": "0.7.1",
+    "@auth0/babel-preset-cosmos": "0.7.2",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
