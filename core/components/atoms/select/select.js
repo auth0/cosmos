@@ -16,6 +16,28 @@ const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
 `
+const isGroup = option => option.groupName && option.items
+const renderOption = (option, idx) => {
+  if (isGroup(option)) {
+    return (
+      <optgroup key={idx} label={option.groupName} {...Automation('select.optgroup')}>
+        {option.items.map(renderOption)}
+      </optgroup>
+    )
+  }
+
+  return (
+    <option
+      key={idx}
+      value={option.value}
+      readOnly={option.disabled}
+      disabled={option.disabled}
+      {...Automation('select.option')}
+    >
+      {option.text}
+    </option>
+  )
+}
 
 const Select = ({ options, ...props }) => {
   /*
@@ -33,29 +55,27 @@ const Select = ({ options, ...props }) => {
         {props.placeholder}
       </option>
 
-      {options.map((option, index) => (
-        <option
-          key={index}
-          value={option.value}
-          readOnly={option.disabled}
-          disabled={option.disabled}
-          {...Automation('select.option')}
-        >
-          {option.text}
-        </option>
-      ))}
+      {options.map(renderOption)}
     </StyledSelect>
   )
 }
 
+const selectOptionShape = PropTypes.shape({
+  text: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
+  disabled: PropTypes.bool
+})
+
 Select.propTypes = {
   /** Options to render inside select */
   options: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired,
-      disabled: PropTypes.bool
-    })
+    PropTypes.oneOf([
+      selectOptionShape,
+      PropTypes.shape({
+        groupName: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf(selectOptionShape)
+      })
+    ])
   ),
   /** Value selected by default */
   value: PropTypes.any,

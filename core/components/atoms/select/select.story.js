@@ -58,6 +58,32 @@ storiesOf('Select').add('disabled option', () => (
   </Example>
 ))
 
+storiesOf('Select').add('groups', () => (
+  <Example title="Select: groups">
+    <Select
+      placeholder="Groups"
+      options={[
+        {
+          groupName: 'Group one',
+          items: [
+            { text: 'One one', value: 11 },
+            { text: 'One two', value: 12 },
+            { text: 'One three', value: 13 }
+          ]
+        },
+        {
+          groupName: 'Group two',
+          items: [
+            { text: 'Two one', value: 21 },
+            { text: 'Two two', value: 22 },
+            { text: 'Two three', value: 23 }
+          ]
+        }
+      ]}
+    />
+  </Example>
+))
+
 storiesOf('Select').add('stressed', () => (
   <Example title="Select: stressed - 56 characters with 300px width">
     <Select
