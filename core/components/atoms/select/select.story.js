@@ -33,19 +33,19 @@ storiesOf('Select').add('default value', () => (
   </Example>
 ))
 
-storiesOf('Select').add('readonly', () => (
-  <Example title="Select: readonly">
+storiesOf('Select').add('disabled', () => (
+  <Example title="Select: disabled">
     <Select
       value={2}
-      readonly
+      disabled
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
   </Example>
 ))
 
-storiesOf('Select').add('readonly option', () => (
-  <Example title="Select: readonly option">
+storiesOf('Select').add('disabled option', () => (
+  <Example title="Select: disabled option">
     <Select
       placeholder="Select from the enabled options"
       options={[
