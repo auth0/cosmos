@@ -107,6 +107,10 @@ Pagination.IconOnlyButton = styled(Button)`
 Pagination.PageButton = styled(Button)`
   background-color: ${props =>
     props.selected ? colors.button.default.backgroundActive : colors.button.default.background};
+
+  &:hover {
+    background-color: ${colors.button.default.backgroundActive};
+  }
 `
 
 Pagination.propTypes = {
