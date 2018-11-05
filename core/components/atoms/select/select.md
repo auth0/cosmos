@@ -9,7 +9,7 @@
 <Select {props}
   placeholder="Select an option..."
   options={[
-    { text: 'One', value: 1, readOnly: true },
+    { text: 'One', value: 1, disabled: true },
     { text: 'Two', value: 2 },
     { text: 'Three', value: 3 }
   ]}

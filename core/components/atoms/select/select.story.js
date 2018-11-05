@@ -47,8 +47,12 @@ storiesOf('Select').add('readonly', () => (
 storiesOf('Select').add('readonly option', () => (
   <Example title="Select: readonly option">
     <Select
-      placeholder="Selct from the enabled options"
-      options={[{ text: 'One', value: 1, readonly: true }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+      placeholder="Select from the enabled options"
+      options={[
+        { text: 'One', value: 1, disabled: true },
+        { text: 'Two', value: 2 },
+        { text: 'Three', value: 3 }
+      ]}
       onChange={event => console.log(event)}
     />
   </Example>

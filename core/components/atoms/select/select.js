@@ -5,11 +5,11 @@ import Automation from '../../_helpers/automation-attribute'
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
+const PLACEHOLDER_VALUE = '__select_placeholder'
+
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
 `
-
-const StyledOption = StyledInput.withComponent('option')
 
 const Select = ({ options, ...props }) => {
   /*
@@ -18,18 +18,25 @@ const Select = ({ options, ...props }) => {
     and functionality of select disabled
   */
   if (props.readOnly) props.disabled = true
+  if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
 
   return (
     <StyledSelect {...props} {...Automation('select')}>
       {/* First option will be selected if there is no value passed as a prop */}
-      <StyledOption disabled hidden selected={!props.value} value="" {...Automation('select.option')}>
+      <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
         {props.placeholder}
-      </StyledOption>
+      </option>
 
       {options.map((option, index) => (
-        <StyledOption key={index} value={option.value} readOnly={option.readOnly} disabled={option.readOnly} {...Automation('select.option')}>
+        <option
+          key={index}
+          value={option.value}
+          readOnly={option.disabled}
+          disabled={option.disabled}
+          {...Automation('select.option')}
+        >
           {option.text}
-        </StyledOption>
+        </option>
       ))}
     </StyledSelect>
   )
@@ -41,9 +48,9 @@ Select.propTypes = {
     PropTypes.shape({
       text: PropTypes.string.isRequired,
       value: PropTypes.any.isRequired,
-      readOnly: PropTypes.bool
+      disabled: PropTypes.bool
     })
-  ).isRequired,
+  ),
   /** Make input readOnly if it does not validate constraint */
   readOnly: PropTypes.bool,
   /** Value selected by default */
@@ -55,7 +62,7 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-  readOnly: false,
+  disabled: false,
   placeholder: ''
 }
 
