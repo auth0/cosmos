@@ -9,6 +9,8 @@ const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
 `
 
+const StyledOption = StyledInput.withComponent('option')
+
 const Select = ({ options, ...props }) => {
   /*
     select boxes do not support readonly like input boxes,
@@ -20,14 +22,14 @@ const Select = ({ options, ...props }) => {
   return (
     <StyledSelect {...props} {...Automation('select')}>
       {/* First option will be selected if there is no value passed as a prop */}
-      <option disabled hidden selected={!props.value} value="" {...Automation('select.option')}>
+      <StyledOption disabled hidden selected={!props.value} value="" {...Automation('select.option')}>
         {props.placeholder}
-      </option>
+      </StyledOption>
 
       {options.map((option, index) => (
-        <option key={index} value={option.value} {...Automation('select.option')}>
+        <StyledOption key={index} value={option.value} readOnly={option.readOnly} disabled={option.readOnly} {...Automation('select.option')}>
           {option.text}
-        </option>
+        </StyledOption>
       ))}
     </StyledSelect>
   )
@@ -38,7 +40,8 @@ Select.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string.isRequired,
-      value: PropTypes.any.isRequired
+      value: PropTypes.any.isRequired,
+      readOnly: PropTypes.bool
     })
   ).isRequired,
   /** Make input readOnly if it does not validate constraint */
