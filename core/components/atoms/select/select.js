@@ -6,19 +6,15 @@ import { css } from 'styled-components'
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
-const disabledOpacity = 0.5
+const selectOpacity = {
+  default: 1,
+  disabled: 0.6
+}
 const PLACEHOLDER_VALUE = '__select_placeholder'
-
-const disabledState = props =>
-  props.disabled
-    ? css`
-        opacity: ${disabledOpacity};
-      `
-    : null
 
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
-  ${disabledState}
+  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
 `
 
 const Select = ({ options, ...props }) => {
@@ -61,8 +57,6 @@ Select.propTypes = {
       disabled: PropTypes.bool
     })
   ),
-  /** Make input readOnly if it does not validate constraint */
-  readOnly: PropTypes.bool,
   /** Value selected by default */
   value: PropTypes.any,
   /** onChange transparently passed to select */
@@ -72,9 +66,8 @@ Select.propTypes = {
 }
 
 Select.defaultProps = {
-  disabled: false,
+  options: [],
   placeholder: ''
 }
 
 export default Select
-export { StyledSelect }
