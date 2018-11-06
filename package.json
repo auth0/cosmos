@@ -28,10 +28,12 @@
     "chromatic": "chromatic test --storybook-addon --script-name sandbox --exit-zero-on-changes"
   },
   "lint-staged": {
-    "*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "linters": {
+      "*.{js,json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
   },
   "prettier": {
     "singleQuote": true,
@@ -56,7 +58,7 @@
     "if-env": "1.0.4",
     "jest": "23.5.0",
     "latest-version": "4.0.0",
-    "lint-staged": "7.2.0",
+    "lint-staged": "8.0.4",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
     "nps": "5.9.2",
