@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@auth0/babel-preset-cosmos@0.7.1":
-  version "0.7.1"
-  resolved "https://registry.npmjs.org/@auth0/babel-preset-cosmos/-/babel-preset-cosmos-0.7.1.tgz#854a92f268b816433cf691dae53cc91deea9045d"
-  dependencies:
-    babel-plugin-styled-components "1.5.1"
-    babel-plugin-transform-class-properties "6.24.1"
-    babel-plugin-transform-object-rest-spread "6.26.0"
-    babel-preset-es2015 "6.24.1"
-    babel-preset-react "6.24.1"
-
 "@auth0/cosmos-fonts@0.0.1":
   version "0.0.1"
   resolved "https://registry.npmjs.org/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.1.tgz#6c39b18df820511f2c80a3504a63e2c14a7af12a"
@@ -1324,6 +1314,13 @@ babel-helpers@^6.24.1:
   dependencies:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
+
+babel-jest@23.4.2:
+  version "23.4.2"
+  resolved "https://registry.npmjs.org/babel-jest/-/babel-jest-23.4.2.tgz#f276de67798a5d68f2d6e87ff518c2f6e1609877"
+  dependencies:
+    babel-plugin-istanbul "^4.1.6"
+    babel-preset-jest "^23.2.0"
 
 babel-jest@^23.4.2, babel-jest@^23.6.0:
   version "23.6.0"
@@ -3717,6 +3714,18 @@ env-ci@^1.5.0:
     execa "^0.10.0"
     java-properties "^0.2.9"
 
+enzyme-adapter-react-16@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.npmjs.org/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.3.0.tgz#4cfba44f8c27256d28e171bdf7a5b5aebce6041b"
+  dependencies:
+    enzyme-adapter-utils "^1.6.0"
+    function.prototype.name "^1.1.0"
+    object.assign "^4.1.0"
+    object.values "^1.0.4"
+    prop-types "^15.6.2"
+    react-is "^16.4.2"
+    react-test-renderer "^16.0.0-0"
+
 enzyme-adapter-react-16@^1.3.0:
   version "1.6.0"
   resolved "https://registry.npmjs.org/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.6.0.tgz#3fca28d3c32f3ff427495380fe2dd51494689073"
@@ -3729,7 +3738,7 @@ enzyme-adapter-react-16@^1.3.0:
     react-is "^16.5.2"
     react-test-renderer "^16.0.0-0"
 
-enzyme-adapter-utils@^1.8.0:
+enzyme-adapter-utils@^1.6.0, enzyme-adapter-utils@^1.8.0:
   version "1.8.1"
   resolved "https://registry.npmjs.org/enzyme-adapter-utils/-/enzyme-adapter-utils-1.8.1.tgz#a927d840ce2c14b42892a533aec836809d4e022b"
   dependencies:
@@ -3737,11 +3746,34 @@ enzyme-adapter-utils@^1.8.0:
     object.assign "^4.1.0"
     prop-types "^15.6.2"
 
-enzyme-to-json@^3.3.4:
+enzyme-to-json@3.3.4, enzyme-to-json@^3.3.4:
   version "3.3.4"
   resolved "https://registry.npmjs.org/enzyme-to-json/-/enzyme-to-json-3.3.4.tgz#67c6040e931182f183418af2eb9f4323258aa77f"
   dependencies:
     lodash "^4.17.4"
+
+enzyme@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.npmjs.org/enzyme/-/enzyme-3.5.0.tgz#fd452a698fd1352c737b641dd3a64e079f42d9d5"
+  dependencies:
+    array.prototype.flat "^1.2.1"
+    cheerio "^1.0.0-rc.2"
+    function.prototype.name "^1.1.0"
+    has "^1.0.3"
+    is-boolean-object "^1.0.0"
+    is-callable "^1.1.4"
+    is-number-object "^1.0.3"
+    is-string "^1.0.4"
+    is-subset "^0.1.1"
+    lodash.escape "^4.0.1"
+    lodash.isequal "^4.5.0"
+    object-inspect "^1.6.0"
+    object-is "^1.0.1"
+    object.assign "^4.1.0"
+    object.entries "^1.0.4"
+    object.values "^1.0.4"
+    raf "^3.4.0"
+    rst-selector-parser "^2.2.3"
 
 enzyme@^3.5.0:
   version "3.7.0"
@@ -5621,7 +5653,7 @@ jest-changed-files@^23.4.2:
   dependencies:
     throat "^4.0.0"
 
-jest-cli@^23.6.0:
+jest-cli@^23.5.0, jest-cli@^23.6.0:
   version "23.6.0"
   resolved "https://registry.npmjs.org/jest-cli/-/jest-cli-23.6.0.tgz#61ab917744338f443ef2baa282ddffdd658a5da4"
   dependencies:
@@ -5903,6 +5935,13 @@ jest-worker@^23.2.0:
   resolved "https://registry.npmjs.org/jest-worker/-/jest-worker-23.2.0.tgz#faf706a8da36fae60eb26957257fa7b5d8ea02b9"
   dependencies:
     merge-stream "^1.0.1"
+
+jest@23.5.0:
+  version "23.5.0"
+  resolved "https://registry.npmjs.org/jest/-/jest-23.5.0.tgz#80de353d156ea5ea4a7332f7962ac79135fbc62e"
+  dependencies:
+    import-local "^1.0.0"
+    jest-cli "^23.5.0"
 
 jest@^23.5.0:
   version "23.6.0"
@@ -8307,7 +8346,7 @@ react-inspector@^2.3.0:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
 
-react-is@^16.5.2, react-is@^16.6.0:
+react-is@^16.4.2, react-is@^16.5.2, react-is@^16.6.0:
   version "16.6.0"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
 
