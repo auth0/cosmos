@@ -20,6 +20,8 @@ import Navigation from './docs-components/navigation'
 const SideContent = styled.div`
   width: 19rem;
   position: fixed;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
   transition: width 0.25s;
 
   @media (max-width: 800px) {

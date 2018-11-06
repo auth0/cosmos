@@ -6,6 +6,10 @@
   version "0.0.1"
   resolved "https://registry.npmjs.org/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.1.tgz#6c39b18df820511f2c80a3504a63e2c14a7af12a"
 
+"@auth0/cosmos-fonts@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.2.tgz#16b07e200cff9c3446d5efa0cc44ea6c6f0dd5b9"
+
 "@babel/code-frame@7.0.0-beta.42":
   version "7.0.0-beta.42"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.0.0-beta.42.tgz#a9c83233fa7cd06b39dc77adbb908616ff4f1962"
