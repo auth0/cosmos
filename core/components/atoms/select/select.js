@@ -8,7 +8,7 @@ import { StyledInput } from '../_styled-input'
 
 const selectOpacity = {
   default: 1,
-  disabled: 0.6
+  disabled: 0.5
 }
 const PLACEHOLDER_VALUE = '__select_placeholder'
 
@@ -45,7 +45,6 @@ const Select = ({ options, ...props }) => {
     but they do have disabled. we need the style of readOnly input
     and functionality of select disabled
   */
-  if (props.readOnly) props.disabled = true
   if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
 
   return (
