@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import { css } from 'styled-components'
 
-import { misc } from '@auth0/cosmos-tokens'
+import { misc, colors } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
 const selectOpacity = {
@@ -15,6 +15,8 @@ const PLACEHOLDER_VALUE = '__select_placeholder'
 const StyledSelect = StyledInput.withComponent('select').extend`
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${props =>
+    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
 `
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
@@ -82,8 +84,6 @@ Select.propTypes = {
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */
   placeholder: PropTypes.string,
-  /** Determines if the select should be read-only */
-  readOnly: PropTypes.bool,
   /** Determines if the select should be disabled */
   disabled: PropTypes.bool
 }

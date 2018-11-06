@@ -39,33 +39,6 @@ You disable a `<Select>` by setting the `disabled` prop:
 />
 ```
 
-You can also indicate that a `<Select>` should be read-only by setting the `readOnly` prop:
-
-```js
-class Example extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { value: 1 }
-  }
-  render() {
-    return (
-      <Select
-        readOnly
-        value={this.state.value}
-        options={[
-          { text: 'One', value: 1 },
-          { text: 'Two', value: 2 },
-          { text: 'Three', value: 3 }
-        ]}
-        onChange={event => this.setState({ value: event.target.value })}
-      />
-    )
-  }
-}
-```
-
-**Note:** Learn more about the difference between `disabled` and `readOnly` in the [W3C Documentation](https://www.w3.org/TR/html4/interact/forms.html#h-17.12).
-
 ## Groups
 
 You can make groups of options inside a select:
