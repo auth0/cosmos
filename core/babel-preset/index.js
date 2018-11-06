@@ -3,7 +3,9 @@
   are recommended for usage with cosmos
 */
 
-module.exports = {
-  presets: ['env', 'react', 'es2015'],
-  plugins: ['transform-object-rest-spread', 'transform-class-properties']
+module.exports = () => {
+  return {
+    presets: ['@babel/preset-env', '@babel/preset-react'],
+    plugins: ['transform-object-rest-spread', 'transform-class-properties']
+  }
 }
