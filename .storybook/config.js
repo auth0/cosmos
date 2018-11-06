@@ -1,4 +1,4 @@
-import { configure } from '@storybook/react'
+import { configure, addParameters } from '@storybook/react'
 import { getStorybook } from '@storybook/react'
 import 'react-chromatic/storybook-addon'
 
@@ -14,6 +14,9 @@ function loadStories() {
     examples.keys().forEach(examples)
   }
 }
+
+/* support for chromatic viewports */
+addParameters({ chromatic: { viewports: [320, 1200] } })
 
 configure(loadStories, module)
 export { getStorybook }
