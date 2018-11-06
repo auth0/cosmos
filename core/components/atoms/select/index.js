@@ -1,4 +1,3 @@
-import Select, { StyledSelect } from './select'
+import Select from './select'
 
 export default Select
-export { StyledSelect }
