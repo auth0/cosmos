@@ -56,7 +56,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
     />
 
     {getPaginationSlice(page, items, perPage).map(page => (
-      <Button
+      <Pagination.PageButton
         key={page.label}
         appearance={appearance}
         selected={page.selected}
@@ -64,7 +64,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
       >
         {page.label}
-      </Button>
+      </Pagination.PageButton>
     ))}
 
     <Pagination.IconOnlyButton
@@ -104,6 +104,15 @@ Pagination.IconOnlyButton = styled(Button)`
   }
 `
 
+Pagination.PageButton = styled(Button)`
+  background-color: ${props =>
+    props.selected ? colors.button.default.backgroundActive : colors.button.default.background};
+
+  &:hover {
+    background-color: ${colors.button.default.backgroundActive};
+  }
+`
+
 Pagination.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
@@ -112,3 +121,4 @@ Pagination.propTypes = {
 }
 
 export default Pagination
+
