@@ -8,7 +8,12 @@ const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
 info('CATCH UP', `Picked up version ${version} from root`)
 
-const directories = ['core/tokens', 'core/babel-preset', 'core/components']
+const directories = [
+  'core/tokens',
+  'core/babel-preset',
+  'core/components',
+  'internal/cosmos-scripts'
+]
 
 /* copy version to all dependencies */
 directories.forEach(directory => {
@@ -24,16 +29,18 @@ directories.forEach(directory => {
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
 
-// core/engine/package.json
-
 const dependants = [
   'internal/docs',
-  'core/engine',
   'examples/manage',
   'examples/perf-tests',
   'examples/webpack-hello-world'
 ]
-const packages = ['@auth0/cosmos', '@auth0/cosmos-tokens', '@auth0/babel-preset-cosmos']
+const packages = [
+  '@auth0/cosmos',
+  '@auth0/cosmos-tokens',
+  '@auth0/babel-preset-cosmos',
+  '@auth0/cosmos-scripts'
+]
 
 /* copy version to all dependants */
 dependants.forEach(directory => {
@@ -43,6 +50,7 @@ dependants.forEach(directory => {
   /* apps should import the same version of components, tokens and babel-preset */
   packages.forEach(package => {
     if (content.dependencies[package]) content.dependencies[package] = version
+    if (content.devDependencies[package]) content.devDependencies[package] = version
   })
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
