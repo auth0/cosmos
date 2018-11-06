@@ -82,7 +82,11 @@ Select.propTypes = {
   /** onChange transparently passed to select */
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  /** Determines if the select should be read-only */
+  readOnly: PropTypes.bool,
+  /** Determines if the select should be disabled */
+  disabled: PropTypes.bool
 }
 
 Select.defaultProps = {
