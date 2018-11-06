@@ -28,10 +28,12 @@
     "chromatic": "chromatic test --storybook-addon --script-name sandbox --exit-zero-on-changes"
   },
   "lint-staged": {
-    "*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "linters": {
+      "*.{js,json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
   },
   "prettier": {
     "singleQuote": true,
