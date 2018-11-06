@@ -50,6 +50,8 @@ You can also indicate that a `<Select>` should be read-only by setting the `read
 />
 ```
 
+**Note:** Learn more about the difference between `disabled` and `readOnly` in the [W3C Documentation](https://www.w3.org/TR/html4/interact/forms.html#h-17.12).
+
 ## Groups
 
 You can make groups of options inside a select:
