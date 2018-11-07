@@ -8,6 +8,7 @@ import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner, { StyledSpinner } from '../spinner'
 import Tooltip from '../tooltip'
 import Automation from '../../_helpers/automation-attribute'
+import iconProp from '../../_helpers/icon-prop'
 
 const appearances = {
   default: {
@@ -168,10 +169,8 @@ const getAttributes = props => {
 const ButtonContent = props => {
   let content = []
 
-  let icon = props.success ? 'check' : props.icon
-  const iconNode = icon ? (
-    <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
-  ) : null
+  let icon = props.success ? <Icon name="check" /> : props.icon
+  const iconNode = icon ? iconProp(icon, { size: 16, color: getAttributes(props).icon }) : null
 
   // Button left icon or loading
   if (props.loading)
@@ -297,7 +296,7 @@ Button.propTypes = {
   appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
 
   /** Name of icon */
-  icon: PropTypes.oneOf(__ICONNAMES__),
+  icon: PropTypes.oneOfType([PropTypes.oneOf(__ICONNAMES__), PropTypes.element]),
 
   /** Name of icon */
   iconAlign: PropTypes.oneOf(['left', 'right']),
