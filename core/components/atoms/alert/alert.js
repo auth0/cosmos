@@ -9,6 +9,7 @@ import FreeText from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
+import iconProp from '../../_helpers/icon-prop'
 
 const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.type].text};
@@ -56,7 +57,7 @@ class Alert extends React.Component {
           dismissible={this.props.dismissible}
           {...Automation('alert')}
         >
-          {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
+          {this.props.icon && iconProp(this.props.icon)}
           <Paragraph>
             <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
@@ -145,7 +146,7 @@ Alert.propTypes = {
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
   /** Name of icon */
-  icon: PropTypes.oneOf(__ICONNAMES__),
+  icon: PropTypes.oneOfType([PropTypes.oneOf(__ICONNAMES__), PropTypes.element]),
 
   /** Title text (in bold) */
   title: PropTypes.string,
