@@ -9,9 +9,9 @@
 
 ```jsx
 <ButtonGroup {props}>
-  <Button icon="pencil" />
-  <Button icon="copy" />
-  <Button icon="delete" />
+  <Button icon={<Icon name="pencil" />
+  <Button icon={<Icon name="copy" />
+  <Button icon={<Icon name="delete" />
 </ButtonGroup>
 ```
 
@@ -24,14 +24,14 @@ In most other cases, these examples can be achieved by other more specialized co
 <Stack>
   <ButtonGroup>
     <Button appearance="primary">Save changes</Button>
-    <Button appearance="secondary" icon="play">
+    <Button appearance="secondary" icon={<Icon name="play" />}>
       Try
     </Button>
   </ButtonGroup>
   <ButtonGroup>
-    <Button icon="pencil" />
-    <Button icon="copy" />
-    <Button icon="delete" />
+    <Button icon={<Icon name="pencil" />} />
+    <Button icon={<Icon name="copy" />} />
+    <Button icon={<Icon name="delete" />} />
   </ButtonGroup>
 </Stack>
 ```
@@ -47,9 +47,9 @@ This is experimental and shouldn't be used yet.
     <Button>Paste</Button>
   </ButtonGroup>
   <ButtonGroup compressed>
-    <Button icon="pencil" />
-    <Button icon="copy" />
-    <Button icon="delete" />
+    <Button icon={<Icon name="pencil" />} />
+    <Button icon={<Icon name="copy" />} />
+    <Button icon={<Icon name="delete" />} />
   </ButtonGroup>
 </Stack>
 ```

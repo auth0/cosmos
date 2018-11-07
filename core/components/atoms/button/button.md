@@ -39,7 +39,11 @@ their attention to it.
     <Button appearance="secondary">secondary</Button>
     <Button>default</Button>
     <Button appearance="destructive">destructive</Button>
-    <Button appearance="link" icon="copy" label="I'm a button, but look like a link." />
+    <Button
+      appearance="link"
+      icon={<Icon name="copy" />}
+      label="I'm a button, but look like a link."
+    />
   </Stack>
 </div>
 ```
@@ -87,8 +91,8 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 ```js
 <div>
   <Stack>
-    <Button appearance="link" icon="copy" />
-    <Button icon="copy" />
+    <Button appearance="link" icon={<Icon name="copy" />} />
+    <Button icon={<Icon name="copy" />} />
   </Stack>
 </div>
 ```
@@ -100,5 +104,5 @@ the button. This can help clarify the purpose of the button, and is especially u
 buttons that only have an icon and no text.
 
 ```js
-<Button icon="copy" label="Copy to clipboard" />
+<Button icon={<Icon name="copy" />} label="Copy to clipboard" />
 ```
