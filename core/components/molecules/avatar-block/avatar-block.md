@@ -9,7 +9,7 @@
 ```jsx
 <AvatarBlock
   type="user"
-  image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+  image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
   title="Auth0 Management API"
   subtitle="System API"
   {props}

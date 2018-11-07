@@ -50,8 +50,13 @@ const StyledAvatar = styled.span`
 
 const getImageForAvatar = props => {
   if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
-  if (typeof props.image === 'string' || (props.email && props.initials))
-    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+  if (typeof props.image === 'string') {
+    if (props.email && props.initials)
+      return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+
+    return <Image source={props.image} />
+  }
+
   if (!props.image)
     return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
 
