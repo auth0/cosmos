@@ -7,6 +7,5 @@ export default prop => {
     console.log(`Please replace 'icon="${prop}"' with 'icon={<Icon name="${prop}"/>}'`)
     return <Icon name={prop} />
   }
-
   return prop
 }
