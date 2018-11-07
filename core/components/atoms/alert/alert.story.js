@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example as ExampleHelper } from '@auth0/cosmos/_helpers/story-helpers'
-import { Alert, Link, Text } from '@auth0/cosmos'
+import { Alert, Link, Text, Icon } from '@auth0/cosmos'
 
 const Example = styled(ExampleHelper)`
   ${Alert.Element} {
@@ -65,7 +65,7 @@ storiesOf('Alert').add('with title and link', () => (
 storiesOf('Alert').add('with icon', () => (
   <Example>
     {types.map(type => (
-      <Alert type={type} title="A title" link="/test" icon="hourglass" key={type}>
+      <Alert type={type} title="A title" link="/test" icon={<Icon name="hourglass" />} key={type}>
         This is the <Text type="strong">alert</Text>
       </Alert>
     ))}
