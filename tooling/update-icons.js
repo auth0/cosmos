@@ -72,6 +72,7 @@ const run = () => {
       { removeDimensions: true },
       { removeStyleElement: true }
     ],
+    floatPrecision: 4,
     multipass: true
   })
 
