@@ -12,6 +12,7 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       appearance="secondary"
       disabled={false}
       icon="copy"
+      iconAlign="left"
       loading={false}
       onClick={
         [MockFunction] {
@@ -35,6 +36,7 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       appearance="cta"
       disabled={false}
       icon="analytics"
+      iconAlign="left"
       loading={false}
       onClick={
         [MockFunction] {
@@ -111,6 +113,7 @@ exports[`Page Header renders primary action only 1`] = `
       appearance="cta"
       disabled={false}
       icon="copy"
+      iconAlign="left"
       loading={false}
       onClick={
         [MockFunction] {
@@ -169,6 +172,7 @@ exports[`Page Header renders secondary action only 1`] = `
       appearance="secondary"
       disabled={false}
       icon="copy"
+      iconAlign="left"
       loading={false}
       onClick={
         [MockFunction] {

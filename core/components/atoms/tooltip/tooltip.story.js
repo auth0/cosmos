@@ -76,11 +76,8 @@ storiesOf('Tooltip').add('with compressed button group', () => (
 
 storiesOf('Tooltip').add('with icon only button', () => (
   <Example title="with icon only button">
-      <ExampleContainer position="top">
-        <Button icon="analytics" label="this is the label" labelDefaultVisible></Button>
-      </ExampleContainer>
+    <ExampleContainer position="top">
+      <Button icon="analytics" label="this is the label" labelDefaultVisible />
+    </ExampleContainer>
   </Example>
 ))
-
-
-
