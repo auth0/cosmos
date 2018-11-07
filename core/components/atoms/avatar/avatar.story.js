@@ -81,3 +81,15 @@ storiesOf('Avatar').add('resource type with icons', () => (
     </Stack>
   </Example>
 ))
+
+storiesOf('Avatar').add('with initials', () => (
+  <Example title="Initials">
+    <Stack>
+      <Avatar size="xsmall" email="example@auth0.com" initials="AB" />
+      <Avatar size="small" email="example@auth0.com" initials="CD" />
+      <Avatar size="medium" email="example@auth0.com" initials="EF" />
+      <Avatar size="large" email="example@auth0.com" initials="GH" />
+      <Avatar size="xlarge" email="example@auth0.com" initials="IJ" />
+    </Stack>
+  </Example>
+))
