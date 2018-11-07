@@ -6,8 +6,6 @@ import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
 
-import EmptyUser from './assets/EmptyUser'
-
 const PLACEHOLDERS = {
   USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
   RESOURCE: 'https://cdn.auth0.com/website/cosmos/avatar-resource-default.svg'
