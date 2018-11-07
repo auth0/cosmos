@@ -8,7 +8,7 @@ storiesOf('ButtonGroup').add('default', () => (
   <Example title="default">
     <ButtonGroup>
       <Button appearance="primary">Save changes</Button>
-      <Button appearance="secondary" icon="play">
+      <Button appearance="secondary" icon={<Icon name="play" />}>
         Try
       </Button>
     </ButtonGroup>
@@ -20,7 +20,7 @@ storiesOf('ButtonGroup').add('alignment', () => (
     <Example title="default/left">
       <ButtonGroup align="left">
         <Button appearance="primary">Save changes</Button>
-        <Button appearance="secondary" icon="play">
+        <Button appearance="secondary" icon={<Icon name="play" />}>
           Try
         </Button>
       </ButtonGroup>
@@ -28,7 +28,7 @@ storiesOf('ButtonGroup').add('alignment', () => (
     <Example title="right">
       <ButtonGroup align="right">
         <Button appearance="primary">Save changes</Button>
-        <Button appearance="secondary" icon="play">
+        <Button appearance="secondary" icon={<Icon name="play" />}>
           Try
         </Button>
       </ButtonGroup>
@@ -66,9 +66,9 @@ storiesOf('ButtonGroup').add('single button margin', () => (
 storiesOf('ButtonGroup').add('icons', () => (
   <Example title="Icons">
     <ButtonGroup>
-      <Button icon="pencil" />
-      <Button icon="copy" />
-      <Button icon="delete" />
+      <Button icon={<Icon name="pencil" />} />
+      <Button icon={<Icon name="copy" />} />
+      <Button icon={<Icon name="delete" />} />
     </ButtonGroup>
   </Example>
 ))
@@ -82,7 +82,8 @@ storiesOf('ButtonGroup').add('compressed', () => (
     </Example>
     <Example title="compressed icons">
       <ButtonGroup compressed>
-        <Button icon="pencil" /> <Button icon="copy" /> <Button icon="delete" />
+        <Button icon={<Icon name="pencil" />} /> <Button icon={<Icon name="copy" />} />{' '}
+        <Button icon={<Icon name="delete" />} />
       </ButtonGroup>
     </Example>
   </div>
