@@ -82,7 +82,7 @@ storiesOf('Avatar').add('resource type with icons', () => (
   </Example>
 ))
 
-storiesOf('Avatar').add('with initials', () => (
+storiesOf('Avatar').add('user type with initials', () => (
   <Example title="Initials">
     <Stack>
       <Avatar size="xsmall" email="example@auth0.com" initials="AB" />
