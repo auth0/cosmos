@@ -16,7 +16,7 @@
 />
 ```
 
-`AvatarBlock` builds on [Avatar](/docs/atoms/avatar), allowing you to display a title and subtitle along with the image.
+`AvatarBlock` builds on [Avatar](/docs/#/components/avatar), allowing you to display a title and subtitle along with the image.
 
 ```js
 <Stack>
