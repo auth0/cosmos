@@ -12,51 +12,88 @@ storiesOf('Avatar').add('user type with images', () => (
       <Avatar
         type="user"
         size="xsmall"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
       <Avatar
         type="user"
         size="small"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
       <Avatar
         type="user"
         size="medium"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
       <Avatar
         type="user"
         size="large"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
       <Avatar
         type="user"
         size="xlarge"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
       <Avatar
         type="user"
         size="xxlarge"
-        image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
       />
     </Stack>
   </Example>
 ))
 
-storiesOf('Avatar').add('user type with icons', () => (
-  <Example title="Icons">
+storiesOf('Avatar').add('user type with initials', () => (
+  <Example title="Initials">
     <Stack>
-      <Avatar type="user" size="xsmall" icon="settings" />
-      <Avatar type="user" size="small" icon="settings" />
-      <Avatar type="user" size="medium" icon="settings" />
-      <Avatar type="user" size="large" icon="settings" />
-      <Avatar type="user" size="xlarge" icon="settings" />
-      <Avatar type="user" size="xxlarge" icon="settings" />
+      <Avatar size="xsmall" email="example@auth0.com" initials="AB" />
+      <Avatar size="small" email="example@auth0.com" initials="CD" />
+      <Avatar size="medium" email="example@auth0.com" initials="EF" />
+      <Avatar size="large" email="example@auth0.com" initials="GH" />
+      <Avatar size="xlarge" email="example@auth0.com" initials="IJ" />
+      <Avatar size="xxlarge" email="example@auth0.com" initials="FC" />
     </Stack>
   </Example>
 ))
 
 storiesOf('Avatar').add('resource type with images', () => (
+  <Example title="Images">
+    <Stack>
+      <Avatar
+        type="resource"
+        size="xsmall"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+      <Avatar
+        type="resource"
+        size="small"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+      <Avatar
+        type="resource"
+        size="medium"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+      <Avatar
+        type="resource"
+        size="large"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+      <Avatar
+        type="resource"
+        size="xlarge"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+      <Avatar
+        type="resource"
+        size="xxlarge"
+        image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      />
+    </Stack>
+  </Example>
+))
+
+storiesOf('Avatar').add('resource type with transparent images', () => (
   <Example title="Images">
     <Stack>
       <Avatar type="resource" size="xsmall" image={EXAMPLE_IMAGE} />
@@ -78,18 +115,6 @@ storiesOf('Avatar').add('resource type with icons', () => (
       <Avatar type="resource" size="large" icon="settings" />
       <Avatar type="resource" size="xlarge" icon="settings" />
       <Avatar type="resource" size="xxlarge" icon="settings" />
-    </Stack>
-  </Example>
-))
-
-storiesOf('Avatar').add('user type with initials', () => (
-  <Example title="Initials">
-    <Stack>
-      <Avatar size="xsmall" email="example@auth0.com" initials="AB" />
-      <Avatar size="small" email="example@auth0.com" initials="CD" />
-      <Avatar size="medium" email="example@auth0.com" initials="EF" />
-      <Avatar size="large" email="example@auth0.com" initials="GH" />
-      <Avatar size="xlarge" email="example@auth0.com" initials="IJ" />
     </Stack>
   </Example>
 ))
