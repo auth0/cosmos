@@ -25,13 +25,13 @@ The Avatar Block builds on [Avatar](/docs/#/components/avatar), allowing you to 
   <AvatarBlock
     type="user"
     image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
-    title="Title"
+    title="John Appleseed"
   />
   <AvatarBlock
     type="user"
     image="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=aa3a807e1bbdfd4364d1f449eaa96d82"
-    title="Title"
-    subtitle="Subtitle"
+    title="Jenny Appleseed"
+    subtitle="jenny.appleseed@auth0.com"
   />
 </Stack>
 ```
