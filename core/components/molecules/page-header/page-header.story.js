@@ -33,7 +33,7 @@ storiesOf('Page Header').add('with subtitle', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
-      subtitle="The API consumers"
+      subtitle="Define clients that your users can use to authenticate to"
       description={
         <span>
           Setup a mobile, web or IoT application to{' '}

@@ -28,9 +28,8 @@ const StyledPageHeader = styled.div`
 
 const StyledSubtitle = styled.div`
   color: gray;
-  margin-top: 0;
-  margin-bottom: -12px;
-  padding-left: ${spacing.xxsmall};
+  margin-top: ${spacing.small};
+  font-size: 18px;
 `
 
 const SoftDescription = ({ description, learnMore }) => {
@@ -71,8 +70,10 @@ const PageHeader = props => {
             </Button>
           )}
         </ButtonGroup>
-  
-        <Heading size={1} style={{marginBottom:-10 +"px"}}>{props.title}</Heading>
+
+        <Heading size={1} style={{ marginBottom: -10 + 'px' }}>
+          {props.title}
+        </Heading>
         <StyledSubtitle>{props.subtitle}</StyledSubtitle>
         <SoftDescription {...props} />
       </StyledPageHeader>
@@ -114,6 +115,8 @@ PageHeader.displayName = 'Page Header'
 PageHeader.propTypes = {
   /** Page title of the section */
   title: PropTypes.string.isRequired,
+  /** Page subtitle of the section */
+  subtitle: PropTypes.string,
   /** Description to give more information to the user */
   description: PropTypes.oneOfType([
     PropTypes.shape({
