@@ -16,7 +16,9 @@ const LinkIcon = styled(Icon)`
   margin-right: ${spacing.xsmall};
 `
 
-const Wrapper = styled.div`
+const Breadcrumb = props => <Breadcrumb.Wrapper {...props} {...Automation('breadcrumb')} />
+
+Breadcrumb.Wrapper = styled.div`
   ${/* overrides for link */ ''};
 
   ${StyledLink} {
@@ -67,8 +69,6 @@ const Wrapper = styled.div`
     display: none;
   }
 `
-
-const Breadcrumb = props => <Wrapper {...props} {...Automation('breadcrumb')} />
 
 Breadcrumb.Link = props => (
   <Link {...props} {...Automation('breadcrumb.link')}>

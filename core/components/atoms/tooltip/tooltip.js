@@ -66,7 +66,14 @@ const arrowStyles = {
   `
 }
 
-const StyledTooltip = styled.div`
+const Tooltip = ({ content, ...props }) => (
+  <Tooltip.Wrapper>
+    <Tooltip.Element {...props}>{content}</Tooltip.Element>
+    {props.children}
+  </Tooltip.Wrapper>
+)
+
+Tooltip.Element = styled.div`
   position: absolute;
   background: ${colors.tooltip.background};
   color: ${colors.tooltip.text};
@@ -90,25 +97,19 @@ const StyledTooltip = styled.div`
   }
 `
 
-const TooltipWrapper = styled.div`
+Tooltip.Wrapper = styled.div`
   display: inline-block;
   position: relative;
 
   &:hover {
-    ${StyledTooltip} {
+    ${Tooltip.Element} {
       opacity: 1;
     }
   }
 `
 
-const Tooltip = ({ content, ...props }) => {
-  return (
-    <TooltipWrapper>
-      <StyledTooltip {...props}>{content}</StyledTooltip>
-      {props.children}
-    </TooltipWrapper>
-  )
-}
+const StyledTooltip = Tooltip.Element
+const TooltipWrapper = Tooltip.Wrapper
 
 Tooltip.propTypes = {
   /** Content to show in the tooltip */

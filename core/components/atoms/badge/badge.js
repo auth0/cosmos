@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
-const StyledBadge = styled.span`
+const Badge = props => <Badge.Element {...props}>{props.children}</Badge.Element>
+
+Badge.Element = styled.span`
   display: inline-block;
   vertical-align: middle;
   font-size: 13px;
@@ -15,7 +17,8 @@ const StyledBadge = styled.span`
   border-radius: 21px;
 `
 
-const Badge = props => <StyledBadge {...props}>{props.children}</StyledBadge>
+// Backwards compatibility (will be removed in 1.0)
+const StyledBadge = Badge.Element
 
 Badge.propTypes = {
   /** The visual style used to convey the label's purpose */

@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
-const StyledCode = styled.span`
+const Code = props => <Code.Element {...props}>{props.children}</Code.Element>
+
+Code.Element = styled.span`
   color: rgba(0, 0, 0, 0.86);
   font-family: ${fonts.family.code};
   font-size: 90%;
@@ -13,8 +15,6 @@ const StyledCode = styled.span`
   border-radius: 3px;
   line-height: 18px;
 `
-
-const Code = props => <StyledCode {...props}>{props.children}</StyledCode>
 
 Code.propTypes = {}
 
