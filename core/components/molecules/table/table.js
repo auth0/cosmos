@@ -137,13 +137,7 @@ class Table extends React.Component {
 
           return (
             <Table.Cell key={column.field} column={column}>
-              {column.truncate ? (
-                <Table.TruncatingHelper width={column.width}>
-                  {cellRenderer(item, column)}
-                </Table.TruncatingHelper>
-              ) : (
-                cellRenderer(item, column)
-              )}
+              {cellRenderer(item, column)}
             </Table.Cell>
           )
         })}
@@ -187,6 +181,7 @@ Table.Element = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  table-layout: fixed;
   opacity: ${p => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
 `
 
@@ -196,10 +191,7 @@ Table.TruncatingHelper = styled.div`
   position: absolute;
   top: 0;
   left: ${spacing.xsmall};
-  max-width: 95%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow-x: hidden;
+
   line-height: ${trucatedTableCellHeight};
 `
 
@@ -211,20 +203,20 @@ Table.Row = styled.tr`
 `
 
 Table.Cell = styled.td`
-  ${props =>
-    props.column.truncate
-      ? css`
-          height: ${trucatedTableCellHeight};
-          position: relative;
-        `
-      : ''};
-
   padding: ${spacing.xsmall};
   border-top: 1px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: middle;
   line-height: 2;
   width: ${props => props.column.width || 'auto'};
+  ${props =>
+    props.column.truncate
+      ? css`
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow-x: hidden;
+        `
+      : ``};
 `
 
 Table.EmptyState = ({ rows, children, loading }) => {
