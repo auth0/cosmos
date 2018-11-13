@@ -2,8 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Image } from '@auth0/cosmos'
-import { colors, misc, spacing } from '@auth0/cosmos-tokens'
+import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
+import getUserAvatarUrl from '../../_helpers/avatar-url'
+
+const PLACEHOLDERS = {
+  USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
+  RESOURCE: 'https://cdn.auth0.com/website/cosmos/avatar-resource-default.svg'
+}
 
 const iconSizes = {
   xsmall: 14,
@@ -15,6 +21,7 @@ const iconSizes = {
 }
 
 const StyledAvatar = styled.span`
+  min-width: ${props => misc.avatar[props.size]};
   width: ${props => misc.avatar[props.size]};
   height: ${props => misc.avatar[props.size]};
   background-color: ${colors.base.grayLightest};
@@ -39,16 +46,22 @@ const StyledAvatar = styled.span`
   }
 `
 
-const Avatar = props => {
-  let image
-
-  if (props.icon) {
-    image = <Icon name={props.icon} size={iconSizes[props.size]} />
-  } else if (typeof props.image === 'string') {
-    image = <Image source={props.image} />
-  } else {
-    image = props.image
+const getImageForAvatar = props => {
+  if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
+  if (props.email && props.initials)
+    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+  if (typeof props.image === 'string') {
+    return <Image source={props.image} />
   }
+
+  if (!props.image)
+    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
+
+  return props.image
+}
+
+const Avatar = props => {
+  const image = getImageForAvatar(props)
 
   return (
     <StyledAvatar type={props.type} size={props.size}>
@@ -65,11 +78,16 @@ Avatar.propTypes = {
   /** The size of the avatar. */
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
   /** The type of item represented by the avatar. */
-  type: PropTypes.oneOf(['user', 'resource']).isRequired
+  type: PropTypes.oneOf(['user', 'resource']).isRequired,
+  /** Initials of the user */
+  initials: PropTypes.string,
+  /** E-mail of the user */
+  email: PropTypes.string
 }
 
 Avatar.defaultProps = {
-  size: 'medium'
+  size: 'medium',
+  type: 'user'
 }
 
 export default Avatar

@@ -27,63 +27,44 @@ const StyledLink = styled.div`
   }
 `
 
+const guides = [
+  { path: '/', title: 'Getting started' },
+  { path: '/usage', title: 'How to use Cosmos?' },
+  { path: '/guiding-principles', title: 'Guiding Principles' },
+  { path: '/contribution-guide', title: 'Contributing to Cosmos' },
+  { path: '/faqs', title: 'FAQs' },
+  { path: '/changes', title: 'Changelog' },
+  { path: '/overview', title: 'Component overview' },
+  { path: '/automation', title: 'Automation Glossary' },
+  { path: '/playground', title: 'Cosmos playground' }
+]
+
 const List = props => {
   /* Filter out internal components */
   let components = props.components.filter(c => !c.internal)
   components = attachChildren(components)
   const groups = getGroups(components)
+
+  const filteredGuides = guides.filter(guide =>
+    guide.title.toLowerCase().includes(props.query.toLowerCase())
+  )
+
   return (
     <div>
-      <Group label="Getting started">
-        <StyledLink>
-          <NavLink to="/" activeClassName="selected">
-            Getting started
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink exact to="/usage" activeClassName="selected">
-            How to use Cosmos?
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/guiding-principles" activeClassName="selected">
-            Guiding Principles
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/contribution-guide" activeClassName="selected">
-            Contributing to Cosmos
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/faqs" activeClassName="selected">
-            FAQs
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/changes" activeClassName="selected">
-            Changelog
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/overview" activeClassName="selected">
-            Component overview
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/automation" activeClassName="selected">
-            Automation Glossary
-          </NavLink>
-        </StyledLink>
-        <StyledLink>
-          <NavLink to="/playground" activeClassName="selected">
-            Cosmos playground
-          </NavLink>
-        </StyledLink>
+      <Group label="GUIDES">
+        {filteredGuides.map((guide, index) => (
+          <StyledLink key={index}>
+            <NavLink exact to={guide.path} activeClassName="selected">
+              {guide.title}
+            </NavLink>
+          </StyledLink>
+        ))}
       </Group>
 
       <Group label="Building blocks" open>
-        {groups.atoms.map((component, index) => <Link key={index} component={component} />)}
+        {groups.atoms.map((component, index) => (
+          <Link key={index} component={component} />
+        ))}
       </Group>
 
       <Group label="Compound components">

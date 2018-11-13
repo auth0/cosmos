@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.5.1",
+  "version": "0.7.2",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -8,7 +8,7 @@
     "core/tokens",
     "core/babel-preset",
     "core/codemods",
-    "core/engine",
+    "internal/cosmos-scripts",
     "internal/overview",
     "internal/docs",
     "internal/test",
@@ -60,12 +60,14 @@
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
     "nps": "5.9.2",
+    "nps-i": "1.0.2",
     "nps-utils": "1.6.0",
-    "prettier": "1.13.7",
+    "prettier": "1.14.3",
     "prettycli": "1.4.3",
     "proptypes-to-ts-declarations": "0.8.3",
     "react-chromatic": "0.8.4",
     "react-docgen": "2.21.0",
+    "react-docgen-deprecation-handler": "1.0.0",
     "react-docgen-displayname-handler": "2.1.0",
     "read-pkg": "4.0.1",
     "svgo": "1.0.5"

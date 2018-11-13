@@ -15,7 +15,7 @@ exports[`Empty State renders properly 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
@@ -23,12 +23,13 @@ exports[`Empty State renders properly 1`] = `
           "label": "Something",
         }
       }
-      helpUrl="/some-place"
       icon="copy"
-      text="Some description"
+      link="/some-place"
       title="Some title"
       useParagraph={true}
-    />
+    >
+      Some description
+    </FreeText>
     <styled.div>
       <Link
         href="/some-place"
@@ -45,6 +46,7 @@ exports[`Empty State renders properly 1`] = `
     appearance="cta"
     disabled={false}
     icon="copy"
+    iconAlign="left"
     loading={false}
     onClick={[Function]}
     size="large"
@@ -70,7 +72,7 @@ exports[`Empty State renders properly without help link 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
@@ -78,17 +80,19 @@ exports[`Empty State renders properly without help link 1`] = `
           "label": "Something",
         }
       }
-      helpUrl={null}
       icon="copy"
-      text="Some description"
+      link={null}
       title="Some title"
       useParagraph={true}
-    />
+    >
+      Some description
+    </FreeText>
   </styled.div>
   <Button
     appearance="cta"
     disabled={false}
     icon="copy"
+    iconAlign="left"
     loading={false}
     onClick={[Function]}
     size="large"
@@ -114,7 +118,7 @@ exports[`Empty State renders properly without text 1`] = `
       name="copy"
       size={110}
     />
-    <Text
+    <FreeText
       action={
         Object {
           "handler": [Function],
@@ -122,12 +126,13 @@ exports[`Empty State renders properly without text 1`] = `
           "label": "Something",
         }
       }
-      helpUrl="/some-place"
       icon="copy"
-      text={null}
+      link="/some-place"
       title="Some title"
       useParagraph={true}
-    />
+    >
+      Some description
+    </FreeText>
     <styled.div>
       <Link
         href="/some-place"
@@ -144,6 +149,7 @@ exports[`Empty State renders properly without text 1`] = `
     appearance="cta"
     disabled={false}
     icon="copy"
+    iconAlign="left"
     loading={false}
     onClick={[Function]}
     size="large"

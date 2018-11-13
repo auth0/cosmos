@@ -10,8 +10,6 @@ import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 
 const StyledSidebar = styled.div`
   background: ${colors.base.grayLightest};
-  height: 100vh;
-  overflow: scroll;
   padding-bottom: calc(2rem + 80px);
 `
 
@@ -19,20 +17,20 @@ class Sidebar extends React.Component {
   constructor() {
     super()
     /* by default, show all components */
-    this.state = { filteredComponents: components }
+    this.state = { filteredComponents: components, query: '' }
   }
   filter(query) {
     /* filter components based on search query */
     const filteredComponents = components.filter(component =>
       component.displayName.toLowerCase().includes(query.toLowerCase())
     )
-    this.setState({ filteredComponents })
+    this.setState({ filteredComponents, query })
   }
   render() {
     return (
       <StyledSidebar>
         <SearchBox onChange={this.filter.bind(this)} />
-        <List components={this.state.filteredComponents} />
+        <List components={this.state.filteredComponents} query={this.state.query} />
       </StyledSidebar>
     )
   }

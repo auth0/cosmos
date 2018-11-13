@@ -17,14 +17,16 @@ const attachChildren = components => {
 
   children.forEach(child => {
     const parent = getParent(parents, child)
-    if (!parent) {
-      throw new Error(
-        `Error building sidebar hierarchy for ${
-          child.filepath
-        }. Is there an error in the related component?`
-      )
+    if (parent) {
+      /* Nest child inside parent */
+      parent.children.push(child)
+    } else {
+      /*
+        if parent is not in the list, treat the child as a parent
+        usually happens when you filter components using search
+      */
+      parents.push(child)
     }
-    parent.children.push(child)
   })
 
   return parents

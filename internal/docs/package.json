@@ -4,12 +4,13 @@
   "description": "Documentation for cosmos components",
   "main": "index.js",
   "scripts": {
-    "dev": "engine dev",
-    "build": "engine build",
-    "start": "engine start"
+    "dev": "cosmos-scripts dev",
+    "build": "cosmos-scripts build",
+    "start": "cosmos-scripts start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.5.0",
+    "@auth0/cosmos": "0.7.2",
+    "@auth0/cosmos-fonts": "0.0.2",
     "fuzzysearch": "1.0.3",
     "js-beautify": "1.7.5",
     "lodash.kebabcase": "4.1.1",
@@ -23,6 +24,6 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
-    "@auth0/cosmos-engine": "0.0.1"
+    "@auth0/cosmos-scripts": "0.7.2"
   }
 }

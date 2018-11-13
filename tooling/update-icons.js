@@ -6,6 +6,7 @@ const htmlparser = require('htmlparser2')
 const fromPairs = require('lodash.frompairs')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
+const prettier = require('prettier')
 
 /* Ensure meta directory exists */
 fs.ensureDirSync('core/components/meta')
@@ -71,6 +72,7 @@ const run = () => {
       { removeDimensions: true },
       { removeStyleElement: true }
     ],
+    floatPrecision: 4,
     multipass: true
   })
 
@@ -97,6 +99,9 @@ const run = () => {
       JSON.stringify({ icons }, null, 2) + '\n',
       'utf8'
     )
+
+    // prettify this file
+    prettier.format('core/components/atoms/icon/icons.json', { parser: 'babylon' })
 
     // Write the lookup table for icon names which will be used in the docs
     fs.writeFileSync(

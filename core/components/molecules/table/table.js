@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
-
+import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 
@@ -92,8 +92,9 @@ class Table extends React.Component {
   }
 
   render() {
-    const columns = this.inferColumnsFromChildren(this.props.children)
+    let columns = this.inferColumnsFromChildren(this.props.children)
     let sortedItems, sortingColumn, sortDirection, onSort
+    const { loading } = this.props
 
     if (this.props.onSort) {
       // User-controlled sorting mode: items are already sorted
@@ -115,6 +116,15 @@ class Table extends React.Component {
       })
     }
 
+    // If columns are passed as a variable or as a child to <div> element
+    if (columns[0].children != undefined && columns[0].children.length > 1) {
+      let nestedColumns = []
+      columns[0].children.map(column => {
+        nestedColumns.push(column.props)
+      })
+      columns = nestedColumns
+    }
+
     const rows = sortedItems.map((item, index) => (
       <Table.Row
         key={`row-${index}`}
@@ -134,8 +144,8 @@ class Table extends React.Component {
     ))
 
     return (
-      <React.Fragment>
-        <Table.Element {...Automation('table')}>
+      <Table.Container>
+        <Table.Element {...Automation('table')} {...this.props} rows={rows}>
           <Table.Header
             columns={columns}
             sortingColumn={sortingColumn}
@@ -144,8 +154,11 @@ class Table extends React.Component {
           />
           <Table.Body {...Automation('table.body')}>{rows}</Table.Body>
         </Table.Element>
-        <Table.EmptyState rows={rows}>{this.props.emptyMessage}</Table.EmptyState>
-      </React.Fragment>
+        <Table.EmptyState rows={rows} loading={loading}>
+          {this.props.emptyMessage}
+        </Table.EmptyState>
+        <Table.LoadingIndicator rows={rows} loading={loading} />
+      </Table.Container>
     )
   }
 }
@@ -159,10 +172,15 @@ Table.compare = {
     String(row1[column.field]).toLowerCase() - String(row2[column.field]).toLowerCase()
 }
 
+Table.Container = styled.div`
+  position: relative;
+`
+
 Table.Element = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  opacity: ${p => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
 `
 
 Table.Body = styled.tbody``
@@ -185,8 +203,8 @@ Table.Cell = styled.td`
   ${props => truncateSelf(props.column.truncate, props.column.width || 'auto')};
 `
 
-Table.EmptyState = ({ rows, children }) => {
-  if (rows.length > 0 || !children) return null
+Table.EmptyState = ({ rows, children, loading }) => {
+  if (rows.length > 0 || !children || loading) return null
 
   const TableEmptyState = styled.div`
     padding: ${spacing.small};
@@ -198,6 +216,38 @@ Table.EmptyState = ({ rows, children }) => {
   `
 
   return <TableEmptyState>{children}</TableEmptyState>
+}
+
+Table.LoadingIndicator = ({ loading, rows }) => {
+  if (!loading) return null
+  const initialLoadingState = rows.length === 0
+
+  const TableLoadingIndicator = styled.div`
+    position: ${initialLoadingState ? 'initial' : 'absolute'};
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: ${initialLoadingState ? 'auto' : '100%'};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: ${initialLoadingState ? '20px' : '0'};
+  `
+
+  const SpinnerContainer = styled.div`
+    background-color: white;
+    display: inline-block;
+    padding: ${spacing.xsmall};
+    border-radius: 50%;
+  `
+
+  return (
+    <TableLoadingIndicator>
+      <SpinnerContainer>
+        <Spinner size="medium" />
+      </SpinnerContainer>
+    </TableLoadingIndicator>
+  )
 }
 
 Table.propTypes = {

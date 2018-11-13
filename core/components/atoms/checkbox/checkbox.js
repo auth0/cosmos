@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 const CheckMark = styled.span``
@@ -10,6 +10,8 @@ const Label = styled.span``
 const StyledCheckboxOption = styled.label`
   position: relative;
   cursor: pointer;
+  margin-bottom: 0;
+  font-weight: ${fonts.weight.normal};
   padding-left: ${spacing.medium};
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -53,6 +55,10 @@ const StyledCheckboxOption = styled.label`
     border: 1px solid ${colors.radio.borderSelected};
   }
 
+  input:focus ~ ${CheckMark} {
+    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow}, 0 0 0 2px ${colors.base.blue};
+  }
+
   ${CheckMark}:after {
     content: '';
     position: absolute;
@@ -64,6 +70,7 @@ const StyledCheckboxOption = styled.label`
   }
 
   ${CheckMark}:after {
+    box-sizing: content-box;
     width: 4px;
     height: 8px;
     border: solid ${colors.base.white};

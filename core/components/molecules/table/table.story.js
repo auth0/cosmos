@@ -44,6 +44,22 @@ storiesOf('Table').add('default', () => (
   </Example>
 ))
 
+storiesOf('Table').add('column as variable', () => {
+  const columns = (
+    <React.Fragment>
+      <Table.Column field="name" title="Name" />
+      <Table.Column field="born" title="Born" />
+      <Table.Column field="died" title="Died" />
+    </React.Fragment>
+  )
+
+  return (
+    <Example title="default">
+      <Table items={items}>{columns}</Table>
+    </Example>
+  )
+})
+
 storiesOf('Table').add('explicit widths', () => (
   <Example title="default">
     <Table items={items}>
@@ -181,6 +197,70 @@ storiesOf('Table').add('with no items', () => (
       <Table.Column field="country" title="Country" />
       <Table.Column field="goals" title="Goals" sortable />
       <Table.Column field="assists" title="Assists" sortable />
+    </Table>
+  </Example>
+))
+
+storiesOf('Table').add('loading state with data', () => (
+  <Example title="loading">
+    <Table
+      loading
+      items={[
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        },
+        {
+          data: 'Lorem ipsum dolor sit amet.'
+        }
+      ]}
+    >
+      <Table.Column field="data" title="Field 1" />
+      <Table.Column field="data" title="Field 2" />
+      <Table.Column field="data" title="Field 3" />
+      <Table.Column field="data" title="Field 4" />
+      <Table.Column field="data" title="Field 7" />
+    </Table>
+  </Example>
+))
+
+storiesOf('Table').add('loading state without data', () => (
+  <Example title="loading">
+    <Table loading items={[]}>
+      <Table.Column field="data" title="Field 1" />
+      <Table.Column field="data" title="Field 2" />
+      <Table.Column field="data" title="Field 3" />
+      <Table.Column field="data" title="Field 4" />
+      <Table.Column field="data" title="Field 7" />
     </Table>
   </Example>
 ))

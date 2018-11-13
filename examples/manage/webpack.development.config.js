@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const { getConfig } = require('@auth0/cosmos-engine')
+const { getConfig } = require('@auth0/cosmos-scripts')
 
 let config = getConfig('development')
 

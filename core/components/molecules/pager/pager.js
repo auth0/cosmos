@@ -4,53 +4,44 @@ import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
-import Icon from '../../atoms/icon'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
-const StyledPager = styled.div`
+const Pager = ({ onPageChanged, page, perPage, items }) => (
+  <Pager.Element {...Automation('pager')}>
+    <Button
+      position="left"
+      size="compressed"
+      appearance="secondary"
+      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
+      icon="chevron-left"
+    >
+      Newer
+    </Button>
+    <Pager.PageSelector page={page}>{totals(page, perPage, items)}</Pager.PageSelector>
+    <Button
+      position="right"
+      size="compressed"
+      appearance="secondary"
+      icon="chevron-right"
+      iconAlign="right"
+      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
+    >
+      Older
+    </Button>
+  </Pager.Element>
+)
+
+Pager.Element = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
 
-const StyledPageSelector = styled.div`
+Pager.PageSelector = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `
-
-const StyledButton = styled(Button)`
-  ${props => (props.position === 'left' ? 'padding-right' : 'padding-left')}: 11px;
-  ${props => (props.position === 'left' ? 'padding-left' : 'padding-right')}: 7px;
-
-  padding-top: 2px;
-
-  ${Icon.Element} {
-    margin: 0;
-  }
-`
-
-const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <StyledPager {...Automation('pager')}>
-    <StyledButton
-      position="left"
-      size="compressed"
-      appearance="secondary"
-      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
-    >
-      <Icon name="chevron-left" /> Newer
-    </StyledButton>
-    <StyledPageSelector page={page}>{totals(page, perPage, items)}</StyledPageSelector>
-    <StyledButton
-      position="right"
-      size="compressed"
-      appearance="secondary"
-      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
-    >
-      Older <Icon name="chevron-right" />
-    </StyledButton>
-  </StyledPager>
-)
 
 Pager.propTypes = {
   page: PropTypes.number.isRequired,
