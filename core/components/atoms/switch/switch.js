@@ -71,7 +71,8 @@ const Label = styled.label`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  padding-left: ${spacing.small};
+  padding-left: ${props => props.labelLeft ? '0' : '16px'};
+  padding-right: ${props => props.labelLeft ? '16px' : '0'};
 `
 
 class Switch extends React.Component {
@@ -95,13 +96,24 @@ class Switch extends React.Component {
       The checkbox is controlled by the component state
       and is itself a readOnly component
     */
-    return (
-      <StyledSwitch onClick={this.onToggle.bind(this)} {...Automation('switch')}>
-        <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
-        <Toggle on={this.state.on} readOnly={this.props.readOnly} />
-        <Label>{this.state.on ? onLabel : offLabel}</Label>
-      </StyledSwitch>
-    )
+
+    if (this.props.labelLeft) {
+      return (
+        <StyledSwitch onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+          <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+          <Label labelLeft>{this.state.on ? onLabel : offLabel}</Label>
+          <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+        </StyledSwitch>
+      )
+    } else {
+      return (
+        <StyledSwitch onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+          <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+          <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+          <Label>{this.state.on ? onLabel : offLabel}</Label>
+        </StyledSwitch>
+      )
+    }
   }
 }
 
@@ -113,14 +125,17 @@ Switch.propTypes = {
   /** Labels to show, import for accessibility */
   accessibleLabels: PropTypes.arrayOf(PropTypes.string),
   /** Locked switch */
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  /** Label on left side */
+  labelLeft: PropTypes.bool
 }
 
 Switch.defaultProps = {
   onToggle: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
-  readOnly: false
+  readOnly: false,
+  labelLeft: false
 }
 
 export default Switch
