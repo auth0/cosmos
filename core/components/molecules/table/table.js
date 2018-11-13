@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 
 import Automation from '../../_helpers/automation-attribute'
-import truncateSelf from '../../_helpers/truncating'
+
+const trucatedTableCellHeight = '45px'
 
 class Table extends React.Component {
   constructor(props) {
@@ -136,7 +137,13 @@ class Table extends React.Component {
 
           return (
             <Table.Cell key={column.field} column={column}>
-              {cellRenderer(item, column)}
+              {column.truncate ? (
+                <Table.TruncatingHelper width={column.width}>
+                  {cellRenderer(item, column)}
+                </Table.TruncatingHelper>
+              ) : (
+                cellRenderer(item, column)
+              )}
             </Table.Cell>
           )
         })}
@@ -185,6 +192,17 @@ Table.Element = styled.table`
 
 Table.Body = styled.tbody``
 
+Table.TruncatingHelper = styled.div`
+  position: absolute;
+  top: 0;
+  left: ${spacing.xsmall};
+  max-width: 95%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  line-height: ${trucatedTableCellHeight};
+`
+
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
@@ -193,14 +211,20 @@ Table.Row = styled.tr`
 `
 
 Table.Cell = styled.td`
+  ${props =>
+    props.column.truncate
+      ? css`
+          height: ${trucatedTableCellHeight};
+          position: relative;
+        `
+      : ''};
+
   padding: ${spacing.xsmall};
   border-top: 1px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: middle;
   line-height: 2;
   width: ${props => props.column.width || 'auto'};
-
-  ${props => truncateSelf(props.column.truncate, props.column.width || 'auto')};
 `
 
 Table.EmptyState = ({ rows, children, loading }) => {
