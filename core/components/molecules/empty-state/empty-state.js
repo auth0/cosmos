@@ -32,25 +32,25 @@ const EmptyState = props => {
   let helpLink = getHelpLink(props.link || props.helpUrl)
 
   return (
-    <Wrapper {...Automation('empty-state')}>
+    <EmptyState.Element {...Automation('empty-state')}>
       <Title size={1}>{props.title}</Title>
-      <Body>
+      <EmptyState.Body>
         <Icon name={props.icon} size={110} color="blue" />
         <FreeText {...props} useParagraph />
         {helpLink}
-      </Body>
+      </EmptyState.Body>
       <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
         {props.action.label}
       </Button>
-    </Wrapper>
+    </EmptyState.Element>
   )
 }
 
-const Wrapper = styled.div`
+EmptyState.Element = styled.div`
   width: 100%;
   text-align: center;
 `
-const Body = styled.div`
+EmptyState.Body = styled.div`
   max-width: 400px;
   margin: 0 auto ${spacing.small} auto;
 

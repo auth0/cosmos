@@ -9,38 +9,13 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 import Description, { StyledParagraph as DescriptionParagraph } from './description'
 
 import Button from '../../atoms/button'
-import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
+import ButtonGroup from '../../molecules/button-group'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { descriptionIsObject } from '../../_helpers/page-header'
 
-const StyledPageHeader = styled.div`
-  margin-bottom: ${spacing.large};
-
-  ${StyledButtonGroup} {
-    float: right;
-  }
-
-  ${StyledHeading[1]} {
-    margin: 0;
-    margin-bottom: ${spacing.xsmall};
-  }
-`
-
-const SoftDescription = ({ description, learnMore }) => {
-  if (!description) return null
-
-  if (descriptionIsObject(description)) {
-    return <Description>{description}</Description>
-  }
-
-  let descriptionCompat = { text: description, learnMore }
-
-  return <Description>{descriptionCompat}</Description>
-}
-
 const PageHeader = props => {
   return (
-    <StyledPageHeader {...Automation('page-header')}>
+    <PageHeader.Element {...Automation('page-header')}>
       <ButtonGroup align="right">
         {props.secondaryAction && (
           <Button
@@ -65,9 +40,34 @@ const PageHeader = props => {
       </ButtonGroup>
 
       <Heading size={1}>{props.title}</Heading>
-      <SoftDescription {...props} />
-    </StyledPageHeader>
+      <PageHeader.SoftDescription {...props} />
+    </PageHeader.Element>
   )
+}
+
+PageHeader.Element = styled.div`
+  margin-bottom: ${spacing.large};
+
+  ${ButtonGroup.Element} {
+    float: right;
+  }
+
+  ${Heading.Element[1]} {
+    margin: 0;
+    margin-bottom: ${spacing.xsmall};
+  }
+`
+
+PageHeader.SoftDescription = ({ description, learnMore }) => {
+  if (!description) return null
+
+  if (descriptionIsObject(description)) {
+    return <Description>{description}</Description>
+  }
+
+  let descriptionCompat = { text: description, learnMore }
+
+  return <Description>{descriptionCompat}</Description>
 }
 
 PageHeader.displayName = 'Page Header'
@@ -93,6 +93,8 @@ PageHeader.propTypes = {
 PageHeader.defaultProps = {
   title: ''
 }
+
+const StyledPageHeader = PageHeader.Element
 
 export default PageHeader
 export { StyledPageHeader }
