@@ -43,7 +43,13 @@ const marginForButton = props => {
   `
 }
 
-const StyledButtonGroup = styled.div`
+const ButtonGroup = props => (
+  <ButtonGroup.Element {...props} {...Automation('button-group')}>
+    {props.children}
+  </ButtonGroup.Element>
+)
+
+ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
@@ -54,11 +60,7 @@ const StyledButtonGroup = styled.div`
   ${props => (props.compressed ? groupRadiusStyles : null)};
 `
 
-const ButtonGroup = props => (
-  <StyledButtonGroup {...props} {...Automation('button-group')}>
-    {props.children}
-  </StyledButtonGroup>
-)
+const StyledButtonGroup = ButtonGroup.Element
 
 ButtonGroup.propTypes = {
   /** Make Buttons are ordered with the correct space between them  */

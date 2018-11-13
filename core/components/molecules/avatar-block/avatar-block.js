@@ -17,12 +17,6 @@ const avatarSizes = {
 
 const textSpacing = '12px'
 
-const StyledAvatarBlock = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: start;
-`
-
 const Text = styled.div`
   margin-left: ${textSpacing};
 `
@@ -78,15 +72,21 @@ const AvatarBlock = props => {
   }
 
   return (
-    <StyledAvatarBlock>
+    <AvatarBlock.Element>
       {avatar}
       <Text>
         {title}
         {subtitle}
       </Text>
-    </StyledAvatarBlock>
+    </AvatarBlock.Element>
   )
 }
+
+AvatarBlock.Element = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+`
 
 AvatarBlock.propTypes = {
   /** An icon to display. */
@@ -118,6 +118,8 @@ AvatarBlock.propTypes = {
 AvatarBlock.defaultProps = {
   size: 'default'
 }
+
+const StyledAvatarBlock = AvatarBlock.Element
 
 export default AvatarBlock
 export { StyledAvatarBlock }
