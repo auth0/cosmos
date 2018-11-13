@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
-const Wrapper = styled.div``
 
 export const TabLink = styled.a`
   display: inline-block;
@@ -105,7 +104,7 @@ class Tabs extends React.Component {
     const { selected: selectedIndex } = this.props
 
     return (
-      <Wrapper {...Automation('tabs')}>
+      <Tabs.Element {...Automation('tabs')}>
         <TabLinkGroup>
           {this.tabs.map((tab, index) => (
             <TabLink
@@ -121,10 +120,12 @@ class Tabs extends React.Component {
           ))}
         </TabLinkGroup>
         {this.tabs[selectedIndex]}
-      </Wrapper>
+      </Tabs.Element>
     )
   }
 }
+
+Tabs.Element = styled.div``
 
 Tabs.Tab = TabContent
 
