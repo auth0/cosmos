@@ -10,6 +10,12 @@ storiesOf('Switch').add('default', () => (
   </Example>
 ))
 
+storiesOf('Switch').add('left label', () => (
+  <Example title="Switch">
+    <Switch onToggle={value => console.log(value)} labelLeft />
+  </Example>
+))
+
 storiesOf('Switch').add('on', () => (
   <Example title="Switch">
     <Switch on onToggle={value => console.log(value)} />
@@ -25,7 +31,7 @@ storiesOf('Switch').add('readonly', () => (
 
 storiesOf('Switch').add('accessibility labels', () => (
   <Example title="Switch">
-    <Switch accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
-    <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
+    <Switch accessibleLabels={['ON', 'OFF']} onToggle={() => { }} />
+    <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => { }} />
   </Example>
 ))
