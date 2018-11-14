@@ -57,6 +57,9 @@ import Stack from './molecules/stack'
 import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
+/* layouts */
+import StackLayout from './molecules/stack-layout'
+
 export {
   Alert,
   Avatar,
@@ -91,6 +94,7 @@ export {
   Sidebar,
   Spinner,
   Stack,
+  StackLayout,
   Switch,
   Table,
   Tabs,
