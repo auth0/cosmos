@@ -187,14 +187,6 @@ Table.Element = styled.table`
 
 Table.Body = styled.tbody``
 
-Table.TruncatingHelper = styled.div`
-  position: absolute;
-  top: 0;
-  left: ${spacing.xsmall};
-
-  line-height: ${trucatedTableCellHeight};
-`
-
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
