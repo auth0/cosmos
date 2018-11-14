@@ -101,10 +101,10 @@ When you see the need to create a dialog, ask yourself if this interaction must 
 
 ## Examples
 
-- Default passive modal
-- Transactional modal
-- Modal with form
-- Modal with tabs
+- Default passive modal (missing code snippet)
+- Transactional modal (missing code snippet)
+- Modal with form (missing code snippet)
+- Modal with tabs (missing code snippet)
 
 ## Accecibility
 

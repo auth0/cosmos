@@ -114,14 +114,13 @@ storiesOf('Dialog').add('with tabs', () => (
       ]}
       width={600}
     >
-      Tabs
-      {/* <Tabs selected={2} onSelect={_ => { }}>
+      <Tabs selected={2} onSelect={_ => { }}>
         <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
         <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
         <Tabs.Tab selected label="Tab 3">
           Look, third tab is selected by default!
         </Tabs.Tab>
-      </Tabs> */}
+      </Tabs>
 
     </Dialog>
   </StyledExample>
