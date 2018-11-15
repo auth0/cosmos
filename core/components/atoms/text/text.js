@@ -41,4 +41,9 @@ Text.propTypes = {
 Text.defaultProps = {}
 
 export default Text
+
+const StyledTextAllCaps = Text.AllCaps
+const StyledTextSubdued = Text.Subdued
+const Strong = Text.Strong
+
 export { StyledTextAllCaps, StyledTextSubdued, Strong }
