@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="57px" height="58px" viewBox="0 0 57 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>google</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="google" sketch:type="MSLayerGroup" fill="#000000">
+            <path d="M29.004,34.414 L29.004,23.812 L55.68,23.812 C56.08,25.608 56.392,27.288 56.392,29.654 C56.392,45.928 45.476,57.498 29.032,57.498 C13.3,57.498 0.532,44.73 0.532,28.998 C0.532,13.266 13.3,0.498 29.032,0.498 C36.728,0.498 43.168,3.32 48.098,7.936 L40.004,15.802 C37.952,13.864 34.36,11.584 29.032,11.584 C19.598,11.584 11.904,19.422 11.904,29.026 C11.904,38.63 19.6,46.468 29.032,46.468 C39.948,46.468 43.966,38.916 44.706,34.44 L29.002,34.44 L29.002,34.412 L29.004,34.414 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

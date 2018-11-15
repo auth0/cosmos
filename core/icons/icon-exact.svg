@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="43px" height="32px" viewBox="0 0 43 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>exact</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="exact" sketch:type="MSLayerGroup" fill="#000000">
+            <g id="Group" sketch:type="MSShapeGroup">
+                <path d="M0.049,1.008 C14.012,0.8 27.974,0.829 41.937,0.978 C42.024,3.718 42.226,9.198 42.313,11.939 C28.524,12.445 14.706,12.207 0.888,12.297 C0.599,8.544 0.31,4.791 0.05,1.009 L0.05,1.009 L0.05,1.009 L0.049,1.008 Z" id="Shape"></path>
+                <path d="M0.223,20.219 C14.041,20.249 27.946,19.296 41.764,20.636 C42.111,24.151 42.111,27.725 42.14,31.269 C28.235,31.239 14.359,31.239 0.454,31.21 C0.367,27.547 0.281,23.883 0.223,20.22 L0.223,20.22 L0.223,20.22 L0.223,20.219 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

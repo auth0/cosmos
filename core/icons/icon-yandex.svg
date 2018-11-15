@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="28px" height="60px" viewBox="0 0 28 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>yandex</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="yandex" sketch:type="MSLayerGroup" transform="translate(-1.000000, 0.000000)" fill="#000000">
+            <path d="M27.5,0.625 C28,0.625 28.313,0.875 28.313,1.438 L28.313,58.751 C28.313,59.126 28.125,59.376 27.688,59.376 L23,59.376 C22.687,59.376 22.437,59.063 22.437,58.813 L22.437,37.625 L18.624,37.625 L8.061,58.813 C7.936,59.188 7.623,59.376 7.186,59.376 L1.748,59.376 C1.123,59.376 0.748,58.813 1.123,58.126 L12.811,36.501 C6.561,33.688 3.061,28.001 3.061,20.251 C3.061,7.313 10.249,0.626 18.811,0.626 L27.499,0.626 L27.5,0.625 Z M22.438,32.563 L22.438,5.688 L18.563,5.688 C13.938,5.688 9.375,9.626 9.375,19.438 C9.375,28.813 14.25,32.563 19.25,32.563 L22.438,32.563 L22.438,32.563 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

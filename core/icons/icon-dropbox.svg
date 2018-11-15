@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="66px" height="63px" viewBox="0 0 66 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15588) - http://www.bohemiancoding.com/sketch -->
+    <title>dropbox</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="dropbox" sketch:type="MSLayerGroup" fill="#000000">
+            <path d="M0.25,33.813 L20.125,45.626 L33.125,35.626 L46.125,45.626 L65.75,33.813 L53.125,22.938 L65.75,12.375 L46.437,0 L33.124,11.125 L20.124,0 L0.249,13 L13.937,23.375 L0.25,33.813 Z M13.875,49.875 L32.938,62.625 L32.938,39.875 L32.875,39.812 L19.875,49.75 L13.875,46.187 L13.875,49.875 L13.875,49.875 Z M14.188,23.25 L33.126,11.687 L51.939,22.562 L33.001,35.062 L14.188,23.25 Z M32.938,62.625 L52.438,49.937 L52.438,45.874 L46.063,49.749 L33.125,39.811 L33,39.874 L32.938,62.625 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
