@@ -60,7 +60,7 @@ import Tabs from './molecules/tabs'
 
 /* layouts */
 import GalleryLayout from './molecules/gallery-layout'
-import GridLayout from './molecules/grid-layout'
+import ColumnLayout from './molecules/column-layout'
 import PageLayout from './molecules/page-layout'
 import StackLayout from './molecules/stack-layout'
 
@@ -82,7 +82,7 @@ export {
   Form,
   FormGroup,
   GalleryLayout,
-  GridLayout,
+  ColumnLayout,
   Heading,
   Icon,
   Image,

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 
@@ -20,18 +21,18 @@ const gutterOptions = {
   'none': 0,
   'default': spacing.medium,
   'condensed': spacing.small,
-  'spacious': spacing.large,
+  'spacious': spacing.large
 }
 
-const GridLayout = props => (
-  <GridLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('grid-layout')}>
+const ColumnLayout = props => (
+  <ColumnLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('column-layout')}>
     {props.children.map(child => (
-      <GridLayout.Item {...Automation('grid-layout.item')}>{child}</GridLayout.Item>
+      <ColumnLayout.Item {...Automation('column-layout.item')}>{child}</ColumnLayout.Item>
     ))}
-  </GridLayout.Element>
+  </ColumnLayout.Element>
 )
 
-GridLayout.Element = styled.div`
+ColumnLayout.Element = styled.div`
   display: grid;
   grid-gap: ${props => gutterOptions[props.gutter]};
   grid-template-columns: 1fr;
@@ -41,15 +42,17 @@ GridLayout.Element = styled.div`
   }
 `
 
-GridLayout.Item = styled.div``
+ColumnLayout.Item = styled.div``
 
-// GridLayout.propTypes = {
-//   /* Regulates the size of the gutter */
-//   gutter: PropTypes.oneOf(['default', 'condensed', 'spacious'])
-// }
+ColumnLayout.propTypes = {
+  /* Regulates the size of the gutter */
+  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  distribution: PropTypes.oneOf(['1/2', '1/3', '2/3 1/3', '1/3 2/3', '1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4'])
+}
 
-// GridLayout.defaultProps = {
-//   gutter: 'default',
-// }
+ColumnLayout.defaultProps = {
+  gutter: 'default',
+  distribution: '1/2'
+}
 
-export default GridLayout
+export default ColumnLayout
