@@ -4,8 +4,7 @@ import Automation from './automation-attribute'
 
 const StyledPlaceholder = styled.div`
   border: 2px dashed black;
-  width: 100%;
-  height: 100%;
+  padding: 10px;
 `
 
-export default () => <StyledPlaceholder {...Automation('layout-placeholder-helper')} />
+export default () => <StyledPlaceholder {...Automation('layout-placeholder-helper')}>Component</StyledPlaceholder>
