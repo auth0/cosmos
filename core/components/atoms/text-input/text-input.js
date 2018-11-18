@@ -115,7 +115,9 @@ TextInput.defaultProps = {
   error: null,
   onChange: null,
   type: 'text',
-  size: 'default'
+  size: 'default',
+  prepend: 'null',
+  append: 'null'
 }
 
 export default TextInput
