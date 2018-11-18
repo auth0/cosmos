@@ -11,7 +11,6 @@ const PageLayout = props => (
   </PageLayout.Element>
 )
 
-
 PageLayout.Element = styled.div`
 `
 

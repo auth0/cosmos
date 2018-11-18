@@ -62,6 +62,7 @@ import Tabs from './molecules/tabs'
 import GalleryLayout from './molecules/gallery-layout'
 import ColumnLayout from './molecules/column-layout'
 import PageLayout from './molecules/page-layout'
+import RowLayout from './molecules/row-layout'
 import StackLayout from './molecules/stack-layout'
 
 export {
@@ -98,6 +99,7 @@ export {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
