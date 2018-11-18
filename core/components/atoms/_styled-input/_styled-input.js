@@ -38,7 +38,10 @@ const StyledInput = styled.input`
   background: ${props => getAttributes(props).background};
   border: 1px solid;
   border-color: ${props => getAttributes(props).border};
-  border-radius: ${misc.radius};
+  border-bottom-left-radius: ${props => (props.prepend != null ? '0' : misc.radius)};
+  border-top-left-radius: ${props => (props.prepend != null ? '0' : misc.radius)};
+  border-bottom-right-radius: ${props => (props.append != null ? '0' : misc.radius)};
+  border-top-right-radius: ${props => (props.append != null ? '0' : misc.radius)};
 
   font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
   font-size: ${props => (props.code ? '13px' : 'inherit')};
@@ -62,4 +65,23 @@ const StyledInput = styled.input`
   }
 `
 
-export { StyledInput }
+const Input = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const InputGroup = styled.div`
+  padding: 10px 12px;
+  background-color: #ccc;
+  height: ${props => misc.input[props.size].height};
+  border: 1px solid #ccc;
+  border-left-width: ${props => (props.append != null ? '0' : '1px')};
+  border-right-width: ${props => (props.prepend != null ? '0' : '1px')};
+  border-bottom-left-radius: ${props => (props.append != null ? '0' : misc.radius)};
+  border-top-left-radius: ${props => (props.append != null ? '0' : misc.radius)};
+  border-bottom-right-radius: ${props => (props.prepend != null ? '0' : misc.radius)};
+  border-top-right-radius: ${props => (props.prepend != null ? '0' : misc.radius)};
+  color: #555;
+`
+
+export { StyledInput, Input, InputGroup }
