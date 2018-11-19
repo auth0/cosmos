@@ -78,7 +78,7 @@ const run = () => {
 
   // We will use svgo to remove unnecessary data from the SVG file.
   const svgo = buildSvgoProcessor()
-  const customPrecisionsData = fs.readFileSync('core/icons/aliases.json')
+  const customPrecisionsData = fs.readFileSync('core/icons/compression-precisions.json')
   const customPrecisions = JSON.parse(customPrecisionsData)
 
   const processFile = path => {
