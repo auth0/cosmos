@@ -37,6 +37,26 @@ storiesOf('Logo').add('default', () => (
   </React.Fragment>
 ))
 
+storiesOf('Logo').add('isologotype', () => (
+  <React.Fragment>
+    <Example title="Logo – tiny">
+      <div>
+        <Logo variant="isologotype" size="tiny" />
+      </div>
+    </Example>
+    <Example title="Logo – small">
+      <div>
+        <Logo variant="isologotype" size="small" />
+      </div>
+    </Example>
+    <Example title="Logo – default">
+      <div>
+        <Logo variant="isologotype" size="default" />
+      </div>
+    </Example>
+  </React.Fragment>
+))
+
 storiesOf('Logo').add('dark background', () => (
   <React.Fragment>
     <Example title="Logo – tiny" background="dark">
@@ -61,6 +81,26 @@ storiesOf('Logo').add('dark background', () => (
       </div>
       <div>
         <Logo size="default" color="light" />
+      </div>
+    </Example>
+  </React.Fragment>
+))
+
+storiesOf('Logo').add('isologotype dark background', () => (
+  <React.Fragment>
+    <Example title="Logo – tiny" background="dark">
+      <div>
+        <Logo variant="isologotype" color="dark" size="tiny" />
+      </div>
+    </Example>
+    <Example title="Logo – small" background="dark">
+      <div>
+        <Logo variant="isologotype" color="dark" size="small" />
+      </div>
+    </Example>
+    <Example title="Logo – default" background="dark">
+      <div>
+        <Logo variant="isologotype" color="dark" size="default" />
       </div>
     </Example>
   </React.Fragment>
