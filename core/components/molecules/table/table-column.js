@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const TableColumn = props => null
 
 TableColumn.propTypes = {
-  field: PropTypes.string.isRequired,
+  field: PropTypes.string,
   title: PropTypes.string,
   width: PropTypes.string,
   sortable: PropTypes.bool,
