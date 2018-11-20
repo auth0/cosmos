@@ -270,8 +270,8 @@ Button.Text = styled.span`
   vertical-align: middle;
 
   /* Sub-pixel position adjustment */
-  /* See: pulls 947 and 1045 */
-  margin-top: 1px;
+  /* See: https://github.com/auth0/cosmos/pull/947 */
+  margin-top: 2px;
 `
 
 Button.LinkElement = Button.Element.withComponent('a').extend`
