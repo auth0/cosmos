@@ -37,21 +37,21 @@ storiesOf('Logo').add('default', () => (
   </React.Fragment>
 ))
 
-storiesOf('Logo').add('isologotype', () => (
+storiesOf('Logo').add('full', () => (
   <React.Fragment>
     <Example title="Logo – tiny">
       <div>
-        <Logo variant="isologotype" size="tiny" />
+        <Logo full size="tiny" />
       </div>
     </Example>
     <Example title="Logo – small">
       <div>
-        <Logo variant="isologotype" size="small" />
+        <Logo full size="small" />
       </div>
     </Example>
     <Example title="Logo – default">
       <div>
-        <Logo variant="isologotype" size="default" />
+        <Logo full size="default" />
       </div>
     </Example>
   </React.Fragment>
@@ -86,21 +86,21 @@ storiesOf('Logo').add('dark background', () => (
   </React.Fragment>
 ))
 
-storiesOf('Logo').add('isologotype dark background', () => (
+storiesOf('Logo').add('full dark background', () => (
   <React.Fragment>
     <Example title="Logo – tiny" background="dark">
       <div>
-        <Logo variant="isologotype" color="dark" size="tiny" />
+        <Logo full color="dark" size="tiny" />
       </div>
     </Example>
     <Example title="Logo – small" background="dark">
       <div>
-        <Logo variant="isologotype" color="dark" size="small" />
+        <Logo full color="dark" size="small" />
       </div>
     </Example>
     <Example title="Logo – default" background="dark">
       <div>
-        <Logo variant="isologotype" color="dark" size="default" />
+        <Logo full color="dark" size="default" />
       </div>
     </Example>
   </React.Fragment>
