@@ -101,31 +101,6 @@ storiesOf('Dialog').add('with introduction + form', () => (
   </StyledExample>
 ))
 
-
-storiesOf('Dialog').add('with tabs', () => (
-  <StyledExample title="with tabs">
-    <Dialog
-      open
-      title="Example Dialog"
-      onClose={() => { }}
-      actions={[
-        new Dialog.Action('OK', () => { }, 'primary'),
-        new Dialog.Action('Cancel', () => { })
-      ]}
-      width={600}
-    >
-      <Tabs selected={2} onSelect={_ => { }}>
-        <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
-        <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
-        <Tabs.Tab selected label="Tab 3">
-          Look, third tab is selected by default!
-        </Tabs.Tab>
-      </Tabs>
-
-    </Dialog>
-  </StyledExample>
-))
-
 storiesOf('Dialog').add('stressed', () => (
   <StyledExample title="stressed">
     <Dialog

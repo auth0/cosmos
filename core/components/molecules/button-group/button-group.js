@@ -45,7 +45,6 @@ const marginForButton = props => {
 
 const StyledButtonGroup = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: ${props => justifyContent[props.align]};
 
   & > * {

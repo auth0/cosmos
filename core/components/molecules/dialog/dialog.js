@@ -10,7 +10,6 @@ import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import FocusTrap from 'react-focus-lock'
-import { TabList } from '../../molecules/tabs'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -160,13 +159,6 @@ const DialogBody = styled.div`
   /* Clears the margin of the last item of the body */
   > * {
     margin-bottom: 0;
-  }
-
-  ${TabList} {
-    margin-left: -${spacing.medium};
-    margin-right: -${spacing.medium};
-    padding-left: ${spacing.medium};
-    padding-right: ${spacing.medium};
   }
 `
 

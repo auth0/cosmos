@@ -4,43 +4,47 @@ import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
+const Wrapper = styled.div``
 
-export const TabNav = styled.nav`
-  `
-
-export const TabList = styled.ul`
-  /* border-bottom: 1px solid ${colors.base.grayLight}; */
-  background-image: linear-gradient(to top, ${colors.base.grayLight} 1px, transparent 1px);
-  display: flex;
-`
-
-export const TabListItem = styled.li`
-  :not(:last-of-type) {
-    margin-right: ${spacing.large};
-  }
-`
-
-export const TabLink = styled.button`
-  display: block;
+export const TabLink = styled.a`
+  display: inline-block;
   padding: ${spacing.small} 0;
-  color: ${props => (props.selected ? colors.text.default : colors.link.default)};
-  cursor: ${props => (props.selected ? 'default' : 'pointer')};
-  border: none;
-  background-color: transparent;
-  border-bottom: 1px solid ${props => (props.selected ? colors.base.text : 'transparent')};
-  /* background-image: linear-gradient(to top, ${props => (props.selected ? colors.base.text : 'transparent')} 1px, transparent 1px); */
-  
+  margin-right: ${spacing.large};
+  color: ${colors.link.default};
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
+  }
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${colors.link.default};
+  }
+  &:active {
+    border-bottom: 1px solid ${colors.base.text};
+  }
+  ${props =>
+    props.selected &&
+    css`
+      border-bottom: 1px solid ${colors.base.text};
+      cursor: default;
+      color: ${colors.text.default};
+      &:focus {
+        border-bottom: 1px solid ${colors.base.text};
+      }
+    `};
+`
+
+export const TabLinkGroup = styled.div`
+  border-bottom: 1px solid ${colors.base.grayLight};
+  ${TabLink}:last-child {
+    margin-right: 0;
   }
 `
 
 const TabContent = styled.div`
   padding-top: ${spacing.large};
-  padding-bottom: ${spacing.large};
-  > * {
-    margin-bottom: 0;
-  }
 `
 
 /* Used to keep selected tab on uncontrolled Tabs instances */
@@ -101,26 +105,23 @@ class Tabs extends React.Component {
     const { selected: selectedIndex } = this.props
 
     return (
-      <TabNav {...Automation('tabs')}>
-        <TabList role="tablist">
+      <Wrapper {...Automation('tabs')}>
+        <TabLinkGroup>
           {this.tabs.map((tab, index) => (
-            <TabListItem>
-              <TabLink
-                {...Automation('tabs.item')}
-                onClick={() => this.changeTab(index)}
-                key={index}
-                selected={selectedIndex === index}
-                aria-selected="false"
-                tabindex="-1"
-                role="tab"
-              >
-                {tab.props.label}
-              </TabLink>
-            </TabListItem>
+            <TabLink
+              {...Automation('tabs.item')}
+              onClick={() => this.changeTab(index)}
+              key={index}
+              selected={selectedIndex === index}
+              tabIndex="0"
+              onKeyPress={e => this.handleKeyPress(e, index)}
+            >
+              {tab.props.label}
+            </TabLink>
           ))}
-        </TabList>
+        </TabLinkGroup>
         {this.tabs[selectedIndex]}
-      </TabNav>
+      </Wrapper>
     )
   }
 }
