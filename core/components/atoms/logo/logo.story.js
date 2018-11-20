@@ -90,17 +90,17 @@ storiesOf('Logo').add('full dark background', () => (
   <React.Fragment>
     <Example title="Logo – tiny" background="dark">
       <div>
-        <Logo full color="dark" size="tiny" />
+        <Logo full color="light" size="tiny" />
       </div>
     </Example>
     <Example title="Logo – small" background="dark">
       <div>
-        <Logo full color="dark" size="small" />
+        <Logo full color="light" size="small" />
       </div>
     </Example>
     <Example title="Logo – default" background="dark">
       <div>
-        <Logo full color="dark" size="default" />
+        <Logo full color="light" size="default" />
       </div>
     </Example>
   </React.Fragment>

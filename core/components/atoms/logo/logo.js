@@ -11,8 +11,8 @@ const colors = {
     light: '#E9E9E9'
   },
   full: {
-    default: '#16214d',
-    dark: '#d0d2d3',
+    default: '#333333',
+    dark: '#333333',
     light: '#d0d2d3'
   }
 }
@@ -75,7 +75,7 @@ Logo.propTypes = {
   /** Defines the color of the logo */
   color: PropTypes.oneOf(['default', 'dark', 'light']),
   /** Defines whether to show only the default or the full logo */
-  full: PropTypes.boolean
+  full: PropTypes.bool
 }
 
 Logo.defaultProps = {
