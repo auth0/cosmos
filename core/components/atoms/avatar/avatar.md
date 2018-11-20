@@ -1,6 +1,6 @@
 ```meta
   category: Actions
-  description: Displays an image representing a user or resource
+  description: Displays an image representing a User or Resource
   unstable: true
 ```
 
@@ -9,112 +9,146 @@
 ```jsx
 <Avatar
   type="user"
-  image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+  image="https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
   {props}
 />
 ```
 
-You can use an `Avatar` to display an image that represents a user or a resource. You should use the `type` prop to specify the kind of item that the image represents.
+## Usage
+
+### User and Resource types
+
+You can use an Avatar to display an image that represents a User or a Resource. A Resource can be any entity found in Auth0: Applications, APIs, Connections, Extensions, etc. Custom images like logos are also considered a resource when they are representing such entities. Each type has a distinctive shape: User avatars are rounded and Resource avatars are squared. An avatar can be enhanced with text via the [Avatar Block](/docs/#/component/avatar-block).
 
 ```js
 <Stack>
-  <Avatar type="user" image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" />
+  <Avatar
+    type="user"
+    size="large"
+    image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
+  />
   <Avatar
     type="resource"
-    image="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5IZWxwZXJzIC8gQXZhdGFycyAvIFR5cGVzIC8gTW9iaWxlPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkhlbHBlcnMtLy1BdmF0YXJzLS8tVHlwZXMtLy1Nb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4Ij48L3JlY3Q+CiAgICAgICAgPC9nPgogICAgICAgIDxnIGlkPSJzZXJ2aWNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4wMDAwMDAsIDExLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJGaWxsLTUzIiBmaWxsPSIjNDRDN0Y0IiBwb2ludHM9IjYuODAzNzg5NTUgMjEuMzk4OTkzIDMuOTk0NjE0NDcgMTkuNzczOTkzIDEyLjczNjA5MjQgNC42MDQxNjY2NyAxNS41NDUyNjc1IDYuMjI5MTY2NjciPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkZpbGwtNTQiIGZpbGw9IiNFQzU0MjQiIHBvaW50cz0iMjEuNDc2MTg4NyAyMS4zOTg5OTMgMTIuNzM0NzEwOCA2LjIyOTE2NjY3IDE1LjU0Mzg4NTkgNC42MDQxNjY2NyAyNC4yODUzNjM3IDE5Ljc3Mzk5MyI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cGF0aCBkPSJNMTkuNTUyNTg2Niw1LjQxNjY2NjY3IEMxOS41NTI1ODY2LDguNDA4MjAxNDIgMTcuMTMyMTUwNiwxMC44MzMzMzMzIDE0LjE0NjM0MTUsMTAuODMzMzMzMyBDMTEuMTYwNTYyNCwxMC44MzMzMzMzIDguNzQwMDk2MjksOC40MDgyMDE0MiA4Ljc0MDA5NjI5LDUuNDE2NjY2NjcgQzguNzQwMDk2MjksMi40MjUxMzE5NSAxMS4xNjA1NjI0LDAgMTQuMTQ2MzQxNSwwIEMxNy4xMzIxNTA2LDAgMTkuNTUyNTg2NiwyLjQyNTEzMTk1IDE5LjU1MjU4NjYsNS40MTY2NjY2NyIgaWQ9IkZpbGwtNTUiIGZpbGw9IiMxNjIxNEQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTEwLjgxMjQ5MDMsMjAuNTgzMzMzMyBDMTAuODEyNDkwMywyMy41NzQ4NjggOC4zOTIwNTQyNCwyNiA1LjQwNjI0NTE1LDI2IEMyLjQyMDQ2NjA1LDI2IDAsMjMuNTc0ODY4IDAsMjAuNTgzMzMzMyBDMCwxNy41OTE3OTg2IDIuNDIwNDY2MDUsMTUuMTY2NjY2NyA1LjQwNjI0NTE1LDE1LjE2NjY2NjcgQzguMzkyMDU0MjQsMTUuMTY2NjY2NyAxMC44MTI0OTAzLDE3LjU5MTc5ODYgMTAuODEyNDkwMywyMC41ODMzMzMzIiBpZD0iRmlsbC01NiIgZmlsbD0iI0VDNTQyNCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjguMjkyNjgyOSwyMC41ODMzMzMzIEMyOC4yOTI2ODI5LDE3LjU5MTc5ODYgMjUuODcyMjE2OCwxNS4xNjY2NjY3IDIyLjg4NjQzNzcsMTUuMTY2NjY2NyBDMTkuOTAwNjU4NywxNS4xNjY2NjY3IDE3LjQ4MDE5MjcsMTcuNTkxNzk4NiAxNy40ODAxOTI3LDIwLjU4MzMzMzMgQzE3LjQ4MDE5MjcsMjMuNTc0ODY4IDE5LjkwMDY1ODcsMjYgMjIuODg2NDM3NywyNiBDMjUuODcyMjE2OCwyNiAyOC4yOTI2ODI5LDIzLjU3NDg2OCAyOC4yOTI2ODI5LDIwLjU4MzMzMzMiIGlkPSJGaWxsLTU3IiBmaWxsPSIjNDRDN0Y0Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+    size="large"
+    image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
   />
 </Stack>
 ```
 
-You can use the `size` prop to render `Avatars` of various sizes.
+## Examples
+
+### Sizes
+
+The avatar is available in 6 sizes to accommodate different use cases.
 
 ```js
 <div>
   <Stack>
     <Avatar
       type="user"
-      image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
       size="xsmall"
     />
-    <Avatar type="user" image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" size="small" />
     <Avatar
       type="user"
-      image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
+      size="small"
+    />
+    <Avatar
+      type="user"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
       size="medium"
     />
-    <Avatar type="user" image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg" size="large" />
     <Avatar
       type="user"
-      image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
+      size="large"
+    />
+    <Avatar
+      type="user"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
       size="xlarge"
     />
     <Avatar
       type="user"
-      image="https://cdn.auth0.com/website/cosmos/cosmos-logo.svg"
+      image="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=707b9c33066bf8808c934c8ab394dff6"
       size="xxlarge"
     />
   </Stack>
   <br />
+  <br />
   <Stack>
     <Avatar
       type="resource"
-      image="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5IZWxwZXJzIC8gQXZhdGFycyAvIFR5cGVzIC8gTW9iaWxlPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkhlbHBlcnMtLy1BdmF0YXJzLS8tVHlwZXMtLy1Nb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4Ij48L3JlY3Q+CiAgICAgICAgPC9nPgogICAgICAgIDxnIGlkPSJzZXJ2aWNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4wMDAwMDAsIDExLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJGaWxsLTUzIiBmaWxsPSIjNDRDN0Y0IiBwb2ludHM9IjYuODAzNzg5NTUgMjEuMzk4OTkzIDMuOTk0NjE0NDcgMTkuNzczOTkzIDEyLjczNjA5MjQgNC42MDQxNjY2NyAxNS41NDUyNjc1IDYuMjI5MTY2NjciPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkZpbGwtNTQiIGZpbGw9IiNFQzU0MjQiIHBvaW50cz0iMjEuNDc2MTg4NyAyMS4zOTg5OTMgMTIuNzM0NzEwOCA2LjIyOTE2NjY3IDE1LjU0Mzg4NTkgNC42MDQxNjY2NyAyNC4yODUzNjM3IDE5Ljc3Mzk5MyI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cGF0aCBkPSJNMTkuNTUyNTg2Niw1LjQxNjY2NjY3IEMxOS41NTI1ODY2LDguNDA4MjAxNDIgMTcuMTMyMTUwNiwxMC44MzMzMzMzIDE0LjE0NjM0MTUsMTAuODMzMzMzMyBDMTEuMTYwNTYyNCwxMC44MzMzMzMzIDguNzQwMDk2MjksOC40MDgyMDE0MiA4Ljc0MDA5NjI5LDUuNDE2NjY2NjcgQzguNzQwMDk2MjksMi40MjUxMzE5NSAxMS4xNjA1NjI0LDAgMTQuMTQ2MzQxNSwwIEMxNy4xMzIxNTA2LDAgMTkuNTUyNTg2NiwyLjQyNTEzMTk1IDE5LjU1MjU4NjYsNS40MTY2NjY2NyIgaWQ9IkZpbGwtNTUiIGZpbGw9IiMxNjIxNEQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTEwLjgxMjQ5MDMsMjAuNTgzMzMzMyBDMTAuODEyNDkwMywyMy41NzQ4NjggOC4zOTIwNTQyNCwyNiA1LjQwNjI0NTE1LDI2IEMyLjQyMDQ2NjA1LDI2IDAsMjMuNTc0ODY4IDAsMjAuNTgzMzMzMyBDMCwxNy41OTE3OTg2IDIuNDIwNDY2MDUsMTUuMTY2NjY2NyA1LjQwNjI0NTE1LDE1LjE2NjY2NjcgQzguMzkyMDU0MjQsMTUuMTY2NjY2NyAxMC44MTI0OTAzLDE3LjU5MTc5ODYgMTAuODEyNDkwMywyMC41ODMzMzMzIiBpZD0iRmlsbC01NiIgZmlsbD0iI0VDNTQyNCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjguMjkyNjgyOSwyMC41ODMzMzMzIEMyOC4yOTI2ODI5LDE3LjU5MTc5ODYgMjUuODcyMjE2OCwxNS4xNjY2NjY3IDIyLjg4NjQzNzcsMTUuMTY2NjY2NyBDMTkuOTAwNjU4NywxNS4xNjY2NjY3IDE3LjQ4MDE5MjcsMTcuNTkxNzk4NiAxNy40ODAxOTI3LDIwLjU4MzMzMzMgQzE3LjQ4MDE5MjcsMjMuNTc0ODY4IDE5LjkwMDY1ODcsMjYgMjIuODg2NDM3NywyNiBDMjUuODcyMjE2OCwyNiAyOC4yOTI2ODI5LDIzLjU3NDg2OCAyOC4yOTI2ODI5LDIwLjU4MzMzMzMiIGlkPSJGaWxsLTU3IiBmaWxsPSIjNDRDN0Y0Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      size="xsmall"
+    />
+    <Avatar
+      type="resource"
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
       size="small"
     />
     <Avatar
       type="resource"
-      image="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5IZWxwZXJzIC8gQXZhdGFycyAvIFR5cGVzIC8gTW9iaWxlPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkhlbHBlcnMtLy1BdmF0YXJzLS8tVHlwZXMtLy1Nb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4Ij48L3JlY3Q+CiAgICAgICAgPC9nPgogICAgICAgIDxnIGlkPSJzZXJ2aWNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4wMDAwMDAsIDExLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJGaWxsLTUzIiBmaWxsPSIjNDRDN0Y0IiBwb2ludHM9IjYuODAzNzg5NTUgMjEuMzk4OTkzIDMuOTk0NjE0NDcgMTkuNzczOTkzIDEyLjczNjA5MjQgNC42MDQxNjY2NyAxNS41NDUyNjc1IDYuMjI5MTY2NjciPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkZpbGwtNTQiIGZpbGw9IiNFQzU0MjQiIHBvaW50cz0iMjEuNDc2MTg4NyAyMS4zOTg5OTMgMTIuNzM0NzEwOCA2LjIyOTE2NjY3IDE1LjU0Mzg4NTkgNC42MDQxNjY2NyAyNC4yODUzNjM3IDE5Ljc3Mzk5MyI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cGF0aCBkPSJNMTkuNTUyNTg2Niw1LjQxNjY2NjY3IEMxOS41NTI1ODY2LDguNDA4MjAxNDIgMTcuMTMyMTUwNiwxMC44MzMzMzMzIDE0LjE0NjM0MTUsMTAuODMzMzMzMyBDMTEuMTYwNTYyNCwxMC44MzMzMzMzIDguNzQwMDk2MjksOC40MDgyMDE0MiA4Ljc0MDA5NjI5LDUuNDE2NjY2NjcgQzguNzQwMDk2MjksMi40MjUxMzE5NSAxMS4xNjA1NjI0LDAgMTQuMTQ2MzQxNSwwIEMxNy4xMzIxNTA2LDAgMTkuNTUyNTg2NiwyLjQyNTEzMTk1IDE5LjU1MjU4NjYsNS40MTY2NjY2NyIgaWQ9IkZpbGwtNTUiIGZpbGw9IiMxNjIxNEQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTEwLjgxMjQ5MDMsMjAuNTgzMzMzMyBDMTAuODEyNDkwMywyMy41NzQ4NjggOC4zOTIwNTQyNCwyNiA1LjQwNjI0NTE1LDI2IEMyLjQyMDQ2NjA1LDI2IDAsMjMuNTc0ODY4IDAsMjAuNTgzMzMzMyBDMCwxNy41OTE3OTg2IDIuNDIwNDY2MDUsMTUuMTY2NjY2NyA1LjQwNjI0NTE1LDE1LjE2NjY2NjcgQzguMzkyMDU0MjQsMTUuMTY2NjY2NyAxMC44MTI0OTAzLDE3LjU5MTc5ODYgMTAuODEyNDkwMywyMC41ODMzMzMzIiBpZD0iRmlsbC01NiIgZmlsbD0iI0VDNTQyNCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjguMjkyNjgyOSwyMC41ODMzMzMzIEMyOC4yOTI2ODI5LDE3LjU5MTc5ODYgMjUuODcyMjE2OCwxNS4xNjY2NjY3IDIyLjg4NjQzNzcsMTUuMTY2NjY2NyBDMTkuOTAwNjU4NywxNS4xNjY2NjY3IDE3LjQ4MDE5MjcsMTcuNTkxNzk4NiAxNy40ODAxOTI3LDIwLjU4MzMzMzMgQzE3LjQ4MDE5MjcsMjMuNTc0ODY4IDE5LjkwMDY1ODcsMjYgMjIuODg2NDM3NywyNiBDMjUuODcyMjE2OCwyNiAyOC4yOTI2ODI5LDIzLjU3NDg2OCAyOC4yOTI2ODI5LDIwLjU4MzMzMzMiIGlkPSJGaWxsLTU3IiBmaWxsPSIjNDRDN0Y0Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
       size="medium"
     />
     <Avatar
       type="resource"
-      image="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5IZWxwZXJzIC8gQXZhdGFycyAvIFR5cGVzIC8gTW9iaWxlPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkhlbHBlcnMtLy1BdmF0YXJzLS8tVHlwZXMtLy1Nb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4Ij48L3JlY3Q+CiAgICAgICAgPC9nPgogICAgICAgIDxnIGlkPSJzZXJ2aWNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4wMDAwMDAsIDExLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJGaWxsLTUzIiBmaWxsPSIjNDRDN0Y0IiBwb2ludHM9IjYuODAzNzg5NTUgMjEuMzk4OTkzIDMuOTk0NjE0NDcgMTkuNzczOTkzIDEyLjczNjA5MjQgNC42MDQxNjY2NyAxNS41NDUyNjc1IDYuMjI5MTY2NjciPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkZpbGwtNTQiIGZpbGw9IiNFQzU0MjQiIHBvaW50cz0iMjEuNDc2MTg4NyAyMS4zOTg5OTMgMTIuNzM0NzEwOCA2LjIyOTE2NjY3IDE1LjU0Mzg4NTkgNC42MDQxNjY2NyAyNC4yODUzNjM3IDE5Ljc3Mzk5MyI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cGF0aCBkPSJNMTkuNTUyNTg2Niw1LjQxNjY2NjY3IEMxOS41NTI1ODY2LDguNDA4MjAxNDIgMTcuMTMyMTUwNiwxMC44MzMzMzMzIDE0LjE0NjM0MTUsMTAuODMzMzMzMyBDMTEuMTYwNTYyNCwxMC44MzMzMzMzIDguNzQwMDk2MjksOC40MDgyMDE0MiA4Ljc0MDA5NjI5LDUuNDE2NjY2NjcgQzguNzQwMDk2MjksMi40MjUxMzE5NSAxMS4xNjA1NjI0LDAgMTQuMTQ2MzQxNSwwIEMxNy4xMzIxNTA2LDAgMTkuNTUyNTg2NiwyLjQyNTEzMTk1IDE5LjU1MjU4NjYsNS40MTY2NjY2NyIgaWQ9IkZpbGwtNTUiIGZpbGw9IiMxNjIxNEQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTEwLjgxMjQ5MDMsMjAuNTgzMzMzMyBDMTAuODEyNDkwMywyMy41NzQ4NjggOC4zOTIwNTQyNCwyNiA1LjQwNjI0NTE1LDI2IEMyLjQyMDQ2NjA1LDI2IDAsMjMuNTc0ODY4IDAsMjAuNTgzMzMzMyBDMCwxNy41OTE3OTg2IDIuNDIwNDY2MDUsMTUuMTY2NjY2NyA1LjQwNjI0NTE1LDE1LjE2NjY2NjcgQzguMzkyMDU0MjQsMTUuMTY2NjY2NyAxMC44MTI0OTAzLDE3LjU5MTc5ODYgMTAuODEyNDkwMywyMC41ODMzMzMzIiBpZD0iRmlsbC01NiIgZmlsbD0iI0VDNTQyNCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjguMjkyNjgyOSwyMC41ODMzMzMzIEMyOC4yOTI2ODI5LDE3LjU5MTc5ODYgMjUuODcyMjE2OCwxNS4xNjY2NjY3IDIyLjg4NjQzNzcsMTUuMTY2NjY2NyBDMTkuOTAwNjU4NywxNS4xNjY2NjY3IDE3LjQ4MDE5MjcsMTcuNTkxNzk4NiAxNy40ODAxOTI3LDIwLjU4MzMzMzMgQzE3LjQ4MDE5MjcsMjMuNTc0ODY4IDE5LjkwMDY1ODcsMjYgMjIuODg2NDM3NywyNiBDMjUuODcyMjE2OCwyNiAyOC4yOTI2ODI5LDIzLjU3NDg2OCAyOC4yOTI2ODI5LDIwLjU4MzMzMzMiIGlkPSJGaWxsLTU3IiBmaWxsPSIjNDRDN0Y0Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
       size="large"
+    />
+    <Avatar
+      type="resource"
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      size="xlarge"
+    />
+    <Avatar
+      type="resource"
+      image="https://cdn.auth0.com/website/cosmos/cosmos-logo-avatar.svg"
+      size="xxlarge"
     />
   </Stack>
 </div>
 ```
 
-You can also display an avatar with an icon instead of an image by specifying an icon name in the `icon` property:
+### Gravatar images and initials for Users
+
+You may use user's email to fetch it's default Gravatar image. Be sure to set the initials as a fallback. Try changing one of the `example@auth0.com` emails below to your Gravatar email.
 
 ```js
 <Stack>
-  <Avatar type="resource" icon="clients" size="xsmall" />
-  <Avatar type="resource" icon="clients" size="small" />
-  <Avatar type="resource" icon="clients" size="medium" />
-  <Avatar type="resource" icon="clients" size="large" />
-  <Avatar type="resource" icon="clients" size="xlarge" />
-  <Avatar type="resource" icon="clients" size="xxlarge" />
+  <Avatar size="large" email="example@auth0.com" initials="AB" />
+  <Avatar size="large" email="example@auth0.com" initials="CD" />
+  <Avatar size="large" email="example@auth0.com" initials="EF" />
+  <Avatar size="large" email="example@auth0.com" initials="GH" />
+  <Avatar size="large" email="example@auth0.com" initials="IJ" />
 </Stack>
 ```
 
-Lastly, you can display an avatar with an SVG as the image:
+### Icons for Resources
+
+Sometimes a Resource can be represented with an icon. This is used a placeholder image before a custom image is set.
 
 ```js
-<Avatar
-  type="resource"
-  image={
-    <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" fillRule="evenodd">
-        <path d="M0 0h48v48H0z" />
-        <g fillRule="nonzero">
-          <path
-            d="M31.332 11.027A15.433 15.433 0 0 0 23.667 9v10.075c.868-.001 1.749.216 2.555.675 2.444 1.39 3.281 4.471 1.87 6.88l8.851 5.037c4.234-7.227 1.722-16.468-5.611-20.64"
-            fill="#16214D"
-          />
-          <path
-            d="M24 9C15.716 9 9 15.765 9 24.11c0 2.753.73 5.334 2.008 7.557l8.661-5.038A5.042 5.042 0 0 1 19 24.11c0-2.781 2.239-5.036 5-5.036s5-2.255 5-5.037S26.761 9 24 9"
-            fill="#EC5424"
-          />
-          <path
-            d="M28.334 26.223a5.035 5.035 0 0 1-1.832 1.87c-2.392 1.411-5.452.574-6.833-1.87-1.381-2.445-4.441-3.282-6.834-1.87-2.392 1.41-3.212 4.535-1.83 6.98 4.144 7.332 13.322 9.844 20.5 5.61A15.104 15.104 0 0 0 37 31.334l-8.666-5.11z"
-            fill="#44C7F4"
-          />
-          <path d="M30.167 32.996a5 5 0 1 1 5-8.659 5 5 0 0 1-5 8.66" fill="#16214D" />
-        </g>
-      </g>
-    </svg>
-  }
-  size="large"
-/>
+<Stack>
+  <Avatar type="resource" icon="clients" size="large" />
+  <Avatar type="resource" icon="apis" size="large" />
+  <Avatar type="resource" icon="connections" size="large" />
+  <Avatar type="resource" icon="sso-integrations" size="large" />
+  <Avatar type="resource" icon="extensions" size="large" />
+</Stack>
+```
+
+### Default placeholder
+
+If you don't provide any image or initials, the avatar will display a default image.
+
+```js
+<div>
+  <Stack>
+    <Avatar type="user" size="large" />
+    <Avatar type="resource" size="large" />
+  </Stack>
+</div>
 ```

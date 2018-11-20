@@ -39,6 +39,7 @@ const TableHeader = props => {
         column={column}
         sortable={column.sortable && props.onSort}
         onClick={_ => onClick(column)}
+        width={column.width}
       >
         {column.title}
         {sortIndicator}
@@ -68,6 +69,7 @@ TableHeader.Cell = styled.th`
   text-align: left;
   vertical-align: bottom;
   line-height: 2;
+  ${props => (props.width ? `width: ${props.width};` : '')}
   cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
   &:hover {
     color: ${props => (props.sortable ? colors.link.default : 'inherit')};
@@ -79,7 +81,8 @@ TableHeader.Cell = styled.th`
 
 TableHeader.propTypes = {
   columns: PropTypes.arrayOf(TableColumn),
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
+  width: PropTypes.string
 }
 
 TableHeader.defaultProps = {
