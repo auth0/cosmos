@@ -53,10 +53,11 @@ const Toggle = styled.span`
         `};
 `
 const StyledSwitch = styled.span`
-  display: inline-block;
+  display: flex;
   vertical-align: middle;
   height: ${height};
   position: relative;
+  justify-content: ${props => props.labelLeft ? 'flex-end' : 'flex-start'};
 
   input:focus ~ ${Toggle} {
     box-shadow: 0 0 0 2px ${colors.base.blue};
