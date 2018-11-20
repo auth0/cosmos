@@ -87,19 +87,6 @@ const appearances = {
     focusBackground: 'transparent',
     focusBorder: 'transparent',
     loadingInverse: false
-  },
-  action: {
-    text: colors.button.default.text,
-    icon: 'grayDarkest', // TODO: tokenise
-    background: 'transparent',
-    border: 'transparent',
-    hoverText: colors.button.link.hover,
-    hoverBackground: 'transparent',
-    hoverBorder: 'transparent',
-    focusText: colors.button.link.focus,
-    focusBackground: 'transparent',
-    focusBorder: 'transparent',
-    loadingInverse: false
   }
 }
 
@@ -172,6 +159,7 @@ const getAttributes = props => {
   if (props.icon && !props.text) {
     styles.padding = spacing.xsmall
     styles.minWidth = '36px'
+    styles.icon = colors.button.link.icon
   }
 
   return styles
@@ -273,6 +261,7 @@ Button.Element = styled.button`
   &:active {
     background: ${props => getAttributes(props).activeBackground};
     border-color: ${props => getAttributes(props).activeBorder};
+    outline: none;
   }
 `
 
@@ -305,15 +294,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
   /** The visual style used to convey the button's purpose */
-  appearance: PropTypes.oneOf([
-    'default',
-    'primary',
-    'secondary',
-    'cta',
-    'link',
-    'destructive',
-    'action'
-  ]),
+  appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
 
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),

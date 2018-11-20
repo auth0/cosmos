@@ -80,7 +80,7 @@ class Dialog extends React.Component {
               <Button
                 aria-label="Close"
                 size="default"
-                appearance="action"
+                appearance="link"
                 icon="close"
                 onClick={props.onClose}
               />
@@ -128,6 +128,14 @@ const DialogClose = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  
+  /* Overwirtes the color of the icons */
+  ${Button.Element} {
+    &, i, svg, path {
+      color: ${colors.base.black};
+       fill: ${colors.base.black};
+    }
+  }
 `
 
 const DialogHeader = styled.header`
