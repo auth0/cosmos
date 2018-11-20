@@ -65,7 +65,7 @@ class Dialog extends React.Component {
     const props = this.props
     return (
       <Overlay contentSize={props.width} {...props}>
-        <FocusTrap persistentFocus={props.open} onExit={props.onClose}>
+        <FocusTrap persistentFocus={false} onExit={props.onClose}>
           <DialogBox
             width={props.width}
             {...Automation('dialog')}
