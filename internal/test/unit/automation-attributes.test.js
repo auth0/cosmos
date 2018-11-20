@@ -135,7 +135,7 @@ describe('Automation data attributes', () => {
   })
 
   it('Dialog', () => {
-    const overlay = shallow(<Dialog open actions={[]} title="Dialog" onClose={() => {}} />)
+    const overlay = shallow(<Dialog open actions={[]} title="Dialog" onClose={() => { }} />)
 
     const focusTrap = overlay.childAt(0)
     const dialog = focusTrap.childAt(0)
@@ -157,7 +157,7 @@ describe('Automation data attributes', () => {
         action={{
           icon: 'plus',
           label: 'Create Client',
-          handler: function() {}
+          handler: function () { }
         }}
       />
     )
@@ -226,7 +226,7 @@ describe('Automation data attributes', () => {
           }
         ]}
         actions={[]}
-        onItemClick={() => {}}
+        onItemClick={() => { }}
       />
     )
 
@@ -236,7 +236,7 @@ describe('Automation data attributes', () => {
   it('Sidebar', () => {
     const sidebar = shallow(
       <Sidebar>
-        <Sidebar.Link icon="clients" label="Clients" onClick={() => {}} />
+        <Sidebar.Link icon="clients" label="Clients" onClick={() => { }} />
       </Sidebar>
     )
 
@@ -286,7 +286,7 @@ describe('Automation data attributes', () => {
 
   it('Tabs', () => {
     const tabs = shallow(
-      <Tabs onSelect={() => {}} selected={1}>
+      <Tabs onSelect={() => { }} selected={1}>
         <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
       </Tabs>
     )
@@ -295,7 +295,6 @@ describe('Automation data attributes', () => {
     expect(
       tabs
         .children() // TabList
-        .children() // TabListItem
         .children() // TabLink
         .prop('data-cosmos-key')
     ).toEqual('tabs.item')
