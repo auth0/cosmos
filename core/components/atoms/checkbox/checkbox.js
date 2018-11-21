@@ -28,17 +28,6 @@ const Checkbox = props => (
   </Checkbox.Option>
 )
 
-Checkbox.Element = styled.div`
-  ${Checkbox.Option} {
-    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
-    ${props => justifyContent[props.align]};
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-`
-
 Checkbox.Option = styled.label`
   position: relative;
   cursor: pointer;
@@ -110,6 +99,17 @@ Checkbox.Option = styled.label`
     transform: rotate(45deg) translate(-50%, -50%);
     left: 20%;
     top: 50%;
+  }
+`
+
+Checkbox.Element = styled.div`
+  ${Checkbox.Option} {
+    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    ${props => justifyContent[props.align]};
+
+    &:last-child {
+      margin: 0;
+    }
   }
 `
 
