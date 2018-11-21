@@ -31,9 +31,6 @@ storiesOf('Row Layout').add('spacious', () => (
   <Example title="spacious">
     <RowLayout gutter="spacious">
       <StyledPlaceholder />
-      <StyledPlaceholder />
-      <StyledPlaceholder />
-      <StyledPlaceholder />
     </RowLayout>
   </Example>
 ))

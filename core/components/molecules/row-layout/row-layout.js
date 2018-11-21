@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import transformChildren from '../../_helpers/transform-layout-children'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
@@ -11,25 +12,25 @@ const gutterOptions = {
   'spacious': spacing.large
 }
 
+
 const RowLayout = props => (
   <RowLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('row-layout')}>
-    {props.children.map(child => (
-      <RowLayout.Item {...Automation('row-layout.item')}>{child}</RowLayout.Item>
-    ))}
+    {transformChildren(props, RowLayout.Item, 'row-layout.item')}
   </RowLayout.Element>
 )
 
 RowLayout.Element = styled.div`
-  > *:not(:last-child) { 
+  > *:not(:last-child), > *:not(:only-child), > *:not(:empty) { 
     /* or only child */
     margin-bottom: ${props => gutterOptions[props.gutter]};
   }
 `
 
 RowLayout.Item = styled.div`
-  /* if empty remove the margin */
+  /* For layouts to work any direct child of the item has to have their margin cleared. We are forcing it here. */
+  /* remove margin reset prop */
   > * {
-    margin: 0 !important
+    margin: 0 !important;
   }
 `
 
