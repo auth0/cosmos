@@ -150,7 +150,7 @@ const DialogHeader = styled.header`
 
 const DialogTitle = styled(Heading)`
   font-weight: ${fonts.weight.medium};
-  font-size: 1em;
+  font-size: ${fonts.size.default};
   margin: 0;
 `
 
@@ -161,7 +161,6 @@ const DialogBody = styled.div`
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   word-break: break-word;
-  white-space: -moz-pre-wrap;
   word-wrap: break-word;
 
   /* Clears the margin of the last item of the body */
