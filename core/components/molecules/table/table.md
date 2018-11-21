@@ -53,7 +53,7 @@
 
 | Field        | Type   | Default | Required | Description                                |
 | ------------ | ------ | ------- | -------- | ------------------------------------------ |
-| `field`      | string |         | true     | Which field from data to display           |
+| `field`      | string |         | false    | Which field from data to display           |
 | `title`      | string |         | false    | Title for the column                       |
 | `width`      | string |         | false    | Column width                               |
 | `sortable`   | bool   | false   | false    | Whether to make the column sortable or not |
