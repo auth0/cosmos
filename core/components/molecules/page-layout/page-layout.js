@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 
@@ -37,19 +38,13 @@ PageLayout.Content = styled.div`
 `
 
 
-// PageLayout.propTypes = {
-//   /* Regulates the size of the gutter betwen each column */
-//   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
-//   /* Defines the column layout */
-//   distribution: PropTypes.oneOf(['1/2 1/2', '1/3 1/3 1/3', '2/3 1/3', '1/3 2/3', '1/4 1/4 1/4 1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4']),
-//   /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
-//   marginReset: PropTypes.oneOf(['none', 'reset'])
-// }
+PageLayout.propTypes = {
+  /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
+  marginReset: PropTypes.oneOf(['none', 'reset'])
+}
 
-// PageLayout.defaultProps = {
-//   gutter: 'default',
-//   distribution: '1/2 1/2',
-//   marginReset: 'reset'
-// }
+PageLayout.defaultProps = {
+  marginReset: 'reset'
+}
 
 export default PageLayout
