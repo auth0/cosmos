@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.8.0 [November 22, 2018]
+
+Shoutout to all the hacktoberfest contributions we received!
+
+### Fixed
+
+- Accessibility: Fix focus styles for Tabs [#1055]
+- Accessibility: Made checkbox, radio and switch accessible with a keyboard via @DCzajkowski [#1029]
+- Accessibility: Makes the list HTML semantically correct [#1028]
+- Accessibility: Make tabs accessible by @jvelezpo [#1052]
+- Alert: Match styles of close button with styleguide by @mrewers [#1031]
+- Avatar: Batch of fixes and enhancements! [#985]
+- Button: Fix vertical alignment in button and it's uses [#947]
+- Button: Fix margins for Safari [#1020]
+- Pagination: Fix selected state for pagination button [#1061]
+- Table: Make the field prop optional [#1088]
+- Table: Table columns can not be passed as a variable by @sanketsingh24 [#1035]
+- Docs: Fix typo in contribution guide by @Gotham13121997 [#1022]
+- Docs: Improve readme with material from docs website by @Tranquilled [#1039]
+- Docs: Fix `Form.Radio` example by @jvelezpo [#1032]
+- Docs: Make experimental notice permanent via @lopno [#1030]
+- Docs: Fix sidebar scrolling in Firefox by @fer22f [#1027]
+- Examples: Match names from manage dashboard by @rkhoriander [#1034]
+- Examples: Fix typo in webpack-hello example by @radlinskii [#964]
+
+### Added
+
+- Table: Add width prop to Table Header [#1053]
+- Select: Add disabled + disabled options + groups by @rakhi2104 [#1067]
+- Icons: Improve precision for svg optimisation [#1095]
+- Icons: Added UI icons (policy, ip address, email, database, block) [#1122]
+- Icons: Added UI icons (add user, usage, search, chevron up, arrow up, arrow down)
+- Docs: Adds system guidelines [#1079]
+
 ## 0.7.2 [October 24, 2018]
 
 ### Fixed
