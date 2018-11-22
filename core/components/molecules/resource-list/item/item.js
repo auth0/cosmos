@@ -52,6 +52,34 @@ const ListItemSubtitle = styled(StyledTextAllCaps)`
   display: block;
 `
 
+const callHandler = handler => evt => handler(evt, props.item)
+
+const resolveAction = (action, key) => {
+  if (typeof action === 'object' && !React.isValidElement(action)) {
+    console.warn(
+      'Passing resource list item actions as object is' +
+        'deprecated and will be removed in Cosmos 1.0.0.' +
+        ' Please use raw buttons instead.'
+    )
+
+    return (
+      <Button
+        key={key}
+        icon={action.icon}
+        onClick={action.handler ? callHandler(action.handler) : null}
+        label={action.label}
+        disabled={action.disabled}
+        href={action.href}
+        target={action.target}
+      />
+    )
+  }
+
+  return React.cloneElement(action, { key })
+}
+
+const resolveActions = actions => actions.map(resolveAction)
+
 const ResourceListItem = props => {
   let image
   let title
@@ -78,22 +106,8 @@ const ResourceListItem = props => {
     subtitle = <ListItemSubtitle>{props.subtitle}</ListItemSubtitle>
   }
 
-  const callHandler = handler => evt => handler(evt, props.item)
-
   if (props.actions) {
-    actions = (
-      <ButtonGroup align="right">
-        {props.actions.map((action, index) => (
-          <Button
-            key={index}
-            icon={action.icon}
-            onClick={action.handler ? callHandler(action.handler) : null}
-            label={action.label}
-            disabled={action.disabled}
-          />
-        ))}
-      </ButtonGroup>
-    )
+    actions = <ButtonGroup align="right">{resolveActions(props.actions)}</ButtonGroup>
   }
 
   return (
@@ -128,7 +142,10 @@ ResourceListItem.propTypes = {
   /** A function that will be called when the list item is clicked. */
   onClick: PropTypes.func,
   /** The actions to display for the list item. */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ])
 }
 
 export default ResourceListItem

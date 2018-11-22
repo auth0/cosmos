@@ -33,7 +33,10 @@ ResourceList.propTypes = {
   /** The items that will be rendered in the list. */
   items: PropTypes.array.isRequired,
   /** The actions to render to the right side of the list items. */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
   /** A function that will be called when an item is clicked. */
   onItemClick: PropTypes.func,
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */
