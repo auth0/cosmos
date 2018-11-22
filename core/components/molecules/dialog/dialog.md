@@ -26,16 +26,22 @@ class DialogContainer extends React.Component {
           title="Example Dialog"
           onClose={() => this.setDialogState(false)}
           actions={[
-            new Dialog.Action(
-              'OK',
-              () => {
+            <Button
+              appearance="primary"
+              onClick={() => {
                 alert("You've performed the 'OK' action.")
-              },
-              'primary'
-            ),
-            new Dialog.Action('Cancel', () => {
-              alert("You've performed the 'Cancel' action.")
-            })
+              }}
+            >
+              OK
+            </Button>,
+            <Button
+              appearance="primary"
+              onClick={() => {
+                alert("You've performed the 'Cancel' action.")
+              }}
+            >
+              Cancel
+            </Button>
           ]}
         >
           Are you sure?
@@ -114,5 +120,5 @@ The dialog's title is an `<h2>` by default. Make sure to adjust the heading leve
 
 ## Recources
 
--   [modalzmodalzmodalz](https://modalzmodalzmodalz.com/)
--   [It's a focus Trap](https://hackernoon.com/its-a-focus-trap-699a04d66fb5)
+- [modalzmodalzmodalz](https://modalzmodalzmodalz.com/)
+- [It's a focus Trap](https://hackernoon.com/its-a-focus-trap-699a04d66fb5)

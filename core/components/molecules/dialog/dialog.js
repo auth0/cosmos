@@ -46,7 +46,7 @@ const focusOnFormInput = ({ current }) => {
   firstInput.focus()
 }
 
-const roleDependantProp = (props, requiredRole, propObject) =>
+const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
 
 class Dialog extends React.Component {
@@ -69,7 +69,7 @@ class Dialog extends React.Component {
           <DialogBox
             width={props.width}
             {...Automation('dialog')}
-            {...roleDependantProp(props, 'destructive', {
+            {...getAccessibilityRole(props, 'destructive', {
               'aria-describedby': 'dialog-description'
             })}
             role="dialog"
@@ -128,12 +128,16 @@ const DialogClose = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  
+  z-index: 1;
+
   /* Overwirtes the color of the icons */
   ${Button.Element} {
-    &, i, svg, path {
+    &,
+    i,
+    svg,
+    path {
       color: ${colors.base.black};
-       fill: ${colors.base.black};
+      fill: ${colors.base.black};
     }
   }
 `
@@ -180,13 +184,19 @@ const DialogFooter = styled.footer`
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
 Dialog.propTypes = {
+  /* Buttons that will be shown on the dialog's footer */
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
+  /* Dialog's header title */
   title: PropTypes.string,
+  /* Dialog's header title heading element */
   titleElement: PropTypes.oneOf([1, 2, 3, 4]),
+  /* Dialog's container width */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
+  /* Called when the user clicks on the header's cross or outside the dialog */
   onClose: PropTypes.func,
+  /* Whether you're presenting a form or a destructive action */
   role: PropTypes.oneOf(['form', 'destructive'])
 }
 
