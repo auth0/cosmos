@@ -77,7 +77,7 @@ class Settings extends React.Component {
             ]}
             helpText="The type of application will determine which settings you can configure from the dashboard."
           />
-            
+
           <Form.Select
             onChange={ev => this.setState({ tokenEndpointAuthentication: ev.target.value })}
             value={this.state.tokenEndpointAuthentication}
