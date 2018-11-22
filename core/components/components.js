@@ -39,7 +39,6 @@ import Tooltip from './atoms/tooltip'
 
 /* molecules */
 import Alert from './atoms/alert'
-import AppFrame from './molecules/app-frame'
 import AvatarBlock from './molecules/avatar-block'
 import ButtonGroup from './molecules/button-group'
 import DangerZone from './molecules/danger-zone'
@@ -59,16 +58,12 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts */
-import GalleryLayout from './molecules/gallery-layout'
 import ColumnLayout from './molecules/column-layout'
-import PageLayout from './molecules/page-layout'
 import RowLayout from './molecules/row-layout'
-import StackLayout from './molecules/stack-layout'
 
 export {
   Alert,
   Avatar,
-  AppFrame,
   AvatarBlock,
   Badge,
   Box,
@@ -82,7 +77,6 @@ export {
   EmptyState,
   Form,
   FormGroup,
-  GalleryLayout,
   ColumnLayout,
   Heading,
   Icon,
@@ -92,7 +86,6 @@ export {
   List,
   Logo,
   PageHeader,
-  PageLayout,
   Pagination,
   PaginationToolbar,
   Pager,
@@ -104,7 +97,6 @@ export {
   Sidebar,
   Spinner,
   Stack,
-  StackLayout,
   Switch,
   Table,
   Tabs,
