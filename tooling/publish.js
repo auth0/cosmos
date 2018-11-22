@@ -17,8 +17,8 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   const directories = [
     'core/tokens',
     'core/babel-preset',
-    'core/components',
-    'internal/cosmos-scripts'
+    'core/components'
+    // 'internal/cosmos-scripts'
   ]
 
   /* copy root version to all dependencies */
