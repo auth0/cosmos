@@ -96,8 +96,29 @@ storiesOf('Resource List').add('actions', () => (
         </ResourceList.Item>
       )}
       actions={[
-        { label: 'Delete', icon: 'delete', handler: function () { } },
-        { label: 'Settings', icon: 'settings', handler: function () { } }
+        { label: 'Delete', icon: 'delete', handler: function() {} },
+        { label: 'Settings', icon: 'settings', handler: function() {} }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('Resource List').add('actions as buttons', () => (
+  <Example title="default">
+    <ResourceList
+      items={[
+        { title: 'Title One', subtitle: 'Subtitle One', image: IMAGE_URLS[0], id: 'abc123' },
+        { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
+        { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
+      ]}
+      renderItem={item => (
+        <ResourceList.Item {...item}>
+          ID: <Code>{item.id}</Code>
+        </ResourceList.Item>
+      )}
+      actions={[
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>
@@ -114,7 +135,7 @@ storiesOf('Resource List').add('action overrides', () => (
           subtitle: 'Subtitle Three',
           image: IMAGE_URLS[2],
           id: 'ghi789',
-          actions: [{ label: 'Settings', icon: 'settings', handler: function () { } }]
+          actions: [{ label: 'Settings', icon: 'settings', handler: function() {} }]
         }
       ]}
       renderItem={item => (
@@ -123,8 +144,8 @@ storiesOf('Resource List').add('action overrides', () => (
         </ResourceList.Item>
       )}
       actions={[
-        { label: 'Delete', icon: 'delete', handler: function () { } },
-        { label: 'Settings', icon: 'settings', handler: function () { } }
+        { label: 'Delete', icon: 'delete', handler: function() {} },
+        { label: 'Settings', icon: 'settings', handler: function() {} }
       ]}
     />
   </Example>
@@ -133,43 +154,53 @@ storiesOf('Resource List').add('action overrides', () => (
 storiesOf('Resource List').add('stressed', () => (
   <Example title="stressed - title and subtitle with 119 characters + 7 actions">
     <ResourceList
-      items={[{
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        actions: [
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } }
-        ]
-      }, {
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        actions: [
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } }
-        ]
-      }, {
-        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
-        actions: [
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } },
-          { label: 'Settings', icon: 'settings', handler: function () { } }
-        ]
-      }]}
+      items={[
+        {
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          actions: [
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} }
+          ]
+        },
+        {
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          actions: [
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} }
+          ]
+        },
+        {
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          actions: [
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} },
+            { label: 'Settings', icon: 'settings', handler: function() {} }
+          ]
+        }
+      ]}
     />
   </Example>
 ))
