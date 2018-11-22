@@ -19,6 +19,7 @@ Shoutout to all the hacktoberfest contributions we received!
 - Button: Fix vertical alignment in button and it's uses [#947]
 - Button: Fix margins for Safari [#1020]
 - Pagination: Fix selected state for pagination button [#1061]
+- Pagination toolbar: Hide toolbar if there are zero items by @astanciu [#1051]
 - Table: Make the field prop optional [#1088]
 - Table: Table columns can not be passed as a variable by @sanketsingh24 [#1035]
 - Docs: Fix typo in contribution guide by @Gotham13121997 [#1022]
