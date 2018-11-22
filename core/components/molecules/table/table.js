@@ -8,8 +8,6 @@ import TableHeader from './table-header'
 
 import Automation from '../../_helpers/automation-attribute'
 
-const trucatedTableCellHeight = '45px'
-
 class Table extends React.Component {
   constructor(props) {
     super(props)
