@@ -12,6 +12,11 @@ const gutterOptions = {
   'spacious': "var(--RowLayout--Spacious--GridGap)"
 }
 
+const marginReset = {
+  'none': "auto",
+  'reset': "0 !important"
+}
+
 const RowLayout = props => (
   <RowLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('row-layout')}>
     {transformChildren(props, RowLayout.Item, 'row-layout.item')}
@@ -34,7 +39,7 @@ RowLayout.Element = styled.div`
   This is a fix that will last until we remove margins from components.
   */
   > * > * {
-    margin: 0 !important;
+    margin: ${props => marginReset[props.marginReset]};
   }
 `
 RowLayout.Item = styled.div``
@@ -42,10 +47,13 @@ RowLayout.Item = styled.div``
 RowLayout.propTypes = {
   /* Regulates the size of the gutter between rows*/
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
+  marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
 RowLayout.defaultProps = {
   gutter: 'default',
+  marginReset: 'reset'
 }
 
 export default RowLayout

@@ -19,11 +19,17 @@ const gridTemplateColumns = {
 }
 
 const gutterOptions = {
-  'none': 0,
-  'default': spacing.medium,
-  'condensed': spacing.small,
-  'spacious': spacing.large
+  'none': "var(--ColumnLayout--None--GridGap)",
+  'condensed': "var(--ColumnLayout--Condensed--GridGap)",
+  'default': "var(--ColumnLayout--Default--GridGap)",
+  'spacious': "var(--ColumnLayout--Spacious--GridGap)"
 }
+
+const marginReset = {
+  'none': "auto",
+  'reset': "0 !important"
+}
+
 
 const ColumnLayout = props => (
   <ColumnLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('column-layout')}>
@@ -32,26 +38,45 @@ const ColumnLayout = props => (
 )
 
 ColumnLayout.Element = styled.div`
+  --ColumnLayout--None--GridGap: 0;
+  --ColumnLayout--Condensed--GridGap: ${spacing.small};
+  --ColumnLayout--Default--GridGap: ${spacing.medium};
+  --ColumnLayout--Spacious--GridGap: ${spacing.large};
+  --ColumnLayout--Header--Color: ${spacing.large};
+
   display: grid;
   grid-gap: ${props => gutterOptions[props.gutter]};
   grid-template-columns: 1fr;
-
-  @media (min-width: 700px) {
+  
+  /* Placeholder width media feature until we have global variables for breakpoints */
+  @media (min-width: 768px) {
     grid-template-columns: ${props => gridTemplateColumns[props.distribution]}
+  }
+
+  /* 
+  Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
+  This is a fix that will last until we remove margins from components.
+  */
+  > * > * {
+    margin: ${props => marginReset[props.marginReset]};
   }
 `
 
 ColumnLayout.Item = styled.div``
 
 ColumnLayout.propTypes = {
-  /* Regulates the size of the gutter */
+  /* Regulates the size of the gutter betwen each column */
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
-  distribution: PropTypes.oneOf(['1/2 1/2', '1/3 1/3 1/3', '2/3 1/3', '1/3 2/3', '1/4 1/4 1/4 1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4'])
+  /* Defines the column layout */
+  distribution: PropTypes.oneOf(['1/2 1/2', '1/3 1/3 1/3', '2/3 1/3', '1/3 2/3', '1/4 1/4 1/4 1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4']),
+  /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
+  marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
 ColumnLayout.defaultProps = {
   gutter: 'default',
-  distribution: '1/2 1/2'
+  distribution: '1/2 1/2',
+  marginReset: 'reset'
 }
 
 export default ColumnLayout
