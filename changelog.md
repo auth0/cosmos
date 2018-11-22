@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Fixed
 
-- Icons: Fix indexing of labels
+- Icons: Fix indexing of names [ae43a6]
 
 ## 0.8.0 [November 22, 2018]
 
