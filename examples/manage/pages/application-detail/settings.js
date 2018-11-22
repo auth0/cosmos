@@ -76,7 +76,7 @@ class Settings extends React.Component {
               { text: 'Single Page Application', value: 'spa' }
             ]}
             helpText="The type of application will determine which settings you can configure from the dashboard."
-            />
+          />
             
           <Form.Select
             onChange={ev => this.setState({ tokenEndpointAuthentication: ev.target.value })}
