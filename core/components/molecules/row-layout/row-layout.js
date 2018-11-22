@@ -6,12 +6,11 @@ import transformChildren from '../../_helpers/transform-layout-children'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
-  'none': 0,
-  'default': spacing.medium,
-  'condensed': spacing.small,
-  'spacious': spacing.large
+  'none': "var(--RowLayout--None--GridGap)",
+  'condensed': "var(--RowLayout--Condensed--GridGap)",
+  'default': "var(--RowLayout--Default--GridGap)",
+  'spacious': "var(--RowLayout--Spacious--GridGap)"
 }
-
 
 const RowLayout = props => (
   <RowLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('row-layout')}>
@@ -20,22 +19,28 @@ const RowLayout = props => (
 )
 
 RowLayout.Element = styled.div`
-  > *:not(:last-child), > *:not(:only-child), > *:not(:empty) { 
-    /* or only child */
-    margin-bottom: ${props => gutterOptions[props.gutter]};
-  }
-`
+  --RowLayout--None--GridGap: 0;
+  --RowLayout--Condensed--GridGap: ${spacing.small};
+  --RowLayout--Default--GridGap: ${spacing.medium};
+  --RowLayout--Spacious--GridGap: ${spacing.large};
+  --RowLayout--Header--Color: ${spacing.large};
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: ${props => gutterOptions[props.gutter]};
 
-RowLayout.Item = styled.div`
-  /* For layouts to work any direct child of the item has to have their margin cleared. We are forcing it here. */
-  /* remove margin reset prop */
-  > * {
+ /* 
+  Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
+  This is a fix that will last until we remove margins from components.
+  */
+  > * > * {
     margin: 0 !important;
   }
 `
+RowLayout.Item = styled.div``
 
 RowLayout.propTypes = {
-  /* Regulates the size of the gutter */
+  /* Regulates the size of the gutter between rows*/
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
 }
 

@@ -31,14 +31,15 @@ storiesOf('Row Layout').add('spacious', () => (
   <Example title="spacious">
     <RowLayout gutter="spacious">
       <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
     </RowLayout>
   </Example>
 ))
 
 
-
-// Test
-
+// Grid Test
 storiesOf('Row & Column Grid').add('test', () => (
   <Example title="test">
     <ColumnLayout distribution="2/4 1/4 1/4">
