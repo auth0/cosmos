@@ -65,11 +65,11 @@ ColumnLayout.Element = styled.div`
 ColumnLayout.Item = styled.div``
 
 ColumnLayout.propTypes = {
-  /* Regulates the size of the gutter betwen each column */
+  /** Regulates the size of the gutter betwen each column */
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
-  /* Defines the column layout */
+  /** Defines the distribution and amount of columns */
   distribution: PropTypes.oneOf(['1/2 1/2', '1/3 1/3 1/3', '2/3 1/3', '1/3 2/3', '1/4 1/4 1/4 1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4']),
-  /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
+  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 

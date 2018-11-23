@@ -45,9 +45,9 @@ RowLayout.Element = styled.div`
 RowLayout.Item = styled.div``
 
 RowLayout.propTypes = {
-  /* Regulates the size of the gutter between rows*/
+  /** Regulates the size of the gutter between rows*/
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
-  /* This prop resets the margins of the component inside layouts togenerate consistent spaces. */
+  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
