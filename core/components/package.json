@@ -8,7 +8,6 @@
   "keywords": [],
   "author": "auth0",
   "license": "MIT",
-  "types": "meta/index.d.ts",
   "dependencies": {
     "md5": "^2.2.1",
     "@auth0/cosmos-tokens": "0.8.1",
