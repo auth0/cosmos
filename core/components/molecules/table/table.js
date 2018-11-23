@@ -198,6 +198,7 @@ Table.Cell = styled.td`
   text-align: left;
   vertical-align: middle;
   line-height: 2;
+  overflow-wrap: break-word;
   width: ${props => props.column.width || 'auto'};
   ${props =>
     props.column.truncate
