@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ResourceListItem from './item'
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
-import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc'
+import ResourceListItem from './item'
 
 const StyledList = styled.ul`
   margin: ${spacing.large} 0;
@@ -17,31 +17,35 @@ const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
   items.map((item, index) => {
     const itemRenderer = renderItem || defaultItemRenderer
     return React.cloneElement(itemRenderer(item, index), {
-      key: item.key || index,
       actions: item.actions || actions,
       onClick: item.onClick || onItemClick,
       item
     })
   })
 
-const sortableChildrenRenderer = ({ items, actions, onItemClick, renderItem, onSortEnd }) => {
-  const Container = SortableContainer(({ items: sortableItems }) =>
-    sortableItems.map((item, index) => {
-      const itemRenderer = renderItem || defaultItemRenderer
-      const SortableResourceListItem = SortableElement(value => itemRenderer(item, index, value))
+const SortableResourceListItem = SortableElement(({ item, index, value, itemRenderer }) =>
+  itemRenderer(item, index, value)
+)
 
-      return (
+const SortableResourceList = SortableContainer(
+  ({ items: sortableItems, actions, onItemClick, renderItem, onSortEnd }) => (
+    <div>
+      {sortableItems.map((item, index) => (
         <SortableResourceListItem
-          key={index}
           actions={item.actions || actions}
           onClick={item.onClick || onItemClick}
           item={item}
+          key={index}
           index={index}
+          itemRenderer={renderItem || defaultItemRenderer}
         />
-      )
-    })
+      ))}
+    </div>
   )
-  return <Container items={items} onSortEnd={onSortEnd} />
+)
+
+const sortableChildrenRenderer = props => {
+  return <SortableResourceList {...props} />
 }
 
 const resolveChildrenRenderer = props =>
