@@ -11,7 +11,7 @@ const StyledList = styled.ul`
   padding: 0;
 `
 
-const defaultItemRenderer = (item, index) => <ResourceListItem {...item} />
+const defaultItemRenderer = item => <ResourceListItem {...item} />
 
 const ResourceList = props => (
   <StyledList {...Automation('resource-list')}>

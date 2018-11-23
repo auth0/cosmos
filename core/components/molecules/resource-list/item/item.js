@@ -8,6 +8,7 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
+import { actionToButtonProps, buttonBuilder } from '../action-builder'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -62,17 +63,7 @@ const resolveAction = (action, key) => {
         ' Please use raw buttons instead.'
     )
 
-    return (
-      <Button
-        key={key}
-        icon={action.icon}
-        onClick={action.handler ? callHandler(action.handler) : null}
-        label={action.label}
-        disabled={action.disabled}
-        href={action.href}
-        target={action.target}
-      />
-    )
+    return buttonBuilder(actionToButtonProps({ ...action, key }))
   }
 
   return React.cloneElement(action, { key })
