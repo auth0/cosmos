@@ -13,6 +13,16 @@ storiesOf('Gallery Layout').add('default', () => (
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
     </GalleryLayout>
   </Example>
 ))
