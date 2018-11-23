@@ -10,6 +10,7 @@ import Home from './home'
 import GuidingPrinciples from './guiding-principles'
 import Usage from './usage'
 import ContributionGuide from './contribution-guide'
+import SystemGuidelines from './system-guidelines'
 import FAQS from './faqs'
 import Changes from './changes'
 import Overview from './overview'
@@ -111,6 +112,7 @@ class App extends React.Component {
           <MainContent id="main">
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
+              <Route exact path="/system-guidelines" component={SystemGuidelines} />
               <Route path="/usage" component={Usage} />
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
