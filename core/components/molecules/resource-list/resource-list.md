@@ -123,7 +123,15 @@ class SortableResourceListExample extends React.Component {
   }
   render() {
     return (
-      <ResourceList sortable items={this.state.items} onSortEnd={event => this.onSortEnd(event)} />
+      <ResourceList
+        actions={[
+          { icon: 'settings', handler: function() {}, label: 'Settings' },
+          { icon: 'delete', handler: function() {}, label: 'Delete' }
+        ]}
+        sortable
+        items={this.state.items}
+        onSortEnd={event => this.onSortEnd(event)}
+      />
     )
   }
 }

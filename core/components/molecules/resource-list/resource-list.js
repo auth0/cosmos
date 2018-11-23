@@ -13,22 +13,26 @@ const StyledList = styled.ul`
 `
 
 const defaultItemRenderer = (item, index) => <ResourceListItem index={index} {...item} />
-const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
-  items.map((item, index) => {
-    const itemRenderer = renderItem || defaultItemRenderer
-    return React.cloneElement(itemRenderer(item, index), {
-      actions: item.actions || actions,
-      onClick: item.onClick || onItemClick,
-      item
-    })
-  })
 
-const SortableResourceListItem = SortableElement(({ item, index, value, itemRenderer }) =>
-  itemRenderer(item, index, value)
+const itemRendererBuilder = ({ item, index, renderItem, onItemClick, actions }) => {
+  const itemRenderer = renderItem || defaultItemRenderer
+  return React.cloneElement(itemRenderer(item, index), {
+    actions: item.actions || actions,
+    onClick: item.onClick || onItemClick,
+    item
+  })
+}
+
+const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
+  items.map((item, index) => itemRendererBuilder({ item, index, renderItem, onItemClick, actions }))
+
+const SortableResourceListItem = SortableElement(
+  ({ item, index, renderItem, actions, onClick: onItemClick }) =>
+    itemRendererBuilder({ item, index, renderItem, actions, onItemClick })
 )
 
 const SortableResourceList = SortableContainer(
-  ({ items: sortableItems, actions, onItemClick, renderItem, onSortEnd }) => (
+  ({ items: sortableItems, actions, onItemClick, renderItem }) => (
     <div>
       {sortableItems.map((item, index) => (
         <SortableResourceListItem
@@ -37,7 +41,7 @@ const SortableResourceList = SortableContainer(
           item={item}
           key={index}
           index={index}
-          itemRenderer={renderItem || defaultItemRenderer}
+          renderItem={renderItem}
         />
       ))}
     </div>
