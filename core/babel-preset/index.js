@@ -3,7 +3,20 @@
   are recommended for usage with cosmos
 */
 
-module.exports = {
-  presets: ['@babel/env', 'react', 'es2015', '@babel/preset-typescript'],
-  plugins: ['transform-object-rest-spread', 'transform-class-properties']
-}
+const { declare } = require('@babel/helper-plugin-utils')
+
+module.exports = declare(api => {
+  api.assertVersion(7)
+
+  return {
+    presets: [
+      [require('@babel/preset-env'), { modules: false }],
+      require('@babel/preset-typescript'),
+      require('@babel/preset-react')
+    ],
+    plugins: [
+      require('@babel/plugin-proposal-class-properties'),
+      require('@babel/plugin-proposal-object-rest-spread')
+    ]
+  }
+})

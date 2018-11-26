@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import { colors } from '@auth0/cosmos-tokens'
-import { icons } from './icons.json'
+// import './test'
+// const { icons } = require('./icons.json')
+
+const iconData = require('./icons.json')
+
+const icons = iconData.icons
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.

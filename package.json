@@ -40,11 +40,13 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "7.1.5",
+    "@babel/core": "^7.1.6",
     "@storybook/addon-actions": "4.0.0-alpha.12",
     "@storybook/addon-links": "4.0.0-alpha.12",
     "@storybook/addons": "4.0.0-alpha.12",
     "@storybook/react": "4.0.0-alpha.12",
-    "@babel/cli": "7.0.0",
+    "babel-core": "npm:@babel/core",
     "babel-jest": "^23.6.0",
     "chokidar": "2.0.4",
     "enzyme": "^3.5.0",
@@ -69,6 +71,7 @@
     "react-docgen-deprecation-handler": "1.0.0",
     "react-docgen-displayname-handler": "2.1.0",
     "read-pkg": "4.0.1",
-    "svgo": "1.0.5"
+    "svgo": "1.0.5",
+    "typescript": "^3.1.6"
   }
 }

@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.(j|t)sx?/,
         loader: 'babel-loader',
         options: {
           presets: ['@auth0/babel-preset-cosmos/dev']
@@ -44,5 +44,8 @@ module.exports = {
   ],
   node: {
     fs: 'empty'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '*']
   }
 }

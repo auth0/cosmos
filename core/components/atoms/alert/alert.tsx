@@ -144,7 +144,7 @@ Alert.propTypes = {
   /** Style of alert to show */
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
-  /** Name of icon */
+  /** Name of the icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
 
   /** Title text (in bold) */

@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
     // Target latest version of ECMAScript.
-    "target": "esnext",
+    "target": "es5",
     // Process & infer types from .js files.
     // "allowJs": true,
     // Don't emit; allow Babel to transform files.
     "noEmit": true,
     // Enable strictest settings like strictNullChecks & noImplicitAny.
-    "strict": true,
+    "strict": false, // eventually will be set to true
     // Disallow features that require cross-file information for emit.
     "isolatedModules": true,
     // Import non-ES modules as default imports.
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    // Enable TSX
+    "jsx": "react",
+    // "resolveJsonModule": true,
+    "typeRoots": ["node_modules/@types", "./typings.d.ts"]
   },
-  "include": ["src"]
+  "include": ["./core/**/*", "./internal/**/*", "./tooling/**/*"]
 }
