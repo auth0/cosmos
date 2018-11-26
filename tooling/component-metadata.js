@@ -1,10 +1,6 @@
 const fs = require('fs-extra')
 const glob = require('glob')
 const path = require('path')
-const docgen = require('react-docgen')
-const { parse: parseTypeScript } = require('react-docgen-typescript')
-const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
-const deprecationHandler = require('react-docgen-deprecation-handler')
 
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
@@ -12,6 +8,7 @@ const camelCase = require('lodash.camelcase')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 const colors = require('@auth0/cosmos-tokens/colors')
+const resolveCompoenentMetadata = require('./metadata-strategies')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -24,56 +21,6 @@ fs.ensureDirSync('core/components/meta')
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.+(ts|tsx|js)')
 let markdownFiles = glob.sync('core/components/+(atoms|molecules)/**/*.md')
-
-class ComponentResolverStrategy {
-  constructor(path) {
-    this.filePath = path
-  }
-  getFileContents() {
-    return fs.readFileSync(this.filePath, 'utf8')
-  }
-
-  getMetadata() {
-    return Promise.resolve({})
-  }
-}
-
-class JavaScriptResolverStrategy extends ComponentResolverStrategy {
-  getMetadata() {
-    /* append display name handler to handlers list */
-    const handlers = docgen.defaultHandlers
-      .concat(createDisplayNameHandler(this.filePath))
-      .concat(deprecationHandler)
-
-    /* read file to get source code */
-    const code = this.getFileContents()
-
-    /* parse the component code to get metadata */
-    const data = docgen.parse(code, null, handlers)
-    return data
-  }
-}
-
-class TypeScriptResolverStrategy extends ComponentResolverStrategy {
-  getMetadata() {
-    const absPath = path.resolve(this.filePath)
-    return parseTypeScript(absPath)[0]
-  }
-}
-
-const resolveCompoenentMetadata = path => {
-  const fileExtension = path.split('.')[1]
-  const strategies = {
-    js: JavaScriptResolverStrategy,
-    jsx: JavaScriptResolverStrategy,
-    ts: TypeScriptResolverStrategy,
-    tsx: TypeScriptResolverStrategy
-  }
-  const Strategy = strategies[fileExtension]
-
-  const strategy = new Strategy(path)
-  return strategy.getMetadata()
-}
 
 const run = () => {
   info('DOCS', 'Generating metadata')
