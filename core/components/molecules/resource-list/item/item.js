@@ -53,23 +53,32 @@ const ListItemSubtitle = styled(StyledTextAllCaps)`
   display: block;
 `
 
-const callHandler = handler => evt => handler(evt, props.item)
-
-const resolveAction = (action, key) => {
+/**
+ * Builds the button from the action or
+ * adds the key to the action if it's a raw button.
+ * @param {ResourceList.Item.Props} item
+ * @param {ResourceList.Item.Action} action
+ * @param {number} key
+ */
+const resolveAction = (item, action, key) => {
   if (typeof action === 'object' && !React.isValidElement(action)) {
     console.warn(
       'Passing resource list item actions as object is' +
         'deprecated and will be removed in Cosmos 1.0.0.' +
         ' Please use raw buttons instead.'
     )
-
-    return buttonBuilder(actionToButtonProps({ ...action, key }))
+    return buttonBuilder(actionToButtonProps({ ...action, key }, item))
   }
 
   return React.cloneElement(action, { key })
 }
 
-const resolveActions = actions => actions.map(resolveAction)
+/**
+ * Maps each action to a button if applicable
+ * @param {ResourceList.Item.Action[]} actions
+ * @param {ResourceList.Item.Props} item
+ */
+const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, item))
 
 const ResourceListItem = props => {
   let image
@@ -98,7 +107,7 @@ const ResourceListItem = props => {
   }
 
   if (props.actions) {
-    actions = <ButtonGroup align="right">{resolveActions(props.actions)}</ButtonGroup>
+    actions = <ButtonGroup align="right">{resolveActions(props.actions, props.item)}</ButtonGroup>
   }
 
   return (
