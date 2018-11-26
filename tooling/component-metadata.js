@@ -1,7 +1,8 @@
 const fs = require('fs-extra')
 const glob = require('glob')
-
+const path = require('path')
 const docgen = require('react-docgen')
+const { parse: parseTypeScript } = require('react-docgen-typescript')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const deprecationHandler = require('react-docgen-deprecation-handler')
 
@@ -21,8 +22,58 @@ let warning = 0
 fs.ensureDirSync('core/components/meta')
 
 /* Get list of js and md files from atoms and molecules */
-const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.js')
+const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.+(ts|tsx|js)')
 let markdownFiles = glob.sync('core/components/+(atoms|molecules)/**/*.md')
+
+class ComponentResolverStrategy {
+  constructor(path) {
+    this.filePath = path
+  }
+  getFileContents() {
+    return fs.readFileSync(this.filePath, 'utf8')
+  }
+
+  getMetadata() {
+    return Promise.resolve({})
+  }
+}
+
+class JavaScriptResolverStrategy extends ComponentResolverStrategy {
+  getMetadata() {
+    /* append display name handler to handlers list */
+    const handlers = docgen.defaultHandlers
+      .concat(createDisplayNameHandler(this.filePath))
+      .concat(deprecationHandler)
+
+    /* read file to get source code */
+    const code = this.getFileContents()
+
+    /* parse the component code to get metadata */
+    const data = docgen.parse(code, null, handlers)
+    return data
+  }
+}
+
+class TypeScriptResolverStrategy extends ComponentResolverStrategy {
+  getMetadata() {
+    const absPath = path.resolve(this.filePath)
+    return parseTypeScript(absPath)[0]
+  }
+}
+
+const resolveCompoenentMetadata = path => {
+  const fileExtension = path.split('.')[1]
+  const strategies = {
+    js: JavaScriptResolverStrategy,
+    jsx: JavaScriptResolverStrategy,
+    ts: TypeScriptResolverStrategy,
+    tsx: TypeScriptResolverStrategy
+  }
+  const Strategy = strategies[fileExtension]
+
+  const strategy = new Strategy(path)
+  return strategy.getMetadata()
+}
 
 const run = () => {
   info('DOCS', 'Generating metadata')
@@ -31,23 +82,20 @@ const run = () => {
     .filter(path => !path.includes('sketch.js')) // ignore sketch files
     .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
     .map(path => {
+      /* ignore secondary files */
+      const directoryName = path.split('/').splice(-2, 1)[0]
+      if (
+        !(
+          path.includes(`${directoryName}.js`) ||
+          path.includes(`${directoryName}.ts`) ||
+          path.includes(`${directoryName}.tsx`)
+        )
+      )
+        return
+
       try {
-        /* ignore secondary files */
-        const directoryName = path.split('/').splice(-2, 1)[0]
-        if (!path.includes(`${directoryName}.js`)) return
+        const data = resolveCompoenentMetadata(path)
 
-        /* append display name handler to handlers list */
-        const handlers = docgen.defaultHandlers
-          .concat(createDisplayNameHandler(path))
-          .concat(deprecationHandler)
-
-        /* read file to get source code */
-        const code = fs.readFileSync(path, 'utf8')
-
-        /* parse the component code to get metadata */
-        const data = docgen.parse(code, null, handlers)
-
-        /* make modifications to prop types to improve documentation */
         if (data.props) {
           Object.values(data.props).forEach(prop => {
             /* remove redundant quotes from default value of type string */
@@ -108,9 +156,12 @@ const run = () => {
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
+        warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
         if (debug) warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
         else warning++
       }
+
+      /* make modifications to prop types to improve documentation */
     })
     /*
       filter out null values,
@@ -164,7 +215,11 @@ const run = () => {
   )
 
   if (warning) {
-    warn(`${warning} components could use some docs love, run in --debug mode for more info`)
+    warn(
+      `${warning} component${
+        warning === 1 ? '' : 's'
+      } could use some docs love, run in --debug mode for more info`
+    )
   }
 }
 

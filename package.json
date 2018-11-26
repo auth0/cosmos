@@ -70,6 +70,7 @@
     "react-docgen": "2.21.0",
     "react-docgen-deprecation-handler": "1.0.0",
     "react-docgen-displayname-handler": "2.1.0",
+    "react-docgen-typescript": "^1.12.2",
     "read-pkg": "4.0.1",
     "svgo": "1.0.5",
     "typescript": "^3.1.6"

@@ -1,12 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
 import Paragraph, { StyledParagraph } from '../paragraph'
 import FreeText from '../../_helpers/free-text'
-import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
 
@@ -19,7 +17,49 @@ const ReadMoreLink = styled(Link)`
   margin-left: ${spacing.xxsmall};
 `
 
-class Alert extends React.Component {
+interface IAlertProps {
+  /**
+   * Style of alert to show
+   * */
+  type: 'default' | 'information' | 'success' | 'warning' | 'danger'
+
+  /**
+   * Name of the icon
+   * */
+  icon?: string
+
+  /**
+   * Title text (in bold)
+   * */
+  title?: string
+
+  /**
+   * @deprecated Details
+   * */
+  text: React.ReactNode
+
+  /**
+   * Link to documentation
+   * */
+  link?: string
+
+  /**
+   * Allow user to dismiss this alert
+   * */
+  dismissible?: boolean
+
+  /**
+   * Function to call on dismissal
+   * */
+  onDismiss?: (event: React.MouseEvent<HTMLButtonElement>) => void
+
+  /**
+   * Automatically dismiss after N seconds
+   * */
+  dismissAfterSeconds?: number
+}
+
+class Alert extends React.Component<IAlertProps> {
   constructor(props) {
     super(props)
     this.state = { visible: true }
@@ -138,34 +178,6 @@ const iconColorMap = {
   success: 'greenDarker',
   warning: 'yellow',
   danger: 'redDarker'
-}
-
-Alert.propTypes = {
-  /** Style of alert to show */
-  type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
-
-  /** Name of the icon */
-  icon: PropTypes.oneOf(__ICONNAMES__),
-
-  /** Title text (in bold) */
-  title: PropTypes.string,
-
-  /** @deprecated Details */
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-
-  /** Link to documentation */
-  link: PropTypes.string,
-
-  /** Allow user to dismiss this alert */
-  dismissible: PropTypes.bool,
-
-  /** Function to call on dismissal */
-  onDismiss: PropTypes.func,
-
-  /** Automatically dismiss after N seconds */
-  dismissAfterSeconds: PropTypes.number,
-
-  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
 }
 
 Alert.defaultProps = {
