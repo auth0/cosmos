@@ -7,7 +7,9 @@ import { Form } from '@auth0/cosmos'
 storiesOf('Form').add('text field', () => (
   <Example title="text field">
     <Form>
-      <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+      <Form.Field label="Field label">
+        <TextInput type="text" placeholder="Enter something" />
+      </Form.Field>
     </Form>
   </Example>
 ))
