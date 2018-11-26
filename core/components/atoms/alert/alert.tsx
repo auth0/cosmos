@@ -18,44 +18,28 @@ const ReadMoreLink = styled(Link)`
 `
 
 interface IAlertProps {
-  /**
-   * Style of alert to show
-   * */
+  /** Style of alert to show */
   type: 'default' | 'information' | 'success' | 'warning' | 'danger'
 
-  /**
-   * Name of the icon
-   * */
+  /** Name of the icon */
   icon?: string
 
-  /**
-   * Title text (in bold)
-   * */
+  /** Title text (in bold) */
   title?: string
 
-  /**
-   * @deprecated Details
-   * */
+  /** @deprecated Details */
   text: React.ReactNode
 
-  /**
-   * Link to documentation
-   * */
+  /** Link to documentation */
   link?: string
 
-  /**
-   * Allow user to dismiss this alert
-   * */
+  /** Allow user to dismiss this alert */
   dismissible?: boolean
 
-  /**
-   * Function to call on dismissal
-   * */
+  /** Function to call on dismissal */
   onDismiss?: (event: React.MouseEvent<HTMLButtonElement>) => void
 
-  /**
-   * Automatically dismiss after N seconds
-   * */
+  /** Automatically dismiss after N seconds */
   dismissAfterSeconds?: number
 }
 
