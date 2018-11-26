@@ -37,26 +37,6 @@ storiesOf('Logo').add('default', () => (
   </React.Fragment>
 ))
 
-storiesOf('Logo').add('full', () => (
-  <React.Fragment>
-    <Example title="Logo – tiny">
-      <div>
-        <Logo full size="tiny" />
-      </div>
-    </Example>
-    <Example title="Logo – small">
-      <div>
-        <Logo full size="small" />
-      </div>
-    </Example>
-    <Example title="Logo – default">
-      <div>
-        <Logo full size="default" />
-      </div>
-    </Example>
-  </React.Fragment>
-))
-
 storiesOf('Logo').add('dark background', () => (
   <React.Fragment>
     <Example title="Logo – tiny" background="dark">
@@ -81,26 +61,6 @@ storiesOf('Logo').add('dark background', () => (
       </div>
       <div>
         <Logo size="default" color="light" />
-      </div>
-    </Example>
-  </React.Fragment>
-))
-
-storiesOf('Logo').add('full dark background', () => (
-  <React.Fragment>
-    <Example title="Logo – tiny" background="dark">
-      <div>
-        <Logo full color="dark" size="tiny" />
-      </div>
-    </Example>
-    <Example title="Logo – small" background="dark">
-      <div>
-        <Logo full color="dark" size="small" />
-      </div>
-    </Example>
-    <Example title="Logo – default" background="dark">
-      <div>
-        <Logo full color="dark" size="default" />
       </div>
     </Example>
   </React.Fragment>

@@ -35,9 +35,7 @@ const guides = [
   { path: '/contribution-guide', title: 'Contributing to Cosmos' },
   { path: '/faqs', title: 'FAQs' },
   { path: '/changes', title: 'Changelog' },
-  { path: '/overview', title: 'Component overview' },
-  { path: '/automation', title: 'Automation Glossary' },
-  { path: '/playground', title: 'Cosmos playground' }
+  { path: '/automation', title: 'Automation Glossary' }
 ]
 
 const List = props => {
