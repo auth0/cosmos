@@ -57,7 +57,7 @@ const StyledSwitch = styled.span`
   vertical-align: middle;
   height: ${height};
   position: relative;
-  justify-content: ${props => props.labelLeft ? 'flex-end' : 'flex-start'};
+  justify-content: ${props => props.labelDirection == "left" ? 'flex-end' : 'flex-start'};
 
   input:focus ~ ${Toggle} {
     box-shadow: 0 0 0 2px ${colors.base.blue};
@@ -72,8 +72,8 @@ const Label = styled.label`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  margin-left: ${props => props.labelLeft ? '0' : spacing.small};
-  margin-right: ${props => props.labelLeft ? spacing.small : '0'};
+  margin-left: ${props => props.labelDirection == "left" ? '0' : spacing.small};
+  margin-right: ${props => props.labelDirection == "left" ? spacing.small : '0'};
 `
 
 class Switch extends React.Component {
@@ -94,13 +94,13 @@ class Switch extends React.Component {
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
     let elements = [<Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />]
-    const label = <Label labelLeft={this.props.labelLeft}>{this.state.on ? onLabel : offLabel}</Label>
+    const label = <Label labelDirection={this.props.labelDirection}>{this.state.on ? onLabel : offLabel}</Label>
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
-    if (this.props.labelLeft) {
+    if (this.props.labelDirection == 'left') {
       elements.push(label)
       elements.push(toggle)
-    } else {
+    } else if (this.props.labelDirection == 'right') {
       elements.push(toggle)
       elements.push(label)
     }
@@ -126,7 +126,7 @@ Switch.propTypes = {
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
-  labelLeft: PropTypes.bool
+  labelDirection: PropTypes.oneOf(['right', 'left'])
 }
 
 Switch.defaultProps = {
@@ -134,7 +134,7 @@ Switch.defaultProps = {
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
   readOnly: false,
-  labelLeft: false
+  labelDirection: 'right'
 }
 
 export default Switch
