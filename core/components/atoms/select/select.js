@@ -19,7 +19,11 @@ const StyledIcon = styled(Icon).attrs({
   size: '10'
 })`
   position: absolute;
-  /* right: 0.5em; */
+  right: 0.5em;
+
+  svg {
+    display: block;
+  }
 `
 
 const StyledSelect = StyledInput.withComponent('select').extend`
