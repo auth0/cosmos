@@ -2,12 +2,13 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Form } from '@auth0/cosmos'
+import { Form, Select } from '@auth0/cosmos'
 
 storiesOf('Form').add('select field', () => (
   <Example title="select field">
     <Form>
-      <Form.Select
+      <Form.Field
+        as={Select}
         label="Options list"
         options={[
           { text: 'First option', value: '1', defaultSelected: true },
@@ -23,7 +24,8 @@ storiesOf('Form').add('select field', () => (
 storiesOf('Form').add('select field + error', () => (
   <Example title="select field + error">
     <Form>
-      <Form.Select
+      <Form.Field
+        as={Select}
         label="Options list"
         error="Everything is broken"
         options={[
