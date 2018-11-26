@@ -21,14 +21,18 @@ const Form = props => (
 )
 
 Form.Field = props => <Field {...props} />
-Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
-Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
-Form.Select = props => <Field {...props} fieldComponent={Select} />
-Form.Switch = props => <Field {...props} fieldComponent={Switch} />
-Form.Radio = props => <Field {...props} fieldComponent={Radio} />
-Form.Radio.Option = Radio.Option
-Form.Actions = Actions
 Form.FieldSet = FieldSet
+Form.Actions = Actions
+
+/* deprecate the following: */
+Form.TextInput = props => (
+  <Field {...props} fieldComponent={ActionInput} componentName="TextInput" />
+)
+Form.TextArea = props => <Field {...props} fieldComponent={TextArea} componentName="TextArea" />
+Form.Select = props => <Field {...props} fieldComponent={Select} componentName="Select" />
+Form.Switch = props => <Field {...props} fieldComponent={Switch} componentName="Switch" />
+Form.Radio = props => <Field {...props} fieldComponent={Radio} componentName="Radio" />
+Form.Radio.Option = Radio.Option
 
 Form.propTypes = {
   /** Two options for controlling form layout */

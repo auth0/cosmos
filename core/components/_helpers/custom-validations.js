@@ -20,10 +20,19 @@ const numberOfValues = (elements, expectedCount) => {
   }
 }
 
-const deprecate = (props, { name, replacement }) => {
+const getDeprecationMessage = (name, replacement) => {
   let message = `'Hi 👋, ${name}' prop will be deprecated in 1.0.0`
   if (replacement) message += ` You might want to use '${replacement}' instead.`
+  return message
+}
+
+const deprecate = (props, { name, replacement }) => {
+  const message = getDeprecationMessage(name, replacement)
   if (props[name]) return new Error(message)
 }
 
-export { onlyOneOf, sumOfElements, numberOfValues, deprecate }
+const throwWarning = message => {
+  console.error(message)
+}
+
+export { onlyOneOf, sumOfElements, numberOfValues, deprecate, getDeprecationMessage, throwWarning }

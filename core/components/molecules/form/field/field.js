@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import { spacing, misc } from '@auth0/cosmos-tokens'
 import getLayoutValues from '../layout'
 import uniqueId from '../../../_helpers/uniqueId'
+import {
+  getDeprecationMessage,
+  deprecate,
+  throwWarning
+} from '../../../_helpers/custom-validations'
 import FormContext from '../form-context'
 import Automation from '../../../_helpers/automation-attribute'
 
@@ -51,7 +56,18 @@ const ContentLayout = styled.div`
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const { error, ...fieldProps } = props
+  const FieldComponent = props.as || props.fieldComponent
+
+  /** deprecate Form.TextInput, etc. API */
+  if (props.componentName) {
+    const message = getDeprecationMessage(
+      `Form.${props.componentName}`, // old API
+      `Form.Field as={${props.componentName}}` // replacement
+    )
+    throwWarning(message)
+  }
+
+  const { error, as, fieldComponent, ...fieldProps } = props
 
   return (
     <FormContext.Consumer>
@@ -61,8 +77,8 @@ const Field = props => {
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
           </LabelLayout>
           <ContentLayout layout={context.layout}>
-            {props.fieldComponent ? (
-              <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
+            {FieldComponent ? (
+              <FieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
             ) : (
               props.children
             )}
@@ -85,7 +101,9 @@ Field.propTypes = {
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
+  /** Component to use as field component */
+  as: PropTypes.any
 }
 
 Field.defaultProps = {

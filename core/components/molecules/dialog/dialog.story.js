@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Paragraph, Text } from '@auth0/cosmos'
+import { Dialog, Form, TextInput, Link, Paragraph, Text } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -63,9 +63,14 @@ storiesOf('Dialog').add('with form', () => (
       width={600}
     >
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field as={TextInput} label="First Name" type="text" placeholder="John" />
+        <Form.Field as={TextInput} label="Last Name" type="text" placeholder="Doe" />
+        <Form.Field
+          as={TextInput}
+          label="Email Address"
+          type="text"
+          placeholder="john.doe@auth0.com"
+        />
       </Form>
     </Dialog>
   </StyledExample>
@@ -89,9 +94,14 @@ storiesOf('Dialog').add('with introduction + form', () => (
         <Text type="strong">bold</Text> text.
       </Paragraph>
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field as={TextInput} label="First Name" type="text" placeholder="John" />
+        <Form.Field as={TextInput} label="Last Name" type="text" placeholder="Doe" />
+        <Form.Field
+          as={TextInput}
+          label="Email Address"
+          type="text"
+          placeholder="john.doe@auth0.com"
+        />
       </Form>
     </Dialog>
   </StyledExample>
