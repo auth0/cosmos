@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
-import { css } from 'styled-components'
+import Icon from '../icon'
+import styled from 'styled-components'
 
 import { misc, colors } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
@@ -12,7 +13,17 @@ const selectOpacity = {
 }
 const PLACEHOLDER_VALUE = '__select_placeholder'
 
+const StyledIcon = styled(Icon).attrs({
+  name: 'dropdown-fill',
+  color: 'black',
+  size: '10'
+})`
+  position: absolute;
+  right: 0.8em;
+`
+
 const StyledSelect = StyledInput.withComponent('select').extend`
+  appearance:none;
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
   background-color: ${props =>
@@ -50,16 +61,25 @@ const Select = ({ options, ...props }) => {
   if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
 
   return (
-    <StyledSelect {...props} {...Automation('select')}>
-      {/* First option will be selected if there is no value passed as a prop */}
-      <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-        {props.placeholder}
-      </option>
+    <Select.Wrapper>
+      <StyledIcon />
+      <StyledSelect {...props} {...Automation('select')}>
+        {/* First option will be selected if there is no value passed as a prop */}
+        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+          {props.placeholder}
+        </option>
 
-      {options.map(renderOption)}
-    </StyledSelect>
+        {options.map(renderOption)}
+      </StyledSelect>
+    </Select.Wrapper>
   )
 }
+
+Select.Wrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`
 
 const selectOptionShape = PropTypes.shape({
   text: PropTypes.string.isRequired,
