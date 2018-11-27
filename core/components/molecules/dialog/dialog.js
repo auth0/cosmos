@@ -37,6 +37,7 @@ const createButtonForAction = (action, index) => {
 
 const focusOnFormInput = ({ current }) => {
   const node = ReactDOM.findDOMNode(current)
+  if (!node) return
   const form = node.querySelector('form')
   if (!form) return
 
@@ -73,7 +74,7 @@ class Dialog extends React.Component {
 
   componentDidMount() {
     if (this.props.role === 'form') {
-      setTimeout(() => focusOnFormInput(this.childrenRef), 0)
+      setImmediate(() => focusOnFormInput(this.childrenRef))
     }
   }
 
@@ -213,12 +214,13 @@ Dialog.propTypes = {
   /* Callback triggered when the the dialog is closed by the user */
   onClose: PropTypes.func,
   /** Whether you're presenting a form or a destructive action */
-  role: PropTypes.oneOf(['form', 'destructive'])
+  role: PropTypes.oneOf(['default', 'form', 'destructive'])
 }
 
 Dialog.defaultProps = {
   width: 'medium',
-  titleElement: 2
+  titleElement: 2,
+  role: 'default'
 }
 
 export default Dialog
