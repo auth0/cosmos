@@ -4,7 +4,7 @@ import Automation from '../../_helpers/automation-attribute'
 import Icon from '../icon'
 import styled from 'styled-components'
 
-import { misc, colors } from '@auth0/cosmos-tokens'
+import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
 const selectOpacity = {
@@ -15,14 +15,17 @@ const PLACEHOLDER_VALUE = '__select_placeholder'
 
 const StyledIcon = styled(Icon).attrs({
   name: 'dropdown-fill',
-  color: 'black',
-  size: '10'
+  size: '14'
 })`
   position: absolute;
-  right: 0.5em;
+  right: 12px;
 
   svg {
     display: block;
+
+    path {
+      fill: ${colors.text.default};
+    }
   }
 `
 
