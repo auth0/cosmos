@@ -184,19 +184,19 @@ const DialogFooter = styled.footer`
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
 Dialog.propTypes = {
-  /* Buttons that will be shown on the dialog's footer */
+  /** Buttons that will be shown on the dialog's footer */
   actions: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
   ),
-  /* Dialog's header title */
+  /** Dialog's header title */
   title: PropTypes.string,
-  /* Dialog's header title heading element */
+  /** Dialog's header title heading element */
   titleElement: PropTypes.oneOf([1, 2, 3, 4]),
-  /* Dialog's container width */
+  /** Dialog's container width */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
-  /* Called when the user clicks on the header's cross or outside the dialog */
+  /** Called when the user clicks on the header's cross or outside the dialog */
   onClose: PropTypes.func,
-  /* Whether you're presenting a form or a destructive action */
+  /** Whether you're presenting a form or a destructive action */
   role: PropTypes.oneOf(['form', 'destructive'])
 }
 
