@@ -46,11 +46,29 @@ storiesOf('Dialog').add('with primary button only', () => (
 
 storiesOf('Dialog').add('with secondary button only', () => (
   <StyledExample title="with secondary button only">
+    <Dialog
+      open
+      title="Example Dialog"
+      onClose={() => {}}
+      actions={[
+        <Button onClick={() => {}} appearance="secondary">
+          OK
+        </Button>
+      ]}
+    >
+      Are you sure?
+    </Dialog>
+  </StyledExample>
+))
+
+storiesOf('Dialog').add('destructive', () => (
+  <StyledExample title="destructive">
     <Button>test</Button>
     <Dialog
       open
       title="Example Dialog"
       onClose={() => {}}
+      role="destructive"
       actions={[
         <Button onClick={() => {}}>No</Button>,
         <Button onClick={() => {}} appearance="destructive">
