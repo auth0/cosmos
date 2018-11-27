@@ -46,6 +46,22 @@ const focusOnFormInput = ({ current }) => {
   firstInput.focus()
 }
 
+/**
+ * If the role of the dialog matches the required one,
+ * it returns the prop object.
+ *
+ * Should be used with the spread operator on the dialog component.
+ *
+ * Example:
+ *
+ * {...getAccessibilityRole(props, 'required-role', {
+ *    foo: 'bar'
+ * })}
+ *
+ * @param {Dialog.Props} props
+ * @param {string} requiredRole
+ * @param {object} propObject
+ */
 const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
 
@@ -194,7 +210,7 @@ Dialog.propTypes = {
   titleElement: PropTypes.oneOf([1, 2, 3, 4]),
   /* Dialog's container width */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
-  /* Called when the user clicks on the header's cross or outside the dialog */
+  /* Callback triggered when the the dialog is closed by the user */
   onClose: PropTypes.func,
   /* Whether you're presenting a form or a destructive action */
   role: PropTypes.oneOf(['form', 'destructive'])
