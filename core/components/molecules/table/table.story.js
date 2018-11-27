@@ -115,7 +115,7 @@ storiesOf('Table').add('stressed', () => (
       items={[
         {
           data:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+            'Loremipsumdolorsitametconsecteturadipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
         },
         {
           data:
@@ -145,7 +145,7 @@ storiesOf('Table').add('stressed with truncating', () => (
       items={[
         {
           data:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+            'Loremipsumdolorsitametconsecteturadipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
         },
         {
           data:
@@ -181,7 +181,7 @@ storiesOf('Table').add('with no items', () => (
           action={{
             icon: 'plus',
             label: 'Create one manually',
-            handler: function() {
+            handler: function () {
               /*...*/
             }
           }}

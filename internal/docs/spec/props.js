@@ -7,32 +7,7 @@ import parseType from './prop-type'
 import addDefaultValues, { getDefaultValue } from './default-props'
 import getConflictingProps from './prop-conflicts'
 import PropSwitcher from './prop-switcher'
-
-const Table = styled.table`
-  width: 100%;
-  margin-bottom: 80px;
-  white-space: normal;
-  th,
-  td {
-    text-align: left;
-    padding: ${spacing.small} ${spacing.small};
-    vertical-align: middle;
-    position: relative;
-    color: ${colors.base.grayDark};
-  }
-  th {
-    border-bottom: 2px solid #ddd;
-  }
-  td {
-    border-bottom: 1px solid #ddd;
-  }
-  th {
-    text-transform: uppercase;
-    font-weight: ${fonts.weight.medium};
-    letter-spacing: 1px;
-    font-size: 12px;
-  }
-`
+import Table from '../docs-components/table'
 
 const Type = styled.div`
   font-size: 13px;
