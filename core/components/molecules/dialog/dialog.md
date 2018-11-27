@@ -112,13 +112,13 @@ When you see the need to create a dialog, ask yourself if this interaction must 
 - Modal with form (missing code snippet)
 - Modal with tabs (missing code snippet)
 
-## Accecibility
+## Accessibility
 
 The component handles focus order and keyboard behavior following [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal).
 
 The dialog's title is an `<h2>` by default. Make sure to adjust the heading level according to what makes sense on your document tree.
 
-## Recources
+## Resources
 
 - [modalzmodalzmodalz](https://modalzmodalzmodalz.com/)
 - [It's a focus Trap](https://hackernoon.com/its-a-focus-trap-699a04d66fb5)
