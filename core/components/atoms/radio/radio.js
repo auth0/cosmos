@@ -13,7 +13,7 @@ const justifyContent = {
 }
 
 const Radio = props => (
-  <StyledRadio {...props} {...Automation('radio')}>
+  <Radio.Element {...props} {...Automation('radio')}>
     {React.Children.map(props.children, child => {
       return React.cloneElement(child, {
         name: props.name,
@@ -22,7 +22,7 @@ const Radio = props => (
         onChange: props.onChange
       })
     })}
-  </StyledRadio>
+  </Radio.Element>
 )
 
 Radio.Option = props => (
