@@ -35,7 +35,7 @@ class DialogContainer extends React.Component {
               OK
             </Button>,
             <Button
-              appearance="primary"
+              appearance="secondary"
               onClick={() => {
                 alert("You've performed the 'Cancel' action.")
               }}

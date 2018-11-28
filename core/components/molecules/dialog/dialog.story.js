@@ -16,10 +16,8 @@ storiesOf('Dialog').add('default', () => (
       role="destructive"
       onClose={() => {}}
       actions={[
-        <Button onClick={() => {}} appearance="primary">
-          OK
-        </Button>,
-        <Button onClick={() => {}}>Cancel</Button>
+        new Dialog.Action('OK', () => {}, 'primary'),
+        new Dialog.Action('Cancel', () => {}, 'secondary')
       ]}
     >
       Are you sure?
@@ -44,39 +42,10 @@ storiesOf('Dialog').add('with primary button only', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with secondary button only', () => (
-  <StyledExample title="with secondary button only">
-    <Dialog
-      open
-      title="Example Dialog"
-      onClose={() => {}}
-      actions={[
-        <Button onClick={() => {}} appearance="secondary">
-          OK
-        </Button>
-      ]}
-    >
-      Are you sure?
-    </Dialog>
-  </StyledExample>
-))
-
-storiesOf('Dialog').add('destructive', () => (
-  <StyledExample title="destructive">
-    <Button>test</Button>
-    <Dialog
-      open
-      title="Example Dialog"
-      onClose={() => {}}
-      role="destructive"
-      actions={[
-        <Button onClick={() => {}}>No</Button>,
-        <Button onClick={() => {}} appearance="destructive">
-          Yes, continue
-        </Button>
-      ]}
-    >
-      Are you sure?
+storiesOf('Dialog').add('without footer', () => (
+  <StyledExample title="without footer">
+    <Dialog open title="Example Dialog" onClose={() => {}}>
+      Some information
     </Dialog>
     <Button>test</Button>
   </StyledExample>
@@ -93,7 +62,9 @@ storiesOf('Dialog').add('with form', () => (
         <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => {}}>Cancel</Button>
+        <Button onClick={() => {}} appearance="secondary">
+          Cancel
+        </Button>
       ]}
       width={600}
     >
@@ -116,7 +87,9 @@ storiesOf('Dialog').add('with introduction + form', () => (
         <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => {}}>Cancel</Button>
+        <Button onClick={() => {}} appearance="secondary">
+          Cancel
+        </Button>
       ]}
       width={600}
     >
@@ -144,7 +117,9 @@ storiesOf('Dialog').add('stressed', () => (
         <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => {}}>Cancel</Button>
+        <Button onClick={() => {}} appearance="secondary">
+          Cancel
+        </Button>
       ]}
     >
       Thisisaverylongstringoftexttotestworkbreakandoverlowingofthecomponentwhenithasaverylongstringoftest

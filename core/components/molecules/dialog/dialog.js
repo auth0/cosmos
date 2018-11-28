@@ -122,7 +122,7 @@ class Dialog extends React.Component {
               {props.children}
             </DialogBody>
 
-            {props.actions && (
+            {props.actions.length > 0 && (
               <DialogFooter {...Automation('dialog.footer')}>
                 <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
               </DialogFooter>
@@ -141,7 +141,7 @@ const DialogBox = styled.div`
   flex-direction: column;
   background-color: ${colors.base.white};
   border-radius: 3px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 `
 
 const DialogClose = styled.div`
@@ -149,7 +149,6 @@ const DialogClose = styled.div`
   top: 0;
   right: 0;
   z-index: 1;
-
   /* Overwirtes the color of the icons */
   ${Button.Element} {
     &,
@@ -186,7 +185,6 @@ const DialogBody = styled.div`
   overscroll-behavior: contain;
   word-break: break-word;
   word-wrap: break-word;
-
   /* Clears the margin of the last item of the body */
   > * {
     margin-bottom: 0;
@@ -223,7 +221,8 @@ Dialog.propTypes = {
 Dialog.defaultProps = {
   width: 'medium',
   titleElement: 2,
-  role: 'default'
+  role: 'default',
+  actions: []
 }
 
 export default Dialog
