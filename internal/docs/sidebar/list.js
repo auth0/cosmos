@@ -31,12 +31,11 @@ const guides = [
   { path: '/', title: 'Getting started' },
   { path: '/usage', title: 'How to use Cosmos?' },
   { path: '/guiding-principles', title: 'Guiding Principles' },
+  { path: '/system-guidelines', title: 'System Guidelines' },
   { path: '/contribution-guide', title: 'Contributing to Cosmos' },
   { path: '/faqs', title: 'FAQs' },
   { path: '/changes', title: 'Changelog' },
-  { path: '/overview', title: 'Component overview' },
-  { path: '/automation', title: 'Automation Glossary' },
-  { path: '/playground', title: 'Cosmos playground' }
+  { path: '/automation', title: 'Automation Glossary' }
 ]
 
 const List = props => {

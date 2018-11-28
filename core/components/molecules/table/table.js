@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
+
 import Automation from '../../_helpers/automation-attribute'
 
 class Table extends React.Component {
@@ -170,7 +171,6 @@ Table.compare = {
     String(row1[column.field]).toLowerCase() - String(row2[column.field]).toLowerCase()
 }
 
-
 Table.Container = styled.div`
   position: relative;
 `
@@ -179,6 +179,7 @@ Table.Element = styled.table`
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  table-layout: fixed;
   opacity: ${p => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
 `
 
@@ -197,7 +198,16 @@ Table.Cell = styled.td`
   text-align: left;
   vertical-align: middle;
   line-height: 2;
+  overflow-wrap: break-word;
   width: ${props => props.column.width || 'auto'};
+  ${props =>
+    props.column.truncate
+      ? css`
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow-x: hidden;
+        `
+      : ``};
 `
 
 Table.EmptyState = ({ rows, children, loading }) => {

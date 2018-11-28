@@ -73,10 +73,10 @@ storiesOf('Table').add('explicit widths', () => (
 storiesOf('Table').add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" />
       <Table.Column field="died" title="Died" />
     </Table>
@@ -86,10 +86,10 @@ storiesOf('Table').add('cell renderer', () => (
 storiesOf('Table').add('sorting', () => (
   <Example title="default">
     <Table items={items}>
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" sortable />
       <Table.Column field="died" title="Died" sortable />
     </Table>
@@ -99,10 +99,10 @@ storiesOf('Table').add('sorting', () => (
 storiesOf('Table').add('initial sort props', () => (
   <Example title="default">
     <Table items={items} sortOn="died" sortDirection="desc">
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
-      <Table.Column field="name" title="Name" width="70%" />
+      <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" sortable />
       <Table.Column field="died" title="Died" sortable />
     </Table>
@@ -110,12 +110,12 @@ storiesOf('Table').add('initial sort props', () => (
 ))
 
 storiesOf('Table').add('stressed', () => (
-  <Example title="stressed - 7 columns with 119 characters per row">
+  <Example title="stressed - 4 columns with 119 characters per row">
     <Table
       items={[
         {
           data:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+            'Loremipsumdolorsitametconsecteturadipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
         },
         {
           data:
@@ -131,13 +131,40 @@ storiesOf('Table').add('stressed', () => (
         }
       ]}
     >
-      <Table.Column field="data" title="Field 1" />
-      <Table.Column field="data" title="Field 2" />
-      <Table.Column field="data" title="Field 3" />
-      <Table.Column field="data" title="Field 4" />
-      <Table.Column field="data" title="Field 5" />
-      <Table.Column field="data" title="Field 6" />
-      <Table.Column field="data" title="Field 7" />
+      <Table.Column field="data" title="Field 1" width="65px" />
+      <Table.Column field="data" title="Field 2" width="150px" />
+      <Table.Column field="data" title="Field 3" width="65px" />
+      <Table.Column field="data" title="Field 4" width="65px" />
+    </Table>
+  </Example>
+))
+
+storiesOf('Table').add('stressed with truncating', () => (
+  <Example title="stressed - 7 columns with 119 characters per row">
+    <Table
+      items={[
+        {
+          data:
+            'Loremipsumdolorsitametconsecteturadipiscing Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          data:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    >
+      <Table.Column field="data" title="Field 1" width="150px" truncate />
+      <Table.Column field="data" title="Field 2" width="10%" truncate />
+      <Table.Column field="data" title="Field 3" width="20%" truncate />
+      <Table.Column field="data" title="Field 4" width="auto" truncate />
     </Table>
   </Example>
 ))
@@ -154,7 +181,7 @@ storiesOf('Table').add('with no items', () => (
           action={{
             icon: 'plus',
             label: 'Create one manually',
-            handler: function() {
+            handler: function () {
               /*...*/
             }
           }}
@@ -163,7 +190,7 @@ storiesOf('Table').add('with no items', () => (
         </EmptyState>
       }
     >
-      <Table.Column field="image" width="50px">
+      <Table.Column field="image" width="65px">
         {item => <Avatar type="user" image={item.image} />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="30%" />
