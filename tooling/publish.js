@@ -17,8 +17,8 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   const directories = [
     'core/tokens',
     'core/babel-preset',
-    'core/components',
-    'internal/cosmos-scripts'
+    'core/components'
+    // 'internal/cosmos-scripts'
   ]
 
   /* copy root version to all dependencies */
@@ -48,7 +48,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* copy all packages for publishing */
   directories.forEach(directory => {
-    fs.copySync(directory, directory.replace('core', 'dist'))
+    fs.copySync(directory, directory.replace('core', 'dist').replace('internal', 'dist'))
   })
   info('PUBLISH', 'copied files')
 
