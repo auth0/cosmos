@@ -67,10 +67,10 @@ const arrowStyles = {
 }
 
 const Tooltip = ({ content, ...props }) => (
-  <Tooltip.Wrapper>
+  <Tooltip.Trigger>
     <Tooltip.Element {...props}>{content}</Tooltip.Element>
     {props.children}
-  </Tooltip.Wrapper>
+  </Tooltip.Trigger>
 )
 
 Tooltip.Element = styled.div`
@@ -97,7 +97,7 @@ Tooltip.Element = styled.div`
   }
 `
 
-Tooltip.Wrapper = styled.div`
+Tooltip.Trigger = styled.div`
   display: inline-block;
   position: relative;
 
@@ -109,7 +109,13 @@ Tooltip.Wrapper = styled.div`
 `
 
 const StyledTooltip = Tooltip.Element
-const TooltipWrapper = Tooltip.Wrapper
+
+/**
+ * We renamed `Wrapper` to `Trigger` when migrating
+ * to the dotElement API.
+ * See: https://github.com/auth0/cosmos/pull/1080#discussion_r237026967
+ */
+const TooltipWrapper = Tooltip.Trigger
 
 Tooltip.propTypes = {
   /** Content to show in the tooltip */
