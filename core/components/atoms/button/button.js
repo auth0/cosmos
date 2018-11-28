@@ -270,7 +270,8 @@ Button.Text = styled.span`
   vertical-align: middle;
   line-height: normal;
   /* Sub-pixel position adjustment */
-  /* See: pulls 947 and 1045 */
+  /* See: https://github.com/auth0/cosmos/pull/947 */
+  /* See: https://github.com/auth0/cosmos/pull/1045 */
   margin-top: 1px;
 `
 

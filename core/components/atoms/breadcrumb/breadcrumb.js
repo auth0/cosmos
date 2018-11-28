@@ -20,7 +20,7 @@ const LinkIcon = styled(Icon)`
 const Wrapper = styled.div`
   ${containerStyles};
 
-  ${/* overrides for link */ ''};
+  /* overrides for link */
   ${StyledLink} {
     color: ${colors.base.grayDarkest};
     font-size: 13px;
