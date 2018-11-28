@@ -5,6 +5,7 @@ import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 import { deprecate } from '../../_helpers/custom-validations'
+import containerStyles from '../../_helpers/container-styles'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
@@ -18,6 +19,7 @@ const avatarSizes = {
 const textSpacing = '12px'
 
 const StyledAvatarBlock = styled.span`
+  ${containerStyles};
   display: flex;
   align-items: center;
   justify-content: start;
