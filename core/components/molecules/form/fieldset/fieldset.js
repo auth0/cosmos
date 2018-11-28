@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { spacing } from '@auth0/cosmos-tokens'
 import Divider from './divider'
 import Automation from '../../../_helpers/automation-attribute'
+import containerStyles from '../../../_helpers/container-styles'
 
 const FieldSet = props => (
   <FieldSet.Element {...Automation('form.fieldset')}>
@@ -14,6 +15,7 @@ const FieldSet = props => (
 )
 
 FieldSet.Element = styled.fieldset`
+  ${containerStyles};
   border: none;
   padding: 0;
   margin-bottom: ${spacing.xlarge};

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const CheckMark = styled.span``
 const Label = styled.span``
@@ -29,6 +30,8 @@ const Checkbox = props => (
 )
 
 Checkbox.Option = styled.label`
+  ${containerStyles};
+
   position: relative;
   cursor: pointer;
   margin-bottom: 0;

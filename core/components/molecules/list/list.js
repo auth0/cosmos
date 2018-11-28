@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
@@ -22,6 +23,8 @@ const List = props => {
 }
 
 List.Element = styled.ul`
+  ${containerStyles};
+
   margin: ${spacing.large} 0;
 `
 

@@ -12,6 +12,7 @@ import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { descriptionIsObject } from '../../_helpers/page-header'
+import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
   return (
@@ -46,6 +47,8 @@ const PageHeader = props => {
 }
 
 PageHeader.Element = styled.div`
+  ${containerStyles};
+
   margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {

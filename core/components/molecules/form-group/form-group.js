@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import Well from '../../atoms/_well'
 import { spacing } from '@auth0/cosmos-tokens'
@@ -17,6 +18,7 @@ const FormGroup = props => {
 FormGroup.Element = styled.div``
 
 FormGroup.FormWrapper = styled(Well)`
+  ${containerStyles};
   margin-bottom: ${spacing.medium};
   padding-bottom: ${spacing.xlarge};
 `

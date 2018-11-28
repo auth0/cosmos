@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
+import containerStyles from '../../_helpers/container-styles'
 
 import Icon from '../icon'
 import Link from '../link'
@@ -19,8 +20,9 @@ const LinkIcon = styled(Icon)`
 const Breadcrumb = props => <Breadcrumb.Element {...props} {...Automation('breadcrumb')} />
 
 Breadcrumb.Element = styled.div`
-  /* overrides for link */
+  ${containerStyles};
 
+  /* overrides for link */
   ${Link.Element} {
     color: ${colors.base.grayDarkest};
     font-size: 13px;

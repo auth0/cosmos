@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 export const TabLink = styled.a`
   display: inline-block;
@@ -125,7 +126,9 @@ class Tabs extends React.Component {
   }
 }
 
-Tabs.Element = styled.div``
+Tabs.Element = styled.div`
+  ${containerStyles};
+`
 
 Tabs.Tab = TabContent
 

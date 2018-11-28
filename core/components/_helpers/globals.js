@@ -87,17 +87,6 @@ if (includeGlobals) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  /*
-    The only difference between the resets styleguide and cosmos is line-height
-    We want cosmos components to have our line-height, but not break everything else,
-    hence as a hack, we're setting it on styled-components elements.
-
-    Note: This will break on applications that already use styled-components
-  */
-  [class^="sc-"] {
-    line-height: ${misc.lineHeight};
-  }
 `)
 } else {
   /* We still insert some styles to add missing fonts and keep other things sane 😅 */
@@ -119,11 +108,6 @@ if (includeGlobals) {
       font-size: ${fonts.size.default};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Cosmos globals */
-    [class^="sc-"] {
-      line-height: 1.6;
     }
   `)
 }
