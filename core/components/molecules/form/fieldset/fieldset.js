@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '@auth0/cosmos-tokens'
-import StyledDivider from './divider'
+import Divider from './divider'
 import Automation from '../../../_helpers/automation-attribute'
 
 const FieldSet = props => (
   <FieldSet.Element {...Automation('form.fieldset')}>
-    <StyledDivider>{props.label}</StyledDivider>
+    <Divider>{props.label}</Divider>
     {props.children}
   </FieldSet.Element>
 )

@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
 
-const StyledDivider = styled.div`
+const Divider = props => <Divider.Element {...props} />
+
+Divider.Element = styled.div`
   font-size: 14px;
   letter-spacing: 0.5px;
   font-weight: ${fonts.weight.medium};
@@ -14,4 +16,4 @@ const StyledDivider = styled.div`
   color: ${colors.text.default};
 `
 
-export default StyledDivider
+export default Divider
