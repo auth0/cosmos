@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../../atoms/button'
-import Heading from '../../atoms/heading'
+import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
 import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
@@ -108,7 +108,7 @@ class Dialog extends React.Component {
 
             {props.title && (
               <DialogHeader {...Automation('dialog.title')}>
-                <DialogTitle size={props.titleElement} id="dialog-title">
+                <DialogTitle element={props.titleElement} id="dialog-title">
                   {props.title}
                 </DialogTitle>
               </DialogHeader>
@@ -171,11 +171,15 @@ const DialogHeader = styled.header`
   text-align: center;
 `
 
-const DialogTitle = styled(Heading)`
-  font-weight: ${fonts.weight.medium};
-  font-size: ${fonts.size.default};
-  margin: 0;
-`
+const DialogTitle = props => {
+  const InternalTitle = styled(BaseHeading.withComponent(props.element))`
+    font-weight: ${fonts.weight.medium};
+    font-size: ${fonts.size.default};
+    margin: 0;
+  `
+
+  return <InternalTitle {...props} />
+}
 
 const DialogBody = styled.div`
   padding: ${spacing.small} ${spacing.medium} ${spacing.large} ${spacing.medium};
@@ -209,7 +213,7 @@ Dialog.propTypes = {
   /** Dialog's header title */
   title: PropTypes.string,
   /** Dialog's header title heading element */
-  titleElement: PropTypes.oneOf([1, 2, 3, 4]),
+  titleElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']),
   /** Dialog's container width */
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
   /* Callback triggered when the the dialog is closed by the user */
@@ -220,9 +224,9 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   width: 'medium',
-  titleElement: 2,
   role: 'default',
-  actions: []
+  actions: [],
+  titleElement: 'h2'
 }
 
 export default Dialog

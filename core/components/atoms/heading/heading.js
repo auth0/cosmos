@@ -47,4 +47,4 @@ Heading.defaultProps = {
 }
 
 export default Heading
-export { StyledHeading }
+export { StyledHeading, BaseHeading }
