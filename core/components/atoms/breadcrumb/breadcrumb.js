@@ -5,8 +5,8 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
 
-import Icon, { StyledIcon } from '../icon'
-import Link, { StyledLink } from '../link'
+import Icon from '../icon'
+import Link from '../link'
 
 const Separator = styled(Icon)`
   margin: 0 ${spacing.small};
@@ -16,12 +16,12 @@ const LinkIcon = styled(Icon)`
   margin-right: ${spacing.xsmall};
 `
 
-const Breadcrumb = props => <Breadcrumb.Wrapper {...props} {...Automation('breadcrumb')} />
+const Breadcrumb = props => <Breadcrumb.Element {...props} {...Automation('breadcrumb')} />
 
-Breadcrumb.Wrapper = styled.div`
-  ${/* overrides for link */ ''};
+Breadcrumb.Element = styled.div`
+  /* overrides for link */
 
-  ${StyledLink} {
+  ${Link.Element} {
     color: ${colors.base.grayDarkest};
     font-size: 13px;
     font-weight: ${fonts.weight.medium};
@@ -34,14 +34,14 @@ Breadcrumb.Wrapper = styled.div`
     }
   }
 
-  ${/* last link should be inactive: */ ''};
-  ${StyledLink}:last-child {
+  /* last link should be inactive: */
+  ${Link.Element}:last-child {
     color: ${colors.base.default};
     cursor: default;
   }
 
-  ${/* sometimes there's just one link = first = last, let's override that */ ''};
-  ${StyledLink}:first-child {
+  /* sometimes there's just one link = first = last, let's override that */
+  ${Link.Element}:first-child {
     color: ${colors.base.grayDarkest};
     cursor: pointer;
     &:hover {
@@ -49,13 +49,13 @@ Breadcrumb.Wrapper = styled.div`
     }
   }
 
-  ${/* fix alignment with text for all icons (including separator) */ ''};
+  /* fix alignment with text for all icons (including separator) */
   ${LinkIcon}, ${Separator} {
     position: relative;
     top: -2px;
   }
 
-  ${StyledLink}:last-child ${Separator} {
+  ${Link.Element}:last-child ${Separator} {
     display: none;
   }
   ${LinkIcon} {
@@ -65,7 +65,7 @@ Breadcrumb.Wrapper = styled.div`
     top: -1px;
   }
 
-  ${StyledLink}:last-child ${Separator} {
+  ${Link.Element}:last-child ${Separator} {
     display: none;
   }
 `
