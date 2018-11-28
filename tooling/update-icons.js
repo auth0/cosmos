@@ -62,26 +62,45 @@ const buildAliasLookup = icons => {
   return lookup
 }
 
-const run = () => {
-  info('DOCS', 'Generating icons')
-
-  // We will use svgo to remove unnecessary data from the SVG file.
-  const svgo = new SVGO({
+const buildSvgoProcessor = ({ precision = 3 } = {}) =>
+  new SVGO({
     plugins: [
       { removeAttrs: { attrs: '(stroke-width|stroke-linecap|stroke-linejoin)' } },
       { removeDimensions: true },
       { removeStyleElement: true }
     ],
-    floatPrecision: 4,
+    floatPrecision: precision,
     multipass: true
   })
+
+const run = () => {
+  info('DOCS', 'Generating icons')
+
+  // We will use svgo to remove unnecessary data from the SVG file.
+  const svgo = buildSvgoProcessor()
+  const customPrecisionsData = fs.readFileSync('core/icons/compression-precisions.json')
+  const customPrecisions = JSON.parse(customPrecisionsData)
 
   const processFile = path => {
     const name = basename(path)
       .replace(/^icon-/, '')
       .replace(/\.svg$/, '')
+
+    // Default SVGO processor
+    let processor = svgo
+
+    /**
+     * If the icon is known to require more float precision
+     * when compressing it. Setup a custom processor with more precision for it.
+     *
+     * See: https://github.com/auth0/cosmos/issues/1077
+     */
+    if (customPrecisions[name]) {
+      processor = buildSvgoProcessor({ precision: customPrecisions[name] })
+    }
+
     const svg = fs.readFileSync(path, 'utf8')
-    return svgo.optimize(svg, { path }).then(result => {
+    return processor.optimize(svg, { path }).then(result => {
       const icon = transform(name, result.data)
       return [name, icon]
     })
