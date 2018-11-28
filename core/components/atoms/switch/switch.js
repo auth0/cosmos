@@ -68,8 +68,8 @@ const Label = styled.label`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  margin-left: ${props => props.labelDirection == "left" ? '0' : spacing.small};
-  margin-right: ${props => props.labelDirection == "left" ? spacing.small : '0'};
+  margin-left: ${props => props.labelPosition == "left" ? '0' : spacing.small};
+  margin-right: ${props => props.labelPosition == "left" ? spacing.small : '0'};
 `
 
 class Switch extends React.Component {
@@ -90,13 +90,13 @@ class Switch extends React.Component {
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
     let elements = [<Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />]
-    const label = <Label labelDirection={this.props.labelDirection}>{this.state.on ? onLabel : offLabel}</Label>
+    const label = <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
-    if (this.props.labelDirection == 'left') {
+    if (this.props.labelPosition == 'left') {
       elements.push(label)
       elements.push(toggle)
-    } else if (this.props.labelDirection == 'right') {
+    } else if (this.props.labelPosition == 'right') {
       elements.push(toggle)
       elements.push(label)
     }
@@ -122,7 +122,7 @@ Switch.propTypes = {
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
-  labelDirection: PropTypes.oneOf(['right', 'left'])
+  labelPosition: PropTypes.oneOf(['right', 'left'])
 }
 
 Switch.defaultProps = {
@@ -130,7 +130,7 @@ Switch.defaultProps = {
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
   readOnly: false,
-  labelDirection: 'right'
+  labelPosition: 'right'
 }
 
 export default Switch
