@@ -39,6 +39,12 @@ class Table extends React.Component {
     this.setState({ sortingColumn, sortDirection })
   }
 
+  handleKeyPress = (e, item) => {
+    if (e.key === 'Enter') {
+      this.handleRowClicked(item)
+    }
+  }
+
   inferColumnsFromChildren(children) {
     return React.Children.toArray(children).map(element => element.props)
   }
@@ -127,7 +133,9 @@ class Table extends React.Component {
     const rows = sortedItems.map((item, index) => (
       <Table.Row
         key={`row-${index}`}
+        tabIndex={0}
         onClick={this.handleRowClicked(item)}
+        onKeyPress={e => this.handleKeyPress(e, item)}
         {...Automation('table.row')}
       >
         {columns.map(column => {
