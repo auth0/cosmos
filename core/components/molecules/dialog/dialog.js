@@ -48,6 +48,9 @@ const focusOnFormInput = ({ current }) => {
 }
 
 /**
+ * Used when you want to apply an attribute to the dialog
+ * based on the role it has been applied.
+ *
  * If the role of the dialog matches the required one,
  * it returns the prop object.
  *
