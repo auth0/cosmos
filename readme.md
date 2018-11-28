@@ -1,6 +1,4 @@
-
 <img src="https://cdn.auth0.com/website/cosmos/github/readme-header.png">
-
 
 &nbsp;
 
@@ -28,10 +26,9 @@ See the documentation at https://auth0-cosmos.now.sh/docs
 - [Getting started](https://auth0-cosmos.now.sh/docs/)
 - [How to use Cosmos](https://auth0-cosmos.now.sh/docs/#/usage)
 - [Components Overview](https://auth0-cosmos.now.sh/docs/#/overview)
-- [Playground](https://auth0-cosmos.now.sh/docs/#/playground) 
+- [Playground](https://auth0-cosmos.now.sh/docs/#/playground)
 - [Sandbox](https://auth0-cosmos.now.sh/sandbox) - Storybook
 - [Contribution Guide](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
-
 
 &nbsp;
 &nbsp;
@@ -66,23 +63,24 @@ import { Button } from '@auth0/cosmos'
 2. Use them along your React components:
 
 ```js
-  const Actions = () => (
-    <div>
-      	<h1>Hello Word!</h1>
-	<Button size="default" appearance="cta" onClick>Cosmos Documentation</Button>
-    </div>
-  )
+const Actions = () => (
+  <div>
+    <h1>Hello Word!</h1>
+    <Button size="default" appearance="cta" onClick>
+      Cosmos Documentation
+    </Button>
+  </div>
+)
 ```
-            
-To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options. 
 
+To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options.
 
 &nbsp;
 &nbsp;
 
 ## Contribute
 
-There's a lot to write here, we maintain it in our docs: [Contribution guidelines](https://auth0-cosmos.now.sh/docs/#/contribution-guide) 
+There's a lot to write here, we maintain it in our docs: [Contribution guidelines](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
 
 &nbsp;
 &nbsp;

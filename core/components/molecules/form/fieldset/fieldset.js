@@ -5,8 +5,10 @@ import styled from 'styled-components'
 import { spacing } from '@auth0/cosmos-tokens'
 import StyledDivider from './divider'
 import Automation from '../../../_helpers/automation-attribute'
+import containerStyles from '../../../_helpers/container-styles'
 
 const StyledFieldSet = styled.fieldset`
+  ${containerStyles};
   border: none;
   padding: 0;
   margin-bottom: ${spacing.xlarge};

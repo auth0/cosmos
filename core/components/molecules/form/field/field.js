@@ -15,8 +15,10 @@ import { StyledTextArea } from '../../../atoms/textarea'
 import { StyledSwitch } from '../../../atoms/switch'
 import { StyledRadio } from '../../../atoms/radio'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
+import containerStyles from '../../../_helpers/container-styles'
 
 const StyledField = styled.div`
+  ${containerStyles};
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
   width: ${props => getLayoutValues(props.layout).formWidth};
   margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
+import containerStyles from '../../_helpers/container-styles'
 
 const config = {
   basic: {
@@ -32,6 +33,7 @@ const getAttributes = props => {
 }
 
 const StyledInput = styled.input`
+  ${containerStyles};
   width: 100%;
   box-sizing: border-box;
 
