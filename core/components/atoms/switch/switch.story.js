@@ -12,7 +12,7 @@ storiesOf('Switch').add('default', () => (
 
 storiesOf('Switch').add('left label', () => (
   <Example title="Switch">
-    <Switch onToggle={value => console.log(value)} labelLeft />
+    <Switch onToggle={value => console.log(value)} labelDirection="left" />
   </Example>
 ))
 

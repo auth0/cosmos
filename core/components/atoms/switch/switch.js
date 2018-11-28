@@ -53,19 +53,16 @@ const Toggle = styled.span`
         `};
 `
 const StyledSwitch = styled.span`
-  display: flex;
-  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
   height: ${height};
   position: relative;
-  justify-content: ${props => props.labelDirection == "left" ? 'flex-end' : 'flex-start'};
   input:focus ~ ${Toggle} {
     box-shadow: 0 0 0 2px ${colors.base.blue};
   }
 `
 
 const Label = styled.label`
-  vertical-align: top;
-  line-height: ${height};
   font-size: ${fonts.size.small};
   font-weight: ${fonts.weight.normal};
   letter-spacing: 1px;
