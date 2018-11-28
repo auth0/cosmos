@@ -9,7 +9,9 @@ import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+
 import FocusTrap from 'react-focus-lock'
+import containerStyles from '../../_helpers/container-styles'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -135,6 +137,7 @@ class Dialog extends React.Component {
 }
 
 const DialogBox = styled.div`
+  ${containerStyles};
   position: relative;
   max-height: calc(100vh - (${spacing.xlarge} * 2));
   display: flex;
