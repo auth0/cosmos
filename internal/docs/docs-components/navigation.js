@@ -11,7 +11,7 @@ import VersionSwitcher from './version-switcher'
 
 const NavigationContainer = styled.nav`
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   top: 0;
   left: 0;
