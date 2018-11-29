@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import containerStyles from '../../../core/components/_helpers/container-styles'
+import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 
 import { colors } from '@auth0/cosmos/tokens'
 import SearchBox from './search.js'
