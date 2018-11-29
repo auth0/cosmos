@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '@auth0/cosmos'
@@ -11,6 +12,7 @@ import CopyButton from './copy-button'
 import { getDefaultsFromCode, stripDefaultsFromDocs } from './get-defaults-from-code'
 
 const Container = styled.div`
+  ${containerStyles};
   margin: ${spacing.medium} 0;
 
   & .react-live {
