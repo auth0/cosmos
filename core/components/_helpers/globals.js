@@ -80,12 +80,16 @@ if (includeGlobals) {
     font-weight: ${fonts.weight.bold};
   }
 
-  body, input, textarea, button, select {
+  html, input, textarea, button, select {
     font-family: ${fonts.family.text};
     font-weight: ${fonts.weight.normal};
     font-size: ${fonts.size.default};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    line-height: 1.6;
   }
 `)
 } else {
