@@ -9,6 +9,7 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
+import { deprecate } from '../../../_helpers/custom-validations'
 
 const StyledListItem = styled.li`
   display: flex;
@@ -62,11 +63,6 @@ const ListItemSubtitle = styled(StyledTextAllCaps)`
  */
 const resolveAction = (item, action, key) => {
   if (typeof action === 'object' && !React.isValidElement(action)) {
-    console.warn(
-      'Passing resource list item actions as object is' +
-        'deprecated and will be removed in Cosmos 1.0.0.' +
-        ' Please use raw buttons instead.'
-    )
     return buttonBuilder(actionToButtonProps({ ...action, key }, item))
   }
 
@@ -145,7 +141,21 @@ ResourceListItem.propTypes = {
   actions: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.arrayOf(actionShapeWithRequiredIcon)
-  ])
+  ]),
+  _actions: props => {
+    if (!props.actions) return
+
+    /* validation first action should be enough */
+    const firstAction = props.actions[0]
+
+    if (!React.isValidElement(firstAction)) {
+      return deprecate(props, {
+        name: 'actions',
+        oldAPI: 'passing objects in actions',
+        replacement: '<Button>'
+      })
+    }
+  }
 }
 
 export default ResourceListItem
