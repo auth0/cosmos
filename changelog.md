@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.9.0 [November 29, 2018]
+
+### Added
+
+- Table: Add support for truncating table cell text [#1011]
+- Icons: Add social icons [#1146]
+
+### Fixed
+
+- Dialog: Making dialog responsive and accessible [#1102]
+- Examples: Fix warnings in Manage POC by @jvelezpo [#1135]
+- Remove out of sync prop-types to typescript declarations module [#1136]
+
 ## 0.8.1 [November 22, 2018]
 
 ### Fixed
