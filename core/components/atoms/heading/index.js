@@ -1,4 +1,4 @@
-import Heading, { StyledHeading } from './heading'
+import Heading, { StyledHeading, BaseHeading } from './heading'
 
 export default Heading
-export { StyledHeading }
+export { StyledHeading, BaseHeading }
