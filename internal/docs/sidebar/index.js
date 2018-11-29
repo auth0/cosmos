@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 
 import { colors } from '@auth0/cosmos/tokens'
 import SearchBox from './search.js'
@@ -10,7 +9,6 @@ import List from './list'
 import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 
 const StyledSidebar = styled.div`
-  ${containerStyles};
   background: ${colors.base.grayLightest};
   padding-bottom: calc(2rem + 80px);
 `

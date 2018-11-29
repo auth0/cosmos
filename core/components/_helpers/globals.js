@@ -51,9 +51,6 @@ if (includeGlobals) {
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
   ol, ul {
     list-style: none;
   }
@@ -86,11 +83,10 @@ if (includeGlobals) {
     font-size: ${fonts.size.default};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    line-height: ${misc.lineHeight};
   }
 
-  html {
-    line-height: 1.6;
-  }
+  
 `)
 } else {
   /* We still insert some styles to add missing fonts and keep other things sane 😅 */
