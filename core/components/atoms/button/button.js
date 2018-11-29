@@ -319,7 +319,10 @@ Button.propTypes = {
   loading: PropTypes.bool,
 
   /** Successful state when action is completed successfuly */
-  success: PropTypes.bool
+  success: PropTypes.bool,
+
+  /** Type of button */
+  type: PropTypes.oneOf(['button', 'submit', 'reset'])
 }
 
 Button.defaultProps = {
@@ -329,7 +332,8 @@ Button.defaultProps = {
   iconAlign: 'left',
   disabled: false,
   loading: false,
-  success: false
+  success: false,
+  type: 'submit'
 }
 
 export default Button

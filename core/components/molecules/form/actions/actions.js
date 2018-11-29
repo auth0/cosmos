@@ -48,7 +48,12 @@ const Actions = props => {
 
             {secondaryActions &&
               secondaryActions.map((action, index) => (
-                <Button {...getButtonProps(action)} appearance="secondary" key={index}>
+                <Button
+                  {...getButtonProps(action)}
+                  type="button"
+                  appearance="secondary"
+                  key={index}
+                >
                   {action.label}
                 </Button>
               ))}
