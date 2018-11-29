@@ -51,6 +51,7 @@ if (includeGlobals) {
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
+  
   ol, ul {
     list-style: none;
   }
@@ -77,16 +78,17 @@ if (includeGlobals) {
     font-weight: ${fonts.weight.bold};
   }
 
-  html, input, textarea, button, select {
+  body, input, textarea, button, select {
     font-family: ${fonts.family.text};
     font-weight: ${fonts.weight.normal};
     font-size: ${fonts.size.default};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: ${misc.lineHeight};
   }
 
-  
+  html {
+    line-height: ${misc.lineHeight};
+  }
 `)
 } else {
   /* We still insert some styles to add missing fonts and keep other things sane 😅 */
