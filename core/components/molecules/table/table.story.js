@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Avatar, Table, EmptyState } from '@auth0/cosmos'
+import { Avatar, AvatarBlock, Table, EmptyState, Button } from '@auth0/cosmos'
 
 const items = [
   {
@@ -181,7 +181,7 @@ storiesOf('Table').add('with no items', () => (
           action={{
             icon: 'plus',
             label: 'Create one manually',
-            handler: function () {
+            handler: function() {
               /*...*/
             }
           }}
@@ -261,6 +261,53 @@ storiesOf('Table').add('loading state without data', () => (
       <Table.Column field="data" title="Field 3" />
       <Table.Column field="data" title="Field 4" />
       <Table.Column field="data" title="Field 7" />
+    </Table>
+  </Example>
+))
+
+storiesOf('Table').add('with buttons', () => (
+  <Example title="with buttons">
+    <Table
+      items={[
+        {
+          name: 'Harry Kane',
+          goals: 6,
+          assists: 0,
+          country: '🇬🇧',
+          image: 'https://twitter-avatar.now.sh/HKane'
+        },
+        {
+          name: 'Romelu Lukaku',
+          goals: 4,
+          assists: 1,
+          country: '🇧🇪',
+          image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
+        },
+        {
+          name: 'Antoine Griezmann',
+          goals: 4,
+          assists: 2,
+          country: '🇫🇷',
+          image: 'https://twitter-avatar.now.sh/AntoGriezmann'
+        },
+        {
+          name: 'Ivan Perišić',
+          goals: 3,
+          assists: 1,
+          country: '🇭🇷',
+          image: 'https://twitter-avatar.now.sh/ivanperisic44'
+        }
+      ]}
+      onRowClick={(evt, item) => alert(`${item.name} was clicked!`)}
+    >
+      <Table.Column field="name" title="Name" width="30%">
+        {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
+      </Table.Column>
+      <Table.Column field="country" title="Country" />
+      <Table.Column field="goals" title="Goals" />
+      <Table.Column field="assists" title="Assists" width="5%">
+        {item => <Button appearance="default" icon="emails" href="https://auth0.com" />}
+      </Table.Column>
     </Table>
   </Example>
 ))
