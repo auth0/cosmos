@@ -332,8 +332,7 @@ Button.defaultProps = {
   iconAlign: 'left',
   disabled: false,
   loading: false,
-  success: false,
-  type: 'submit'
+  success: false
 }
 
 export default Button
