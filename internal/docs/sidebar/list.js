@@ -40,7 +40,9 @@ const guides = [
 
 const List = props => {
   /* Filter out internal components */
-  let components = props.components.filter(c => !c.internal)
+  let components = props.components
+
+  // .filter(c => !c.internal)
   components = attachChildren(components)
   const groups = getGroups(components)
 
@@ -68,6 +70,25 @@ const List = props => {
 
       <Group label="Compound components">
         {groups.molecules.map((component, index) => {
+          let children = <Link key={index} component={component} />
+
+          if (component.children) {
+            children = (
+              <div key={index}>
+                <Link key={index} component={component} />
+                {component.children.map((child, index) => {
+                  return <Link child key={index} component={child} parent={component} />
+                })}
+              </div>
+            )
+          }
+
+          return children
+        })}
+      </Group>
+
+      <Group label="Hidden" className="hidden">
+        {groups.internal.map((component, index) => {
           let children = <Link key={index} component={component} />
 
           if (component.children) {
