@@ -28,8 +28,9 @@ const task = async ({ label, command, params, watch, failOnError }) => {
   } catch (error) {
     console.log(error)
     spinner.fail()
-    if (failOnError) console.error(error)
-    else console.log(error.stderr || error.stdout)
+
+    console.log(error.stderr || error.stdout)
+    if (failOnError) process.exit(1)
   }
 
   /* newline after everything */
