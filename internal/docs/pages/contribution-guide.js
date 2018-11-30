@@ -11,8 +11,8 @@ import {
   Link,
   List,
   ListItem
-} from './docs-components/typography'
-import CodeBlock from './docs-components/code-block'
+} from '../docs-components/typography'
+import CodeBlock from '../docs-components/code-block'
 import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
