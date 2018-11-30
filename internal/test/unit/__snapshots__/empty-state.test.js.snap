@@ -51,7 +51,6 @@ exports[`Empty State renders properly 1`] = `
     onClick={[Function]}
     size="large"
     success={false}
-    type="submit"
   >
     Something
   </Button>
@@ -98,7 +97,6 @@ exports[`Empty State renders properly without help link 1`] = `
     onClick={[Function]}
     size="large"
     success={false}
-    type="submit"
   >
     Something
   </Button>
@@ -156,7 +154,6 @@ exports[`Empty State renders properly without text 1`] = `
     onClick={[Function]}
     size="large"
     success={false}
-    type="submit"
   >
     Something
   </Button>

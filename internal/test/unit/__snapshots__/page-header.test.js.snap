@@ -29,7 +29,6 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       }
       size="large"
       success={false}
-      type="submit"
     >
       Secondary
     </Button>
@@ -54,7 +53,6 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       }
       size="large"
       success={false}
-      type="submit"
     >
       Primary
     </Button>
@@ -132,7 +130,6 @@ exports[`Page Header renders primary action only 1`] = `
       }
       size="large"
       success={false}
-      type="submit"
     >
       Button Content
     </Button>
@@ -192,7 +189,6 @@ exports[`Page Header renders secondary action only 1`] = `
       }
       size="large"
       success={false}
-      type="submit"
     >
       Button Content
     </Button>
