@@ -12,15 +12,24 @@ import {
   Link,
   List,
   ListItem
-} from './docs-components/typography'
+} from '../docs-components/typography'
 import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
 
-const content = changelog.replace(
-  /\[#(\d+)\]/g,
-  '<a href="https://github.com/auth0/cosmos/pull/$1" target="_blank">[#$1]</a>'
-)
+function convertPRToLink(match, p1) {
+  return `<a href="https://github.com/auth0/cosmos/pull/${p1}" target="_blank">${match}</a>`
+}
+
+function convertHandleToLink(match) {
+  const githubUsername = match.substr(1)
+  return `<a href="https://github.com/${githubUsername}" target="_blank">${match}</a>\xa0`
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter
+let content = changelog.replace(/\[#(\d+)\]/g, convertPRToLink)
+
+content = content.replace(/(\B\@\w+\s)/g, convertHandleToLink)
 
 const options = {
   overrides: {

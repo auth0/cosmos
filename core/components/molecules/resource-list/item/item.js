@@ -11,48 +11,6 @@ import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 import { deprecate } from '../../../_helpers/custom-validations'
 
-const StyledListItem = styled.li`
-  display: flex;
-  flex-flow: row nowrap;
-  border-top: 1px solid ${colors.list.borderColor};
-  padding: ${spacing.small} ${spacing.xsmall};
-  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
-  &:hover {
-    background: ${colors.list.backgroundHover};
-  }
-`
-
-const ListItemHeader = styled.div`
-  flex-basis: 40%;
-  flex-flow: row nowrap;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  ${StyledAvatar} {
-    margin-right: ${spacing.small};
-  }
-`
-
-const ListItemBody = styled.div`
-  flex-basis: 40%;
-  flex-flow: row nowrap;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-`
-
-const ListItemFooter = styled.div`
-  flex-basis: 20%;
-  flex-flow: row nowrap;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`
-
-const ListItemSubtitle = styled(StyledTextAllCaps)`
-  margin-top: ${spacing.xsmall};
-  display: block;
-`
 
 /**
  * Builds the button from the action or
@@ -76,7 +34,7 @@ const resolveAction = (item, action, key) => {
  */
 const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, item))
 
-const ResourceListItem = props => {
+const ListItem = props => {
   let image
   let title
   let subtitle
@@ -84,7 +42,7 @@ const ResourceListItem = props => {
 
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
-    // want to leak every prop from Avatar into the ResourceListItem...
+    // want to leak every prop from Avatar into the ListItem...
     image = <Avatar type="resource" image={props.image} size="large" />
   } else if (props.icon) {
     image = <Avatar type="resource" icon={props.icon} size="large" />
@@ -99,7 +57,7 @@ const ResourceListItem = props => {
   }
 
   if (props.subtitle) {
-    subtitle = <ListItemSubtitle>{props.subtitle}</ListItemSubtitle>
+    subtitle = <ListItem.Subtitle>{props.subtitle}</ListItem.Subtitle>
   }
 
   if (props.actions) {
@@ -107,24 +65,68 @@ const ResourceListItem = props => {
   }
 
   return (
-    <StyledListItem
-      onClick={props.onClick ? props.onClick : null}
+
+    <ListItem.Element
+      onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
     >
-      <ListItemHeader>
+      <ListItem.Header>
         {image}
         <div>
           {title}
           {subtitle}
         </div>
-      </ListItemHeader>
-      <ListItemBody>{props.children}</ListItemBody>
-      <ListItemFooter>{actions}</ListItemFooter>
-    </StyledListItem>
+      </ListItem.Header>
+      <ListItem.Body>{props.children}</ListItem.Body>
+      <ListItem.Footer>{actions}</ListItem.Footer>
+    </ListItem.Element>
   )
 }
 
-ResourceListItem.propTypes = {
+ListItem.Element = styled.li`
+  display: flex;
+  flex-flow: row nowrap;
+  border-top: 1px solid ${colors.list.borderColor};
+  padding: ${spacing.small} ${spacing.xsmall};
+  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  &:hover {
+    background: ${colors.list.backgroundHover};
+  }
+`
+
+ListItem.Header = styled.div`
+  flex-basis: 40%;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  ${StyledAvatar} {
+    margin-right: ${spacing.small};
+  }
+`
+
+ListItem.Body = styled.div`
+  flex-basis: 40%;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+`
+
+ListItem.Footer = styled.div`
+  flex-basis: 20%;
+  flex-flow: row nowrap;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`
+
+ListItem.Subtitle = styled(StyledTextAllCaps)`
+  margin-top: ${spacing.xsmall};
+  display: block;
+`
+
+ListItem.propTypes = {
   /** The main text for the list item. */
   title: PropTypes.string,
   /** The secondary line of text for the list item. */
@@ -158,4 +160,4 @@ ResourceListItem.propTypes = {
   }
 }
 
-export default ResourceListItem
+export default ListItem

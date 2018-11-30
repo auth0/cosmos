@@ -10,7 +10,9 @@ class Settings extends React.Component {
       name: 'API Explorer Application',
       domain: 'storezero.auth0.com',
       applicationID: props.applicationId,
-      secret: 'asoidvsubdwfqeagwbviuyeaobvi'
+      secret: 'asoidvsubdwfqeagwbviuyeaobvi',
+      applicationType: '',
+      tokenEndpointAuthentication: ''
     }
   }
   save() {}
@@ -64,6 +66,8 @@ class Settings extends React.Component {
             helpText="The URL of the logo to display for the application, if none is set the default badge for this type of application will be shown. Recommended size is 150x150 pixels."
           />
           <Form.Select
+            onChange={ev => this.setState({ applicationType: ev.target.value })}
+            value={this.state.applicationType}
             label="Application Type"
             options={[
               { text: 'Native', value: 'native', defaultSelected: true },
@@ -75,6 +79,8 @@ class Settings extends React.Component {
           />
 
           <Form.Select
+            onChange={ev => this.setState({ tokenEndpointAuthentication: ev.target.value })}
+            value={this.state.tokenEndpointAuthentication}
             label="Token Endpoint Authentication handler"
             options={[
               { text: 'None', value: 'none' },
@@ -136,9 +142,9 @@ class Settings extends React.Component {
                 Auth0 API (typically used with CORS). By default, all your callback URLs will be
                 allowed. This field allows you to enter other origins if you need to. You can
                 specify multiple valid URLs by comma-separating them or one by line, and also use
-                wildcards at the subdomain level (e.g.: <Code>https://*.contoso.com</Code>). Notice
-                that querystrings and hash information are not taking into account when validating
-                these URLs.
+                wildcards at the subdomain level (e.g.: <Code>https://*.contoso.com</Code>
+                ). Notice that querystrings and hash information are not taking into account when
+                validating these URLs.
               </span>
             }
           />

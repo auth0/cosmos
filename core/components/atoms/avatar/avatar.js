@@ -20,7 +20,31 @@ const iconSizes = {
   xxlarge: 52
 }
 
-const StyledAvatar = styled.span`
+const getImageForAvatar = props => {
+  if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
+  if (props.email && props.initials)
+    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+  if (typeof props.image === 'string') {
+    return <Image source={props.image} />
+  }
+
+  if (!props.image)
+    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
+
+  return props.image
+}
+
+const Avatar = props => {
+  const image = getImageForAvatar(props)
+
+  return (
+    <Avatar.Element type={props.type} size={props.size}>
+      {image}
+    </Avatar.Element>
+  )
+}
+
+Avatar.Element = styled.span`
   min-width: ${props => misc.avatar[props.size]};
   width: ${props => misc.avatar[props.size]};
   height: ${props => misc.avatar[props.size]};
@@ -46,29 +70,8 @@ const StyledAvatar = styled.span`
   }
 `
 
-const getImageForAvatar = props => {
-  if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
-  if (props.email && props.initials)
-    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
-  if (typeof props.image === 'string') {
-    return <Image source={props.image} />
-  }
-
-  if (!props.image)
-    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
-
-  return props.image
-}
-
-const Avatar = props => {
-  const image = getImageForAvatar(props)
-
-  return (
-    <StyledAvatar type={props.type} size={props.size}>
-      {image}
-    </StyledAvatar>
-  )
-}
+// Backwards compatibility (will be removed in 1.0)
+const StyledAvatar = Avatar.Element
 
 Avatar.propTypes = {
   /** An icon to display. */

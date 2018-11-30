@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
@@ -19,7 +20,39 @@ const justifyContent = {
   right: 'flex-end'
 }
 
-const StyledStack = styled.div`
+/*
+wrap children in col
+flex-basis makes flex redundant, have one
+accept widths on parent = Stack
+*/
+
+const Stack = props => {
+  let children
+  if (props.align === 'fill' || props.align === 'space-between') {
+    children = React.Children.map(props.children, (child, index) => {
+      let width = 0
+      if (props.widths) width = `${props.widths[index]}` || 0
+
+      return (
+        <Stack.Item width={width} {...Automation('stack.item')}>
+          {child}
+        </Stack.Item>
+      )
+    })
+  } else {
+    children = props.children
+  }
+
+  return (
+    <Stack.Element {...props} align={props.align} {...Automation('stack')}>
+      {children}
+    </Stack.Element>
+  )
+}
+
+Stack.Element = styled.div`
+  ${containerStyles};
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -34,39 +67,9 @@ const StyledStack = styled.div`
   }
 `
 
-const StackedItem = styled.div`
+Stack.Item = styled.div`
   flex-basis: ${props => props.width}%;
 `
-
-/*
-  wrap children in col
-  flex-basis makes flex redundant, have one
-  accept widths on parent = Stack
-*/
-
-const Stack = props => {
-  let children
-  if (props.align === 'fill' || props.align === 'space-between') {
-    children = React.Children.map(props.children, (child, index) => {
-      let width = 0
-      if (props.widths) width = `${props.widths[index]}` || 0
-
-      return (
-        <StackedItem width={width} {...Automation('stack.item')}>
-          {child}
-        </StackedItem>
-      )
-    })
-  } else {
-    children = props.children
-  }
-
-  return (
-    <StyledStack {...props} align={props.align} {...Automation('stack')}>
-      {children}
-    </StyledStack>
-  )
-}
 
 Stack.propTypes = {
   /** Use align for stacking elements without margin between them */

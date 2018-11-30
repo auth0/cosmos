@@ -1,3 +1,3 @@
-import Box from './_box'
+import Box from './box'
 
 export default Box
