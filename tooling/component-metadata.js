@@ -34,7 +34,10 @@ const run = () => {
       try {
         /* ignore secondary files */
         const directoryName = path.split('/').splice(-2, 1)[0]
-        if (!path.includes(`${directoryName}.js`)) return
+        const componentFileName = directoryName.replace('_', '') + '.js'
+
+        /* if component file does not exist, move on*/
+        if (!path.includes(componentFileName)) return
 
         /* append display name handler to handlers list */
         const handlers = docgen.defaultHandlers
