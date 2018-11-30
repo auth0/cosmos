@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { Table, Paragraph, Code } from '@auth0/cosmos'
 
-import { Heading1, Heading2 } from './docs-components/typography'
+import { Heading1, Heading2 } from '../docs-components/typography'
 
 const Container = styled.div``
 

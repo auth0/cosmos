@@ -12,7 +12,7 @@ import {
   Link,
   List,
   ListItem
-} from './docs-components/typography'
+} from '../docs-components/typography'
 import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
