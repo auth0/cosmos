@@ -60,6 +60,8 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts (internal) */
+import ColumnLayout from './molecules/_column-layout'
+import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
 
 export {
@@ -74,6 +76,7 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  ColumnLayout,
   DangerZone,
   Dialog,
   EmptyState,
@@ -94,6 +97,7 @@ export {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
