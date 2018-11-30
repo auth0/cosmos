@@ -308,7 +308,10 @@ Button.propTypes = {
   loading: PropTypes.bool,
 
   /** Successful state when action is completed successfuly */
-  success: PropTypes.bool
+  success: PropTypes.bool,
+
+  /** Handler to be called when the button is clicked */
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {

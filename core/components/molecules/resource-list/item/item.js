@@ -8,6 +8,31 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
+import { actionToButtonProps, buttonBuilder } from '../action-builder'
+import { deprecate } from '../../../_helpers/custom-validations'
+
+
+/**
+ * Builds the button from the action or
+ * adds the key to the action if it's a raw button.
+ * @param {ResourceList.Item.Props} item
+ * @param {ResourceList.Item.Action} action
+ * @param {number} key
+ */
+const resolveAction = (item, action, key) => {
+  if (typeof action === 'object' && !React.isValidElement(action)) {
+    return buttonBuilder(actionToButtonProps({ ...action, key }, item))
+  }
+
+  return React.cloneElement(action, { key })
+}
+
+/**
+ * Maps each action to a button if applicable
+ * @param {ResourceList.Item.Action[]} actions
+ * @param {ResourceList.Item.Props} item
+ */
+const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, item))
 
 const ListItem = props => {
   let image
@@ -35,25 +60,12 @@ const ListItem = props => {
     subtitle = <ListItem.Subtitle>{props.subtitle}</ListItem.Subtitle>
   }
 
-  const callHandler = handler => evt => handler(evt, props.item)
-
   if (props.actions) {
-    actions = (
-      <ButtonGroup align="right">
-        {props.actions.map((action, index) => (
-          <Button
-            key={index}
-            icon={action.icon}
-            onClick={action.handler ? callHandler(action.handler) : null}
-            label={action.label}
-            disabled={action.disabled}
-          />
-        ))}
-      </ButtonGroup>
-    )
+    actions = <ButtonGroup align="right">{resolveActions(props.actions, props.item)}</ButtonGroup>
   }
 
   return (
+
     <ListItem.Element
       onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
@@ -128,7 +140,24 @@ ListItem.propTypes = {
   /** A function that will be called when the list item is clicked. */
   onClick: PropTypes.func,
   /** The actions to display for the list item. */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
+  _actions: props => {
+    if (!props.actions) return
+
+    /* validation first action should be enough */
+    const firstAction = props.actions[0]
+
+    if (!React.isValidElement(firstAction)) {
+      return deprecate(props, {
+        name: 'actions',
+        oldAPI: 'passing objects in actions',
+        replacement: '<Button>'
+      })
+    }
+  }
 }
 
 export default ListItem

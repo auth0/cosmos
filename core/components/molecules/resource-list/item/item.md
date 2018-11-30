@@ -13,8 +13,8 @@ A `ResourceList.Item` is a single item that is displayed in a [ResourceList](#/c
   icon="clients"
   onClick={evt => alert('Clicked!')}
   actions={[
-    { icon: 'settings', label: 'Settings', handler: function(){} },
-    { icon: 'delete', label: 'Delete', handler: function(){} }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" />
   ]} {props} />
 ```
 
@@ -73,8 +73,8 @@ between the header (title, subtitle, etc.) and the actions. This is the main rea
   subtitle="Example Subtitle"
   icon="clients"
   actions={[
-    { icon: 'settings', label: 'Settings', handler: function() {} },
-    { icon: 'delete', label: 'Delete', handler: function() {} }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" />
   ]}
 >
   This is the list item's body
@@ -89,8 +89,8 @@ between the header (title, subtitle, etc.) and the actions. This is the main rea
   subtitle="Example Subtitle"
   icon="clients"
   actions={[
-    { icon: 'settings', label: 'Settings', handler: function() {} },
-    { icon: 'delete', label: 'Delete', handler: function() {}, disabled: true }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" disabled />
   ]}
 >
   This is the list item's body
