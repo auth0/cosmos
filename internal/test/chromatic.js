@@ -27,5 +27,6 @@ task({
   label: 'Running chromatic',
   command: 'chromatic',
   params,
+  verbose: true,
   failOnError: true
 })
