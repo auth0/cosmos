@@ -52,16 +52,6 @@ const Toggle = styled.span`
           }
         `};
 `
-const StyledSwitch = styled.span`
-  display: inline-block;
-  vertical-align: middle;
-  height: ${height};
-  position: relative;
-
-  input:focus ~ ${Toggle} {
-    box-shadow: 0 0 0 2px ${colors.base.blue};
-  }
-`
 
 const Label = styled.label`
   vertical-align: top;
@@ -75,6 +65,7 @@ const Label = styled.label`
 `
 
 class Switch extends React.Component {
+  static displayName = 'Switch'
   constructor(props) {
     super(props)
     this.state = { on: props.on }
@@ -96,14 +87,27 @@ class Switch extends React.Component {
       and is itself a readOnly component
     */
     return (
-      <StyledSwitch onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
         <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
         <Toggle on={this.state.on} readOnly={this.props.readOnly} />
         <Label>{this.state.on ? onLabel : offLabel}</Label>
-      </StyledSwitch>
+      </Switch.Element>
     )
   }
 }
+
+Switch.Element = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  height: ${height};
+  position: relative;
+
+  input:focus ~ ${Toggle} {
+    box-shadow: 0 0 0 2px ${colors.base.blue};
+  }
+`
+
+const StyledSwitch = Switch.Element
 
 Switch.propTypes = {
   /** Function called on toggle */

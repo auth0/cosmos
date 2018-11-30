@@ -6,10 +6,6 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
-const Container = styled.div`
-  ${containerStyles};
-`
-
 export const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
@@ -109,7 +105,7 @@ class Tabs extends React.Component {
     const { selected: selectedIndex } = this.props
 
     return (
-      <Container {...Automation('tabs')}>
+      <Tabs.Element {...Automation('tabs')}>
         <TabLinkGroup>
           {this.tabs.map((tab, index) => (
             <TabLink
@@ -125,10 +121,14 @@ class Tabs extends React.Component {
           ))}
         </TabLinkGroup>
         {this.tabs[selectedIndex]}
-      </Container>
+      </Tabs.Element>
     )
   }
 }
+
+Tabs.Element = styled.div`
+  ${containerStyles};
+`
 
 Tabs.Tab = TabContent
 

@@ -7,16 +7,10 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
-const StyledList = styled.ul`
-  ${containerStyles};
-  margin: ${spacing.large} 0;
-  padding: 0;
-`
-
 const defaultItemRenderer = (item, index) => <ResourceListItem {...item} />
 
 const ResourceList = props => (
-  <StyledList {...Automation('resource-list')}>
+  <ResourceList.Element {...Automation('resource-list')}>
     {props.items.map((item, index) => {
       const itemRenderer = props.renderItem || defaultItemRenderer
       return React.cloneElement(itemRenderer(item, index), {
@@ -26,8 +20,15 @@ const ResourceList = props => (
         item
       })
     })}
-  </StyledList>
+  </ResourceList.Element>
 )
+
+ResourceList.Element = styled.ul`
+  ${containerStyles};
+
+  margin: ${spacing.large} 0;
+  padding: 0;
+`
 
 ResourceList.Item = ResourceListItem
 

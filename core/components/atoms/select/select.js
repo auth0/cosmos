@@ -12,12 +12,6 @@ const selectOpacity = {
 }
 const PLACEHOLDER_VALUE = '__select_placeholder'
 
-const StyledSelect = StyledInput.withComponent('select').extend`
-  height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
-    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
-`
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
@@ -50,16 +44,23 @@ const Select = ({ options, ...props }) => {
   if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
 
   return (
-    <StyledSelect {...props} {...Automation('select')}>
+    <Select.Element {...props} {...Automation('select')}>
       {/* First option will be selected if there is no value passed as a prop */}
       <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
         {props.placeholder}
       </option>
 
       {options.map(renderOption)}
-    </StyledSelect>
+    </Select.Element>
   )
 }
+
+Select.Element = StyledInput.withComponent('select').extend`
+  height: ${misc.input.default.height};
+  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${props =>
+    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
+`
 
 const selectOptionShape = PropTypes.shape({
   text: PropTypes.string.isRequired,
