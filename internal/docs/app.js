@@ -14,7 +14,6 @@ import Navigation from './docs-components/navigation'
 import GuidingPrinciples from './pages/guiding-principles'
 import Usage from './pages/usage'
 import ContributionGuide from './pages/contribution-guide'
-import SystemGuidelines from './pages/system-guidelines'
 import FAQS from './pages/faqs'
 import Changes from './pages/changes'
 import AutomationGlossary from './pages/automation-glossary'
@@ -113,7 +112,6 @@ class App extends React.Component {
           <MainContent id="main">
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
-              <Route exact path="/system-guidelines" component={SystemGuidelines} />
               <Route path="/usage" component={Usage} />
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
