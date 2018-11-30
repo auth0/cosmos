@@ -63,19 +63,17 @@ const Select = ({ options, ...props }) => {
   return (
     <Select.Wrapper>
       <StyledIcon />
-    </Select.Wrapper>
-    <Select.Element {...props} {...Automation('select')}>
-      {/* First option will be selected if there is no value passed as a prop */}
-      <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-        {props.placeholder}
-      </option>
+      <Select.Element {...props} {...Automation('select')}>
+        {/* First option will be selected if there is no value passed as a prop */}
+        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+          {props.placeholder}
+        </option>
 
-      {options.map(renderOption)}
-    </Select.Element>
+        {options.map(renderOption)}
+      </Select.Element>
     </Select.Wrapper>
   )
 }
-
 
 Select.Element = StyledInput.withComponent('select').extend`
   appearance: none;
