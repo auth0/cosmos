@@ -10,8 +10,10 @@
 /* resets for font */
 import './_helpers/globals'
 
-/* demo */
+/* internal */
 import Box from './atoms/_box'
+import Well from './atoms/_well'
+import ActionInput from './molecules/_action-input'
 
 /* atoms */
 import Avatar from './atoms/avatar'
@@ -57,10 +59,13 @@ import Stack from './molecules/stack'
 import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
-/* layouts */
-import PageLayout from './molecules/page-layout'
+/* layouts (internal) */
+import ColumnLayout from './molecules/_column-layout'
+import RowLayout from './molecules/_row-layout'
+import PageLayout from './molecules/_page-layout'
 
 export {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -76,6 +81,7 @@ export {
   EmptyState,
   Form,
   FormGroup,
+  ColumnLayout,
   Heading,
   Icon,
   Image,
@@ -91,6 +97,7 @@ export {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
@@ -102,5 +109,6 @@ export {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 }

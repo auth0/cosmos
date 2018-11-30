@@ -8,7 +8,6 @@ const deprecationHandler = require('react-docgen-deprecation-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
-const propTypesToTS = require('proptypes-to-ts-declarations')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 const colors = require('@auth0/cosmos-tokens/colors')
@@ -35,7 +34,10 @@ const run = () => {
       try {
         /* ignore secondary files */
         const directoryName = path.split('/').splice(-2, 1)[0]
-        if (!path.includes(`${directoryName}.js`)) return
+        const componentFileName = directoryName.replace('_', '') + '.js'
+
+        /* if component file does not exist, move on*/
+        if (!path.includes(componentFileName)) return
 
         /* append display name handler to handlers list */
         const handlers = docgen.defaultHandlers
@@ -162,20 +164,6 @@ const run = () => {
     'core/components/meta/changelog.json',
     JSON.stringify({ changelog }, null, 2),
     'utf8'
-  )
-
-  // Write typescript definitions to index.d.ts.
-  info('DOCS', 'Generating TypeScript definitions')
-  propTypesToTS(
-    '@auth0/cosmos',
-    'core/components/+(atoms|molecules)/**/*.js',
-    './core/components/meta/index.d.ts',
-    {
-      oneOfResolvers: {
-        __ICONNAMES__: Object.keys(icons),
-        __COLORS__: Object.keys(colors.base)
-      }
-    }
   )
 
   if (warning) {

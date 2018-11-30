@@ -1,6 +1,6 @@
 ```meta
 category: layout
-description: Column layout allows organization of it's children in columns
+description: Use this component to create the separation between the header and the content of the page.
 ```
 
 ---
@@ -26,7 +26,7 @@ The `PageLayout` should be used specifically within the `main` area of the AppFr
 
 **This layout is usecase speific to achevie just one goal, do not use it for anything else**
 
-## Accecibility
+## Accessibility
 
 This layout is semantic free.
 

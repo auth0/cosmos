@@ -5,14 +5,12 @@ import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const marginReset = {
-  'none': "auto",
-  'reset': "0 !important"
+  none: 'auto',
+  reset: '0 !important'
 }
 
 const PageLayout = props => (
-  <PageLayout.Element {...Automation('page-layout')}>
-    {props.children}
-  </PageLayout.Element>
+  <PageLayout.Element {...Automation('page-layout')}>{props.children}</PageLayout.Element>
 )
 
 PageLayout.Element = styled.div`
@@ -31,12 +29,9 @@ PageLayout.Element = styled.div`
   }
 `
 
-PageLayout.Header = styled.div`
-`
+PageLayout.Header = styled.div``
 
-PageLayout.Content = styled.div`
-`
-
+PageLayout.Content = styled.div``
 
 PageLayout.propTypes = {
   /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */

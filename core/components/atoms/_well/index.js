@@ -1,3 +1,3 @@
-import Well from './_well'
+import Well from './well'
 
 export default Well

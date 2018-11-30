@@ -268,25 +268,15 @@ Button.Element = styled.button`
 Button.Text = styled.span`
   display: inline-block;
   vertical-align: middle;
-
+  line-height: normal;
   /* Sub-pixel position adjustment */
   /* See: https://github.com/auth0/cosmos/pull/947 */
-  margin-top: 2px;
+  /* See: https://github.com/auth0/cosmos/pull/1045 */
+  margin-top: 1px;
 `
 
 Button.LinkElement = Button.Element.withComponent('a').extend`
-  display: table;
   text-decoration: none;
-
-  ${Button.Text} {
-    display: table-cell;
-  }
-
-  ${Icon.Element} {
-    display: table-cell;
-    vertical-align: middle;
-    padding-right: ${props => (props.text ? spacing.xsmall : 0)};
-  }
 `
 
 Button.propTypes = {

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Text, Link, List, ListItem } from './docs-components/typography'
+import { Heading1, Heading2, Text, Link, List, ListItem } from '../docs-components/typography'
 import { Code } from '@auth0/cosmos'
 
 const Container = styled.div``
@@ -75,8 +75,9 @@ class FAQs extends React.Component {
               not to say that we are smarter than the creators of these component libraries{' '}
               <span role="img" aria-label="sweat-smile">
                 😅
-              </span>, only that the end result will be an amalgam of the decisions taken by the
-              original authors and the decisions taken by our team in the context of auth0. (This is
+              </span>
+              , only that the end result will be an amalgam of the decisions taken by the original
+              authors and the decisions taken by our team in the context of auth0. (This is
               different than adapting a library like hapi.js or react, because we **use** the public
               APIs that are made available by these libraries, we don't have to customise the inner
               parts)
@@ -92,8 +93,9 @@ class FAQs extends React.Component {
               design philosophy and tokens are more significant -{' '}
               <Link href="https://paper.dropbox.com/doc/Introduction-to-Design-Systems-QfcpzS4woLRnxL0nhAjyQ#:uid=265215018043384192160227&h2=%F0%9F%98%AB-But%2C-isn%E2%80%99t-it-a-Styleguide">
                 Read more on this
-              </Link>. It will be very tricky to adopt a component library and make it work with our
-              lower level of abstractions.
+              </Link>
+              . It will be very tricky to adopt a component library and make it work with our lower
+              level of abstractions.
             </ListItem>
             <ListItem>
               Because of the above reasons, It will be easier + faster to implement new components

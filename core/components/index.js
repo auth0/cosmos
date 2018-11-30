@@ -1,4 +1,5 @@
 import {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -14,6 +15,7 @@ import {
   EmptyState,
   Form,
   FormGroup,
+  ColumnLayout,
   Heading,
   Icon,
   Image,
@@ -29,6 +31,7 @@ import {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
@@ -40,10 +43,12 @@ import {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 } from './components'
 
 export {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -59,6 +64,7 @@ export {
   EmptyState,
   Form,
   FormGroup,
+  ColumnLayout,
   Heading,
   Icon,
   Image,
@@ -74,6 +80,7 @@ export {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
@@ -85,5 +92,6 @@ export {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 }

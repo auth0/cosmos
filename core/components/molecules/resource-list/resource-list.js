@@ -5,8 +5,10 @@ import ResourceListItem from './item'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const StyledList = styled.ul`
+  ${containerStyles};
   margin: ${spacing.large} 0;
   padding: 0;
 `
