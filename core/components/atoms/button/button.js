@@ -276,18 +276,7 @@ Button.Text = styled.span`
 `
 
 Button.LinkElement = Button.Element.withComponent('a').extend`
-  display: table;
   text-decoration: none;
-
-  ${Button.Text} {
-    display: table-cell;
-  }
-
-  ${Icon.Element} {
-    display: table-cell;
-    vertical-align: middle;
-    padding-right: ${props => (props.text ? spacing.xsmall : 0)};
-  }
 `
 
 Button.propTypes = {
@@ -322,7 +311,10 @@ Button.propTypes = {
   success: PropTypes.bool,
 
   /** Type of button */
-  type: PropTypes.oneOf(['button', 'submit', 'reset'])
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+
+  /** Handler to be called when the button is clicked */
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {

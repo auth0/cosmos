@@ -3,11 +3,18 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { spacing } from '@auth0/cosmos-tokens'
-import StyledDivider from './divider'
+import Divider from './divider'
 import Automation from '../../../_helpers/automation-attribute'
 import containerStyles from '../../../_helpers/container-styles'
 
-const StyledFieldSet = styled.fieldset`
+const FieldSet = props => (
+  <FieldSet.Element {...Automation('form.fieldset')}>
+    <Divider>{props.label}</Divider>
+    {props.children}
+  </FieldSet.Element>
+)
+
+FieldSet.Element = styled.fieldset`
   ${containerStyles};
   border: none;
   padding: 0;
@@ -16,13 +23,6 @@ const StyledFieldSet = styled.fieldset`
     margin-bottom: 0;
   }
 `
-
-const FieldSet = props => (
-  <StyledFieldSet {...Automation('form.fieldset')}>
-    <StyledDivider>{props.label}</StyledDivider>
-    {props.children}
-  </StyledFieldSet>
-)
 
 FieldSet.displayName = 'Form Fieldset'
 

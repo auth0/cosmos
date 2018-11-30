@@ -11,15 +11,6 @@ import ButtonGroup from '../../../molecules/button-group'
 import { Right, Clear } from '../../../_helpers/float'
 import { actionShape, actionShapeWithoutRequiredHandler } from '@auth0/cosmos/_helpers/action-shape'
 
-const StyledActions = styled.div`
-  width: ${props => getLayoutValues(props.layout).formWidth};
-  padding-left: ${props =>
-    props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
-  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
-  margin-top: ${spacing.medium};
-  margin-bottom: ${spacing.small};
-`
-
 const getButtonProps = action => {
   const props = { ...action }
   props.icon = action.icon
@@ -38,7 +29,7 @@ const Actions = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <StyledActions layout={context.layout}>
+        <Actions.Element layout={context.layout}>
           <ButtonGroup>
             {primaryAction && (
               <Button {...getButtonProps(primaryAction)} appearance="primary">
@@ -67,11 +58,20 @@ const Actions = props => {
             )}
           </ButtonGroup>
           <Clear />
-        </StyledActions>
+        </Actions.Element>
       )}
     </FormContext.Consumer>
   )
 }
+
+Actions.Element = styled.div`
+  width: ${props => getLayoutValues(props.layout).formWidth};
+  padding-left: ${props =>
+    props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
+  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+  margin-top: ${spacing.medium};
+  margin-bottom: ${spacing.small};
+`
 
 Actions.displayName = 'Form Actions'
 
@@ -82,6 +82,8 @@ Actions.propTypes = {
 }
 
 Actions.defaultProps = {}
+
+const StyledActions = Actions.Element
 
 export default Actions
 export { StyledActions }

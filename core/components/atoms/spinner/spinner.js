@@ -36,7 +36,30 @@ const spinners = {
   }
 }
 
-const StyledSpinner = styled.span`
+const spinnerWithLogo = (variant, props) => {
+  const iconColor = props.inverse ? 'light' : 'dark'
+
+  return (
+    <Spinner.Container variant={variant}>
+      <Spinner.Element {...props} width={variant.width} />
+      <Logo size={variant.logo} color={iconColor} />
+    </Spinner.Container>
+  )
+}
+
+const Spinner = props => {
+  defaultPropChangeWarning(Spinner, 'size', props.size, 'medium', '1.0.0')
+
+  const variant = spinners[props.size]
+
+  return variant.logo ? (
+    spinnerWithLogo(variant, props)
+  ) : (
+    <Spinner.Element {...props} width={variant.width} />
+  )
+}
+
+Spinner.Element = styled.span`
   display: inline-block;
   border-top: 2px solid ${props => getColor(props)};
   border-right: 2px solid ${props => getColor(props)};
@@ -49,7 +72,7 @@ const StyledSpinner = styled.span`
   animation: ${rotate} 0.8s infinite linear;
 `
 
-const SpinnerContainer = styled.div`
+Spinner.Container = styled.div`
   position: relative;
   width: ${p => p.variant.width}px;
   height: ${p => p.variant.width}px;
@@ -62,29 +85,6 @@ const SpinnerContainer = styled.div`
   }
 `
 
-const spinnerWithLogo = (variant, props) => {
-  const iconColor = props.inverse ? 'light' : 'dark'
-
-  return (
-    <SpinnerContainer variant={variant}>
-      <StyledSpinner {...props} width={variant.width} />
-      <Logo size={variant.logo} color={iconColor} />
-    </SpinnerContainer>
-  )
-}
-
-const Spinner = props => {
-  defaultPropChangeWarning(Spinner, 'size', props.size, 'medium', '1.0.0')
-
-  const variant = spinners[props.size]
-
-  return variant.logo ? (
-    spinnerWithLogo(variant, props)
-  ) : (
-    <StyledSpinner {...props} width={variant.width} />
-  )
-}
-
 Spinner.propTypes = {
   /** Invert for dark background */
   inverse: PropTypes.bool,
@@ -95,6 +95,8 @@ Spinner.defaultProps = {
   inverse: false,
   size: 'small'
 }
+
+const StyledSpinner = Spinner.Element
 
 export default Spinner
 export { StyledSpinner }

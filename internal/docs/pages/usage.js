@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Link, Text } from './docs-components/typography'
-import Pre from './docs-components/pre'
+import { Heading1, Heading2, Link, Text } from '../docs-components/typography'
+import Pre from '../docs-components/pre'
 import { Code } from '@auth0/cosmos'
-import CodeBlock from './docs-components/code-block'
+import CodeBlock from '../docs-components/code-block'
 
 class Usage extends React.Component {
   render() {

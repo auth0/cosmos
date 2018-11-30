@@ -7,16 +7,16 @@ import '@auth0/cosmos-fonts'
 import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
-import GuidingPrinciples from './guiding-principles'
-import Usage from './usage'
-import ContributionGuide from './contribution-guide'
-import SystemGuidelines from './system-guidelines'
-import FAQS from './faqs'
-import Changes from './changes'
 import Overview from './overview'
-import AutomationGlossary from './automation-glossary'
 import Playground from './playground'
 import Navigation from './docs-components/navigation'
+
+import GuidingPrinciples from './pages/guiding-principles'
+import Usage from './pages/usage'
+import ContributionGuide from './pages/contribution-guide'
+import FAQS from './pages/faqs'
+import Changes from './pages/changes'
+import AutomationGlossary from './pages/automation-glossary'
 
 const SideContent = styled.div`
   width: 19rem;
@@ -112,7 +112,6 @@ class App extends React.Component {
           <MainContent id="main">
             <Body>
               <Route exact path="/guiding-principles" component={GuidingPrinciples} />
-              <Route exact path="/system-guidelines" component={SystemGuidelines} />
               <Route path="/usage" component={Usage} />
               <Route exact path="/contribution-guide" component={ContributionGuide} />
               <Route exact path="/faqs" component={FAQS} />
