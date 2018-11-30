@@ -87,7 +87,7 @@ const List = props => {
         })}
       </Group>
 
-      <Group label="Internal/Hidden">
+      <Group label="Hidden" className="hidden">
         {groups.internal.map((component, index) => {
           let children = <Link key={index} component={component} />
 

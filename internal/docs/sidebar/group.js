@@ -27,7 +27,7 @@ const LinkGroup = styled.div`
 `
 
 const Group = props => (
-  <LinkGroup>
+  <LinkGroup {...props}>
     <Label>
       <a>{props.label}</a>
     </Label>
