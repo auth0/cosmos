@@ -27,7 +27,7 @@ const LinkGroup = styled.div`
 `
 
 const Group = props => (
-  <LinkGroup>
+  <LinkGroup {...props}>
     <Label>
       <a>{props.label}</a>
     </Label>
@@ -36,11 +36,17 @@ const Group = props => (
 )
 
 const getGroups = components => {
-  const groups = { atoms: [], molecules: [] }
+  const groups = { atoms: [], molecules: [], internal: [] }
 
   components.map(component => {
-    /* parse filepath to get category (atom, molecules) */
-    const category = component.filepath.split('/')[2]
+    let category
+
+    if (component.internal) category = 'internal'
+    else {
+      /* parse filepath to get category (atom, molecules) */
+      category = component.filepath.split('/')[2]
+    }
+
     groups[category].push(component)
 
     return component // meh

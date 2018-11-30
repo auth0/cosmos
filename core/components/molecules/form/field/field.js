@@ -11,42 +11,11 @@ import Automation from '../../../_helpers/automation-attribute'
 import StyledLabel from '../label'
 import StyledError from '../error'
 import HelpText from '../help-text'
-import { StyledTextArea } from '../../../atoms/textarea'
-import { StyledSwitch } from '../../../atoms/switch'
-import { StyledRadio } from '../../../atoms/radio'
+import TextArea from '../../../atoms/textarea'
+import Switch from '../../../atoms/switch'
+import Radio from '../../../atoms/radio'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
-
-const StyledField = styled.div`
-  display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
-  width: ${props => getLayoutValues(props.layout).formWidth};
-  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
-  margin-bottom: ${spacing.small};
-
-  ${StyledTextArea} {
-    /* browsers give textareas an annoying alignment
-    that needs to be overwritten :/ */
-    vertical-align: top;
-    min-height: ${misc.input.default.height};
-  }
-  ${StyledSwitch} {
-    margin-top: 6px;
-  }
-  ${StyledRadio} {
-    margin-top: ${props => (props.layout === 'label-on-left' ? '11px' : null)};
-  }
-`
-const LabelLayout = styled.div`
-  width: ${props => getLayoutValues(props.layout).labelWidth};
-  margin: ${props => getLayoutValues(props.layout).labelMargin};
-  text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
-  padding-right: ${props => (props.layout === 'label-on-left' ? spacing.medium : 'none')};
-  padding-top: ${props => (props.layout === 'label-on-left' ? '11px' : '0')};
-  min-height: ${props => (props.layout === 'label-on-left' ? '44px' : 'none')};
-  margin-bottom: ${props => (props.layout === 'label-on-top' ? '8px' : '0')};
-`
-const ContentLayout = styled.div`
-  width: ${props => getLayoutValues(props.layout).contentWidth};
-`
+import containerStyles from '../../../_helpers/container-styles'
 
 const Field = props => {
   /* Get unique id for label */
@@ -56,11 +25,11 @@ const Field = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <StyledField layout={context.layout} {...Automation('form.field')}>
-          <LabelLayout layout={context.layout}>
+        <Field.Element layout={context.layout} {...Automation('form.field')}>
+          <Field.LabelLayout layout={context.layout}>
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
-          </LabelLayout>
-          <ContentLayout layout={context.layout}>
+          </Field.LabelLayout>
+          <Field.ContentLayout layout={context.layout}>
             {props.fieldComponent ? (
               <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
             ) : (
@@ -68,12 +37,46 @@ const Field = props => {
             )}
             {props.error ? <StyledError>{props.error}</StyledError> : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
-          </ContentLayout>
-        </StyledField>
+          </Field.ContentLayout>
+        </Field.Element>
       )}
     </FormContext.Consumer>
   )
 }
+
+Field.Element = styled.div`
+  ${containerStyles};
+  display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
+  width: ${props => getLayoutValues(props.layout).formWidth};
+  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
+  margin-bottom: ${spacing.small};
+
+  ${TextArea.Element} {
+    /* browsers give textareas an annoying alignment
+  that needs to be overwritten :/ */
+    vertical-align: top;
+    min-height: ${misc.input.default.height};
+  }
+  ${Switch.Element} {
+    margin-top: 6px;
+  }
+  ${Radio.Element} {
+    margin-top: ${props => (props.layout === 'label-on-left' ? '11px' : null)};
+  }
+`
+
+Field.LabelLayout = styled.div`
+  width: ${props => getLayoutValues(props.layout).labelWidth};
+  margin: ${props => getLayoutValues(props.layout).labelMargin};
+  text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
+  padding-right: ${props => (props.layout === 'label-on-left' ? spacing.medium : 'none')};
+  padding-top: ${props => (props.layout === 'label-on-left' ? '11px' : '0')};
+  min-height: ${props => (props.layout === 'label-on-left' ? '44px' : 'none')};
+  margin-bottom: ${props => (props.layout === 'label-on-top' ? '8px' : '0')};
+`
+Field.ContentLayout = styled.div`
+  width: ${props => getLayoutValues(props.layout).contentWidth};
+`
 
 Field.displayName = 'Form Field'
 

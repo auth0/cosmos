@@ -29,19 +29,6 @@ const StyledIcon = styled(Icon).attrs({
   }
 `
 
-const StyledSelect = StyledInput.withComponent('select').extend`
-  appearance: none;
-  
-  padding-right: ${spacing.large};
-  
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-  
-  height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
-    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
-`
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
@@ -76,17 +63,33 @@ const Select = ({ options, ...props }) => {
   return (
     <Select.Wrapper>
       <StyledIcon />
-      <StyledSelect {...props} {...Automation('select')}>
-        {/* First option will be selected if there is no value passed as a prop */}
-        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-          {props.placeholder}
-        </option>
+    </Select.Wrapper>
+    <Select.Element {...props} {...Automation('select')}>
+      {/* First option will be selected if there is no value passed as a prop */}
+      <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+        {props.placeholder}
+      </option>
 
-        {options.map(renderOption)}
-      </StyledSelect>
+      {options.map(renderOption)}
+    </Select.Element>
     </Select.Wrapper>
   )
 }
+
+
+Select.Element = StyledInput.withComponent('select').extend`
+  appearance: none;
+  
+  padding-right: ${spacing.large};
+  
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  
+  height: ${misc.input.default.height};
+  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${props =>
+    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
+`
 
 Select.Wrapper = styled.div`
   position: relative;

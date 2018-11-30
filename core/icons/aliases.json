@@ -5,5 +5,6 @@
   "check": ["done", "tick"],
   "rotate": ["update", "refresh"],
   "play": ["try", "test"],
-  "clients": ["applications"]
+  "clients": ["applications"],
+  "windows": ["windowslive"]
 }

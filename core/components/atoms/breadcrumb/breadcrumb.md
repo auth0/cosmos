@@ -3,7 +3,7 @@
   description: A breadcrumb helps the user navigate and identify the hierarchy of page within the application.
 ```
 
-`import { Breadcrumb } from '@auth0/breadcrumb'`
+`import { Breadcrumb } from '@auth0/cosmos'`
 
 ---
 
