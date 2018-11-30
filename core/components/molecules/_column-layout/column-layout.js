@@ -19,20 +19,23 @@ const gridTemplateColumns = {
 }
 
 const gutterOptions = {
-  'none': "var(--ColumnLayout--None--GridGap)",
-  'condensed': "var(--ColumnLayout--Condensed--GridGap)",
-  'default': "var(--ColumnLayout--Default--GridGap)",
-  'spacious': "var(--ColumnLayout--Spacious--GridGap)"
+  none: 'var(--ColumnLayout--None--GridGap)',
+  condensed: 'var(--ColumnLayout--Condensed--GridGap)',
+  default: 'var(--ColumnLayout--Default--GridGap)',
+  spacious: 'var(--ColumnLayout--Spacious--GridGap)'
 }
 
 const marginReset = {
-  'none': "auto",
-  'reset': "0 !important"
+  none: 'auto',
+  reset: '0 !important'
 }
 
-
 const ColumnLayout = props => (
-  <ColumnLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('column-layout')}>
+  <ColumnLayout.Element
+    gutter={props.gutter}
+    distribution={props.distribution}
+    {...Automation('column-layout')}
+  >
     {transformChildren(props, ColumnLayout.Item, 'column-layout.item')}
   </ColumnLayout.Element>
 )
@@ -47,10 +50,10 @@ ColumnLayout.Element = styled.div`
   display: grid;
   grid-gap: ${props => gutterOptions[props.gutter]};
   grid-template-columns: 1fr;
-  
+
   /* Placeholder width media feature until we have global variables for breakpoints */
   @media (min-width: 768px) {
-    grid-template-columns: ${props => gridTemplateColumns[props.distribution]}
+    grid-template-columns: ${props => gridTemplateColumns[props.distribution]};
   }
 
   /* 
@@ -68,7 +71,18 @@ ColumnLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
   /** Defines the distribution and amount of columns */
-  distribution: PropTypes.oneOf(['1/2 1/2', '1/3 1/3 1/3', '2/3 1/3', '1/3 2/3', '1/4 1/4 1/4 1/4', '2/4 1/4 1/4', '1/4 2/4 1/4', '1/4 1/4 2/4', '3/4 1/4', '1/4 3/4']),
+  distribution: PropTypes.oneOf([
+    '1/2 1/2',
+    '1/3 1/3 1/3',
+    '2/3 1/3',
+    '1/3 2/3',
+    '1/4 1/4 1/4 1/4',
+    '2/4 1/4 1/4',
+    '1/4 2/4 1/4',
+    '1/4 1/4 2/4',
+    '3/4 1/4',
+    '1/4 3/4'
+  ]),
   /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }

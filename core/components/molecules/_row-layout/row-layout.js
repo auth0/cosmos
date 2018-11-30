@@ -6,19 +6,23 @@ import transformChildren from '../../_helpers/transform-layout-children'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
-  'none': "var(--RowLayout--None--GridGap)",
-  'condensed': "var(--RowLayout--Condensed--GridGap)",
-  'default': "var(--RowLayout--Default--GridGap)",
-  'spacious': "var(--RowLayout--Spacious--GridGap)"
+  none: 'var(--RowLayout--None--GridGap)',
+  condensed: 'var(--RowLayout--Condensed--GridGap)',
+  default: 'var(--RowLayout--Default--GridGap)',
+  spacious: 'var(--RowLayout--Spacious--GridGap)'
 }
 
 const marginReset = {
-  'none': "auto",
-  'reset': "0 !important"
+  none: 'auto',
+  reset: '0 !important'
 }
 
 const RowLayout = props => (
-  <RowLayout.Element gutter={props.gutter} distribution={props.distribution} {...Automation('row-layout')}>
+  <RowLayout.Element
+    gutter={props.gutter}
+    distribution={props.distribution}
+    {...Automation('row-layout')}
+  >
     {transformChildren(props, RowLayout.Item, 'row-layout.item')}
   </RowLayout.Element>
 )
@@ -29,12 +33,12 @@ RowLayout.Element = styled.div`
   --RowLayout--Default--GridGap: ${spacing.medium};
   --RowLayout--Spacious--GridGap: ${spacing.large};
   --RowLayout--Header--Color: ${spacing.large};
-  
+
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: ${props => gutterOptions[props.gutter]};
 
- /* 
+  /* 
   Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
   This is a fix that will last until we remove margins from components.
   */

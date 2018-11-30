@@ -59,9 +59,9 @@ import Stack from './molecules/stack'
 import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
-/* layouts */
-import ColumnLayout from './molecules/column-layout'
-import RowLayout from './molecules/row-layout'
+/* layouts (internal) */
+import ColumnLayout from './molecules/_column-layout'
+import RowLayout from './molecules/_row-layout'
 
 export {
   ActionInput,

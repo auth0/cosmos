@@ -4,7 +4,6 @@ import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import { RowLayout, ColumnLayout } from '@auth0/cosmos'
 
-
 storiesOf('Row Layout').add('default', () => (
   <Example title="default">
     <RowLayout>
@@ -37,7 +36,6 @@ storiesOf('Row Layout').add('spacious', () => (
     </RowLayout>
   </Example>
 ))
-
 
 // Grid Test
 storiesOf('Row & Column Grid').add('test', () => (
