@@ -80,9 +80,6 @@ Select.Element = StyledInput.withComponent('select').extend`
   
   padding-right: ${spacing.large};
   
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-  
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
   background-color: ${props =>
