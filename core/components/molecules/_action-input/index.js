@@ -1,3 +1,3 @@
-import ActionInput from './_action-input'
+import ActionInput from './action-input'
 
 export default ActionInput

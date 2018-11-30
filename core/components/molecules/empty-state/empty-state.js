@@ -10,6 +10,7 @@ import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 import FreeText from '../../_helpers/free-text'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const getHelpLink = link => {
   if (!link) return
@@ -47,6 +48,7 @@ const EmptyState = props => {
 }
 
 const Wrapper = styled.div`
+  ${containerStyles};
   width: 100%;
   text-align: center;
 `

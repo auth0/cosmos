@@ -8,11 +8,13 @@ TableColumn.propTypes = {
   title: PropTypes.string,
   width: PropTypes.string,
   sortable: PropTypes.bool,
-  comparator: PropTypes.func
+  comparator: PropTypes.func,
+  truncate: PropTypes.bool
 }
 
 TableColumn.defaultProps = {
-  sortable: false
+  sortable: false,
+  truncate: false
 }
 
 export default TableColumn

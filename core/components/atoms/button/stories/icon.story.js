@@ -15,6 +15,7 @@ storiesOf('Button').add('with icon', () => (
       </Button>
       <Button appearance="link" icon="copy" />
       <Button icon="copy" label="Copy to Clipboard" />
+      <Button icon="copy" href="https://auth0.com" label="Copy to Clipboard" />
       <Button icon="chevron-left">Previous page</Button>
       <Button iconAlign="right" icon="chevron-right">
         Next page
