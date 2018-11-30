@@ -142,9 +142,9 @@ class Settings extends React.Component {
                 Auth0 API (typically used with CORS). By default, all your callback URLs will be
                 allowed. This field allows you to enter other origins if you need to. You can
                 specify multiple valid URLs by comma-separating them or one by line, and also use
-                wildcards at the subdomain level (e.g.: <Code>https://*.contoso.com</Code>). Notice
-                that querystrings and hash information are not taking into account when validating
-                these URLs.
+                wildcards at the subdomain level (e.g.: <Code>https://*.contoso.com</Code>
+                ). Notice that querystrings and hash information are not taking into account when
+                validating these URLs.
               </span>
             }
           />

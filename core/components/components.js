@@ -63,6 +63,7 @@ import Tabs from './molecules/tabs'
 import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
+import PageLayout from './molecules/_page-layout'
 
 export {
   ActionInput,
@@ -91,6 +92,7 @@ export {
   List,
   Logo,
   PageHeader,
+  PageLayout,
   Pagination,
   PaginationToolbar,
   Pager,
