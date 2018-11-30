@@ -2,7 +2,7 @@ const execa = require('execa')
 const ora = require('ora')
 const argv = require('yargs').argv
 
-const task = async ({ label, command, params, watch }) => {
+const task = async ({ label, command, params, watch, failOnError }) => {
   /* initiate spinner for feedback */
   const spinner = ora({ text: label, spinner: 'moon' })
 
@@ -28,7 +28,8 @@ const task = async ({ label, command, params, watch }) => {
   } catch (error) {
     console.log(error)
     spinner.fail()
-    console.log(error.stderr || error.stdout)
+    if (failOnError) console.error(error)
+    else console.log(error.stderr || error.stdout)
   }
 
   /* newline after everything */

@@ -26,5 +26,6 @@ if (repo === 'auth0/cosmos' && branch === 'master') {
 task({
   label: 'Running chromatic',
   command: 'chromatic',
-  params
+  params,
+  failOnError: true
 })
