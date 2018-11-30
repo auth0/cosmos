@@ -24,6 +24,7 @@ const task = async ({ label, command, params, watch, failOnError }) => {
       const { stdout } = await execa(command, params)
       spinner.succeed()
       if (argv.verbose) console.log(stdout)
+      process.exit(0)
     }
   } catch (error) {
     console.log(error)
