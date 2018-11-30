@@ -6,7 +6,7 @@ import FoldingSection from '../../docs-components/folding-section'
 import { Code } from '@auth0/cosmos'
 
 const ComponentFiles = () => (
-  <FoldingSection name="Component Files">
+  <FoldingSection name="Component files">
     <Text>
       Here are the things that make a component <strong>good</strong>:
     </Text>
