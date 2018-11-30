@@ -1,4 +1,5 @@
 import {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -41,10 +42,12 @@ import {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 } from './components'
 
 export {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -87,5 +90,6 @@ export {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 }

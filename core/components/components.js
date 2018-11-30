@@ -10,8 +10,10 @@
 /* resets for font */
 import './_helpers/globals'
 
-/* demo */
+/* internal */
 import Box from './atoms/_box'
+import Well from './atoms/_well'
+import ActionInput from './molecules/_action-input'
 
 /* atoms */
 import Avatar from './atoms/avatar'
@@ -62,6 +64,7 @@ import ColumnLayout from './molecules/column-layout'
 import RowLayout from './molecules/row-layout'
 
 export {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -104,5 +107,6 @@ export {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 }

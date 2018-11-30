@@ -1,18 +1,18 @@
 {
   "name": "@auth0/cosmos",
   "description": "Component library for Auth0 Design System",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "repository": "auth0/cosmos",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
   "author": "auth0",
   "license": "MIT",
-  "types": "meta/index.d.ts",
   "dependencies": {
     "md5": "^2.2.1",
-    "@auth0/cosmos-tokens": "0.8.1",
+    "@auth0/cosmos-tokens": "0.9.0",
     "prop-types": "15.6.1",
+    "react-focus-lock": "^1.14.1",
     "styled-components": "3.1.6"
   },
   "peerDependencies": {

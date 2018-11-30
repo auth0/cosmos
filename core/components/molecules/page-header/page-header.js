@@ -12,8 +12,10 @@ import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { descriptionIsObject } from '../../_helpers/page-header'
+import containerStyles from '../../_helpers/container-styles'
 
 const StyledPageHeader = styled.div`
+  ${containerStyles};
   margin-bottom: ${spacing.large};
 
   ${StyledButtonGroup} {

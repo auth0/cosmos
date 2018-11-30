@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
@@ -20,6 +21,7 @@ const justifyContent = {
 }
 
 const StyledStack = styled.div`
+  ${containerStyles};
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
