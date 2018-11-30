@@ -6,8 +6,8 @@ import transformChildren from '../../_helpers/transform-layout-children'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const marginReset = {
-  'none': "auto",
-  'reset': "0 !important"
+  none: 'auto',
+  reset: '0 !important'
 }
 
 const GalleryLayout = props => (
@@ -23,7 +23,7 @@ GalleryLayout.Element = styled.ul`
   grid-template-columns: var(--GalleryLayout--GridTemplateColumns);
   grid-gap: ${spacing.large};
 
-  /* 
+  /*
   Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
   This is a fix that will last until we remove margins from components.
   */
@@ -35,7 +35,7 @@ GalleryLayout.Element = styled.ul`
 GalleryLayout.Item = styled.li``
 
 GalleryLayout.propTypes = {
-  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
