@@ -94,7 +94,6 @@ const getPropString = propData => {
       Currently supports only number and string
     */
     if (propData[name].type.name === 'union') {
-      console.log(propData)
       if (typeof propData[name].value === 'string') {
         propString += ` ${name}="${propData[name].value}"`
         return true
