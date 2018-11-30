@@ -10,6 +10,7 @@
     "test-watch": "jest --watch --no-cache",
     "test-unit": "jest unit --no-cache",
     "test-unit-watch": "jest unit --no-cache --watch",
+    "test-visual": "node chromatic.js",
     "coverage": "jest --coverage"
   },
   "jest": {
