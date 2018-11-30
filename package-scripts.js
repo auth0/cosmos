@@ -51,7 +51,7 @@ module.exports = {
         description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       visual: {
-        script: 'cd internal/test && yarn test-visual',
+        script: 'node internal/test/chromatic.js',
         description: 'Run chromatic visual tests'
       },
       unit: {

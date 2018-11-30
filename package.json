@@ -24,6 +24,7 @@
     "start": "nps -s production.start",
     "test": "nps -s test",
     "precommit": "nps icons.build && lint-staged",
+    "sandbox": "start-storybook -p 9001 -s build",
     "chromatic": "echo 'defined inside package-scripts.js'"
   },
   "lint-staged": {

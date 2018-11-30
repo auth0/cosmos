@@ -10,8 +10,6 @@
     "test-watch": "jest --watch --no-cache",
     "test-unit": "jest unit --no-cache",
     "test-unit-watch": "jest unit --no-cache --watch",
-    "test-visual": "node chromatic.js",
-    "sandbox": "../../node_modules/.bin/start-storybook -p 9001 -s build",
     "coverage": "jest --coverage"
   },
   "jest": {
