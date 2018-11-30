@@ -62,6 +62,7 @@ import Tabs from './molecules/tabs'
 /* layouts (internal) */
 import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
+import GalleryLayout from './molecules/_gallery-layout'
 
 export {
   ActionInput,
@@ -75,12 +76,13 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  ColumnLayout,
   DangerZone,
   Dialog,
   EmptyState,
   Form,
   FormGroup,
-  ColumnLayout,
+  GalleryLayout,
   Heading,
   Icon,
   Image,

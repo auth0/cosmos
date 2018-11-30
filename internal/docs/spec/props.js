@@ -73,7 +73,7 @@ class Props extends React.Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
+            <th width="40%">Description</th>
             <th>Default</th>
             <th />
           </tr>
