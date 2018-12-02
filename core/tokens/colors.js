@@ -143,6 +143,12 @@ const colors = {
       icon: 'blue',
       hover: '#0a84ae',
       focus: '#0a84ae'
+    },
+    action: {
+      text: '#333',
+      icon: 'black',
+      hover: '#333',
+      focus: '#333'
     }
   },
   icon: {

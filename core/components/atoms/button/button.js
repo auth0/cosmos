@@ -87,6 +87,19 @@ const appearances = {
     focusBackground: 'transparent',
     focusBorder: 'transparent',
     loadingInverse: false
+  },
+  action: {
+    text: colors.button.action.text,
+    icon: colors.button.action.icon,
+    background: 'transparent',
+    border: 'transparent',
+    hoverText: colors.button.action.hover,
+    hoverBackground: 'transparent',
+    hoverBorder: 'transparent',
+    focusText: colors.button.action.focus,
+    focusBackground: 'transparent',
+    focusBorder: 'transparent',
+    loadingInverse: false
   }
 }
 
@@ -284,7 +297,15 @@ Button.propTypes = {
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
 
   /** The visual style used to convey the button's purpose */
-  appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
+  appearance: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'cta',
+    'link',
+    'destructive',
+    'action'
+  ]),
 
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
