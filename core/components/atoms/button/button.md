@@ -40,6 +40,7 @@ their attention to it.
     <Button>default</Button>
     <Button appearance="destructive">destructive</Button>
     <Button appearance="link" icon="copy" label="I'm a button, but look like a link." />
+    <Button appearance="action" icon="close" label="Close" />
   </Stack>
 </div>
 ```
