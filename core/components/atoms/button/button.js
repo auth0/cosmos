@@ -172,7 +172,7 @@ const getAttributes = props => {
   if (props.icon && !props.text) {
     styles.padding = spacing.xsmall
     styles.minWidth = '36px'
-    styles.icon = colors.button.link.icon
+    styles.icon = appearanceStyles.icon || colors.button.link.icon
   }
 
   return styles
