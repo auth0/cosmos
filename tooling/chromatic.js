@@ -1,5 +1,5 @@
 const { event, repo, branch, ci } = require('ci-env')
-const task = require('../cosmos-scripts/task')
+const task = require('@auth0/cosmos-scripts/task')
 
 if (!ci) {
   console.error('This script should only run on CI')
