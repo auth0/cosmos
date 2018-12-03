@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Tabs, { TabLink } from '@auth0/cosmos/molecules/tabs/tabs'
+import Tabs from '@auth0/cosmos/molecules/tabs/tabs'
 
 function tabsFactory() {
   const content = {
@@ -10,7 +10,7 @@ function tabsFactory() {
     third: <div className="content-3" />
   }
 
-  const generator = (index = 0, onSelect = () => {}) =>
+  const generator = (index = 0, onSelect = () => { }) =>
     shallow(
       <Tabs selected={index} onSelect={onSelect}>
         <Tabs.Tab title="Title 1">{content.first}</Tabs.Tab>
@@ -46,7 +46,7 @@ describe('Tabs', () => {
 
     const wrapper = generator(0, selectedHandler)
     const unSelectedTab = wrapper
-      .find(TabLink)
+      .find(Tabs.TabLink)
       .filter({ selected: false })
       .first()
 

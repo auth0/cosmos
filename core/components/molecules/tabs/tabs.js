@@ -6,47 +6,6 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
-export const TabLink = styled.a`
-  display: inline-block;
-  padding: ${spacing.small} 0;
-  margin-right: ${spacing.large};
-  color: ${colors.link.default};
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
-  &:hover {
-    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
-  }
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${colors.link.default};
-  }
-  &:active {
-    border-bottom: 1px solid ${colors.base.text};
-  }
-  ${props =>
-    props.selected &&
-    css`
-      border-bottom: 1px solid ${colors.base.text};
-      cursor: default;
-      color: ${colors.text.default};
-      &:focus {
-        border-bottom: 1px solid ${colors.base.text};
-      }
-    `};
-`
-
-export const TabLinkGroup = styled.div`
-  border-bottom: 1px solid ${colors.base.grayLight};
-  ${TabLink}:last-child {
-    margin-right: 0;
-  }
-`
-
-const TabContent = styled.div`
-  padding-top: ${spacing.large};
-`
-
 /* Used to keep selected tab on uncontrolled Tabs instances */
 const tabStore = {}
 
@@ -104,22 +63,32 @@ class Tabs extends React.Component {
   render() {
     const { selected: selectedIndex } = this.props
 
+
     return (
       <Tabs.Element {...Automation('tabs')}>
-        <TabLinkGroup>
+        <Tabs.TabList role="tablist">
           {this.tabs.map((tab, index) => (
-            <TabLink
-              {...Automation('tabs.item')}
-              onClick={() => this.changeTab(index)}
-              key={index}
-              selected={selectedIndex === index}
-              tabIndex="0"
-              onKeyPress={e => this.handleKeyPress(e, index)}
-            >
-              {tab.props.label}
-            </TabLink>
+            <Tabs.TabListItem role="presentation">
+              <Tabs.TabLink
+                aria-label={tab.props.label}
+                role="tab"
+                {...Automation('tabs.item')}
+                onClick={() => this.changeTab(index)}
+                key={index}
+                selected={selectedIndex === index}
+                tabIndex={selectedIndex === index ? '-1' : '0'}
+                type="button"
+                aria-selected={selectedIndex === index}
+                aria-controls="lomismo"
+                id=""
+                onKeyPress={e => this.handleKeyPress(e, index)}
+              >
+                {tab.props.label}
+              </Tabs.TabLink>
+            </Tabs.TabListItem>
           ))}
-        </TabLinkGroup>
+        </Tabs.TabList>
+        {/* add role="tabpanel" to the panel   aria-labelledby="lomismo" tabindex="0" id=""*/}
         {this.tabs[selectedIndex]}
       </Tabs.Element>
     )
@@ -129,8 +98,51 @@ class Tabs extends React.Component {
 Tabs.Element = styled.div`
   ${containerStyles};
 `
+Tabs.TabList = styled.ul`
+  display: flex;
+  border-bottom: 1px solid ${colors.base.grayLight};
+`
 
-Tabs.Tab = TabContent
+Tabs.TabListItem = styled.li`
+  &:not(:last-child) {margin-right: ${spacing.large};}
+`
+
+Tabs.TabLink = styled.button`
+  /* Resets button browser styles */
+  background-color: transparent;
+  border: none;
+  padding: ${spacing.small} 0;
+  color: ${colors.link.default};
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  &:hover {
+    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
+  }
+  &:focus {
+    outline: none;
+    border-bottom-color: ${colors.link.default};
+  }
+  &:active {
+    border-bottom-color: ${colors.base.text};
+  }
+  ${props =>
+    props.selected &&
+    css`
+      border-bottom-color: ${colors.base.text};
+      cursor: default;
+      color: ${colors.text.default};
+      &:focus {
+        border-bottom-color: ${colors.base.text};
+      }
+    `};
+`
+
+Tabs.TabContent = styled.div`
+  padding-top: ${spacing.large};
+`
+
+Tabs.Tab = Tabs.TabContent
 
 Tabs.propTypes = {
   /** Children should be an array of Tabs.Tab */
