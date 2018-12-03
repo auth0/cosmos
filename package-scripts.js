@@ -51,7 +51,7 @@ module.exports = {
         description: 'Check if applications build + Run visual tests + Run unit tests'
       },
       visual: {
-        script: 'node tooling/chromatic.js',
+        script: 'CI=true node tooling/chromatic.js',
         description: 'Run chromatic visual tests'
       },
       unit: {
