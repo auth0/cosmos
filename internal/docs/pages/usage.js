@@ -10,6 +10,8 @@ import Installation from './usage/installation'
 import UsingComponents from './usage/using-components'
 import CustomComponents from './usage/custom-components'
 import WithStyleguide from './usage/with-styleguide'
+import Layouts from './usage/layouts'
+import OverridingStyles from './usage/overriding-styles'
 
 class Usage extends React.Component {
   render() {
@@ -21,6 +23,8 @@ class Usage extends React.Component {
         <Installation />
         <UsingComponents />
         <CustomComponents />
+        <Layouts />
+        <OverridingStyles />
         <WithStyleguide />
       </div>
     )
