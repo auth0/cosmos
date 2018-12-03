@@ -57,6 +57,7 @@ const ResourceListItem = props => {
   let title
   let subtitle
   let actions
+  let SortableHandler
 
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
@@ -96,12 +97,16 @@ const ResourceListItem = props => {
     )
   }
 
+  if (props.reorderHandle) SortableHandler = props.reorderHandle
+
   return (
     <StyledListItem
       onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
     >
       <ListItemHeader>
+        {SortableHandler && <SortableHandler />}
+
         {image}
         <div>
           {title}

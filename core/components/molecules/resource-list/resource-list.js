@@ -1,18 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc'
-import { spacing } from '@auth0/cosmos-tokens'
+import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
+import { spacing, colors } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
 import ResourceListItem from './item'
+import Tooltip from '../../atoms/tooltip'
+import Icon from '../../atoms/icon'
 
 const StyledList = styled.ul`
   margin: ${spacing.large} 0;
   padding: 0;
 `
 
-const defaultItemRenderer = (item, index) => <ResourceListItem index={index} {...item} />
+const SortableListHandle = SortableHandle(() => (
+  <SortableListHandle.Element>
+    <Tooltip content="Re-order">
+      <Icon name="resize-vertical" size={16} color={colors.button.link.icon} />
+    </Tooltip>
+  </SortableListHandle.Element>
+))
+
+SortableListHandle.Element = styled.div`
+  margin-right: ${spacing.small};
+`
+
+const defaultItemRenderer = (item, index) => (
+  <ResourceListItem index={index} reorderHandle={SortableListHandle} {...item} />
+)
 
 const itemRendererBuilder = ({ item, index, renderItem, onItemClick, actions }) => {
   const itemRenderer = renderItem || defaultItemRenderer
@@ -49,7 +65,7 @@ const SortableResourceList = SortableContainer(
 )
 
 const sortableChildrenRenderer = props => {
-  return <SortableResourceList {...props} />
+  return <SortableResourceList {...props} useDragHandle={true} />
 }
 
 const resolveChildrenRenderer = props =>
