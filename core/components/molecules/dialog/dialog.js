@@ -14,6 +14,7 @@ import Automation from '../../_helpers/automation-attribute'
 import FocusTrap from 'react-focus-lock'
 import containerStyles from '../../_helpers/container-styles'
 
+
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
   // as actions, we only need to create buttons for actions
@@ -195,8 +196,17 @@ const DialogBody = styled.div`
   word-break: break-word;
   word-wrap: break-word;
   /* Clears the margin of the last item of the body */
-  > * {
+  > *:last-child {
     margin-bottom: 0;
+  }
+
+  ${Tabs.TabList} {
+    margin-top: -${spacing.small};
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
+    justify-content: center;
   }
 `
 
