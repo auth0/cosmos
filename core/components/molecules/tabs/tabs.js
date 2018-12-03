@@ -129,7 +129,7 @@ Tabs.TabLink = styled.button`
   ${props =>
     props.selected &&
     css`
-      border-bottom-color: ${colors.base.text};
+      border-bottom: 1px solid ${colors.base.text};
       cursor: default;
       color: ${colors.text.default};
       &:focus {
