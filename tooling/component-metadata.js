@@ -83,6 +83,8 @@ const run = () => {
               prop.type.raw = prop.type.raw.replace('.isRequired', '')
             }
           })
+          // delete `children` prop - we don't want to show them in props
+          delete data.props.children
         }
 
         /* add filepath to metadata */

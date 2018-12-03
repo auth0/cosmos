@@ -68,7 +68,7 @@ class Props extends React.Component {
 
     const keys = Object.keys(propData).filter(key => key[0] !== '_')
 
-    return (
+    return keys.length ? (
       <Table>
         <thead>
           <tr>
@@ -104,7 +104,7 @@ class Props extends React.Component {
           ))}
         </tbody>
       </Table>
-    )
+    ) : null
   }
 }
 export default Props
