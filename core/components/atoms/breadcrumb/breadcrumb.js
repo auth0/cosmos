@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
+import containerStyles from '../../_helpers/container-styles'
 
-import Icon, { StyledIcon } from '../icon'
-import Link, { StyledLink } from '../link'
+import Icon from '../icon'
+import Link from '../link'
 
 const Separator = styled(Icon)`
   margin: 0 ${spacing.small};
@@ -16,10 +17,13 @@ const LinkIcon = styled(Icon)`
   margin-right: ${spacing.xsmall};
 `
 
-const Wrapper = styled.div`
-  ${/* overrides for link */ ''};
+const Breadcrumb = props => <Breadcrumb.Element {...props} {...Automation('breadcrumb')} />
 
-  ${StyledLink} {
+Breadcrumb.Element = styled.div`
+  ${containerStyles};
+
+  /* overrides for link */
+  ${Link.Element} {
     color: ${colors.base.grayDarkest};
     font-size: 13px;
     font-weight: ${fonts.weight.medium};
@@ -32,14 +36,14 @@ const Wrapper = styled.div`
     }
   }
 
-  ${/* last link should be inactive: */ ''};
-  ${StyledLink}:last-child {
+  /* last link should be inactive: */
+  ${Link.Element}:last-child {
     color: ${colors.base.default};
     cursor: default;
   }
 
-  ${/* sometimes there's just one link = first = last, let's override that */ ''};
-  ${StyledLink}:first-child {
+  /* sometimes there's just one link = first = last, let's override that */
+  ${Link.Element}:first-child {
     color: ${colors.base.grayDarkest};
     cursor: pointer;
     &:hover {
@@ -47,13 +51,13 @@ const Wrapper = styled.div`
     }
   }
 
-  ${/* fix alignment with text for all icons (including separator) */ ''};
+  /* fix alignment with text for all icons (including separator) */
   ${LinkIcon}, ${Separator} {
     position: relative;
     top: -2px;
   }
 
-  ${StyledLink}:last-child ${Separator} {
+  ${Link.Element}:last-child ${Separator} {
     display: none;
   }
   ${LinkIcon} {
@@ -63,12 +67,10 @@ const Wrapper = styled.div`
     top: -1px;
   }
 
-  ${StyledLink}:last-child ${Separator} {
+  ${Link.Element}:last-child ${Separator} {
     display: none;
   }
 `
-
-const Breadcrumb = props => <Wrapper {...props} {...Automation('breadcrumb')} />
 
 Breadcrumb.Link = props => (
   <Link {...props} {...Automation('breadcrumb.link')}>

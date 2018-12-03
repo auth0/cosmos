@@ -7,7 +7,8 @@ export default function defaultPropChangeWarning(
 ) {
   const componentName = Component.constructor.name
   const currentDefault = Component.defaultProps[propName]
-  if (currentDefault === futureDefault) return
+  const currentValueIsSet = typeof currentValue !== 'undefined'
+  if (currentDefault === futureDefault || currentValueIsSet) return
 
   const warning = `
 	The prop '${propName}' of the ${componentName} component will change from '${currentDefault}' to '${futureDefault}' on version ${version} of Cosmos.

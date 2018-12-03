@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 import margin from '../../_helpers/margin'
 
-const StyledParagraph = styled.p`
+const Paragraph = props => <Paragraph.Element {...props}>{props.children}</Paragraph.Element>
+
+Paragraph.Element = styled.p`
+  ${containerStyles};
   margin: 1em 0;
   ${margin}; /* overrides */
   color: ${colors.text.default};
@@ -12,7 +16,7 @@ const StyledParagraph = styled.p`
   font-weight: ${fonts.weight.normal};
 `
 
-const Paragraph = props => <StyledParagraph {...props}>{props.children}</StyledParagraph>
+const StyledParagraph = Paragraph.Element
 
 Paragraph.propTypes = {}
 

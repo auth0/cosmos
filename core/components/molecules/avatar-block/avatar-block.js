@@ -5,6 +5,7 @@ import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 import { deprecate } from '../../_helpers/custom-validations'
+import containerStyles from '../../_helpers/container-styles'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
@@ -15,14 +16,10 @@ const avatarSizes = {
   large: 'large'
 }
 
-const StyledAvatarBlock = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: start;
-`
+const textSpacing = '12px'
 
 const Text = styled.div`
-  margin-left: ${spacing.small};
+  margin-left: ${textSpacing};
 `
 
 const Title = styled.span`
@@ -42,26 +39,33 @@ const Subtitle = styled.span`
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
-const getTitle = props => {
-  let contents
+const getLinkedElement = props => element => {
   let link = props.href || props.link
 
-  if (!link) return <Title>{props.title}</Title>
+  if (!link) return element
 
-  /* link supports both formats: string and object */
   if (typeof link === 'string') {
-    link = { href: link, target: '_blank' } // defaults
+    link = { href: link, target: '_blank' }
   }
 
-  return (
-    <Title>
-      <Link {...link}>{props.title}</Link>
-    </Title>
-  )
+  return <Link {...link}>{element}</Link>
 }
 
+const getTitle = props => <Title>{getLinkedElement(props)(props.title)}</Title>
+
+const getAvatar = props =>
+  getLinkedElement(props)(
+    <Avatar
+      icon={props.icon}
+      image={props.image}
+      size={avatarSizes[props.size]}
+      type={props.type}
+    />
+  )
+
 const AvatarBlock = props => {
-  let title = getTitle(props)
+  const title = getTitle(props)
+  const avatar = getAvatar(props)
   let subtitle
 
   if (props.subtitle) {
@@ -69,20 +73,23 @@ const AvatarBlock = props => {
   }
 
   return (
-    <StyledAvatarBlock>
-      <Avatar
-        icon={props.icon}
-        image={props.image}
-        size={avatarSizes[props.size]}
-        type={props.type}
-      />
+    <AvatarBlock.Element>
+      {avatar}
       <Text>
         {title}
         {subtitle}
       </Text>
-    </StyledAvatarBlock>
+    </AvatarBlock.Element>
   )
 }
+
+AvatarBlock.Element = styled.span`
+  ${containerStyles};
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+`
 
 AvatarBlock.propTypes = {
   /** An icon to display. */
@@ -114,6 +121,8 @@ AvatarBlock.propTypes = {
 AvatarBlock.defaultProps = {
   size: 'default'
 }
+
+const StyledAvatarBlock = AvatarBlock.Element
 
 export default AvatarBlock
 export { StyledAvatarBlock }

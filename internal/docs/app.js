@@ -7,15 +7,16 @@ import '@auth0/cosmos-fonts'
 import Sidebar from './sidebar'
 import Spec from './spec'
 import Home from './home'
-import GuidingPrinciples from './guiding-principles'
-import Usage from './usage'
-import ContributionGuide from './contribution-guide'
-import FAQS from './faqs'
-import Changes from './changes'
 import Overview from './overview'
-import AutomationGlossary from './automation-glossary'
 import Playground from './playground'
 import Navigation from './docs-components/navigation'
+
+import GuidingPrinciples from './pages/guiding-principles'
+import Usage from './pages/usage'
+import ContributionGuide from './pages/contribution-guide'
+import FAQS from './pages/faqs'
+import Changes from './pages/changes'
+import AutomationGlossary from './pages/automation-glossary'
 
 const SideContent = styled.div`
   width: 19rem;

@@ -5,7 +5,13 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { colors } from '@auth0/cosmos-tokens'
 
-const StyledLink = styled.a`
+const Link = props => (
+  <Link.Element {...props} {...Automation('link')}>
+    {props.children}
+  </Link.Element>
+)
+
+Link.Element = styled.a`
   color: ${colors.link.default};
   text-decoration: none;
   &:hover {
@@ -13,11 +19,7 @@ const StyledLink = styled.a`
   }
 `
 
-const Link = props => (
-  <StyledLink {...props} {...Automation('link')}>
-    {props.children}
-  </StyledLink>
-)
+const StyledLink = Link.Element
 
 Link.propTypes = {
   /** URL to follow */

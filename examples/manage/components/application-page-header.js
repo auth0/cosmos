@@ -10,6 +10,7 @@ import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
 const StyledApplicationPageHeader = styled.div`
   margin-bottom: ${spacing.large};
+  line-height: 1.6;
 `
 
 /* Should be a Css Component */

@@ -14,7 +14,12 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
-  const directories = ['core/tokens', 'core/babel-preset', 'core/components']
+  const directories = [
+    'core/tokens',
+    'core/babel-preset',
+    'core/components'
+    // 'internal/cosmos-scripts'
+  ]
 
   /* copy root version to all dependencies */
   directories.forEach(directory => {
@@ -22,9 +27,14 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     let content = fs.readJsonSync(packageJSONPath)
     content.version = version
 
-    /* components should import the same version */
+    /* components should import the same version of tokens */
     if (directory === 'core/components') {
       content.dependencies['@auth0/cosmos-tokens'] = version
+    }
+
+    /* scripts should import the same version of preset */
+    if (directory === 'internal/cosmos-scripts') {
+      content.dependencies['@auth0/babel-preset-cosmos'] = version
     }
 
     fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
@@ -38,7 +48,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
 
   /* copy all packages for publishing */
   directories.forEach(directory => {
-    fs.copySync(directory, directory.replace('core', 'dist'))
+    fs.copySync(directory, directory.replace('core', 'dist').replace('internal', 'dist'))
   })
   info('PUBLISH', 'copied files')
 

@@ -9,6 +9,7 @@ import IconBrowser from './icon-browser'
 import { Alert, Code } from '@auth0/cosmos'
 import { Text, ListItem, List, Link } from '../docs-components/typography'
 import PageHeader from './page-header'
+import Table from '../docs-components/table'
 import { SectionHeader, ExampleHeader } from './header'
 
 const Example = props => {
@@ -21,6 +22,7 @@ const Example = props => {
       a: Link,
       li: ListItem,
       ul: List,
+      table: Table,
       /* use playground for js code blocks */
       code: markdownProps => {
         const language = markdownProps.className

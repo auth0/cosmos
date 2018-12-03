@@ -12,31 +12,33 @@ const BaseHeading = styled.h1`
   line-height: 1.3;
 `
 
-const StyledHeading = []
+const Heading = props => {
+  const Component = Heading.Element[props.size]
+  return <Component {...props}>{props.children}</Component>
+}
 
-StyledHeading[1] = BaseHeading.withComponent('h1').extend`
+Heading.Element = []
+
+Heading.Element[1] = BaseHeading.withComponent('h1').extend`
   font-size: 36px;
 `
 
-StyledHeading[2] = BaseHeading.withComponent('h2').extend`
+Heading.Element[2] = BaseHeading.withComponent('h2').extend`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-StyledHeading[3] = BaseHeading.withComponent('h3').extend`
+Heading.Element[3] = BaseHeading.withComponent('h3').extend`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-StyledHeading[4] = BaseHeading.withComponent('h4').extend`
+Heading.Element[4] = BaseHeading.withComponent('h4').extend`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
 
-const Heading = props => {
-  const Component = StyledHeading[props.size]
-  return <Component {...props}>{props.children}</Component>
-}
+const StyledHeading = Heading.Element
 
 Heading.propTypes = {
   size: PropTypes.oneOf([1, 2, 3, 4]),
@@ -49,4 +51,4 @@ Heading.defaultProps = {
 }
 
 export default Heading
-export { StyledHeading }
+export { StyledHeading, BaseHeading }

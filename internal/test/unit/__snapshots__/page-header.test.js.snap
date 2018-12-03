@@ -60,7 +60,7 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
   <Heading
     size={1}
   />
-  <SoftDescription
+  <Component
     description="A description"
     primaryAction={
       Object {
@@ -137,7 +137,7 @@ exports[`Page Header renders primary action only 1`] = `
   <Heading
     size={1}
   />
-  <SoftDescription
+  <Component
     primaryAction={
       Object {
         "handler": [MockFunction] {
@@ -196,7 +196,7 @@ exports[`Page Header renders secondary action only 1`] = `
   <Heading
     size={1}
   />
-  <SoftDescription
+  <Component
     description="A description"
     secondaryAction={
       Object {

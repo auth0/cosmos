@@ -49,6 +49,17 @@
 </Table>
 ```
 
+### Table Column
+
+| Field        | Type   | Default | Required | Description                                |
+| ------------ | ------ | ------- | -------- | ------------------------------------------ |
+| `field`      | string |         | false    | Which field from data to display           |
+| `title`      | string |         | false    | Title for the column                       |
+| `width`      | string |         | false    | Column width                               |
+| `sortable`   | bool   | false   | false    | Whether to make the column sortable or not |
+| `comparator` | func   |         | false    | Custom comparator function for sorting     |
+| `truncate`   | bool   | true    | false    | Whether to truncate the cell text or not   |
+
 ## Examples
 
 ### Automatic sorting
@@ -327,6 +338,51 @@ Using the `loading` prop won't hide the current data and will still show the spi
   <Table.Column field="data" title="Field 3" />
   <Table.Column field="data" title="Field 4" />
   <Table.Column field="data" title="Field 7" />
+</Table>
+```
+
+### Truncated Content
+
+You can use the `truncate` prop in `Table.Column` to make that column single-line and truncate it's text or link contents.
+
+```js
+<Table
+  items={[
+    {
+      name: 'John Doe',
+      email: 'john.doe@example.auth0.com',
+      latestLogin: 'Yesterday',
+      connection: 'Username-Password-Authentication',
+      initials: 'JD'
+    },
+    {
+      name: 'Michael Appleseed',
+      email: 'john.appleseed@example.auth0.com',
+      latestLogin: '2 days ago',
+      connection: 'Username-Password-Authentication',
+      initials: 'MA'
+    },
+    {
+      name: 'Robert Doe',
+      email: 'robert.doe@example.auth0.com',
+      latestLogin: '2 days ago',
+      connection: 'Username-Password-Authentication',
+      initials: 'RD'
+    },
+    {
+      name: 'Shaun Appleseed',
+      email: 'shaun.appleseed@example.auth0.com',
+      latestLogin: '3 days ago',
+      connection: 'Username-Password-Authentication',
+      initials: 'SA'
+    }
+  ]}
+>
+  <Table.Column>{d => <Avatar email={d.email} initials={d.initials} />}</Table.Column>
+  <Table.Column field="name" width="25%" title="Name" truncate />
+  <Table.Column field="email" width="25%" title="E-mail" truncate />
+  <Table.Column field="latestLogin" width="20%" title="Latest Login" truncate />
+  <Table.Column field="connection" width="20%" title="Connection" truncate />
 </Table>
 ```
 

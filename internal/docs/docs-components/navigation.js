@@ -11,7 +11,7 @@ import VersionSwitcher from './version-switcher'
 
 const NavigationContainer = styled.nav`
   position: fixed;
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   top: 0;
   left: 0;
@@ -133,13 +133,20 @@ class Navigation extends Component {
   toggleMenu() {
     this.setState({ isOpen: !this.state.isOpen })
   }
+  revealHiddenFeatures() {
+    /* remove hidden features css block */
+    let tag = document.getElementById('hidden-features')
+    tag.innerHTML = ''
+  }
 
   render() {
     return (
       <NavigationContainer className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}>
         <Header>
           <LogoContainer>
-            <Logo />
+            <span onDoubleClick={this.revealHiddenFeatures}>
+              <Logo />
+            </span>
             <LogoName>Cosmos</LogoName>
             <VersionSwitcher />
           </LogoContainer>
