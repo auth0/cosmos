@@ -84,7 +84,8 @@ class App extends React.Component {
       const hashParts = window.location.hash.split('#')
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
-        document.querySelector(`#${hash}`).scrollIntoView()
+        const link = document.querySelector(`#${hash}`)
+        if (link) link.scrollIntoView()
       } else {
         document.querySelector('nav').scrollIntoView()
       }
