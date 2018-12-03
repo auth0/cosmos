@@ -16,7 +16,8 @@ const params = [
   '--app-code=wuz4h54syum',
   '--storybook-addon',
   '--script-name=sandbox',
-  '--exit-zero-on-changes'
+  '--exit-zero-on-changes',
+  '--no-interactive'
 ]
 
 if (repo === 'auth0/cosmos' && branch === 'master') {
