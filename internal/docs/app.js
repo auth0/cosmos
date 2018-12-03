@@ -10,13 +10,7 @@ import Home from './home'
 import Overview from './overview'
 import Playground from './playground'
 import Navigation from './docs-components/navigation'
-
-import GuidingPrinciples from './pages/guiding-principles'
-import Usage from './pages/usage'
-import ContributionGuide from './pages/contribution-guide'
-import FAQS from './pages/faqs'
-import Changes from './pages/changes'
-import AutomationGlossary from './pages/automation-glossary'
+import guides from './guides'
 
 const SideContent = styled.div`
   width: 19rem;
@@ -90,7 +84,8 @@ class App extends React.Component {
       const hashParts = window.location.hash.split('#')
       if (hashParts.length > 2) {
         const hash = hashParts.slice(-1)[0]
-        document.querySelector(`#${hash}`).scrollIntoView()
+        const link = document.querySelector(`#${hash}`)
+        if (link) link.scrollIntoView()
       } else {
         document.querySelector('nav').scrollIntoView()
       }
@@ -111,12 +106,10 @@ class App extends React.Component {
           </SideContent>
           <MainContent id="main">
             <Body>
-              <Route exact path="/guiding-principles" component={GuidingPrinciples} />
-              <Route path="/usage" component={Usage} />
-              <Route exact path="/contribution-guide" component={ContributionGuide} />
-              <Route exact path="/faqs" component={FAQS} />
-              <Route exact path="/changes" component={Changes} />
-              <Route exact path="/automation" component={AutomationGlossary} />
+              {guides.map(guide => (
+                <Route exact path={guide.path} component={guide.component} />
+              ))}
+
               <Route exact path="/playground" component={Playground} />
               <Route exact path="/component/:componentName" component={Spec} />
               <Route exact path="/" component={Home} />
