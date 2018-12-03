@@ -13,22 +13,6 @@ const selectOpacity = {
 }
 const PLACEHOLDER_VALUE = '__select_placeholder'
 
-const StyledIcon = styled(Icon).attrs({
-  name: 'dropdown-fill',
-  size: '14'
-})`
-  position: absolute;
-  right: 12px;
-
-  svg {
-    display: block;
-
-    path {
-      fill: ${colors.text.default};
-    }
-  }
-`
-
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
@@ -62,7 +46,7 @@ const Select = ({ options, ...props }) => {
 
   return (
     <Select.Wrapper>
-      <StyledIcon />
+      <Select.ArrowIcon name="dropdown-fill" size="14" color={colors.text.default} />
       <Select.Element {...props} {...Automation('select')}>
         {/* First option will be selected if there is no value passed as a prop */}
         <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
@@ -90,6 +74,15 @@ Select.Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+`
+
+Select.ArrowIcon = styled(Icon)`
+  position: absolute;
+  right: 12px;
+
+  svg {
+    display: block;
+  }
 `
 
 const selectOptionShape = PropTypes.shape({
