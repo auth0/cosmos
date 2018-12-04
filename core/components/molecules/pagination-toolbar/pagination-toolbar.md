@@ -165,8 +165,8 @@ class PaginatedResourceList extends React.Component {
         <ResourceList
           items={this.getCurrentItems()}
           actions={[
-            { icon: 'settings', handler: function() {}, label: 'Settings' },
-            { icon: 'delete', handler: function() {}, label: 'Delete' }
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="delete" onClick={() => {}} label="Delete" />
           ]}
         />
         <PaginationToolbar
@@ -331,12 +331,14 @@ class PaginatedTable extends React.Component {
     return (
       <React.Fragment>
         <Table items={this.getCurrentItems()}>
-          <Table.Column field="image" width="50px">
-            {item => <Avatar type="user" image={item.avatar} />}
+          <Table.Column field="image" title="User" width="50%">
+            {item => (
+              <AvatarBlock size="compact" type="user" image={item.avatar} title={item.email} />
+            )}
           </Table.Column>
-          <Table.Column field="email" title="Email" width="30%" />
-          <Table.Column field="latestLogin" title="Latest Login" />
-          <Table.Column field="logins" title="Logins" sortable />
+
+          <Table.Column field="latestLogin" title="Latest Login" width="25%" />
+          <Table.Column field="logins" title="Logins" sortable width="25%" />
         </Table>
         <PaginationToolbar
           items={this.state.items.length}
