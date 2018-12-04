@@ -1,6 +1,6 @@
 import { configure } from '@storybook/react'
 import { getStorybook } from '@storybook/react'
-import 'react-chromatic/storybook-addon'
+import 'storybook-chromatic'
 
 /* This line loads all the .story files from the components */
 const components = require.context('../core/components/', true, /story\.js$/)
