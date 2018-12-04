@@ -11,7 +11,6 @@ import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 import { deprecate } from '../../../_helpers/custom-validations'
 
-
 /**
  * Builds the button from the action or
  * adds the key to the action if it's a raw button.
@@ -65,7 +64,6 @@ const ListItem = props => {
   }
 
   return (
-
     <ListItem.Element
       onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
