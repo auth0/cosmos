@@ -21,73 +21,76 @@ const SortableListHandle = SortableHandle(() => (
 SortableListHandle.Element = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: ${spacing.large};
-  margin-right: ${spacing.xsmall};
-  height: 100%;
+  margin-right: ${spacing.xxsmall};
+  min-height: 100%;
 `
 
-const defaultItemRenderer = (item, index) => (
-  <ResourceListItem index={index} reorderHandle={SortableListHandle} {...item} />
-)
-
-const itemRendererBuilder = ({ item, index, renderItem, onItemClick, actions }) => {
-  const itemRenderer = renderItem || defaultItemRenderer
-  return React.cloneElement(itemRenderer(item, index), {
-    actions: item.actions || actions,
-    onClick: item.onClick || onItemClick,
-    item
-  })
-}
-
-const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
-  items.map((item, index) => itemRendererBuilder({ item, index, renderItem, onItemClick, actions }))
-
-const SortableResourceListItem = SortableElement(
-  ({ item, index, renderItem, actions, onClick: onItemClick }) =>
-    itemRendererBuilder({ item, index, renderItem, actions, onItemClick })
-)
-
-const SortableResourceList = SortableContainer(
-  ({ items: sortableItems, actions, onItemClick, renderItem }) => (
-    <div>
-      {sortableItems.map((item, index) => (
-        <SortableResourceListItem
-          actions={item.actions || actions}
-          onClick={item.onClick || onItemClick}
-          item={item}
-          key={index}
-          index={index}
-          renderItem={renderItem}
-        />
-      ))}
-    </div>
+const ResourceList = props => {
+  const defaultItemRenderer = (item, index) => (
+    <ResourceListItem
+      index={index}
+      reorderHandle={props.sortable ? SortableListHandle : null}
+      {...item}
+    />
   )
-)
 
-const sortableChildrenRenderer = props => {
-  return <SortableResourceList {...props} useDragHandle={true} helperClass="cosmos-dragging" />
+  const itemRendererBuilder = ({ item, index, renderItem, onItemClick, actions }) => {
+    const itemRenderer = renderItem || defaultItemRenderer
+    return React.cloneElement(itemRenderer(item, index), {
+      actions: item.actions || actions,
+      onClick: item.onClick || onItemClick,
+      item
+    })
+  }
+
+  const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
+    items.map((item, index) =>
+      itemRendererBuilder({ item, index, renderItem, onItemClick, actions })
+    )
+
+  const SortableResourceListItem = SortableElement(
+    ({ item, index, renderItem, actions, onClick: onItemClick }) =>
+      itemRendererBuilder({ item, index, renderItem, actions, onItemClick })
+  )
+
+  const SortableResourceList = SortableContainer(
+    ({ items: sortableItems, actions, onItemClick, renderItem }) => (
+      <div>
+        {sortableItems.map((item, index) => (
+          <SortableResourceListItem
+            actions={item.actions || actions}
+            onClick={item.onClick || onItemClick}
+            item={item}
+            key={index}
+            index={index}
+            renderItem={renderItem}
+          />
+        ))}
+      </div>
+    )
+  )
+
+  const sortableChildrenRenderer = props => {
+    return <SortableResourceList {...props} useDragHandle={true} helperClass="cosmos-dragging" />
+  }
+
+  const resolveChildrenRenderer = props =>
+    props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
+
+  return (
+    <ResourceList.Element {...Automation('resource-list')}>
+      {resolveChildrenRenderer(props)}
+    </ResourceList.Element>
+  )
 }
-
-const resolveChildrenRenderer = props =>
-  props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
-
-const ResourceList = props => (
-  <ResourceList.Element {...Automation('resource-list')}>
-    {resolveChildrenRenderer(props)}
-  </ResourceList.Element>
-)
 
 ResourceList.Element = styled.ul`
   ${containerStyles};
 
   margin: ${spacing.large} 0;
   padding: 0;
-
-  & .cosmos-dragging {
-    background-color: red;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  }
 `
 
 ResourceList.Item = ResourceListItem

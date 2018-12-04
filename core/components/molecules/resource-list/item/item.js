@@ -96,6 +96,11 @@ ListItem.Element = styled.li`
   &:hover {
     background: ${colors.list.backgroundHover};
   }
+
+  &.cosmos-dragging {
+    opacity: 0.9;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  }
 `
 
 ListItem.Header = styled.div`
