@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 ### Changed
 
 - Resource List: Added support for `Button` as `actions` in items (soft deprecation) [#1133]
-- Internal: Migrate components to dotElement syntax [#1080]
+- Internal: Migrate components to dotElement syntax [#1080]: What we did was to migrate all internal subcomponent names. The benefit of this is that we don’t have to export multiple components but only the `Component` and you have all internal subcomponents for free. We kept exporting `StyledComponent`s as `Component.Element`'s aliases so we don’t break any of your apps. **These aliases will be supported until Cosmos 1.0.**
 
 ## 0.9.1 [November 29, 2018]
 
