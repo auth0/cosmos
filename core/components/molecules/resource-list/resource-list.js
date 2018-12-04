@@ -12,6 +12,11 @@ import Icon from '../../atoms/icon'
 const StyledList = styled.ul`
   margin: ${spacing.large} 0;
   padding: 0;
+
+  &.cosmos-dragging {
+    background-color: red;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  }
 `
 
 const SortableListHandle = SortableHandle(() => (
@@ -23,7 +28,12 @@ const SortableListHandle = SortableHandle(() => (
 ))
 
 SortableListHandle.Element = styled.div`
-  margin-right: ${spacing.small};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: ${spacing.large};
+  margin-right: ${spacing.xsmall};
+  height: 100%;
 `
 
 const defaultItemRenderer = (item, index) => (
@@ -65,7 +75,7 @@ const SortableResourceList = SortableContainer(
 )
 
 const sortableChildrenRenderer = props => {
-  return <SortableResourceList {...props} useDragHandle={true} />
+  return <SortableResourceList {...props} useDragHandle={true} helperClass="cosmos-dragging" />
 }
 
 const resolveChildrenRenderer = props =>

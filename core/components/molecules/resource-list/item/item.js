@@ -104,9 +104,8 @@ const ResourceListItem = props => {
       onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
     >
+      {SortableHandler && <SortableHandler />}
       <ListItemHeader>
-        {SortableHandler && <SortableHandler />}
-
         {image}
         <div>
           {title}
