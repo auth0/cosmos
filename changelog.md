@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 - Docs: Make it easier to add a guide [#1201]
 - Docs: Hidden placeholder for layout + overriding guides [#1202]
 
+
 ## 0.9.2 [December 3, 2018]
 
 ### Fixed
