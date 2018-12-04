@@ -308,7 +308,13 @@ Button.propTypes = {
   loading: PropTypes.bool,
 
   /** Successful state when action is completed successfuly */
-  success: PropTypes.bool
+  success: PropTypes.bool,
+
+  /** Type of button */
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+
+  /** Handler to be called when the button is clicked */
+  onClick: PropTypes.func
 }
 
 Button.defaultProps = {
