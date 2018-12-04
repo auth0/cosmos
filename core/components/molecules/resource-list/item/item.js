@@ -33,15 +33,13 @@ const resolveAction = (item, action, key) => {
  */
 const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, item))
 
-const callHandler = props => {
-  if (props.onClick) props.onClick()
-}
-
 const ListItem = props => {
   let image
   let title
   let subtitle
   let actions
+
+  const callHandler = handler => evt => handler(evt, props.item)
 
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
@@ -68,7 +66,10 @@ const ListItem = props => {
   }
 
   return (
-    <ListItem.Element onClick={() => callHandler(props)} {...Automation('resource-list.item')}>
+    <ListItem.Element
+      onClick={props.onClick ? callHandler(props.onClick) : null}
+      {...Automation('resource-list.item')}
+    >
       <ListItem.Header>
         {image}
         <div>
