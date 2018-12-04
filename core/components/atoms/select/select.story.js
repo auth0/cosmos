@@ -86,24 +86,25 @@ storiesOf('Select').add('groups', () => (
 
 storiesOf('Select').add('stressed', () => (
   <Example title="Select: stressed - 56 characters with 300px width">
-    <Select
-      value={1}
-      style={{ width: 300 }}
-      options={[
-        {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          value: 1
-        },
-        {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          value: 2
-        },
-        {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          value: 3
-        }
-      ]}
-      onChange={event => console.log(event)}
-    />
+    <div style={{ width: 300 }}>
+      <Select
+        value={1}
+        options={[
+          {
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            value: 1
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            value: 2
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            value: 3
+          }
+        ]}
+        onChange={event => console.log(event)}
+      />
+    </div>
   </Example>
 ))
