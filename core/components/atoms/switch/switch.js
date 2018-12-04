@@ -7,6 +7,65 @@ import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 
 const height = '32px'
 
+class Switch extends React.Component {
+  static displayName = 'Switch'
+  constructor(props) {
+    super(props)
+    this.state = { on: props.on }
+  }
+  onToggle() {
+    if (this.props.readOnly) return
+    this.setState(currentState => {
+      if (this.props.onToggle) this.props.onToggle(!currentState.on)
+      return { on: !currentState.on }
+    })
+  }
+  componentWillReceiveProps(newProps) {
+    if (newProps.on !== this.state.on) this.setState({ on: newProps.on })
+  }
+  render() {
+    let [onLabel, offLabel] = this.props.accessibleLabels
+    let elements = [
+      <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+    ]
+    const label = (
+      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
+    )
+    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+
+    if (this.props.labelPosition == 'left') {
+      elements.push(label)
+      elements.push(toggle)
+    } else if (this.props.labelPosition == 'right') {
+      elements.push(toggle)
+      elements.push(label)
+    }
+
+    /*
+      The checkbox is controlled by the component state
+      and is itself a readOnly component
+    */
+
+    return (
+      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+        {elements}
+      </Switch.Element>
+    )
+  }
+}
+
+Switch.Element = styled.span`
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  height: ${height};
+  position: relative;
+
+  input:focus ~ ${Toggle} {
+    box-shadow: 0 0 0 2px ${colors.base.blue};
+  }
+`
+
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
@@ -54,57 +113,13 @@ const Toggle = styled.span`
 `
 
 const Label = styled.label`
-  vertical-align: top;
-  line-height: ${height};
   font-size: ${fonts.size.small};
   font-weight: ${fonts.weight.normal};
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  padding-left: ${spacing.small};
-`
-
-class Switch extends React.Component {
-  static displayName = 'Switch'
-  constructor(props) {
-    super(props)
-    this.state = { on: props.on }
-  }
-  onToggle() {
-    if (this.props.readOnly) return
-    this.setState(currentState => {
-      if (this.props.onToggle) this.props.onToggle(!currentState.on)
-      return { on: !currentState.on }
-    })
-  }
-  componentWillReceiveProps(newProps) {
-    if (newProps.on !== this.state.on) this.setState({ on: newProps.on })
-  }
-  render() {
-    let [onLabel, offLabel] = this.props.accessibleLabels
-    /*
-      The checkbox is controlled by the component state
-      and is itself a readOnly component
-    */
-    return (
-      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
-        <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
-        <Toggle on={this.state.on} readOnly={this.props.readOnly} />
-        <Label>{this.state.on ? onLabel : offLabel}</Label>
-      </Switch.Element>
-    )
-  }
-}
-
-Switch.Element = styled.span`
-  display: inline-block;
-  vertical-align: middle;
-  height: ${height};
-  position: relative;
-
-  input:focus ~ ${Toggle} {
-    box-shadow: 0 0 0 2px ${colors.base.blue};
-  }
+  margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
+  margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
 `
 
 const StyledSwitch = Switch.Element
@@ -117,14 +132,17 @@ Switch.propTypes = {
   /** Labels to show, import for accessibility */
   accessibleLabels: PropTypes.arrayOf(PropTypes.string),
   /** Locked switch */
-  readOnly: PropTypes.bool
+  readOnly: PropTypes.bool,
+  /** Label on left side */
+  labelPosition: PropTypes.oneOf(['right', 'left'])
 }
 
 Switch.defaultProps = {
   onToggle: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
-  readOnly: false
+  readOnly: false,
+  labelPosition: 'right'
 }
 
 export default Switch
