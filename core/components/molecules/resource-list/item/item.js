@@ -39,6 +39,8 @@ const ListItem = props => {
   let subtitle
   let actions
 
+  const callHandler = handler => evt => handler(evt, props.item)
+
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
     // want to leak every prop from Avatar into the ListItem...
