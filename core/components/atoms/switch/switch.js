@@ -51,6 +51,7 @@ class Switch extends React.Component {
 Switch.Element = styled.span`
  display: inline-flex;
   align-items: center;
+  vertical-align: middle;
   height: ${height};
   position: relative;
   
