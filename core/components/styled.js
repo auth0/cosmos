@@ -6,7 +6,7 @@ import styled, {
   ThemeProvider
 } from 'styled-components'
 
-import domElements from 'styled-components/src/utils/domElements'
+import domElements from './dom-elements'
 
 /* import cosmos specific helpers */
 import margin from './styled-margin'
