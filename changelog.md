@@ -4,6 +4,37 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.9.2 [December 3, 2018]
+
+### Fixed
+
+- Form Actions: Change the role of secondary actions to `button` [#1172]
+- Button: Fix alignment issues in `Button` with href [#1178]
+
+### Changed
+
+- Resource List: Added support for `Button` as `actions` in items (soft deprecation) [#1133]
+- Internal: Migrate components to dotElement syntax [#1080]: What we did was to migrate all internal subcomponent names. The benefit of this is that we don’t have to export multiple components but only the `Component` and you have all internal subcomponents for free. We kept exporting `StyledComponent`s as `Component.Element`'s aliases so we don’t break any of your apps. **These aliases will be supported until Cosmos 1.0.**
+
+## 0.9.1 [November 29, 2018]
+
+### Fixed
+
+- Global styles: Set the global line height to `1.6`. [#1176]
+
+## 0.9.0 [November 29, 2018]
+
+### Added
+
+- Table: Add support for truncating table cell text [#1011]
+- Icons: Add social icons [#1146]
+
+### Fixed
+
+- Dialog: Making dialog responsive and accessible [#1102]
+- Examples: Fix warnings in Manage POC by @jvelezpo [#1135]
+- Remove out of sync prop-types to typescript declarations module [#1136]
+
 ## 0.8.1 [November 22, 2018]
 
 ### Fixed

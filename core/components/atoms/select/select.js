@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
-import { css } from 'styled-components'
+import Icon from '../icon'
+import styled from 'styled-components'
 
-import { misc, colors } from '@auth0/cosmos-tokens'
+import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 
 const selectOpacity = {
@@ -12,12 +13,6 @@ const selectOpacity = {
 }
 const PLACEHOLDER_VALUE = '__select_placeholder'
 
-const StyledSelect = StyledInput.withComponent('select').extend`
-  height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
-    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
-`
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
@@ -50,16 +45,45 @@ const Select = ({ options, ...props }) => {
   if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
 
   return (
-    <StyledSelect {...props} {...Automation('select')}>
-      {/* First option will be selected if there is no value passed as a prop */}
-      <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-        {props.placeholder}
-      </option>
+    <Select.Wrapper>
+      <Select.ArrowIcon name="dropdown-fill" size="14" color={colors.text.default} />
+      <Select.Element {...props} {...Automation('select')}>
+        {/* First option will be selected if there is no value passed as a prop */}
+        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+          {props.placeholder}
+        </option>
 
-      {options.map(renderOption)}
-    </StyledSelect>
+        {options.map(renderOption)}
+      </Select.Element>
+    </Select.Wrapper>
   )
 }
+
+Select.Element = StyledInput.withComponent('select').extend`
+  appearance: none;
+  
+  padding-right: ${spacing.large};
+  
+  height: ${misc.input.default.height};
+  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${props =>
+    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
+`
+
+Select.Wrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`
+
+Select.ArrowIcon = styled(Icon)`
+  position: absolute;
+  right: 12px;
+
+  svg {
+    display: block;
+  }
+`
 
 const selectOptionShape = PropTypes.shape({
   text: PropTypes.string.isRequired,

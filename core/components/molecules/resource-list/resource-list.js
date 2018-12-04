@@ -5,19 +5,10 @@ import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'r
 import { spacing, colors } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 import ResourceListItem from './item'
 import Tooltip from '../../atoms/tooltip'
 import Icon from '../../atoms/icon'
-
-const StyledList = styled.ul`
-  margin: ${spacing.large} 0;
-  padding: 0;
-
-  &.cosmos-dragging {
-    background-color: red;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-  }
-`
 
 const SortableListHandle = SortableHandle(() => (
   <SortableListHandle.Element>
@@ -82,8 +73,22 @@ const resolveChildrenRenderer = props =>
   props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
 
 const ResourceList = props => (
-  <StyledList {...Automation('resource-list')}>{resolveChildrenRenderer(props)}</StyledList>
+  <ResourceList.Element {...Automation('resource-list')}>
+    {resolveChildrenRenderer(props)}
+  </ResourceList.Element>
 )
+
+ResourceList.Element = styled.ul`
+  ${containerStyles};
+
+  margin: ${spacing.large} 0;
+  padding: 0;
+
+  & .cosmos-dragging {
+    background-color: red;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+  }
+`
 
 ResourceList.Item = ResourceListItem
 
@@ -91,7 +96,10 @@ ResourceList.propTypes = {
   /** The items that will be rendered in the list. */
   items: PropTypes.array.isRequired,
   /** The actions to render to the right side of the list items. */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
   /** A function that will be called when an item is clicked. */
   onItemClick: PropTypes.func,
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */

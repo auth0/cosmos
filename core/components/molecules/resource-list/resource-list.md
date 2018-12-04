@@ -33,8 +33,8 @@ The only required prop is `items`, which should be a list of items to display.
     }
   ]}
   actions={[
-    { icon: 'settings', handler: function() {}, label: 'Settings' },
-    { icon: 'delete', handler: function() {}, label: 'Delete' }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" />
   ]}
   onItemClick={(evt, item) => alert(`${item.title} (${item.subtitle}) was clicked!`)}
 />
@@ -62,12 +62,12 @@ If necessary, you can override the actions for a specific list item by giving th
     {
       title: 'Item 3',
       subtitle: 'Example item',
-      actions: [{ icon: 'settings', handler: function() {}, label: 'Settings' }]
+      actions: [<Button icon="settings" onClick={() => {}} label="Settings" />]
     }
   ]}
   actions={[
-    { icon: 'settings', handler: function() {}, label: 'Settings' },
-    { icon: 'delete', handler: function() {}, label: 'Delete' }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" />
   ]}
 />
 ```
@@ -91,8 +91,8 @@ If you need more control over the rendering of list items, you can pass a `rende
     </ResourceList.Item>
   )}
   actions={[
-    { icon: 'settings', handler: function() {}, label: 'Settings' },
-    { icon: 'delete', handler: function() {}, label: 'Delete' }
+    <Button icon="settings" onClick={() => {}} label="Settings" />,
+    <Button icon="delete" onClick={() => {}} label="Delete" />
   ]}
 />
 ```

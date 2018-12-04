@@ -1,4 +1,5 @@
 import {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -9,11 +10,13 @@ import {
   ButtonGroup,
   Checkbox,
   Code,
+  ColumnLayout,
   DangerZone,
   Dialog,
   EmptyState,
   Form,
   FormGroup,
+  GalleryLayout,
   Heading,
   Icon,
   Image,
@@ -21,6 +24,7 @@ import {
   Link,
   List,
   Logo,
+  PageLayout,
   PageHeader,
   Pagination,
   PaginationToolbar,
@@ -28,6 +32,7 @@ import {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
@@ -39,10 +44,12 @@ import {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 } from './components'
 
 export {
+  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -53,11 +60,13 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  ColumnLayout,
   DangerZone,
   Dialog,
   EmptyState,
   Form,
   FormGroup,
+  GalleryLayout,
   Heading,
   Icon,
   Image,
@@ -65,6 +74,7 @@ export {
   Link,
   List,
   Logo,
+  PageLayout,
   PageHeader,
   Pagination,
   PaginationToolbar,
@@ -72,6 +82,7 @@ export {
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
@@ -83,5 +94,6 @@ export {
   Text,
   TextArea,
   TextInput,
-  Tooltip
+  Tooltip,
+  Well
 }

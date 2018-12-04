@@ -7,7 +7,42 @@ import Automation from '../../_helpers/automation-attribute'
 const CheckMark = styled.span``
 const Label = styled.span``
 
-const StyledRadioOption = styled.label`
+const justifyContent = {
+  horizontal: `margin-right: ${spacing.medium}`,
+  vertical: `margin-bottom: ${spacing.small}`
+}
+
+const Radio = props => (
+  <Radio.Element {...props} {...Automation('radio')}>
+    {React.Children.map(props.children, child => {
+      return React.cloneElement(child, {
+        name: props.name,
+        checked: props.selected === child.props.value,
+        readOnly: props.readOnly || child.props.readOnly,
+        onChange: props.onChange
+      })
+    })}
+  </Radio.Element>
+)
+
+Radio.Option = props => (
+  <Radio.Option.Element readOnly={props.readOnly}>
+    <input
+      {...Automation('radio.option')}
+      pepe="test"
+      type="radio"
+      name={props.name}
+      value={props.value}
+      checked={props.checked}
+      onChange={props.onChange}
+      readOnly
+    />
+    <CheckMark />
+    <Label>{props.children}</Label>
+  </Radio.Option.Element>
+)
+
+Radio.Option.Element = styled.label`
   position: relative;
   cursor: pointer;
   padding-left: ${spacing.medium};
@@ -79,13 +114,8 @@ const StyledRadioOption = styled.label`
   }
 `
 
-const justifyContent = {
-  horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
-}
-
-const StyledRadio = styled.div`
-  ${StyledRadioOption} {
+Radio.Element = styled.div`
+  ${Radio.Option.Element} {
     display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
     ${props => justifyContent[props.align]};
 
@@ -94,36 +124,6 @@ const StyledRadio = styled.div`
     }
   }
 `
-
-const RadioOption = props => (
-  <StyledRadioOption readOnly={props.readOnly}>
-    <input
-      {...Automation('radio.option')}
-      pepe="test"
-      type="radio"
-      name={props.name}
-      value={props.value}
-      checked={props.checked}
-      onChange={props.onChange}
-      readOnly
-    />
-    <CheckMark />
-    <Label>{props.children}</Label>
-  </StyledRadioOption>
-)
-
-const Radio = props => (
-  <StyledRadio {...props} {...Automation('radio')}>
-    {React.Children.map(props.children, child => {
-      return React.cloneElement(child, {
-        name: props.name,
-        checked: props.selected === child.props.value,
-        readOnly: props.readOnly || child.props.readOnly,
-        onChange: props.onChange
-      })
-    })}
-  </StyledRadio>
-)
 
 Radio.propTypes = {
   /** The direction in which the options should be laid out */
@@ -142,7 +142,8 @@ Radio.defaultProps = {
   align: 'vertical'
 }
 
-Radio.Option = RadioOption
+const StyledRadio = Radio.Element
+const StyledRadioOption = Radio.Option.Element
 
 export default Radio
 export { StyledRadio, StyledRadioOption }

@@ -3,11 +3,35 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 const CheckMark = styled.span``
 const Label = styled.span``
 
-const StyledCheckboxOption = styled.label`
+const justifyContent = {
+  horizontal: `margin-right: ${spacing.medium}`,
+  vertical: `margin-bottom: ${spacing.small}`
+}
+
+const Checkbox = props => (
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
+    <input
+      type="checkbox"
+      name={props.name}
+      value={props.value}
+      checked={props.checked}
+      defaultChecked={props.defaultChecked}
+      onChange={props.onChange}
+      readOnly
+    />
+    <CheckMark />
+    <Label>{props.children}</Label>
+  </Checkbox.Option>
+)
+
+Checkbox.Option = styled.label`
+  ${containerStyles};
+
   position: relative;
   cursor: pointer;
   margin-bottom: 0;
@@ -81,13 +105,8 @@ const StyledCheckboxOption = styled.label`
   }
 `
 
-const justifyContent = {
-  horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
-}
-
-const StyledCheckbox = styled.div`
-  ${StyledCheckboxOption} {
+Checkbox.Element = styled.div`
+  ${Checkbox.Option} {
     display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
     ${props => justifyContent[props.align]};
 
@@ -97,24 +116,8 @@ const StyledCheckbox = styled.div`
   }
 `
 
-const Checkbox = props => (
-  <StyledCheckboxOption readOnly={props.readOnly} {...Automation('checkbox')}>
-    <input
-      type="checkbox"
-      name={props.name}
-      value={props.value}
-      checked={props.checked}
-      defaultChecked={props.defaultChecked}
-      onChange={props.onChange}
-      readOnly
-    />
-    <CheckMark />
-    <Label>{props.children}</Label>
-  </StyledCheckboxOption>
-)
-
-const CheckboxGroup = props => (
-  <StyledCheckbox {...props} {...Automation('checkbox.group')}>
+Checkbox.Group = props => (
+  <Checkbox.Element {...props} {...Automation('checkbox.group')}>
     {React.Children.map(props.children, child => {
       return React.cloneElement(child, {
         name: props.name,
@@ -124,8 +127,12 @@ const CheckboxGroup = props => (
         onChange: props.onChange
       })
     })}
-  </StyledCheckbox>
+  </Checkbox.Element>
 )
+
+// Backwards compatibility (will be removed in 1.0)
+const StyledCheckbox = Checkbox.Element
+const StyledCheckboxOption = Checkbox.Option
 
 Checkbox.propTypes = {
   /** The direction in which the options should be laid out */
@@ -143,8 +150,6 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   align: 'vertical'
 }
-
-Checkbox.Group = CheckboxGroup
 
 export default Checkbox
 export { StyledCheckbox, StyledCheckboxOption }
