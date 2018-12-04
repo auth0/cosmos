@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.9.3 [December 4, 2018]
+
+### Fixed
+
+- Fix callHandler is not defined issue in ResourceList [#1210]
+- Improved examples in Pagination toolbar docs [#1207]
+- Fix appearance of select in Firefox [#1143]
+
+### Changed
+
+- Docs: Make it easier to add a guide [#1201]
+- Docs: Hidden placeholder for layout + overriding guides [#1202]
+
 ## 0.9.2 [December 3, 2018]
 
 ### Fixed
