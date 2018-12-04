@@ -96,11 +96,7 @@ storiesOf('Resource List').add('actions', () => (
         </ResourceList.Item>
       )}
       actions={[
-        {
-          label: 'Delete',
-          icon: 'delete',
-          handler: function() {}
-        },
+        { label: 'Delete',   icon: 'delete',   handler: function() {} },
         { label: 'Settings', icon: 'settings', handler: function() {} }
       ]}
     />
