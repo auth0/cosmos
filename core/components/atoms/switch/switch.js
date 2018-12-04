@@ -25,8 +25,12 @@ class Switch extends React.Component {
   }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
-    let elements = [<Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />]
-    const label = <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
+    let elements = [
+      <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+    ]
+    const label = (
+      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
+    )
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
     if (this.props.labelPosition == 'left') {
@@ -42,19 +46,21 @@ class Switch extends React.Component {
       and is itself a readOnly component
     */
 
-    return <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
-      {elements}
-    </Switch.Element>
+    return (
+      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+        {elements}
+      </Switch.Element>
+    )
   }
 }
 
 Switch.Element = styled.span`
- display: inline-flex;
+  display: inline-flex;
   align-items: center;
   vertical-align: middle;
   height: ${height};
   position: relative;
-  
+
   input:focus ~ ${Toggle} {
     box-shadow: 0 0 0 2px ${colors.base.blue};
   }
@@ -112,10 +118,9 @@ const Label = styled.label`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  margin-left: ${props => props.labelPosition == "left" ? '0' : spacing.small};
-  margin-right: ${props => props.labelPosition == "left" ? spacing.small : '0'};
+  margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
+  margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
 `
-
 
 const StyledSwitch = Switch.Element
 
