@@ -65,11 +65,11 @@
     "nps-utils": "1.6.0",
     "prettier": "1.14.3",
     "prettycli": "1.4.3",
-    "react-chromatic": "0.8.4",
     "react-docgen": "2.21.0",
     "react-docgen-deprecation-handler": "1.0.0",
     "react-docgen-displayname-handler": "2.1.0",
     "read-pkg": "4.0.1",
+    "storybook-chromatic": "1.2.1",
     "svgo": "1.0.5"
   }
 }
