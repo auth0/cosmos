@@ -46,7 +46,7 @@ const Select = ({ options, ...props }) => {
 
   return (
     <Select.Wrapper>
-      <Select.ArrowIcon name="dropdown-fill" size="14" color={colors.text.default} />
+      <Select.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Select.Element {...props} {...Automation('select')}>
         {/* First option will be selected if there is no value passed as a prop */}
         <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
