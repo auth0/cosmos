@@ -9,6 +9,7 @@ storiesOf('Image', module).add('url', () => (
     <Image
       source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
       alt="auth0 logo"
+      imageFit="scale-down"
     />
   </Example>
 ))
