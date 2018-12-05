@@ -9,17 +9,12 @@ const imageFit = {
   'scale-down': 'scale-down'
 }
 
-const imageSize = {
-  height: 'contain',
-  width: 'cover'
-}
-
 const Image = props => <Image.Element src={props.source} alt={props.alt} {...props} />
 
 Image.Element = styled.img`
   object-fit: ${props => imageFit[props.imageFit]};
-  height: auto;
-  width: 100%;
+  height: /* default: auto; */ ;
+  width: /* default: 100%; */ ;
 `
 
 Image.propTypes = {
