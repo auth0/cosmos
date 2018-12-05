@@ -24,7 +24,7 @@ FormGroup.FormWrapper = styled(Well)`
 `
 FormGroup.propTypes = {
   /** children should be Form components */
-  children: PropTypes.arrayOf(PropTypes.element)
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
 }
 
 FormGroup.defaultProps = {}
