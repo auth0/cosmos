@@ -1,6 +1,7 @@
 import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import yaml from 'yamljs'
+import styled from 'styled-components'
 
 import Playground from './playground'
 import Break from './break'
@@ -11,6 +12,12 @@ import { Text, ListItem, List, Link } from '../docs-components/typography'
 import PageHeader from './page-header'
 import Table from '../docs-components/table'
 import { SectionHeader, ExampleHeader } from './header'
+
+const Blockquote = styled.div`
+  background: #eee;
+  padding: 16px;
+  border-left: 2px solid #ffa7c4;
+`
 
 const Example = props => {
   const options = {
@@ -23,6 +30,7 @@ const Example = props => {
       li: ListItem,
       ul: List,
       table: Table,
+      blockquote: Blockquote,
       /* use playground for js code blocks */
       code: markdownProps => {
         const language = markdownProps.className

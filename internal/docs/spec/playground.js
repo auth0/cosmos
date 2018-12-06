@@ -69,7 +69,7 @@ class Playground extends React.Component {
 
     this.state = {
       showProps,
-      codeVisible: showProps,
+      codeVisible: true,
       code,
       defaultsFromDocs
     }
