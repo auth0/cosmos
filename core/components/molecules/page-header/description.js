@@ -20,8 +20,12 @@ const ArrowMore = styled.i`
 const StyledLink = styled(Link)``
 
 export const StyledParagraph = styled(Paragraph)`
-  margin-top: ${spacing.large};
-  margin-bottom: 0;
+  /* 
+  Components should not have margin by default.
+  We'll remove this margin reset when we remove margins from the paragraph
+  */
+  margin: 0;
+  grid-area: subtitle;
 
   &:hover ${ArrowMore} {
     border-color: transparent transparent transparent ${colors.link.defaultHover};

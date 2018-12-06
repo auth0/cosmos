@@ -17,7 +17,9 @@ import containerStyles from '../../_helpers/container-styles'
 const PageHeader = props => {
   return (
     <PageHeader.Element {...Automation('page-header')}>
-      <ButtonGroup align="right">
+      <Heading size={1}>{props.title}</Heading>
+      <PageHeader.Description {...props} />
+      <ButtonGroup>
         {props.secondaryAction && (
           <Button
             size="large"
@@ -40,28 +42,52 @@ const PageHeader = props => {
         )}
       </ButtonGroup>
 
-      <Heading size={1}>{props.title}</Heading>
-      <PageHeader.SoftDescription {...props} />
     </PageHeader.Element>
   )
 }
 
 PageHeader.Element = styled.div`
   ${containerStyles};
-
+  display: grid;
+  /* Placeholder width media feature until we have global variables for breakpoints */
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "title"
+    "subtitle"
+    "actions";
+  grid-row-gap: ${spacing.small};
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title actions"
+      "subtitle subtitle";
+    grid-column-gap: ${spacing.xsmall};
+    grid-row-gap: ${spacing.medium};
+  }
+  /* 
+  Components should not have margin by default.
+  We'll remove this margin eventually
+  */
   margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {
-    float: right;
+    grid-area: actions;
   }
 
   ${Heading.Element[1]} {
+    grid-area: title;
+    /* 
+    Components should not have margin by default.
+    We'll remove this margin reset when we remove margins from headers
+    */
     margin: 0;
-    margin-bottom: ${spacing.xsmall};
   }
 `
 
-PageHeader.SoftDescription = ({ description, learnMore }) => {
+PageHeader.Description = ({ description, learnMore }) => {
   if (!description) return null
 
   if (descriptionIsObject(description)) {
