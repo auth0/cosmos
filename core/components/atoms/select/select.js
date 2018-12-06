@@ -46,7 +46,7 @@ const Select = ({ options, ...props }) => {
 
   return (
     <Select.Wrapper>
-      <Select.ArrowIcon name="dropdown-fill" size="14" color={colors.text.default} />
+      <Select.ArrowIcon name="dropdown-fill" size="14" color="black" />
       <Select.Element {...props} {...Automation('select')}>
         {/* First option will be selected if there is no value passed as a prop */}
         <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
@@ -61,9 +61,9 @@ const Select = ({ options, ...props }) => {
 
 Select.Element = StyledInput.withComponent('select').extend`
   appearance: none;
-  
+
   padding-right: ${spacing.large};
-  
+
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
   background-color: ${props =>

@@ -256,6 +256,10 @@ default badge
 
 > 👍 uses children
 
-```
+## Button
 
+### default
+
+```js
+<Button>Button</Button>
 ```

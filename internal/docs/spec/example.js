@@ -14,8 +14,8 @@ import Table from '../docs-components/table'
 import { SectionHeader, ExampleHeader } from './header'
 
 const Blockquote = styled.div`
-  background: #eee;
   padding: 16px;
+  background: #f9f9f9;
   border-left: 2px solid #ffa7c4;
 `
 
