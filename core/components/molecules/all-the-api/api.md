@@ -1,4 +1,4 @@
-## Notes
+## Some API thoughts:
 
 - a prop across components should behave the same
 - similar functionality should have the same prop
@@ -10,6 +10,125 @@
 - do not support two props to do the same thing
 - use children to fill contents (unless intentionally locked)
 
+## Repeating patterns (WIP):
+
+> Note: These are just patterns, not judgements.
+>
+> Some of these inconsistencies are a result of how the API has evolved and can be minimised
+>
+> Some of these have good reasons to be inconsistent - We can acknowledge it as a better solution
+
+### appearance
+
+```txt
+// From the docs:
+
+Alert: Style of alert to show
+Badge: The visual style used to convey the label's purpose
+Button: The visual style used to convey the button's purpose
+```
+
+```js
+<div>
+  <Stack>
+    <Alert type="default">default</Alert>
+    <Alert type="information">information</Alert>
+    <Alert type="success">success</Alert>
+    <Alert type="warning">warning</Alert>
+    <Alert type="danger">danger</Alert>
+  </Stack>
+  <br />
+  <Stack>
+    <Badge appearance="default">123</Badge>
+    <Badge appearance="information">99</Badge>
+    <Badge appearance="success">345</Badge>
+    <Badge appearance="warning">6</Badge>
+    <Badge appearance="danger">55</Badge>
+  </Stack>
+  <br />
+  <Stack>
+    <Button>default</Button>
+    <Button appearance="primary">primary</Button>
+    <Button appearance="secondary">secondary</Button>
+    <Button appearance="cta">cta</Button>
+    <Button appearance="link">link</Button>
+    <Button appearance="destructive">destructive</Button>
+  </Stack>
+</div>
+```
+
+> 👎 `Button` and `Badge` call it `appearance`, `Alert` calls it `types`
+
+> 👍 `Alert` and `Badge` have the same options for `appearance`
+
+### size
+
+```txt
+// From the docs:
+
+Avatar: The size of the avatar
+Button: The size of the button
+```
+
+```js
+<div>
+  <Stack>
+    <Avatar type="user" size="xsmall" image="https://twitter-avatar.now.sh/evilrabbit_" />
+    <Avatar type="user" size="small" image="https://twitter-avatar.now.sh/evilrabbit_" />
+    <Avatar type="user" size="medium" image="https://twitter-avatar.now.sh/evilrabbit_" />
+    <Avatar type="user" size="large" image="https://twitter-avatar.now.sh/evilrabbit_" />
+    <Avatar type="user" size="xlarge" image="https://twitter-avatar.now.sh/evilrabbit_" />
+    <Avatar type="user" size="xxlarge" image="https://twitter-avatar.now.sh/evilrabbit_" />
+  </Stack>
+  <br />
+  <Stack>
+    <Button size="small">small</Button>
+    <Button size="compressed">compressed</Button>
+    <Button>default</Button>
+    <Button size="large">large</Button>
+  </Stack>
+</div>
+```
+
+> 👎 inconsistent options across the same prop
+
+### icon
+
+```txt
+// From the docs:
+
+Alert: Name of icon
+Avatar: An icon to display
+Button: Name of icon
+Breadcrumb: -
+```
+
+```js
+<Stack>
+  <Alert icon="delete">alert</Alert>
+  <Avatar icon="delete" />
+  <Button icon="delete">delete</Button>
+  <Breadcrumb>
+    <Breadcrumb.Link href="/home" icon="home-fill">
+      Home
+    </Breadcrumb.Link>
+  </Breadcrumb>
+</Stack>
+```
+
+> 👍 consistent API for icon across these components (till now)
+
+### image
+
+```js
+<Stack>
+  <Avatar image="https://twitter-avatar.now.sh/evilrabbit_" />
+  <Avatar image={<Image source="https://twitter-avatar.now.sh/evilrabbit_" />} />
+</Stack>
+```
+
+## All the components:
+
 ## Alert
 
 ### Simple
@@ -18,9 +137,11 @@
 <Alert>This is the alert content</Alert>
 ```
 
+👍 uses children
+
 ### appearances
 
-The prop is called `type`
+The prop is called `type`: `default, information, success, warning, danger`
 
 ```js
 <div>
@@ -72,8 +193,6 @@ The prop is called `type`
 </Alert>
 ```
 
-> 👍 uses children
-
 ## Avatar
 
 ### default
@@ -105,7 +224,6 @@ user/medium is the default
   <Avatar type="user" size="large" image="https://twitter-avatar.now.sh/evilrabbit_" />
   <Avatar type="user" size="xlarge" image="https://twitter-avatar.now.sh/evilrabbit_" />
   <Avatar type="user" size="xxlarge" image="https://twitter-avatar.now.sh/evilrabbit_" />
-  />
 </Stack>
 ```
 
@@ -188,6 +306,8 @@ you can have both, initials are a fallback for image
 
 ⚠️ conflicting props: icon overrides initials
 
+> Avatar summary:
+
 > 👎 conflicting props
 
 > 👎 multiple props affect the same feature
@@ -199,6 +319,8 @@ default badge
 ```js
 <Badge>99</Badge>
 ```
+
+👍 uses children
 
 ```js
 <Badge>whatever i wish</Badge>
@@ -220,8 +342,6 @@ default badge
 
 ℹ️ uses `appearance` for appearance
 
-> 👍 uses children
-
 ## Breadcrumb
 
 ### simple
@@ -233,6 +353,8 @@ default badge
   <Breadcrumb.Link href="/parent/page">Page</Breadcrumb.Link>
 </Breadcrumb>
 ```
+
+👍 uses children
 
 ### with `icon`
 
@@ -254,8 +376,6 @@ default badge
 
 ⚠️ are the `icon` styles intentionally locked down?
 
-> 👍 uses children
-
 ## Button
 
 ### default
@@ -263,3 +383,103 @@ default badge
 ```js
 <Button>Button</Button>
 ```
+
+### appearance
+
+`default, primary, secondary, cta, link, destructive`
+
+```js
+<Stack>
+  <Button>default</Button>
+  <Button appearance="primary">primary</Button>
+  <Button appearance="secondary">secondary</Button>
+  <Button appearance="cta">cta</Button>
+  <Button appearance="link">link</Button>
+  <Button appearance="destructive">destructive</Button>
+</Stack>
+```
+
+### size
+
+```js
+<Stack>
+  <Button size="large">large</Button>
+  <Button>default</Button>
+  <Button size="compressed">compressed</Button>
+  <Button size="small">small</Button>
+</Stack>
+```
+
+### states
+
+```js
+<Stack>
+  <Button disabled>Disabled</Button>
+  <Button loading>Loading</Button>
+  <Button success>Success</Button>
+</Stack>
+```
+
+```js
+<Stack>
+  <Button disabled loading>
+    disabled + loading
+  </Button>
+  <Button disabled success>
+    disabled + success
+  </Button>
+  <Button loading success>
+    loading + success
+  </Button>
+</Stack>
+```
+
+⚠️ are these combinations conflicting or valid?
+
+### icons
+
+```js
+<ButtonGroup>
+  <Button icon="delete">Delete</Button>
+  <Button icon="delete" iconAlign="right">
+    Delete
+  </Button>
+</ButtonGroup>
+```
+
+```js
+<div>
+  <Stack>
+    <Button icon="delete">Delete</Button>
+    <Button icon="delete" appearance="primary">
+      Delete
+    </Button>
+    <Button icon="delete" appearance="secondary">
+      Delete
+    </Button>
+    <Button icon="delete" appearance="cta">
+      Delete
+    </Button>
+    <Button icon="delete" appearance="link">
+      Delete
+    </Button>
+    <Button icon="delete" appearance="destructive">
+      Delete
+    </Button>
+  </Stack>
+  <Stack>
+    <Button icon="delete" />
+    <Button icon="delete" appearance="primary" />
+    <Button icon="delete" appearance="secondary" />
+    <Button icon="delete" appearance="cta" />
+    <Button icon="delete" appearance="link" />
+    <Button icon="delete" appearance="destructive" />
+  </Stack>
+</div>
+```
+
+⚠️ icon color is always blue if there is no text, looks like a 🐞 bug?
+
+## end
+
+click this to anchor (in url #end) to end of page in dev mode

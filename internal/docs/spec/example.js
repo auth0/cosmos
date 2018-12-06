@@ -12,6 +12,7 @@ import { Text, ListItem, List, Link } from '../docs-components/typography'
 import PageHeader from './page-header'
 import Table from '../docs-components/table'
 import { SectionHeader, ExampleHeader } from './header'
+import CodeBlock from '../docs-components/code-block'
 
 const Blockquote = styled.div`
   padding: 16px;
@@ -49,6 +50,8 @@ const Example = props => {
         } else if (language === 'lang-meta') {
           const metadata = yaml.parse(markdownProps.children)
           return <PageHeader {...metadata} displayName={props.component.displayName} />
+        } else if (language === 'lang-txt') {
+          return <CodeBlock>{markdownProps.children}</CodeBlock>
         } else {
           return null
         }
