@@ -63,7 +63,6 @@ class Tabs extends React.Component {
   render() {
     const { selected: selectedIndex } = this.props
 
-
     return (
       <Tabs.Element {...Automation('tabs')}>
         <Tabs.TabList role="tablist">
@@ -79,7 +78,7 @@ class Tabs extends React.Component {
                 tabIndex={selectedIndex === index ? '-1' : '0'}
                 type="button"
                 aria-selected={selectedIndex === index}
-                aria-controls="lomismo"
+                aria-controls="the-same"
                 id=""
                 onKeyPress={e => this.handleKeyPress(e, index)}
               >
@@ -88,7 +87,7 @@ class Tabs extends React.Component {
             </Tabs.TabListItem>
           ))}
         </Tabs.TabList>
-        {/* add role="tabpanel" to the panel   aria-labelledby="lomismo" tabindex="0" id=""*/}
+        {/* add role="tabpanel" to the panel   aria-labelledby="the-same" tabindex="0" id=""*/}
         {this.tabs[selectedIndex]}
       </Tabs.Element>
     )
@@ -104,7 +103,9 @@ Tabs.TabList = styled.ul`
 `
 
 Tabs.TabListItem = styled.li`
-  &:not(:last-child) {margin-right: ${spacing.large};}
+  &:not(:last-child) {
+    margin-right: ${spacing.large};
+  }
 `
 
 Tabs.TabLink = styled.button`
@@ -126,6 +127,7 @@ Tabs.TabLink = styled.button`
   &:active {
     border-bottom-color: ${colors.base.text};
   }
+  ${props => console.log(props)};
   ${props =>
     props.selected &&
     css`
