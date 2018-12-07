@@ -72,34 +72,34 @@ class Tabs extends React.Component {
     return (
       <Tabs.Element {...Automation('tabs')}>
         <Tabs.TabList role="tablist">
-          {this.tabs.map((tab, index) => (
-            <Tabs.TabListItem
-              role="presentation"
-              key={tab.props.id || `${uniqueTabPrefix}-${index}`}
-            >
-              <Tabs.TabLink
-                aria-label={tab.props.label}
-                role="tab"
-                {...Automation('tabs.item')}
-                onClick={() => this.changeTab(index)}
-                tabIndex={selectedIndex === index ? '0' : '-1'}
-                type="button"
-                aria-selected={selectedIndex === index}
-                id={tab.props.id || `${uniqueTabPrefix}-${index}`}
-                aria-controls={(tab.props.id || `${uniqueTabPrefix}-${index}`) + '-tab'}
-                onKeyPress={e => this.handleKeyPress(e, index)}
-              >
-                {tab.props.label}
-              </Tabs.TabLink>
-            </Tabs.TabListItem>
-          ))}
+          {this.tabs.map((tab, index) => {
+            const id = tab.props.id || `${uniqueTabPrefix}-${index}`
+
+            return (
+              <Tabs.TabListItem role="presentation" key={id}>
+                <Tabs.TabLink
+                  type="button"
+                  role="tab"
+                  id={id}
+                  tabIndex={selectedIndex === index ? '0' : '-1'}
+                  aria-label={tab.props.label}
+                  aria-selected={selectedIndex === index}
+                  aria-controls={id + '-tab'}
+                  onClick={() => this.changeTab(index)}
+                  onKeyPress={e => this.handleKeyPress(e, index)}
+                  {...Automation('tabs.item')}
+                >
+                  {tab.props.label}
+                </Tabs.TabLink>
+              </Tabs.TabListItem>
+            )
+          })}
         </Tabs.TabList>
         {React.cloneElement(this.tabs[selectedIndex], {
-          id: this.tabs[selectedIndex].props.id || `${uniqueTabPrefix}-${selectedIndex}` + '-tab',
           role: 'tabpanel',
-          tabIndex: 0,
-          'aria-labelledby':
-            this.tabs[selectedIndex].props.id || `${uniqueTabPrefix}-${selectedIndex}`
+          id: this.tabs[selectedIndex].props.id + '-tab',
+          'aria-labelledby': this.tabs[selectedIndex].props.id,
+          tabIndex: 0
         })}
       </Tabs.Element>
     )
