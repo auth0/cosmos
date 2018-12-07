@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
@@ -9,11 +10,16 @@ import containerStyles from '../../_helpers/container-styles'
 import ResourceListItem from './item'
 import Tooltip from '../../atoms/tooltip'
 import Icon from '../../atoms/icon'
+import Button from '../../atoms/button'
 
-const SortableListHandle = SortableHandle(() => (
+const SortableListHandle = SortableHandle(({ onFocusStatusChange = () => {} } = {}) => (
   <SortableListHandle.Element>
     <Tooltip content="Re-order">
-      <Icon name="resize-vertical" size={16} color={colors.button.link.icon} />
+      <SortableListHandle.Button
+        onFocusStatusChange={onFocusStatusChange}
+        appearance="link"
+        icon="resize-vertical"
+      />
     </Tooltip>
   </SortableListHandle.Element>
 ))
@@ -22,10 +28,48 @@ SortableListHandle.Element = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: ${spacing.large};
-  margin-right: ${spacing.xxsmall};
-  min-height: 100%;
+  margin-right: ${spacing.xsmall};
 `
+
+SortableListHandle.Button = class extends React.Component {
+  notifyParent({ onFocus }) {
+    if (this.props.onFocusStatusChange) this.props.onFocusStatusChange({ onFocus })
+  }
+
+  componentDidMount() {
+    // Register events
+    const button = ReactDOM.findDOMNode(this.button)
+    button.addEventListener('focus', this.notifyParent.bind(this, { onFocus: true }))
+    button.addEventListener('blur', this.notifyParent.bind(this, { onFocus: false }))
+  }
+
+  componentWillUnmount() {
+    // Unregister events
+    const button = ReactDOM.findDOMNode(this.button)
+    button.removeEventListener('focus', this.notifyParent)
+    button.removeEventListener('blur', this.notifyParent)
+  }
+
+  render() {
+    const Element = styled(Button)`
+      padding-left: ${spacing.xxsmall};
+      padding-right: ${spacing.xxsmall};
+      min-width: 0;
+
+      &:focus {
+        background-color: ${colors.base.grayLightest};
+      }
+    `
+    return (
+      <Element
+        ref={node => {
+          this.button = node
+        }}
+        {...this.props}
+      />
+    )
+  }
+}
 
 const ResourceList = props => {
   const defaultItemRenderer = (item, index) => (

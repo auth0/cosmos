@@ -33,58 +33,79 @@ const resolveAction = (item, action, key) => {
  */
 const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, item))
 
-const ListItem = props => {
-  let image
-  let title
-  let subtitle
-  let actions
-  let SortableHandler
+class ListItem extends React.Component {
+  constructor(props) {
+    super(props)
 
-  const callHandler = handler => evt => handler(evt, props.item)
-
-  if (props.image) {
-    // TODO: We might want a way to control the type of the avatar, but we don't
-    // want to leak every prop from Avatar into the ListItem...
-    image = <Avatar type="resource" image={props.image} size="large" />
-  } else if (props.icon) {
-    image = <Avatar type="resource" icon={props.icon} size="large" />
+    this.state = { inSortingMode: false }
   }
 
-  if (props.title) {
-    if (props.href) {
-      title = <Link href={props.href}>{props.title}</Link>
-    } else {
-      title = props.title
+  setSortingMode(inSortingMode) {
+    this.setState({ inSortingMode })
+  }
+
+  render() {
+    const props = this.props
+
+    let image
+    let title
+    let subtitle
+    let actions
+    let SortableHandler
+
+    const callHandler = handler => evt => handler(evt, props.item)
+
+    if (props.image) {
+      // TODO: We might want a way to control the type of the avatar, but we don't
+      // want to leak every prop from Avatar into the ListItem...
+      image = <Avatar type="resource" image={props.image} size="large" />
+    } else if (props.icon) {
+      image = <Avatar type="resource" icon={props.icon} size="large" />
     }
+
+    if (props.title) {
+      if (props.href) {
+        title = <Link href={props.href}>{props.title}</Link>
+      } else {
+        title = props.title
+      }
+    }
+
+    if (props.subtitle) {
+      subtitle = <ListItem.Subtitle>{props.subtitle}</ListItem.Subtitle>
+    }
+
+    if (props.actions) {
+      actions = <ButtonGroup align="right">{resolveActions(props.actions, props.item)}</ButtonGroup>
+    }
+
+    if (props.reorderHandle) SortableHandler = props.reorderHandle
+
+    return (
+      <ListItem.Element
+        inSortingMode={this.state.inSortingMode}
+        onClick={props.onClick ? callHandler(props.onClick) : null}
+        {...Automation('resource-list.item')}
+      >
+        {SortableHandler && (
+          <SortableHandler
+            onFocusStatusChange={({ onFocus }) =>
+              console.log({ onFocus }) || this.setSortingMode(onFocus)
+            }
+          />
+        )}
+        <ListItem.Header>
+          {image}
+          <div>
+            {title}
+            {subtitle}
+          </div>
+        </ListItem.Header>
+        <ListItem.Body>{props.children}</ListItem.Body>
+        <ListItem.Footer>{actions}</ListItem.Footer>
+      </ListItem.Element>
+    )
   }
-
-  if (props.subtitle) {
-    subtitle = <ListItem.Subtitle>{props.subtitle}</ListItem.Subtitle>
-  }
-
-  if (props.actions) {
-    actions = <ButtonGroup align="right">{resolveActions(props.actions, props.item)}</ButtonGroup>
-  }
-
-  if (props.reorderHandle) SortableHandler = props.reorderHandle
-
-  return (
-    <ListItem.Element
-      onClick={props.onClick ? callHandler(props.onClick) : null}
-      {...Automation('resource-list.item')}
-    >
-      {SortableHandler && <SortableHandler />}
-      <ListItem.Header>
-        {image}
-        <div>
-          {title}
-          {subtitle}
-        </div>
-      </ListItem.Header>
-      <ListItem.Body>{props.children}</ListItem.Body>
-      <ListItem.Footer>{actions}</ListItem.Footer>
-    </ListItem.Element>
-  )
 }
 
 ListItem.Element = styled.li`
@@ -93,6 +114,10 @@ ListItem.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  border: ${props =>
+    console.log({ props }) ||
+    (props.inSortingMode ? `2px solid ${colors.input.borderFocus}` : 'none')}
+
   &:hover {
     background: ${colors.list.backgroundHover};
   }
@@ -161,11 +186,12 @@ ListItem.propTypes = {
     const firstAction = props.actions[0]
 
     if (!React.isValidElement(firstAction)) {
-      return deprecate(props, {
-        name: 'actions',
-        oldAPI: 'passing objects in actions',
-        replacement: '<Button>'
-      })
+      // See: https://github.com/auth0/cosmos/issues/1133
+      // See: https://github.com/auth0/cosmos/issues/1222
+      console.warn(
+        'Passing objects in actions is deprecated and will be removed in Cosmos 1.0.' +
+          ' See https://github.com/auth0/cosmos/pull/1133 for more information.'
+      )
     }
   }
 }
