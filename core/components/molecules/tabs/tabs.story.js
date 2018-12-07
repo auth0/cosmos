@@ -8,9 +8,7 @@ storiesOf('Tabs', module).add('default', () => (
   <Example title="default">
     <Tabs selected={0} onSelect={_ => {}}>
       <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
-      <Tabs.Tab label="Tab 2">
-        <input />
-      </Tabs.Tab>
+      <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
       <Tabs.Tab label="Tab 3">Look, third tab is selected by default!</Tabs.Tab>
     </Tabs>
   </Example>
