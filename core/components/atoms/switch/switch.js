@@ -120,6 +120,11 @@ const Label = styled.label`
   color: ${colors.text.secondary};
   margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
   margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+
+  /* if the label is empty, then remove the node so it doesn't create a margin */
+  &:empty {
+    display: none;
+  }
 `
 
 const StyledSwitch = Switch.Element
