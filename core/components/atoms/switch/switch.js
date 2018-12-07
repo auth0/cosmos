@@ -34,11 +34,11 @@ class Switch extends React.Component {
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
     if (this.props.labelPosition == 'left') {
-      elements.push(label)
+      if (!this.props.hideAccessibleLabels) elements.push(label)
       elements.push(toggle)
     } else if (this.props.labelPosition == 'right') {
       elements.push(toggle)
-      elements.push(label)
+      if (!this.props.hideAccessibleLabels) elements.push(label)
     }
 
     /*
@@ -136,6 +136,8 @@ Switch.propTypes = {
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
   accessibleLabels: PropTypes.arrayOf(PropTypes.string),
+  /** Hides accessibility labels */
+  hideAccessibleLabels: PropTypes.bool,
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
@@ -146,6 +148,7 @@ Switch.defaultProps = {
   onToggle: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
+  hideAccessibleLabels: false,
   readOnly: false,
   labelPosition: 'right'
 }

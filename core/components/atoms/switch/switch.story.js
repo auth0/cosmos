@@ -36,3 +36,9 @@ storiesOf('Switch').add('accessibility labels', () => (
     <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
   </Example>
 ))
+
+storiesOf('Switch').add('hidden accessibility labels', () => (
+  <Example title="Switch">
+    <Switch hideAccessibleLabels onToggle={() => {}} />
+  </Example>
+))
