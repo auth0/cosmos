@@ -5,6 +5,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
+import uniqueId from '../../_helpers/uniqueId'
 
 /* Used to keep selected tab on uncontrolled Tabs instances */
 const tabStore = {}
@@ -12,7 +13,7 @@ const tabStore = {}
 class Tabs extends React.Component {
   constructor(props) {
     super(props)
-    this.tabs = React.Children.toArray(props.children)
+    this.tabs = this.getTabsFromProps(props)
     this.state = {
       selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
     }
@@ -28,8 +29,12 @@ class Tabs extends React.Component {
     }
   }
 
+  getTabsFromProps(props) {
+    return React.Children.toArray(props.children)
+  }
+
   componentWillReceiveProps(newProps) {
-    this.tabs = React.Children.toArray(newProps.children)
+    this.tabs = this.getTabsFromProps(newProps)
     this.setState({
       selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
     })
@@ -61,25 +66,27 @@ class Tabs extends React.Component {
   }
 
   render() {
+    const uniqueTabPrefix = uniqueId('tabs')
     const { selected: selectedIndex } = this.props
 
     return (
       <Tabs.Element {...Automation('tabs')}>
         <Tabs.TabList role="tablist">
           {this.tabs.map((tab, index) => (
-            <Tabs.TabListItem role="presentation">
+            <Tabs.TabListItem
+              role="presentation"
+              key={tab.props.id || `${uniqueTabPrefix}-${index}`}
+            >
               <Tabs.TabLink
                 aria-label={tab.props.label}
                 role="tab"
                 {...Automation('tabs.item')}
                 onClick={() => this.changeTab(index)}
-                key={index}
-                selected={selectedIndex === index}
-                tabIndex={selectedIndex === index ? '-1' : '0'}
+                tabIndex={selectedIndex === index ? '0' : '-1'}
                 type="button"
                 aria-selected={selectedIndex === index}
-                aria-controls="the-same"
-                id=""
+                id={tab.props.id || `${uniqueTabPrefix}-${index}`}
+                aria-controls={(tab.props.id || `${uniqueTabPrefix}-${index}`) + '-tab'}
                 onKeyPress={e => this.handleKeyPress(e, index)}
               >
                 {tab.props.label}
@@ -87,8 +94,13 @@ class Tabs extends React.Component {
             </Tabs.TabListItem>
           ))}
         </Tabs.TabList>
-        {/* add role="tabpanel" to the panel   aria-labelledby="the-same" tabindex="0" id=""*/}
-        {this.tabs[selectedIndex]}
+        {React.cloneElement(this.tabs[selectedIndex], {
+          id: this.tabs[selectedIndex].props.id || `${uniqueTabPrefix}-${selectedIndex}` + '-tab',
+          role: 'tabpanel',
+          tabIndex: 0,
+          'aria-labelledby':
+            this.tabs[selectedIndex].props.id || `${uniqueTabPrefix}-${selectedIndex}`
+        })}
       </Tabs.Element>
     )
   }
@@ -118,7 +130,7 @@ Tabs.TabLink = styled.button`
   border-bottom: 1px solid transparent;
   margin-bottom: -1px;
   &:hover {
-    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
+    color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
   }
   &:focus {
     outline: none;
@@ -127,9 +139,8 @@ Tabs.TabLink = styled.button`
   &:active {
     border-bottom-color: ${colors.base.text};
   }
-  ${props => console.log(props)};
   ${props =>
-    props.selected &&
+    props['aria-selected'] &&
     css`
       border-bottom: 1px solid ${colors.base.text};
       cursor: default;
