@@ -31,16 +31,23 @@ You can change the default state of the switch by passing the `on` prop.
 Switch can be locked in it's initial state with the `readOnly` prop.
 
 ```js
-<div>
+<Stack>
   <Switch readOnly />
   <Switch on readOnly />
-</div>
+</Stack>
 ```
 
 ### Accessibility labels
 
-You can change the accessibility labels by passing an array with two strings.
+You can change the accessibility labels by passing an array with two strings. The position of the label can be changed to align the switch to the right.
 
 ```js
-<Switch accessibleLabels={['ON', 'OFF']} onToggle={value => console.log(value)} />
+<Stack align="space-between">
+  <Switch accessibleLabels={['ON', 'OFF']} onToggle={value => console.log(value)} />
+  <Switch
+    accessibleLabels={['ON', 'OFF']}
+    onToggle={value => console.log(value)}
+    labelPosition="left"
+  />
+</Stack>
 ```
