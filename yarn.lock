@@ -9243,7 +9243,7 @@ react-inspector@^2.3.0:
     babel-runtime "^6.26.0"
     is-dom "^1.0.9"
 
-react-is@^16.4.2:
+react-is@^16.3.1, react-is@^16.4.2:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.3.tgz#d2d7462fcfcbe6ec0da56ad69047e47e56e7eac0"
 
@@ -10580,6 +10580,24 @@ styled-components@3.1.6:
     stylis-rule-sheet "^0.0.7"
     supports-color "^3.2.3"
 
+styled-components@3.4.10:
+  version "3.4.10"
+  resolved "https://registry.npmjs.org/styled-components/-/styled-components-3.4.10.tgz#9a654c50ea2b516c36ade57ddcfa296bf85c96e1"
+  dependencies:
+    buffer "^5.0.3"
+    css-to-react-native "^2.0.3"
+    fbjs "^0.8.16"
+    hoist-non-react-statics "^2.5.0"
+    prop-types "^15.5.4"
+    react-is "^16.3.1"
+    stylis "^3.5.0"
+    stylis-rule-sheet "^0.0.10"
+    supports-color "^3.2.3"
+
+stylis-rule-sheet@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.npmjs.org/stylis-rule-sheet/-/stylis-rule-sheet-0.0.10.tgz#44e64a2b076643f4b52e5ff71efc04d8c3c4a430"
+
 stylis-rule-sheet@^0.0.7:
   version "0.0.7"
   resolved "https://registry.npmjs.org/stylis-rule-sheet/-/stylis-rule-sheet-0.0.7.tgz#5c51dc879141a61821c2094ba91d2cbcf2469c6c"
@@ -10591,6 +10609,10 @@ stylis@^3.0.0:
 stylis@^3.4.0:
   version "3.5.1"
   resolved "https://registry.npmjs.org/stylis/-/stylis-3.5.1.tgz#fd341d59f57f9aeb412bc14c9d8a8670b438e03b"
+
+stylis@^3.5.0:
+  version "3.5.4"
+  resolved "https://registry.npmjs.org/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
 
 supports-color@^2.0.0:
   version "2.0.0"
