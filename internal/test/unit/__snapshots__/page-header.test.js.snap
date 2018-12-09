@@ -4,8 +4,49 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
 <styled.div
   data-cosmos-key="page-header"
 >
+  <Heading
+    size={1}
+  />
+  <Component
+    description="A description"
+    primaryAction={
+      Object {
+        "handler": [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "icon": "analytics",
+        "label": "Primary",
+      }
+    }
+    secondaryAction={
+      Object {
+        "handler": [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "icon": "copy",
+        "label": "Secondary",
+      }
+    }
+    title=""
+  />
   <ButtonGroup
-    align="right"
+    align="left"
     compressed={false}
   >
     <Button
@@ -57,11 +98,17 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       Primary
     </Button>
   </ButtonGroup>
+</styled.div>
+`;
+
+exports[`Page Header renders primary action only 1`] = `
+<styled.div
+  data-cosmos-key="page-header"
+>
   <Heading
     size={1}
   />
   <Component
-    description="A description"
     primaryAction={
       Object {
         "handler": [MockFunction] {
@@ -75,38 +122,14 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
             },
           ],
         },
-        "icon": "analytics",
-        "label": "Primary",
-      }
-    }
-    secondaryAction={
-      Object {
-        "handler": [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-          ],
-        },
         "icon": "copy",
-        "label": "Secondary",
+        "label": "Button Content",
       }
     }
     title=""
   />
-</styled.div>
-`;
-
-exports[`Page Header renders primary action only 1`] = `
-<styled.div
-  data-cosmos-key="page-header"
->
   <ButtonGroup
-    align="right"
+    align="left"
     compressed={false}
   >
     <Button
@@ -134,11 +157,19 @@ exports[`Page Header renders primary action only 1`] = `
       Button Content
     </Button>
   </ButtonGroup>
+</styled.div>
+`;
+
+exports[`Page Header renders secondary action only 1`] = `
+<styled.div
+  data-cosmos-key="page-header"
+>
   <Heading
     size={1}
   />
   <Component
-    primaryAction={
+    description="A description"
+    secondaryAction={
       Object {
         "handler": [MockFunction] {
           "calls": Array [
@@ -157,15 +188,8 @@ exports[`Page Header renders primary action only 1`] = `
     }
     title=""
   />
-</styled.div>
-`;
-
-exports[`Page Header renders secondary action only 1`] = `
-<styled.div
-  data-cosmos-key="page-header"
->
   <ButtonGroup
-    align="right"
+    align="left"
     compressed={false}
   >
     <Button
@@ -193,29 +217,5 @@ exports[`Page Header renders secondary action only 1`] = `
       Button Content
     </Button>
   </ButtonGroup>
-  <Heading
-    size={1}
-  />
-  <Component
-    description="A description"
-    secondaryAction={
-      Object {
-        "handler": [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-          "results": Array [
-            Object {
-              "isThrow": false,
-              "value": undefined,
-            },
-          ],
-        },
-        "icon": "copy",
-        "label": "Button Content",
-      }
-    }
-    title=""
-  />
 </styled.div>
 `;

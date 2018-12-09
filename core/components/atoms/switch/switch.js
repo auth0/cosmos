@@ -13,7 +13,10 @@ class Switch extends React.Component {
     super(props)
     this.state = { on: props.on }
   }
-  onToggle() {
+  onToggle(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
     if (this.props.readOnly) return
     this.setState(currentState => {
       if (this.props.onToggle) this.props.onToggle(!currentState.on)

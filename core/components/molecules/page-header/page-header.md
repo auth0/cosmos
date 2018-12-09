@@ -69,3 +69,13 @@ A Page header can also have a single secondary action:
   }
 />
 ```
+
+## Usage
+Use the `PageHeader` to add a title, description and main actions to pages.
+
+<!-- This component should be placed within the `PageLayout.Header` layout to have the correct spacing between the header of the page and the content. -->
+
+## Accessibility
+The title is set to be an `h1` make sure that the rest of the headers througout the document follow the correct hierarchy.
+
+<!-- The `PageHeader` should be placed within the `<main>` area. -->

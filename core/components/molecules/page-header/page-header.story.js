@@ -29,6 +29,26 @@ storiesOf('Page Header').add('default', () => (
   </Example>
 ))
 
+storiesOf('Page Header').add('no actions', () => (
+  <Example title="No actions">
+    <PageHeader
+      title="Clients"
+      description={
+        <span>
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
+        </span>
+      }
+    />
+  </Example>
+))
+
+storiesOf('Page Header').add('no description', () => (
+  <Example title="No description">
+    <PageHeader title="Clients" />
+  </Example>
+))
+
 storiesOf('Page Header').add('only primary action', () => (
   <Example title="default">
     <PageHeader
