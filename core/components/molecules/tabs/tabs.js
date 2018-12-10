@@ -59,14 +59,32 @@ class Tabs extends React.Component {
     }
   }
 
-  handleKeyPress(e, index) {
-    if (e.key === 'Enter') {
+  handleTabLinkKeypress(e, index, tabsId, tabsLength) {
+    if (e.key === 'Enter' || e.key === ' ') {
       this.changeTab(index)
+      return
     }
+
+    if (!(e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return
+
+    const firstTabIndex = 0
+    const lastTabIndex = tabsLength - 1
+
+    let nextPosition = e.key === 'ArrowLeft' ? index - 1 : index + 1
+    if (nextPosition > lastTabIndex) nextPosition = firstTabIndex
+    if (nextPosition < firstTabIndex) nextPosition = lastTabIndex
+
+    this.changeFocusedTab(tabsId, nextPosition)
+  }
+
+  changeFocusedTab(tabsId, index) {
+    console.log({ tabsId, index })
+    const tab = document.querySelector(`#${tabsId}-${index}`)
+    tab.focus()
   }
 
   render() {
-    const uniqueTabPrefix = uniqueId('tabs')
+    const uniqueTabPrefix = this.props.id ? `tabs-${this.props.id}` : uniqueId('tabs')
     const { selected: selectedIndex } = this.props
 
     return (
@@ -74,6 +92,7 @@ class Tabs extends React.Component {
         <Tabs.TabList role="tablist">
           {this.tabs.map((tab, index) => {
             const id = tab.props.id || `${uniqueTabPrefix}-${index}`
+            const tabIsSelected = selectedIndex === index
 
             return (
               <Tabs.TabListItem role="presentation" key={id}>
@@ -81,13 +100,15 @@ class Tabs extends React.Component {
                   type="button"
                   role="tab"
                   id={id}
-                  tabIndex={selectedIndex === index ? '0' : '-1'}
+                  tabIndex={tabIsSelected ? '0' : '-1'}
                   aria-label={tab.props.label}
-                  aria-selected={selectedIndex === index}
+                  aria-selected={tabIsSelected}
                   aria-controls={id + '-tab'}
                   onClick={() => this.changeTab(index)}
-                  onKeyPress={e => this.handleKeyPress(e, index)}
-                  {...Automation('tabs.item')}
+                  onKeyDown={e =>
+                    this.handleTabLinkKeypress(e, index, uniqueTabPrefix, this.tabs.length)
+                  }
+                  {...Automation('tabs.link')}
                 >
                   {tab.props.label}
                 </Tabs.TabLink>
