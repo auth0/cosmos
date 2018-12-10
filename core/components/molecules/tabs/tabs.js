@@ -84,7 +84,7 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const uniqueTabPrefix = this.props.id ? `tabs-${this.props.id}` : uniqueId('tabs')
+    const uniqueTabPrefix = `tabs-${this.props.id}`
     const { selected: selectedIndex } = this.props
 
     return (
@@ -184,11 +184,14 @@ Tabs.propTypes = {
   /** Selected should be the index of the desired selected tab */
   selected: PropTypes.number.isRequired,
   /** onSelect will be called with the new index when a new tab is selected by the user */
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
+  /** Unique identifier for each tab list */
+  id: PropTypes.string
 }
 
 Tabs.defaultProps = {
-  children: []
+  children: [],
+  id: uniqueId('tabs')
 }
 
 export default Tabs
