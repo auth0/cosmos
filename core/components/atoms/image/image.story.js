@@ -23,13 +23,3 @@ storiesOf('Image').add('data:url', () => (
     />
   </Example>
 ))
-
-storiesOf('Image').add('fill', () => (
-  <Example title="fill">
-    <Image
-      alt="A water turtle swimming under water"
-      source="https://images.unsplash.com/photo-1543936518-87138b3bd7a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2495&q=80"
-      imageFit="cover"
-    />
-  </Example>
-))

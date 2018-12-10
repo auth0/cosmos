@@ -13,14 +13,14 @@ const Image = props => <Image.Element src={props.source} alt={props.alt} {...pro
 
 Image.Element = styled.img`
   object-fit: ${props => imageFit[props.imageFit]};
-  height: /* default: auto; */ ;
-  width: /* default: 100%; */ ;
+  height: auto;
+  width: 100%;
 `
 
 Image.propTypes = {
   /** URL of the image */
   source: PropTypes.string.isRequired,
-  /** Alt info for the image */
+  /** Alt text is mandatory, please read the accessibility section  */
   alt: PropTypes.string,
   /** Sets how the image should be resized to fit its container. */
   imageFit: PropTypes.oneOf(['contain', 'cover', 'none', 'scale-down'])
