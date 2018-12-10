@@ -99,6 +99,7 @@ Overlay.Backdrop = styled.div`
 Overlay.Element = styled.div`
   width: 100%;
   margin: ${spacing.xlarge} ${spacing.small};
+  pointer-events: none;
 
   /* Since the focus trap is adding divs around the dialog box, the max width prop should be here */
   max-width: ${props => Overlay.getSizeForOverlay(props.contentSize)};
