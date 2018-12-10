@@ -37,11 +37,11 @@ class Switch extends React.Component {
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
     if (this.props.labelPosition == 'left') {
-      elements.push(label)
+      if (!this.props.hideAccessibleLabels) elements.push(label)
       elements.push(toggle)
     } else if (this.props.labelPosition == 'right') {
       elements.push(toggle)
-      elements.push(label)
+      if (!this.props.hideAccessibleLabels) elements.push(label)
     }
 
     /*
@@ -123,6 +123,11 @@ const Label = styled.label`
   color: ${colors.text.secondary};
   margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
   margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+
+  /* if the label is empty, then remove the node so it doesn't create a margin */
+  &:empty {
+    display: none;
+  }
 `
 
 const StyledSwitch = Switch.Element
@@ -134,6 +139,8 @@ Switch.propTypes = {
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
   accessibleLabels: PropTypes.arrayOf(PropTypes.string),
+  /** Hides accessibility labels */
+  hideAccessibleLabels: PropTypes.bool,
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
@@ -144,6 +151,7 @@ Switch.defaultProps = {
   onToggle: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
+  hideAccessibleLabels: false,
   readOnly: false,
   labelPosition: 'right'
 }
