@@ -1,75 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
-import { spacing, colors } from '@auth0/cosmos-tokens'
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc'
+import { spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 import ResourceListItem from './item'
-import Tooltip from '../../atoms/tooltip'
-import Icon from '../../atoms/icon'
-import Button from '../../atoms/button'
-
-const SortableListHandle = SortableHandle(({ onFocusStatusChange = () => {} } = {}) => (
-  <SortableListHandle.Element>
-    <Tooltip content="Re-order">
-      <SortableListHandle.Button
-        onFocusStatusChange={onFocusStatusChange}
-        appearance="link"
-        icon="resize-vertical"
-      />
-    </Tooltip>
-  </SortableListHandle.Element>
-))
-
-SortableListHandle.Element = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-right: ${spacing.xsmall};
-`
-
-SortableListHandle.Button = class extends React.Component {
-  notifyParent({ onFocus }) {
-    if (this.props.onFocusStatusChange) this.props.onFocusStatusChange({ onFocus })
-  }
-
-  componentDidMount() {
-    // Register events
-    const button = ReactDOM.findDOMNode(this.button)
-    button.addEventListener('focus', this.notifyParent.bind(this, { onFocus: true }))
-    button.addEventListener('blur', this.notifyParent.bind(this, { onFocus: false }))
-  }
-
-  componentWillUnmount() {
-    // Unregister events
-    const button = ReactDOM.findDOMNode(this.button)
-    button.removeEventListener('focus', this.notifyParent)
-    button.removeEventListener('blur', this.notifyParent)
-  }
-
-  render() {
-    const Element = styled(Button)`
-      padding-left: ${spacing.xxsmall};
-      padding-right: ${spacing.xxsmall};
-      min-width: 0;
-
-      &:focus {
-        background-color: ${colors.base.grayLightest};
-      }
-    `
-    return (
-      <Element
-        ref={node => {
-          this.button = node
-        }}
-        {...this.props}
-      />
-    )
-  }
-}
+import SortableListHandle from './sortable-handle'
 
 const ResourceList = props => {
   const defaultItemRenderer = (item, index) => (
@@ -80,12 +18,25 @@ const ResourceList = props => {
     />
   )
 
-  const itemRendererBuilder = ({ item, index, renderItem, onItemClick, actions }) => {
+  const itemRendererBuilder = ({
+    item,
+    index,
+    actions,
+    renderItem,
+    onItemClick,
+    accessibilityIndex,
+    accessibilityOnSortEnd
+  }) => {
     const itemRenderer = renderItem || defaultItemRenderer
-    return React.cloneElement(itemRenderer(item, index), {
+    const actualIndex = index || accessibilityIndex
+
+    return React.cloneElement(itemRenderer(item, actualIndex), {
+      item,
+      key: actualIndex,
+      index: actualIndex,
+      accessibilityOnSortEnd,
       actions: item.actions || actions,
-      onClick: item.onClick || onItemClick,
-      item
+      onClick: item.onClick || onItemClick
     })
   }
 
@@ -95,12 +46,26 @@ const ResourceList = props => {
     )
 
   const SortableResourceListItem = SortableElement(
-    ({ item, index, renderItem, actions, onClick: onItemClick }) =>
-      itemRendererBuilder({ item, index, renderItem, actions, onItemClick })
+    ({
+      item,
+      actions,
+      renderItem,
+      accessibilityIndex,
+      onClick: onItemClick,
+      accessibilityOnSortEnd
+    }) =>
+      itemRendererBuilder({
+        item,
+        actions,
+        renderItem,
+        accessibilityIndex,
+        onItemClick,
+        accessibilityOnSortEnd
+      })
   )
 
   const SortableResourceList = SortableContainer(
-    ({ items: sortableItems, actions, onItemClick, renderItem }) => (
+    ({ items: sortableItems, actions, onItemClick, renderItem, accessibilityOnSortEnd }) => (
       <div>
         {sortableItems.map((item, index) => (
           <SortableResourceListItem
@@ -108,6 +73,11 @@ const ResourceList = props => {
             onClick={item.onClick || onItemClick}
             item={item}
             key={index}
+            // Need to pass accessibilityIndex due to index being omitted
+            // when calling child component.
+            // See: https://github.com/clauderic/react-sortable-hoc/blob/0077f0b4e3b50f68c04672e78b6b69b8dc880d96/src/SortableElement/index.js#L89
+            accessibilityIndex={index}
+            accessibilityOnSortEnd={accessibilityOnSortEnd}
             index={index}
             renderItem={renderItem}
           />
@@ -117,7 +87,14 @@ const ResourceList = props => {
   )
 
   const sortableChildrenRenderer = props => {
-    return <SortableResourceList {...props} useDragHandle={true} helperClass="cosmos-dragging" />
+    return (
+      <SortableResourceList
+        {...props}
+        useDragHandle={true}
+        helperClass="cosmos-dragging"
+        accessibilityOnSortEnd={props.onSortEnd}
+      />
+    )
   }
 
   const resolveChildrenRenderer = props =>
@@ -150,7 +127,9 @@ ResourceList.propTypes = {
   /** A function that will be called when an item is clicked. */
   onItemClick: PropTypes.func,
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */
-  renderItem: PropTypes.func
+  renderItem: PropTypes.func,
+  /** Whether the resource list will be sortable by the user or not */
+  sortable: PropTypes.bool
 }
 
 export default ResourceList

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Button, ButtonGroup, Link } from '@auth0/cosmos'
+import { ButtonGroup, Link } from '@auth0/cosmos'
 import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
@@ -9,7 +9,6 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
-import { deprecate } from '../../../_helpers/custom-validations'
 
 /**
  * Builds the button from the action or
@@ -36,50 +35,93 @@ const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, i
 class ListItem extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = { inSortingMode: false }
+    this.dragHandler = React.createRef()
   }
 
-  setSortingMode(inSortingMode) {
-    this.setState({ inSortingMode })
+  setNextSortingMode(willBeInSortingMode) {
+    const wasInSortingMode = this.state.inSortingMode
+
+    if (!wasInSortingMode && willBeInSortingMode) this.registerArrowEvents()
+    else if (wasInSortingMode && !willBeInSortingMode) this.unRegisterArrowEvents()
+    else return
+
+    this.setState({ inSortingMode: willBeInSortingMode })
+  }
+
+  onArrowPressed(event) {
+    const { index, accessibilityOnSortEnd } = this.props
+
+    switch (event.key) {
+      case 'ArrowUp':
+        return accessibilityOnSortEnd({ oldIndex: index, newIndex: index - 1 })
+      case 'ArrowDown':
+        return accessibilityOnSortEnd({ oldIndex: index, newIndex: index + 1 })
+      default:
+        return
+    }
+  }
+
+  registerArrowEvents() {
+    document.addEventListener('keydown', this.onArrowPressed.bind(this))
+  }
+
+  unRegisterArrowEvents() {
+    document.removeEventListener('keydown', this.onArrowPressed.bind(this))
+  }
+
+  renderSortingHandler() {
+    if (this.props.reorderHandle) {
+      const SortableHandler = this.props.reorderHandle
+
+      return (
+        <SortableHandler
+          ref={this.dragHandler}
+          onFocusStatusChange={({ onFocus }) => this.setNextSortingMode(onFocus)}
+        />
+      )
+    }
+
+    return null
+  }
+
+  renderImage() {
+    if (this.props.image) {
+      // TODO: We might want a way to control the type of the avatar, but we don't
+      // want to leak every prop from Avatar into the ListItem...
+      return <Avatar type="resource" image={this.props.image} size="large" />
+    } else if (this.props.icon) {
+      return <Avatar type="resource" icon={this.props.icon} size="large" />
+    }
+
+    return null
+  }
+
+  renderTitle() {
+    if (this.props.title) {
+      if (this.props.href) {
+        return <Link href={this.props.href}>{this.props.title}</Link>
+      } else {
+        return this.props.title
+      }
+    }
+
+    return null
+  }
+
+  renderSubtitle() {
+    return this.props.subtitle ? <ListItem.Subtitle>{this.props.subtitle}</ListItem.Subtitle> : null
+  }
+
+  renderActions() {
+    return this.props.actions ? (
+      <ButtonGroup align="right">{resolveActions(this.props.actions, this.props.item)}</ButtonGroup>
+    ) : null
   }
 
   render() {
     const props = this.props
-
-    let image
-    let title
-    let subtitle
-    let actions
-    let SortableHandler
-
     const callHandler = handler => evt => handler(evt, props.item)
-
-    if (props.image) {
-      // TODO: We might want a way to control the type of the avatar, but we don't
-      // want to leak every prop from Avatar into the ListItem...
-      image = <Avatar type="resource" image={props.image} size="large" />
-    } else if (props.icon) {
-      image = <Avatar type="resource" icon={props.icon} size="large" />
-    }
-
-    if (props.title) {
-      if (props.href) {
-        title = <Link href={props.href}>{props.title}</Link>
-      } else {
-        title = props.title
-      }
-    }
-
-    if (props.subtitle) {
-      subtitle = <ListItem.Subtitle>{props.subtitle}</ListItem.Subtitle>
-    }
-
-    if (props.actions) {
-      actions = <ButtonGroup align="right">{resolveActions(props.actions, props.item)}</ButtonGroup>
-    }
-
-    if (props.reorderHandle) SortableHandler = props.reorderHandle
 
     return (
       <ListItem.Element
@@ -87,22 +129,16 @@ class ListItem extends React.Component {
         onClick={props.onClick ? callHandler(props.onClick) : null}
         {...Automation('resource-list.item')}
       >
-        {SortableHandler && (
-          <SortableHandler
-            onFocusStatusChange={({ onFocus }) =>
-              console.log({ onFocus }) || this.setSortingMode(onFocus)
-            }
-          />
-        )}
+        {this.renderSortingHandler()}
         <ListItem.Header>
-          {image}
+          {this.renderImage()}
           <div>
-            {title}
-            {subtitle}
+            {this.renderTitle()}
+            {this.renderSubtitle()}
           </div>
         </ListItem.Header>
         <ListItem.Body>{props.children}</ListItem.Body>
-        <ListItem.Footer>{actions}</ListItem.Footer>
+        <ListItem.Footer>{this.renderActions()}</ListItem.Footer>
       </ListItem.Element>
     )
   }
@@ -114,9 +150,12 @@ ListItem.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
-  border: ${props =>
-    console.log({ props }) ||
-    (props.inSortingMode ? `2px solid ${colors.input.borderFocus}` : 'none')}
+  outline: ${props =>
+    props.inSortingMode
+      ? `
+          thick solid ${colors.input.borderFocus}
+        `
+      : `none`};
 
   &:hover {
     background: ${colors.list.backgroundHover};
