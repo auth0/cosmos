@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
-storiesOf('Button', module).add('appearance-icon', () => (
+storiesOf('Button', module).add('with icon appearances', () => (
   <Example title="Appearances">
     <Stack>
       <Button icon="copy">Button</Button>
