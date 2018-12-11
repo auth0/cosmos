@@ -34,7 +34,7 @@ const Actions = props => {
           margin={{
             top: 'medium',
             bottom: 'small',
-            left: props.layout === 'label-on-left' ? 0 : 'auto'
+            left: context.layout === 'label-on-left' ? 0 : 'auto'
           }}
         >
           <ButtonGroup>
