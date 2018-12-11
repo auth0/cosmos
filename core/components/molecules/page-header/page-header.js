@@ -16,8 +16,10 @@ import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
   return (
-    <PageHeader.Element {...Automation('page-header')}>
-      <Heading size={1}>{props.title}</Heading>
+    <PageHeader.Element {...Automation('page-header')} margin={{ bottom: 'large' }}>
+      <Heading size={1} margin={{ top: 0, bottom: 0, left: 0, right: 0 }}>
+        {props.title}
+      </Heading>
       <PageHeader.Description {...props} />
       <ButtonGroup>
         {props.secondaryAction && (
@@ -66,11 +68,6 @@ PageHeader.Element = styled.div`
     grid-column-gap: ${spacing.xsmall};
     grid-row-gap: ${spacing.medium};
   }
-  /* 
-  Components should not have margin by default.
-  We'll remove this margin eventually
-  */
-  margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {
     grid-area: actions;
@@ -78,11 +75,6 @@ PageHeader.Element = styled.div`
 
   ${Heading.Element[1]} {
     grid-area: title;
-    /* 
-    Components should not have margin by default.
-    We'll remove this margin reset when we remove margins from headers
-    */
-    margin: 0;
   }
 `
 
