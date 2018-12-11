@@ -7,8 +7,8 @@ exports[`Empty State renders properly 1`] = `
   <Heading
     margin={
       Object {
-        "bottom": 0,
-        "left": "xlarge",
+        "bottom": "xlarge",
+        "left": 0,
         "right": 0,
         "top": 0,
       }
@@ -20,8 +20,8 @@ exports[`Empty State renders properly 1`] = `
   <styled.div
     margin={
       Object {
-        "bottom": "auto",
-        "left": "small",
+        "bottom": "small",
+        "left": "auto",
         "right": "auto",
         "top": 0,
       }
@@ -86,8 +86,8 @@ exports[`Empty State renders properly without help link 1`] = `
   <Heading
     margin={
       Object {
-        "bottom": 0,
-        "left": "xlarge",
+        "bottom": "xlarge",
+        "left": 0,
         "right": 0,
         "top": 0,
       }
@@ -99,8 +99,8 @@ exports[`Empty State renders properly without help link 1`] = `
   <styled.div
     margin={
       Object {
-        "bottom": "auto",
-        "left": "small",
+        "bottom": "small",
+        "left": "auto",
         "right": "auto",
         "top": 0,
       }
@@ -154,8 +154,8 @@ exports[`Empty State renders properly without text 1`] = `
   <Heading
     margin={
       Object {
-        "bottom": 0,
-        "left": "xlarge",
+        "bottom": "xlarge",
+        "left": 0,
         "right": 0,
         "top": 0,
       }
@@ -167,8 +167,8 @@ exports[`Empty State renders properly without text 1`] = `
   <styled.div
     margin={
       Object {
-        "bottom": "auto",
-        "left": "small",
+        "bottom": "small",
+        "left": "auto",
         "right": "auto",
         "top": 0,
       }
