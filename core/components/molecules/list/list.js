@@ -9,10 +9,15 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 
 const List = props => {
   return (
-    <List.Element {...Automation('list')}>
+    <List.Element
+      {...Automation('list')}
+      margin={{ top: 'large', bottom: 'large', left: 0, right: 0 }}
+    >
       {props.label ? (
         <List.Label>
-          <Heading size={4}>{props.label}</Heading>
+          <Heading size={4} margin={{ top: 0, bottom: 0, left: 0, right: 0 }}>
+            {props.label}
+          </Heading>
         </List.Label>
       ) : null}
       {React.Children.map(props.children, child => (
@@ -24,16 +29,10 @@ const List = props => {
 
 List.Element = styled.ul`
   ${containerStyles};
-
-  margin: ${spacing.large} 0;
 `
 
 List.Label = styled.div`
   padding: ${spacing.xsmall};
-
-  ${StyledHeading[4]} {
-    margin: 0;
-  }
 `
 
 List.Row = styled.li`
