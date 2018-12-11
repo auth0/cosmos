@@ -73,7 +73,16 @@ class Overlay extends React.Component {
     if (open) {
       content = (
         <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-          <Overlay.Element contentSize={contentSize} innerRef={el => (this.contentElement = el)}>
+          <Overlay.Element
+            margin={{
+              top: 'xlarge',
+              bottom: 'xlarge',
+              left: 'small',
+              right: 'small'
+            }}
+            contentSize={contentSize}
+            innerRef={el => (this.contentElement = el)}
+          >
             {children}
           </Overlay.Element>
         </Overlay.Backdrop>
@@ -98,7 +107,6 @@ Overlay.Backdrop = styled.div`
 
 Overlay.Element = styled.div`
   width: 100%;
-  margin: ${spacing.xlarge} ${spacing.small};
   pointer-events: none;
 
   /* Since the focus trap is adding divs around the dialog box, the max width prop should be here */

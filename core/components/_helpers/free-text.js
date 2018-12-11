@@ -2,22 +2,18 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import Paragraph from '../atoms/paragraph'
 
-const StyledText = styled(Paragraph)`
-  margin: 0;
-`
-
 /**
  * Returns either a string with styles
  * or the raw text prop depending on its type.
  */
 const FreeText = ({ text, children, useParagraph = false }) => {
   if (children) {
-    if (useParagraph) return <StyledText>{children}</StyledText>
+    if (useParagraph) return <Paragraph margin={{ top: 0, bottom: 0 }}>{children}</Paragraph>
     return children
   }
 
   if (typeof text === 'string') {
-    if (useParagraph) return <StyledText>{text}</StyledText>
+    if (useParagraph) return <Paragraph>{text}</Paragraph>
     return text
   }
 

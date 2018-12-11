@@ -16,7 +16,6 @@ const ReadMoreLink = styled(Link)`
   &:hover {
     text-decoration: none;
   }
-  margin-left: ${spacing.xxsmall};
 `
 
 class Alert extends React.Component {
@@ -56,11 +55,22 @@ class Alert extends React.Component {
           dismissible={this.props.dismissible}
           {...Automation('alert')}
         >
-          {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
+          {this.props.icon && (
+            <Icon
+              margin={{ right: 12 }}
+              name={this.props.icon}
+              color={iconColorMap[this.props.type]}
+            />
+          )}
           <span>
             <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
-              <ReadMoreLink type="default" href={this.props.link} target="_blank">
+              <ReadMoreLink
+                margin={{ left: 'xxsmall' }}
+                type="default"
+                href={this.props.link}
+                target="_blank"
+              >
                 Read more
               </ReadMoreLink>
             )}
@@ -99,7 +109,6 @@ Alert.Element = styled.div`
   position: relative;
   display: flex;
   ${Icon.Element} {
-    margin-right: 12px;
     position: relative;
     top: 1px;
     path {
