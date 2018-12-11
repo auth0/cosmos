@@ -10,7 +10,10 @@ import containerStyles from '../../_helpers/container-styles'
 const defaultItemRenderer = item => <ResourceListItem {...item} />
 
 const ResourceList = props => (
-  <ResourceList.Element {...Automation('resource-list')}>
+  <ResourceList.Element
+    {...Automation('resource-list')}
+    margin={{ top: 'large', bottom: 'large', left: 0, right: 0 }}
+  >
     {props.items.map((item, index) => {
       const itemRenderer = props.renderItem || defaultItemRenderer
       return React.cloneElement(itemRenderer(item, index), {
@@ -25,8 +28,6 @@ const ResourceList = props => (
 
 ResourceList.Element = styled.ul`
   ${containerStyles};
-
-  margin: ${spacing.large} 0;
   padding: 0;
 `
 
