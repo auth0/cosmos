@@ -6,7 +6,7 @@ import CodeBlock from '../../docs-components/code-block'
 import { Code } from '@auth0/cosmos'
 
 const LineHeight = () => (
-  <FoldingSection name="Line Height Strategy">
+  <FoldingSection page="contribution-guide" name="Line Height Strategy">
     <Text>
       The <Code>line-height</Code> used in{' '}
       <Link href="https://styleguide.auth0.com">styleguide</Link> and cosmos are different.
