@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '@auth0/cosmos/tokens'
+const versionCompare = require('semver-compare')
 
 import { Icon } from '@auth0/cosmos'
 import { changelog } from '@auth0/cosmos/meta/changelog'
@@ -11,7 +12,7 @@ const lines = changelog.match(regex)
 let versions = lines.map(line => line.split('## ')[1].split(' [')[0])
 
 /* remove versions older than 0.5.1 */
-versions = versions.filter(version => version > '0.5.0')
+versions = versions.filter(version => versionCompare(version, '0.5.0') === 1)
 
 const StyledVersionSwitcher = styled.div`
   position: relative;
