@@ -30,7 +30,6 @@ const Wrapper = styled.div`
 
     ${Button.Element} {
       height: ${props => misc.input[props.size].height};
-      margin: 0;
     }
   }
 `
@@ -53,6 +52,7 @@ const ActionInput = props => {
               icon={action.icon}
               onClick={action.handler}
               label={action.label}
+              margin={{ top: 0, bottom: 0, left: 0, right: 0 }}
             />
           ))}
         </ButtonGroup>
