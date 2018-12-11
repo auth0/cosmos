@@ -6,7 +6,7 @@ import FoldingSection from '../../docs-components/folding-section'
 import { Code } from '@auth0/cosmos'
 
 const Architecture = () => (
-  <FoldingSection name="Architecture">
+  <FoldingSection page="contribution-guide" name="Architecture">
     <Text>The repository is broken into 3 parts:</Text>
     <List>
       <ListItem>

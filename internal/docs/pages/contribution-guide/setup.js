@@ -5,7 +5,7 @@ import CodeBlock from '../../docs-components/code-block'
 import FoldingSection from '../../docs-components/folding-section'
 
 const Setup = () => (
-  <FoldingSection name="Setup">
+  <FoldingSection page="contribution-guide" name="Setup">
     <Text>
       Clone the GitHub repository on your machine
       <CodeBlock language="shell">$ git clone https://github.com/auth0/cosmos.git</CodeBlock>
