@@ -50,7 +50,7 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
   return (
     <PaginationToolbar.Element {...Automation('pagination-toolbar')} margin={{ top: 'medium' }}>
       <PaginationToolbar.PageSelector page={page}>
-        <Label margin={{ right: 'xsmall' }}>Page</Label>
+        <Pager.Label margin={{ right: 'xsmall' }}>Page</Pager.Label>
         <TextInput
           type="number"
           size="compressed"
