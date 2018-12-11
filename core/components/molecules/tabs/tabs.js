@@ -114,7 +114,7 @@ class Tabs extends React.Component {
               selected={selectedIndex === index}
               tabIndex="0"
               onKeyPress={e => this.handleKeyPress(e, index)}
-              margin={{ bottom: '-1', right: 'large' }}
+              margin={{ bottom: -1, right: 'large' }}
             >
               {tab.props.label}
             </TabLink>
