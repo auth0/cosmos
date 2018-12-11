@@ -39,7 +39,7 @@ their attention to it.
     <Button appearance="secondary">secondary</Button>
     <Button>default</Button>
     <Button appearance="destructive">destructive</Button>
-    <Button appearance="link" icon="copy" label="I'm a button, but look like a link." />
+    <Button appearance="link">link</Button>
   </Stack>
 </div>
 ```
@@ -80,15 +80,37 @@ saved successfully.
 </div>
 ```
 
-### Icon buttons
+### Icons
 
-Icon buttons work well in compact spaces. You can pick name of `icon` from [docs/Icon](#/component/icon)
+Icons are a good way to enhance a button. Use it sparingly to add meaning to the most important actions of the page.
+
+A sole icon without text works well in compact spaces and toolbars. You can pick an icon from the [Icon component](#/component/icon). Make sure you specify a `label` that describe the action for accessibility purposes.
 
 ```js
 <div>
-  <Stack>
-    <Button appearance="link" icon="copy" />
-    <Button icon="copy" />
+  <Stack align="space-between">
+    <Button icon="copy">Action</Button>
+    <Button icon="copy" appearance="cta">
+      Action
+    </Button>
+    <Button icon="copy" appearance="primary">
+      Action
+    </Button>
+    <Button icon="copy" appearance="secondary">
+      Action
+    </Button>
+    <Button icon="copy" appearance="destructive">
+      Action
+    </Button>
+  </Stack>
+  <br />
+  <br />
+  <Stack align="space-between">
+    <Button icon="copy" label="Copy to clipboard" />
+    <Button icon="copy" label="Copy to clipboard" appearance="link" />
+    <Button icon="copy" appearance="link">
+      Action
+    </Button>
   </Stack>
 </div>
 ```
