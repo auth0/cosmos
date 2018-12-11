@@ -86,7 +86,7 @@ Tooltip.Element = styled.div`
   pointer-events: none;
   opacity: ${props => (props.defaultVisible ? 1 : 0)};
   ${props => tooltipStyles[props.position]};
-  max-width: ${props => (props.maxWidth ? props.maxWidth + 'px' : 'none')};
+  max-width: 260px;
 
   &:after {
     position: absolute;
@@ -124,16 +124,13 @@ Tooltip.propTypes = {
   /** Where to place the tooltip */
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   /** Visible by default */
-  defaultVisible: PropTypes.bool,
-  /** maxWidth of the tooltip */
-  maxWidth: PropTypes.number
+  defaultVisible: PropTypes.bool
 }
 
 Tooltip.defaultProps = {
   content: null,
   position: 'top',
-  defaultVisible: false,
-  maxWidth: 0
+  defaultVisible: false
 }
 
 export default Tooltip
