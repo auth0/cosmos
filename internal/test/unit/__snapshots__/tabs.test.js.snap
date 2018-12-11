@@ -10,7 +10,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
       key="0"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -24,7 +24,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
       key="1"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -38,7 +38,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
       key="2"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -69,7 +69,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
       key="0"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -83,7 +83,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
       key="1"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -97,7 +97,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
       key="2"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -128,7 +128,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
       key="0"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -142,7 +142,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
       key="1"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
@@ -156,7 +156,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
       key="2"
       margin={
         Object {
-          "bottom": "-1",
+          "bottom": -1,
           "right": "large",
         }
       }
