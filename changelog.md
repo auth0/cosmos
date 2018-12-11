@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 - Updates dropbox icon [#1240]
 - Upgrade to latest 3.x styled-components [#1241]
 - Removes space when the switch label is empty [#1234]
+- Removes pointer events on the overlay component [#1243]
+- Fixed accordions in Contribution guide [#1246]
+- Manage PoC: Fix Security issue and fix error on example when opening Applications [#1253]
 
 ## 0.9.3 [December 4, 2018]
 
