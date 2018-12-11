@@ -220,11 +220,10 @@ Table.EmptyState = ({ rows, children, loading }) => {
     background-color: rgb(250, 250, 250);
     border-radius: ${misc.radius};
     text-align: center;
-    margin-top: ${spacing.xsmall};
     color: ${colors.text.default};
   `
 
-  return <TableEmptyState>{children}</TableEmptyState>
+  return <TableEmptyState margin={{ top: 'xsmall' }}>{children}</TableEmptyState>
 }
 
 Table.LoadingIndicator = ({ loading, rows }) => {
@@ -240,7 +239,6 @@ Table.LoadingIndicator = ({ loading, rows }) => {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: ${initialLoadingState ? '20px' : '0'};
   `
 
   const SpinnerContainer = styled.div`
@@ -251,7 +249,7 @@ Table.LoadingIndicator = ({ loading, rows }) => {
   `
 
   return (
-    <TableLoadingIndicator>
+    <TableLoadingIndicator margin={{ top: initialLoadingState ? 20 : 0 }}>
       <SpinnerContainer>
         <Spinner size="medium" />
       </SpinnerContainer>
