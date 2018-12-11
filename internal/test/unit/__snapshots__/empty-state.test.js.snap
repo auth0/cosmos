@@ -4,14 +4,36 @@ exports[`Empty State renders properly 1`] = `
 <styled.div
   data-cosmos-key="empty-state"
 >
-  <Styled(Heading)
+  <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": "xlarge",
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   >
     Some title
-  </Styled(Heading)>
-  <styled.div>
+  </Heading>
+  <styled.div
+    margin={
+      Object {
+        "bottom": "auto",
+        "left": "small",
+        "right": "auto",
+        "top": 0,
+      }
+    }
+  >
     <Icon
       color="blue"
+      margin={
+        Object {
+          "bottom": "xsmall",
+        }
+      }
       name="copy"
       size={110}
     />
@@ -61,14 +83,36 @@ exports[`Empty State renders properly without help link 1`] = `
 <styled.div
   data-cosmos-key="empty-state"
 >
-  <Styled(Heading)
+  <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": "xlarge",
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   >
     Some title
-  </Styled(Heading)>
-  <styled.div>
+  </Heading>
+  <styled.div
+    margin={
+      Object {
+        "bottom": "auto",
+        "left": "small",
+        "right": "auto",
+        "top": 0,
+      }
+    }
+  >
     <Icon
       color="blue"
+      margin={
+        Object {
+          "bottom": "xsmall",
+        }
+      }
       name="copy"
       size={110}
     />
@@ -107,14 +151,36 @@ exports[`Empty State renders properly without text 1`] = `
 <styled.div
   data-cosmos-key="empty-state"
 >
-  <Styled(Heading)
+  <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": "xlarge",
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   >
     Some title
-  </Styled(Heading)>
-  <styled.div>
+  </Heading>
+  <styled.div
+    margin={
+      Object {
+        "bottom": "auto",
+        "left": "small",
+        "right": "auto",
+        "top": 0,
+      }
+    }
+  >
     <Icon
       color="blue"
+      margin={
+        Object {
+          "bottom": "xsmall",
+        }
+      }
       name="copy"
       size={110}
     />

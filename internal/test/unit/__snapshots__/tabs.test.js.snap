@@ -8,6 +8,12 @@ exports[`Tabs only render one tab title as selected 1`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="0"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={true}
@@ -16,6 +22,12 @@ exports[`Tabs only render one tab title as selected 1`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -24,6 +36,12 @@ exports[`Tabs only render one tab title as selected 1`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -49,6 +67,12 @@ exports[`Tabs only render one tab title as selected 2`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="0"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -57,6 +81,12 @@ exports[`Tabs only render one tab title as selected 2`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={true}
@@ -65,6 +95,12 @@ exports[`Tabs only render one tab title as selected 2`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -90,6 +126,12 @@ exports[`Tabs only render one tab title as selected 3`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="0"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -98,6 +140,12 @@ exports[`Tabs only render one tab title as selected 3`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="1"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={false}
@@ -106,6 +154,12 @@ exports[`Tabs only render one tab title as selected 3`] = `
     <styled.a
       data-cosmos-key="tabs.item"
       key="2"
+      margin={
+        Object {
+          "bottom": "-1",
+          "right": "large",
+        }
+      }
       onClick={[Function]}
       onKeyPress={[Function]}
       selected={true}

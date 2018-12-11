@@ -3,8 +3,21 @@
 exports[`Page Header renders both primary and secondary actions 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component
@@ -104,8 +117,21 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
 exports[`Page Header renders primary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component
@@ -163,8 +189,21 @@ exports[`Page Header renders primary action only 1`] = `
 exports[`Page Header renders secondary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <Heading
+    margin={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component
