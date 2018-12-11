@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - Switch: Add support for label position by @m4tr1k + alignment fixes [#1171]
 - Styling: Add styled-components-with-helpers [#1208]
+- Styling: Add styled-margin [#1248]
 
 ### Fixed
 
@@ -21,6 +22,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 - Updates dropbox icon [#1240]
 - Upgrade to latest 3.x styled-components [#1241]
 - Removes space when the switch label is empty [#1234]
+- Removes pointer events on the overlay component [#1243]
+- Fixed accordions in Contribution guide [#1246]
+- Manage PoC: Fix Security issue and fix error on example when opening Applications [#1253]
 
 ## 0.9.3 [December 4, 2018]
 
