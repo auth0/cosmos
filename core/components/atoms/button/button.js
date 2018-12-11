@@ -159,7 +159,7 @@ const getAttributes = props => {
   if (props.icon && !props.text) {
     styles.padding = spacing.xsmall
     styles.minWidth = '36px'
-    styles.icon = colors.button.link.icon
+    // styles.icon = colors.button.link.icon
   }
 
   return styles
@@ -169,9 +169,20 @@ const ButtonContent = props => {
   let content = []
 
   let icon = props.success ? 'check' : props.icon
-  const iconNode = icon ? (
-    <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
-  ) : null
+  let iconClassName = null
+
+  /*
+    Exception
+    Cosmos is absorbing the design inconsistency, where inside a default Button
+    with an icon but without text, the icon acts like a link icon
+  */
+  if (props.appearance === 'default' && !props.text) iconClassName = 'act-like-link'
+
+  /*
+    The Icon API does not support hover + focus colors
+    this is done in the Button css (see styles for Button.Element below)
+  */
+  const iconNode = icon ? <Icon key="icon" size={16} name={icon} className={iconClassName} /> : null
 
   // Button left icon or loading
   if (props.loading)
@@ -242,20 +253,41 @@ Button.Element = styled.button`
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
-  ${Icon.Element} {
-    color: ${props => getAttributes(props).text};
+  ${Icon.Element} svg path {
+    fill: ${props => getAttributes(props).text};
+  }
+
+  /* Exception TODO: Explain */
+  ${Icon.Element}.act-like-link svg path {
+    fill: ${appearances.link.text};
   }
 
   &:hover {
     color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
+
+    ${Icon.Element} svg path {
+      fill: ${props => getAttributes(props).hoverText};
+    }
+    /* Exception TODO: Explain */
+    ${Icon.Element}.act-like-link svg path {
+      fill: ${appearances.link.hoverText};
+    }
   }
 
   &:focus {
     background: ${props => getAttributes(props).focusBackground};
     border-color: ${props => getAttributes(props).focusBorder};
     outline: none;
+
+    ${Icon.Element} svg path {
+      fill: ${props => getAttributes(props).focusText};
+    }
+    /* Exception TODO: Explain */
+    ${Icon.Element}.act-like-link svg path {
+      fill: ${appearances.link.focusText};
+    }
   }
 
   &:active {

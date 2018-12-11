@@ -141,8 +141,8 @@ const colors = {
     link: {
       text: '#0a84ae',
       icon: 'blue',
-      hover: '#0a84ae',
-      focus: '#0a84ae'
+      hover: '#053b4e',
+      focus: '#053b4e'
     }
   },
   icon: {
