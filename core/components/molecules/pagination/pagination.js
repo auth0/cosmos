@@ -39,7 +39,7 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 }
 
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <Pagination.Element {...Automation('pagination')}>
+  <Pagination.Element {...Automation('pagination')} margin={{ right: 'small' }}>
     {renderPaginationItem({
       toPage: 1,
       content: 'First',
@@ -88,10 +88,6 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
 Pagination.Element = styled.div`
   display: flex;
   justify-content: center;
-
-  ${Button.Element} {
-    margin-right: ${spacing.small};
-  }
 `
 
 Pagination.IconOnlyButton = styled(Button)`

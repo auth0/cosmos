@@ -46,14 +46,15 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
   if (pages <= 1) return null
 
   return (
-    <PaginationToolbar.Element {...Automation('pagination-toolbar')}>
+    <PaginationToolbar.Element {...Automation('pagination-toolbar')} margin={{ top: 'medium' }}>
       <PaginationToolbar.PageSelector page={page}>
-        <div>Page</div>
+        <div margin={{ right: 'xsmall' }}>Page</div>
         <TextInput
           type="number"
           size="compressed"
           value={page.toString()}
           onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
+          margin={{ right: 'xsmall' }}
         />
         <div>of {pages}</div>
       </PaginationToolbar.PageSelector>
@@ -70,19 +71,12 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
 PaginationToolbar.Element = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: ${spacing.medium};
 `
 
 PaginationToolbar.PageSelector = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  & > * {
-    margin-right: ${spacing.xsmall};
-    &:last-child {
-      margin-right: 0;
-    }
-  }
 
   ${TextInput.Element} {
     width: ${({ page }) => pageInputWidth(page)}px;
