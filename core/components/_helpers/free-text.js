@@ -13,7 +13,7 @@ const FreeText = ({ text, children, useParagraph = false }) => {
   }
 
   if (typeof text === 'string') {
-    if (useParagraph) return <Paragraph>{text}</Paragraph>
+    if (useParagraph) return <Paragraph margin={{ top: 0, bottom: 0 }}>{text}</Paragraph>
     return text
   }
 
