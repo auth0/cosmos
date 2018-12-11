@@ -34,9 +34,11 @@ const EmptyState = props => {
 
   return (
     <EmptyState.Element {...Automation('empty-state')}>
-      <Title size={1}>{props.title}</Title>
-      <EmptyState.Body>
-        <Icon name={props.icon} size={110} color="blue" />
+      <Heading size={1} margin={{ top: 0, bottom: 0, left: 'xlarge', right: 0 }}>
+        {props.title}
+      </Heading>
+      <EmptyState.Body margin={{ top: 0, bottom: 'auto', left: 'small', right: 'auto' }}>
+        <Icon name={props.icon} size={110} color="blue" margin={{ bottom: 'xsmall' }} />
         <FreeText {...props} useParagraph />
         {helpLink}
       </EmptyState.Body>
@@ -54,16 +56,11 @@ EmptyState.Element = styled.div`
 `
 EmptyState.Body = styled.div`
   max-width: 400px;
-  margin: 0 auto ${spacing.small} auto;
 
   > ${Icon.Element} {
-    margin-bottom: ${spacing.xsmall};
     line-height: 1em;
     opacity: 0.2;
   }
-`
-const Title = styled(Heading)`
-  margin: 0 0 ${spacing.xlarge} 0;
 `
 
 const LearnMore = styled.div`
