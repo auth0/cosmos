@@ -153,14 +153,18 @@ const DialogClose = styled.div`
   top: 0;
   right: 0;
   z-index: 1;
-  /* Overwirtes the color of the icons */
+  /* Overwrites the color of the Icon */
   ${Button.Element} {
-    &,
-    i,
-    svg,
     path {
-      color: ${colors.base.black};
-      fill: ${colors.base.black};
+      color: ${colors.text.secondary};
+      fill: ${colors.text.secondary};
+    }
+    &:hover,
+    &:focus {
+      path {
+        color: ${colors.text.primary};
+        fill: ${colors.text.primary};
+      }
     }
   }
 `

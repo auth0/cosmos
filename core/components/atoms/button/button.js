@@ -253,12 +253,12 @@ Button.Element = styled.button`
     margin-right: ${props => (props.text ? spacing.xsmall : 0)};
   }
 
-  ${Icon.Element} svg path {
+  ${Icon.Element} path {
     fill: ${props => getAttributes(props).text};
   }
 
   /* Exception TODO: Explain */
-  ${Icon.Element}.act-like-link svg path {
+  ${Icon.Element}.act-like-link path {
     fill: ${appearances.link.text};
   }
 
@@ -267,11 +267,11 @@ Button.Element = styled.button`
     background: ${props => getAttributes(props).hoverBackground};
     border-color: ${props => getAttributes(props).hoverBorder};
 
-    ${Icon.Element} svg path {
+    ${Icon.Element} path {
       fill: ${props => getAttributes(props).hoverText};
     }
     /* Exception TODO: Explain */
-    ${Icon.Element}.act-like-link svg path {
+    ${Icon.Element}.act-like-link path {
       fill: ${appearances.link.hoverText};
     }
   }
@@ -281,11 +281,11 @@ Button.Element = styled.button`
     border-color: ${props => getAttributes(props).focusBorder};
     outline: none;
 
-    ${Icon.Element} svg path {
+    ${Icon.Element} path {
       fill: ${props => getAttributes(props).focusText};
     }
     /* Exception TODO: Explain */
-    ${Icon.Element}.act-like-link svg path {
+    ${Icon.Element}.act-like-link path {
       fill: ${appearances.link.focusText};
     }
   }
