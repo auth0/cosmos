@@ -34,10 +34,10 @@ const EmptyState = props => {
 
   return (
     <EmptyState.Element {...Automation('empty-state')}>
-      <Heading size={1} margin={{ top: 0, bottom: 0, left: 'xlarge', right: 0 }}>
+      <Heading size={1} margin={{ top: 0, bottom: 'xlarge', left: 0, right: 0 }}>
         {props.title}
       </Heading>
-      <EmptyState.Body margin={{ top: 0, bottom: 'auto', left: 'small', right: 'auto' }}>
+      <EmptyState.Body margin={{ top: 0, bottom: 'small', left: 'auto', right: 'auto' }}>
         <Icon name={props.icon} size={110} color="blue" margin={{ bottom: 'xsmall' }} />
         <FreeText {...props} useParagraph />
         {helpLink}
