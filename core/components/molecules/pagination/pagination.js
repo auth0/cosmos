@@ -27,6 +27,7 @@ const renderPaginationItem = ({
     appearance={appearance}
     size="compressed"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
+    margin={{ right: 'small' }}
   >
     {content}
   </Button>
@@ -39,7 +40,7 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 }
 
 const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <Pagination.Element {...Automation('pagination')} margin={{ right: 'small' }}>
+  <Pagination.Element {...Automation('pagination')}>
     {renderPaginationItem({
       toPage: 1,
       content: 'First',
@@ -53,6 +54,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       size="compressed"
       onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
       icon="chevron-left"
+      margin={{ right: 'small' }}
     />
 
     {getPaginationSlice(page, items, perPage).map(page => (
@@ -62,6 +64,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
         selected={page.selected}
         size="compressed"
         onClick={() => handlePaginationButtonClick(page, items, perPage, onPageChanged)}
+        margin={{ right: 'small' }}
       >
         {page.label}
       </Pagination.PageButton>
@@ -71,6 +74,7 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
       size="compressed"
       onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
       icon="chevron-right"
+      margin={{ right: 'small' }}
     />
 
     {renderPaginationItem({
