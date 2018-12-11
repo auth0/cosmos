@@ -15,13 +15,13 @@ const Tag = props => {
     }
     icon = (
       <a onClick={handleRemove} {...Automation('tag.remove')}>
-        <Icon name="close" size={9} />
+        <Icon name="close" size={9} margin={{ left: 'xsmall' }} />
       </a>
     )
   }
 
   return (
-    <Tag.Element onClick={props.onClick} {...Automation('tag')}>
+    <Tag.Element onClick={props.onClick} {...Automation('tag')} margin={{ right: 'xsmall' }}>
       {props.children}
       {icon}
     </Tag.Element>
@@ -42,7 +42,6 @@ Tag.Element = styled.span`
   ${Icon.Element} {
     cursor: pointer;
     stroke: ${colors.tag.text};
-    margin-left: ${spacing.xsmall};
   }
 `
 
@@ -52,7 +51,6 @@ Tag.Group = ({ children }) => (
 
 Tag.Group.Element = styled.div`
   ${Tag.Element} {
-    margin-right: ${spacing.xsmall};
     &:last-child {
       margin-right: 0;
     }

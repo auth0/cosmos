@@ -32,7 +32,15 @@ class Switch extends React.Component {
       <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
     ]
     const label = (
-      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
+      <Label
+        labelPosition={this.props.labelPosition}
+        margin={{
+          left: this.props.labelPosition == 'left' ? 0 : 'small',
+          right: this.props.labelPosition == 'left' ? 'small' : 0
+        }}
+      >
+        {this.state.on ? onLabel : offLabel}
+      </Label>
     )
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
@@ -121,8 +129,6 @@ const Label = styled.label`
   letter-spacing: 1px;
   text-transform: uppercase;
   color: ${colors.text.secondary};
-  margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
-  margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
 
   /* if the label is empty, then remove the node so it doesn't create a margin */
   &:empty {
