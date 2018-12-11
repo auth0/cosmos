@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - Switch: Add support for label position by @m4tr1k + alignment fixes [#1171]
 - Styling: Add styled-components-with-helpers [#1208]
+- Styling: Add styled-margin [#1248]
 
 ### Fixed
 
