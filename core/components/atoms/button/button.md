@@ -87,7 +87,9 @@ Icon buttons work well in compact spaces. You can pick name of `icon` from [docs
 ```js
 <div>
   <Stack>
-    <Button appearance="link" icon="copy" />
+    <Button appearance="link" icon="copy">
+      Copy
+    </Button>
     <Button icon="copy" />
   </Stack>
 </div>
