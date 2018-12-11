@@ -178,10 +178,9 @@ const DialogTitle = props => {
   const InternalTitle = styled(BaseHeading.withComponent(props.element))`
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.size.default};
-    margin: 0;
   `
 
-  return <InternalTitle {...props} />
+  return <InternalTitle margin={{ top: 0, bottom: 0, left: 0, right: 0 }} {...props} />
 }
 
 const DialogBody = styled.div`
