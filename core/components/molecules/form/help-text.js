@@ -7,10 +7,10 @@ const StyledHelpText = styled.div`
   font-size: 13px;
   line-height: 1.8;
   color: ${colors.text.secondary};
-  margin-top: ${spacing.xsmall};
-  margin-bottom: ${spacing.xsmall};
 `
 
-const HelpText = props => <StyledHelpText>{props.children}</StyledHelpText>
+const HelpText = props => (
+  <StyledHelpText margin={{ top: 'xsmall', bottom: 'xsmall' }}>{props.children}</StyledHelpText>
+)
 
 export default HelpText

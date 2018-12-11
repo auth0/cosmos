@@ -25,8 +25,23 @@ const Field = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <Field.Element layout={context.layout} {...Automation('form.field')}>
-          <Field.LabelLayout layout={context.layout}>
+        <Field.Element
+          layout={context.layout}
+          {...Automation('form.field')}
+          margin={{
+            left: props.layout === 'label-on-left' ? 0 : 'auto',
+            bottom: 'small'
+          }}
+        >
+          <Field.LabelLayout
+            layout={context.layout}
+            margin={{
+              top: getLayoutValues(props.layout).labelMargin,
+              left: getLayoutValues(props.layout).labelMargin,
+              right: getLayoutValues(props.layout).labelMargin,
+              bottom: props.layout === 'label-on-top' ? 'xsmall' : 0
+            }}
+          >
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
           </Field.LabelLayout>
           <Field.ContentLayout layout={context.layout}>
@@ -35,7 +50,9 @@ const Field = props => {
             ) : (
               props.children
             )}
-            {props.error ? <StyledError>{props.error}</StyledError> : null}
+            {props.error ? (
+              <StyledError margin={{ top: 'xsmall' }}>{props.error}</StyledError>
+            ) : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
           </Field.ContentLayout>
         </Field.Element>
@@ -48,8 +65,6 @@ Field.Element = styled.div`
   ${containerStyles};
   display: ${props => (props.layout === 'label-on-left' ? 'flex' : 'block')};
   width: ${props => getLayoutValues(props.layout).formWidth};
-  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
-  margin-bottom: ${spacing.small};
 
   ${TextArea.Element} {
     /* browsers give textareas an annoying alignment
@@ -67,12 +82,10 @@ Field.Element = styled.div`
 
 Field.LabelLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).labelWidth};
-  margin: ${props => getLayoutValues(props.layout).labelMargin};
   text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
   padding-right: ${props => (props.layout === 'label-on-left' ? spacing.medium : 'none')};
   padding-top: ${props => (props.layout === 'label-on-left' ? '11px' : '0')};
   min-height: ${props => (props.layout === 'label-on-left' ? '44px' : 'none')};
-  margin-bottom: ${props => (props.layout === 'label-on-top' ? '8px' : '0')};
 `
 Field.ContentLayout = styled.div`
   width: ${props => getLayoutValues(props.layout).contentWidth};

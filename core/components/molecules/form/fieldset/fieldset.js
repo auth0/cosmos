@@ -8,8 +8,8 @@ import Automation from '../../../_helpers/automation-attribute'
 import containerStyles from '../../../_helpers/container-styles'
 
 const FieldSet = props => (
-  <FieldSet.Element {...Automation('form.fieldset')}>
-    <Divider>{props.label}</Divider>
+  <FieldSet.Element {...Automation('form.fieldset')} margin={{ bottom: 'xlarge' }}>
+    <Divider margin={{ top: 0, bottom: 'large' }}>{props.label}</Divider>
     {props.children}
   </FieldSet.Element>
 )
@@ -18,7 +18,6 @@ FieldSet.Element = styled.fieldset`
   ${containerStyles};
   border: none;
   padding: 0;
-  margin-bottom: ${spacing.xlarge};
   &:last-of-type {
     margin-bottom: 0;
   }

@@ -29,7 +29,14 @@ const Actions = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <Actions.Element layout={context.layout}>
+        <Actions.Element
+          layout={context.layout}
+          margin={{
+            top: 'medium',
+            bottom: 'small',
+            left: props.layout === 'label-on-left' ? 0 : 'auto'
+          }}
+        >
           <ButtonGroup>
             {primaryAction && (
               <Button {...getButtonProps(primaryAction)} appearance="primary">
@@ -68,9 +75,6 @@ Actions.Element = styled.div`
   width: ${props => getLayoutValues(props.layout).formWidth};
   padding-left: ${props =>
     props.layout === 'label-on-left' ? getLayoutValues(props.layout).labelWidth : 0};
-  margin-left: ${props => (props.layout === 'label-on-left' ? 0 : 'auto')};
-  margin-top: ${spacing.medium};
-  margin-bottom: ${spacing.small};
 `
 
 Actions.displayName = 'Form Actions'
