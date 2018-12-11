@@ -9,13 +9,9 @@ import containerStyles from '../../_helpers/container-styles'
 import Icon from '../icon'
 import Link from '../link'
 
-const Separator = styled(Icon)`
-  margin: 0 ${spacing.small};
-`
+const Separator = styled(Icon)``
 
-const LinkIcon = styled(Icon)`
-  margin-right: ${spacing.xsmall};
-`
+const LinkIcon = styled(Icon)``
 
 const Breadcrumb = props => <Breadcrumb.Element {...props} {...Automation('breadcrumb')} />
 
@@ -74,9 +70,16 @@ Breadcrumb.Element = styled.div`
 
 Breadcrumb.Link = props => (
   <Link {...props} {...Automation('breadcrumb.link')}>
-    {props.icon && <LinkIcon name={props.icon} size={12} color="grayDarkest" />}
+    {props.icon && (
+      <LinkIcon name={props.icon} size={12} color="grayDarkest" margin={{ right: 'xsmall' }} />
+    )}
     {props.children}
-    <Separator name="chevron-right-fill" size={12} color="grayMedium" />
+    <Separator
+      name="chevron-right-fill"
+      size={12}
+      color="grayMedium"
+      margin={{ top: 0, bottom: 0, left: 'small', right: 'small' }}
+    />
   </Link>
 )
 
