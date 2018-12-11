@@ -18,6 +18,8 @@ const avatarSizes = {
 
 const textSpacing = '12px'
 
+const Text = styled.div``
+
 const Title = styled.span`
   line-height: normal;
   color: ${colors.text.default};
@@ -74,10 +76,10 @@ const AvatarBlock = props => {
   return (
     <AvatarBlock.Element>
       {avatar}
-      <div margin={{ left: textSpacing }}>
+      <Text margin={{ left: textSpacing }}>
         {title}
         {subtitle}
-      </div>
+      </Text>
     </AvatarBlock.Element>
   )
 }
