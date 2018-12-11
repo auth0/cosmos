@@ -10,11 +10,6 @@ import containerStyles from '../../_helpers/container-styles'
 
 const Container = styled.div`
   ${containerStyles};
-  margin-top: ${spacing.xlarge};
-`
-
-const MainTitle = styled(Heading)`
-  margin-top: 0;
 `
 
 const TempStack = styled.div`
@@ -36,7 +31,6 @@ const ItemsContainer = styled.ul`
   list-style: none;
   ${'' /* reset the default spacing for ul */};
   padding-left: 0;
-  margin-bottom: 0;
   > ${Item}:last-child {
       border-bottom: none;
     }
@@ -46,15 +40,11 @@ const ItemsContainer = styled.ul`
 const Title = styled(Heading)`
   font-size: 1.0714285714em;
   color: ${colors.text.error};
-  margin: 0;
 `
 
 const Description = styled.div`
-  margin-right: ${spacing.small};
   p {
     color: ${colors.text.secondary};
-    margin: 0;
-    margin-top: 0.5em;
   }
 `
 
@@ -63,15 +53,23 @@ const Action = styled.div`
 `
 
 const DangerZone = ({ items }) => (
-  <Container>
-    <MainTitle size={3}>Danger Zone</MainTitle>
-    <ItemsContainer>
+  <Container margin={{ top: 'xlarge' }}>
+    <Heading size={3} margin={{ top: 0 }}>
+      Danger Zone
+    </Heading>
+    <ItemsContainer margin={{ bottom: 0 }}>
       {items.map(item => (
         <Item key={item.title}>
           <TempStack>
-            <Description>
-              <Title size={4}>{item.title}</Title>
-              {item.description ? <Paragraph>{item.description}</Paragraph> : null}
+            <Description margin={{ right: 'small' }}>
+              <Title size={4} margin={{ top: 0, bottom: 0, left: 0, right: 0 }}>
+                {item.title}
+              </Title>
+              {item.description ? (
+                <Paragraph margin={{ top: '0.5em', bottom: 0, left: 0, right: 0 }}>
+                  {item.description}
+                </Paragraph>
+              ) : null}
             </Description>
             <Action>
               <Button
