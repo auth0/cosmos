@@ -20,11 +20,11 @@ const ArrowMore = styled.i`
 const StyledLink = styled(Link)``
 
 export const StyledParagraph = styled(Paragraph)`
-  /* 
+  /*
   Components should not have margin by default.
   We'll remove this margin reset when we remove margins from the paragraph
   */
-  margin: 0;
+
   grid-area: subtitle;
 
   &:hover ${ArrowMore} {
@@ -38,7 +38,7 @@ export const StyledParagraph = styled(Paragraph)`
 
 const Description = props => {
   return (
-    <StyledParagraph>
+    <StyledParagraph margin={{ top: 0, bottom: 0, left: 0, right: 0 }}>
       {props.children.text}{' '}
       {props.children.learnMore ? (
         <StyledLink href={props.children.learnMore}>
