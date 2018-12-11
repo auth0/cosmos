@@ -29,17 +29,17 @@ const Field = props => {
           layout={context.layout}
           {...Automation('form.field')}
           margin={{
-            left: props.layout === 'label-on-left' ? 0 : 'auto',
+            left: context.layout === 'label-on-left' ? 0 : 'auto',
             bottom: 'small'
           }}
         >
           <Field.LabelLayout
             layout={context.layout}
             margin={{
-              top: getLayoutValues(props.layout).labelMargin,
-              left: getLayoutValues(props.layout).labelMargin,
-              right: getLayoutValues(props.layout).labelMargin,
-              bottom: props.layout === 'label-on-top' ? 'xsmall' : 0
+              top: getLayoutValues(context.layout).labelMargin,
+              left: getLayoutValues(context.layout).labelMargin,
+              right: getLayoutValues(context.layout).labelMargin,
+              bottom: context.layout === 'label-on-top' ? 'xsmall' : 0
             }}
           >
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
