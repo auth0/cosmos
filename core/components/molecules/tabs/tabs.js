@@ -9,11 +9,10 @@ import containerStyles from '../../_helpers/container-styles'
 export const TabLink = styled.a`
   display: inline-block;
   padding: ${spacing.small} 0;
-  margin-right: ${spacing.large};
   color: ${colors.link.default};
   cursor: pointer;
   border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
+
   &:hover {
     color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
   }
@@ -115,6 +114,7 @@ class Tabs extends React.Component {
               selected={selectedIndex === index}
               tabIndex="0"
               onKeyPress={e => this.handleKeyPress(e, index)}
+              margin={{ bottom: '-1', right: 'large' }}
             >
               {tab.props.label}
             </TabLink>
