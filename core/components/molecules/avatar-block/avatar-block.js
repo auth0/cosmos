@@ -18,10 +18,6 @@ const avatarSizes = {
 
 const textSpacing = '12px'
 
-const Text = styled.div`
-  margin-left: ${textSpacing};
-`
-
 const Title = styled.span`
   line-height: normal;
   color: ${colors.text.default};
@@ -35,7 +31,6 @@ const Title = styled.span`
 const Subtitle = styled.span`
   line-height: normal;
   color: ${colors.text.secondary};
-  margin-top: ${spacing.xxsmall};
   display: ${props => (props.size === 'compact' ? 'none' : 'block')};
 `
 
@@ -69,16 +64,20 @@ const AvatarBlock = props => {
   let subtitle
 
   if (props.subtitle) {
-    subtitle = <Subtitle size={props.size}>{props.subtitle}</Subtitle>
+    subtitle = (
+      <Subtitle size={props.size} margin={{ top: 'xxsmall' }}>
+        {props.subtitle}
+      </Subtitle>
+    )
   }
 
   return (
     <AvatarBlock.Element>
       {avatar}
-      <Text>
+      <div margin={{ left: textSpacing }}>
         {title}
         {subtitle}
-      </Text>
+      </div>
     </AvatarBlock.Element>
   )
 }
