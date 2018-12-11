@@ -4,7 +4,7 @@ import Button from '../../atoms/button'
 import Paragraph from '../../atoms/paragraph'
 import Stack from '../stack'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import containerStyles from '../../_helpers/container-styles'
 
@@ -13,9 +13,7 @@ const Container = styled.div`
   margin-top: ${spacing.xlarge};
 `
 
-const MainTitle = styled(Heading).attrs({
-  size: 3
-})`
+const MainTitle = styled(Heading)`
   margin-top: 0;
 `
 
@@ -45,9 +43,7 @@ const ItemsContainer = styled.ul`
   }
 `
 
-const Title = styled(Heading).attrs({
-  size: 4
-})`
+const Title = styled(Heading)`
   font-size: 1.0714285714em;
   color: ${colors.text.error};
   margin: 0;
@@ -68,13 +64,13 @@ const Action = styled.div`
 
 const DangerZone = ({ items }) => (
   <Container>
-    <MainTitle>Danger Zone</MainTitle>
+    <MainTitle size={3}>Danger Zone</MainTitle>
     <ItemsContainer>
       {items.map(item => (
         <Item key={item.title}>
           <TempStack>
             <Description>
-              <Title>{item.title}</Title>
+              <Title size={4}>{item.title}</Title>
               {item.description ? <Paragraph>{item.description}</Paragraph> : null}
             </Description>
             <Action>

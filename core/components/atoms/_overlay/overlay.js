@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { spacing } from '@auth0/cosmos-tokens'
 
 // TODO: create tokens?

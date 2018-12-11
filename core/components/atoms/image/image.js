@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 const Image = props => <Image.Element src={props.source} alt={props.alt} {...props} />

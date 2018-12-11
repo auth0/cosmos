@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'

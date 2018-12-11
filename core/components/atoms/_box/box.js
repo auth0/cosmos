@@ -7,13 +7,13 @@
 
 /*
   Step 1: Import all the dependencies
-  - import React and styled-components, thes are the bread and butter
+  - import React and @auth0/cosmos/styled, thes are the bread and butter
   - import prop type for documentation and validation
   - import tokens instead of hard coding values
 */
 
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 import { colors, misc } from '@auth0/cosmos-tokens'

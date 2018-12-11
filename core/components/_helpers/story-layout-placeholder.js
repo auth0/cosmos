@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Automation from './automation-attribute'
 
 const StyledPlaceholder = styled.div`
@@ -8,4 +8,6 @@ const StyledPlaceholder = styled.div`
   height: 100%;
 `
 
-export default () => <StyledPlaceholder {...Automation('layout-placeholder-helper')}>Component</StyledPlaceholder>
+export default () => (
+  <StyledPlaceholder {...Automation('layout-placeholder-helper')}>Component</StyledPlaceholder>
+)
