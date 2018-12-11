@@ -3,6 +3,11 @@
 exports[`Page Header renders both primary and secondary actions 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <ButtonGroup
     align="right"
@@ -58,6 +63,12 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    margin={
+      Object {
+        "bottom": "xsmall",
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component
@@ -104,6 +115,11 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
 exports[`Page Header renders primary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <ButtonGroup
     align="right"
@@ -135,6 +151,12 @@ exports[`Page Header renders primary action only 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    margin={
+      Object {
+        "bottom": "xsmall",
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component
@@ -163,6 +185,11 @@ exports[`Page Header renders primary action only 1`] = `
 exports[`Page Header renders secondary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  margin={
+    Object {
+      "bottom": "large",
+    }
+  }
 >
   <ButtonGroup
     align="right"
@@ -194,6 +221,12 @@ exports[`Page Header renders secondary action only 1`] = `
     </Button>
   </ButtonGroup>
   <Heading
+    margin={
+      Object {
+        "bottom": "xsmall",
+        "top": 0,
+      }
+    }
     size={1}
   />
   <Component

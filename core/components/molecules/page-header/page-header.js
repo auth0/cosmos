@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -16,7 +16,7 @@ import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
   return (
-    <PageHeader.Element {...Automation('page-header')}>
+    <PageHeader.Element {...Automation('page-header')} margin={{ bottom: 'large' }}>
       <ButtonGroup align="right">
         {props.secondaryAction && (
           <Button
@@ -40,7 +40,9 @@ const PageHeader = props => {
         )}
       </ButtonGroup>
 
-      <Heading size={1}>{props.title}</Heading>
+      <Heading size={1} margin={{ top: 0, bottom: 'xsmall' }}>
+        {props.title}
+      </Heading>
       <PageHeader.SoftDescription {...props} />
     </PageHeader.Element>
   )
@@ -49,15 +51,8 @@ const PageHeader = props => {
 PageHeader.Element = styled.div`
   ${containerStyles};
 
-  margin-bottom: ${spacing.large};
-
   ${ButtonGroup.Element} {
     float: right;
-  }
-
-  ${Heading.Element[1]} {
-    margin: 0;
-    margin-bottom: ${spacing.xsmall};
   }
 `
 
