@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -41,7 +41,6 @@ const PageHeader = props => {
           </Button>
         )}
       </ButtonGroup>
-
     </PageHeader.Element>
   )
 }
@@ -53,17 +52,17 @@ PageHeader.Element = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
   grid-template-areas:
-    "title"
-    "subtitle"
-    "actions";
+    'title'
+    'subtitle'
+    'actions';
   grid-row-gap: ${spacing.small};
-  
+
   @media (min-width: 768px) {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto auto;
     grid-template-areas:
-      "title actions"
-      "subtitle subtitle";
+      'title actions'
+      'subtitle subtitle';
     grid-column-gap: ${spacing.xsmall};
     grid-row-gap: ${spacing.medium};
   }

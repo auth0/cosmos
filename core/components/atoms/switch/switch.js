@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
@@ -14,9 +14,9 @@ class Switch extends React.Component {
     this.state = { on: props.on }
   }
   onToggle(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    
+    e.preventDefault()
+    e.stopPropagation()
+
     if (this.props.readOnly) return
     this.setState(currentState => {
       if (this.props.onToggle) this.props.onToggle(!currentState.on)

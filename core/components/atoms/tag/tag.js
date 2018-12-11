@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Icon from '../icon'
 import { spacing, fonts, colors, misc } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'

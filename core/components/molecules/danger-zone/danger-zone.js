@@ -4,7 +4,7 @@ import Button from '../../atoms/button'
 import Paragraph from '../../atoms/paragraph'
 import Stack from '../stack'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import containerStyles from '../../_helpers/container-styles'
 

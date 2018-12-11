@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
