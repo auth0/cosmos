@@ -81,11 +81,12 @@ Tooltip.Element = styled.div`
   width: max-content;
   text-align: center;
   padding: ${spacing.xsmall};
-  line-height: normal;
+  line-height: ${misc.lineHeight};
   font-size: 13px;
   pointer-events: none;
   opacity: ${props => (props.defaultVisible ? 1 : 0)};
   ${props => tooltipStyles[props.position]};
+  max-width: ${props => (props.maxWidth ? props.maxWidth + 'px' : 'none')};
 
   &:after {
     position: absolute;
@@ -123,13 +124,16 @@ Tooltip.propTypes = {
   /** Where to place the tooltip */
   position: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
   /** Visible by default */
-  defaultVisible: PropTypes.bool
+  defaultVisible: PropTypes.bool,
+  /** maxWidth of the tooltip */
+  maxWidth: PropTypes.number
 }
 
 Tooltip.defaultProps = {
   content: null,
   position: 'top',
-  defaultVisible: false
+  defaultVisible: false,
+  maxWidth: 0
 }
 
 export default Tooltip
