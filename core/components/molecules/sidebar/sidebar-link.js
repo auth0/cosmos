@@ -13,11 +13,13 @@ const SidebarLink = props => {
       onClick={props.onClick}
       selected={props.selected}
       {...Automation('sidebar.link')}
+      margin={{ bottom: 10 }}
     >
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}
         size={18}
         color={props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar}
+        margin={{ right: 'xsmall' }}
       />
       <span>{props.label}</span>
     </SidebarLink.Element>
@@ -32,15 +34,12 @@ SidebarLink.Element = styled.a`
   font-size: 13px;
   line-height: 1;
   padding: calc(${spacing.xsmall} / 2) 0;
-  margin-bottom: 10px;
+
   &:hover  {
     color: ${colors.link.sidebarHover};
     ${Icon.Element} path {
       fill: ${colors.link.sidebarHover};
     }
-  }
-  ${Icon.Element} {
-    margin-right: ${spacing.xsmall};
   }
   span {
     display: inline-block;
