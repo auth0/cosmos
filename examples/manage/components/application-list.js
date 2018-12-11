@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Code, ResourceList } from '@auth0/cosmos'
+import { Code, ResourceList, Button } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos-tokens'
 import { applications } from '../pages/applications/applications.json'
 
@@ -35,10 +35,10 @@ const ApplicationList = props => (
       </ResourceList.Item>
     )}
     actions={[
-      { icon: 'quickstarts', label: 'Quickstart', handler: noop },
-      { icon: 'settings', label: 'Settings', handler: noop },
-      { icon: 'code', label: 'Addons', handler: noop },
-      { icon: 'connections', label: 'Connections', handler: noop }
+      <Button icon="quickstarts" label="Quickstart" onClick={noop} />,
+      <Button icon="settings" label="Settings" onClick={noop} />,
+      <Button icon="code" label="Addons" onClick={noop} />,
+      <Button icon="connections" label="Connections" onClick={noop} />
     ]}
   />
 )
