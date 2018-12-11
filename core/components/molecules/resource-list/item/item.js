@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import { Button, ButtonGroup, Link } from '@auth0/cosmos'
-import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
+import Avatar from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
@@ -44,9 +44,9 @@ const ListItem = props => {
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
     // want to leak every prop from Avatar into the ListItem...
-    image = <Avatar type="resource" image={props.image} size="large" />
+    image = <Avatar type="resource" image={props.image} size="large" margin={{ right: 'small' }} />
   } else if (props.icon) {
-    image = <Avatar type="resource" icon={props.icon} size="large" />
+    image = <Avatar type="resource" icon={props.icon} size="large" margin={{ right: 'small' }} />
   }
 
   if (props.title) {
@@ -100,9 +100,6 @@ ListItem.Header = styled.div`
   flex-grow: 1;
   display: flex;
   align-items: center;
-  ${StyledAvatar} {
-    margin-right: ${spacing.small};
-  }
 `
 
 ListItem.Body = styled.div`
