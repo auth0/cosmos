@@ -37,11 +37,7 @@ const getImageForAvatar = props => {
 const Avatar = props => {
   const image = getImageForAvatar(props)
 
-  return (
-    <Avatar.Element type={props.type} size={props.size}>
-      {image}
-    </Avatar.Element>
-  )
+  return <Avatar.Element {...props}>{image}</Avatar.Element>
 }
 
 Avatar.Element = styled.span`
