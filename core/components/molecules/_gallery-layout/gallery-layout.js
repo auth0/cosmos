@@ -3,11 +3,20 @@ import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'
+import applyMarginReset from '../../_helpers/layout-margin-reset'
 import { spacing } from '@auth0/cosmos-tokens'
 
-const marginReset = {
-  none: 'auto',
-  reset: '0 !important'
+const gutterOptions = {
+  none: '0',
+  condensed: spacing.small,
+  default: spacing.medium,
+  spacious: spacing.xlarge
+}
+
+const columnOptions = {
+  condensed: 'repeat(auto-fill, minmax(150px, 1fr))',
+  default: 'repeat(auto-fill, minmax(250px, 1fr))',
+  spacious: 'repeat(auto-fill, minmax(450px, 1fr))'
 }
 
 const GalleryLayout = props => (
@@ -17,30 +26,28 @@ const GalleryLayout = props => (
 )
 
 GalleryLayout.Element = styled.ul`
-  --GalleryLayout--GridTemplateColumns: repeat(auto-fill, minmax(250px, 1fr));
-
   display: grid;
-  grid-template-columns: var(--GalleryLayout--GridTemplateColumns);
-  grid-gap: ${spacing.large};
+  grid-template-columns: ${props => columnOptions[props.column]};
+  grid-gap: ${props => gutterOptions[props.gutter]};
 
-  /*
-  Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
-  This is a fix that will last until we remove margins from components.
-  */
-  > * > * {
-    margin: ${props => marginReset[props.marginReset]};
-  }
+  ${applyMarginReset()};
 `
 
 GalleryLayout.Item = styled.li``
 
 GalleryLayout.propTypes = {
+  /** Regulates the size of the gutter betwen each column */
+  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  /** Regulates the size of the flexible columns */
+  column: PropTypes.oneOf(['default', 'condensed', 'spacious']),
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
 GalleryLayout.defaultProps = {
-  marginReset: 'reset'
+  marginReset: 'reset',
+  column: 'default',
+  gutter: 'default'
 }
 
 export default GalleryLayout
