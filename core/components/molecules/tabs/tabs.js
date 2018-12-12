@@ -89,13 +89,13 @@ class Tabs extends React.Component {
 
     return (
       <Tabs.Element {...Automation('tabs')}>
-        <Tabs.TabList role="tablist">
+        <Tabs.TabList role="tablist" {...Automation('tabs.list')}>
           {this.tabs.map((tab, index) => {
             const id = tab.props.id || `${uniqueTabPrefix}-${index}`
             const tabIsSelected = selectedIndex === index
 
             return (
-              <Tabs.TabListItem role="presentation" key={id}>
+              <Tabs.TabListItem role="presentation" key={id} {...Automation('tabs.list-item')}>
                 <Tabs.TabLink
                   type="button"
                   role="tab"
@@ -116,12 +116,14 @@ class Tabs extends React.Component {
             )
           })}
         </Tabs.TabList>
-        {React.cloneElement(this.tabs[selectedIndex], {
-          role: 'tabpanel',
-          id: this.tabs[selectedIndex].props.id + '-tab',
-          'aria-labelledby': this.tabs[selectedIndex].props.id,
-          tabIndex: 0
-        })}
+        {this.tabs[selectedIndex] &&
+          React.cloneElement(this.tabs[selectedIndex], {
+            role: 'tabpanel',
+            id: this.tabs[selectedIndex].props.id + '-tab',
+            'aria-labelledby': this.tabs[selectedIndex].props.id,
+            tabIndex: 0,
+            ...Automation('tabs.item')
+          })}
       </Tabs.Element>
     )
   }
@@ -192,7 +194,7 @@ Tabs.propTypes = {
 
 Tabs.defaultProps = {
   children: [],
-  id: uniqueId('tabs')
+  id: uniqueId()
 }
 
 export default Tabs
