@@ -167,7 +167,8 @@ Tabs.TabLink = styled.button`
       cursor: default;
       color: ${colors.text.default};
       &:focus {
-        border-bottom-color: ${colors.base.text};
+        color: ${colors.link.default};
+        border-bottom: 1px solid ${colors.base.text};
       }
     `};
 `
