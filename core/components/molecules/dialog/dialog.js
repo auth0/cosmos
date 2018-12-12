@@ -138,6 +138,7 @@ class Dialog extends React.Component {
 
 const DialogBox = styled.div`
   ${containerStyles};
+  pointer-events: auto;
   position: relative;
   max-height: calc(100vh - (${spacing.xlarge} * 2));
   display: flex;

@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.10.1 [December 11, 2018]
+
+### Fixed
+
+- Fixes dialog not catching pointer events [#1260]
+
+## 0.10.0 [December 11, 2018]
+
+### Added
+
+- Switch: Add support for label position by @m4tr1k + alignment fixes [#1171]
+- Styling: Add styled-components-with-helpers [#1208]
+- Styling: Add styled-margin [#1248]
+
+### Fixed
+
+- Responsive PageHeader [#1138]
+- Fix FormGroup warning when only one child is passed [#1221]
+- Select arrow icon color fix [#1220]
+- Switch.onToggle stopPropagation of event [#1233]
+- Added stories around page header [#1230]
+- Updates dropbox icon [#1240]
+- Upgrade to latest 3.x styled-components [#1241]
+- Removes space when the switch label is empty [#1234]
+- Removes pointer events on the overlay component [#1243]
+- Fixed accordions in Contribution guide [#1246]
+- Manage PoC: Fix Security issue and fix error on example when opening Applications [#1253]
+
 ## 0.9.3 [December 4, 2018]
 
 ### Fixed
@@ -16,7 +44,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - Docs: Make it easier to add a guide [#1201]
 - Docs: Hidden placeholder for layout + overriding guides [#1202]
-
 
 ## 0.9.2 [December 3, 2018]
 
