@@ -11,7 +11,10 @@ import domElements from './_helpers/dom-elements'
 /* import cosmos specific helpers */
 import margin from './_helpers/styled-margin'
 
-/* create a thin replacement for styled */
+/*
+  create a thin replacement for styled
+  styledWithHelpers(c) = styled(c)
+*/
 let styledWithHelpers = styledComponent => {
   return styled(styledComponent)
 }
@@ -32,6 +35,10 @@ domElements.forEach(domElement => {
 
     return styled(domElement)(styles, ...interpolations)
   }
+
+  /* attach inbuilt styled-components helpers back */
+  styledWithHelpers[domElement].withConfig = styled[domElement].withConfig
+  styledWithHelpers[domElement].attrs = styled[domElement].attrs
 })
 
 export default styledWithHelpers
