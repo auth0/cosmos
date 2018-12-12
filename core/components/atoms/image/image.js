@@ -12,8 +12,8 @@ Image.Element = styled.img`
 Image.propTypes = {
   /** URL of the image */
   source: PropTypes.string.isRequired,
-  /** Alt text is mandatory, please read the accessibility section  */
-  alt: PropTypes.string
+  /** Alt text is mandatory, please read the accessibility section */
+  alt: PropTypes.string.isRequired
 }
 
 Image.defaultProps = {
