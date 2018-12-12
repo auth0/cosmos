@@ -11,11 +11,7 @@
 
 ## Usage
 
-The imagien component can fit it's container in 3 different ways:
-
-- **contain:** The image is scaled to maintain its aspect ratio while fitting within the container content box. The image will be "letterboxed" if its aspect ratio does not match the aspect ratio of its container.
-- **none:** The image will keep it's orinigal size.
-- **scale-down:** The image is sized as if none or contain were specified, whichever would result in a smaller concrete object size. This set up keep the aspect ratio but avoids the loss of resolution.
+The imagien component is scaled to maintain its aspect ratio while fitting within the container content box. The image will be "letterboxed" if its aspect ratio does not match the aspect ratio of its container.
 
 ## Accessibility
 
