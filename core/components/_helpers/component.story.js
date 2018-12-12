@@ -37,15 +37,8 @@ const InputBox = Box.withComponent('input').extend`
   }
 `
 
-/* attrs doesn't work properly
-  completely breaks:
-  const PasswordBox = styled.input.attrs({ type: 'password' })``
-  works without helpers
-  const PasswordBox = styled('input').attrs({ type: 'password' })``
-*/
-
-// weird workaround that works:
-const PasswordBox = styled(InputBox).attrs({ type: 'password' })``
+const PasswordBox = styled('input').attrs({ type: 'password' })``
+const ExtendedPasswordBox = styled(InputBox).attrs({ type: 'password' })``
 
 storiesOf('Component', module).add('default', () => (
   <Stack>
@@ -55,5 +48,6 @@ storiesOf('Component', module).add('default', () => (
     <ShortBox bg="blue" />
     <InputBox bg="blue" defaultValue="okay" />
     <PasswordBox bg="blue" defaultValue="okay" />
+    <ExtendedPasswordBox bg="blue" defaultValue="okay" />
   </Stack>
 ))
