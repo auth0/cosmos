@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
@@ -24,7 +24,7 @@ FormGroup.FormWrapper = styled(Well)`
 `
 FormGroup.propTypes = {
   /** children should be Form components */
-  children: PropTypes.arrayOf(PropTypes.element)
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
 }
 
 FormGroup.defaultProps = {}

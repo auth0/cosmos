@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, keyframes } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Logo from '../logo'
 import defaultPropChangeWarning from '../../_helpers/default-prop-change'

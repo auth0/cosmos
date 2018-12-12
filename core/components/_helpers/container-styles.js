@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from '@auth0/cosmos/styled'
 import { misc } from '@auth0/cosmos-tokens'
 
 const containerStyles = css`

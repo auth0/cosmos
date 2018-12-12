@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { Tooltip, ButtonGroup, Button } from '@auth0/cosmos'
 
 const positions = ['top', 'left', 'right', 'bottom']

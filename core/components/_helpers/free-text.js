@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Paragraph from '../atoms/paragraph'
 
 const StyledText = styled(Paragraph)`

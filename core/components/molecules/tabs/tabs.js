@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
@@ -167,7 +167,8 @@ Tabs.TabLink = styled.button`
       cursor: default;
       color: ${colors.text.default};
       &:focus {
-        border-bottom-color: ${colors.base.text};
+        color: ${colors.link.default};
+        border-bottom: 1px solid ${colors.base.text};
       }
     `};
 `

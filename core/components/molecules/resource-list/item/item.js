@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { Button, ButtonGroup, Link } from '@auth0/cosmos'
 import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
@@ -10,7 +10,6 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 import { deprecate } from '../../../_helpers/custom-validations'
-
 
 /**
  * Builds the button from the action or
@@ -40,6 +39,8 @@ const ListItem = props => {
   let subtitle
   let actions
 
+  const callHandler = handler => evt => handler(evt, props.item)
+
   if (props.image) {
     // TODO: We might want a way to control the type of the avatar, but we don't
     // want to leak every prop from Avatar into the ListItem...
@@ -65,7 +66,6 @@ const ListItem = props => {
   }
 
   return (
-
     <ListItem.Element
       onClick={props.onClick ? callHandler(props.onClick) : null}
       {...Automation('resource-list.item')}
