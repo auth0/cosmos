@@ -2,21 +2,17 @@
   category: Forms
 ```
 
-Form Fields are a group of field types supported in `Form`:
+`Form.Field` is a wrapper component inside supported in `Form`:
 
-- `Form.TextInput`
-- `Form.TextArea`
-- `Form.Select`
-- `Form.Switch`
-- `Form.Radio`
+You can put any input element inside it like `TextInput`, `TextArea`, `Select`, `Switch`, `Radio`, etc.
 
-If you need something we don't have, you can use a custom component with `Form.Field`
-
-In addition to their own [native props](#/component/text-input), we add a few more props in the context of a `Form`:
+`Form.Field` has a few props to make the form more descriptive for the user.
 
 ```jsx
 <Form>
-  <Form.TextInput {props} />
+  <Form.Field {props}>
+    <TextInput placeholder="Enter some text" />
+  </Form.Field>
 </Form>
 ```
 
@@ -36,31 +32,39 @@ class Example extends React.Component {
   render() {
     return (
       <Form>
-        <Form.TextInput
-          label="Field label"
-          type="text"
-          placeholder="Enter something"
-          actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
-        />
-        <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
-        <Form.Select
-          label="Options list"
-          options={[
-            { text: 'First option', value: '1', defaultSelected: true },
-            { text: 'Second option', value: '2' },
-            { text: 'Third option', value: '3' },
-            { text: 'Fourth option', value: '4' }
-          ]}
-        />
-        <Form.Switch label="Subscribe" on />
-        <Form.Radio
-          name="example1"
-          selected={this.state.selected}
-          onChange={evt => this.handleChange(evt)}
-        >
-          <Form.Radio.Option value="one">One</Form.Radio.Option>
-          <Form.Radio.Option value="two">Two</Form.Radio.Option>
-        </Form.Radio>
+        <Form.Field label="Field label">
+          <TextInput
+            type="text"
+            placeholder="Enter something"
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
+          />
+        </Form.Field>
+        <Form.Field label="Long input">
+          <TextArea placeholder="Add a lot of text here" />
+        </Form.Field>
+        <Form.Field label="Options list">
+          <Select
+            options={[
+              { text: 'First option', value: '1', defaultSelected: true },
+              { text: 'Second option', value: '2' },
+              { text: 'Third option', value: '3' },
+              { text: 'Fourth option', value: '4' }
+            ]}
+          />
+        </Form.Field>
+        <Form.Field label="Subscribe">
+          <Switch on />
+        </Form.Field>
+        <Form.Field label="Framework">
+          <Radio
+            name="example1"
+            selected={this.state.selected}
+            onChange={evt => this.handleChange(evt)}
+          >
+            <Radio.Option value="one">One</Radio.Option>
+            <Radio.Option value="two">Two</Radio.Option>
+          </Radio>
+        </Form.Field>
       </Form>
     )
   }
