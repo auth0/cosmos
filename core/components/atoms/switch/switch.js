@@ -28,7 +28,7 @@ class Switch extends React.Component {
   }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
-    let elements = [
+    const checkbox = (
       <Checkbox
         type="checkbox"
         checked={this.state.on}
@@ -36,7 +36,10 @@ class Switch extends React.Component {
         id={this.props.id}
         key="switch-checkbox"
       />
-    ]
+    )
+
+    let elements = <>{checkbox}</>
+
     const label = (
       <Label labelPosition={this.props.labelPosition} key="switch-label">
         {this.state.on ? onLabel : offLabel}
@@ -47,9 +50,22 @@ class Switch extends React.Component {
     if (this.props.labelPosition == 'left') {
       if (!this.props.hideAccessibleLabels) elements.push(label)
       elements.push(toggle)
+
+      elements = (
+        <>
+          {checkbox}
+          {this.props.hideAccessibleLabels ? null : label}
+          {toggle}
+        </>
+      )
     } else if (this.props.labelPosition == 'right') {
-      elements.push(toggle)
-      if (!this.props.hideAccessibleLabels) elements.push(label)
+      elements = (
+        <>
+          {checkbox}
+          {toggle}
+          {this.props.hideAccessibleLabels ? null : label}
+        </>
+      )
     }
 
     /*
