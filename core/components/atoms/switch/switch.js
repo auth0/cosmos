@@ -29,23 +29,15 @@ class Switch extends React.Component {
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
     const checkbox = (
-      <Checkbox
-        type="checkbox"
-        checked={this.state.on}
-        readOnly
-        id={this.props.id}
-        key="switch-checkbox"
-      />
+      <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
     )
 
     let elements = <>{checkbox}</>
 
     const label = (
-      <Label labelPosition={this.props.labelPosition} key="switch-label">
-        {this.state.on ? onLabel : offLabel}
-      </Label>
+      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
     )
-    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} key="switch-toggle" />
+    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
 
     if (this.props.labelPosition == 'left') {
       elements = (
