@@ -32,7 +32,7 @@ class Switch extends React.Component {
       <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
     )
 
-    let elements = <>{checkbox}</>
+    let elements = <React.Fragment>{checkbox}</React.Fragment>
 
     const label = (
       <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
@@ -41,19 +41,19 @@ class Switch extends React.Component {
 
     if (this.props.labelPosition == 'left') {
       elements = (
-        <>
+        <React.Fragment>
           {checkbox}
           {this.props.hideAccessibleLabels ? null : label}
           {toggle}
-        </>
+        </React.Fragment>
       )
     } else if (this.props.labelPosition == 'right') {
       elements = (
-        <>
+        <React.Fragment>
           {checkbox}
           {toggle}
           {this.props.hideAccessibleLabels ? null : label}
-        </>
+        </React.Fragment>
       )
     }
 
