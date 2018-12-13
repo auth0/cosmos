@@ -26,4 +26,10 @@ const deprecate = (props, { name, oldAPI, replacement }) => {
   if (props[name]) return new Error(message)
 }
 
-export { onlyOneOf, sumOfElements, numberOfValues, deprecate }
+const deprecateComponent = ({ old, replacement }) => {
+  let message = `Hi 👋, '${old}' will be deprecated in 1.0.0`
+  if (replacement) message += ` You might want to use '${replacement}' instead.`
+  return () => new Error(message)
+}
+
+export { onlyOneOf, sumOfElements, numberOfValues, deprecate, deprecateComponent }

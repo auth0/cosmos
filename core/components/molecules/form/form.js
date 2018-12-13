@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { deprecateComponent } from '../../_helpers/custom-validations'
 
 import ActionInput from '../../molecules/_action-input'
 import TextArea from '../../atoms/textarea'
@@ -21,14 +22,15 @@ const Form = props => (
 )
 
 Form.Field = props => <Field {...props} />
+Form.Actions = Actions
+Form.FieldSet = FieldSet
+
 Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
 Form.Switch = props => <Field {...props} fieldComponent={Switch} />
 Form.Radio = props => <Field {...props} fieldComponent={Radio} />
 Form.Radio.Option = Radio.Option
-Form.Actions = Actions
-Form.FieldSet = FieldSet
 
 Form.propTypes = {
   /** Two options for controlling form layout */
@@ -38,5 +40,17 @@ Form.propTypes = {
 Form.defaultProps = {
   layout: 'label-on-left'
 }
+
+/* deprecate Form.Input element syntax */
+const inputs = ['TextInput', 'TextArea', 'Select', 'Switch', 'Radio']
+
+inputs.forEach(input => {
+  Form[input].propTypes = {
+    _deprecate: deprecateComponent({
+      old: `<Form.${input}/>`,
+      replacement: `<Form.Field><${input}/></Form.Field>`
+    })
+  }
+})
 
 export default Form
