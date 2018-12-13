@@ -25,7 +25,8 @@ storiesOf('Form').add('select field + error', () => (
   <Example title="select field + error">
     <Form>
       <Form.Field label="Options list" error="Everything is broken">
-        <Form.Select
+        <Select
+          hasError={true}
           options={[
             { text: 'First option', value: '1', defaultSelected: true },
             { text: 'Second option', value: '2' },
