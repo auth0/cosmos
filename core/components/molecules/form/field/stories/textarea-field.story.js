@@ -18,7 +18,7 @@ storiesOf('Form').add('textarea field + error', () => (
   <Example title="textarea field + error">
     <Form>
       <Form.Field label="Field label" error="Everything is broken">
-        <TextArea type="text" placeholder="Enter something" />
+        <TextArea type="text" placeholder="Enter something" hasError={true} />
       </Form.Field>
     </Form>
   </Example>
