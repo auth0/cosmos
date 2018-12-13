@@ -20,7 +20,7 @@ storiesOf('Form').add('fieldset', () => (
         <Form.Field label="Field label">
           <TextInput type="text" placeholder="Enter something" />
         </Form.Field>
-        <Form.Field label="Long input">
+        <Form.Field label="Field label">
           <TextInput type="text" placeholder="Enter something" />
         </Form.Field>
       </Form.FieldSet>
