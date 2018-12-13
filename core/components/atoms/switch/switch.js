@@ -28,6 +28,7 @@ class Switch extends React.Component {
   }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
+
     const checkbox = (
       <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
     )
@@ -35,9 +36,11 @@ class Switch extends React.Component {
     let elements = <React.Fragment>{checkbox}</React.Fragment>
 
     const label = (
-      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
+      <Label labelPosition={this.props.labelPosition} key="switch-label">
+        {this.state.on ? onLabel : offLabel}
+      </Label>
     )
-    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} key="switch-toggle" />
 
     if (this.props.labelPosition == 'left') {
       elements = (
