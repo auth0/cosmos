@@ -7,15 +7,16 @@ import { Form } from '@auth0/cosmos'
 storiesOf('Form').add('select field', () => (
   <Example title="select field">
     <Form>
-      <Form.Select
-        label="Options list"
-        options={[
-          { text: 'First option', value: '1', defaultSelected: true },
-          { text: 'Second option', value: '2' },
-          { text: 'Third option', value: '3' },
-          { text: 'Fourth option', value: '4' }
-        ]}
-      />
+      <Form.Field label="Options list">
+        <Form.Select
+          options={[
+            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'Second option', value: '2' },
+            { text: 'Third option', value: '3' },
+            { text: 'Fourth option', value: '4' }
+          ]}
+        />
+      </Form.Field>
     </Form>
   </Example>
 ))
@@ -23,16 +24,16 @@ storiesOf('Form').add('select field', () => (
 storiesOf('Form').add('select field + error', () => (
   <Example title="select field + error">
     <Form>
-      <Form.Select
-        label="Options list"
-        error="Everything is broken"
-        options={[
-          { text: 'First option', value: '1', defaultSelected: true },
-          { text: 'Second option', value: '2' },
-          { text: 'Third option', value: '3' },
-          { text: 'Fourth option', value: '4' }
-        ]}
-      />
+      <Form.Field label="Options list" error="Everything is broken">
+        <Form.Select
+          options={[
+            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'Second option', value: '2' },
+            { text: 'Third option', value: '3' },
+            { text: 'Fourth option', value: '4' }
+          ]}
+        />
+      </Form.Field>
     </Form>
   </Example>
 ))

@@ -2,12 +2,14 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Form } from '@auth0/cosmos'
+import { Form, TextInput } from '@auth0/cosmos'
 
 storiesOf('Form').add('text field', () => (
   <Example title="text field">
     <Form>
-      <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+      <Form.Field label="Field label">
+        <TextInput type="text" placeholder="Enter something" />
+      </Form.Field>
     </Form>
   </Example>
 ))
@@ -15,27 +17,25 @@ storiesOf('Form').add('text field', () => (
 storiesOf('Form').add('text field + error', () => (
   <Example title="text field + error">
     <Form>
-      <Form.TextInput
-        label="Field label"
-        error="Everything is broken"
-        type="text"
-        placeholder="Enter something"
-      />
+      <Form.Field label="Field label" error="Everything is broken">
+        <TextInput type="text" placeholder="Enter something" hasError={true} />
+      </Form.Field>
     </Form>
   </Example>
 ))
 
 const textInputForSize = size => (
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    size={size}
-    placeholder="Enter something"
-    actions={[
-      { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
-      { icon: 'delete', handler: () => {}, label: 'Delete' }
-    ]}
-  />
+  <Form.Field label="Field label">
+    <TextInput
+      type="text"
+      size={size}
+      placeholder="Enter something"
+      actions={[
+        { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
+        { icon: 'delete', handler: () => {}, label: 'Delete' }
+      ]}
+    />
+  </Form.Field>
 )
 
 storiesOf('Form').add('text field + actions', () => (
