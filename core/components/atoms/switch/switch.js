@@ -48,9 +48,6 @@ class Switch extends React.Component {
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} key="switch-toggle" />
 
     if (this.props.labelPosition == 'left') {
-      if (!this.props.hideAccessibleLabels) elements.push(label)
-      elements.push(toggle)
-
       elements = (
         <>
           {checkbox}
