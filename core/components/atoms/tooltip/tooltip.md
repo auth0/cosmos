@@ -18,16 +18,16 @@ Tooltips can be attached to any of the four sides of an element using the `posit
 ```js
 <Stack>
   <Tooltip position="top" content="Top">
-    <Icon size={16} name="help" />
+    <Icon name="help" />
   </Tooltip>
   <Tooltip position="bottom" content="Bottom">
-    <Icon size={16} name="help" />
+    <Icon name="help" />
   </Tooltip>
   <Tooltip position="left" content="Left">
-    <Icon size={16} name="help" />
+    <Icon name="help" />
   </Tooltip>
   <Tooltip position="right" content="Right">
-    <Icon size={16} name="help" />
+    <Icon name="help" />
   </Tooltip>
 </Stack>
 ```
