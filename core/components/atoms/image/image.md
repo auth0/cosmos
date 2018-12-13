@@ -11,7 +11,7 @@
 
 ## Usage
 
-The imagien component is scaled to maintain its aspect ratio while fitting within the container content box. The image will be "letterboxed" if its aspect ratio does not match the aspect ratio of its container.
+The Image component is scaled to maintain its aspect ratio while fitting within the container content box. The image will be "letterboxed" if its aspect ratio does not match the aspect ratio of its container.
 
 ## Accessibility
 

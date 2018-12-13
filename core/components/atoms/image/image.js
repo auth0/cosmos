@@ -13,7 +13,7 @@ Image.propTypes = {
   /** URL of the image */
   source: PropTypes.string.isRequired,
   /** Alt text is mandatory, please read the accessibility section */
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string
 }
 
 Image.defaultProps = {
