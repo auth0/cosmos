@@ -77,12 +77,12 @@ Here's an example of providing some context to the user with `helpText`.
 
 ```js
 <Form>
-  <Form.TextInput
+  <Form.Field
     label="Callback URL"
-    type="text"
-    placeholder="Enter something"
     helpText="Make sure to specify the protocol, http:// or https://"
-  />
+  >
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
 </Form>
 ```
 
@@ -91,17 +91,17 @@ or other rich formatting to displayed text.
 
 ```js
 <Form>
-  <Form.TextInput
+  <Form.Field
     label="Allowed URLs"
-    type="text"
-    placeholder="Enter something"
     helpText={
       <span>
         Note that querystrings <strong>are not</strong> taken into account when validating these
         URLs. Read more about this <Link href="https://auth0.com">here</Link>.
       </span>
     }
-  />
+  >
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
 </Form>
 ```
 
@@ -111,15 +111,16 @@ You can add actions to a field by passing an array of `{ icon, handler }`:
 
 ```js
 <Form>
-  <Form.TextInput
-    label="Allowed URLs"
-    type="text"
-    placeholder="Enter something"
-    actions={[
-      { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
-      { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
-    ]}
-  />
+  <Form.Field label="Allowed URLs">
+    <TextInput
+      type="text"
+      placeholder="Enter something"
+      actions={[
+        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+      ]}
+    />
+  </Form.Field>
 </Form>
 ```
 
@@ -129,14 +130,13 @@ We leave the logic part of validation to you the developer, you can pass `error`
 
 ```js
 <Form>
-  <Form.TextInput
+  <Form.Field
     label="Allowed URLs"
-    type="text"
-    placeholder="Enter something"
-    defaultValue="auth0.com"
     error="This is not a valid URL"
     helpText="Make sure to specify the protocol, http:// or https://"
-  />
+  >
+    <TextInput type="text" placeholder="Enter something" defaultValue="auth0.com" hasError={true} />
+  </Form.Field>
 </Form>
 ```
 
