@@ -480,6 +480,23 @@ default badge
 
 ⚠️ icon color is always blue if there is no text, looks like a 🐞 bug?
 
+## Checkbox
+
+### default
+
+```js
+<Stack>
+  <Checkbox name="example" onChange={evt => console.log(evt)} value="one" checked={true}>
+    This is a checked checkbox
+  </Checkbox>
+  <Checkbox name="example" onChange={evt => console.log(evt)} value="one" checked={false}>
+    This is an unchecked checkbox
+  </Checkbox>
+</Stack>
+```
+
+This one seems pretty okay, it uses the standard `onChange` name for the action handler. And it uses the standard HTML attributes like `value` and `checked` for state.
+
 ## end
 
 click this to anchor (in url #end) to end of page in dev mode
