@@ -23,7 +23,11 @@ const resolveAction = (item, action, key) => {
     return buttonBuilder(actionToButtonProps({ ...action, key }, item))
   }
 
-  return React.cloneElement(action, { key })
+  // Patch action's onClick handler to include the item
+  const { onClick: handler } = action.props
+  const onClick = evt => handler(evt, item)
+
+  return React.cloneElement(action, { key, onClick })
 }
 
 /**
