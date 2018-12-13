@@ -41,6 +41,6 @@ The Tooltip wraps long text by default to make it readable. Try to keep the cont
   position="top"
   content="This is a very long text. Please try to keep it no longer than 4 lines. The tooltip should be a short and helpful text."
 >
-  <Icon size={16} name="help" />
+  <Icon name="help" />
 </Tooltip>
 ```
