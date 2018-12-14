@@ -121,7 +121,6 @@ class Tabs extends React.Component {
             role: 'tabpanel',
             id: `${uniqueTabPrefix}-${selectedIndex}-tab`,
             'aria-labelledby': this.tabs[selectedIndex].props.id,
-            tabIndex: 0,
             ...Automation('tabs.item')
           })}
       </Tabs.Element>
