@@ -151,6 +151,7 @@ Tabs.TabLink = styled.button`
   cursor: pointer;
   border-bottom: 1px solid transparent;
   margin-bottom: -1px;
+  line-height: 1.3;
   &:hover {
     color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
   }
