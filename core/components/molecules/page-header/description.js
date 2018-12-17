@@ -40,7 +40,7 @@ export const StyledParagraph = styled(Paragraph)`
   }
 
   @media (min-width: 768px) {
-    margin-top: ${spacing.small};
+    margin-top: ${spacing.medium};
   }
 `
 
