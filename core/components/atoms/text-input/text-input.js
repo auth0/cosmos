@@ -38,14 +38,15 @@ const TextInput = props => {
     />
   )
 
-  if (props.actions.length) {
+  if (!props.actions.length) return Input
+  else {
     /* Input is not a component, just JSX, hence wrapper in {} */
     return (
       <InputWithActions actions={props.actions} size={props.size}>
         {Input}
       </InputWithActions>
     )
-  } else return Input
+  }
 }
 
 TextInput.Element = StyledInput.extend`

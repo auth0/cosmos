@@ -34,7 +34,7 @@ const StyledWrapper = styled.div`
     top: 0;
 
     ${Button.Element} {
-      height: ${props => misc.input[props.size].height};
+      height: ${props => misc.input[props.size || 'default'].height};
       margin: 0;
     }
   }
