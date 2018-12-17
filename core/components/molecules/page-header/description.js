@@ -27,9 +27,6 @@ export const StyledParagraph = styled(Paragraph)`
   margin: 0;
   flex: 1 0 100%;
   order: 1;
-  &:empty {
-    display: none;
-  }
 
   &:hover ${ArrowMore} {
     border-color: transparent transparent transparent ${colors.link.defaultHover};
@@ -38,9 +35,9 @@ export const StyledParagraph = styled(Paragraph)`
   &:hover ${StyledLink} {
     color: ${colors.link.defaultHover};
   }
-
+  margin-top: ${spacing.medium};
   @media (min-width: 768px) {
-    margin-top: ${spacing.medium};
+    margin-bottom: 0;
   }
 `
 

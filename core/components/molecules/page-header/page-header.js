@@ -19,37 +19,37 @@ const PageHeader = props => {
     <PageHeader.Element {...Automation('page-header')}>
       <Heading size={1}>{props.title}</Heading>
       <PageHeader.Description {...props} />
-      <ButtonGroup>
-        {props.secondaryAction && (
-          <Button
-            size="large"
-            appearance="secondary"
-            icon={props.secondaryAction.icon}
-            onClick={props.secondaryAction.handler}
-          >
-            {props.secondaryAction.label}
-          </Button>
-        )}
-        {props.primaryAction && (
-          <Button
-            size="large"
-            appearance="cta"
-            icon={props.primaryAction.icon}
-            onClick={props.primaryAction.handler}
-          >
-            {props.primaryAction.label}
-          </Button>
-        )}
-      </ButtonGroup>
+
+      {(props.secondaryAction || props.primaryAction) && (
+        <ButtonGroup>
+          {props.secondaryAction && (
+            <Button
+              size="large"
+              appearance="secondary"
+              icon={props.secondaryAction.icon}
+              onClick={props.secondaryAction.handler}
+            >
+              {props.secondaryAction.label}
+            </Button>
+          )}
+          {props.primaryAction && (
+            <Button
+              size="large"
+              appearance="cta"
+              icon={props.primaryAction.icon}
+              onClick={props.primaryAction.handler}
+            >
+              {props.primaryAction.label}
+            </Button>
+          )}
+        </ButtonGroup>
+      )}
     </PageHeader.Element>
   )
 }
 
 PageHeader.Element = styled.div`
   ${containerStyles};
-  > *:not(:last-child) {
-    margin-bottom: ${spacing.small};
-  }
 
   @media (min-width: 768px) {
     display: flex;
@@ -64,11 +64,10 @@ PageHeader.Element = styled.div`
   margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {
+    margin-top: ${spacing.medium};
     @media (min-width: 768px) {
+      margin-top: 0;
       margin-left: ${spacing.small};
-    }
-    &:empty {
-      display: none;
     }
   }
 
@@ -78,10 +77,7 @@ PageHeader.Element = styled.div`
     Components should not have margin by default.
     We'll remove this margin reset when we remove margins from headers
     */
-    margin-top: 0;
-    @media (min-width: 768px) {
-      margin-bottom: 0;
-    }
+    margin: 0;
   }
 `
 
