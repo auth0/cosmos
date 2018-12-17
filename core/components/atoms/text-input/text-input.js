@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
+import { InputWithActionsWrapper } from '../_styled-input/wrapper-with-actions'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import { actionShape } from '../../_helpers/action-shape'
-import getActions from '../../_helpers/with-actions'
+import getActionGroup from '../../_helpers/action-group-creator'
 
 const TextInput = props => {
   let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
@@ -35,13 +36,13 @@ const TextInput = props => {
   )
 
   if (props.actions.length) {
-    const { Wrapper, Actions } = getActions({ actions: props.actions, size: props.size })
+    const Actions = getActionGroup(props.actions)
 
     return (
-      <Wrapper>
+      <InputWithActionsWrapper actions={props.actions} size={props.size}>
         {Input}
         {Actions}
-      </Wrapper>
+      </InputWithActionsWrapper>
     )
   } else return Input
 }
