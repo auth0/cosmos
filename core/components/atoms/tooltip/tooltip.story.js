@@ -81,3 +81,15 @@ storiesOf('Tooltip').add('with icon only button', () => (
     </ExampleContainer>
   </Example>
 ))
+
+storiesOf('Tooltip').add('long text', () => (
+  <Example title="with long text">
+    <ExampleContainer position="top">
+      <Button
+        icon="help"
+        label="This is a very long text. Please try to keep it no longer than 4 lines. The tooltip should be a short and helpful text."
+        labelDefaultVisible
+      />
+    </ExampleContainer>
+  </Example>
+))
