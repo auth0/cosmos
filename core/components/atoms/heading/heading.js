@@ -17,21 +17,21 @@ const Heading = props => {
 
 Heading.Element = []
 
-Heading.Element[1] = BaseHeading.withComponent('h1').extend`
+Heading.Element[1] = styled(BaseHeading.withComponent('h1'))`
   font-size: 36px;
 `
 
-Heading.Element[2] = BaseHeading.withComponent('h2').extend`
+Heading.Element[2] = styled(BaseHeading.withComponent('h2'))`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-Heading.Element[3] = BaseHeading.withComponent('h3').extend`
+Heading.Element[3] = styled(BaseHeading.withComponent('h3'))`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-Heading.Element[4] = BaseHeading.withComponent('h4').extend`
+Heading.Element[4] = styled(BaseHeading.withComponent('h4'))`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
