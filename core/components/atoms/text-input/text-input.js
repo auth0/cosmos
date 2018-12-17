@@ -8,31 +8,29 @@ import Automation from '../../_helpers/automation-attribute'
 import { actionShape } from '../../_helpers/action-shape'
 import getActions from '../../_helpers/with-actions'
 
-const TextInput = ({ defaultValue, type, ...props }) => {
-  let placeholder = props.placeholder
-  let readOnly = props.readOnly
+const TextInput = props => {
+  let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
 
-  let Input
+  /*
+    override placeholder and readOnly for masked
 
+    masked is like a readOnly field but with the values replaced with *
+    (like password, but without the value underneath)
+  */
   if (props.masked) {
-    const length = defaultValue ? defaultValue.length : 8
-    const maskedValue = new Array(length).join('•')
-    Input = (
-      <TextInput.Element
-        type={type}
-        {...props}
-        placeholder={maskedValue}
-        readOnly
-        {...Automation('text-input')}
-      />
-    )
+    const length = props.defaultValue ? props.defaultValue.length : 8
+    placeholder = new Array(length).join('•')
+    readOnly = true
+    defaultValue = null
   }
-  Input = (
+
+  return (
     <TextInput.Element
       {...Automation('text-input')}
-      type={type}
       defaultValue={defaultValue}
-      {...props}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      {...restOfTheProps}
     />
   )
 
