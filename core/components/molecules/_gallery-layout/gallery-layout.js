@@ -13,10 +13,10 @@ const gutterOptions = {
   spacious: spacing.xlarge
 }
 
-const columnOptions = {
-  condensed: 'repeat(auto-fill, minmax(150px, 1fr))',
-  default: 'repeat(auto-fill, minmax(250px, 1fr))',
-  spacious: 'repeat(auto-fill, minmax(450px, 1fr))'
+const galleryOptions = {
+  small: 'repeat(auto-fill, minmax(150px, 1fr))',
+  medium: 'repeat(auto-fill, minmax(250px, 1fr))',
+  large: 'repeat(auto-fill, minmax(450px, 1fr))'
 }
 
 const GalleryLayout = props => (
@@ -27,7 +27,7 @@ const GalleryLayout = props => (
 
 GalleryLayout.Element = styled.ul`
   display: grid;
-  grid-template-columns: ${props => columnOptions[props.column]};
+  grid-template-columns: ${props => galleryOptions[props.gallerySize]};
   grid-gap: ${props => gutterOptions[props.gutter]};
 
   ${applyMarginReset()};
@@ -39,14 +39,14 @@ GalleryLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
   /** Regulates the size of the flexible columns */
-  column: PropTypes.oneOf(['default', 'condensed', 'spacious']),
+  gallerySize: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   marginReset: PropTypes.oneOf(['none', 'reset'])
 }
 
 GalleryLayout.defaultProps = {
   marginReset: 'reset',
-  column: 'default',
+  gallerySize: 'default',
   gutter: 'default'
 }
 
