@@ -5,6 +5,7 @@ import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
+import Tabs from '../../molecules/tabs'
 import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
@@ -12,6 +13,7 @@ import Automation from '../../_helpers/automation-attribute'
 
 import FocusTrap from 'react-focus-lock'
 import containerStyles from '../../_helpers/container-styles'
+
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -194,8 +196,17 @@ const DialogBody = styled.div`
   word-break: break-word;
   word-wrap: break-word;
   /* Clears the margin of the last item of the body */
-  > * {
+  > *:last-child {
     margin-bottom: 0;
+  }
+
+  ${Tabs.TabList} {
+    margin-top: -${spacing.small};
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
+    justify-content: center;
   }
 `
 
