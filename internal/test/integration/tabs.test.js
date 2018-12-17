@@ -17,7 +17,7 @@ test('Hitting right should move to next button', () => {
   const buttons = body.getAllByTestId('tabs.link')
 
   buttons[0].focus()
-  expect(buttons[1]).toHaveFocus()
+  expect(buttons[0]).toHaveFocus()
 
   fireEvent.keyDown(buttons[0], { key: 'ArrowRight' })
 
