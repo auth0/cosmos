@@ -3,10 +3,14 @@ import PropTypes from 'prop-types'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
-import { deprecate } from '../../_helpers/custom-validations'
+
+/* Helpers */
 import Automation from '../../_helpers/automation-attribute'
-import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
+import { deprecate } from '../../_helpers/custom-validations'
+
+/* Input with actions */
 import InputWithActions from '../_input-with-actions'
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 
 const TextInput = props => {
   let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props

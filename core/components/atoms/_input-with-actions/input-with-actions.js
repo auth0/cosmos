@@ -2,10 +2,12 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 
 import { spacing, misc } from '@auth0/cosmos-tokens'
-import { multiply, add } from '../../_helpers/pixel-calc'
-import getActionGroup from '../../_helpers/action-group-creator'
+
 import ButtonGroup from '../../molecules/button-group'
 import Button from '../button'
+
+import getActionGroup from '../../_helpers/action-group-creator'
+import { multiply, add } from '../../_helpers/pixel-calc'
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
@@ -46,5 +48,7 @@ const InputWithActions = props => {
     </StyledWrapper>
   )
 }
+
+InputWithActions.propTypes = actionShapeWithRequiredIcon
 
 export default InputWithActions
