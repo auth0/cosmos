@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
-import TextInput from '../../atoms/text-input'
+// import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
 import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
-import { multiply } from '../../_helpers/pixel-calc'
+import { multiply, add } from '../../_helpers/pixel-calc'
 import { spacing, misc } from '@auth0/cosmos-tokens'
 import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
@@ -14,14 +14,6 @@ const widthOfButton = '36px'
 
 const Wrapper = styled.div`
   position: relative;
-  ${TextInput.Element} {
-    ${props => {
-      if (!props.actions) return
-      return `padding-right: calc(${multiply(widthOfButton, props.actions.length)} + ${
-        spacing.xsmall
-      })`
-    }};
-  }
 
   ${StyledButtonGroup} {
     position: absolute;
@@ -35,15 +27,23 @@ const Wrapper = styled.div`
   }
 `
 
+const getPaddingForActions = actions => {
+  const numberOfActions = actions.length
+  const spaceForActions = multiply(widthOfButton, numberOfActions)
+  const buffer = spacing.xsmall
+  const total = add(spaceForActions, buffer)
+  return total
+}
+
 /**
  * Used when input can have actions attached
  */
 
-const ActionInput = props => {
+const withActions = Component => props => {
   if (props.actions) {
     return (
       <Wrapper actions={props.actions} size={props.size}>
-        <TextInput {...props} />
+        <Component {...props} style={{ paddingRight: getPaddingForActions(props.actions) }} />
         <ButtonGroup compressed>
           {props.actions.map((action, index) => (
             <Button
@@ -59,7 +59,7 @@ const ActionInput = props => {
       </Wrapper>
     )
   } else {
-    return <TextInput {...props} />
+    return <Component {...props} />
   }
 }
 
@@ -74,4 +74,4 @@ const ActionInput = props => {
 //   actions: []
 // }
 
-export default ActionInput
+export default withActions
