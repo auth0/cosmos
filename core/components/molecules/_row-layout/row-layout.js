@@ -31,13 +31,12 @@ RowLayout.Item = styled.div``
 RowLayout.propTypes = {
   /** Regulates the size of the gutter between rows*/
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
-  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
-  marginReset: PropTypes.oneOf(['none', 'reset'])
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
+  disableMarginReset: PropTypes.bool
 }
 
 RowLayout.defaultProps = {
-  gutter: 'default',
-  marginReset: 'reset'
+  gutter: 'default'
 }
 
 export default RowLayout

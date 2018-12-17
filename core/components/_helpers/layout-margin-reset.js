@@ -15,9 +15,9 @@ export const applyLayoutChildClass = children =>
  * Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
  * This is a fix that will last until we remove margins from components.
  */
-const applyMarginReset = (propName = 'marginReset') => props => {
+const applyMarginReset = (propName = 'disableMarginReset') => props => {
   const propValue = props[propName]
-  const matchingValue = propValue === 'reset' ? '0' : false
+  const matchingValue = propValue !== 'undefined' ? '0' : null
 
   if (matchingValue)
     return css`

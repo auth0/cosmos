@@ -6,7 +6,7 @@ import { GalleryLayout } from '@auth0/cosmos'
 
 storiesOf('Gallery Layout').add('small', () => (
   <Example title="small">
-    <GalleryLayout gallerySize="small">
+    <GalleryLayout size="small">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -29,7 +29,7 @@ storiesOf('Gallery Layout').add('small', () => (
 
 storiesOf('Gallery Layout').add('medium', () => (
   <Example title="medium">
-    <GalleryLayout gallerySize="medium">
+    <GalleryLayout size="medium">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -52,7 +52,7 @@ storiesOf('Gallery Layout').add('medium', () => (
 
 storiesOf('Gallery Layout').add('large', () => (
   <Example title="large">
-    <GalleryLayout gallerySize="large">
+    <GalleryLayout size="large">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />

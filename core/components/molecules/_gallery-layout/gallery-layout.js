@@ -20,14 +20,14 @@ const galleryOptions = {
 }
 
 const GalleryLayout = props => (
-  <GalleryLayout.Element {...Automation('gallery-layout')}>
+  <GalleryLayout.Element {...props} {...Automation('gallery-layout')}>
     {transformChildren(props, GalleryLayout.Item, 'gallery-layout.item')}
   </GalleryLayout.Element>
 )
 
 GalleryLayout.Element = styled.ul`
   display: grid;
-  grid-template-columns: ${props => galleryOptions[props.gallerySize]};
+  grid-template-columns: ${props => galleryOptions[props.size]};
   grid-gap: ${props => gutterOptions[props.gutter]};
 
   ${applyMarginReset()};
@@ -39,14 +39,13 @@ GalleryLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
   gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
   /** Regulates the size of the flexible columns */
-  gallerySize: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Resets the margins of the component within the layout to generate consistent spaces. */
-  marginReset: PropTypes.oneOf(['none', 'reset'])
+  disableMarginReset: PropTypes.bool
 }
 
 GalleryLayout.defaultProps = {
-  marginReset: 'reset',
-  gallerySize: 'default',
+  size: 'default',
   gutter: 'default'
 }
 

@@ -67,14 +67,13 @@ ColumnLayout.propTypes = {
     '3/4 1/4',
     '1/4 3/4'
   ]),
-  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
-  marginReset: PropTypes.oneOf(['none', 'reset'])
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
+  disableMarginReset: PropTypes.bool
 }
 
 ColumnLayout.defaultProps = {
   gutter: 'default',
-  distribution: '1/2 1/2',
-  marginReset: 'reset'
+  distribution: '1/2 1/2'
 }
 
 export default ColumnLayout

@@ -24,12 +24,8 @@ PageLayout.Header = styled.div``
 PageLayout.Content = styled.div``
 
 PageLayout.propTypes = {
-  /** Resets the margins of the component within the layout to generate consistent spaces. In doubt just leave it as `rest`. */
-  marginReset: PropTypes.oneOf(['none', 'reset'])
-}
-
-PageLayout.defaultProps = {
-  marginReset: 'reset'
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
+  disableMarginReset: PropTypes.bool
 }
 
 export default PageLayout
