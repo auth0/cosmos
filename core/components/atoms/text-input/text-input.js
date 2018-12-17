@@ -24,7 +24,6 @@ const TextInput = props => {
   return (
     <TextInput.Element
       {...Automation('text-input')}
-      defaultValue={defaultValue}
       placeholder={placeholder}
       readOnly={readOnly}
       {...restOfTheProps}
