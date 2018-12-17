@@ -8,22 +8,29 @@ import Automation from '../../_helpers/automation-attribute'
 import { actionShape } from '../../_helpers/action-shape'
 import getActions from '../../_helpers/with-actions'
 
-const TextInput = ({ defaultValue, ...props }) => {
+const TextInput = ({ defaultValue, type, ...props }) => {
   let placeholder = props.placeholder
   let readOnly = props.readOnly
 
+  let Input
+
   if (props.masked) {
     const length = defaultValue ? defaultValue.length : 8
-    placeholder = new Array(length).join('•')
-    readOnly = true
+    const maskedValue = new Array(length).join('•')
+    Input = (
+      <TextInput.Element
+        type={type}
+        {...props}
+        placeholder={maskedValue}
+        readOnly
+        {...Automation('text-input')}
+      />
+    )
   }
-
-  const Input = (
+  Input = (
     <TextInput.Element
-      type={props.type}
-      readOnly={readOnly}
-      placeholder={placeholder}
       {...Automation('text-input')}
+      type={type}
       defaultValue={defaultValue}
       {...props}
     />
