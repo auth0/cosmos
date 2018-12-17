@@ -63,15 +63,15 @@ const ActionInput = props => {
   }
 }
 
-ActionInput.propTypes = {
-  ...TextInput.propTypes,
-  /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(actionShape)
-}
-
-ActionInput.defaultProps = {
-  ...TextInput.defaultProps,
-  actions: []
-}
+// ActionInput.propTypes = {
+//   ...TextInput.propTypes,
+//   /** Actions to be attached to input */
+//   actions: PropTypes.arrayOf(actionShape)
+// }
+//
+// ActionInput.defaultProps = {
+//   ...TextInput.defaultProps,
+//   actions: []
+// }
 
 export default ActionInput
