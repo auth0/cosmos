@@ -7,7 +7,7 @@ import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 
 const TextInput = props => {
-  let { placeholder, readOnly, ...restOfTheProps } = props
+  let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
 
   /*
     override placeholder and readOnly for masked
@@ -19,11 +19,13 @@ const TextInput = props => {
     const length = props.defaultValue ? props.defaultValue.length : 8
     placeholder = new Array(length).join('•')
     readOnly = true
+    defaultValue = null
   }
 
   return (
     <TextInput.Element
       {...Automation('text-input')}
+      defaultValue={defaultValue}
       placeholder={placeholder}
       readOnly={readOnly}
       {...restOfTheProps}
