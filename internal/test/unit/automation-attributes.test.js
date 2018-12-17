@@ -289,17 +289,20 @@ describe('Automation data attributes', () => {
 
   it('Tabs', () => {
     const tabs = shallow(
-      <Tabs onSelect={() => {}} selected={1}>
+      <Tabs onSelect={() => {}} selected={0}>
         <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
       </Tabs>
     )
+    const tabList = tabs
+      .children() // [TabList, ...TabItem]
+      .first() // TabList
+
+    const tabListItems = tabList.children()
+    const tabLinks = tabListItems.children()
 
     expect(tabs.prop('data-cosmos-key')).toEqual('tabs')
-    expect(
-      tabs
-        .children() // TabList
-        .children() // TabLink
-        .prop('data-cosmos-key')
-    ).toEqual('tabs.item')
+    expect(tabList.prop('data-cosmos-key')).toEqual('tabs.list')
+    expect(tabListItems.prop('data-cosmos-key')).toEqual('tabs.list-item')
+    expect(tabLinks.prop('data-cosmos-key')).toEqual('tabs.link')
   })
 })
