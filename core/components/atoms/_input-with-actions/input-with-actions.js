@@ -1,7 +1,9 @@
+import React from 'react'
 import styled from '@auth0/cosmos/styled'
 
 import { spacing, misc } from '@auth0/cosmos-tokens'
 import { multiply, add } from '../../_helpers/pixel-calc'
+import getActionGroup from '../../_helpers/action-group-creator'
 import ButtonGroup from '../../molecules/button-group'
 import Button from '../button'
 
@@ -17,7 +19,7 @@ const getPaddingForActions = actions => {
   return total
 }
 
-const InputWithActionsWrapper = styled.div`
+const StyledWrapper = styled.div`
   position: relative;
 
   input {
@@ -36,4 +38,13 @@ const InputWithActionsWrapper = styled.div`
   }
 `
 
-export { InputWithActionsWrapper }
+const InputWithActions = props => {
+  const Actions = getActionGroup(props.actions)
+  return (
+    <StyledWrapper actions={props.actions} size={props.size}>
+      {props.children} {Actions}
+    </StyledWrapper>
+  )
+}
+
+export default InputWithActions

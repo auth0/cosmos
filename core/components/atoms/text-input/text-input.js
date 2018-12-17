@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
-import { InputWithActionsWrapper } from '../_styled-input/wrapper-with-actions'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
-import { actionShape } from '../../_helpers/action-shape'
-import getActionGroup from '../../_helpers/action-group-creator'
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
+import InputWithActions from '../_input-with-actions'
 
 const TextInput = props => {
   let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
@@ -36,13 +35,11 @@ const TextInput = props => {
   )
 
   if (props.actions.length) {
-    const Actions = getActionGroup(props.actions)
-
+    /* Input is not a component, just JSX, hence wrapper in {} */
     return (
-      <InputWithActionsWrapper actions={props.actions} size={props.size}>
+      <InputWithActions actions={props.actions} size={props.size}>
         {Input}
-        {Actions}
-      </InputWithActionsWrapper>
+      </InputWithActions>
     )
   } else return Input
 }
@@ -73,6 +70,7 @@ TextInput.propTypes = {
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
   /** Actions to be attached to input */
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })

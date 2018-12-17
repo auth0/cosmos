@@ -27,3 +27,15 @@ storiesOf('TextArea').add('readonly', () => (
     <TextArea readOnly placeholder="Field is disabled" />
   </Example>
 ))
+
+storiesOf('TextArea').add('with actions', () => (
+  <Example title="with actions">
+    <TextArea
+      placeholder="Small text area"
+      actions={[
+        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+      ]}
+    />
+  </Example>
+))
