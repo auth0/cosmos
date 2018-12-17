@@ -10,7 +10,7 @@ import containerStyles from '../../_helpers/container-styles'
 import SortableListHandle from './sortable-handle'
 
 const ResourceList = props => {
-  const defaultItemRenderer = (item, index) => (
+  const defaultItemRenderer = (item, _, index) => (
     <ResourceListItem
       index={index}
       reorderHandle={props.sortable ? SortableListHandle : null}
@@ -18,19 +18,20 @@ const ResourceList = props => {
     />
   )
 
-  const itemRendererBuilder = ({
-    item,
-    index,
-    actions,
-    renderItem,
-    onItemClick,
-    accessibilityIndex,
-    accessibilityOnSortEnd
-  }) => {
+  const itemRendererBuilder = props => {
+    const {
+      item,
+      index,
+      actions,
+      renderItem,
+      onItemClick,
+      accessibilityIndex,
+      accessibilityOnSortEnd
+    } = props
     const itemRenderer = renderItem || defaultItemRenderer
     const actualIndex = index || accessibilityIndex
 
-    return React.cloneElement(itemRenderer(item, actualIndex), {
+    return React.cloneElement(itemRenderer(item, props, actualIndex), {
       item,
       key: actualIndex,
       index: actualIndex,
