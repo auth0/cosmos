@@ -47,8 +47,9 @@ module.exports = {
     },
     test: {
       default: {
-        script: series('production.build', 'test.visual', 'test.unit'),
-        description: 'Check if applications build + Run visual tests + Run unit tests'
+        script: series('production.build', 'test.visual', 'test.unit', 'test.integration'),
+        description:
+          'Check if applications build + Run visual tests + Run unit and integration tests'
       },
       visual: {
         script: 'node tooling/chromatic.js',
@@ -71,6 +72,16 @@ module.exports = {
       coverage: {
         script: 'cd internal/test && yarn coverage',
         description: 'Run a coverage report'
+      },
+      integration: {
+        default: {
+          script: 'cd internal/test && yarn test-integration',
+          description: 'Run integration tests'
+        },
+        watch: {
+          script: 'cd internal/test && yarn test-integration-watch',
+          description: 'Run integration tests in watch mode'
+        }
       }
     },
     metadata: {
