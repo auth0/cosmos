@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc'
+import styled from '@auth0/cosmos/styled'
+import ResourceListItem from './item'
 import { spacing } from '@auth0/cosmos-tokens'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
-import ResourceListItem from './item'
 import SortableListHandle from './sortable-handle'
 
 const ResourceList = props => {

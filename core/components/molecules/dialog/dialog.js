@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
@@ -138,6 +138,7 @@ class Dialog extends React.Component {
 
 const DialogBox = styled.div`
   ${containerStyles};
+  pointer-events: auto;
   position: relative;
   max-height: calc(100vh - (${spacing.xlarge} * 2));
   display: flex;

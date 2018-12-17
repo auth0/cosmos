@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 import Automation from '../../_helpers/automation-attribute'

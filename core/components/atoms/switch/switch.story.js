@@ -31,7 +31,14 @@ storiesOf('Switch').add('readonly', () => (
 
 storiesOf('Switch').add('accessibility labels', () => (
   <Example title="Switch">
-    <Switch accessibleLabels={['ON', 'OFF']} onToggle={() => { }} />
-    <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => { }} />
+    <Switch accessibleLabels={[]} onToggle={() => {}} />
+    <Switch accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
+    <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
+  </Example>
+))
+
+storiesOf('Switch').add('hidden accessibility labels', () => (
+  <Example title="Switch">
+    <Switch hideAccessibleLabels onToggle={() => {}} />
   </Example>
 ))

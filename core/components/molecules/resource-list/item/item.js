@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { ButtonGroup, Link } from '@auth0/cosmos'
+import styled from '@auth0/cosmos/styled'
+import { Button, ButtonGroup, Link } from '@auth0/cosmos'
 import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
@@ -22,7 +22,11 @@ const resolveAction = (item, action, key) => {
     return buttonBuilder(actionToButtonProps({ ...action, key }, item))
   }
 
-  return React.cloneElement(action, { key })
+  // Patch action's onClick handler to include the item
+  const { onClick: handler } = action.props
+  const onClick = evt => handler(evt, item)
+
+  return React.cloneElement(action, { key, onClick })
 }
 
 /**

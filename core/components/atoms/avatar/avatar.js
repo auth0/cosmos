@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { Image } from '@auth0/cosmos'
 import { colors, misc } from '@auth0/cosmos-tokens'

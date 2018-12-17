@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 import Button from '../../atoms/button'
@@ -121,4 +121,3 @@ Pagination.propTypes = {
 }
 
 export default Pagination
-

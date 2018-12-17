@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { Tooltip, ButtonGroup, Button } from '@auth0/cosmos'
 
 const positions = ['top', 'left', 'right', 'bottom']
@@ -78,6 +78,18 @@ storiesOf('Tooltip').add('with icon only button', () => (
   <Example title="with icon only button">
     <ExampleContainer position="top">
       <Button icon="analytics" label="this is the label" labelDefaultVisible />
+    </ExampleContainer>
+  </Example>
+))
+
+storiesOf('Tooltip').add('long text', () => (
+  <Example title="with long text">
+    <ExampleContainer position="top">
+      <Button
+        icon="help"
+        label="This is a very long text. Please try to keep it no longer than 4 lines. The tooltip should be a short and helpful text."
+        labelDefaultVisible
+      />
     </ExampleContainer>
   </Example>
 ))

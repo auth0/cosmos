@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
@@ -81,11 +81,12 @@ Tooltip.Element = styled.div`
   width: max-content;
   text-align: center;
   padding: ${spacing.xsmall};
-  line-height: normal;
+  line-height: ${misc.lineHeight};
   font-size: 13px;
   pointer-events: none;
   opacity: ${props => (props.defaultVisible ? 1 : 0)};
   ${props => tooltipStyles[props.position]};
+  max-width: 260px;
 
   &:after {
     position: absolute;

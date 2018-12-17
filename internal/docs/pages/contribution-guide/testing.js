@@ -6,7 +6,7 @@ import FoldingSection from '../../docs-components/folding-section'
 import { Code } from '@auth0/cosmos'
 
 const Testing = () => (
-  <FoldingSection name="Testing">
+  <FoldingSection page="contribution-guide" name="Testing">
     <Text>
       In order to ensure the reliability and mantainability of the component, please write snapshot
       and unit tests. Each component should have a test file located in

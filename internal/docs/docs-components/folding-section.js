@@ -18,7 +18,11 @@ class FoldingSection extends React.Component {
     this.state = { id, expanded }
   }
   toggle = () => {
-    location.href = `/#/${this.props.page}#${this.state.id}`
+    if (location.href.includes('localhost')) {
+      location.href = `/#/${this.props.page}#${this.state.id}`
+    } else {
+      location.href = `/docs/#/${this.props.page}#${this.state.id}`
+    }
     this.setState({ expanded: !this.state.expanded })
   }
 
