@@ -74,7 +74,7 @@ TextInput.propTypes = {
   type: PropTypes.string,
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
-  /** Actions to be attached to input */
+  /** Actions to be attached to the input */
   actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
 
   /** deprecate error string prop */

@@ -42,6 +42,8 @@ TextArea.propTypes = {
   resizable: PropTypes.bool,
   /** onChange transparently passed to the input */
   onChange: PropTypes.func,
+  /** Actions to be attached to the input */
+  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -53,7 +55,8 @@ TextArea.defaultProps = {
   code: false,
   error: null,
   resizable: true,
-  onChange: null
+  onChange: null,
+  actions: []
 }
 
 export default TextArea
