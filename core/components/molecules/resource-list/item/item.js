@@ -10,6 +10,8 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 
+const itemFocusOutline = '2px'
+
 /**
  * Builds the button from the action or
  * adds the key to the action if it's a raw button.
@@ -39,51 +41,14 @@ const resolveActions = (actions, item) => actions.map(resolveAction.bind(this, i
 class ListItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { inSortingMode: false }
     this.dragHandler = React.createRef()
-  }
-
-  setNextSortingMode(willBeInSortingMode) {
-    const wasInSortingMode = this.state.inSortingMode
-
-    if (!wasInSortingMode && willBeInSortingMode) this.registerArrowEvents()
-    else if (wasInSortingMode && !willBeInSortingMode) this.unRegisterArrowEvents()
-    else return
-
-    this.setState({ inSortingMode: willBeInSortingMode })
-  }
-
-  onArrowPressed(event) {
-    const { index, accessibilityOnSortEnd } = this.props
-
-    switch (event.key) {
-      case 'ArrowUp':
-        return accessibilityOnSortEnd({ oldIndex: index, newIndex: index - 1 })
-      case 'ArrowDown':
-        return accessibilityOnSortEnd({ oldIndex: index, newIndex: index + 1 })
-      default:
-        return
-    }
-  }
-
-  registerArrowEvents() {
-    document.addEventListener('keydown', this.onArrowPressed.bind(this))
-  }
-
-  unRegisterArrowEvents() {
-    document.removeEventListener('keydown', this.onArrowPressed.bind(this))
   }
 
   renderSortingHandler() {
     if (this.props.reorderHandle) {
       const SortableHandler = this.props.reorderHandle
 
-      return (
-        <SortableHandler
-          ref={this.dragHandler}
-          onFocusStatusChange={({ onFocus }) => this.setNextSortingMode(onFocus)}
-        />
-      )
+      return <SortableHandler ref={this.dragHandler} />
     }
 
     return null
@@ -129,7 +94,6 @@ class ListItem extends React.Component {
 
     return (
       <ListItem.Element
-        inSortingMode={this.state.inSortingMode}
         onClick={props.onClick ? callHandler(props.onClick) : null}
         {...Automation('resource-list.item')}
       >
@@ -154,12 +118,6 @@ ListItem.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
-  outline: ${props =>
-    props.inSortingMode
-      ? `
-          thick solid ${colors.input.borderFocus}
-        `
-      : `none`};
 
   &:hover {
     background: ${colors.list.backgroundHover};
