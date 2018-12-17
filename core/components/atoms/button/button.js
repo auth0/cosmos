@@ -327,4 +327,6 @@ Button.defaultProps = {
   success: false
 }
 
+Button.$$typeof = 'Button'
+
 export default Button

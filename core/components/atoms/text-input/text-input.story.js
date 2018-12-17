@@ -82,3 +82,20 @@ storiesOf('TextInput').add('with actions', () => (
     />
   </Example>
 ))
+
+storiesOf('TextInput').add('with actions', () => (
+  <Example title="with actions">
+    <TextInput
+      type="text"
+      placeholder="Enter some text"
+      actions={[
+        <Button icon="copy" onClick={e => console.log(e)}>
+          Copy URL
+        </Button>,
+        <Button icon="delete" onClick={e => console.log(e)}>
+          Delete URL
+        </Button>
+      ]}
+    />
+  </Example>
+))
