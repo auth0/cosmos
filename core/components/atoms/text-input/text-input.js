@@ -5,7 +5,8 @@ import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
-import withActions from '../../molecules/_action-input'
+import { actionShape } from '../../_helpers/action-shape'
+import withActions from '../../_helpers/with-actions'
 
 let TextInput = ({ defaultValue, type, ...props }) => {
   if (props.masked) {
@@ -59,6 +60,8 @@ TextInput.propTypes = {
   type: PropTypes.string,
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
+  /** Actions to be attached to input */
+  actions: PropTypes.arrayOf(actionShape),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -70,7 +73,8 @@ TextInput.defaultProps = {
   error: null,
   onChange: null,
   type: 'text',
-  size: 'default'
+  size: 'default',
+  actions: []
 }
 
 export default TextInput

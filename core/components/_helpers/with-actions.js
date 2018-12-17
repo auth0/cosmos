@@ -2,12 +2,10 @@ import React from 'react'
 import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
-// import TextInput from '../../atoms/text-input'
-import Button from '../../atoms/button'
-import ButtonGroup, { StyledButtonGroup } from '../../molecules/button-group'
-import { multiply, add } from '../../_helpers/pixel-calc'
+import Button from '../atoms/button'
+import ButtonGroup, { StyledButtonGroup } from '../molecules/button-group'
+import { multiply, add } from './pixel-calc'
 import { spacing, misc } from '@auth0/cosmos-tokens'
-import { actionShape } from '@auth0/cosmos/_helpers/action-shape'
 
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
@@ -62,16 +60,5 @@ const withActions = Component => props => {
     return <Component {...props} />
   }
 }
-
-// ActionInput.propTypes = {
-//   ...TextInput.propTypes,
-//   /** Actions to be attached to input */
-//   actions: PropTypes.arrayOf(actionShape)
-// }
-//
-// ActionInput.defaultProps = {
-//   ...TextInput.defaultProps,
-//   actions: []
-// }
 
 export default withActions
