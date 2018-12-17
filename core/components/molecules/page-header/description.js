@@ -25,7 +25,11 @@ export const StyledParagraph = styled(Paragraph)`
   We'll remove this margin reset when we remove margins from the paragraph
   */
   margin: 0;
-  grid-area: subtitle;
+  flex: 1 0 100%;
+  order: 1;
+  &:empty {
+    display: none;
+  }
 
   &:hover ${ArrowMore} {
     border-color: transparent transparent transparent ${colors.link.defaultHover};
@@ -33,6 +37,10 @@ export const StyledParagraph = styled(Paragraph)`
 
   &:hover ${StyledLink} {
     color: ${colors.link.defaultHover};
+  }
+
+  @media (min-width: 768px) {
+    margin-top: ${spacing.small};
   }
 `
 

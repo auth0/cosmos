@@ -47,24 +47,15 @@ const PageHeader = props => {
 
 PageHeader.Element = styled.div`
   ${containerStyles};
-  display: grid;
-  /* Placeholder width media feature until we have global variables for breakpoints */
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    'title'
-    'subtitle'
-    'actions';
-  grid-row-gap: ${spacing.small};
+  > *:not(:last-child) {
+    margin-bottom: ${spacing.small};
+  }
 
   @media (min-width: 768px) {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      'title actions'
-      'subtitle subtitle';
-    grid-column-gap: ${spacing.xsmall};
-    grid-row-gap: ${spacing.medium};
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
   }
   /* 
   Components should not have margin by default.
@@ -73,16 +64,24 @@ PageHeader.Element = styled.div`
   margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {
-    grid-area: actions;
+    @media (min-width: 768px) {
+      margin-left: ${spacing.small};
+    }
+    &:empty {
+      display: none;
+    }
   }
 
   ${Heading.Element[1]} {
-    grid-area: title;
+    flex: 1;
     /* 
     Components should not have margin by default.
     We'll remove this margin reset when we remove margins from headers
     */
-    margin: 0;
+    margin-top: 0;
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 `
 
