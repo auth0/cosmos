@@ -49,6 +49,4 @@ const InputWithActions = props => {
   )
 }
 
-InputWithActions.propTypes = actionShapeWithRequiredIcon
-
 export default InputWithActions
