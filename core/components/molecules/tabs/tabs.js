@@ -121,7 +121,6 @@ class Tabs extends React.Component {
             role: 'tabpanel',
             id: `${uniqueTabPrefix}-${selectedIndex}-tab`,
             'aria-labelledby': this.tabs[selectedIndex].props.id,
-            tabIndex: 0,
             ...Automation('tabs.item')
           })}
       </Tabs.Element>
@@ -152,6 +151,8 @@ Tabs.TabLink = styled.button`
   cursor: pointer;
   border-bottom: 1px solid transparent;
   margin-bottom: -1px;
+  line-height: 1.3;
+
   &:hover {
     color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
   }
@@ -169,7 +170,6 @@ Tabs.TabLink = styled.button`
       cursor: default;
       color: ${colors.text.default};
       &:focus {
-        color: ${colors.link.default};
         border-bottom: 1px solid ${colors.base.text};
       }
     `};
