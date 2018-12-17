@@ -24,7 +24,7 @@ const TextInput = props => {
     defaultValue = null
   }
 
-  return (
+  const Input = (
     <TextInput.Element
       {...Automation('text-input')}
       defaultValue={defaultValue}
