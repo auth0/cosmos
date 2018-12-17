@@ -6,34 +6,40 @@ import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import { actionShape } from '../../_helpers/action-shape'
-import withActions from '../../_helpers/with-actions'
+import getActions from '../../_helpers/with-actions'
 
-let TextInput = ({ defaultValue, type, ...props }) => {
+const TextInput = ({ defaultValue, ...props }) => {
+  let placeholder = props.placeholder
+  let readOnly = props.readOnly
+
   if (props.masked) {
     const length = defaultValue ? defaultValue.length : 8
-    const maskedValue = new Array(length).join('•')
-    return (
-      <TextInput.Element
-        type={type}
-        {...props}
-        placeholder={maskedValue}
-        readOnly
-        {...Automation('text-input')}
-      />
-    )
+    placeholder = new Array(length).join('•')
+    readOnly = true
   }
-  return (
+
+  const Input = (
     <TextInput.Element
+      type={props.type}
+      readOnly={readOnly}
+      placeholder={placeholder}
       {...Automation('text-input')}
-      type={type}
       defaultValue={defaultValue}
       {...props}
     />
   )
-}
 
-// attach actions
-TextInput = withActions(TextInput)
+  if (props.actions.length) {
+    const { Wrapper, Actions } = getActions({ actions: props.actions, size: props.size })
+
+    return (
+      <Wrapper>
+        {Input}
+        {Actions}
+      </Wrapper>
+    )
+  } else return Input
+}
 
 TextInput.Element = StyledInput.extend`
   height: ${props => misc.input[props.size].height};
@@ -61,7 +67,6 @@ TextInput.propTypes = {
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
   /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(actionShape),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })

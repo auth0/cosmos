@@ -54,3 +54,19 @@ The `onChange` prop is transparently passed to the input
 ```js
 <TextInput onChange={event => console.log(event.target.value)} placeholder="change my text" />
 ```
+
+### Actions
+
+You can add actions to a `TextInput` by passing an array of `{ icon, handler }`:
+
+```js
+<TextInput
+  label="Allowed URLs"
+  type="text"
+  placeholder="Enter something"
+  actions={[
+    { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+    { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+  ]}
+/>
+```

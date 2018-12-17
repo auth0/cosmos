@@ -10,8 +10,20 @@ import { spacing, misc } from '@auth0/cosmos-tokens'
 /* TODO: width of button should be exported by button component */
 const widthOfButton = '36px'
 
-const Wrapper = styled.div`
+const getPaddingForActions = actions => {
+  const numberOfActions = actions.length
+  const spaceForActions = multiply(widthOfButton, numberOfActions)
+  const buffer = spacing.xsmall
+  const total = add(spaceForActions, buffer)
+  return total
+}
+
+const StyledWrapper = styled.div`
   position: relative;
+
+  input {
+    padding-right: ${props => getPaddingForActions(props.actions)};
+  }
 
   ${StyledButtonGroup} {
     position: absolute;
@@ -25,40 +37,29 @@ const Wrapper = styled.div`
   }
 `
 
-const getPaddingForActions = actions => {
-  const numberOfActions = actions.length
-  const spaceForActions = multiply(widthOfButton, numberOfActions)
-  const buffer = spacing.xsmall
-  const total = add(spaceForActions, buffer)
-  return total
+const getActions = ({ actions, size }) => {
+  const Wrapper = props => (
+    <StyledWrapper actions={actions} size={size}>
+      {props.children}
+    </StyledWrapper>
+  )
+
+  const Actions = (
+    <ButtonGroup compressed>
+      {actions.map((action, index) => (
+        <Button
+          appearance="link"
+          size="small"
+          key={index}
+          icon={action.icon}
+          onClick={action.handler}
+          label={action.label}
+        />
+      ))}
+    </ButtonGroup>
+  )
+
+  return { Wrapper, Actions }
 }
 
-/**
- * Used when input can have actions attached
- */
-
-const withActions = Component => props => {
-  if (props.actions) {
-    return (
-      <Wrapper actions={props.actions} size={props.size}>
-        <Component {...props} style={{ paddingRight: getPaddingForActions(props.actions) }} />
-        <ButtonGroup compressed>
-          {props.actions.map((action, index) => (
-            <Button
-              appearance="link"
-              size="small"
-              key={index}
-              icon={action.icon}
-              onClick={action.handler}
-              label={action.label}
-            />
-          ))}
-        </ButtonGroup>
-      </Wrapper>
-    )
-  } else {
-    return <Component {...props} />
-  }
-}
-
-export default withActions
+export default getActions

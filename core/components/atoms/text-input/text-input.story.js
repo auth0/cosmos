@@ -69,3 +69,16 @@ storiesOf('TextInput').add('sizes', () => (
     </Stack>
   </Example>
 ))
+
+storiesOf('TextInput').add('with actions', () => (
+  <Example title="with actions">
+    <TextInput
+      type="text"
+      placeholder="Enter some text"
+      actions={[
+        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+      ]}
+    />
+  </Example>
+))
