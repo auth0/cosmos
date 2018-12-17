@@ -131,12 +131,8 @@ storiesOf('Resource List').add('actions', () => (
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="delete" onClick={() => {}}>
-          Delete
-        </Button>,
-        <Button icon="settings" onClick={() => {}}>
-          Settings
-        </Button>
+        <Button icon="delete" onClick={() => {}} />,
+        <Button icon="settings" onClick={() => {}} />
       ]}
     />
   </Example>
@@ -183,12 +179,8 @@ storiesOf('Resource List').add('action overrides', () => (
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="delete" onClick={() => {}}>
-          Delete
-        </Button>,
-        <Button icon="settings" onClick={() => {}}>
-          Settings
-        </Button>
+        <Button icon="delete" onClick={() => {}} />,
+        <Button icon="settings" onClick={() => {}} />
       ]}
     />
   </Example>
