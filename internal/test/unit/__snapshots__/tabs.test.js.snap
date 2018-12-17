@@ -65,7 +65,6 @@ exports[`Tabs only render one tab title as selected 1`] = `
     id="tabs-m0ck3d-0-tab"
     key=".0"
     role="tabpanel"
-    tabIndex={0}
     title="Title 1"
   >
     <div
@@ -140,7 +139,6 @@ exports[`Tabs only render one tab title as selected 2`] = `
     id="tabs-m0ck3d-1-tab"
     key=".1"
     role="tabpanel"
-    tabIndex={0}
     title="Title 2"
   >
     <div
@@ -215,7 +213,6 @@ exports[`Tabs only render one tab title as selected 3`] = `
     id="tabs-m0ck3d-2-tab"
     key=".2"
     role="tabpanel"
-    tabIndex={0}
     title="Title 3"
   >
     <div
