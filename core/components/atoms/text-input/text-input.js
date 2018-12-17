@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@auth0/cosmos/styled'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
@@ -30,7 +31,7 @@ const TextInput = ({ defaultValue, type, ...props }) => {
   )
 }
 
-TextInput.Element = StyledInput.extend`
+TextInput.Element = styled(StyledInput)`
   height: ${props => misc.input[props.size].height};
 `
 
