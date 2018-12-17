@@ -21,7 +21,7 @@ class FoldingSection extends React.Component {
     if (location.href.includes('localhost')) {
       location.href = `/#/${this.props.page}#${this.state.id}`
     } else {
-      location.href = '/docs/#/usage#installation'
+      location.href = `/docs/#/${this.props.page}#${this.state.id}`
     }
     this.setState({ expanded: !this.state.expanded })
   }
