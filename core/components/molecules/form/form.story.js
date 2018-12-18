@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Form } from '@auth0/cosmos'
 
-storiesOf('Form').add('layouts', () => (
+storiesOf('Form', module).add('layouts', () => (
   <div>
     <Example title="label-on-left">
       <Form>

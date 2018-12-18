@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Tag } from '@auth0/cosmos'
 
-storiesOf('Tag').add('default', () => (
+storiesOf('Tag', module).add('default', () => (
   <Example title="Tag">
     <Tag onClick={evt => false} onRemove={evt => false}>
       Example
@@ -12,13 +12,13 @@ storiesOf('Tag').add('default', () => (
   </Example>
 ))
 
-storiesOf('Tag').add('without remove callback', () => (
+storiesOf('Tag', module).add('without remove callback', () => (
   <Example title="Tag">
     <Tag onClick={evt => false}>Example</Tag>
   </Example>
 ))
 
-storiesOf('Tag').add('tag group', () => (
+storiesOf('Tag', module).add('tag group', () => (
   <Example title="Tag">
     <Tag.Group>
       <Tag onRemove={evt => false}>One</Tag>
@@ -30,14 +30,29 @@ storiesOf('Tag').add('tag group', () => (
   </Example>
 ))
 
-storiesOf('Tag').add('stressed', () => (
+storiesOf('Tag', module).add('stressed', () => (
   <Example title="stressed - 119 characters per tag">
     <Tag.Group>
-      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
-      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
-      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
-      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
-      <Tag onRemove={evt => false}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Tag>
+      <Tag onRemove={evt => false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Tag>
+      <Tag onRemove={evt => false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Tag>
+      <Tag onRemove={evt => false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Tag>
+      <Tag onRemove={evt => false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Tag>
+      <Tag onRemove={evt => false}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Tag>
     </Tag.Group>
   </Example>
 ))

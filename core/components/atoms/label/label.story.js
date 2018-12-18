@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Label } from '@auth0/cosmos'
 
-storiesOf('Label').add('appearances', () => (
+storiesOf('Label', module).add('appearances', () => (
   <Example title="appearances">
     <Stack>
       <Label appearance="default">Default</Label>
@@ -16,20 +16,35 @@ storiesOf('Label').add('appearances', () => (
   </Example>
 ))
 
-storiesOf('Label').add('no appearance specified', () => (
+storiesOf('Label', module).add('no appearance specified', () => (
   <Example title="no appearance specified">
     <Label>Example</Label>
   </Example>
 ))
 
-storiesOf('Label').add('stressed', () => (
+storiesOf('Label', module).add('stressed', () => (
   <Example title="stressed - 119 characters">
     <Stack>
-      <Label appearance="default">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
-      <Label appearance="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
-      <Label appearance="success">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
-      <Label appearance="warning">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
-      <Label appearance="danger">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.</Label>
+      <Label appearance="default">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Label>
+      <Label appearance="information">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Label>
+      <Label appearance="success">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Label>
+      <Label appearance="warning">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Label>
+      <Label appearance="danger">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in
+        consectetur tellus tristique ut.
+      </Label>
     </Stack>
   </Example>
 ))

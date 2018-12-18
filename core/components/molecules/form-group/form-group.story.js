@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { FormGroup, Form } from '@auth0/cosmos'
 
-storiesOf('Form Group').add('default', () => (
+storiesOf('Form Group', module).add('default', () => (
   <Example title="default">
     <FormGroup>
       <Form>
