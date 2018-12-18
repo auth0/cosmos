@@ -10,13 +10,19 @@ import containerStyles from '../../_helpers/container-styles'
 import SortableListHandle from './sortable-handle'
 
 const ResourceList = props => {
-  const defaultItemRenderer = (item, _, index) => (
-    <ResourceListItem
-      index={index}
-      reorderHandle={props.sortable ? SortableListHandle : null}
-      {...item}
-    />
-  )
+  const defaultItemRenderer = (item, _, index) => {
+    // We can say we are in dragging mode if there one .cosmos-dragging
+    // element in the DOM.
+    const draggingMode = document.querySelector('.cosmos-dragging')
+    return (
+      <ResourceListItem
+        index={index}
+        draggingMode={draggingMode}
+        reorderHandle={props.sortable ? SortableListHandle : null}
+        {...item}
+      />
+    )
+  }
 
   const itemRendererBuilder = props => {
     const {

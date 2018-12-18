@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { Button, ButtonGroup, Link } from '@auth0/cosmos'
 import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
@@ -94,6 +94,7 @@ class ListItem extends React.Component {
 
     return (
       <ListItem.Element
+        draggingMode={props.draggingMode}
         onClick={props.onClick ? callHandler(props.onClick) : null}
         {...Automation('resource-list.item')}
       >
@@ -134,6 +135,17 @@ ListItem.Element = styled.li`
   > *:not(:last-child) {
     margin-right: ${spacing.small};
   }
+
+  /* Disable pointer events on non-dragging elements */
+  /* to avoid unexpected hover behaviors. */
+  ${props =>
+    props.draggingMode
+      ? css`
+          &:not(.cosmos-dragging) {
+            pointer-events: none;
+          }
+        `
+      : ''};
 `
 
 ListItem.Header = styled.div`
