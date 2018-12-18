@@ -21,13 +21,13 @@ const CheckBoxExample = () => (
   </Checkbox.Group>
 )
 
-storiesOf('Checkbox').add('light', () => (
+storiesOf('Checkbox', module).add('light', () => (
   <Example>
     <CheckBoxExample />
   </Example>
 ))
 
-storiesOf('Checkbox').add('dark', () => (
+storiesOf('Checkbox', module).add('dark', () => (
   <Example background="dark">
     <CheckBoxExample />
   </Example>

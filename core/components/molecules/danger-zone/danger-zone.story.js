@@ -4,7 +4,7 @@ import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { DangerZone } from '@auth0/cosmos'
 
-storiesOf('DangerZone').add('single', () => (
+storiesOf('DangerZone', module).add('single', () => (
   <Example title="1 element">
     <DangerZone
       items={[
@@ -21,7 +21,7 @@ storiesOf('DangerZone').add('single', () => (
   </Example>
 ))
 
-storiesOf('DangerZone').add('multiple', () => (
+storiesOf('DangerZone', module).add('multiple', () => (
   <Example title="2 elements">
     <DangerZone
       items={[
@@ -47,7 +47,7 @@ storiesOf('DangerZone').add('multiple', () => (
   </Example>
 ))
 
-storiesOf('DangerZone').add('required', () => (
+storiesOf('DangerZone', module).add('required', () => (
   <Example title="Required props">
     <DangerZone
       items={[
@@ -63,7 +63,7 @@ storiesOf('DangerZone').add('required', () => (
   </Example>
 ))
 
-storiesOf('DangerZone').add('stress', () => (
+storiesOf('DangerZone', module).add('stress', () => (
   <Example title="Stress testing">
     <DangerZone
       items={[

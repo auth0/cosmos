@@ -8,16 +8,16 @@ const StyledExample = styled(Example)`
   min-height: 800px;
 `
 
-storiesOf('Dialog').add('default', () => (
+storiesOf('Dialog', module).add('default', () => (
   <StyledExample title="default">
     <Dialog
       open
       title="Example Dialog"
       role="destructive"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        new Dialog.Action('OK', () => { }, 'primary'),
-        new Dialog.Action('Cancel', () => { }, 'secondary')
+        new Dialog.Action('OK', () => {}, 'primary'),
+        new Dialog.Action('Cancel', () => {}, 'secondary')
       ]}
     >
       Are you sure?
@@ -25,14 +25,14 @@ storiesOf('Dialog').add('default', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with primary button only', () => (
+storiesOf('Dialog', module).add('with primary button only', () => (
   <StyledExample title="with primary button only">
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        <Button onClick={() => { }} appearance="primary">
+        <Button onClick={() => {}} appearance="primary">
           OK
         </Button>
       ]}
@@ -42,27 +42,27 @@ storiesOf('Dialog').add('with primary button only', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('without footer', () => (
+storiesOf('Dialog', module).add('without footer', () => (
   <StyledExample title="without footer">
-    <Dialog open title="Example Dialog" onClose={() => { }}>
+    <Dialog open title="Example Dialog" onClose={() => {}}>
       Some information
     </Dialog>
     <Button>test</Button>
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with form', () => (
+storiesOf('Dialog', module).add('with form', () => (
   <StyledExample title="with form">
     <Dialog
       open
       title="Example Dialog"
       role="form"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        <Button onClick={() => { }} appearance="primary">
+        <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => { }} appearance="secondary">
+        <Button onClick={() => {}} appearance="secondary">
           Cancel
         </Button>
       ]}
@@ -77,17 +77,17 @@ storiesOf('Dialog').add('with form', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with introduction + form', () => (
+storiesOf('Dialog', module).add('with introduction + form', () => (
   <StyledExample title="with introduction + form">
     <Dialog
       open
       title="Example Dialog"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        <Button onClick={() => { }} appearance="primary">
+        <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => { }} appearance="secondary">
+        <Button onClick={() => {}} appearance="secondary">
           Cancel
         </Button>
       ]}
@@ -107,17 +107,17 @@ storiesOf('Dialog').add('with introduction + form', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('stressed', () => (
+storiesOf('Dialog', module).add('stressed', () => (
   <StyledExample title="stressed">
     <Dialog
       open
       title="Thisisaverylongstringoftexttotestworkbreakandoverlowingofthecomponentwhenithasaverylongstringoftest"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        <Button onClick={() => { }} appearance="primary">
+        <Button onClick={() => {}} appearance="primary">
           OK
         </Button>,
-        <Button onClick={() => { }} appearance="secondary">
+        <Button onClick={() => {}} appearance="secondary">
           Cancel
         </Button>
       ]}
@@ -200,26 +200,23 @@ storiesOf('Dialog').add('stressed', () => (
   </StyledExample>
 ))
 
-
-storiesOf('Dialog').add('dialog with tabs', () => (
+storiesOf('Dialog', module).add('dialog with tabs', () => (
   <StyledExample title="dialog with tabs">
     <Dialog
       open
       title="Example Dialog"
       role="destructive"
-      onClose={() => { }}
+      onClose={() => {}}
       actions={[
-        new Dialog.Action('OK', () => { }, 'primary'),
-        new Dialog.Action('Cancel', () => { }, 'secondary')
+        new Dialog.Action('OK', () => {}, 'primary'),
+        new Dialog.Action('Cancel', () => {}, 'secondary')
       ]}
     >
-
-      <Tabs selected={0} onSelect={_ => { }}>
+      <Tabs selected={0} onSelect={_ => {}}>
         <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
         <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
         <Tabs.Tab label="Tab 3">Look, third tab is selected by default!</Tabs.Tab>
       </Tabs>
-
     </Dialog>
   </StyledExample>
 ))

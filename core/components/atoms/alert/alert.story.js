@@ -12,7 +12,7 @@ const Example = styled(ExampleHelper)`
 
 const types = ['default', 'information', 'success', 'warning', 'danger']
 
-storiesOf('Alert').add('default', () => (
+storiesOf('Alert', module).add('default', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} key={type}>
@@ -22,7 +22,7 @@ storiesOf('Alert').add('default', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with string text', () => (
+storiesOf('Alert', module).add('with string text', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} key={type} text="This is the alert content" />
@@ -30,7 +30,7 @@ storiesOf('Alert').add('with string text', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with title', () => (
+storiesOf('Alert', module).add('with title', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" key={type}>
@@ -42,7 +42,7 @@ storiesOf('Alert').add('with title', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with title and children', () => (
+storiesOf('Alert', module).add('with title and children', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" key={type}>
@@ -52,7 +52,7 @@ storiesOf('Alert').add('with title and children', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with title and link', () => (
+storiesOf('Alert', module).add('with title and link', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" key={type}>
@@ -62,7 +62,7 @@ storiesOf('Alert').add('with title and link', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with icon', () => (
+storiesOf('Alert', module).add('with icon', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" icon="hourglass" key={type}>
@@ -72,7 +72,7 @@ storiesOf('Alert').add('with icon', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('stressed content', () => (
+storiesOf('Alert', module).add('stressed content', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" key={type}>
@@ -84,7 +84,7 @@ storiesOf('Alert').add('stressed content', () => (
   </Example>
 ))
 
-storiesOf('Alert').add('with no children/text', () => (
+storiesOf('Alert', module).add('with no children/text', () => (
   <Example>
     {types.map(type => (
       <Alert type={type} title="A title" link="/test" key={type} />
