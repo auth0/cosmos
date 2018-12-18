@@ -70,8 +70,8 @@ storiesOf('TextInput').add('sizes', () => (
   </Example>
 ))
 
-storiesOf('TextInput').add('with actions', () => (
-  <Example title="with actions">
+storiesOf('TextInput').add('with actions as shape', () => (
+  <Example title="with actions as shape">
     <TextInput
       type="text"
       placeholder="Enter some text"
@@ -83,18 +83,14 @@ storiesOf('TextInput').add('with actions', () => (
   </Example>
 ))
 
-storiesOf('TextInput').add('with actions', () => (
-  <Example title="with actions">
+storiesOf('TextInput').add('with actions as buttons', () => (
+  <Example title="with actions as buttons">
     <TextInput
       type="text"
       placeholder="Enter some text"
       actions={[
-        <Button icon="copy" onClick={e => console.log(e)}>
-          Copy URL
-        </Button>,
-        <Button icon="delete" onClick={e => console.log(e)}>
-          Delete URL
-        </Button>
+        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Button icon="delete" onClick={e => console.log(e)} />
       ]}
     />
   </Example>

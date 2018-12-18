@@ -40,8 +40,11 @@ const StyledWrapper = styled.div`
   }
 `
 
+/* Override appearance and size of actions */
+const actionOverrides = { appearance: 'link', size: 'small' }
+
 const InputWithActions = props => {
-  const Actions = getActionGroup(props.actions)
+  const Actions = getActionGroup(props.actions, actionOverrides)
   return (
     <StyledWrapper actions={props.actions} size={props.size}>
       {props.children} {Actions}
