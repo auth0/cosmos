@@ -31,8 +31,8 @@ const textInputForSize = size => (
       size={size}
       placeholder="Enter something"
       actions={[
-        { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
-        { icon: 'delete', handler: () => {}, label: 'Delete' }
+        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Button icon="delete" onClick={e => console.log(e)} />
       ]}
     />
   </Form.Field>

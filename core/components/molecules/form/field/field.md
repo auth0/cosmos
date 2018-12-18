@@ -107,7 +107,7 @@ or other rich formatting to displayed text.
 
 ### Actions
 
-You can add actions to a field by passing an array of `{ icon, handler }`:
+You can add actions to a `TextInput` by passing an array of `Button`:
 
 ```js
 <Form>
@@ -116,8 +116,8 @@ You can add actions to a field by passing an array of `{ icon, handler }`:
       type="text"
       placeholder="Enter something"
       actions={[
-        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
-        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Button icon="delete" onClick={e => console.log(e)} />
       ]}
     />
   </Form.Field>
