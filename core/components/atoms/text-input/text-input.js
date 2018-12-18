@@ -76,7 +76,10 @@ TextInput.propTypes = {
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
   /** Actions to be attached to the input */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })

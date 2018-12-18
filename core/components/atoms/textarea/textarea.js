@@ -44,7 +44,10 @@ TextArea.propTypes = {
   /** onChange transparently passed to the input */
   onChange: PropTypes.func,
   /** Actions to be attached to the input */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon),
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
