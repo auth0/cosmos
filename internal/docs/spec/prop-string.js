@@ -91,10 +91,16 @@ const getPropString = propData => {
     /*
       Case 6: Union
       The value for enum should be printed depending on their value
-      Currently supports only number and string
+      Currently supports only number and string and empty objects
     */
+
+    const emptyObjects = ['[]', '{}']
+
     if (propData[name].type.name === 'union') {
       if (typeof propData[name].value === 'string') {
+        // empty objects like [] or {} pass of as strings, these can be safely ignored
+        if (emptyObjects.includes(propData[name].value)) return false
+
         propString += ` ${name}="${propData[name].value}"`
         return true
       } else if (typeof propData[name].value === 'number') {

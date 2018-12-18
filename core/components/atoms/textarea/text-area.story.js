@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { TextArea } from '@auth0/cosmos'
+import { TextArea, Button } from '@auth0/cosmos'
 
 storiesOf('TextArea').add('simple', () => (
   <Example title="simple">
@@ -25,5 +25,29 @@ storiesOf('TextArea').add('disable resize', () => (
 storiesOf('TextArea').add('readonly', () => (
   <Example title="readonly">
     <TextArea readOnly placeholder="Field is disabled" />
+  </Example>
+))
+
+storiesOf('TextArea').add('with actions as shape', () => (
+  <Example title="with actions as shape">
+    <TextArea
+      placeholder="Small text area"
+      actions={[
+        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('TextArea').add('with actions as buttons', () => (
+  <Example title="with actions as buttons">
+    <TextArea
+      placeholder="Small text area"
+      actions={[
+        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Button icon="delete" onClick={e => console.log(e)} />
+      ]}
+    />
   </Example>
 ))

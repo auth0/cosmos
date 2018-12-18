@@ -1,15 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@auth0/cosmos/styled'
 
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 
-const TextArea = props => (
-  <TextArea.Element rows={props.length} {...props} {...Automation('text-area')} />
-)
+/* Input with actions */
+import InputWithActions from '../_input-with-actions'
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 
-TextArea.Element = StyledInput.withComponent('textarea').extend`
+const TextArea = props => {
+  const Input = <TextArea.Element rows={props.length} {...props} {...Automation('text-area')} />
+
+  if (!props.actions.length) return Input
+  else {
+    /* Input is not a component, just JSX, hence wrapped in {} */
+    return <InputWithActions actions={props.actions}>{Input}</InputWithActions>
+  }
+}
+
+TextArea.Element = styled(StyledInput.withComponent('textarea'))`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
   font-size: ${props => (props.code ? '13px' : 'inherit')};
   display: block;
@@ -32,6 +43,11 @@ TextArea.propTypes = {
   resizable: PropTypes.bool,
   /** onChange transparently passed to the input */
   onChange: PropTypes.func,
+  /** Actions to be attached to the input */
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -43,7 +59,8 @@ TextArea.defaultProps = {
   code: false,
   error: null,
   resizable: true,
-  onChange: null
+  onChange: null,
+  actions: []
 }
 
 export default TextArea

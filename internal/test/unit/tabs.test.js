@@ -1,7 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Tabs, { TabLink } from '@auth0/cosmos/molecules/tabs/tabs'
+import Tabs from '@auth0/cosmos/molecules/tabs/tabs'
+
+/**
+ * Since Tabs are using generated random ids for accessibility,
+ * we need to mock the generator so we don't break the snapshots.
+ */
+jest.mock('@auth0/cosmos/_helpers/uniqueId', () => () => '-m0ck3d')
 
 function tabsFactory() {
   const content = {
@@ -24,6 +30,7 @@ function tabsFactory() {
 
 describe('Tabs', () => {
   it('renders only selected tab content', () => {
+    jest.mock('../../../core/components/_helpers/uniqueId', () => () => 'abcdef1234')
     const { generator: wrapper } = tabsFactory()
 
     expect(wrapper).toMatchSnapshot()
@@ -46,8 +53,8 @@ describe('Tabs', () => {
 
     const wrapper = generator(0, selectedHandler)
     const unSelectedTab = wrapper
-      .find(TabLink)
-      .filter({ selected: false })
+      .find(Tabs.TabLink)
+      .filter({ 'aria-selected': false })
       .first()
 
     unSelectedTab.simulate('click')
