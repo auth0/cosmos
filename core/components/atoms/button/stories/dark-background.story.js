@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
-storiesOf('Button').add('dark background', () => (
+storiesOf('Button', module).add('dark background', () => (
   <Example title="Dark background" background="dark">
     <div>
       <Stack>

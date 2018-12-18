@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Link } from '@auth0/cosmos'
 
-storiesOf('Link').add('default', () => (
+storiesOf('Link', module).add('default', () => (
   <Example title="default">
     <Link href="https://auth0.com" target="_self">
       Click me!
@@ -12,7 +12,7 @@ storiesOf('Link').add('default', () => (
   </Example>
 ))
 
-storiesOf('Link').add('dark background', () => (
+storiesOf('Link', module).add('dark background', () => (
   <Example title="dark background" background="dark">
     <Link href="https://auth0.com" target="_self">
       Click me!

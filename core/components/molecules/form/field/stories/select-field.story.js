@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Form } from '@auth0/cosmos'
 
-storiesOf('Form').add('select field', () => (
+storiesOf('Form', module).add('select field', () => (
   <Example title="select field">
     <Form>
       <Form.Select
@@ -20,7 +20,7 @@ storiesOf('Form').add('select field', () => (
   </Example>
 ))
 
-storiesOf('Form').add('select field + error', () => (
+storiesOf('Form', module).add('select field + error', () => (
   <Example title="select field + error">
     <Form>
       <Form.Select

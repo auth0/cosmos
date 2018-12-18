@@ -8,7 +8,7 @@ const Box = () => (
   <div style={{ height: '50px', width: '50px', background: '#EEE', margin: '5px' }} />
 )
 
-storiesOf('Stack').add('default', () => (
+storiesOf('Stack', module).add('default', () => (
   <Example title="default">
     <Stack align="left">
       <Box />
@@ -18,7 +18,7 @@ storiesOf('Stack').add('default', () => (
   </Example>
 ))
 
-storiesOf('Stack').add('right', () => (
+storiesOf('Stack', module).add('right', () => (
   <Example title="right">
     <Stack align="right">
       <Box />
@@ -28,7 +28,7 @@ storiesOf('Stack').add('right', () => (
   </Example>
 ))
 
-storiesOf('Stack').add('widths', () => (
+storiesOf('Stack', module).add('widths', () => (
   <Example title="widths">
     <Stack widths={[10, 30, 30, 30]}>
       <Box />
@@ -39,15 +39,27 @@ storiesOf('Stack').add('widths', () => (
   </Example>
 ))
 
-storiesOf('Stack').add('stressed', () => (
+storiesOf('Stack', module).add('stressed', () => (
   <Example title="stressed - 56 characters per item">
     <Stack align="left">
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
-      <Paragraph style={{ border: '1px solid black' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
+      <Paragraph style={{ border: '1px solid black' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Paragraph>
     </Stack>
   </Example>
 ))
