@@ -1,6 +1,7 @@
 import {
   ActionInput,
   Alert,
+  AppLayout,
   Avatar,
   AvatarBlock,
   Badge,
@@ -51,6 +52,7 @@ import {
 export {
   ActionInput,
   Alert,
+  AppLayout,
   Avatar,
   AvatarBlock,
   Badge,

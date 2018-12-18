@@ -1,0 +1,72 @@
+import React from 'react'
+import styled from 'styled-components'
+import Automation from '../../_helpers/automation-attribute'
+import { spacing } from '@auth0/cosmos-tokens'
+
+const AppLayout = props => (
+  <AppLayout.Element {...Automation('app-frame')}>
+    <AppLayout.SkipLink {...Automation('app-frame.skiplink')} href="#main">
+      Skip to main content
+    </AppLayout.SkipLink>
+    {props.children}
+  </AppLayout.Element>
+)
+
+AppLayout.Element = styled.div`
+  position: relative;
+  display: grid;
+  grid-gap: ${spacing.medium};
+  grid-template-areas:
+    'header'
+    'sidebar'
+    'content';
+  > * {
+    border: 5px solid violet;
+  }
+  @media (min-width: 700px) {
+    grid-template-columns: auto 200px calc(866px - ${spacing.medium}) auto;
+    grid-template-areas:
+      'header header header header'
+      '. sidebar  content .';
+  }
+`
+
+AppLayout.Header = styled.header`
+  grid-area: header;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid grey;
+  height: 80px;
+  > * {
+    width: 1064px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`
+
+AppLayout.SideBar = styled.div`
+  grid-area: sidebar;
+  > * {
+    position: sticky;
+    top: 80px;
+  }
+`
+
+AppLayout.Content = styled.main`
+  grid-area: content;
+`
+
+AppLayout.SkipLink = styled.a`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  &:focus {
+    z-index: 1;
+  }
+`
+
+export default AppLayout
