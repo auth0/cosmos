@@ -28,13 +28,25 @@ storiesOf('TextArea').add('readonly', () => (
   </Example>
 ))
 
-storiesOf('TextArea').add('with actions', () => (
-  <Example title="with actions">
+storiesOf('TextArea').add('with actions as shape', () => (
+  <Example title="with actions as shape">
     <TextArea
       placeholder="Small text area"
       actions={[
         { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
         { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('TextArea').add('with actions as buttons', () => (
+  <Example title="with actions as buttons">
+    <TextArea
+      placeholder="Small text area"
+      actions={[
+        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Button icon="delete" onClick={e => console.log(e)} />
       ]}
     />
   </Example>
