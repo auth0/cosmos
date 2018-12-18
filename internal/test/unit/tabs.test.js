@@ -61,4 +61,24 @@ describe('Tabs', () => {
 
     expect(selectedHandler).toHaveBeenCalled()
   })
+
+  it('renders linked accessibility identifiers', () => {
+    const { generator } = tabsFactory()
+    const testableIndexes = [0, 1, 2]
+
+    testableIndexes.forEach(index => {
+      const tabs = generator(index)
+
+      const [tabList, activeTabPanel] = tabs.children()
+
+      const tabLinkIds = tabList.props.children.map(i => i.props.children.props.id)
+      const tabLinkAriaControls = tabList.props.children.map(
+        i => i.props.children.props['aria-controls']
+      )
+
+      expect(tabLinkIds[index]).toEqual(activeTabPanel.props.id.replace('-tab', ''))
+      expect(tabLinkAriaControls[index]).toEqual(activeTabPanel.props.id)
+      expect(tabLinkIds[index]).toEqual(activeTabPanel.props['aria-labelledby'].replace('-tab', ''))
+    })
+  })
 })

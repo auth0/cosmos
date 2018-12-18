@@ -61,6 +61,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
     </styled.li>
   </styled.ul>
   <styled.div
+    aria-labelledby="tabs-m0ck3d-0-tab"
     data-cosmos-key="tabs.item"
     id="tabs-m0ck3d-0-tab"
     key=".0"
@@ -135,6 +136,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
     </styled.li>
   </styled.ul>
   <styled.div
+    aria-labelledby="tabs-m0ck3d-1-tab"
     data-cosmos-key="tabs.item"
     id="tabs-m0ck3d-1-tab"
     key=".1"
@@ -209,6 +211,7 @@ exports[`Tabs only render one tab title as selected 3`] = `
     </styled.li>
   </styled.ul>
   <styled.div
+    aria-labelledby="tabs-m0ck3d-2-tab"
     data-cosmos-key="tabs.item"
     id="tabs-m0ck3d-2-tab"
     key=".2"
