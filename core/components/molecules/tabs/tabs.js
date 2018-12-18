@@ -78,7 +78,6 @@ class Tabs extends React.Component {
   }
 
   changeFocusedTab(tabsId, index) {
-    console.log({ tabsId, index })
     const tab = document.querySelector(`#${tabsId}-${index}`)
     tab.focus()
   }
