@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Form } from '@auth0/cosmos'
 
-storiesOf('Form').add('textarea field', () => (
+storiesOf('Form', module).add('textarea field', () => (
   <Example title="textarea field">
     <Form>
       <Form.TextArea label="Field label" type="text" placeholder="Enter something" />
@@ -12,7 +12,7 @@ storiesOf('Form').add('textarea field', () => (
   </Example>
 ))
 
-storiesOf('Form').add('textarea field + error', () => (
+storiesOf('Form', module).add('textarea field + error', () => (
   <Example title="textarea field + error">
     <Form>
       <Form.TextArea

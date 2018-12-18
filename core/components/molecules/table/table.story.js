@@ -34,7 +34,7 @@ const items = [
   }
 ]
 
-storiesOf('Table').add('default', () => (
+storiesOf('Table', module).add('default', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="name" title="Name" />
@@ -44,7 +44,7 @@ storiesOf('Table').add('default', () => (
   </Example>
 ))
 
-storiesOf('Table').add('column as variable', () => {
+storiesOf('Table', module).add('column as variable', () => {
   const columns = (
     <React.Fragment>
       <Table.Column field="name" title="Name" />
@@ -60,7 +60,7 @@ storiesOf('Table').add('column as variable', () => {
   )
 })
 
-storiesOf('Table').add('explicit widths', () => (
+storiesOf('Table', module).add('explicit widths', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="name" title="Name" width="70%" />
@@ -70,7 +70,7 @@ storiesOf('Table').add('explicit widths', () => (
   </Example>
 ))
 
-storiesOf('Table').add('cell renderer', () => (
+storiesOf('Table', module).add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="65px">
@@ -83,7 +83,7 @@ storiesOf('Table').add('cell renderer', () => (
   </Example>
 ))
 
-storiesOf('Table').add('sorting', () => (
+storiesOf('Table', module).add('sorting', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="65px">
@@ -96,7 +96,7 @@ storiesOf('Table').add('sorting', () => (
   </Example>
 ))
 
-storiesOf('Table').add('initial sort props', () => (
+storiesOf('Table', module).add('initial sort props', () => (
   <Example title="default">
     <Table items={items} sortOn="died" sortDirection="desc">
       <Table.Column field="image" width="65px">
@@ -109,7 +109,7 @@ storiesOf('Table').add('initial sort props', () => (
   </Example>
 ))
 
-storiesOf('Table').add('stressed', () => (
+storiesOf('Table', module).add('stressed', () => (
   <Example title="stressed - 4 columns with 119 characters per row">
     <Table
       items={[
@@ -139,7 +139,7 @@ storiesOf('Table').add('stressed', () => (
   </Example>
 ))
 
-storiesOf('Table').add('stressed with truncating', () => (
+storiesOf('Table', module).add('stressed with truncating', () => (
   <Example title="stressed - 7 columns with 119 characters per row">
     <Table
       items={[
@@ -169,7 +169,7 @@ storiesOf('Table').add('stressed with truncating', () => (
   </Example>
 ))
 
-storiesOf('Table').add('with no items', () => (
+storiesOf('Table', module).add('with no items', () => (
   <Example title="no items">
     <Table
       items={[]}
@@ -201,7 +201,7 @@ storiesOf('Table').add('with no items', () => (
   </Example>
 ))
 
-storiesOf('Table').add('loading state with data', () => (
+storiesOf('Table', module).add('loading state with data', () => (
   <Example title="loading">
     <Table
       loading
@@ -253,7 +253,7 @@ storiesOf('Table').add('loading state with data', () => (
   </Example>
 ))
 
-storiesOf('Table').add('loading state without data', () => (
+storiesOf('Table', module).add('loading state without data', () => (
   <Example title="loading">
     <Table loading items={[]}>
       <Table.Column field="data" title="Field 1" />
@@ -265,7 +265,7 @@ storiesOf('Table').add('loading state without data', () => (
   </Example>
 ))
 
-storiesOf('Table').add('with buttons', () => (
+storiesOf('Table', module).add('with buttons', () => (
   <Example title="with buttons">
     <Table
       items={[
