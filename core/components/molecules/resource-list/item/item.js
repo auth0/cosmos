@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@auth0/cosmos/styled'
+import styled from 'styled-components'
 import { Button, ButtonGroup, Link } from '@auth0/cosmos'
 import Avatar, { StyledAvatar } from '@auth0/cosmos/atoms/avatar'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
@@ -105,8 +105,8 @@ class ListItem extends React.Component {
             {this.renderSubtitle()}
           </div>
         </ListItem.Header>
-        <ListItem.Body>{props.children}</ListItem.Body>
-        <ListItem.Footer>{this.renderActions()}</ListItem.Footer>
+        {props.children && <ListItem.Body>{props.children}</ListItem.Body>}
+        {props.actions && <ListItem.Footer>{this.renderActions()}</ListItem.Footer>}
       </ListItem.Element>
     )
   }
@@ -114,7 +114,9 @@ class ListItem extends React.Component {
 
 ListItem.Element = styled.li`
   display: flex;
-  flex-flow: row nowrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   border-top: 1px solid ${colors.list.borderColor};
   padding: ${spacing.small} ${spacing.xsmall};
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
@@ -128,37 +130,39 @@ ListItem.Element = styled.li`
     opacity: 0.9;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   }
-`
 
-ListItem.Header = styled.div`
-  flex-basis: 40%;
-  flex-flow: row nowrap;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  ${StyledAvatar} {
+  > *:not(:last-child) {
     margin-right: ${spacing.small};
   }
 `
 
-ListItem.Body = styled.div`
-  flex-basis: 40%;
-  flex-flow: row nowrap;
-  flex-grow: 1;
+ListItem.Header = styled.div`
+  flex: 1;
   display: flex;
   align-items: center;
+  word-break: break-all;
+
+  ${StyledAvatar} {
+    /* This is a magic number */
+    margin-right: 12px;
+  }
 `
 
-ListItem.Footer = styled.div`
-  flex-basis: 20%;
-  flex-flow: row nowrap;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+ListItem.Body = styled.div`
+  flex: 1;
+
+  /* This is not mobile first, but it avoids negation of margin */
+  @media screen and (max-width: 768px) {
+    flex: 1 0 100%;
+    order: 1;
+    margin-top: ${spacing.small};
+  }
 `
+
+ListItem.Footer = styled.div``
 
 ListItem.Subtitle = styled(StyledTextAllCaps)`
-  margin-top: ${spacing.xsmall};
+  margin-top: ${spacing.xxsmall};
   display: block;
 `
 

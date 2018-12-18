@@ -59,11 +59,11 @@ const Select = ({ options, ...props }) => {
   )
 }
 
-Select.Element = StyledInput.withComponent('select').extend`
+Select.Element = styled(StyledInput.withComponent('select'))`
   appearance: none;
-  
+
   padding-right: ${spacing.large};
-  
+
   height: ${misc.input.default.height};
   opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
   background-color: ${props =>
@@ -79,6 +79,7 @@ Select.Wrapper = styled.div`
 Select.ArrowIcon = styled(Icon)`
   position: absolute;
   right: 12px;
+  pointer-events: none;
 
   svg {
     display: block;

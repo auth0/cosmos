@@ -62,7 +62,10 @@ If necessary, you can override the actions for a specific list item by giving th
     {
       title: 'Item 3',
       subtitle: 'Example item',
-      actions: [<Button icon="settings" onClick={() => {}} label="Settings" />]
+      actions: [
+        <Button icon="settings" onClick={() => {}} label="Settings" disabled />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
+      ]
     }
   ]}
   actions={[

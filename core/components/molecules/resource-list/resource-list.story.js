@@ -142,9 +142,24 @@ storiesOf('Resource List').add('actions as buttons', () => (
   <Example title="default">
     <ResourceList
       items={[
-        { title: 'Title One', subtitle: 'Subtitle One', image: IMAGE_URLS[0], id: 'abc123' },
-        { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
-        { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
+        {
+          title: 'Title One',
+          subtitle: 'Subtitle One',
+          image: IMAGE_URLS[0],
+          id: 'def456def456def456def456def456'
+        },
+        {
+          title: 'Title Two',
+          subtitle: 'Subtitle Two',
+          image: IMAGE_URLS[1],
+          id: 'def456def456def456def456def456'
+        },
+        {
+          title: 'Title Three',
+          subtitle: 'Subtitle Three',
+          image: IMAGE_URLS[2],
+          id: 'def456def456def456def456def456'
+        }
       ]}
       renderItem={item => (
         <ResourceList.Item {...item}>
@@ -170,7 +185,10 @@ storiesOf('Resource List').add('action overrides', () => (
           subtitle: 'Subtitle Three',
           image: IMAGE_URLS[2],
           id: 'ghi789',
-          actions: [<Button icon="settings" onClick={() => {}} label="Settings" />]
+          actions: [
+            <Button icon="settings" onClick={() => {}} label="Settings" disabled />,
+            <Button icon="delete" onClick={() => {}} label="Delete" />
+          ]
         }
       ]}
       renderItem={item => (
@@ -179,18 +197,49 @@ storiesOf('Resource List').add('action overrides', () => (
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="delete" onClick={() => {}} />,
-        <Button icon="settings" onClick={() => {}} />
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>
 ))
 
 storiesOf('Resource List').add('stressed', () => (
+  <Example title="stressed - title and subtitle with 119 characters">
+    <ResourceList
+      items={[
+        {
+          image: IMAGE_URLS[0],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          image: IMAGE_URLS[1],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          image: IMAGE_URLS[2],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('Resource List').add('stressed - with actions', () => (
   <Example title="stressed - title and subtitle with 119 characters + 7 actions">
     <ResourceList
       items={[
         {
+          image: IMAGE_URLS[0],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -206,6 +255,7 @@ storiesOf('Resource List').add('stressed', () => (
           ]
         },
         {
+          image: IMAGE_URLS[1],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -221,6 +271,7 @@ storiesOf('Resource List').add('stressed', () => (
           ]
         },
         {
+          image: IMAGE_URLS[2],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -235,6 +286,44 @@ storiesOf('Resource List').add('stressed', () => (
             <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('Resource List').add('stressed - with body', () => (
+  <Example title="Stressed - with body content">
+    <ResourceList
+      items={[
+        {
+          title:
+            'Title One ;lkdfhjad dfajldafh djf hdfjs dfkh ldfhjk jdsf dfhlsj kdfshl kdfshlkjfdsh jdfksh dfskl hdflss',
+          subtitle: 'Subtitle One',
+          image: IMAGE_URLS[0],
+          id: 'abc123'
+        },
+        {
+          title: 'Title Two',
+          subtitle: 'Subtitle Two lkjhdfjhldf dfkjl hdfsjklh dfskjh dfsjkhdfs lh dfskjldfs',
+          image: IMAGE_URLS[1],
+          id: 'def456'
+        },
+        {
+          title: 'Title Three',
+          subtitle: 'Subtitle Three',
+          image: IMAGE_URLS[2],
+          id:
+            'ghlkjhsdhlkjdsghkdsfkljhdfslkdfsjkdfhljdfkhjldfskljhfdskljdfhskjhdfsjlkhdfskjlhfdsjlkhdfskljhdfskjhlfdkhljsfdkjfdhkdfslkhjdsfhjki789'
+        }
+      ]}
+      renderItem={item => (
+        <ResourceList.Item {...item}>
+          ID: <Code>{item.id}</Code>
+        </ResourceList.Item>
+      )}
+      actions={[
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>
