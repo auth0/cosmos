@@ -13,7 +13,7 @@ import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 const TextArea = props => {
   const Input = <TextArea.Element rows={props.length} {...props} {...Automation('text-area')} />
 
-  if (!props.actions) return Input
+  if (!props.actions.length) return Input
   else {
     /* Input is not a component, just JSX, hence wrapped in {} */
     return <InputWithActions actions={props.actions}>{Input}</InputWithActions>
