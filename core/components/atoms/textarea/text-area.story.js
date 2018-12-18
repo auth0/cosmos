@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { TextArea } from '@auth0/cosmos'
+import { TextArea, Button } from '@auth0/cosmos'
 
 storiesOf('TextArea').add('simple', () => (
   <Example title="simple">
