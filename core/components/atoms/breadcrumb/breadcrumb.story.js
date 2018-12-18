@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Breadcrumb } from '@auth0/cosmos'
 
-storiesOf('Breadcrumb').add('default', () => (
+storiesOf('Breadcrumb', module).add('default', () => (
   <Example title="default">
     <Breadcrumb>
       <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>
@@ -14,7 +14,7 @@ storiesOf('Breadcrumb').add('default', () => (
   </Example>
 ))
 
-storiesOf('Breadcrumb').add('with icon', () => (
+storiesOf('Breadcrumb', module).add('with icon', () => (
   <Example title="with icon">
     <Breadcrumb>
       <Breadcrumb.Link href="/home" icon="home-fill">
@@ -26,7 +26,7 @@ storiesOf('Breadcrumb').add('with icon', () => (
   </Example>
 ))
 
-storiesOf('Breadcrumb').add('single link', () => (
+storiesOf('Breadcrumb', module).add('single link', () => (
   <Example title="single link">
     <Breadcrumb>
       <Breadcrumb.Link href="/home" icon="arrow-left-fill">
@@ -36,18 +36,36 @@ storiesOf('Breadcrumb').add('single link', () => (
   </Example>
 ))
 
-storiesOf('Breadcrumb').add('stressed', () => (
+storiesOf('Breadcrumb', module).add('stressed', () => (
   <Example title="stressed - 56 characters per link">
     <Breadcrumb>
-      <Breadcrumb.Link href="/home">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
-      <Breadcrumb.Link href="/parent/child">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Breadcrumb.Link>
+      <Breadcrumb.Link href="/home">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
+      <Breadcrumb.Link href="/parent/child">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Breadcrumb.Link>
     </Breadcrumb>
   </Example>
 ))

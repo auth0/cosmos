@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Select } from '@auth0/cosmos'
 
-storiesOf('Select').add('simple', () => (
+storiesOf('Select', module).add('simple', () => (
   <Example title="Select: simple">
     <Select
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
@@ -13,7 +13,7 @@ storiesOf('Select').add('simple', () => (
   </Example>
 ))
 
-storiesOf('Select').add('with placeholder', () => (
+storiesOf('Select', module).add('with placeholder', () => (
   <Example title="Select: with placeholder">
     <Select
       placeholder="Select an option..."
@@ -23,7 +23,7 @@ storiesOf('Select').add('with placeholder', () => (
   </Example>
 ))
 
-storiesOf('Select').add('default value', () => (
+storiesOf('Select', module).add('default value', () => (
   <Example title="Select: with default value">
     <Select
       value={2}
@@ -33,7 +33,7 @@ storiesOf('Select').add('default value', () => (
   </Example>
 ))
 
-storiesOf('Select').add('disabled', () => (
+storiesOf('Select', module).add('disabled', () => (
   <Example title="Select: disabled">
     <Select
       value={2}
@@ -44,7 +44,7 @@ storiesOf('Select').add('disabled', () => (
   </Example>
 ))
 
-storiesOf('Select').add('disabled option', () => (
+storiesOf('Select', module).add('disabled option', () => (
   <Example title="Select: disabled option">
     <Select
       placeholder="Select from the enabled options"
@@ -58,7 +58,7 @@ storiesOf('Select').add('disabled option', () => (
   </Example>
 ))
 
-storiesOf('Select').add('groups', () => (
+storiesOf('Select', module).add('groups', () => (
   <Example title="Select: groups">
     <Select
       placeholder="Groups"
@@ -84,7 +84,7 @@ storiesOf('Select').add('groups', () => (
   </Example>
 ))
 
-storiesOf('Select').add('stressed', () => (
+storiesOf('Select', module).add('stressed', () => (
   <Example title="Select: stressed - 56 characters with 300px width">
     <div style={{ width: 300 }}>
       <Select

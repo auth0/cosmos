@@ -8,7 +8,7 @@ import { Logo } from '@auth0/cosmos'
 <div> elements has been added to each <Logo /> instance to make them "display: block;"
   */
 
-storiesOf('Logo').add('default', () => (
+storiesOf('Logo', module).add('default', () => (
   <React.Fragment>
     <Example title="Logo – tiny">
       <div>
@@ -37,7 +37,7 @@ storiesOf('Logo').add('default', () => (
   </React.Fragment>
 ))
 
-storiesOf('Logo').add('dark background', () => (
+storiesOf('Logo', module).add('dark background', () => (
   <React.Fragment>
     <Example title="Logo – tiny" background="dark">
       <div>

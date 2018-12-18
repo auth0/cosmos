@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { AvatarBlock } from '@auth0/cosmos'
 
-storiesOf('AvatarBlock').add('user', () => (
+storiesOf('AvatarBlock', module).add('user', () => (
   <Example title="User">
     <Stack>
       <AvatarBlock
@@ -75,7 +75,7 @@ storiesOf('AvatarBlock').add('user', () => (
   </Example>
 ))
 
-storiesOf('AvatarBlock').add('resource', () => (
+storiesOf('AvatarBlock', module).add('resource', () => (
   <Example title="Resource">
     <Stack>
       <AvatarBlock type="resource" size="compact" icon="settings" title="Title" />
@@ -134,7 +134,7 @@ storiesOf('AvatarBlock').add('resource', () => (
   </Example>
 ))
 
-storiesOf('AvatarBlock').add('defaults', () => (
+storiesOf('AvatarBlock', module).add('defaults', () => (
   <Example title="Defaults">
     <Stack>
       <AvatarBlock
@@ -156,7 +156,7 @@ storiesOf('AvatarBlock').add('defaults', () => (
   </Example>
 ))
 
-storiesOf('AvatarBlock').add('with links', () => (
+storiesOf('AvatarBlock', module).add('with links', () => (
   <Example title="With links">
     <Stack>
       <AvatarBlock

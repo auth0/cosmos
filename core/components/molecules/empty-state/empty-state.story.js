@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { EmptyState } from '@auth0/cosmos'
 
-storiesOf('EmptyState').add('default', () => (
+storiesOf('EmptyState', module).add('default', () => (
   <Example title="default">
     <EmptyState
       title="Clients"
@@ -14,13 +14,13 @@ storiesOf('EmptyState').add('default', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>
 ))
 
-storiesOf('EmptyState').add('stressed', () => (
+storiesOf('EmptyState', module).add('stressed', () => (
   <Example title="stressed - 119 characters in title and text">
     <EmptyState
       title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut."
@@ -30,7 +30,7 @@ storiesOf('EmptyState').add('stressed', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>
