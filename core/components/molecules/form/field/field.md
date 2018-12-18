@@ -140,11 +140,11 @@ We leave the logic part of validation to you the developer, you can pass `error`
 </Form>
 ```
 
-### Custom component (advanced)
+### Input combinations (advanced)
 
 Layout is taken care by `Form.Field`, it sets the position of `label`, `helperText`, etc.
 
-All the props are passed on to the custom component, so you can set the id, error styles, actions customised to the use case.
+This lets you can add multiple input elements inside the same `Form.Field`.
 
 ```js
 <Form>
@@ -155,5 +155,23 @@ All the props are passed on to the custom component, so you can set the id, erro
       <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
     </Stack>
   </Form.Field>
+</Form>
+```
+
+### Old API
+
+If you are using the old flavor of the API, you can continue using it till `1.0.0` without any problems. Here's an example:
+
+```js
+<Form>
+  <Form.TextInput
+    label="Allowed URLs"
+    type="text"
+    placeholder="Enter something"
+    actions={[
+      { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
+      { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+    ]}
+  />
 </Form>
 ```

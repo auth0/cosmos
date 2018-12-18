@@ -87,7 +87,7 @@ Field.propTypes = {
   helpText: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
-  /** @deprecated Actions to be attached to input */
+  /** Actions to be attached to input */
   actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
 }
 
