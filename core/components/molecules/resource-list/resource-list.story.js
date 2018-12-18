@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { arrayMove } from '@auth0/cosmos/molecules/resource-list'
 import { Code, ResourceList, Button } from '@auth0/cosmos'
 
 const IMAGE_URLS = [
@@ -29,6 +30,34 @@ storiesOf('Resource List', module).add('titles and subtitles', () => (
   </Example>
 ))
 
+class SortableResourceListExample extends React.Component {
+  state = {
+    items: [
+      { title: 'Title One', subtitle: 'Subtitle One', href: 'https://auth0.com/' },
+      { title: 'Title Two', subtitle: 'Subtitle Two', href: 'https://auth0.com/' },
+      { title: 'Title Three', subtitle: 'Subtitle Three', href: 'https://auth0.com/' }
+    ]
+  }
+  onSortEnd({ oldIndex, newIndex }) {
+    this.setState({
+      items: arrayMove(this.state.items, oldIndex, newIndex)
+    })
+  }
+  render() {
+    return (
+      <ResourceList
+        actions={[
+          <Button onClick={() => {}} icon="settings" label="Settings" />,
+          <Button onClick={() => {}} icon="delete" label="Delete" />
+        ]}
+        sortable
+        items={this.state.items}
+        onSortEnd={event => this.onSortEnd(event)}
+      />
+    )
+  }
+}
+
 storiesOf('Resource List', module).add('titles with links', () => (
   <Example title="default">
     <ResourceList
@@ -38,6 +67,12 @@ storiesOf('Resource List', module).add('titles with links', () => (
         { title: 'Title Three', subtitle: 'Subtitle Three', href: 'https://auth0.com/' }
       ]}
     />
+  </Example>
+))
+
+storiesOf('Resource List', module).add('sortable', () => (
+  <Example title="default">
+    <SortableResourceListExample />
   </Example>
 ))
 
@@ -96,8 +131,8 @@ storiesOf('Resource List', module).add('actions', () => (
         </ResourceList.Item>
       )}
       actions={[
-        { label: 'Delete', icon: 'delete', handler: function() {} },
-        { label: 'Settings', icon: 'settings', handler: function() {} }
+        <Button icon="delete" onClick={() => {}} />,
+        <Button icon="settings" onClick={() => {}} />
       ]}
     />
   </Example>
@@ -210,13 +245,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} }
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         },
         {
@@ -226,13 +261,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} }
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         },
         {
@@ -242,13 +277,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} },
-            { label: 'Settings', icon: 'settings', handler: function() {} }
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         }
       ]}
