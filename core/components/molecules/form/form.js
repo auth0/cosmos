@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
-import { deprecateComponent } from '../../_helpers/custom-validations'
 
 import ActionInput from '../../molecules/_action-input'
 import TextArea from '../../atoms/textarea'
@@ -40,17 +39,5 @@ Form.propTypes = {
 Form.defaultProps = {
   layout: 'label-on-left'
 }
-
-/* deprecate Form.Input element syntax */
-const inputs = ['TextInput', 'TextArea', 'Select', 'Switch', 'Radio']
-
-inputs.forEach(input => {
-  Form[input].propTypes = {
-    _deprecate: deprecateComponent({
-      old: `<Form.${input}/>`,
-      replacement: `<Form.Field><${input}/></Form.Field>`
-    })
-  }
-})
 
 export default Form

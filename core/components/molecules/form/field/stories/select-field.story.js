@@ -38,3 +38,20 @@ storiesOf('Form').add('select field + error', () => (
     </Form>
   </Example>
 ))
+
+storiesOf('Form').add('old API', () => (
+  <Example title="old API">
+    <Form>
+      <Form.Select
+        label="Options list"
+        error="Everything is broken"
+        options={[
+          { text: 'First option', value: '1', defaultSelected: true },
+          { text: 'Second option', value: '2' },
+          { text: 'Third option', value: '3' },
+          { text: 'Fourth option', value: '4' }
+        ]}
+      />
+    </Form>
+  </Example>
+))

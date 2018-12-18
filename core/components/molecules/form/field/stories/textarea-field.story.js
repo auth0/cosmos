@@ -23,3 +23,15 @@ storiesOf('Form').add('textarea field + error', () => (
     </Form>
   </Example>
 ))
+
+storiesOf('Form').add('old API', () => (
+  <Example title="old API">
+    <Form>
+      <Form.TextArea
+        label="Field label"
+        error="Everything is broken"
+        placeholder="Enter something"
+      />
+    </Form>
+  </Example>
+))

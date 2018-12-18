@@ -23,3 +23,11 @@ storiesOf('Form').add('switch field + error', () => (
     </Form>
   </Example>
 ))
+
+storiesOf('Form').add('old API', () => (
+  <Example title="old API">
+    <Form>
+      <Form.Switch on label="Subscribe" error="Everything is broken" />
+    </Form>
+  </Example>
+))
