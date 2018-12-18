@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Form, TextInput } from '@auth0/cosmos'
+import { Form, TextInput, Button } from '@auth0/cosmos'
 
 storiesOf('Form').add('text field', () => (
   <Example title="text field">
