@@ -71,14 +71,20 @@ describe('Tabs', () => {
 
       const [tabList, activeTabPanel] = tabs.children()
 
-      const tabLinkIds = tabList.props.children.map(link => link.props.children.props.id)
-      const tabLinkAriaControls = tabList.props.children.map(
-        link => link.props.children.props['aria-controls']
-      )
+      const getPropFromTabLink = propName =>
+        tabList.props.children.map(link => link.props.children.props[propName])
 
-      expect(tabLinkIds[index]).toEqual(activeTabPanel.props.id.replace('-tab', ''))
-      expect(tabLinkAriaControls[index]).toEqual(activeTabPanel.props.id)
-      expect(tabLinkIds[index]).toEqual(activeTabPanel.props['aria-labelledby'].replace('-tab', ''))
+      const getPropFromTabPane = (propName, removeValue) => {
+        const value = activeTabPanel.props[propName]
+        return removeValue ? value.replace(removeValue, '') : value
+      }
+
+      const tabLinkIds = getPropFromTabLink('id')
+      const tabLinkAriaControls = getPropFromTabLink('aria-controls')
+
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('id', '-tab'))
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('aria-labelledby', '-tab'))
+      expect(tabLinkAriaControls[index]).toEqual(getPropFromTabPane('id'))
     })
   })
 })
