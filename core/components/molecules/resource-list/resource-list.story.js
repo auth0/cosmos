@@ -170,10 +170,41 @@ storiesOf('Resource List').add('action overrides', () => (
 ))
 
 storiesOf('Resource List').add('stressed', () => (
+  <Example title="stressed - title and subtitle with 119 characters">
+    <ResourceList
+      items={[
+        {
+          image: IMAGE_URLS[0],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          image: IMAGE_URLS[1],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        },
+        {
+          image: IMAGE_URLS[2],
+          title:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
+          subtitle:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.'
+        }
+      ]}
+    />
+  </Example>
+))
+
+storiesOf('Resource List').add('stressed - with actions', () => (
   <Example title="stressed - title and subtitle with 119 characters + 7 actions">
     <ResourceList
       items={[
         {
+          image: IMAGE_URLS[0],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -189,6 +220,7 @@ storiesOf('Resource List').add('stressed', () => (
           ]
         },
         {
+          image: IMAGE_URLS[1],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -204,6 +236,7 @@ storiesOf('Resource List').add('stressed', () => (
           ]
         },
         {
+          image: IMAGE_URLS[2],
           title:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           subtitle:
@@ -223,8 +256,8 @@ storiesOf('Resource List').add('stressed', () => (
   </Example>
 ))
 
-storiesOf('Resource List').add('stressed 2', () => (
-  <Example title="Stressed 2">
+storiesOf('Resource List').add('stressed - with body', () => (
+  <Example title="Stressed - with body content">
     <ResourceList
       items={[
         {
