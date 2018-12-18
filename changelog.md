@@ -4,6 +4,35 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.11.0 [December 18, 2018]
+
+### Added
+Sortable Resource List [#1098]
+Integration tests for Tabs [#1278]
+
+### Fixed
+Implement attrs to styled API [#1263]
+Make Tabs accessible [#1264]
+Examples: react + react-dom should have same version [#1284]
+Tooltip: Fix wrapping for long text [#1262]
+Fix dialog [#1260]
+Fix react router dom dependency [#1300]
+Fix Resource List columns [#1192]
+Fix docs links [#1280]
+Fix version switcher [#1256]
+Fix button action onClick handler not including the item [#1276]
+
+Internal: Clean up code for masked TextInput [#1283]
+Internal: Add module to all stories [#1288]
+
+### Changed
+Internal: Massive find and replace for styled [#1249]
+Remove line height declaration on tables [#1286]
+Replace extend with styled [#1279]
+Remove pointer events from icon [#1298]
+Changes the Page Header from grid to flex [#1285]
+
+
 ## 0.10.1 [December 11, 2018]
 
 ### Fixed
