@@ -71,9 +71,9 @@ describe('Tabs', () => {
 
       const [tabList, activeTabPanel] = tabs.children()
 
-      const tabLinkIds = tabList.props.children.map(i => i.props.children.props.id)
+      const tabLinkIds = tabList.props.children.map(link => link.props.children.props.id)
       const tabLinkAriaControls = tabList.props.children.map(
-        i => i.props.children.props['aria-controls']
+        link => link.props.children.props['aria-controls']
       )
 
       expect(tabLinkIds[index]).toEqual(activeTabPanel.props.id.replace('-tab', ''))
