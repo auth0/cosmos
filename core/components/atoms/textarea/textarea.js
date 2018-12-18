@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@auth0/cosmos/styled'
 
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
@@ -19,7 +20,7 @@ const TextArea = props => {
   }
 }
 
-TextArea.Element = StyledInput.withComponent('textarea').extend`
+TextArea.Element = styled(StyledInput.withComponent('textarea'))`
   resize: ${props => (props.resizable ? 'vertical' : 'none')};
   font-size: ${props => (props.code ? '13px' : 'inherit')};
   display: block;

@@ -275,7 +275,7 @@ Button.Text = styled.span`
   margin-top: 1px;
 `
 
-Button.LinkElement = Button.Element.withComponent('a').extend`
+Button.LinkElement = styled(Button.Element.withComponent('a'))`
   text-decoration: none;
 `
 

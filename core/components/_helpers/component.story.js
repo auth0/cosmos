@@ -20,18 +20,24 @@ const Box = styled.div`
   ${borderStyles};
 `
 
-/* extend works */
-const TallBox = Box.extend`
-  height: 200px;
-`
+/*
+ extend works:
+ commented out because .extend will be deprecated in styled-components v4
+*/
+// const TallBox = Box.extend`
+//   height: 200px;
+// `
 
 /* styled wrapper works */
 const ShortBox = styled(Box)`
   height: 20px;
 `
+const TallBox = styled(Box)`
+  height: 200px;
+`
 
 /* withComponent works */
-const InputBox = Box.withComponent('input').extend`
+const InputBox = styled(Box.withComponent('input'))`
   :hover {
     background: #fff;
   }

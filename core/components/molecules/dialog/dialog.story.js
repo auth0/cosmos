@@ -199,3 +199,24 @@ storiesOf('Dialog').add('stressed', () => (
     </Dialog>
   </StyledExample>
 ))
+
+storiesOf('Dialog').add('dialog with tabs', () => (
+  <StyledExample title="dialog with tabs">
+    <Dialog
+      open
+      title="Example Dialog"
+      role="destructive"
+      onClose={() => {}}
+      actions={[
+        new Dialog.Action('OK', () => {}, 'primary'),
+        new Dialog.Action('Cancel', () => {}, 'secondary')
+      ]}
+    >
+      <Tabs selected={0} onSelect={_ => {}}>
+        <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+        <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
+        <Tabs.Tab label="Tab 3">Look, third tab is selected by default!</Tabs.Tab>
+      </Tabs>
+    </Dialog>
+  </StyledExample>
+))
