@@ -17,7 +17,9 @@ class Fixture extends React.Component {
         onChange={evt => this.handleChange(evt)}
         id="custom-id"
       >
-        <Radio.Option value="one">Option 1</Radio.Option>
+        <Radio.Option value="one" id="custom-id">
+          Option 1
+        </Radio.Option>
         <Radio.Option value="two">Option 2</Radio.Option>
       </Radio>
     )

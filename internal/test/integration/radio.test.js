@@ -5,5 +5,6 @@ import Fixture from './radio.fixture'
 import customIdTest from './helpers/custom-id'
 
 test('Accepts custom id prop', () => {
-  return customIdTest(Fixture, 'radio')
+  customIdTest(Fixture, 'radio')
+  customIdTest(Fixture, 'radio.option')
 })
