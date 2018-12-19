@@ -5,7 +5,9 @@ class Fixture extends React.Component {
   render() {
     return (
       <Breadcrumb id="custom-id">
-        <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>
+        <Breadcrumb.Link id="custom-id" href="/home">
+          Home
+        </Breadcrumb.Link>
         <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
         <Breadcrumb.Link href="/parent/child">Child</Breadcrumb.Link>
       </Breadcrumb>

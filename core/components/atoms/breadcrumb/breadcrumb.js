@@ -17,7 +17,7 @@ const LinkIcon = styled(Icon)`
   margin-right: ${spacing.xsmall};
 `
 
-const Breadcrumb = props => <Breadcrumb.Element {...props} {...Automation('breadcrumb')} />
+const Breadcrumb = props => <Breadcrumb.Element {...Automation('breadcrumb')} {...props} />
 
 Breadcrumb.Element = styled.div`
   ${containerStyles};
@@ -73,7 +73,7 @@ Breadcrumb.Element = styled.div`
 `
 
 Breadcrumb.Link = props => (
-  <Link {...props} {...Automation('breadcrumb.link')}>
+  <Link {...Automation('breadcrumb.link')} {...props}>
     {props.icon && <LinkIcon name={props.icon} size={12} color="grayDarkest" />}
     {props.children}
     <Separator name="chevron-right-fill" size={12} color="grayMedium" />
