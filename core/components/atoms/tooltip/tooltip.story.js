@@ -30,7 +30,7 @@ const ExampleContainer = ({ children, position, noMargins }) => {
   )
 }
 
-storiesOf('Tooltip').add('with button', () => (
+storiesOf('Tooltip', module).add('with button', () => (
   <Example title="with button">
     {positions.map(position => (
       <ExampleContainer position={position}>
@@ -42,7 +42,7 @@ storiesOf('Tooltip').add('with button', () => (
   </Example>
 ))
 
-storiesOf('Tooltip').add('with button group', () => (
+storiesOf('Tooltip', module).add('with button group', () => (
   <Example title="with button group">
     {positions.map(position => (
       <ExampleContainer position={position} noMargins>
@@ -58,7 +58,7 @@ storiesOf('Tooltip').add('with button group', () => (
   </Example>
 ))
 
-storiesOf('Tooltip').add('with compressed button group', () => (
+storiesOf('Tooltip', module).add('with compressed button group', () => (
   <Example title="with compressed button group">
     {positions.map(position => (
       <ExampleContainer position={position} noMargins>
@@ -74,7 +74,7 @@ storiesOf('Tooltip').add('with compressed button group', () => (
   </Example>
 ))
 
-storiesOf('Tooltip').add('with icon only button', () => (
+storiesOf('Tooltip', module).add('with icon only button', () => (
   <Example title="with icon only button">
     <ExampleContainer position="top">
       <Button icon="analytics" label="this is the label" labelDefaultVisible />
@@ -82,7 +82,7 @@ storiesOf('Tooltip').add('with icon only button', () => (
   </Example>
 ))
 
-storiesOf('Tooltip').add('long text', () => (
+storiesOf('Tooltip', module).add('long text', () => (
   <Example title="with long text">
     <ExampleContainer position="top">
       <Button

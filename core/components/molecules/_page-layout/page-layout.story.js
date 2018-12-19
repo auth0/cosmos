@@ -5,7 +5,7 @@ import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import Automation from '../../_helpers/automation-attribute'
 import { PageLayout } from '@auth0/cosmos'
 
-storiesOf('Page Layout').add('default', () => (
+storiesOf('Page Layout', module).add('default', () => (
   <Example title="default">
     <PageLayout>
       <PageLayout.Header {...Automation('page-header')}>

@@ -14,6 +14,7 @@ Code.Element = styled.span`
   background-color: ${colors.base.blueLightest};
   border-radius: 3px;
   line-height: 18px;
+  word-break: break-all;
 `
 
 Code.propTypes = {}

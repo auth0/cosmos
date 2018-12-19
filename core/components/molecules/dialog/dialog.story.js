@@ -8,7 +8,7 @@ const StyledExample = styled(Example)`
   min-height: 800px;
 `
 
-storiesOf('Dialog').add('default', () => (
+storiesOf('Dialog', module).add('default', () => (
   <StyledExample title="default">
     <Dialog
       open
@@ -25,7 +25,7 @@ storiesOf('Dialog').add('default', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with primary button only', () => (
+storiesOf('Dialog', module).add('with primary button only', () => (
   <StyledExample title="with primary button only">
     <Dialog
       open
@@ -42,7 +42,7 @@ storiesOf('Dialog').add('with primary button only', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('without footer', () => (
+storiesOf('Dialog', module).add('without footer', () => (
   <StyledExample title="without footer">
     <Dialog open title="Example Dialog" onClose={() => {}}>
       Some information
@@ -51,7 +51,7 @@ storiesOf('Dialog').add('without footer', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with form', () => (
+storiesOf('Dialog', module).add('with form', () => (
   <StyledExample title="with form">
     <Dialog
       open
@@ -77,7 +77,7 @@ storiesOf('Dialog').add('with form', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with introduction + form', () => (
+storiesOf('Dialog', module).add('with introduction + form', () => (
   <StyledExample title="with introduction + form">
     <Dialog
       open
@@ -107,7 +107,7 @@ storiesOf('Dialog').add('with introduction + form', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('stressed', () => (
+storiesOf('Dialog', module).add('stressed', () => (
   <StyledExample title="stressed">
     <Dialog
       open
@@ -200,7 +200,7 @@ storiesOf('Dialog').add('stressed', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('dialog with tabs', () => (
+storiesOf('Dialog', module).add('dialog with tabs', () => (
   <StyledExample title="dialog with tabs">
     <Dialog
       open

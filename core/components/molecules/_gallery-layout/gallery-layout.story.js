@@ -4,7 +4,7 @@ import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import { GalleryLayout } from '@auth0/cosmos'
 
-storiesOf('Gallery Layout').add('default', () => (
+storiesOf('Gallery Layout', module).add('default', () => (
   <Example title="default">
     <GalleryLayout>
       <StyledPlaceholder />

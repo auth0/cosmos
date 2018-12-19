@@ -7,7 +7,7 @@ import { Icon } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos/tokens'
 import { icons } from './icons.json'
 
-storiesOf('Icon').add('default', () => (
+storiesOf('Icon', module).add('default', () => (
   <Example title="Icons">
     <Stack>
       <Icon name="analytics" />
@@ -21,7 +21,7 @@ storiesOf('Icon').add('default', () => (
   </Example>
 ))
 
-storiesOf('Icon').add('size', () => (
+storiesOf('Icon', module).add('size', () => (
   <Example title="Size">
     <Stack>
       <Icon name="analytics" size={spacing.xsmall} />
@@ -34,7 +34,7 @@ storiesOf('Icon').add('size', () => (
   </Example>
 ))
 
-storiesOf('Icon').add('color', () => (
+storiesOf('Icon', module).add('color', () => (
   <Example title="Size">
     <Stack>
       <Icon name="analytics" color="white" />
@@ -48,7 +48,7 @@ storiesOf('Icon').add('color', () => (
   </Example>
 ))
 
-storiesOf('Icon').add('dark-background', () => (
+storiesOf('Icon', module).add('dark-background', () => (
   <Example title="Dark background" background="dark">
     <Stack>
       <Icon name="analytics" color="white" />
@@ -62,7 +62,7 @@ storiesOf('Icon').add('dark-background', () => (
   </Example>
 ))
 
-storiesOf('Icon').add('named icons', () => (
+storiesOf('Icon', module).add('named icons', () => (
   <Example>
     <div>
       {Object.keys(icons).map(name => (

@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
-storiesOf('Button').add('appearance', () => (
+storiesOf('Button', module).add('appearance', () => (
   <Example title="Appearances">
     <Stack>
       <Button>Button</Button>
