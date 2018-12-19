@@ -15,14 +15,12 @@ const AppLayout = props => (
 AppLayout.Element = styled.div`
   position: relative;
   display: grid;
-  grid-gap: ${spacing.medium};
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
   grid-template-areas:
     'header'
     'sidebar'
     'content';
-  > * {
-    border: 5px solid violet;
-  }
   @media (min-width: 700px) {
     grid-template-columns: auto 200px calc(866px - ${spacing.medium}) auto;
     grid-template-areas:
@@ -35,9 +33,10 @@ AppLayout.Header = styled.header`
   grid-area: header;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid grey;
-  height: 80px;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #f1f1f1;
+  height: 69px;
+  padding: 10px 0;
   > * {
     width: 1064px;
     margin-left: auto;
@@ -49,7 +48,7 @@ AppLayout.SideBar = styled.div`
   grid-area: sidebar;
   > * {
     position: sticky;
-    top: 80px;
+    top: 109px;
   }
 `
 
