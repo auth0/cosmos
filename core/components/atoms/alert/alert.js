@@ -55,6 +55,7 @@ class Alert extends React.Component {
           type={this.props.type}
           dismissible={this.props.dismissible}
           {...Automation('alert')}
+          {...this.props}
         >
           {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
           <span>

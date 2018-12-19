@@ -31,6 +31,10 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
+                component: 'Avatar',
+                selectors: ['$(\'div[data-cosmos-key="avatar"]\')']
+              },
+              {
                 component: 'Breadcrumb',
                 selectors: [
                   '$(\'div[data-cosmos-key="breadcrumb"]\')',
