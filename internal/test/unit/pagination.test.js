@@ -6,7 +6,7 @@ const noop = () => {}
 const paginationFactory = ({ page, perPage, items, onPageChanged = noop } = {}) =>
   shallow(<Pagination page={page} perPage={perPage} items={items} onPageChanged={onPageChanged} />)
 
-describe('Pagination tests', () => {
+describe('Pagination', () => {
   it('calls onPageChanged handler when click first page', () => {
     const onPageChanged = jest.fn()
     const pagination = paginationFactory({ page: 3, perPage: 5, items: 1000, onPageChanged })
