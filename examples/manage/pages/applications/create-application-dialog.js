@@ -16,15 +16,6 @@ const ApplicationType = props => (
   </ApplicationType.Element>
 )
 
-const ApplicationStack = styled(Stack)`
-  > * {
-    margin-right: ${spacing.small};
-  }
-  > *:last-child {
-    margin-right: 0;
-  }
-`
-
 ApplicationType.Element = styled.a`
   display: flex;
   flex-direction: column;
