@@ -123,6 +123,10 @@ class AutomationGlossary extends React.Component {
                 selectors: ['$(\'textarea[data-cosmos-key="text-area"]\')']
               },
               {
+                component: 'Text',
+                selectors: ['$(\'input[data-cosmos-key="text"]\')']
+              },
+              {
                 component: 'ButtonGroup',
                 selectors: ['$(\'div[data-cosmos-key="button-group"]\')']
               },
