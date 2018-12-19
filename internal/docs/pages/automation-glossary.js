@@ -99,6 +99,10 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
+                component: 'Spinner',
+                selectors: ['$(\'select[data-cosmos-key="spinner"]\')']
+              },
+              {
                 component: 'Switch',
                 selectors: ['$(\'span[data-cosmos-key="switch"] input\')']
               },
