@@ -10,6 +10,7 @@ import Architecture from './contribution-guide/architecture'
 import ComponentFiles from './contribution-guide/component-files'
 import Testing from './contribution-guide/testing'
 import LineHeight from './contribution-guide/line-height'
+import OrderOfProps from './contribution-guide/order-of-props'
 
 class ContributionGuide extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class ContributionGuide extends React.Component {
         <ComponentFiles />
         <Testing />
         <LineHeight />
+        <OrderOfProps />
       </div>
     )
   }
