@@ -1,5 +1,4 @@
 import {
-  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
@@ -49,7 +48,6 @@ import {
 } from './components'
 
 export {
-  ActionInput,
   Alert,
   Avatar,
   AvatarBlock,
