@@ -53,6 +53,14 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
+                component: 'Code',
+                selectors: ['$(\'button[data-cosmos-key="code"]\')']
+              },
+              {
+                component: 'Heading',
+                selectors: ['$(\'button[data-cosmos-key="heading"]\')']
+              },
+              {
                 component: 'Radio',
                 selectors: [
                   '$(\'div[data-cosmos-key="radio"]\')',
