@@ -66,7 +66,7 @@ class Switch extends React.Component {
     */
 
     return (
-      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')} {...this.props}>
         {elements}
       </Switch.Element>
     )
