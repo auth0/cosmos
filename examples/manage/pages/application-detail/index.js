@@ -21,20 +21,31 @@ class ApplicationDetail extends React.Component {
     return (
       <PageLayout>
         <PageLayout.Header>
-          <ApplicationPageHeader
-            title="API Explorer Application"
-            type={{
-              name: 'Non Interactive',
-              applicationId: this.props.match.params.applicationId
-            }}
-            logo={
-              <Avatar type="resource" size="xlarge" image={ApplicationTypeImages.non_interactive} />
-            }
-            breadcrumb={{
-              content: 'Applications',
-              link: '/#/applications'
-            }}
-          />
+          <RowLayout gutter="condensed">
+            <Breadcrumb>
+              <Breadcrumb.Link href="#/applications" icon="arrow-left-fill">
+                Back to Applications
+              </Breadcrumb.Link>
+            </Breadcrumb>
+            <ApplicationPageHeader
+              title="API Explorer Application"
+              type={{
+                name: 'Non Interactive',
+                applicationId: this.props.match.params.applicationId
+              }}
+              logo={
+                <Avatar
+                  type="resource"
+                  size="xlarge"
+                  image={ApplicationTypeImages.non_interactive}
+                />
+              }
+              breadcrumb={{
+                content: 'Applications',
+                link: '/#/applications'
+              }}
+            />
+          </RowLayout>
         </PageLayout.Header>
         <PageLayout.Content>
           <Tabs selected={this.state.selectedTab} onSelect={this.handleSelected.bind(this)}>
