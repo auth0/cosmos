@@ -127,6 +127,10 @@ class AutomationGlossary extends React.Component {
                 selectors: ['$(\'input[data-cosmos-key="text"]\')']
               },
               {
+                component: 'Tooltip',
+                selectors: ['$(\'input[data-cosmos-key="tooltip"]\')']
+              },
+              {
                 component: 'ButtonGroup',
                 selectors: ['$(\'div[data-cosmos-key="button-group"]\')']
               },
