@@ -23,13 +23,27 @@ const iconSizes = {
 const getImageForAvatar = props => {
   if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
   if (props.email && props.initials)
-    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+    return (
+      <Image
+        width="100%"
+        height="100%"
+        fit="cover"
+        source={getUserAvatarUrl(props.image, props.email, props.initials)}
+      />
+    )
   if (typeof props.image === 'string') {
-    return <Image source={props.image} />
+    return <Image width="100%" height="100%" fit="cover" source={props.image} />
   }
 
   if (!props.image)
-    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
+    return (
+      <Image
+        width="100%"
+        height="100%"
+        fit="cover"
+        source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE}
+      />
+    )
 
   return props.image
 }
@@ -58,15 +72,9 @@ Avatar.Element = styled.span`
   justify-content: center;
   overflow: hidden;
 
-  img,
-  svg {
-    height: 100%;
-    width: 100%;
-    user-select: none;
-  }
-
   ${Icon.Element} {
     line-height: 0;
+    /* Try to remove line-height and set display: inline-flex; */
   }
 `
 
