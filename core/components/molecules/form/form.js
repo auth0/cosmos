@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
-import ActionInput from '../../molecules/_action-input'
+import TextInput from '../../atoms/text-input'
 import TextArea from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
@@ -21,7 +21,7 @@ const Form = props => (
 )
 
 Form.Field = props => <Field {...props} />
-Form.TextInput = props => <Field {...props} fieldComponent={ActionInput} />
+Form.TextInput = props => <Field {...props} fieldComponent={TextInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />
 Form.Switch = props => <Field {...props} fieldComponent={Switch} />
