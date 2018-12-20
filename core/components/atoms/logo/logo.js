@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 const colors = {
   default: '#EB5424',
@@ -14,8 +15,8 @@ const sizes = {
   tiny: { width: 17, height: 19 }
 }
 
-const Logo = ({ size, color }) => (
-  <Logo.Element size={size}>
+const Logo = ({ size, color, ...props }) => (
+  <Logo.Element size={size} {...Automation('logo')} {...props}>
     <svg height={sizes[size].height} width={sizes[size].width} viewBox="0 0 29 32">
       <g transform="translate(-100.000000, -88.000000)" fill={colors[color]}>
         <g transform="translate(100.000000, 88.000000)">

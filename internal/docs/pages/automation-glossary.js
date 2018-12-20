@@ -31,6 +31,10 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
+                component: 'Avatar',
+                selectors: ['$(\'div[data-cosmos-key="avatar"]\')']
+              },
+              {
                 component: 'Breadcrumb',
                 selectors: [
                   '$(\'div[data-cosmos-key="breadcrumb"]\')',
@@ -49,6 +53,38 @@ class AutomationGlossary extends React.Component {
                 ]
               },
               {
+                component: 'Code',
+                selectors: ['$(\'button[data-cosmos-key="code"]\')']
+              },
+              {
+                component: 'Heading',
+                selectors: ['$(\'button[data-cosmos-key="heading"]\')']
+              },
+              {
+                component: 'Icon',
+                selectors: ['$(\'button[data-cosmos-key="icon"]\')']
+              },
+              {
+                component: 'Image',
+                selectors: ['$(\'button[data-cosmos-key="image"]\')']
+              },
+              {
+                component: 'Label',
+                selectors: ['$(\'button[data-cosmos-key="label"]\')']
+              },
+              {
+                component: 'Link',
+                selectors: ['$(\'button[data-cosmos-key="link"]\')']
+              },
+              {
+                component: 'Logo',
+                selectors: ['$(\'button[data-cosmos-key="logo"]\')']
+              },
+              {
+                component: 'Paragraph',
+                selectors: ['$(\'button[data-cosmos-key="paragraph"]\')']
+              },
+              {
                 component: 'Radio',
                 selectors: [
                   '$(\'div[data-cosmos-key="radio"]\')',
@@ -61,6 +97,10 @@ class AutomationGlossary extends React.Component {
                   '$(\'select[data-cosmos-key="select"]\')',
                   '$(\'select[data-cosmos-key="select"] option[data-cosmos-key="select.option"]\')'
                 ]
+              },
+              {
+                component: 'Spinner',
+                selectors: ['$(\'select[data-cosmos-key="spinner"]\')']
               },
               {
                 component: 'Switch',
@@ -81,6 +121,14 @@ class AutomationGlossary extends React.Component {
               {
                 component: 'TextArea',
                 selectors: ['$(\'textarea[data-cosmos-key="text-area"]\')']
+              },
+              {
+                component: 'Text',
+                selectors: ['$(\'input[data-cosmos-key="text"]\')']
+              },
+              {
+                component: 'Tooltip',
+                selectors: ['$(\'input[data-cosmos-key="tooltip"]\')']
               },
               {
                 component: 'ButtonGroup',

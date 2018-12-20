@@ -3,8 +3,13 @@ import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
 import { colors, misc } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
-const Label = props => <Label.Element {...props}>{props.children}</Label.Element>
+const Label = props => (
+  <Label.Element {...Automation('label')} {...props}>
+    {props.children}
+  </Label.Element>
+)
 
 Label.Element = styled(StyledTextAllCaps)`
   font-size: 11px;

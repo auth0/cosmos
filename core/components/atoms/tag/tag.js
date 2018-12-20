@@ -21,7 +21,7 @@ const Tag = props => {
   }
 
   return (
-    <Tag.Element onClick={props.onClick} {...Automation('tag')}>
+    <Tag.Element {...Automation('tag')} {...props}>
       {props.children}
       {icon}
     </Tag.Element>
@@ -46,8 +46,10 @@ Tag.Element = styled.span`
   }
 `
 
-Tag.Group = ({ children }) => (
-  <Tag.Group.Element {...Automation('tag.group')}>{children}</Tag.Group.Element>
+Tag.Group = props => (
+  <Tag.Group.Element {...Automation('tag.group')} {...props}>
+    {props.children}
+  </Tag.Group.Element>
 )
 
 Tag.Group.Element = styled.div`
