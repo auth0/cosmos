@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Image } from '@auth0/cosmos'
 
-storiesOf('Image').add('url', () => (
+storiesOf('Image', module).add('url', () => (
   <Example title="Icons">
     <Image
       source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
@@ -12,7 +12,7 @@ storiesOf('Image').add('url', () => (
     />
   </Example>
 ))
-storiesOf('Image').add('data:url', () => (
+storiesOf('Image', module).add('data:url', () => (
   <Example title="Icons">
     <Image
       alt="auth0 logo"

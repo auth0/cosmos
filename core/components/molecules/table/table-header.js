@@ -68,7 +68,6 @@ TableHeader.Cell = styled.th`
   border-bottom: 2px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: bottom;
-  line-height: 2;
   ${props => (props.width ? `width: ${props.width};` : '')}
   cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
   &:hover {

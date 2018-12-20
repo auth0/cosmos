@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Form, TextInput, TextArea } from '@auth0/cosmos'
 
-storiesOf('Form').add('fieldset', () => (
+storiesOf('Form', module).add('fieldset', () => (
   <Example title="fieldset">
     <Form>
       <Form.FieldSet label="Group 1">

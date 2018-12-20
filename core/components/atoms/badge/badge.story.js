@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Badge } from '@auth0/cosmos'
 
-storiesOf('Badge').add('appearances', () => (
+storiesOf('Badge', module).add('appearances', () => (
   <Example title="appearances">
     <Stack>
       <Badge appearance="default">123</Badge>
@@ -16,13 +16,13 @@ storiesOf('Badge').add('appearances', () => (
   </Example>
 ))
 
-storiesOf('Badge').add('no appearance specified', () => (
+storiesOf('Badge', module).add('no appearance specified', () => (
   <Example title="no appearance specified">
     <Badge>99</Badge>
   </Example>
 ))
 
-storiesOf('Badge').add('stressed', () => (
+storiesOf('Badge', module).add('stressed', () => (
   <Example title="stressed">
     <div>
       <Badge appearance="default">

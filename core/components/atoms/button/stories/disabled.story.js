@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Button, ButtonGroup } from '@auth0/cosmos'
 
-storiesOf('Button').add('disabled state', () => (
+storiesOf('Button', module).add('disabled state', () => (
   <Example title="Disabled state" align="center">
     <Stack>
       <Button disabled>Default</Button>

@@ -79,6 +79,7 @@ Select.Wrapper = styled.div`
 Select.ArrowIcon = styled(Icon)`
   position: absolute;
   right: 12px;
+  pointer-events: none;
 
   svg {
     display: block;
