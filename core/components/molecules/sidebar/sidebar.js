@@ -8,7 +8,7 @@ import { spacing } from '@auth0/cosmos-tokens'
 import Icon from '../../atoms/icon'
 
 const Sidebar = props => {
-  return <Sidebar.Element {...props} {...Automation('sidebar')} />
+  return <Sidebar.Element {...Automation('sidebar')} {...props} />
 }
 
 Sidebar.Element = styled.div`
