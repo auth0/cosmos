@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
-const Image = props => <Image.Element src={props.source} alt={props.alt} {...props} />
+const Image = props => <Image.Element src={props.source} {...Automation('image')} {...props} />
 
 Image.Element = styled.img`
   user-select: none;

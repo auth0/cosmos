@@ -14,7 +14,7 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
     <input
       type="checkbox"
       name={props.name}
