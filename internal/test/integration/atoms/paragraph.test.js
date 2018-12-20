@@ -5,5 +5,5 @@ import Fixture from './paragraph.fixture'
 import customIdTest from '../helpers/custom-id'
 
 test('Accepts custom id prop', () => {
-  return customIdTest(Fixture, 'paragraph')
+  customIdTest(Fixture, 'paragraph')
 })

@@ -5,5 +5,5 @@ import Fixture from './image.fixture'
 import customIdTest from '../helpers/custom-id'
 
 test('Accepts custom id prop', () => {
-  return customIdTest(Fixture, 'image')
+  customIdTest(Fixture, 'image')
 })
