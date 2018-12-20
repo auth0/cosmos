@@ -5,5 +5,5 @@ import Fixture from './alert.fixture'
 import customIdTest from '../helpers/custom-id'
 
 test('Accepts custom id prop', () => {
-  return customIdTest(Fixture, 'alert')
+  customIdTest(Fixture, 'alert')
 })
