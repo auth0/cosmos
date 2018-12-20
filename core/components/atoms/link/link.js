@@ -6,7 +6,7 @@ import Automation from '../../_helpers/automation-attribute'
 import { colors } from '@auth0/cosmos-tokens'
 
 const Link = props => (
-  <Link.Element {...props} {...Automation('link')}>
+  <Link.Element {...Automation('link')} {...props}>
     {props.children}
   </Link.Element>
 )
