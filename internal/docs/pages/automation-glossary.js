@@ -139,6 +139,10 @@ class AutomationGlossary extends React.Component {
                 selectors: ['$(\'div[data-cosmos-key="button-group"]\')']
               },
               {
+                component: 'DangerZone',
+                selectors: ['$(\'div[data-cosmos-key="danger-zone"]\')']
+              },
+              {
                 component: 'Dialog',
                 selectors: [
                   '$(\'div[data-cosmos-key="dialog"]\')',
