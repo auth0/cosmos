@@ -33,7 +33,7 @@ const EmptyState = props => {
   let helpLink = getHelpLink(props.link || props.helpUrl)
 
   return (
-    <EmptyState.Element {...Automation('empty-state')}>
+    <EmptyState.Element {...Automation('empty-state')} {...props}>
       <Title size={1}>{props.title}</Title>
       <EmptyState.Body>
         <Icon name={props.icon} size={110} color="blue" />
