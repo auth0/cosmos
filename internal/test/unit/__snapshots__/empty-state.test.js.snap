@@ -2,7 +2,17 @@
 
 exports[`Empty State renders properly 1`] = `
 <styled.div
+  action={
+    Object {
+      "handler": [Function],
+      "icon": "copy",
+      "label": "Something",
+    }
+  }
   data-cosmos-key="empty-state"
+  icon="copy"
+  link="/some-place"
+  title="Some title"
 >
   <Styled(Heading)
     size={1}
@@ -59,7 +69,17 @@ exports[`Empty State renders properly 1`] = `
 
 exports[`Empty State renders properly without help link 1`] = `
 <styled.div
+  action={
+    Object {
+      "handler": [Function],
+      "icon": "copy",
+      "label": "Something",
+    }
+  }
   data-cosmos-key="empty-state"
+  icon="copy"
+  link={null}
+  title="Some title"
 >
   <Styled(Heading)
     size={1}
@@ -105,7 +125,17 @@ exports[`Empty State renders properly without help link 1`] = `
 
 exports[`Empty State renders properly without text 1`] = `
 <styled.div
+  action={
+    Object {
+      "handler": [Function],
+      "icon": "copy",
+      "label": "Something",
+    }
+  }
   data-cosmos-key="empty-state"
+  icon="copy"
+  link="/some-place"
+  title="Some title"
 >
   <Styled(Heading)
     size={1}
