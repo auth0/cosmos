@@ -1,7 +1,7 @@
 const global = {
   // Colors ==========================
-  color {
-    background : {
+  color: {
+    background: {
       base: {
         100: 'swatch.black.100',
         200: '',
@@ -18,7 +18,7 @@ const global = {
         300: ''
       }
     },
-    text : {
+    text: {
       base: {
         100: 'text.dark.100',
         200: 'text.dark.200',
@@ -36,13 +36,15 @@ const global = {
       }
     },
 
-    theme : {
-      primary: { // naranja brand
+    theme: {
+      primary: {
+        // naranja brand
         100: '#',
         200: '#',
         300: '#'
       },
-      secondary: { // azul
+      secondary: {
+        // azul
         100: '#',
         200: '#',
         300: '#'
@@ -66,9 +68,9 @@ const global = {
         100: '#',
         200: '#',
         300: '#'
-      },
+      }
     },
-    state:{
+    state: {
       active: {
         100: '#',
         200: '#',
@@ -78,50 +80,49 @@ const global = {
         100: '#',
         200: '#',
         300: '#'
-      },
+      }
     },
     link: {
       100: '#', //normal
-      200: '#'  //hover
-    },
+      200: '#' //hover
+    }
   },
 
-// Shadows ==========================
-  shadow : {
+  // Shadows ==========================
+  shadow: {
     sm: '',
     md: '', // this is the default
     lg: '',
     inset: ''
   },
 
-
   // Sizes & spaces ==========================
-  spacer : {
+  spacer: {
     xs: '',
     sm: '',
     md: '', // this is the default
     lg: '',
     xl: '',
-    2xl: '',
-    3xl: ''
+    '2xl': '',
+    '3xl': ''
   },
 
-  height : {
+  height: {
     xs: '',
     sm: '',
     md: '', // this is the default
     lg: '',
     xl: ''
   },
-  
-  gutter : {
+
+  gutter: {
     sm: '',
     md: '', // this is the default
     lg: ''
   },
 
- // Breakpoint ==========================
-  breakpoint : {
+  // Breakpoint ==========================
+  breakpoint: {
     xs: '0',
     sm: '576px',
     md: '768px',
@@ -130,24 +131,23 @@ const global = {
   },
 
   // Z-Index ==========================
-  zindex : {
+  zindex: {
     xs: '100',
     sm: '200', //Tooltip, dropmenus
     md: '300',
     lg: '400', // App header
     xl: '500',
-    2xl: '600' // Modal overlay
+    '2xl': '600' // Modal overlay
   },
-
 
   // Borders ==========================
   border: {
     width: {
       sm: '',
       md: '',
-      lg: ''  
+      lg: ''
     },
-    color:  {
+    color: {
       base: '#', // TODO: this hsould be just `global.border.color` widthout the word default
       light: '#',
       dark: '#'
@@ -157,23 +157,23 @@ const global = {
       md: '',
       lg: '30rem' // generated rounded corernes
     }
-  }
+  },
 
   // Fonts ==========================
-  font : {
+  font: {
     family: {
-      sansSerif: '';
-      monospace: '';
+      sansSerif: '',
+      monospace: ''
     },
     size: {
       xs: '',
       sm: '',
-      md: '',// this is the default
+      md: '', // this is the default
       lg: '',
       xl: '',
-      2xl: ''
-      3xl: ''
-      4xl: ''
+      '2xl': '',
+      '3xl': '',
+      '4xl': ''
     },
     sizeRelative: {
       sm: '90%'
@@ -186,7 +186,7 @@ const global = {
     },
     LineHeight: {
       sm: '1.3',
-      md: '1.6'// this is the default
+      md: '1.6' // this is the default
     },
     letterSpacing: {
       lg: '1px'
