@@ -16,7 +16,7 @@ import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
   return (
-    <PageHeader.Element {...Automation('page-header')}>
+    <PageHeader.Element {...Automation('page-header')} {...props}>
       <Heading size={1}>{props.title}</Heading>
       <PageHeader.Description {...props} />
 
@@ -57,7 +57,7 @@ PageHeader.Element = styled.div`
     flex-wrap: wrap;
     align-items: center;
   }
-  /* 
+  /*
   Components should not have margin by default.
   We'll remove this margin eventually
   */
@@ -73,7 +73,7 @@ PageHeader.Element = styled.div`
 
   ${Heading.Element[1]} {
     flex: 1;
-    /* 
+    /*
     Components should not have margin by default.
     We'll remove this margin reset when we remove margins from headers
     */
