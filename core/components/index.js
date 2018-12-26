@@ -47,7 +47,7 @@ import {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  FlexLayout
+  StackLayout
 } from './components'
 
 export {
@@ -99,5 +99,5 @@ export {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  FlexLayout
+  StackLayout
 }

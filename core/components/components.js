@@ -65,7 +65,7 @@ import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
 import PageLayout from './molecules/_page-layout'
-import FlexLayout from './molecules/_flex-layout'
+import StackLayout from './molecules/_stack-layout'
 
 export {
   ActionInput,
@@ -84,7 +84,7 @@ export {
   DangerZone,
   Dialog,
   EmptyState,
-  FlexLayout,
+  StackLayout,
   Form,
   FormGroup,
   GalleryLayout,
