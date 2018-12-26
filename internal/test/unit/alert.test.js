@@ -15,4 +15,21 @@ describe('Alert', () => {
 
     expect(handler).toHaveBeenCalled()
   })
+
+  it('calls onDismiss handler automatically using dismissAfterSeconds', () => {
+    const handler = jest.fn()
+
+    shallow(
+      <Alert title="Test" dismissAfterSeconds={0.5} onDismiss={handler}>
+        This is a test
+      </Alert>
+    )
+
+    return new Promise(resolve => {
+      setTimeout(() => {
+        expect(handler).toHaveBeenCalled()
+        resolve()
+      }, 750)
+    })
+  })
 })
