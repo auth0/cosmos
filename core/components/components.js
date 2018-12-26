@@ -13,7 +13,6 @@ import './_helpers/globals'
 /* internal */
 import Box from './atoms/_box'
 import Well from './atoms/_well'
-import ActionInput from './molecules/_action-input'
 
 /* atoms */
 import Avatar from './atoms/avatar'
@@ -68,7 +67,6 @@ import PageLayout from './molecules/_page-layout'
 import StackLayout from './molecules/_stack-layout'
 
 export {
-  ActionInput,
   Alert,
   AppLayout,
   Avatar,

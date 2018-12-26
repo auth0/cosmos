@@ -14,7 +14,6 @@ import Automation from '../../_helpers/automation-attribute'
 import FocusTrap from 'react-focus-lock'
 import containerStyles from '../../_helpers/container-styles'
 
-
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
   // as actions, we only need to create buttons for actions

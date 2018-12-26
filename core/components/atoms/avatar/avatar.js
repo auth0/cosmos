@@ -5,6 +5,7 @@ import { Image } from '@auth0/cosmos'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
+import Automation from '../../_helpers/automation-attribute'
 
 const PLACEHOLDERS = {
   USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
@@ -38,7 +39,7 @@ const Avatar = props => {
   const image = getImageForAvatar(props)
 
   return (
-    <Avatar.Element type={props.type} size={props.size}>
+    <Avatar.Element type={props.type} size={props.size} {...Automation('avatar')} {...props}>
       {image}
     </Avatar.Element>
   )
