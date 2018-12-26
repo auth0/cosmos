@@ -27,7 +27,7 @@ describe('Tag', () => {
     const stopPropagation = jest.fn()
 
     const tag = shallow(
-      <Tag onClicr={onClick} onRemove={onRemove}>
+      <Tag onClick={onClick} onRemove={onRemove}>
         Something else
       </Tag>
     )
