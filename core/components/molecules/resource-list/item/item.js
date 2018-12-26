@@ -9,6 +9,7 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
+import widthString from '../../../_helpers/width-string-prop-validator'
 
 const itemFocusOutline = '2px'
 
@@ -191,7 +192,7 @@ ListItem.propTypes = {
   /** An icon to display as a thumbnail image for the list item. */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** Defines the flex-basis of the middle column. Accepts any number and unit, for example: `40%` or `200px` */
-  bodyWidth: PropTypes.string,
+  bodyWidth: widthString,
   /** A function that will be called when the list item is clicked. */
   onClick: PropTypes.func,
   /** The actions to display for the list item. */
