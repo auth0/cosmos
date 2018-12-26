@@ -54,17 +54,7 @@ StackLayout.Element = styled.div`
 `
 
 StackLayout.Item = styled.div`
-  /* flex-grow: ;
-  flex-shrink: ;
-  flex-basis: ; */
-
-  /* padding: 1rem;
-  border: 3px dotted hotpink; */
-
   flex: ${props => props.space};
-  /* ${props => (props.shrink ? '0' : '1')} */
-  /* ${props => props.width} */
-  /* ${props => (props.grow ? '1' : '0')} */
   
   /* Avoids any component to be larger than it's parent */
   max-width: 100%;
