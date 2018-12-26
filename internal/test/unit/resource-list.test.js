@@ -42,6 +42,7 @@ describe('ResourceList Action Builder', () => {
         actions: [<Button icon="warning" onClick={actionCallback} />]
       }
     ]
+
     const resourceList = resourceListFactory({ items })
     resourceList
       .childAt(0) // First ListItem
@@ -50,6 +51,30 @@ describe('ResourceList Action Builder', () => {
       .childAt(0) // Actions ButtonGroup
       .childAt(0) // First Action
       .simulate('click')
+
+    expect(actionCallback).toHaveBeenCalledWith(undefined, items[0])
+  })
+
+  it('calls the action#handler function when using objects as actions', () => {
+    const actionCallback = jest.fn()
+    const items = [
+      {
+        title: 'Something',
+        subtitle: 'Something',
+        //actions: [<Button icon="warning" onClick={actionCallback} />]
+        actions: [{ icon: 'warning', handler: actionCallback }]
+      }
+    ]
+
+    const resourceList = resourceListFactory({ items })
+    resourceList
+      .childAt(0) // First ListItem
+      .dive()
+      .childAt(1) // Actions column
+      .childAt(0) // Actions ButtonGroup
+      .childAt(0) // First Action
+      .simulate('click')
+
     expect(actionCallback).toHaveBeenCalledWith(undefined, items[0])
   })
 })
