@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageHeader } from '@auth0/cosmos'
+import { PageHeader, PageLayout, Paragraph, RowLayout, DangerZone } from '@auth0/cosmos'
 
 import CreateApplicationDialog from './create-application-dialog'
 import ApplicationList from '../../components/application-list'
@@ -16,29 +16,49 @@ class ApplicationIndex extends React.Component {
 
   render() {
     return (
-      <div>
-        <PageHeader
-          title="Applications"
-          description={
-            <span>Setup a mobile, web or IoT application to use Auth0 for Authentication.</span>
-          }
-          learnMore="/manage/applications"
-          primaryAction={{
-            label: 'Create Application',
-            icon: 'plus',
-            handler: this.setDialogOpen(true)
-          }}
-          secondaryAction={{
-            label: 'Tutorial',
-            icon: 'play-circle',
-            handler: () => {}
-          }}
-        />
-
-        <ApplicationList />
+      <PageLayout>
+        <PageLayout.Header>
+          <PageHeader
+            title="Applications"
+            description="Setup a mobile, web or IoT application to use Auth0 for Authentication."
+            learnMore="/manage/applications"
+            primaryAction={{
+              label: 'Create Application',
+              icon: 'plus',
+              handler: this.setDialogOpen(true)
+            }}
+            secondaryAction={{
+              label: 'Tutorial',
+              icon: 'play-circle',
+              handler: () => {}
+            }}
+          />
+        </PageLayout.Header>
+        <PageLayout.Content>
+          <RowLayout gutter="spacious">
+            <Paragraph>
+              This is aparagraph loremThis is aparagraph loremThis is aparagraph loremThis is
+              aparagraph loremThis is aparagraph loremThis is aparagraph loremThis is aparagraph
+              loremThis is aparagraph lorem
+            </Paragraph>
+            <ApplicationList />
+            <DangerZone
+              items={[
+                {
+                  title: 'Delete this application',
+                  description: 'All your projects using this application will stop working.',
+                  action: {
+                    label: 'Delete Application',
+                    onClick: () => {}
+                  }
+                }
+              ]}
+            />
+          </RowLayout>
+        </PageLayout.Content>
 
         <CreateApplicationDialog open={this.state.dialogOpen} onClose={this.setDialogOpen(false)} />
-      </div>
+      </PageLayout>
     )
   }
 }

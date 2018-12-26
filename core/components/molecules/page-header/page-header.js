@@ -15,8 +15,9 @@ import { descriptionIsObject } from '../../_helpers/page-header'
 import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
+  console.log(props)
   return (
-    <PageHeader.Element {...Automation('page-header')}>
+    <PageHeader.Element {...props} {...Automation('page-header')}>
       <Heading size={1}>{props.title}</Heading>
       <PageHeader.Description {...props} />
 
