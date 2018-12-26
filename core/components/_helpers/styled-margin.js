@@ -9,6 +9,9 @@ const directions = ['top', 'bottom', 'left', 'right']
 
 const margin = props => {
   const margin = props.margin || {}
+
+  if (!props.margin) return ''
+
   let styles = ''
   directions.map(direction => {
     if (typeof margin[direction] !== 'undefined') {
@@ -25,8 +28,8 @@ const margin = props => {
       } else {
         value = rawValue + 'px'
       }
-      // syntax: margin-top: margin.top
-      styles += `margin-${direction}: ${value};`
+
+      styles += `margin-${direction}: ${value} !important;`
     }
   })
   return styles

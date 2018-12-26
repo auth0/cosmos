@@ -59,6 +59,7 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts (internal) */
+import AppLayout from './molecules/_app-layout'
 import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
@@ -66,6 +67,7 @@ import PageLayout from './molecules/_page-layout'
 
 export {
   Alert,
+  AppLayout,
   Avatar,
   AvatarBlock,
   Badge,
