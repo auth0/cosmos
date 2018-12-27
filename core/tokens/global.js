@@ -1,9 +1,47 @@
+import { swatches as swatch } from './swatches'
+
+/*
+// Tokens ==========================
+
+Color
+- Background
+- Border
+- Text
+- Theme
+-- Brand
+-- Primary
+-- Info
+-- Success
+-- Warning
+-- Danger
+
+Size
+
+
+Border
+- width
+- radius
+
+Font
+- Family
+- Weight
+- Size
+- Size relative
+- Line height
+- Letter spacing
+
+Breakpoint
+
+Z-index
+
+*/
+
 const global = {
   // Colors ==========================
   color: {
     background: {
       base: {
-        100: 'swatch.black.100',
+        100: swatch.black - 100,
         200: '',
         300: ''
       },
@@ -17,44 +55,58 @@ const global = {
         200: '',
         300: ''
       }
+    },
+    border: {
+      base: '#', // TODO: this should be just `global.border.color` widthout the word default
+      light: '#',
+      dark: '#'
     },
     text: {
       base: {
-        100: 'text.dark.100',
-        200: 'text.dark.200',
-        300: 'text.dark.300'
+        300: 'text.dark.300', // Primary
+        200: 'text.dark.200', // Secondary
+        100: 'text.dark.100' // Disabled
+        // Error
+        // Interactive/Link
+        // Interactive/Link Dark
       },
       light: {
-        100: '#',
+        300: '#',
         200: '#',
-        300: '#'
+        100: '#'
       },
       dark: {
-        100: '#000',
-        200: '#222',
-        300: '#333'
+        300: '#333333',
+        200: '#757575',
+        100: '#B2B2B2'
       }
     },
-
+    link: {
+      100: '#', //normal
+      200: '#' //hover
+    },
     theme: {
-      primary: {
-        // naranja brand
-        100: '#',
-        200: '#',
-        300: '#'
+      // Brand color
+      brand: {
+        100: '#F5AA92', // light / background / disabled
+        200: '#EB5424', // default / background
+        300: '#D94514', // dark / hover
+        400: '#BF3A11' // darker / active
       },
-      secondary: {
-        // azul
+      // Azul
+      primary: {
+        100: '#', // light / disabled
+        200: '#', // default / background
+        300: '#', // dark / hover
+        400: '' // darker / active
+      },
+      // Status?
+      info: {
         100: '#',
         200: '#',
         300: '#'
       },
       success: {
-        100: '#',
-        200: '#',
-        300: '#'
-      },
-      info: {
         100: '#',
         200: '#',
         300: '#'
@@ -65,9 +117,10 @@ const global = {
         300: '#'
       },
       danger: {
-        100: '#',
-        200: '#',
-        300: '#'
+        100: '#FFD8CC', // light / disabled
+        200: '#E13A37', // default / background
+        300: '#E40002', // dark
+        400: '#BE0001' // darker / text color
       }
     },
     state: {
@@ -81,10 +134,20 @@ const global = {
         200: '#',
         300: '#'
       }
+    }
+  },
+
+  // Borders ==========================
+  border: {
+    width: {
+      sm: '1px',
+      md: '2px',
+      lg: ''
     },
-    link: {
-      100: '#', //normal
-      200: '#' //hover
+    radius: {
+      sm: '',
+      md: '',
+      lg: '30rem' // generated rounded corners
     }
   },
 
@@ -96,8 +159,13 @@ const global = {
     inset: ''
   },
 
-  // Sizes & spaces ==========================
-  spacer: {
+  /* Sizes & spaces
+  // ========================== */
+
+  // Spaces:
+  // Used for for padding, margins, and position coordinates.
+
+  space: {
     xs: '',
     sm: '',
     md: '', // this is the default
@@ -107,12 +175,12 @@ const global = {
     '3xl': ''
   },
 
-  height: {
-    xs: '',
-    sm: '',
-    md: '', // this is the default
-    lg: '',
-    xl: ''
+  // Size: Used for inputs/buttons height
+  size: {
+    xs: '32px',
+    sm: '36px',
+    md: '44px', // this is the default
+    lg: '48px'
   },
 
   gutter: {
@@ -121,49 +189,19 @@ const global = {
     lg: ''
   },
 
-  // Breakpoint ==========================
-  breakpoint: {
-    xs: '0',
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px'
-  },
-
-  // Z-Index ==========================
-  zindex: {
-    xs: '100',
-    sm: '200', //Tooltip, dropmenus
-    md: '300',
-    lg: '400', // App header
-    xl: '500',
-    '2xl': '600' // Modal overlay
-  },
-
-  // Borders ==========================
-  border: {
-    width: {
-      sm: '',
-      md: '',
-      lg: ''
-    },
-    color: {
-      base: '#', // TODO: this hsould be just `global.border.color` widthout the word default
-      light: '#',
-      dark: '#'
-    },
-    radius: {
-      sm: '',
-      md: '',
-      lg: '30rem' // generated rounded corernes
-    }
-  },
-
   // Fonts ==========================
   font: {
     family: {
-      sansSerif: '',
-      monospace: ''
+      sansSerif:
+        'fakt-web, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"', // Body and Headings
+      monospace: 'Roboto Mono, "Courier New", Courier, monospace' // Code
+      // serif: '' // Blog
+    },
+    weight: {
+      light: '300',
+      normal: '400',
+      semiBold: '500',
+      bold: '700'
     },
     size: {
       xs: '',
@@ -178,22 +216,35 @@ const global = {
     sizeRelative: {
       sm: '90%'
     },
-    weight: {
-      light: '300',
-      normal: '400',
-      semiBold: '500',
-      bold: '600'
-    },
-    LineHeight: {
+    lineHeight: {
       sm: '1.3',
       md: '1.6' // this is the default
     },
     letterSpacing: {
       lg: '1px'
     }
+  },
+
+  // Breakpoint ==========================
+  breakpoint: {
+    xs: '0',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px'
+  },
+
+  // Z-Index ==========================
+  zindex: {
+    xs: '100',
+    sm: '200', // Tooltip, dropmenus
+    md: '300',
+    lg: '400', // App header
+    xl: '500',
+    '2xl': '600' // Modal overlay
   }
+  //Animations
+  //TDB
 }
-//Animations
-//TDB
 
 module.exports = global
