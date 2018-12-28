@@ -9,6 +9,7 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
+import widthString from '../../../_helpers/width-string-prop-validator'
 
 const itemFocusOutline = '2px'
 
@@ -91,9 +92,9 @@ class ListItem extends React.Component {
   render() {
     const props = this.props
     const callHandler = handler => evt => handler(evt, props.item)
-
     return (
       <ListItem.Element
+        {...props}
         draggingMode={props.draggingMode}
         onClick={props.onClick ? callHandler(props.onClick) : null}
         {...Automation('resource-list.item')}
@@ -107,7 +108,7 @@ class ListItem extends React.Component {
             {this.renderSubtitle()}
           </div>
         </ListItem.Header>
-        {props.children && <ListItem.Body>{props.children}</ListItem.Body>}
+        {props.children && <ListItem.Body {...props}>{props.children}</ListItem.Body>}
         {props.actions && <ListItem.Footer>{this.renderActions()}</ListItem.Footer>}
       </ListItem.Element>
     )
@@ -163,6 +164,7 @@ ListItem.Header = styled.div`
 
 ListItem.Body = styled.div`
   flex: 1;
+  flex-basis: ${props => props.bodyWidth};
 
   /* This is not mobile first, but it avoids negation of margin */
   @media screen and (max-width: 768px) {
@@ -190,6 +192,8 @@ ListItem.propTypes = {
   image: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** An icon to display as a thumbnail image for the list item. */
   icon: PropTypes.oneOf(__ICONNAMES__),
+  /** Defines the flex-basis of the middle column. Accepts any number and unit, for example: `40%` or `200px` */
+  bodyWidth: widthString,
   /** A function that will be called when the list item is clicked. */
   onClick: PropTypes.func,
   /** The actions to display for the list item. */
