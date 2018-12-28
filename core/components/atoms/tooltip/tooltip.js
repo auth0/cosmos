@@ -78,6 +78,7 @@ const Tooltip = ({ content, ...props }) => (
 
 Tooltip.Element = styled.div`
   position: absolute;
+  z-index: 10;
   background: ${colors.tooltip.background};
   color: ${colors.tooltip.text};
   border-radius: ${misc.radius};
