@@ -7,7 +7,7 @@ const eventHandlerTest = (Fixture, button) => {
   const clickElement = body.getByTestId(button)
   fireEvent.click(clickElement)
 
-  expect(Fixture.mockFn).toHaveBeenCalledWith()
+  expect(Fixture.mockFn).toHaveBeenCalledTimes(1)
 }
 
 export default eventHandlerTest
