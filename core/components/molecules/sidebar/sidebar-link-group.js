@@ -26,7 +26,7 @@ class SidebarLinkGroup extends React.Component {
     const { icon, label, children } = this.props
     const { open } = this.state
     return (
-      <SidebarLinkGroup.Element {...Automation('sidebar.group')}>
+      <SidebarLinkGroup.Element {...Automation('sidebar.group')} {...this.props}>
         <SidebarLink icon={icon} label={label} onClick={this.handleClick} />
         <SidebarLinkGroup.Content open={open}>{children}</SidebarLinkGroup.Content>
       </SidebarLinkGroup.Element>

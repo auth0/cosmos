@@ -13,7 +13,11 @@ class Fixture extends React.Component {
 
   render() {
     return (
-      <Tabs onSelect={nextIndex => this.handleSelected(nextIndex)} selected={this.state.selected}>
+      <Tabs
+        id="custom-id"
+        onSelect={nextIndex => this.handleSelected(nextIndex)}
+        selected={this.state.selected}
+      >
         <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
         <Tabs.Tab label="Tab 2">This is tab 2</Tabs.Tab>
         <Tabs.Tab label="Tab 3">This is tab 3</Tabs.Tab>

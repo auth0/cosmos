@@ -98,6 +98,7 @@ class ListItem extends React.Component {
         draggingMode={props.draggingMode}
         onClick={props.onClick ? callHandler(props.onClick) : null}
         {...Automation('resource-list.item')}
+        {...props}
       >
         {this.renderSortingHandler()}
         <ListItem.Header>

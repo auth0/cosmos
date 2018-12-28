@@ -9,7 +9,7 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 
 const List = props => {
   return (
-    <List.Element {...Automation('list')}>
+    <List.Element {...Automation('list')} {...props}>
       {props.label ? (
         <List.Label>
           <Heading size={4}>{props.label}</Heading>

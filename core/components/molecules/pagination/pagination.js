@@ -38,8 +38,8 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
 
-const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <Pagination.Element {...Automation('pagination')}>
+const Pagination = ({ page, perPage, items, appearance, onPageChanged, ...props }) => (
+  <Pagination.Element {...Automation('pagination')} {...props}>
     {renderPaginationItem({
       toPage: 1,
       content: 'First',

@@ -3,6 +3,7 @@
 exports[`Tabs only render one tab title as selected 1`] = `
 <styled.div
   data-cosmos-key="tabs"
+  id="-m0ck3d"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
@@ -77,6 +78,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
 exports[`Tabs only render one tab title as selected 2`] = `
 <styled.div
   data-cosmos-key="tabs"
+  id="-m0ck3d"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
@@ -151,6 +153,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
 exports[`Tabs only render one tab title as selected 3`] = `
 <styled.div
   data-cosmos-key="tabs"
+  id="-m0ck3d"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
