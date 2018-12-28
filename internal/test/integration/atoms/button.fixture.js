@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from '@auth0/cosmos'
 
-const mockFn = jest.fn()
+import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
   render() {
@@ -12,8 +12,5 @@ class Fixture extends React.Component {
     )
   }
 }
-
-/* Convention: Attach mock function to fixture */
-Fixture.mockFn = mockFn
 
 export default Fixture
