@@ -84,10 +84,10 @@ class Tabs extends React.Component {
 
   render() {
     const uniqueTabPrefix = `tabs${this.props.id}`
-    const { selected: selectedIndex } = this.props
+    const { selected: selectedIndex, onSelect, ...restOfTheProps } = this.props
 
     return (
-      <Tabs.Element {...Automation('tabs')} {...this.props}>
+      <Tabs.Element {...Automation('tabs')} {...restOfTheProps}>
         <Tabs.TabList role="tablist" {...Automation('tabs.list')}>
           {this.tabs.map((tab, index) => {
             const id = `${uniqueTabPrefix}-${index}`
