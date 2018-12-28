@@ -13,6 +13,7 @@ const SidebarLink = props => {
       onClick={props.onClick}
       selected={props.selected}
       {...Automation('sidebar.link')}
+      {...props}
     >
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}

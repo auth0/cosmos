@@ -16,16 +16,6 @@ exports[`Empty State renders properly 1`] = `
       size={110}
     />
     <FreeText
-      action={
-        Object {
-          "handler": [Function],
-          "icon": "copy",
-          "label": "Something",
-        }
-      }
-      icon="copy"
-      link="/some-place"
-      title="Some title"
       useParagraph={true}
     >
       Some description
@@ -73,16 +63,6 @@ exports[`Empty State renders properly without help link 1`] = `
       size={110}
     />
     <FreeText
-      action={
-        Object {
-          "handler": [Function],
-          "icon": "copy",
-          "label": "Something",
-        }
-      }
-      icon="copy"
-      link={null}
-      title="Some title"
       useParagraph={true}
     >
       Some description
@@ -119,16 +99,6 @@ exports[`Empty State renders properly without text 1`] = `
       size={110}
     />
     <FreeText
-      action={
-        Object {
-          "handler": [Function],
-          "icon": "copy",
-          "label": "Something",
-        }
-      }
-      icon="copy"
-      link="/some-place"
-      title="Some title"
       useParagraph={true}
     >
       Some description
