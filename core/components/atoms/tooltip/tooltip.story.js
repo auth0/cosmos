@@ -94,41 +94,47 @@ storiesOf('Tooltip', module).add('long text', () => (
   </Example>
 ))
 
+storiesOf('Tooltip', module).add('in a small container', () => (
+  <Example title="in a small container (#951)">
+    <div style={{ overflow: 'hidden', padding: 20, border: '1px solid black' }}>
+      <Tooltip content="here is some text">Hover over me</Tooltip>
+    </div>
+  </Example>
+))
+
 storiesOf('Tooltip', module).add('inside a dialog', () => (
-  <Example title="with long text">
-    <ExampleContainer position="top">
-      <Dialog open={true} title="Example Dialog">
-        <div>
-          plenty of room for the tooltip{' '}
-          <Tooltip content="I have enough space" position="right" defaultVisible>
-            <Icon name="help" size="15" color="default" />
-          </Tooltip>
-        </div>
-        <br />
-        <br />
-        <div>
-          just a lot of text which leaves no room for the tooltip inside the dialog{' '}
-          <Tooltip
-            position="right"
-            content="no worries, I can float on top of the dialog"
-            defaultVisible
-          >
-            <Icon name="help" size="15" color="default" />
-          </Tooltip>
-        </div>
-        <br />
-        <br />
-        <div>
-          if you resize the window, the tooltip will not have any space outside the dialog as well
-          <Tooltip
-            position="right"
-            content="I would open on the left when there's no space left on the right"
-            defaultVisible
-          >
-            <Icon name="help" size="15" color="default" />
-          </Tooltip>
-        </div>
-      </Dialog>
-    </ExampleContainer>
+  <Example title="inside a dialog (#1367)">
+    <Dialog open={true} title="Test case for #1367">
+      <div>
+        plenty of room for the tooltip{' '}
+        <Tooltip content="I have enough space" position="right" defaultVisible>
+          <Icon name="help" size="15" color="default" />
+        </Tooltip>
+      </div>
+      <br />
+      <br />
+      <div>
+        just a lot of text which leaves no room for the tooltip inside the dialog{' '}
+        <Tooltip
+          position="right"
+          content="no worries, I can float on top of the dialog"
+          defaultVisible
+        >
+          <Icon name="help" size="15" color="default" />
+        </Tooltip>
+      </div>
+      <br />
+      <br />
+      <div>
+        if you resize the window, the tooltip will not have any space outside the dialog as well
+        <Tooltip
+          position="right"
+          content="I would open on the left when there's no space left on the right"
+          defaultVisible
+        >
+          <Icon name="help" size="15" color="default" />
+        </Tooltip>
+      </div>
+    </Dialog>
   </Example>
 ))
