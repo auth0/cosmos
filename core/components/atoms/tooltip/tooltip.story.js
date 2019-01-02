@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 import styled from '@auth0/cosmos/styled'
-import { Tooltip, ButtonGroup, Button } from '@auth0/cosmos'
+import { Tooltip, ButtonGroup, Button, Dialog, Icon } from '@auth0/cosmos'
 
 const positions = ['top', 'left', 'right', 'bottom']
 
@@ -33,7 +33,7 @@ const ExampleContainer = ({ children, position, noMargins }) => {
 storiesOf('Tooltip', module).add('with button', () => (
   <Example title="with button">
     {positions.map(position => (
-      <ExampleContainer position={position}>
+      <ExampleContainer position={position} key={position}>
         <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
           <Button>Something</Button>
         </Tooltip>
@@ -90,6 +90,45 @@ storiesOf('Tooltip', module).add('long text', () => (
         label="This is a very long text. Please try to keep it no longer than 4 lines. The tooltip should be a short and helpful text."
         labelDefaultVisible
       />
+    </ExampleContainer>
+  </Example>
+))
+
+storiesOf('Tooltip', module).add('inside a dialog', () => (
+  <Example title="with long text">
+    <ExampleContainer position="top">
+      <Dialog open={true} title="Example Dialog">
+        <div>
+          plenty of room for the tooltip{' '}
+          <Tooltip content="I have enough space" position="right" defaultVisible>
+            <Icon name="help" size="15" color="default" />
+          </Tooltip>
+        </div>
+        <br />
+        <br />
+        <div>
+          just a lot of text which leaves no room for the tooltip inside the dialog{' '}
+          <Tooltip
+            position="right"
+            content="no worries, I can float on top of the dialog"
+            defaultVisible
+          >
+            <Icon name="help" size="15" color="default" />
+          </Tooltip>
+        </div>
+        <br />
+        <br />
+        <div>
+          if you resize the window, the tooltip will not have any space outside the dialog as well
+          <Tooltip
+            position="right"
+            content="I would open on the left when there's no space left on the right"
+            defaultVisible
+          >
+            <Icon name="help" size="15" color="default" />
+          </Tooltip>
+        </div>
+      </Dialog>
     </ExampleContainer>
   </Example>
 ))
