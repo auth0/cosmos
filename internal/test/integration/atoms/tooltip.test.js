@@ -14,12 +14,35 @@ test('Tooltip is hidden by default', () => {
 test('Tooltip should show up on hover', () => {
   const body = render(<Fixture />)
 
-  const trigger = body.getByText('Hover me')
+  const input = body.queryByTestId('text-input')
+  fireEvent.mouseEnter(input)
 
-  fireEvent.mouseEnter(trigger)
-  const tooltip = body.queryByTestId('tooltip')
-
+  let tooltip = body.queryByTestId('tooltip')
   expect(tooltip).toBeTruthy()
+
   /* should have custom id as well */
   expect(tooltip).toHaveAttribute('id', 'custom-id')
+
+  fireEvent.mouseLeave(input)
+
+  tooltip = body.queryByTestId('tooltip')
+  expect(tooltip).toBeFalsy()
+})
+
+test('Tooltip is shows up on focus', () => {
+  const body = render(<Fixture />)
+
+  const input = body.queryByTestId('text-input')
+  fireEvent.focus(input)
+
+  let tooltip = body.queryByTestId('tooltip')
+  expect(tooltip).toBeTruthy()
+
+  /* should have custom id as well */
+  expect(tooltip).toHaveAttribute('id', 'custom-id')
+
+  fireEvent.blur(input)
+
+  tooltip = body.queryByTestId('tooltip')
+  expect(tooltip).toBeFalsy()
 })

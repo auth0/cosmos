@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 import styled from '@auth0/cosmos/styled'
-import { Tooltip, ButtonGroup, Button, Dialog, Icon } from '@auth0/cosmos'
+import { Tooltip, ButtonGroup, Button, Dialog, Icon, TextInput } from '@auth0/cosmos'
 
 const positions = ['top', 'left', 'right', 'bottom']
 
@@ -144,5 +144,13 @@ storiesOf('Tooltip', module).add('inside a dialog', () => (
         </Tooltip>
       </div>
     </Dialog>
+  </Example>
+))
+
+storiesOf('Tooltip', module).add('with an input', () => (
+  <Example title="with an input">
+    <Tooltip content="Here's some help" position="bottom">
+      <TextInput placeholder="Enter something" />
+    </Tooltip>
   </Example>
 ))
