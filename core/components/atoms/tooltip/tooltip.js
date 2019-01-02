@@ -6,42 +6,62 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
-const Tooltip = ({ content, ...props }) => (
-  <Manager>
-    <Reference>
-      {({ ref }) => <Tooltip.Trigger innerRef={ref}>{props.children}</Tooltip.Trigger>}
-    </Reference>
-    <Popper placement={props.position} modifiers={{ preventOverflow: { enabled: false } }}>
-      {({ ref, style, placement, arrowProps }) => (
-        <Tooltip.Element
-          innerRef={ref}
-          style={style}
-          data-placement={placement}
-          {...Automation('tooltip')}
-          {...props}
-        >
-          {content}
-          <Tooltip.Arrow
-            data-placement={placement}
-            innerRef={arrowProps.ref}
-            style={arrowProps.style}
-          />
-        </Tooltip.Element>
-      )}
-    </Popper>
-  </Manager>
-)
-
-Tooltip.Trigger = styled.div`
-  display: inline-block;
-  position: relative;
-
-  &:hover {
-    ${Tooltip.Element} {
-      opacity: 1;
-    }
+class Tooltip extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { visible: props.defaultVisible || false }
   }
-`
+  showTooltip = () => {
+    this.setState({ visible: true })
+  }
+  hideTooltip = () => {
+    if (this.props.defaultVisible) return
+    this.setState({ visible: false })
+  }
+  render() {
+    const { content, ...props } = this.props
+
+    return (
+      <Manager>
+        <Reference>
+          {({ ref }) => (
+            <Tooltip.Trigger
+              onMouseEnter={this.showTooltip}
+              onFocus={this.showTooltip}
+              onMouseLeave={this.hideTooltip}
+              onBlur={this.hideTooltip}
+              innerRef={ref}
+            >
+              {props.children}
+            </Tooltip.Trigger>
+          )}
+        </Reference>
+        <Popper placement={props.position} modifiers={{ preventOverflow: { enabled: false } }}>
+          {({ ref, style, placement, arrowProps }) => (
+            <React.Fragment>
+              {this.state.visible ? (
+                <Tooltip.Element
+                  innerRef={ref}
+                  style={style}
+                  data-placement={placement}
+                  {...Automation('tooltip')}
+                  {...props}
+                >
+                  {content}
+                  <Tooltip.Arrow
+                    data-placement={placement}
+                    innerRef={arrowProps.ref}
+                    style={arrowProps.style}
+                  />
+                </Tooltip.Element>
+              ) : null}
+            </React.Fragment>
+          )}
+        </Popper>
+      </Manager>
+    )
+  }
+}
 
 Tooltip.Element = styled.div`
   background: ${colors.tooltip.background};
@@ -56,7 +76,11 @@ Tooltip.Element = styled.div`
   max-width: 260px;
   /* make room for arrow */
   margin: 6px;
-  /* opacity: ${props => (props.defaultVisible ? 1 : 0)}; */
+`
+
+Tooltip.Trigger = styled.div`
+  display: inline-block;
+  position: relative;
 `
 
 /*

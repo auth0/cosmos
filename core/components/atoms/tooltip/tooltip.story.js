@@ -30,6 +30,14 @@ const ExampleContainer = ({ children, position, noMargins }) => {
   )
 }
 
+storiesOf('Tooltip', module).add('hidden by default', () => (
+  <Example title="hidden by default">
+    <Tooltip content="Can you see me?">
+      <Button>Button</Button>
+    </Tooltip>
+  </Example>
+))
+
 storiesOf('Tooltip', module).add('with button', () => (
   <Example title="with button">
     {positions.map(position => (
