@@ -59,6 +59,19 @@ Tooltip.Element = styled.div`
   /* opacity: ${props => (props.defaultVisible ? 1 : 0)}; */
 `
 
+/*
+  The tooltip needs to have a margin to create
+  space for the arrow
+*/
+const arrowSize = '12px;'
+const tooltipMargin = arrowSize
+
+/*
+  To keep the arrow outside the tooltip,
+  right and bottom need margin
+*/
+const arrowMargin = '-5px'
+
 Tooltip.Arrow = styled.div`
   position: absolute;
   width: 0;
@@ -66,7 +79,7 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='top'] {
     bottom: 0;
-    margin-left: -12px;
+    margin-left: -${tooltipMargin};
     &::before {
       border-width: 6px 5.5px 0 6px;
       border-color: ${colors.tooltip.background} transparent transparent transparent;
@@ -75,8 +88,8 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='right'] {
     left: 0;
-    margin-left: -5px;
-    margin-top: -12px;
+    margin-left: ${arrowMargin};
+    margin-top: -${tooltipMargin};
     &::before {
       border-width: 6px 5.5px 6px 0;
       border-color: transparent ${colors.tooltip.background} transparent transparent;
@@ -86,8 +99,8 @@ Tooltip.Arrow = styled.div`
   &[data-placement*='bottom'] {
     top: 0;
     left: 0;
-    margin-top: -5px;
-    margin-left: -12px;
+    margin-top: ${arrowMargin};
+    margin-left: -${tooltipMargin};
     &::before {
       border-width: 0 6px 5.5px 6px;
       border-color: transparent transparent ${colors.tooltip.background} transparent;
@@ -96,7 +109,7 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='left'] {
     right: 0;
-    margin-top: -12px;
+    margin-top: -${tooltipMargin};
     &::before {
       border-width: 6px 0 6px 5.5px;
       border-color: transparent transparent transparent ${colors.tooltip.background};
