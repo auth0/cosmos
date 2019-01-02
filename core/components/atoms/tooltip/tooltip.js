@@ -18,8 +18,21 @@ class Tooltip extends React.Component {
     if (this.props.defaultVisible) return
     this.setState({ visible: false })
   }
+  onKeyDown = event => {
+    /* this overrides defaultVisible as well */
+    if (event.key === 'Escape') this.setState({ visible: false })
+  }
   render() {
-    const { content, ...props } = this.props
+    const { id, content, ...props } = this.props
+    let child
+
+    /* There's just one child which is a React Element */
+    if (React.Children.count(props.children) === 1 && React.isValidElement(props.children)) {
+      child = React.cloneElement(props.children, { 'aria-describedby': id })
+    } else {
+      /* weird case, should not really happen */
+      child = props.children
+    }
 
     return (
       <Manager>
@@ -31,9 +44,10 @@ class Tooltip extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               innerRef={ref}
+              onKeyDown={this.onKeyDown}
               {...Automation('tooltip.trigger')}
             >
-              {props.children}
+              {child}
             </Tooltip.Trigger>
           )}
         </Reference>
@@ -45,6 +59,7 @@ class Tooltip extends React.Component {
                   innerRef={ref}
                   style={style}
                   data-placement={placement}
+                  id={id}
                   {...Automation('tooltip')}
                   {...props}
                 >
@@ -159,6 +174,8 @@ const TooltipWrapper = Tooltip.Trigger
 const StyledTooltip = Tooltip.Element
 
 Tooltip.propTypes = {
+  /** Identifier for tooltip - important for accessibility */
+  id: PropTypes.string,
   /** Content to show in the tooltip */
   content: PropTypes.string.isRequired,
   /** Where to place the tooltip */
