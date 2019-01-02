@@ -31,6 +31,7 @@ class Tooltip extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               innerRef={ref}
+              {...Automation('tooltip.trigger')}
             >
               {props.children}
             </Tooltip.Trigger>
