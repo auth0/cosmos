@@ -2,9 +2,9 @@
   category: Forms
 ```
 
-`Form.Field` is a wrapper component inside supported in `Form`:
+`Form.Field` is a wrapper component inside supported in `Form`.
 
-You can put any input element inside it like `TextInput`, `TextArea`, `Select`, `Switch`, `Radio`, etc.
+You can put any input element inside it like another cosmos component `TextInput`, `Select`, etc. or your own component.
 
 `Form.Field` has a few props to make the form more descriptive for the user.
 
@@ -55,7 +55,7 @@ class Example extends React.Component {
         <Form.Field label="Subscribe">
           <Switch on />
         </Form.Field>
-        <Form.Field label="Framework">
+        <Form.Field label="Agree">
           <Radio
             name="example1"
             selected={this.state.selected}
@@ -64,6 +64,19 @@ class Example extends React.Component {
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
+        </Form.Field>
+        <Form.Field label="Framework">
+          <Checkbox.Group name="example1" selected={['one', 'two']}>
+            <Checkbox name="one" value="one">
+              Option 1
+            </Checkbox>
+            <Checkbox name="two" value="two">
+              Option 2
+            </Checkbox>
+          </Checkbox.Group>
+        </Form.Field>
+        <Form.Field label="Custom field">
+          <input type="file" />
         </Form.Field>
       </Form>
     )
@@ -140,7 +153,7 @@ We leave the logic part of validation to you the developer, you can pass `error`
 </Form>
 ```
 
-### Input combinations (advanced)
+### Multiple inputs in one field
 
 Layout is taken care by `Form.Field`, it sets the position of `label`, `helperText`, etc.
 
@@ -151,8 +164,13 @@ This lets you can add multiple input elements inside the same `Form.Field`.
   <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
     <Stack>
       <TextInput placeholder="Value" hasError />
-      <Select options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]} />
-      <Button appearance="link" icon="copy" label="Copy value" onClick={e => console.log(e)} />
+      <Select
+        value="in"
+        options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]}
+      />
+      <Button appearance="primary" onClick={e => console.log(e)}>
+        Save
+      </Button>
     </Stack>
   </Form.Field>
 </Form>
