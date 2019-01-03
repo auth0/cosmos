@@ -3,7 +3,7 @@
 exports[`Tabs only render one tab title as selected 1`] = `
 <styled.div
   data-cosmos-key="tabs"
-  id="-m0ck3d"
+  id="cosmos-0"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
@@ -11,14 +11,14 @@ exports[`Tabs only render one tab title as selected 1`] = `
   >
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-0"
+      key="tabscosmos-0-0"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-0-tab"
+        aria-controls="tabscosmos-0-0-tab"
         aria-selected={true}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-0"
+        id="tabscosmos-0-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -28,14 +28,14 @@ exports[`Tabs only render one tab title as selected 1`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-1"
+      key="tabscosmos-0-1"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-1-tab"
+        aria-controls="tabscosmos-0-1-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-1"
+        id="tabscosmos-0-1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -45,14 +45,14 @@ exports[`Tabs only render one tab title as selected 1`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-2"
+      key="tabscosmos-0-2"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-2-tab"
+        aria-controls="tabscosmos-0-2-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-2"
+        id="tabscosmos-0-2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -62,9 +62,9 @@ exports[`Tabs only render one tab title as selected 1`] = `
     </styled.li>
   </styled.ul>
   <styled.div
-    aria-labelledby="tabs-m0ck3d-0-tab"
+    aria-labelledby="tabscosmos-0-0-tab"
     data-cosmos-key="tabs.item"
-    id="tabs-m0ck3d-0-tab"
+    id="tabscosmos-0-0-tab"
     key=".0"
     role="tabpanel"
     title="Title 1"
@@ -79,7 +79,7 @@ exports[`Tabs only render one tab title as selected 1`] = `
 exports[`Tabs only render one tab title as selected 2`] = `
 <styled.div
   data-cosmos-key="tabs"
-  id="-m0ck3d"
+  id="cosmos-0"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
@@ -87,14 +87,14 @@ exports[`Tabs only render one tab title as selected 2`] = `
   >
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-0"
+      key="tabscosmos-0-0"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-0-tab"
+        aria-controls="tabscosmos-0-0-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-0"
+        id="tabscosmos-0-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -104,14 +104,14 @@ exports[`Tabs only render one tab title as selected 2`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-1"
+      key="tabscosmos-0-1"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-1-tab"
+        aria-controls="tabscosmos-0-1-tab"
         aria-selected={true}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-1"
+        id="tabscosmos-0-1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -121,14 +121,14 @@ exports[`Tabs only render one tab title as selected 2`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-2"
+      key="tabscosmos-0-2"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-2-tab"
+        aria-controls="tabscosmos-0-2-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-2"
+        id="tabscosmos-0-2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -138,9 +138,9 @@ exports[`Tabs only render one tab title as selected 2`] = `
     </styled.li>
   </styled.ul>
   <styled.div
-    aria-labelledby="tabs-m0ck3d-1-tab"
+    aria-labelledby="tabscosmos-0-1-tab"
     data-cosmos-key="tabs.item"
-    id="tabs-m0ck3d-1-tab"
+    id="tabscosmos-0-1-tab"
     key=".1"
     role="tabpanel"
     title="Title 2"
@@ -155,7 +155,7 @@ exports[`Tabs only render one tab title as selected 2`] = `
 exports[`Tabs only render one tab title as selected 3`] = `
 <styled.div
   data-cosmos-key="tabs"
-  id="-m0ck3d"
+  id="cosmos-0"
 >
   <styled.ul
     data-cosmos-key="tabs.list"
@@ -163,14 +163,14 @@ exports[`Tabs only render one tab title as selected 3`] = `
   >
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-0"
+      key="tabscosmos-0-0"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-0-tab"
+        aria-controls="tabscosmos-0-0-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-0"
+        id="tabscosmos-0-0"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -180,14 +180,14 @@ exports[`Tabs only render one tab title as selected 3`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-1"
+      key="tabscosmos-0-1"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-1-tab"
+        aria-controls="tabscosmos-0-1-tab"
         aria-selected={false}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-1"
+        id="tabscosmos-0-1"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -197,14 +197,14 @@ exports[`Tabs only render one tab title as selected 3`] = `
     </styled.li>
     <styled.li
       data-cosmos-key="tabs.list-item"
-      key="tabs-m0ck3d-2"
+      key="tabscosmos-0-2"
       role="presentation"
     >
       <styled.button
-        aria-controls="tabs-m0ck3d-2-tab"
+        aria-controls="tabscosmos-0-2-tab"
         aria-selected={true}
         data-cosmos-key="tabs.link"
-        id="tabs-m0ck3d-2"
+        id="tabscosmos-0-2"
         onClick={[Function]}
         onKeyDown={[Function]}
         role="tab"
@@ -214,9 +214,9 @@ exports[`Tabs only render one tab title as selected 3`] = `
     </styled.li>
   </styled.ul>
   <styled.div
-    aria-labelledby="tabs-m0ck3d-2-tab"
+    aria-labelledby="tabscosmos-0-2-tab"
     data-cosmos-key="tabs.item"
-    id="tabs-m0ck3d-2-tab"
+    id="tabscosmos-0-2-tab"
     key=".2"
     role="tabpanel"
     title="Title 3"
