@@ -3,6 +3,7 @@ import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import SidebarLink from './sidebar-link'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 class SidebarLinkGroup extends React.Component {
@@ -63,7 +64,7 @@ SidebarLinkGroup.Element = styled.li`
 `
 
 SidebarLinkGroup.Content = styled.ul`
-  padding-left: 1.75em;
+  margin-left: calc(18px + ${spacing.xsmall});
   overflow: hidden;
   max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
   visibility: ${props => (props.open ? 'visible' : 'hidden')};

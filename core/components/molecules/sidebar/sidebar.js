@@ -3,6 +3,7 @@ import styled from '@auth0/cosmos/styled'
 import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 import Automation from '../../_helpers/automation-attribute'
+import { colors } from '@auth0/cosmos-tokens'
 
 const Sidebar = props => {
   return (
@@ -31,6 +32,8 @@ Sidebar.Group = styled.section`
 Sidebar.GroupHeader = styled.h2`
   /* background-color: papayawhip; */
   text-transform: uppercase;
+  font-size: 11px;
+  color: ${colors.text.secondary};
 `
 
 Sidebar.List = styled.ul``
@@ -43,3 +46,71 @@ Sidebar.propTypes = {}
 Sidebar.defaultProps = {}
 
 export default Sidebar
+
+// <nav aria-label="Primary Nav Expandable Example">
+//   <section aria-labelledby="grouped-title1">
+//     <h2 id="grouped-title1">Section title 1</h2>
+//     <ul>
+//       <li>
+//         <a href="#" aria-expanded="true" id="expandable-example-1">
+//           <i aria-hidden="true"></i>
+//           <span>Link 1 (current and expanded example)</span>
+//         </a>
+//         <ul
+//           class="pf-c-nav__simple-list"
+//           aria-labelledby="expandable-example-1"
+//         >
+//           <li><a href="#" aria-current="page"> Current link </a></li>
+//           <li>
+//             <a href="#"> <i aria-hidden="true"></i> Subnav link 2 </a>
+//           </li>
+//           <li>
+//             <a href="#"> <i aria-hidden="true"></i> Subnav link 3 </a>
+//           </li>
+//         </ul>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 2</span> </a>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 3</span> </a>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 2</span> </a>
+//       </li>
+//     </ul>
+//   </section>
+
+//   <section aria-labelledby="grouped-title2">
+//     <h2 id="grouped-title2">Section title 1</h2>
+//     <ul>
+//       <li>
+//         <a href="#" aria-expanded="true" id="expandable-example-2">
+//           <i aria-hidden="true"></i>
+//           <span>Link 1 (current and expanded example)</span>
+//         </a>
+//         <ul
+//           class="pf-c-nav__simple-list"
+//           aria-labelledby="expandable-example-2"
+//         >
+//           <li><a href="#" aria-current="page"> Current link </a></li>
+//           <li>
+//             <a href="#"> <i aria-hidden="true"></i> Subnav link 2 </a>
+//           </li>
+//           <li>
+//             <a href="#"> <i aria-hidden="true"></i> Subnav link 3 </a>
+//           </li>
+//         </ul>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 2</span> </a>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 3</span> </a>
+//       </li>
+//       <li>
+//         <a href="#"> <i aria-hidden="true"></i> <span>Link 2</span> </a>
+//       </li>
+//     </ul>
+//   </section>
+// </nav>
