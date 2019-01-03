@@ -100,7 +100,6 @@ class Tabs extends React.Component {
                   role="tab"
                   id={id}
                   tabIndex={tabIsSelected ? '0' : '-1'}
-                  aria-label={tab.props.label}
                   aria-selected={tabIsSelected}
                   aria-controls={id + '-tab'}
                   onClick={() => this.changeTab(index)}
