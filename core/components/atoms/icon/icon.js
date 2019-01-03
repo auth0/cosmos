@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors } from '@auth0/cosmos-tokens'
 import { icons } from './icons.json'
+import Automation from '../../_helpers/automation-attribute'
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
@@ -13,7 +14,7 @@ const Icon = props => {
   const color = colors.base[props.color] || props.color
 
   return (
-    <Icon.Element {...props}>
+    <Icon.Element {...Automation('icon')} {...props}>
       <Image
         width={props.size}
         height={props.size}

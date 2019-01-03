@@ -2,8 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
-const Badge = props => <Badge.Element {...props}>{props.children}</Badge.Element>
+const Badge = props => (
+  <Badge.Element {...Automation('badge')} {...props}>
+    {props.children}
+  </Badge.Element>
+)
 
 Badge.Element = styled.span`
   display: inline-block;

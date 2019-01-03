@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Code, Link, DangerZone } from '@auth0/cosmos'
+import { Form, Code, Link, DangerZone, RowLayout } from '@auth0/cosmos'
 
 let dummyFn = () => {}
 
@@ -18,7 +18,7 @@ class Settings extends React.Component {
   save() {}
   render() {
     return (
-      <div>
+      <RowLayout>
         <Form>
           <Form.TextInput
             label="Name"
@@ -179,7 +179,7 @@ class Settings extends React.Component {
             }
           ]}
         />
-      </div>
+      </RowLayout>
     )
   }
 }

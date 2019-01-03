@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const BaseHeading = styled.h1`
   margin: 1em 0;
@@ -12,7 +13,11 @@ const BaseHeading = styled.h1`
 
 const Heading = props => {
   const Component = Heading.Element[props.size]
-  return <Component {...props}>{props.children}</Component>
+  return (
+    <Component {...Automation('heading')} {...props}>
+      {props.children}
+    </Component>
+  )
 }
 
 Heading.Element = []

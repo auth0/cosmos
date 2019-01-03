@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 const imageFit = {
   //fill: 'fill',
@@ -10,7 +11,7 @@ const imageFit = {
   // scale-down: 'scale-down' Maybe we need to allow for scale-down: https://alligator.io/css/cropping-images-object-fit/ ???
 }
 
-const Image = props => <Image.Element src={props.source} alt={props.alt} {...props} />
+const Image = props => <Image.Element src={props.source} alt={props.alt} {...Automation('image')} {...props} />
 
 /** Width and Height are rendered in the HTML. I don't think this is needed.  */
 Image.Element = styled.img`

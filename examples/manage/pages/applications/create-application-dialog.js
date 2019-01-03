@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Dialog, Form, Paragraph, Stack } from '@auth0/cosmos'
+import { Dialog, Form, Paragraph, Stack, ColumnLayout } from '@auth0/cosmos'
 import { colors, misc, spacing } from '@auth0/cosmos/tokens'
 import { StyledHeading } from '@auth0/cosmos/atoms/heading'
 
@@ -15,15 +15,6 @@ const ApplicationType = props => (
     <ApplicationType.Example>eg: {props.example}</ApplicationType.Example>
   </ApplicationType.Element>
 )
-
-const ApplicationStack = styled(Stack)`
-  > * {
-    margin-right: ${spacing.small};
-  }
-  > *:last-child {
-    margin-right: 0;
-  }
-`
 
 ApplicationType.Element = styled.a`
   display: flex;
@@ -115,7 +106,7 @@ class CreateApplicationDialog extends React.Component {
           />
 
           <Form.FieldSet label="Choose a application type">
-            <ApplicationStack alignVertical="top">
+            <ColumnLayout distribution="1/4 1/4 1/4 1/4" gutter="condensed">
               <ApplicationType
                 image={ApplicationTypeImages.native}
                 name="Native App"
@@ -148,7 +139,7 @@ class CreateApplicationDialog extends React.Component {
                 onClick={this.setValue('type', 'non_interactive')}
                 selected={type === 'non_interactive'}
               />
-            </ApplicationStack>
+            </ColumnLayout>
           </Form.FieldSet>
         </Form>
       </Dialog>

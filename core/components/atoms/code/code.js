@@ -2,8 +2,13 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
-const Code = props => <Code.Element {...props}>{props.children}</Code.Element>
+const Code = props => (
+  <Code.Element {...Automation('code')} {...props}>
+    {props.children}
+  </Code.Element>
+)
 
 Code.Element = styled.span`
   color: rgba(0, 0, 0, 0.86);

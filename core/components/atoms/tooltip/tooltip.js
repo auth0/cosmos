@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
@@ -68,13 +69,16 @@ const arrowStyles = {
 
 const Tooltip = ({ content, ...props }) => (
   <Tooltip.Trigger>
-    <Tooltip.Element {...props}>{content}</Tooltip.Element>
+    <Tooltip.Element {...Automation('tooltip')} {...props}>
+      {content}
+    </Tooltip.Element>
     {props.children}
   </Tooltip.Trigger>
 )
 
 Tooltip.Element = styled.div`
   position: absolute;
+  z-index: 10;
   background: ${colors.tooltip.background};
   color: ${colors.tooltip.text};
   border-radius: ${misc.radius};
