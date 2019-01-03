@@ -20,7 +20,7 @@ Image.Element = styled.img`
   display: block;
   height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};
-  max-width: 100%;
+  max-width: ${props => (props.disableResponsive ? 'auto' : '100%')};
   object-fit: ${props => imageFit[props.fit]};
 `
 
@@ -34,7 +34,9 @@ Image.propTypes = {
   /** Image width, can be any length unit, absolute or relative */
   width: PropTypes.string,
   /** Sets how the content of the image is been resized to fit its container. */
-  fit: PropTypes.oneOf(['none', 'contain', 'cover', 'scale-down'])
+  fit: PropTypes.oneOf(['none', 'contain', 'cover', 'scale-down']),
+  /** Sets the image width to auto */
+  disableResponsive: PropTypes.bool
 }
 
 Image.defaultProps = {
