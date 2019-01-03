@@ -7,15 +7,17 @@ const imageFit = {
   //fill: 'fill',
   contain: 'contain',
   cover: 'cover',
-  none: 'unset'
-  // scale-down: 'scale-down' Maybe we need to allow for scale-down: https://alligator.io/css/cropping-images-object-fit/ ???
+  none: 'unset',
+  'scale-down': 'scale-down'
 }
 
-const Image = props => <Image.Element src={props.source} alt={props.alt} {...Automation('image')} {...props} />
+const Image = props => (
+  <Image.Element src={props.source} alt={props.alt} {...Automation('image')} {...props} />
+)
 
 /** Width and Height are rendered in the HTML. I don't think this is needed.  */
 Image.Element = styled.img`
-  /** display: block; */
+  display: block;
   height: ${props => (props.height ? props.height : 'auto')};
   width: ${props => (props.width ? props.width : 'auto')};
   max-width: 100%;
@@ -32,7 +34,7 @@ Image.propTypes = {
   /** Image width, can be any length unit, absolute or relative */
   width: PropTypes.string,
   /** Sets how the content of the image is been resized to fit its container. */
-  fit: PropTypes.oneOf(['none', 'contain', 'cover'])
+  fit: PropTypes.oneOf(['none', 'contain', 'cover', 'scale-down'])
 }
 
 Image.defaultProps = {
