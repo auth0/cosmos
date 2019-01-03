@@ -57,7 +57,7 @@ storiesOf('Form').add('all the fields', () => (
         </Checkbox.Group>
       </Form.Field>
       <Form.Field label="Custom field">
-        <input type="file" />
+        <input type="date" />
       </Form.Field>
       <Form.Field label="Height" helpText="How tall are you?" error="Show only in the first field">
         <Stack>
