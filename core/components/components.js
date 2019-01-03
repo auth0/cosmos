@@ -10,6 +10,9 @@
 /* resets for font */
 import './_helpers/globals'
 
+/* configuration provider */
+import Provider from './_helpers/provider'
+
 /* internal */
 import Box from './atoms/_box'
 import Well from './atoms/_well'
@@ -97,6 +100,7 @@ export {
   PaginationToolbar,
   Pager,
   Paragraph,
+  Provider,
   Radio,
   ResourceList,
   RowLayout,
