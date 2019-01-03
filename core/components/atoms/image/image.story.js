@@ -74,7 +74,7 @@ storiesOf('Image', module).add('Image small and text', () => (
     </Paragraph>
     <Image
       alt=""
-      source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80"
+      source="https://images.unsplash.com/photo-1479233270217-77d99c494c4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=300&q=80"
     />
     <Paragraph>
       Phasellus pharetra mattis lacus, vitae ultrices nisl interdum eu. Nulla facilisi. Donec et
@@ -86,193 +86,186 @@ storiesOf('Image', module).add('Image small and text', () => (
   </Example>
 ))
 
-const Box = styled.div`
-  width: 250px;
-  outline: 1px solid black;
-`
-
-const BoxSmall = styled(Box)`
-  width: 100px;
-`
-const BoxLarge = styled(Box)`
-  width: 100%;
-  outline: none;
-`
-
 storiesOf('Image', module).add('responsive image', () => (
   <Example title="Responsive image">
-    <Stack>
-      <Box>
-        <Image
-          alt="Autho logo"
-          source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
-        />
-      </Box>
-      <BoxSmall>
-        <Image
-          alt="Auth0 logo"
-          source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
-        />
-      </BoxSmall>
-    </Stack>
-    <br />
-    <br />
-    <BoxLarge>
+    <div
+      style={{
+        width: '200px',
+        outline: '1px solid black'
+      }}
+    >
       <Image
-        alt="Autho logo"
-        width="100%"
-        source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
+        alt=""
+        source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
       />
-    </BoxLarge>
+    </div>
+    <br />
+    <br />
+    <div
+      style={{
+        width: '100%',
+        outline: '1px solid black'
+      }}
+    >
+      <Image
+        alt=""
+        source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
+      />
+    </div>
   </Example>
 ))
 
-const FittedBox = styled.div`
+storiesOf('Image', module).add('declared dimensions', () => (
+  <Example title="Declared dimensions">
+    <Image
+      alt="Autho logo"
+      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      height="400px"
+      width="300px"
+    />
+  </Example>
+))
+
+const Box = styled.div`
   width: 150px;
   height: 150px;
   outline: 1px solid black;
 `
 
-const FittedBoxRect = styled.div`
+storiesOf('Image', module).add('fitted images', () => (
+  <Example title="Fitted image">
+    <Stack align="space-between">
+      <Box>
+        <Image
+          width="150px"
+          height="150px"
+          fit="contain"
+          alt="Portrait image - Contain"
+          source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+        />
+      </Box>
+
+      <Box>
+        <Image
+          alt=""
+          width="150px"
+          height="150px"
+          fit="contain"
+          source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        />
+      </Box>
+      <Box>
+        <Image
+          alt="Portrait image - Cover"
+          fit="cover"
+          width="150px"
+          height="150px"
+          source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+        />
+      </Box>
+      <Box>
+        <Image
+          alt="Auth0 logo"
+          fit="cover"
+          width="150px"
+          height="150px"
+          source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        />
+      </Box>
+    </Stack>
+  </Example>
+))
+
+const BoxPortrait = styled(Box)`
+  width: 150px;
+  height: 200px;
+`
+const BoxLandscape = styled(Box)`
   width: 200px;
-  height: 70px;
-  outline: 1px solid black;
+  height: 150px;
 `
 
-const FittedBoxSmall = styled(FittedBox)`
+const BoxLandscapeSmall = styled(BoxLandscape)`
   width: 100px;
   height: 70px;
 `
 
-const FittedBoxPortrait = styled.div`
-  width: 160px;
-  height: 214px;
-  outline: 1px solid black;
-`
-const FittedBoxLandscape = styled.div`
-  width: 214px;
-  height: 160px;
-  outline: 1px solid black;
-`
-
-const FittedBoxCover = styled(FittedBox)``
-
-storiesOf('Image', module).add('fitted images', () => (
-  <Example title="Fitted image">
+storiesOf('Image', module).add('fitted logos', () => (
+  <Example title="Fitted logos">
     <Stack align="space-between">
-      <FittedBoxSmall>
+      <BoxLandscapeSmall>
         <Image
           height="100%"
           width="100%"
           fit="contain"
           alt="Autho logo"
-          source="https://cdn.auth0.com/website/assets/pages/press/img/resources/auth0-logo-monotone-black-f9bf0aaf29.svg"
+          source="https://cdn.auth0.com/website/press/resources/webtask-logo.svg"
         />
-      </FittedBoxSmall>
+      </BoxLandscapeSmall>
 
-      <FittedBoxSmall>
+      <BoxLandscapeSmall>
         <Image
           fit="contain"
           height="70px"
           alt="Auth0 logo"
-          source="https://auth0-manhattan.herokuapp.com/microsoft-logo.png"
+          source="https://images.ctfassets.net/kbkgmx9upatd/2WYJNVchLWyqaWWmWw4You/6f73fede65925693bd2f8c63c516cd3c/about-_sharelock.svg"
         />
-      </FittedBoxSmall>
-      <FittedBoxSmall>
+      </BoxLandscapeSmall>
+      <BoxLandscapeSmall>
         <Image
           fit="contain"
           height="70px"
           alt="Auth0 logo"
-          source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-vkontakte/images/logo.svg"
+          source="https://images.ctfassets.net/kbkgmx9upatd/6eMje9QPF6qAgwCKESG6wc/b210dd6ce9e2959c16cde0b0bfc4af56/about-saml.svg"
         />
-      </FittedBoxSmall>
-      <FittedBoxSmall>
+      </BoxLandscapeSmall>
+      <BoxLandscapeSmall>
         <Image
           fit="contain"
           height="70px"
           alt="Auth0 logo"
           source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-box/images/logo.svg"
         />
-      </FittedBoxSmall>
+      </BoxLandscapeSmall>
     </Stack>
     <br />
     <br />
-    <Stack align="space-between">
-      <FittedBox>
-        <Image
-          width="150px"
-          height="150px"
-          fit="contain"
-          alt=""
-          source="https://images.unsplash.com/photo-1545006398-2cf47cd87b90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=915&q=80"
-        />
-      </FittedBox>
 
-      <FittedBox>
-        <Image
-          alt=""
-          width="150px"
-          height="150px"
-          fit="contain"
-          source="https://images.unsplash.com/photo-1542838687-d214d04db0aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
-        />
-      </FittedBox>
-      <FittedBoxCover>
-        <Image
-          alt="Auth0 logo"
-          fit="cover"
-          width="150px"
-          height="150px"
-          source="https://images.unsplash.com/photo-1545006398-2cf47cd87b90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=915&q=80"
-        />
-      </FittedBoxCover>
-      <FittedBoxCover>
-        <Image
-          alt="Auth0 logo"
-          fit="cover"
-          width="150px"
-          height="150px"
-          source="https://images.unsplash.com/photo-1542838687-d214d04db0aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
-        />
-      </FittedBoxCover>
-    </Stack>
-    <br />
-    <br />
     <Stack align="space-between">
-      <FittedBoxPortrait>
+      <BoxPortrait>
         <Image
           fit="contain"
           width="100%"
           alt="Auth0 logo"
-          source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-twitter/images/logo.svg"
+          source="https://cdn.auth0.com/website/press/resources/webtask-logo.svg"
         />
-      </FittedBoxPortrait>
-      <FittedBoxPortrait>
+      </BoxPortrait>
+      <BoxPortrait>
         <Image
           fit="contain"
           height="100%"
           width="100%"
           alt="Auth0 logo"
-          source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-twitter/images/logo.svg"
+          source="https://cdn.auth0.com/website/press/resources/webtask-logo.svg"
         />
-      </FittedBoxPortrait>
-      <FittedBoxLandscape>
+      </BoxPortrait>
+      <BoxLandscape>
         <Image
           fit="contain"
           height="100%"
           alt="Auth0 logo"
-          source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-twitter/images/logo.svg"
+          source="https://images.ctfassets.net/kbkgmx9upatd/6eMje9QPF6qAgwCKESG6wc/b210dd6ce9e2959c16cde0b0bfc4af56/about-saml.svg"
         />
-      </FittedBoxLandscape>
-      <FittedBoxLandscape>
+      </BoxLandscape>
+      <BoxLandscape>
         <Image
           fit="contain"
           width="100%"
           height="100%"
           alt="Auth0 logo"
-          source="https://cdn.auth0.com/manage/v1.3103.0/logos/logo2-twitter/images/logo.svg"
+          source="https://images.ctfassets.net/kbkgmx9upatd/6eMje9QPF6qAgwCKESG6wc/b210dd6ce9e2959c16cde0b0bfc4af56/about-saml.svg"
         />
-      </FittedBoxLandscape>
+      </BoxLandscape>
     </Stack>
   </Example>
 ))

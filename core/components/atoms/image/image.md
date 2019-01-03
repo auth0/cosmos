@@ -90,7 +90,7 @@ When displaying logos in a grid, you can set the image to `fit: contain` and dec
     fit="contain"
     height="70px"
     width="70px"
-    alt="Auth0 logo"
+    alt="SAML logo"
     source="https://images.ctfassets.net/kbkgmx9upatd/6eMje9QPF6qAgwCKESG6wc/b210dd6ce9e2959c16cde0b0bfc4af56/about-saml.svg"
   />
 
@@ -102,7 +102,7 @@ When displaying logos in a grid, you can set the image to `fit: contain` and dec
   >
     <Image
       source="https://images.ctfassets.net/kbkgmx9upatd/5uVCiyUGruC2kiuyw6EQQs/0ffb496734c2b8cd696ca9004018f29d/about-webtask.svg"
-      alt="Auth0 logo"
+      alt="Webtask logo"
       height="100%"
       width="100%"
       fit="contain"
@@ -117,7 +117,7 @@ When displaying logos in a grid, you can set the image to `fit: contain` and dec
   >
     <Image
       source="https://images.ctfassets.net/kbkgmx9upatd/5tZo55mG0EAcmw0aMWAOGA/c27f309cc0d63783f3c317ee9afac7f6/about-cxn.svg"
-      alt="Auth0 logo"
+      alt="CXN logo"
       fit="contain"
       height="70px"
       width="70px"
