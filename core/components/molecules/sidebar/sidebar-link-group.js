@@ -57,14 +57,17 @@ class SidebarLinkGroup extends React.Component {
   }
 }
 
-SidebarLinkGroup.Element = styled.div``
+SidebarLinkGroup.Element = styled.li`
+  /* Fragment */
+  /* background: #000; */
+`
 
-SidebarLinkGroup.Content = styled.div`
+SidebarLinkGroup.Content = styled.ul`
   padding-left: 1.75em;
   overflow: hidden;
   max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
-  transition: max-height 0.5s ease, visibility 0.5s ease;
+  transition: all 0.3s ease-in-out;
 `
 
 SidebarLinkGroup.propTypes = {
