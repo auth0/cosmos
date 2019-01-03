@@ -132,6 +132,25 @@ const Box = styled.div`
   outline: 1px solid black;
 `
 
+const BoxPortrait = styled(Box)`
+  width: 150px;
+  height: 200px;
+`
+const BoxLandscape = styled(Box)`
+  width: 200px;
+  height: 150px;
+`
+
+const BoxLandscapeSmall = styled(BoxLandscape)`
+  width: 100px;
+  height: 70px;
+`
+
+const BoxLandscapeLarge = styled(BoxLandscape)`
+  width: 400px;
+  height: 200px;
+`
+
 storiesOf('Image', module).add('fitted images', () => (
   <Example title="Fitted image">
     <Stack align="space-between">
@@ -173,22 +192,30 @@ storiesOf('Image', module).add('fitted images', () => (
         />
       </Box>
     </Stack>
+    <br />
+    <br />
+    <Stack>
+      <BoxLandscapeLarge>
+        <Image
+          alt="Scale down image is smaller than container"
+          fit="scale-down"
+          width="100%"
+          height="100%"
+          source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+        />
+      </BoxLandscapeLarge>
+      <BoxLandscapeSmall>
+        <Image
+          alt="Scale down container is smaller than image"
+          fit="scale-down"
+          width="100%"
+          height="100%"
+          source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+        />
+      </BoxLandscapeSmall>
+    </Stack>
   </Example>
 ))
-
-const BoxPortrait = styled(Box)`
-  width: 150px;
-  height: 200px;
-`
-const BoxLandscape = styled(Box)`
-  width: 200px;
-  height: 150px;
-`
-
-const BoxLandscapeSmall = styled(BoxLandscape)`
-  width: 100px;
-  height: 70px;
-`
 
 storiesOf('Image', module).add('fitted logos', () => (
   <Example title="Fitted logos">

@@ -20,49 +20,62 @@ The image component works similar to an HTML `<img>` tag, but is responsive by d
 
 ### Fitting images to a container
 
-To make an image fit exactly into a certain dimension while keeping its aspect ratio, you have to specify a width or a height and set the `fit` property to either contain or cover.
+To make an image fit exactly into a certain dimension while keeping its aspect ratio, you have to specify a width and height and set the `fit` property to either contain or cover.
 
-- _Contain:_ The image is scaled to maintain its aspect ratio while fitting within the element's content box.
-- _Cover_: The replaced content is sized to maintain its aspect ratio while filling the element's entire content box. The object will be clipped to fit.
+- _Contain:_ The image content is scaled to maintain its aspect ratio while fitting within the element's content box.
+- _Cover_: The image content is sized to maintain its aspect ratio while filling the element's entire content box. The image will be clipped to fit.
+- _Scale down_: The image won't scale up more than it's intrinsic size, but scale down when bigger than it's container. This will avoid pixelated images.
 
 ```js
-<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-      alt="Portrait image of the cosmos"
-      width="150px"
-      height="150px"
-      fit="contain"
-    />
-  </div>
+<div>
+  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <div style={{ backgroundColor: '#D8D8D8' }}>
+      <Image
+        source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+        alt="Portrait image of the cosmos"
+        width="150px"
+        height="150px"
+        fit="contain"
+      />
+    </div>
 
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-      alt=""
-      width="150px"
-      height="150px"
-      fit="contain"
-    />
-  </div>
+    <div style={{ backgroundColor: '#D8D8D8' }}>
+      <Image
+        source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        alt=""
+        width="150px"
+        height="150px"
+        fit="contain"
+      />
+    </div>
 
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-      alt="Portrait image of the cosmos"
-      width="150px"
-      height="150px"
-      fit="cover"
-    />
+    <div style={{ backgroundColor: '#D8D8D8' }}>
+      <Image
+        source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+        alt="Portrait image of the cosmos"
+        width="150px"
+        height="150px"
+        fit="cover"
+      />
+    </div>
+    <div style={{ backgroundColor: '#D8D8D8' }}>
+      <Image
+        source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        alt=""
+        width="150px"
+        height="150px"
+        fit="cover"
+      />
+    </div>
   </div>
+  <br />
   <div style={{ backgroundColor: '#D8D8D8' }}>
     <Image
-      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
       alt=""
-      width="150px"
+      width="100%"
       height="150px"
-      fit="cover"
+      fit="scale-down"
     />
   </div>
 </div>
