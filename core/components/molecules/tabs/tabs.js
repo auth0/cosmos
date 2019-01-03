@@ -119,7 +119,7 @@ class Tabs extends React.Component {
           React.cloneElement(this.tabs[selectedIndex], {
             role: 'tabpanel',
             id: `${uniqueTabPrefix}-${selectedIndex}-tab`,
-            'aria-labelledby': `${uniqueTabPrefix}-${selectedIndex}-tab`,
+            'aria-labelledby': `${uniqueTabPrefix}-${selectedIndex}`,
             ...Automation('tabs.item')
           })}
       </Tabs.Element>
