@@ -6,37 +6,17 @@
 `import { Image } from '@auth0/cosmos'`
 
 ```jsx
-<Image source='https://cdn.auth0.com/website/press/resources/webtask-logo.svg' {props} />
+<Image
+  source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
+  alt="The cosmos"
+/>
 ```
 
 ## Usage
 
-The image component works similar to an HTML `<img>` tag, but is responsive by default. Images will scale down to fit the width of their container. To make an image fit exactly into a certain dimension while keeping its aspect ratio, check [Fitting images to a container](#/component/image#fitting-images-to-a-container).
+The image component works similar to an HTML `<img>` tag, but is responsive by default. Images will scale down to fit the width of their container. To make an image fit exactly into a certain dimension while keeping its aspect ratio, see [Fitting images to a container](#/component/image#fitting-images-to-a-container).
 
 ## Examples
-
-### Image and text
-
-```js
-<div>
-  <Paragraph>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </Paragraph>
-  <Image
-    alt=""
-    source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
-  />
-  <Paragraph>
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-    mollit anim id est laborum.
-  </Paragraph>
-</div>
-```
 
 ### Fitting images to a container
 
@@ -44,6 +24,51 @@ To make an image fit exactly into a certain dimension while keeping its aspect r
 
 - _Contain:_ The image is scaled to maintain its aspect ratio while fitting within the element's content box.
 - _Cover_: The replaced content is sized to maintain its aspect ratio while filling the element's entire content box. The object will be clipped to fit.
+
+```js
+<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+  <div style={{ backgroundColor: '#D8D8D8' }}>
+    <Image
+      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      alt="Portrait image of the cosmos"
+      width="150px"
+      height="150px"
+      fit="contain"
+    />
+  </div>
+
+  <div style={{ backgroundColor: '#D8D8D8' }}>
+    <Image
+      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      alt=""
+      width="150px"
+      height="150px"
+      fit="contain"
+    />
+  </div>
+
+  <div style={{ backgroundColor: '#D8D8D8' }}>
+    <Image
+      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+      alt="Portrait image of the cosmos"
+      width="150px"
+      height="150px"
+      fit="cover"
+    />
+  </div>
+  <div style={{ backgroundColor: '#D8D8D8' }}>
+    <Image
+      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      alt=""
+      width="150px"
+      height="150px"
+      fit="cover"
+    />
+  </div>
+</div>
+```
+
+When displaying logos in a grid, you can set the image to `fit: contain` and declare either the width and height to make equal size while maintaining the aspect ratio.
 
 ```js
 <div
@@ -77,7 +102,7 @@ To make an image fit exactly into a certain dimension while keeping its aspect r
   >
     <Image
       source="https://images.ctfassets.net/kbkgmx9upatd/5uVCiyUGruC2kiuyw6EQQs/0ffb496734c2b8cd696ca9004018f29d/about-webtask.svg"
-      alt="Autho logo"
+      alt="Auth0 logo"
       height="100%"
       width="100%"
       fit="contain"
@@ -96,50 +121,6 @@ To make an image fit exactly into a certain dimension while keeping its aspect r
       fit="contain"
       height="70px"
       width="70px"
-    />
-  </div>
-</div>
-```
-
-```js
-<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-      alt=""
-      width="150px"
-      height="150px"
-      fit="contain"
-    />
-  </div>
-
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1505851543971-19811a8f4c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-      alt=""
-      width="150px"
-      height="150px"
-      fit="cover"
-    />
-  </div>
-
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-      alt=""
-      width="150px"
-      height="150px"
-      fit="contain"
-    />
-  </div>
-
-  <div style={{ backgroundColor: '#D8D8D8' }}>
-    <Image
-      source="https://images.unsplash.com/photo-1526572202046-8b87644dce4a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-      alt=""
-      width="150px"
-      height="150px"
-      fit="cover"
     />
   </div>
 </div>
