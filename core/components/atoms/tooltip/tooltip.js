@@ -37,7 +37,13 @@ class Tooltip extends React.Component {
             </Tooltip.Trigger>
           )}
         </Reference>
-        <Popper placement={props.position} modifiers={{ preventOverflow: { enabled: false } }}>
+        <Popper
+          placement={props.position}
+          modifiers={{
+            preventOverflow: { enabled: false },
+            offset: { offset: '0, 10' }
+          }}
+        >
           {({ ref, style, placement, arrowProps }) => (
             <React.Fragment>
               {this.state.visible ? (
@@ -75,8 +81,6 @@ Tooltip.Element = styled.div`
   font-size: 13px;
   pointer-events: none;
   max-width: 260px;
-  /* make room for arrow */
-  margin: 6px;
 `
 
 Tooltip.Trigger = styled.div`
@@ -89,7 +93,7 @@ Tooltip.Trigger = styled.div`
   space for the arrow
 */
 const arrowSize = '12px;'
-const tooltipMargin = arrowSize
+const tooltipMargin = '16px' // (arrowSize + 4)
 
 /*
   To keep the arrow outside the tooltip,
@@ -104,9 +108,10 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='top'] {
     bottom: 0;
-    margin-left: -${tooltipMargin};
+    margin-left: -12px;
+
     &::before {
-      border-width: 6px 5.5px 0 6px;
+      border-width: 6px 6px 0 6px;
       border-color: ${colors.tooltip.background} transparent transparent transparent;
     }
   }
@@ -114,9 +119,9 @@ Tooltip.Arrow = styled.div`
   &[data-placement*='right'] {
     left: 0;
     margin-left: ${arrowMargin};
-    margin-top: -${tooltipMargin};
+    margin-right: -12px;
     &::before {
-      border-width: 6px 5.5px 6px 0;
+      border-width: 6px 6px 6px 0;
       border-color: transparent ${colors.tooltip.background} transparent transparent;
     }
   }
@@ -125,18 +130,18 @@ Tooltip.Arrow = styled.div`
     top: 0;
     left: 0;
     margin-top: ${arrowMargin};
-    margin-left: -${tooltipMargin};
+    margin-left: -12px;
     &::before {
-      border-width: 0 6px 5.5px 6px;
+      border-width: 0 6px 6px 6px;
       border-color: transparent transparent ${colors.tooltip.background} transparent;
     }
   }
 
   &[data-placement*='left'] {
     right: 0;
-    margin-top: -${tooltipMargin};
+    margin-top: -12px;
     &::before {
-      border-width: 6px 0 6px 5.5px;
+      border-width: 6px 0 6px 6px;
       border-color: transparent transparent transparent ${colors.tooltip.background};
     }
   }
