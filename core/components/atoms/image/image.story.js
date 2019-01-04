@@ -115,6 +115,23 @@ storiesOf('Image', module).add('responsive images', () => (
   </Example>
 ))
 
+storiesOf('Image', module).add('non responsive images', () => (
+  <Example title="Non responsive images">
+    <div
+      style={{
+        width: '100%',
+        outline: '1px solid black'
+      }}
+    >
+      <Image
+        disableResponsive
+        alt="The cosmos"
+        source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
+      />
+    </div>
+  </Example>
+))
+
 storiesOf('Image', module).add('declared dimensions', () => (
   <Example title="Declared dimensions">
     <Image
