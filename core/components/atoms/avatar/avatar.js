@@ -73,6 +73,13 @@ Avatar.Element = styled.span`
   justify-content: center;
   overflow: hidden;
 
+  /* This allows to pass an SVG tag to the image prop and it will render correctly. This is not needed. We can remove this if we change the "image" prop to only accept a string */
+  img,
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
   ${Icon.Element} {
     line-height: 0;
     /* Try to remove line-height and set display: inline-flex; */
@@ -85,7 +92,7 @@ const StyledAvatar = Avatar.Element
 Avatar.propTypes = {
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
-  /** An image URL or component to display. */
+  /** An image URL or Image component. */
   image: PropTypes.node,
   /** The size of the avatar. */
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
