@@ -49,7 +49,7 @@ storiesOf('Form', module).add('text field + actions', () => (
   </Example>
 ))
 
-storiesOf('Form').add('old API', () => (
+storiesOf('Form', module).add('text field - old API', () => (
   <Example title="old API">
     <Form>
       <Form.TextInput

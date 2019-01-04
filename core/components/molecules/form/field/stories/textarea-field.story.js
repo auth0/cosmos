@@ -24,7 +24,7 @@ storiesOf('Form', module).add('textarea field + error', () => (
   </Example>
 ))
 
-storiesOf('Form').add('old API', () => (
+storiesOf('Form', module).add('textarea-field old API', () => (
   <Example title="old API">
     <Form>
       <Form.TextArea

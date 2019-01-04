@@ -39,7 +39,7 @@ storiesOf('Form', module).add('select field + error', () => (
   </Example>
 ))
 
-storiesOf('Form').add('old API', () => (
+storiesOf('Form', module).add('select field - old API', () => (
   <Example title="old API">
     <Form>
       <Form.Select

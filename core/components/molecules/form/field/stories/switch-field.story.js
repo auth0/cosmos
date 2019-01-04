@@ -24,7 +24,7 @@ storiesOf('Form', module).add('switch field + error', () => (
   </Example>
 ))
 
-storiesOf('Form').add('old API', () => (
+storiesOf('Form', module).add('switch field - old API', () => (
   <Example title="old API">
     <Form>
       <Form.Switch on label="Subscribe" error="Everything is broken" />
