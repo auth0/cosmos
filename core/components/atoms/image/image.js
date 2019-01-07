@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 const imageFit = {
-  //fill: 'fill',
   contain: 'contain',
   cover: 'cover',
   none: 'unset',
@@ -15,7 +14,6 @@ const Image = props => (
   <Image.Element src={props.source} alt={props.alt} {...Automation('image')} {...props} />
 )
 
-/** Width and Height are rendered in the HTML. I don't think this is needed.  */
 Image.Element = styled.img`
   display: block;
   height: ${props => (props.height ? props.height : 'auto')};

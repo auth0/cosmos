@@ -14,7 +14,7 @@
 
 ## Usage
 
-The image component works similar to an HTML `<img>` tag, but is responsive by default. Images will scale down to fit the width of their container. To make an image fit exactly into a certain dimension while keeping its aspect ratio, see [Fitting images to a container](#/component/image#fitting-images-to-a-container).
+The image component is responsive by default. Images will scale down to fit the width of their container. To make an image fit exactly into a certain dimension while keeping its aspect ratio, see [Fitting images to a container](#/component/image#fitting-images-to-a-container).
 
 ## Examples
 
