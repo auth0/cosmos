@@ -42,8 +42,8 @@ storiesOf('Tooltip', module).add('with button', () => (
   <Example title="with button">
     {positions.map(position => (
       <ExampleContainer position={position} key={position}>
-        <Tooltip position={position} content={`Inner content is ${position}`} defaultVisible>
-          <Button>Something Something</Button>
+        <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
+          <Button>Something</Button>
         </Tooltip>
       </ExampleContainer>
     ))}
