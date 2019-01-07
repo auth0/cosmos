@@ -1,6 +1,5 @@
 import React from 'react'
 import { Alert } from '@auth0/cosmos'
-
 import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
