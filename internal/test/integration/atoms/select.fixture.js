@@ -1,5 +1,6 @@
 import React from 'react'
 import { Select } from '@auth0/cosmos'
+import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class Fixture extends React.Component {
           { text: 'Three', value: 3 }
         ]}
         onChange={event => console.log(event)}
+        onClick={mockFn}
       />
     )
   }
