@@ -84,10 +84,10 @@ class Tabs extends React.Component {
 
   render() {
     const uniqueTabPrefix = `tabs${this.props.id}`
-    const { selected: selectedIndex } = this.props
+    const { selected: selectedIndex, onSelect, ...restOfTheProps } = this.props
 
     return (
-      <Tabs.Element {...Automation('tabs')}>
+      <Tabs.Element {...Automation('tabs')} {...restOfTheProps}>
         <Tabs.TabList role="tablist" {...Automation('tabs.list')}>
           {this.tabs.map((tab, index) => {
             const id = `${uniqueTabPrefix}-${index}`
@@ -100,7 +100,6 @@ class Tabs extends React.Component {
                   role="tab"
                   id={id}
                   tabIndex={tabIsSelected ? '0' : '-1'}
-                  aria-label={tab.props.label}
                   aria-selected={tabIsSelected}
                   aria-controls={id + '-tab'}
                   onClick={() => this.changeTab(index)}
@@ -119,7 +118,7 @@ class Tabs extends React.Component {
           React.cloneElement(this.tabs[selectedIndex], {
             role: 'tabpanel',
             id: `${uniqueTabPrefix}-${selectedIndex}-tab`,
-            'aria-labelledby': this.tabs[selectedIndex].props.id,
+            'aria-labelledby': `${uniqueTabPrefix}-${selectedIndex}`,
             ...Automation('tabs.item')
           })}
       </Tabs.Element>

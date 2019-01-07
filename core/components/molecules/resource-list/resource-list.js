@@ -108,7 +108,7 @@ const ResourceList = props => {
     props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
 
   return (
-    <ResourceList.Element {...Automation('resource-list')}>
+    <ResourceList.Element {...Automation('resource-list')} {...props}>
       {resolveChildrenRenderer(props)}
     </ResourceList.Element>
   )

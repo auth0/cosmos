@@ -7,8 +7,8 @@ import containerStyles from '../../_helpers/container-styles'
 import Button from '../../atoms/button'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
-const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <Pager.Element {...Automation('pager')}>
+const Pager = ({ onPageChanged, page, perPage, items, ...props }) => (
+  <Pager.Element {...Automation('pager')} {...props}>
     <Button
       position="left"
       size="compressed"

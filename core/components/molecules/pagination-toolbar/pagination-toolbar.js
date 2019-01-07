@@ -39,14 +39,14 @@ Pager.Button = styled(Button)`
   }
 `
 
-const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
+const PaginationToolbar = ({ onPageChanged, page, perPage, items, ...props }) => {
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is one page or less
   if (pages <= 1) return null
 
   return (
-    <PaginationToolbar.Element {...Automation('pagination-toolbar')}>
+    <PaginationToolbar.Element {...Automation('pagination-toolbar')} {...props}>
       <PaginationToolbar.PageSelector page={page}>
         <div>Page</div>
         <TextInput

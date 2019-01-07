@@ -2,6 +2,11 @@ import React from 'react'
 import { render, fireEvent } from 'react-testing-library'
 
 import Fixture from './tabs.fixture'
+import customIdTest from '../helpers/custom-id'
+
+test('Accepts custom id prop', () => {
+  customIdTest(Fixture, 'tabs')
+})
 
 test('First tab is rendered on start', () => {
   const body = render(<Fixture />)

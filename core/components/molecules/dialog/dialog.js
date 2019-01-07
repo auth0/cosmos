@@ -98,6 +98,7 @@ class Dialog extends React.Component {
             role="dialog"
             aria-modal="true"
             aria-labelledby="dialog-title"
+            {...props}
           >
             <DialogClose>
               <Button
