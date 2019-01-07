@@ -107,18 +107,31 @@ const arrowMargin = '-5px'
 */
 const arrowAdjustment = '-12px'
 
+const arrowColor = colors.tooltip.background
+
 Tooltip.Arrow = styled.div`
   position: absolute;
   width: 0;
   height: 0;
+
+  &::before {
+    content: '';
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent;
+  }
 
   &[data-placement*='top'] {
     bottom: 0;
     margin-left: ${arrowAdjustment};
 
     &::before {
-      border-width: 6px 6px 0 6px;
-      border-color: ${colors.tooltip.background} transparent transparent transparent;
+      border-bottom-width: 0;
+      border-top-color: ${arrowColor};
     }
   }
 
@@ -127,8 +140,8 @@ Tooltip.Arrow = styled.div`
     margin-left: ${arrowMargin};
     margin-top: ${arrowAdjustment};
     &::before {
-      border-width: 6px 6px 6px 0;
-      border-color: transparent ${colors.tooltip.background} transparent transparent;
+      border-left-width: 0;
+      border-right-color: ${arrowColor};
     }
   }
 
@@ -138,8 +151,8 @@ Tooltip.Arrow = styled.div`
     margin-top: ${arrowMargin};
     margin-left: ${arrowAdjustment};
     &::before {
-      border-width: 0 6px 6px 6px;
-      border-color: transparent transparent ${colors.tooltip.background} transparent;
+      border-top-width: 0;
+      border-bottom-color: ${arrowColor};
     }
   }
 
@@ -147,17 +160,9 @@ Tooltip.Arrow = styled.div`
     right: 0;
     margin-top: ${arrowAdjustment};
     &::before {
-      border-width: 6px 0 6px 6px;
-      border-color: transparent transparent transparent ${colors.tooltip.background};
+      border-right-width: 0;
+      border-left-color: ${arrowColor};
     }
-  }
-  &::before {
-    content: '';
-    margin: auto;
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
   }
 `
 
