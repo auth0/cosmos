@@ -101,6 +101,12 @@ const tooltipMargin = '16px' // (arrowSize + 4)
 */
 const arrowMargin = '-5px'
 
+/*
+  popper doesn't arrange the tooltip right in the center,
+  so we add a 12px adjustment
+*/
+const arrowAdjustment = '-12px'
+
 Tooltip.Arrow = styled.div`
   position: absolute;
   width: 0;
@@ -108,7 +114,7 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='top'] {
     bottom: 0;
-    margin-left: -12px;
+    margin-left: ${arrowAdjustment};
 
     &::before {
       border-width: 6px 6px 0 6px;
@@ -119,7 +125,7 @@ Tooltip.Arrow = styled.div`
   &[data-placement*='right'] {
     left: 0;
     margin-left: ${arrowMargin};
-    margin-right: -12px;
+    margin-top: ${arrowAdjustment};
     &::before {
       border-width: 6px 6px 6px 0;
       border-color: transparent ${colors.tooltip.background} transparent transparent;
@@ -130,7 +136,7 @@ Tooltip.Arrow = styled.div`
     top: 0;
     left: 0;
     margin-top: ${arrowMargin};
-    margin-left: -12px;
+    margin-left: ${arrowAdjustment};
     &::before {
       border-width: 0 6px 6px 6px;
       border-color: transparent transparent ${colors.tooltip.background} transparent;
@@ -139,7 +145,7 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='left'] {
     right: 0;
-    margin-top: -12px;
+    margin-top: ${arrowAdjustment};
     &::before {
       border-width: 6px 0 6px 6px;
       border-color: transparent transparent transparent ${colors.tooltip.background};
