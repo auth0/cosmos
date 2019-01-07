@@ -3,6 +3,7 @@ import styled, { css } from '@auth0/cosmos/styled'
 import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { multiply } from '../../_helpers/pixel-calc'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
@@ -88,26 +89,14 @@ Tooltip.Trigger = styled.div`
   position: relative;
 `
 
-/*
-  The tooltip needs to have a margin to create
-  space for the arrow
-*/
-const arrowSize = '12px;'
-const tooltipMargin = '16px' // (arrowSize + 4)
-
-/*
-  To keep the arrow outside the tooltip,
-  right and bottom need margin
-*/
-const arrowMargin = '-5px'
+const arrowWidth = '6px'
+const arrowColor = colors.tooltip.background
 
 /*
   popper doesn't arrange the tooltip right in the center,
-  so we add a 12px adjustment
+  so we add an adjustment
 */
-const arrowAdjustment = '-12px'
-
-const arrowColor = colors.tooltip.background
+const arrowAdjustment = multiply(arrowWidth, -2)
 
 Tooltip.Arrow = styled.div`
   position: absolute;
@@ -121,7 +110,7 @@ Tooltip.Arrow = styled.div`
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 6px;
+    border-width: ${arrowWidth};
     border-color: transparent;
   }
 
@@ -137,8 +126,8 @@ Tooltip.Arrow = styled.div`
 
   &[data-placement*='right'] {
     left: 0;
-    margin-left: ${arrowMargin};
     margin-top: ${arrowAdjustment};
+    margin-left: -${arrowWidth};
     &::before {
       border-left-width: 0;
       border-right-color: ${arrowColor};
@@ -148,8 +137,8 @@ Tooltip.Arrow = styled.div`
   &[data-placement*='bottom'] {
     top: 0;
     left: 0;
-    margin-top: ${arrowMargin};
     margin-left: ${arrowAdjustment};
+    margin-top: -${arrowWidth};
     &::before {
       border-top-width: 0;
       border-bottom-color: ${arrowColor};
