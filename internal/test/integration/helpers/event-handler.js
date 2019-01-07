@@ -3,10 +3,10 @@ import { render, fireEvent } from 'react-testing-library'
 
 const mockFn = jest.fn()
 
-const eventHandlerTest = (Fixture, button) => {
+const eventHandlerTest = (Fixture, elementToClick) => {
   const body = render(<Fixture />)
 
-  const clickElement = body.getByTestId(button)
+  const clickElement = body.getByTestId(elementToClick)
   fireEvent.click(clickElement)
 
   expect(mockFn).toHaveBeenCalledTimes(1)
