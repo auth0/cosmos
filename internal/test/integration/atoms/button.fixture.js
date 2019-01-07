@@ -6,7 +6,7 @@ import { mockFn } from '../helpers/event-handler'
 class Fixture extends React.Component {
   render() {
     return (
-      <Button id="custom-id" onClick={event => mockFn(event)}>
+      <Button id="custom-id" onClick={mockFn}>
         Button
       </Button>
     )
