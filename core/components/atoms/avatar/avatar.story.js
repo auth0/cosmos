@@ -118,3 +118,30 @@ storiesOf('Avatar', module).add('resource type with icons', () => (
     </Stack>
   </Example>
 ))
+
+storiesOf('Avatar', module).add('fitted images', () => (
+  <Example title="Fitted images">
+    <Stack>
+      <Avatar
+        type="user"
+        size="xxlarge"
+        image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&h=200&fit=crop&crop=faces&s=a72ca28288878f8404a795f39642a46f"
+      />
+      <Avatar
+        type="user"
+        size="xxlarge"
+        image="https://images.unsplash.com/photo-1545006398-2cf47cd87b90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=915&q=80"
+      />
+      <Avatar
+        type="user"
+        size="xxlarge"
+        image="https://images.unsplash.com/photo-1542838687-d214d04db0aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
+      />
+      <Avatar
+        type="user"
+        size="xxlarge"
+        image="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABGdBTUEAALGPC/xhBQAAAshJREFUWAntVz1IqlEYfrxqWREh4RI6ZkPkEhjuOrq5ONTg0iYIBkHRVpPiFISUoXsgNLSIOQURUQqGk0FqEQVG/6nQ5X3p+yj9vLfuuUHDeUG/873nvM95fN7nHFBXKpVe8YPj1w/mxtQkQdEOSQWlgqIKiNZLD0oFRRUQrZce/HYFz87O8Pj4qO7TarVQLBZxfHyM5+dnNf+ZQTsW1VSrVezv7+P6+loT4o8tLpfLWFxcZBCqbjQaWF5eRjqdRjabxcLCAm5ubjSB25PtWDS/vb2NaDSKo6MjLC0t4fDwsL0Mho7MW+Lp6Qnr6+sYGBhQl+zt7UGn0zExSq6trWFnZwd+v19dozXQwrq7u8PW1hZisRjMZjOTTCaTmJyc/ADRVcGNjQ14vV4MDQ2pBYVCAXa7XX0fGxtDPp/H+fk5k769veW5eDwO+jFKaGGdnJwwMSJHQVhXV1e4uLhQyvipSXB3dxd9fX1wuVwfFtfrdVitVjVns9m4xSMjI5iYmEAikWA/0UZK7Wex+vv7MTw8DNrjfXQQrNVqyOVymJmZeb+OxwaD4cPBIE9SjsLn8+Hy8hKpVAqzs7Nsha9gEcbLy4uKR+8UHR4k89NGwWCQFzw8PCASibDPLBYL6CQqQWPKUej1ephMJlCbjUYj5/6GValUeB19kXL39/cqnjLRQXB6ehr0UWJ+fh6BQIC9Ry3Y3Nzka6e3txcHBwdwOp28lE4ktdrhcIA8ODc3xzjdsOi6oqAra3x8nK0xOjrKvuSJt68Ogu8n28e0+dTUFEKhECtGwB6PB6enp3ztrKysgIjTlZHJZOB2u9sh1HeyBnVpdXWVsXp6ehAOh9V5ZaD7l7+dzWYTpAAdpP8RdOUMDg5qQn1JQQWBPKb4TMmJPLuRI8yOUyyy0XfUSoKiqkoFpYKiCojWSw9KBUUVEK2XHpQKiiogWv8bXAcodfCm8bYAAAAASUVORK5CYII="
+      />
+    </Stack>
+  </Example>
+))
