@@ -9,6 +9,6 @@ test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'logo')
 })
 
-test('Calls event handler', () => {
+test('Calls custom event handler', () => {
   eventHandlerTest(Fixture, 'logo')
 })
