@@ -88,3 +88,11 @@ There's a lot to write here, we maintain it in our docs: [Contribution guideline
 ## Feedback
 
 Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X) (internal). You can use the [playground](https://auth0-cosmos.now.sh/docs/#/playground) to test and share code, report bugs and ask for feedback.
+
+## Thanks
+
+<a href="https://www.browserstack.com/">
+  <img src="https://live.browserstack.com/images/opensource/browserstack-logo.svg" alt="BrowserStack Logo" width="490" height="106">
+</a>
+
+Thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to test in real browsers!
