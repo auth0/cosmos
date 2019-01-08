@@ -190,7 +190,7 @@ const ButtonContent = props => {
 }
 
 const Button = ({ children, ...props }) => {
-  let button = <ButtonContent {...props} text={children} {...Automation('button')} />
+  let button = <ButtonContent {...Automation('button')} {...props} text={children} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
