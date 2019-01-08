@@ -43,7 +43,7 @@ storiesOf('Form', module).add('radio field + helper text', () => (
 storiesOf('Form', module).add('radio field + error', () => (
   <Example title="radio field + error">
     <Form>
-      <Form.Radio name="example1" selected="one" error="Everything is broken">
+      <Form.Radio name="example1" selected="" error="Everything is broken">
         <Form.Radio.Option value="one">One</Form.Radio.Option>
         <Form.Radio.Option value="two">Two</Form.Radio.Option>
         <Form.Radio.Option value="three">Three</Form.Radio.Option>
@@ -57,7 +57,7 @@ storiesOf('Form', module).add('radio field + error + helper text', () => (
     <Form>
       <Form.Radio
         name="example1"
-        selected="one"
+        selected=""
         error="Everything is broken"
         helpText="Additional text to guide the user."
       >
