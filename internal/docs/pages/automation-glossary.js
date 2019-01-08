@@ -38,7 +38,7 @@ class AutomationGlossary extends React.Component {
                 component: 'Breadcrumb',
                 selectors: [
                   '$(\'div[data-cosmos-key="breadcrumb"]\')',
-                  '$(\'div[data-cosmos-key="breadcrumb"] a[data-cosmos-key="link"]\')'
+                  '$(\'div[data-cosmos-key="breadcrumb"] a[data-cosmos-key="breadcrumb.link"]\')'
                 ]
               },
               {
