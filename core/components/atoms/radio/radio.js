@@ -29,7 +29,7 @@ Radio.Option = ({ readOnly, children, ...props }) => (
   <Radio.Option.Element readOnly={props.readOnly}>
     <input {...Automation('radio.option')} pepe="test" type="radio" readOnly {...props} />
     <CheckMark />
-    <Label>{props.children}</Label>
+    <Label>{children}</Label>
   </Radio.Option.Element>
 )
 
