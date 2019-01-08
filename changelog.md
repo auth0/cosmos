@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.12.1 [January 8, 2019]
+
+### Fixed
+
+- Radio: Fixed rendering of label [#1393]
+
+## 0.12.0 [January 7, 2019]
+
+### Added
+
+- Testing: Custom prop tests [#1308][#1312]
+- ResourceList: Adds a prop to set the width to the resource list body [#1314]
+- Image: Images are now responsive by default [#1244]
+- Image: Added fit properties to scale images to a container proportionally [#1244]
+- Avatar: Images in avatar fit to cover the container. This allows to display portrait and landscape images inside the avatar. [#1244]
+- (Internal) Layouts: Row, Gallery, Columns and Page [#1282]
+
+### Fixed
+
+- Icon: Fixed chevron up not facing up [#1391]
+- Tabs: Quick aria labels fix [#1375]
+- Tooltip: Adds z-index to tooltips [#1369]
+- Security upgrades [#1387]
+
+### Changed
+
+- Move actions API to Input [#1281]
+
 ## 0.11.0 [December 18, 2018]
 
 ### Added
