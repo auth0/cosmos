@@ -12,3 +12,14 @@ test('Accepts custom id prop', () => {
 test('Calls custom event handler', () => {
   eventHandlerTest(Fixture, 'alert.dismiss')
 })
+
+test('Calls custom event handler automatically using dismissAfterSeconds', () => {
+  const alert = render(<Fixture dismissAfterSeconds={0.5} />)
+
+  return new Promise(resolve => {
+    setTimeout(() => {
+      expect(Fixture.onDismiss).toHaveBeenCalled()
+      resolve()
+    }, 750)
+  })
+})
