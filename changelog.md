@@ -18,13 +18,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 - Testing: Custom prop - Molecules [#1312]
 - Adds a prop to set the width to the resource list body [#1314]
 - (Internal) Layouts: Row, Gallery, Columns and Page [#1282]
+- Image: Images are now responsive by default [#1244]
+- Image: Added fit properties to scale images to a container proportionally [#1244]
 
 ### Fixed
 
 - Fixed chevron up not facing up [#1391]
 - Upgrade versions for security alerts [#1387]
 - Quick aria labels fix for Tabs [#1375]
-- Image size [#1244]
 - Adds z-index to tooltips [#1369]
 
 ### Changed
