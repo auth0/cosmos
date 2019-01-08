@@ -3,13 +3,24 @@ import { render, fireEvent } from 'react-testing-library'
 
 const mockFn = jest.fn()
 
-const eventHandlerTest = (Fixture, elementToClick) => {
+const checkEventIsValid = event => {
+  const availableEvents = Object.keys(fireEvent)
+
+  if (availableEvents.indexOf(event) < 0)
+    throw new Error(
+      `Event '${event}' is not valid. Please use one of: ${availableEvents.join(', ')}`
+    )
+}
+
+const eventHandlerTest = (Fixture, elementToTrigger, event = 'click', eventData = {}) => {
+  mockFn.mockReset()
+  checkEventIsValid(event)
   const body = render(<Fixture />)
 
-  const clickElement = body.getByTestId(elementToClick)
-  fireEvent.click(clickElement)
+  const triggerableElement = body.getByTestId(elementToTrigger)
+  fireEvent[event](triggerableElement, eventData)
 
-  expect(mockFn).toHaveBeenCalledTimes(1)
+  expect(mockFn).toHaveBeenCalled()
 }
 
 export default eventHandlerTest
