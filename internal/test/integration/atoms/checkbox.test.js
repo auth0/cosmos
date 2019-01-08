@@ -10,5 +10,5 @@ test('Accepts custom id prop', () => {
 })
 
 test('Calls custom event handler', () => {
-  eventHandlerTest(Fixture, 'checkbox')
+  eventHandlerTest(Fixture, 'checkbox.input', 'click', { target: { checked: true } })
 })

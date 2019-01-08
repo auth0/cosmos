@@ -5,7 +5,7 @@ import { mockFn } from '../helpers/event-handler'
 class Fixture extends React.Component {
   render() {
     return (
-      <Checkbox name="example" value="one" id="custom-id" onClick={mockFn}>
+      <Checkbox name="example" value="one" id="custom-id" onChange={mockFn}>
         You can check me
       </Checkbox>
     )
