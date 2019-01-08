@@ -8,14 +8,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Fixed
 
-- Fixed rendering of label for Radio and Form.Radio [#1393]
+- Radio: Fixed rendering of label [#1393]
 
 ## 0.12.0 [January 7, 2019]
 
 ### Added
 
 - Testing: Custom prop tests [#1308][#1312]
-- Adds a prop to set the width to the resource list body [#1314]
+- ResourceList: Adds a prop to set the width to the resource list body [#1314]
 - Image: Images are now responsive by default [#1244]
 - Image: Added fit properties to scale images to a container proportionally [#1244]
 - Avatar: Images in avatar fit to cover the container. This allows to display portrait and landscape images inside the avatar. [#1244]
@@ -23,9 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Fixed
 
-- Fixed chevron up not facing up [#1391]
-- Quick aria labels fix for Tabs [#1375]
-- Adds z-index to tooltips [#1369]
+- Icon: Fixed chevron up not facing up [#1391]
+- Tabs: Quick aria labels fix [#1375]
+- Tooltip: Adds z-index to tooltips [#1369]
 - Security upgrades [#1387]
 
 ### Changed
