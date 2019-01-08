@@ -9,7 +9,7 @@ const Label = styled.span``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
+  vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
 const Radio = props => (
