@@ -1,15 +1,14 @@
 import React from 'react'
 import { Switch } from '@auth0/cosmos'
-import { mockFn } from '../helpers/event-handler'
 
-const onToggle = jest.fn()
+const customToggle = jest.fn()
 
 class Fixture extends React.Component {
   render() {
-    return <Switch id="custom-id" onToggle={onToggle} onClick={mockFn} />
+    return <Switch id="custom-id" onToggle={customToggle} />
   }
 }
 
-Fixture.onToggle = onToggle
+Fixture.customToggle = customToggle
 
 export default Fixture
