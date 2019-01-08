@@ -9,7 +9,7 @@ const Label = styled.span``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
+  vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
 const Radio = props => (
@@ -29,7 +29,7 @@ Radio.Option = ({ readOnly, children, ...props }) => (
   <Radio.Option.Element readOnly={props.readOnly}>
     <input {...Automation('radio.option')} pepe="test" type="radio" readOnly {...props} />
     <CheckMark />
-    <Label>{props.children}</Label>
+    <Label>{children}</Label>
   </Radio.Option.Element>
 )
 
