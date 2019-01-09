@@ -88,3 +88,18 @@ There's a lot to write here, we maintain it in our docs: [Contribution guideline
 ## Feedback
 
 Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X) (internal). You can use the [playground](https://auth0-cosmos.now.sh/docs/#/playground) to test and share code, report bugs and ask for feedback.
+
+## Thanks
+
+<a href="https://www.chromaticqa.com/"><img src="https://cdn-images-1.medium.com/letterbox/147/36/50/50/1*oHHjTjInDOBxIuYHDY2gFA.png?source=logoAvatar-d7276495b101---37816ec27d7a" width="120"/></a>
+
+Thanks to [Chromatic](https://www.chromaticqa.com/) for providing the visual testing platform that help us catch unexpected changes on time.
+
+<a href="https://www.browserstack.com/"><img src="https://live.browserstack.com/images/opensource/browserstack-logo.svg" alt="BrowserStack Logo" width="120"> </a>
+
+Thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to test in real browsers.
+
+
+<a href="https://www.travis-ci.com/"><img src="https://travis-ci.com/images/logos/TravisCI-Mascot-1.png" alt="BrowserStack Logo" width="30"> </a>
+
+Thanks to [Travis CI](https://www.travis-ci.com/) for providing the infrastructure for our Continuous Integration needs.
