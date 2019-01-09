@@ -3,7 +3,7 @@
     "credit-card": ["115"],
     "cloud": ["143"],
     "cloud-sun": ["142"],
-    "sun": ["148"],
+    "sun": ["148", "light", "day"],
     "thunderstorm": ["154"],
     "list": ["178"],
     "usage": ["188"],
@@ -72,10 +72,12 @@
     "extensions": [],
     "logs": [],
     "play-circle": [],
-    "message": [],
+    "message": ["799"],
     "undo": [],
-    "email": [],
-    "more": []
+    "email": ["778"],
+    "more": [],
+    "moon": ["night", "dark"],
+    "paper-plane": ["774", "send"]
   },
   "concepts": {
     "authorization": ["606"],
