@@ -144,7 +144,6 @@
     "hosted-pages": [],
     "multifactor": [],
     "anomaly-detection": ["anomaly"],
-
     "sso-integrations": []
   },
   "brands": {
