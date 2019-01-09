@@ -49,15 +49,20 @@ const buildAliasLookup = icons => {
   })
 
   // Add entries for each of the aliases of the icons, pointing to their actual names
-  Object.keys(aliases).forEach(name => {
-    if (!icons[name]) {
-      warn('DOCS', `Ignoring aliases defined for a non-existent icon ${name}`)
-      return
-    }
-    aliases[name].forEach(alias => {
-      lookup[alias] = name
+  Object.keys(aliases).forEach(section =>
+    Object.keys(aliases[section]).forEach(name => {
+      if (!icons[name]) {
+        warn('DOCS', `Ignoring aliases defined for a non-existent icon ${name}`)
+        return
+      }
+
+      aliases[section][name].forEach(alias => {
+        lookup[alias] = name
+      })
     })
-  })
+  )
+
+  console.log({ lookup })
 
   return lookup
 }
