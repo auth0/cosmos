@@ -47,9 +47,11 @@ class IconBrowser extends React.Component {
     if (!filter) return types
 
     const search = filter.toLowerCase()
-    return Object.keys(aliases)
+
+    const aliases2 = aliases['budicon']
+    return Object.keys(aliases2)
       .filter(alias => fuzzysearch(search, alias))
-      .map(alias => aliases[alias])
+      .map(alias => aliases2[alias])
       .filter((value, index, arr) => arr.indexOf(value) === index)
       .sort()
   }
