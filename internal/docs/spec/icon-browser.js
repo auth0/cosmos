@@ -41,6 +41,23 @@ const IconBrowserLink = styled.a`
   }
 `
 
+const processedSections = (() => {
+  const uniqueIcons = [...new Set(Object.values(aliases))]
+  const uniqueAliasedIcons = Object.keys(sections).reduce(
+    (prev, current) => [...prev, ...Object.keys(sections[current])],
+    []
+  )
+  const notAliasedIcons = uniqueIcons.filter(item => !uniqueAliasedIcons.includes(item))
+
+  const uncategorized = {}
+
+  notAliasedIcons.forEach(icon => {
+    uncategorized[icon] = [icon]
+  })
+
+  return { ...sections, uncategorized }
+})()
+
 class IconBrowser extends React.Component {
   constructor(props) {
     super(props)
@@ -67,16 +84,25 @@ class IconBrowser extends React.Component {
   }
 
   filterIconsForSection(section, icons) {
-    const sectionIcons = icons.filter(icon => !!sections[section][icon])
+    const sectionIcons = icons.filter(icon => !!processedSections[section][icon])
 
-    return sectionIcons.map((name, index) => (
-      <li key={index}>
-        <IconBrowserLink>
-          <Icon name={name} size={40} />
-          <span>{name}</span>
-        </IconBrowserLink>
-      </li>
-    ))
+    if (sectionIcons.length === 0) return null
+
+    return (
+      <IconBrowserSection>
+        <IconBrowserSection.Title>{section}</IconBrowserSection.Title>
+        <IconBrowserList>
+          {sectionIcons.map((name, index) => (
+            <li key={index}>
+              <IconBrowserLink>
+                <Icon name={name} size={40} />
+                <span>{name}</span>
+              </IconBrowserLink>
+            </li>
+          ))}
+        </IconBrowserList>
+      </IconBrowserSection>
+    )
   }
 
   render() {
@@ -91,12 +117,9 @@ class IconBrowser extends React.Component {
           value={filter}
           onChange={this.handleChange}
         />
-        {Object.keys(sections).map(section => (
-          <IconBrowserSection>
-            <IconBrowserSection.Title>{section}</IconBrowserSection.Title>
-            <IconBrowserList>{this.filterIconsForSection(section, matchingIcons)}</IconBrowserList>
-          </IconBrowserSection>
-        ))}
+        {Object.keys(processedSections).map(section =>
+          this.filterIconsForSection(section, matchingIcons)
+        )}
       </IconBrowserElement>
     )
   }
