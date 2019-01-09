@@ -63,7 +63,7 @@
     "megaphone": ["764", "bullhorn", "announcement"],
     "analytics": [],
     "reload": [],
-    "block": [],
+    "block": ["ban"],
     "notifications": [],
     "calendar": [],
     "hourglass": [],
