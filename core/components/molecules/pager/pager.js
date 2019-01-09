@@ -48,7 +48,7 @@ Pager.PageSelector = styled.div`
 Pager.propTypes = {
   page: PropTypes.number.isRequired,
   perPage: PropTypes.number.isRequired,
-  items: PropTypes.number.isRequired,
+  items: PropTypes.number,
   onPageChanged: PropTypes.func
 }
 
