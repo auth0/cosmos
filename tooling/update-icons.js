@@ -62,8 +62,6 @@ const buildAliasLookup = icons => {
     })
   )
 
-  console.log({ lookup })
-
   return lookup
 }
 
