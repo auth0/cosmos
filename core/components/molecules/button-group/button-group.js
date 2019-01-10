@@ -12,29 +12,16 @@ const justifyContent = {
   right: 'flex-end'
 }
 
-/*
-  In compressed mode, the buttons stick together,
-  so only the first and last corners should be rounded.
-
-  With a tooltip, the button is wrapped with Tooltip.Trigger
-  followed by a Tooltip.Element
-
-  This makes rounder corners break and is fixed by adding
-  very Tooltip specific code here
-*/
 const groupRadiusStyles = css`
-  ${Button.Element}:first-child:not(:last-child),
-  ${Tooltip.Trigger}:first-child > ${Button.Element} {
+  ${Button.Element}:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  ${Button.Element}:last-child:not(:first-child),
-  ${Tooltip.Trigger}:nth-last-child(2) > ${Button.Element} {
+  ${Button.Element}:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  ${Button.Element}:not(:first-child):not(:last-child),
-  ${Tooltip.Trigger}:not(:first-child):not(:nth-last-child(2)) > ${Button.Element} {
+  ${Button.Element}:not(:first-child):not(:last-child) {
     border-radius: 0;
   }
 `
