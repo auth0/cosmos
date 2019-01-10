@@ -67,7 +67,7 @@ ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
-  & > ${Button.Element} {
+  & > ${Button.Element}, & > ${Tooltip.Trigger} {
     ${marginForButton};
   }
 
