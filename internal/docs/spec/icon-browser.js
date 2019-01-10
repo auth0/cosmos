@@ -1,43 +1,50 @@
 import React from 'react'
 import styled from 'styled-components'
 import fuzzysearch from 'fuzzysearch'
-import { TextInput, Icon } from '@auth0/cosmos'
+import { TextInput, Icon, GalleryLayout, RowLayout } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos/tokens'
 import { types, aliases } from '@auth0/cosmos/meta/icons.json'
 import sections from '../../../core/icons/aliases.json'
 
-const IconBrowserElement = styled.div`
+const Browser = styled.div`
   margin: ${spacing.medium} 0 64px;
 `
 
-const IconBrowserSection = styled.div``
+const Rows = styled(RowLayout)`
+  grid-gap: 4rem;
+  > *:empty {
+    display: none;
+  }
+`
 
-IconBrowserSection.Title = styled.h3`
-  opacity: 0.5;
+const Heading = styled.h3`
   text-transform: capitalize;
-  font-size: 1.5em;
-  margin-top: 1em;
-  margin-left: 1em;
+  font-size: 18px;
 `
 
-const IconBrowserList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+const Grid = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-gap: ${spacing.xsmall};
 `
 
-const IconBrowserLink = styled.a`
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  align-items: center;
+const Name = styled.div`
+  color: #757575;
+`
+
+const Card = styled.div`
+  display: grid;
   text-align: center;
-  width: 60px;
-  height: 60px;
-  margin: ${spacing.medium};
+  justify-items: center;
+  /* outline: 1px solid #757575; */
+  padding: ${spacing.small} ${spacing.xsmall};
   ${Icon.Element} {
-    flex: none;
-    margin-right: 0;
-    margin-bottom: ${spacing.xsmall};
+    margin: ${spacing.small} 0;
+  }
+  &:hover  {
+    ${Name} {
+      color: #333;
+    }
   }
 `
 
@@ -89,19 +96,21 @@ class IconBrowser extends React.Component {
     if (sectionIcons.length === 0) return null
 
     return (
-      <IconBrowserSection>
-        <IconBrowserSection.Title>{section}</IconBrowserSection.Title>
-        <IconBrowserList>
-          {sectionIcons.map((name, index) => (
-            <li key={index}>
-              <IconBrowserLink>
-                <Icon name={name} size={40} />
-                <span>{name}</span>
-              </IconBrowserLink>
-            </li>
-          ))}
-        </IconBrowserList>
-      </IconBrowserSection>
+      <section>
+        <RowLayout gutter="condensed">
+          <Heading>{section}</Heading>
+          <Grid>
+            {sectionIcons.map((name, index) => (
+              <li index={index}>
+                <Card>
+                  <Icon name={name} size={32} />
+                  <Name>{name}</Name>
+                </Card>
+              </li>
+            ))}
+          </Grid>
+        </RowLayout>
+      </section>
     )
   }
 
@@ -111,16 +120,20 @@ class IconBrowser extends React.Component {
     const matchingIcons = this.getMatchingIcons(filter)
 
     return (
-      <IconBrowserElement>
-        <TextInput
-          placeholder="Start typing to search for icons..."
-          value={filter}
-          onChange={this.handleChange}
-        />
-        {Object.keys(processedSections).map(section =>
-          this.filterIconsForSection(section, matchingIcons)
-        )}
-      </IconBrowserElement>
+      <Browser>
+        <RowLayout gutter="spacious">
+          <TextInput
+            placeholder="Start typing to search for icons..."
+            value={filter}
+            onChange={this.handleChange}
+          />
+          <Rows gutter="spacious">
+            {Object.keys(processedSections).map(section =>
+              this.filterIconsForSection(section, matchingIcons)
+            )}
+          </Rows>
+        </RowLayout>
+      </Browser>
     )
   }
 }

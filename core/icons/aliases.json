@@ -1,5 +1,5 @@
 {
-  "budicon": {
+  "User interface": {
     "credit-card": ["115"],
     "cloud": ["143"],
     "cloud-sun": ["142"],
@@ -138,7 +138,7 @@
     "mail-cancel": ["782"],
     "mail-plus": ["779"]
   },
-  "concepts": {
+  "Concepts": {
     "authorization": ["606"],
     "certificates": ["753"],
     "quickstarts": ["359"],
@@ -156,7 +156,7 @@
     "anomaly-detection": ["anomaly"],
     "sso-integrations": []
   },
-  "brands": {
+  "Brands": {
     "brand-microsoft": ["windowslive", "windows"],
     "brand-paypal": [],
     "brand-bitbucket": [],
@@ -195,7 +195,7 @@
     "brand-planningcenter": [],
     "brand-thirtysevensignals": []
   },
-  "fill": {
+  "Fill icons": {
     "lock-fill": [],
     "help-fill": [],
     "home-fill": [],
