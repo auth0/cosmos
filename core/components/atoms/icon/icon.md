@@ -18,4 +18,8 @@ in the box below, and the list will be filtered. You can also find the canonical
 for icons by searching for words with similar meaning; for example, if you search for
 `trash` or `remove`, the `delete` icon will be displayed.
 
+<Alert title="Hot tip!" type="information" dismissible={false}>
+  If you are migrating icons from Styleguide, input the icon number in the search field to find the corresponding name. It will save you a lot of time!
+</Alert>
+
 <IconBrowser />
