@@ -4,6 +4,7 @@ import styled, { css } from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
+import Tooltip from '../../atoms/tooltip'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const justifyContent = {
@@ -11,16 +12,29 @@ const justifyContent = {
   right: 'flex-end'
 }
 
+/*
+  In compressed mode, the buttons stick together,
+  so only the first and last corners should be rounded.
+
+  With a tooltip, the button is wrapped with Tooltip.Trigger
+  followed by a Tooltip.Element
+
+  This makes rounder corners break and is fixed by adding
+  very Tooltip specific code here
+*/
 const groupRadiusStyles = css`
-  ${Button.Element}:first-child {
+  ${Button.Element}:first-child:not(:last-child),
+  ${Tooltip.Trigger}:first-child > ${Button.Element} {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  ${Button.Element}:last-child {
+  ${Button.Element}:last-child:not(:first-child),
+  ${Tooltip.Trigger}:nth-last-child(2) > ${Button.Element} {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  ${Button.Element}:not(:first-child):not(:last-child) {
+  ${Button.Element}:not(:first-child):not(:last-child),
+  ${Tooltip.Trigger}:not(:first-child):not(:nth-last-child(2)) > ${Button.Element} {
     border-radius: 0;
   }
 `
@@ -53,7 +67,7 @@ ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
-  & > * {
+  & > ${Button.Element} {
     ${marginForButton};
   }
 
