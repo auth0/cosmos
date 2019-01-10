@@ -55,7 +55,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                     error={null}
                     fieldComponent={[Function]}
                     helpText={null}
-                    label="Form label"
+                    label=""
                     type="text"
                   >
                     <styled.div
@@ -73,14 +73,12 @@ exports[`Form Field - old API renders the correct id 1`] = `
                             className="sc-kIPQKe icUXMf"
                           >
                             <styled.label
-                              htmlFor="form_label-3"
+                              htmlFor="-3"
                             >
                               <label
                                 className="sc-hwwEjo fSYpod"
-                                htmlFor="form_label-3"
-                              >
-                                Form label
-                              </label>
+                                htmlFor="-3"
+                              />
                             </styled.label>
                           </div>
                         </styled.div>
@@ -97,8 +95,8 @@ exports[`Form Field - old API renders the correct id 1`] = `
                               fieldComponent={[Function]}
                               hasError={false}
                               helpText={null}
-                              id="form_label-3"
-                              label="Form label"
+                              id="-3"
+                              label=""
                               onChange={null}
                               readOnly={false}
                               size="default"
@@ -112,8 +110,8 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                 fieldComponent={[Function]}
                                 hasError={false}
                                 helpText={null}
-                                id="form_label-3"
-                                label="Form label"
+                                id="-3"
+                                label=""
                                 onChange={null}
                                 readOnly={false}
                                 size="default"
@@ -128,8 +126,8 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   fieldComponent={[Function]}
                                   hasError={false}
                                   helpText={null}
-                                  id="form_label-3"
-                                  label="Form label"
+                                  id="-3"
+                                  label=""
                                   onChange={null}
                                   readOnly={false}
                                   size="default"
@@ -138,8 +136,8 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   <input
                                     className="sc-kgAjT iqekDB sc-csuQGl hIrBSd"
                                     data-cosmos-key="text-input"
-                                    id="form_label-3"
-                                    label="Form label"
+                                    id="-3"
+                                    label=""
                                     onChange={null}
                                     readOnly={false}
                                     size="default"
