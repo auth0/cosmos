@@ -75,8 +75,8 @@ storiesOf('Tooltip', module).add('with compressed button group', () => (
           <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
             <Button>Something</Button>
           </Tooltip>
+          <Button>Something</Button>
         </ButtonGroup>
-        <Button>Something</Button>
       </ExampleContainer>
     ))}
   </Example>
