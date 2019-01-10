@@ -7,13 +7,17 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Label from '../../atoms/label'
 
+const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
+
 const SidebarLink = props => {
   return (
-    <li>
+    <SidebarLink.Item>
       <SidebarLink.Element
         href={props.url}
         onClick={props.onClick}
         selected={props.selected}
+        aria-expanded={props.open}
+        {...ariaCurrent(props)}
         {...Automation('sidebar.link')}
         {...props}
       >
@@ -25,9 +29,13 @@ const SidebarLink = props => {
         <SidebarLink.Text>{props.label}</SidebarLink.Text>
         {props.new ? <Label appearance="default">NEW</Label> : null}
       </SidebarLink.Element>
-    </li>
+
+      {props.children}
+    </SidebarLink.Item>
   )
 }
+
+SidebarLink.Item = styled.li``
 
 SidebarLink.Element = styled.a`
   display: flex;

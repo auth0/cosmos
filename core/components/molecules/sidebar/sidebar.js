@@ -1,13 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 import Automation from '../../_helpers/automation-attribute'
+import uniqueId from '../../_helpers/uniqueId'
 import { colors } from '@auth0/cosmos-tokens'
 
 const Sidebar = props => {
   return (
-    <Sidebar.Element {...Automation('Sidebar Nav')} aria-label="[landmark description]">
+    <Sidebar.Element
+      {...Automation('Sidebar Nav')}
+      aria-label={props.description}
+      role="navigation"
+    >
       {/* if group, then do the ul within the section, else do the ul outside. */}
       <Sidebar.List {...Automation('Sidebar List')} {...props} />
     </Sidebar.Element>
@@ -22,7 +28,18 @@ Sidebar.Element = styled.nav`
   /* width: 160px; */
 `
 
-Sidebar.Group = styled.section`
+Sidebar.Group = ({ title, children }) => {
+  const id = uniqueId('sidebargroup')
+
+  return (
+    <Sidebar.Group.Element {...Automation('sidebar.group')} aria-labelledby={id}>
+      <Sidebar.GroupHeader id={id}>{title}</Sidebar.GroupHeader>
+      <ul>{children}</ul>
+    </Sidebar.Group.Element>
+  )
+}
+
+Sidebar.Group.Element = styled.section`
   /* background-color: violet; */
   :not(:last-of-type):not(:only-of-type) {
     margin-bottom: 20px;
@@ -41,7 +58,9 @@ Sidebar.List = styled.ul``
 Sidebar.Link = SidebarLink
 Sidebar.LinkGroup = SidebarLinkGroup
 
-Sidebar.propTypes = {}
+Sidebar.propTypes = {
+  description: PropTypes.string.isRequired
+}
 
 Sidebar.defaultProps = {}
 
