@@ -4,6 +4,7 @@ import styled, { css } from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
+import Tooltip from '../../atoms/tooltip'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const justifyContent = {
@@ -53,7 +54,7 @@ ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
-  & > * {
+  & > ${Button.Element}, & > ${Tooltip.Trigger} {
     ${marginForButton};
   }
 

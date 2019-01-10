@@ -3,6 +3,7 @@ import styled, { css } from '@auth0/cosmos/styled'
 import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { multiply } from '../../_helpers/pixel-calc'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
@@ -51,7 +52,13 @@ class Tooltip extends React.Component {
             </Tooltip.Trigger>
           )}
         </Reference>
-        <Popper placement={props.position} modifiers={{ preventOverflow: { enabled: false } }}>
+        <Popper
+          placement={props.position}
+          modifiers={{
+            preventOverflow: { enabled: false },
+            offset: { offset: '0, 10' }
+          }}
+        >
           {({ ref, style, placement, arrowProps }) => (
             <React.Fragment>
               {this.state.visible ? (
@@ -90,8 +97,6 @@ Tooltip.Element = styled.div`
   font-size: 13px;
   pointer-events: none;
   max-width: 260px;
-  /* make room for arrow */
-  margin: 6px;
 `
 
 Tooltip.Trigger = styled.div`
@@ -99,62 +104,20 @@ Tooltip.Trigger = styled.div`
   position: relative;
 `
 
-/*
-  The tooltip needs to have a margin to create
-  space for the arrow
-*/
-const arrowSize = '12px;'
-const tooltipMargin = arrowSize
+const arrowWidth = '6px'
+const arrowColor = colors.tooltip.background
 
 /*
-  To keep the arrow outside the tooltip,
-  right and bottom need margin
+  popper doesn't arrange the tooltip right in the center,
+  so we add an adjustment
 */
-const arrowMargin = '-5px'
+const arrowAdjustment = multiply(arrowWidth, -2)
 
 Tooltip.Arrow = styled.div`
   position: absolute;
   width: 0;
   height: 0;
 
-  &[data-placement*='top'] {
-    bottom: 0;
-    margin-left: -${tooltipMargin};
-    &::before {
-      border-width: 6px 5.5px 0 6px;
-      border-color: ${colors.tooltip.background} transparent transparent transparent;
-    }
-  }
-
-  &[data-placement*='right'] {
-    left: 0;
-    margin-left: ${arrowMargin};
-    margin-top: -${tooltipMargin};
-    &::before {
-      border-width: 6px 5.5px 6px 0;
-      border-color: transparent ${colors.tooltip.background} transparent transparent;
-    }
-  }
-
-  &[data-placement*='bottom'] {
-    top: 0;
-    left: 0;
-    margin-top: ${arrowMargin};
-    margin-left: -${tooltipMargin};
-    &::before {
-      border-width: 0 6px 5.5px 6px;
-      border-color: transparent transparent ${colors.tooltip.background} transparent;
-    }
-  }
-
-  &[data-placement*='left'] {
-    right: 0;
-    margin-top: -${tooltipMargin};
-    &::before {
-      border-width: 6px 0 6px 5.5px;
-      border-color: transparent transparent transparent ${colors.tooltip.background};
-    }
-  }
   &::before {
     content: '';
     margin: auto;
@@ -162,6 +125,48 @@ Tooltip.Arrow = styled.div`
     width: 0;
     height: 0;
     border-style: solid;
+    border-width: ${arrowWidth};
+    border-color: transparent;
+  }
+
+  &[data-placement*='top'] {
+    bottom: 0;
+    margin-left: ${arrowAdjustment};
+
+    &::before {
+      border-bottom-width: 0;
+      border-top-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='right'] {
+    left: 0;
+    margin-top: ${arrowAdjustment};
+    margin-left: -${arrowWidth};
+    &::before {
+      border-left-width: 0;
+      border-right-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='bottom'] {
+    top: 0;
+    left: 0;
+    margin-left: ${arrowAdjustment};
+    margin-top: -${arrowWidth};
+    &::before {
+      border-top-width: 0;
+      border-bottom-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='left'] {
+    right: 0;
+    margin-top: ${arrowAdjustment};
+    &::before {
+      border-right-width: 0;
+      border-left-color: ${arrowColor};
+    }
   }
 `
 
