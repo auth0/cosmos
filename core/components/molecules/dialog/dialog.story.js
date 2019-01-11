@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Tabs, Paragraph, Text, Button } from '@auth0/cosmos'
+import { Dialog, Form, Link, Tabs, Paragraph, Text, Button, TextInput } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -69,9 +69,15 @@ storiesOf('Dialog', module).add('with form', () => (
       width={600}
     >
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field label="First Name">
+          <TextInput type="text" placeholder="John" />
+        </Form.Field>
+        <Form.Field label="Last Name">
+          <TextInput type="text" placeholder="Doe" />
+        </Form.Field>
+        <Form.Field label="Email Address">
+          <TextInput type="text" placeholder="john.doe@auth0.com" />
+        </Form.Field>
       </Form>
     </Dialog>
   </StyledExample>
@@ -99,9 +105,15 @@ storiesOf('Dialog', module).add('with introduction + form', () => (
         <Text type="strong">bold</Text> text.
       </Paragraph>
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field label="First Name">
+          <TextInput type="text" placeholder="John" />
+        </Form.Field>
+        <Form.Field label="Last Name">
+          <TextInput type="text" placeholder="Doe" />
+        </Form.Field>
+        <Form.Field label="Email Address">
+          <TextInput type="text" placeholder="john.doe@auth0.com" />
+        </Form.Field>
       </Form>
     </Dialog>
   </StyledExample>
