@@ -136,7 +136,7 @@
     "mail-minus": ["780"],
     "mail-cancel": ["782"],
     "mail-plus": ["779"],
-    "message-alt": []
+    "message-alt": ["support"]
   },
   "Concepts": {
     "authorization": ["606"],
