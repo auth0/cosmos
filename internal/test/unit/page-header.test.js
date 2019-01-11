@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 
 import { PageHeader, Button, Icon, Link } from '@auth0/cosmos'
+import { escapeComponent } from 'uri-js'
 
 describe('Page Header', () => {
   it('renders primary action only', () => {
@@ -70,5 +71,31 @@ describe('Page Header', () => {
     expect(actions.primary.handler).toHaveBeenCalled()
     expect(actions.secondary.handler).toHaveBeenCalled()
     expect(wrapper).toMatchSnapshot()
+  })
+
+  it('calls primaryAction#handler callback', () => {
+    const primaryAction = { label: 'Something', icon: 'copy', handler: jest.fn() }
+    const pageHeader = shallow(
+      <PageHeader primaryAction={primaryAction} description="A description" />
+    )
+    pageHeader
+      .childAt(2)
+      .childAt(0)
+      .simulate('click')
+
+    expect(primaryAction.handler).toHaveBeenCalled()
+  })
+
+  it('calls secondaryAction#handler callback', () => {
+    const secondaryAction = { label: 'Something', icon: 'copy', handler: jest.fn() }
+    const pageHeader = shallow(
+      <PageHeader secondaryAction={secondaryAction} description="A description" />
+    )
+    pageHeader
+      .childAt(2)
+      .childAt(0)
+      .simulate('click')
+
+    expect(secondaryAction.handler).toHaveBeenCalled()
   })
 })

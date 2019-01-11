@@ -20,7 +20,9 @@ Pass a `primaryAction` with the label and handler to call.
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
@@ -31,7 +33,9 @@ You can also pass an `array` of `secondaryActions`.
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions
     primaryAction={{ label: 'Save Changes', handler: () => {} }}
     secondaryActions={[
@@ -48,7 +52,9 @@ In case you want to represent a dangerous or unrecoverable action, you can pass 
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions
     primaryAction={{ label: 'Save Changes', handler: () => {} }}
     destructiveAction={{ label: 'Delete', icon: 'delete', handler: () => {} }}
@@ -62,7 +68,9 @@ You can pass any prop that `Button` accepts and they will be forwarded
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions
     primaryAction={{ label: 'Save Changes', loading: true, handler: () => {} }}
     destructiveAction={{
