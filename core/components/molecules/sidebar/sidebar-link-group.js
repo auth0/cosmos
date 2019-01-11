@@ -2,8 +2,8 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import SidebarLink from './sidebar-link'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
-import { spacing } from '@auth0/cosmos-tokens'
+import Icon, { __ICONNAMES__ } from '../../atoms/icon'
+import { spacing, colors } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 class SidebarLinkGroup extends React.Component {
@@ -67,9 +67,12 @@ SidebarLinkGroup.Content = styled.ul`
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
   transition: all 0.3s ease-in-out;
 
-  & ${SidebarLink.Element} {
-    color: red;
-    font-weight: bold;
+  ${SidebarLink.Element} {
+    padding-top: ${spacing.xxsmall};
+    padding-bottom: ${spacing.xxsmall};
+  }
+  ${Icon.Element} path {
+    fill: ${colors.text.secondary};
   }
 `
 
