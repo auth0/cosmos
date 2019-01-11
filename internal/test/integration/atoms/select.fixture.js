@@ -1,5 +1,8 @@
 import React from 'react'
 import { Select } from '@auth0/cosmos'
+import { mockFn } from '../helpers/event-handler'
+
+const onChange = jest.fn()
 
 class Fixture extends React.Component {
   render() {
@@ -12,10 +15,13 @@ class Fixture extends React.Component {
           { text: 'Two', value: 2 },
           { text: 'Three', value: 3 }
         ]}
-        onChange={event => console.log(event)}
+        onChange={onChange}
+        onClick={mockFn}
       />
     )
   }
 }
+
+Fixture.onChange = onChange
 
 export default Fixture
