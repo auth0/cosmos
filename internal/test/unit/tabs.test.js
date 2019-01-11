@@ -3,12 +3,6 @@ import { shallow } from 'enzyme'
 
 import Tabs from '@auth0/cosmos/molecules/tabs/tabs'
 
-/**
- * Since Tabs are using generated random ids for accessibility,
- * we need to mock the generator so we don't break the snapshots.
- */
-jest.mock('@auth0/cosmos/_helpers/uniqueId', () => () => '-m0ck3d')
-
 function tabsFactory() {
   const content = {
     first: <div className="content-1" />,

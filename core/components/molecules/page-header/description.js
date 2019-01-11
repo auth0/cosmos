@@ -6,6 +6,20 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Paragraph from '../../atoms/paragraph'
 import Link from '../../atoms/link'
 
+/*
+Components should not have margin by default.
+We'll remove this margin reset when we remove margins from the paragraph
+*/
+export const StyledParagraph = styled(Paragraph)`
+  margin: 0;
+  flex: 1 0 100%;
+  order: 1;
+  margin-top: ${spacing.medium};
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+`
+
 const ArrowMore = styled.i`
   position: relative;
   left: 2px;
@@ -16,28 +30,11 @@ const ArrowMore = styled.i`
   border-width: 4px 0 4px 6px;
   border-color: transparent transparent transparent ${colors.link.default};
 `
+
 // Required to style hover from parent element
-const StyledLink = styled(Link)``
-
-export const StyledParagraph = styled(Paragraph)`
-  /* 
-  Components should not have margin by default.
-  We'll remove this margin reset when we remove margins from the paragraph
-  */
-  margin: 0;
-  flex: 1 0 100%;
-  order: 1;
-
+const StyledLink = styled(Link)`
   &:hover ${ArrowMore} {
     border-color: transparent transparent transparent ${colors.link.defaultHover};
-  }
-
-  &:hover ${StyledLink} {
-    color: ${colors.link.defaultHover};
-  }
-  margin-top: ${spacing.medium};
-  @media (min-width: 768px) {
-    margin-bottom: 0;
   }
 `
 
