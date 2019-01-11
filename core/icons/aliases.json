@@ -67,10 +67,10 @@
     "analytics": ["705"],
     "reload": ["refresh"],
     "block": ["ban"],
-    "notifications": [],
+    "notifications": ["487"],
     "calendar": ["629"],
     "hourglass": ["623"],
-    "danger": [],
+    "danger": ["important", "exclamation", "!"],
     "dashboard": [],
     "logs": ["754"],
     "play-circle": [],
@@ -136,7 +136,8 @@
     "mail-minus": ["780"],
     "mail-cancel": ["782"],
     "mail-plus": ["779"],
-    "message-alt": ["support"]
+    "message-alt": ["support"],
+    "chart-line": ["362"]
   },
   "Concepts": {
     "authorization": ["606"],
