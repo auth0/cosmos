@@ -9,16 +9,8 @@ class Fixture extends React.Component {
         title="Clients"
         description={<span>long description goes here</span>}
         learnMore="/link"
-        primaryAction={{
-          label: 'Create Client',
-          icon: 'plus',
-          handler: () => {}
-        }}
-        secondaryAction={{
-          label: 'Tutorial',
-          icon: 'play-circle',
-          handler: () => {}
-        }}
+        primaryAction={<Button icon="plus">Create Client</Button>}
+        secondaryAction={<Button icon="play-circle">Tutorial</Button>}
       />
     )
   }
