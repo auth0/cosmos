@@ -93,7 +93,7 @@ class IconBrowser extends React.Component {
   filterIconsForSection(section, icons) {
     const sectionIcons = icons.filter(icon => !!processedSections[section][icon])
 
-    if (sectionIcons.length === 0) return null
+    if (sectionIcons.length === 0 || section == 'Deprecated') return null
 
     return (
       <section>

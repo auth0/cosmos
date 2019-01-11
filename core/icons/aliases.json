@@ -72,12 +72,11 @@
     "hourglass": ["623"],
     "danger": [],
     "dashboard": [],
-    "extensions": [],
     "logs": ["754"],
     "play-circle": [],
     "message": ["799"],
     "undo": [],
-    "email": ["778"],
+    "mail": ["778"],
     "more": [],
     "attachment": [],
     "gamepad": ["246"],
@@ -136,7 +135,8 @@
     "mail-check": ["781"],
     "mail-minus": ["780"],
     "mail-cancel": ["782"],
-    "mail-plus": ["779"]
+    "mail-plus": ["779"],
+    "message-alt": []
   },
   "Concepts": {
     "authorization": ["606"],
@@ -154,7 +154,9 @@
     "hosted-pages": ["725"],
     "multifactor": ["243"],
     "anomaly-detection": ["anomaly"],
-    "sso-integrations": []
+    "sso-integrations": [],
+    "extensions": [],
+    "login-box": []
   },
   "Brands": {
     "brand-microsoft": ["windowslive", "windows"],
@@ -202,5 +204,11 @@
     "arrow-left-fill": [],
     "dropdown-fill": [],
     "chevron-right-fill": []
+  },
+  "Deprecated": {
+    "email": [],
+    "emails": [],
+    "feature-universal-login": [],
+    "support": []
   }
 }
