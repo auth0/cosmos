@@ -92,7 +92,7 @@ Field.propTypes = {
 }
 
 Field.defaultProps = {
-  label: 'Form label',
+  label: '',
   helpText: null,
   error: null
 }

@@ -4,6 +4,36 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.12.2 [January 9, 2019]
+
+### Fixed
+
+- Icon: Add “application” icon. [#1401]
+- Alternate implementation for uniqueId: This improves snapshot testing experience by removing random hashes from components attributes. [#1374] (Warning: You may need to update some snapshots and remove any uniqueId mock.)
+- Breadcrumb: Fix automation attribute naming. [#1309] (Warning: You may need to update some tests.)
+
+**Breadcrumb change**
+
+We have renamed the Breadcrumb.Link automation attribute from this:
+`<a data-cosmos-key="link">clicky</a>`
+to this:
+`<a data-cosmos-key="breadcrumb.link">clicky</a>`
+
+Please update your tests (if any) accordingly.
+
+**UniqueId helper change**
+
+In the past, we used to randomly generate an id for some attributes that were required to link components.
+Now we're using a global counter, which will lead to improve snapshot testing since each test is run in an isolated environment, and then each test run will have a fresh and pure start.
+
+If you were using a mock for `uniqueId` as a workaround:
+
+```js
+jest.mock('../../../core/components/_helpers/uniqueId', () => () => 'abcdef1234')
+```
+
+Please, remove it since is no longer needed.
+
 ## 0.12.1 [January 8, 2019]
 
 ### Fixed
