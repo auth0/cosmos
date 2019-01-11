@@ -33,9 +33,14 @@ const defaultItems = [
   }
 ]
 
-const tableFactory = ({ items = defaultItems, onRowClick = () => {}, wrapper = shallow } = {}) =>
+const tableFactory = ({
+  items = defaultItems,
+  onSort = () => {},
+  onRowClick = () => {},
+  wrapper = shallow
+} = {}) =>
   wrapper(
-    <Table items={items} onRowClick={onRowClick}>
+    <Table items={items} onRowClick={onRowClick} onSort={onSort}>
       <Table.Column field="image" width="50px">
         {item => <Avatar type="user" image={item.image} />}
       </Table.Column>
@@ -64,19 +69,18 @@ describe('Table', () => {
     expect(tableParams.onRowClick).toHaveBeenCalledTimes(1)
   })
 
+  it('calls onSort', () => {
+    const tableParams = { onSort: jest.fn(), wrapper: mount }
+    const wrapper = tableFactory(tableParams)
+
+    const tableHeader = wrapper.find('th').at(1)
+
+    tableHeader.simulate('click')
+    expect(tableParams.onSort).toHaveBeenCalledWith('name', 'desc')
+  })
+
   it('provides automatic sorting', () => {
-    const data = [
-      { number: 1 },
-      { number: 3 },
-      { number: 5 },
-      { number: 7 },
-      { number: 8 },
-      { number: 0 },
-      { number: 2 },
-      { number: 4 },
-      { number: 6 },
-      { number: 9 }
-    ]
+    const data = [1, 3, 5, 7, 8, 0, 2, 4, 6, 9].map(number => ({ number }))
 
     const wrapper = mount(
       <Table items={data}>
