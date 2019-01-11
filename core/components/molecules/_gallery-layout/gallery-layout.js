@@ -45,7 +45,7 @@ GalleryLayout.propTypes = {
 }
 
 GalleryLayout.defaultProps = {
-  size: 'default',
+  size: 'medium',
   gutter: 'default'
 }
 
