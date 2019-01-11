@@ -38,12 +38,12 @@
     "check-circle": ["499"],
     "rotate": ["update", "436"],
     "play": ["try", "test", "187"],
-    "clients": ["applications", "375"],
     "application": ["374"],
     "application-cancel": ["370"],
     "application-check": ["371"],
     "application-plus": ["372"],
     "application-minus": ["373"],
+    "applications": ["375"],
     "resize-vertical": ["reorder", "458"],
     "chevron-down": ["460"],
     "chevron-right": ["461"],
@@ -209,6 +209,7 @@
     "email": [],
     "emails": [],
     "feature-universal-login": [],
-    "support": []
+    "support": [],
+    "clients": ["applications", "375"]
   }
 }
