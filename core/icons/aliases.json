@@ -25,7 +25,7 @@
     "user-cancel": ["296"],
     "user-minus": ["298"],
     "user-check": ["297"],
-    "user-plus": ["299"],
+    "user-plus": ["299", "user-add"],
     "users": ["people", "292"],
     "copy": ["338"],
     "code": ["342"],
@@ -211,6 +211,7 @@
     "emails": [],
     "feature-universal-login": [],
     "support": [],
-    "clients": ["applications", "375"]
+    "clients": ["applications", "375"],
+    "user-add": []
   }
 }
