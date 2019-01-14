@@ -16,7 +16,7 @@ import {
 
 storiesOf('Stack Layout', module).add('Resource list', () => (
   <Example title="Resource list">
-    <StackLayout distribution="spaceBetween" space={[1, 1.5, 'none']}>
+    <StackLayout distribution="spaceBetween" space={[1, 2, 'none']}>
       <StackLayout space={['none', 1]}>
         <Avatar type="resource" icon="clients" size="large" />
         <RowLayout gutter="none">

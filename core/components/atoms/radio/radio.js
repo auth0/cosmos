@@ -36,9 +36,6 @@ Radio.Option.Element = styled.label`
   position: relative;
   cursor: pointer;
   padding-left: ${spacing.medium};
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
   pointer-events: ${props => (props.readOnly ? 'none' : null)};
