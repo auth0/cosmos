@@ -2,12 +2,6 @@ import React from 'react'
 import { render, fireEvent } from 'react-testing-library'
 
 import Fixture from './tooltip.fixture'
-import customIdTest from '../helpers/custom-id'
-import eventHandlerTest from '../helpers/event-handler'
-
-test('Accepts custom id prop', () => {
-  customIdTest(Fixture, 'tooltip')
-})
 
 test('Tooltip is hidden by default', () => {
   const body = render(<Fixture />)
@@ -51,8 +45,4 @@ test('Tooltip is shows up on focus', () => {
 
   tooltip = body.queryByTestId('tooltip')
   expect(tooltip).toBeFalsy()
-})
-
-test('Calls custom event handler', () => {
-  eventHandlerTest(Fixture, 'tooltip')
 })
