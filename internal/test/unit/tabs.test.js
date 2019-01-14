@@ -3,12 +3,6 @@ import { shallow } from 'enzyme'
 
 import Tabs from '@auth0/cosmos/molecules/tabs/tabs'
 
-/**
- * Since Tabs are using generated random ids for accessibility,
- * we need to mock the generator so we don't break the snapshots.
- */
-jest.mock('@auth0/cosmos/_helpers/uniqueId', () => () => '-m0ck3d')
-
 function tabsFactory() {
   const content = {
     first: <div className="content-1" />,
@@ -60,5 +54,31 @@ describe('Tabs', () => {
     unSelectedTab.simulate('click')
 
     expect(selectedHandler).toHaveBeenCalled()
+  })
+
+  it('renders linked accessibility identifiers', () => {
+    const { generator } = tabsFactory()
+    const testableIndexes = [0, 1, 2]
+
+    testableIndexes.forEach(index => {
+      const tabs = generator(index)
+
+      const [tabList, activeTabPanel] = tabs.children()
+
+      const getPropFromTabLink = propName =>
+        tabList.props.children.map(link => link.props.children.props[propName])
+
+      const getPropFromTabPane = (propName, removeValue) => {
+        const value = activeTabPanel.props[propName]
+        return removeValue ? value.replace(removeValue, '') : value
+      }
+
+      const tabLinkIds = getPropFromTabLink('id')
+      const tabLinkAriaControls = getPropFromTabLink('aria-controls')
+
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('id', '-tab'))
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('aria-labelledby', '-tab'))
+      expect(tabLinkAriaControls[index]).toEqual(getPropFromTabPane('id'))
+    })
   })
 })

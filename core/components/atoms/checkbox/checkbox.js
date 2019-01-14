@@ -23,6 +23,7 @@ const Checkbox = props => (
       defaultChecked={props.defaultChecked}
       onChange={props.onChange}
       readOnly
+      {...Automation('checkbox.input')}
     />
     <CheckMark />
     <Label>{props.children}</Label>
