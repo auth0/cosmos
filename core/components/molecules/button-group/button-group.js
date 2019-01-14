@@ -35,7 +35,7 @@ const middleButtonStyles = css`
 `
 
 ButtonGroup.Child = styled.span`
-  > ${Button.Element} {
+  ${Button.Element} {
     ${props => (props.compressed && props.first ? firstButtonStyles : null)};
     ${props => (props.compressed && props.last ? lastButtonStyles : null)};
     ${props => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
