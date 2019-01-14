@@ -9,27 +9,26 @@ const Label = styled.span``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
+  vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
 const Radio = props => (
   <Radio.Element {...props} {...Automation('radio')}>
-    {React.Children.map(props.children, child => {
-      return React.cloneElement(child, {
+    {React.Children.map(props.children, child =>
+      React.cloneElement(child, {
         name: props.name,
         checked: props.selected === child.props.value,
-        readOnly: props.readOnly || child.props.readOnly,
-        onChange: props.onChange
+        readOnly: props.readOnly || child.props.readOnly
       })
-    })}
+    )}
   </Radio.Element>
 )
 
 Radio.Option = ({ readOnly, children, ...props }) => (
   <Radio.Option.Element readOnly={props.readOnly}>
-    <input {...Automation('radio.option')} pepe="test" type="radio" readOnly {...props} />
+    <input {...Automation('radio.option')} type="radio" readOnly {...props} />
     <CheckMark />
-    <Label>{props.children}</Label>
+    <Label>{children}</Label>
   </Radio.Option.Element>
 )
 

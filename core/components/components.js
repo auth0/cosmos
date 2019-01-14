@@ -64,6 +64,7 @@ import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
 import PageLayout from './molecules/_page-layout'
+import StackLayout from './molecules/_stack-layout'
 
 export {
   Alert,
@@ -104,6 +105,7 @@ export {
   Sidebar,
   Spinner,
   Stack,
+  StackLayout,
   Switch,
   Table,
   Tabs,

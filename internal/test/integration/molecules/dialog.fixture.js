@@ -1,47 +1,30 @@
 import React from 'react'
 import { Dialog, Button } from '@auth0/cosmos'
+import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { open: true }
-  }
-  setDialogState(open) {
-    this.setState({ open })
-  }
-
   render() {
     return (
-      <div>
-        <Dialog
-          id="custom-id"
-          open={this.state.open}
-          title="Example Dialog"
-          onClose={() => this.setDialogState(false)}
-          actions={[
-            <Button
-              appearance="primary"
-              onClick={() => {
-                alert("You've performed the 'OK' action.")
-              }}
-            >
-              OK
-            </Button>,
-            <Button
-              appearance="secondary"
-              onClick={() => {
-                alert("You've performed the 'Cancel' action.")
-              }}
-            >
-              Cancel
-            </Button>
-          ]}
-        >
-          Are you sure?
-        </Dialog>
-      </div>
+      <Dialog
+        id="custom-id"
+        open={true}
+        title="Example Dialog"
+        onClose={mockFn}
+        actions={[
+          <Button appearance="primary" onClick={Fixture.actionOnClick}>
+            OK
+          </Button>,
+          <Button appearance="secondary" onClick={Fixture.actionOnClick}>
+            Cancel
+          </Button>
+        ]}
+      >
+        Are you sure?
+      </Dialog>
     )
   }
 }
+
+Fixture.actionOnClick = mockFn
 
 export default Fixture
