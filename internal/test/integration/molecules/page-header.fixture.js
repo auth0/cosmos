@@ -1,5 +1,5 @@
 import React from 'react'
-import { PageHeader } from '@auth0/cosmos'
+import { PageHeader, Button } from '@auth0/cosmos'
 
 class Fixture extends React.Component {
   render() {
