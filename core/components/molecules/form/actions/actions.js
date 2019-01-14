@@ -36,7 +36,6 @@ const Actions = props => {
                 {primaryAction.label}
               </Button>
             )}
-
             {secondaryActions &&
               secondaryActions.map((action, index) => (
                 <Button
