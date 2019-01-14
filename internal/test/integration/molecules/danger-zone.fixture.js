@@ -1,5 +1,6 @@
 import React from 'react'
 import { DangerZone } from '@auth0/cosmos'
+import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class Fixture extends React.Component {
             description: 'All your apps using this client will stop working.',
             action: {
               label: 'Delete',
-              onClick: event => {}
+              onClick: mockFn
             }
           }
         ]}

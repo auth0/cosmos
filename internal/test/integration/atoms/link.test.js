@@ -1,5 +1,3 @@
-import React from 'react'
-import { render } from 'react-testing-library'
 import eventHandlerTest from '../helpers/event-handler'
 
 import Fixture from './link.fixture'
