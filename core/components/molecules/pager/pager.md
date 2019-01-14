@@ -35,3 +35,24 @@ class PaginatedResource extends React.Component {
   }
 }
 ```
+
+### Without items
+
+```js
+class PaginatedResource extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { page: 1, perPage: 15 }
+  }
+
+  onPageChange(page) {
+    this.setState({ page })
+  }
+
+  render() {
+    const { page, perPage } = this.state
+    return <Pager page={page} perPage={perPage} onPageChanged={this.onPageChange.bind(this)} />
+  }
+}
+```
