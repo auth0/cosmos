@@ -54,7 +54,9 @@ describe('Pagination helper tests', () => {
     expect(totals(75, 10, 12000)).toEqual('Showing 741 - 750 of 12000')
     expect(totals(75, 13, 12345)).toEqual('Showing 963 - 975 of 12345')
     expect(totals(1, 10, 54321)).toEqual('Showing 1 - 10 of 54321')
+    expect(totals(1, 10)).toEqual('Showing 1 - 10')
     expect(totals(1200, 10, 12000)).toEqual('Showing 11991 - 12000 of 12000')
+    expect(totals(1200, 10, -12)).toEqual('Showing 11991 - 12000')
   })
 
   it('should generate pagination content', () => {
