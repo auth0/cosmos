@@ -8,16 +8,19 @@ import { spacing } from '@auth0/cosmos-tokens'
 
 const ButtonGroup = props => (
   <ButtonGroup.Element {...props} {...Automation('button-group')}>
-    {React.Children.map(props.children, (child, index) => (
-      <ButtonGroup.Child
-        key={index}
-        first={index === 0}
-        last={index === props.children.length - 1}
-        compressed={props.compressed}
-      >
-        {child}
-      </ButtonGroup.Child>
-    ))}
+    {React.Children.map(props.children, (child, index) => {
+      if (child)
+        return (
+          <ButtonGroup.Child
+            key={index}
+            first={index === 0}
+            last={index === props.children.length - 1}
+            compressed={props.compressed}
+          >
+            {child}
+          </ButtonGroup.Child>
+        )
+    })}
   </ButtonGroup.Element>
 )
 
