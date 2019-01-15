@@ -37,7 +37,7 @@ TextArea.propTypes = {
   code: PropTypes.bool,
   /** Pass hasError to show error state */
   hasError: PropTypes.bool,
-  /** @deprecated Pass error string directly to show error state */
+  /** @deprecated:hasError Pass error string directly to show error state */
   error: PropTypes.string,
   /** Allow resizing of the textarea */
   resizable: PropTypes.bool,

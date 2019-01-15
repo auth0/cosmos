@@ -105,7 +105,7 @@ AvatarBlock.propTypes = {
   size: PropTypes.PropTypes.oneOf(['compact', 'default', 'large']),
   /** The secondary line of text to display. */
   subtitle: PropTypes.string,
-  /** @deprecated If specified, the main text will be rendered as a hyperlink */
+  /** @deprecated:link If specified, the main text will be rendered as a hyperlink */
   href: PropTypes.string,
   /** If specified, the main text will be rendered as a hyperlink */
   link: PropTypes.oneOfType([

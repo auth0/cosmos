@@ -93,7 +93,7 @@ class Props extends React.Component {
               </td>
               <td>{getDefaultValue(propData[key])}</td>
               <td>
-                {propData[key].deprecated ? (
+                {propData[key].deprecationData ? (
                   <Deprecated>
                     use <Code>{propData[key].deprecationData}</Code>
                   </Deprecated>
