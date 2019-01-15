@@ -7,6 +7,7 @@ import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import containerStyles from '../../_helpers/container-styles'
+import Automation from '../../_helpers/automation-attribute'
 
 const Container = styled.div`
   ${containerStyles};
@@ -62,8 +63,8 @@ const Action = styled.div`
   text-align: right;
 `
 
-const DangerZone = ({ items }) => (
-  <Container>
+const DangerZone = ({ items, ...props }) => (
+  <Container {...Automation('danger-zone')} {...props}>
     <MainTitle size={3}>Danger Zone</MainTitle>
     <ItemsContainer>
       {items.map(item => (
@@ -81,6 +82,7 @@ const DangerZone = ({ items }) => (
                 }}
                 appearance="destructive"
                 loading={item.action.loading}
+                {...Automation('danger-zone.action')}
               >
                 {item.action.label}
               </Button>

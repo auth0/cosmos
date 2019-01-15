@@ -5,6 +5,7 @@ import { Image } from '@auth0/cosmos'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
+import Automation from '../../_helpers/automation-attribute'
 
 const PLACEHOLDERS = {
   USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
@@ -23,13 +24,27 @@ const iconSizes = {
 const getImageForAvatar = props => {
   if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
   if (props.email && props.initials)
-    return <Image source={getUserAvatarUrl(props.image, props.email, props.initials)} />
+    return (
+      <Image
+        width="100%"
+        height="100%"
+        fit="cover"
+        source={getUserAvatarUrl(props.image, props.email, props.initials)}
+      />
+    )
   if (typeof props.image === 'string') {
-    return <Image source={props.image} />
+    return <Image width="100%" height="100%" fit="cover" source={props.image} />
   }
 
   if (!props.image)
-    return <Image source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE} />
+    return (
+      <Image
+        width="100%"
+        height="100%"
+        fit="cover"
+        source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE}
+      />
+    )
 
   return props.image
 }
@@ -38,7 +53,7 @@ const Avatar = props => {
   const image = getImageForAvatar(props)
 
   return (
-    <Avatar.Element type={props.type} size={props.size}>
+    <Avatar.Element type={props.type} size={props.size} {...Automation('avatar')} {...props}>
       {image}
     </Avatar.Element>
   )
@@ -58,15 +73,16 @@ Avatar.Element = styled.span`
   justify-content: center;
   overflow: hidden;
 
+  /* This allows to pass an SVG tag to the image prop and it will render correctly. This is not needed. We can remove this if we change the "image" prop to only accept a string */
   img,
   svg {
     height: 100%;
     width: 100%;
-    user-select: none;
   }
 
   ${Icon.Element} {
     line-height: 0;
+    /* Try to remove line-height and set display: inline-flex; */
   }
 `
 
@@ -76,7 +92,7 @@ const StyledAvatar = Avatar.Element
 Avatar.propTypes = {
   /** An icon to display. */
   icon: PropTypes.oneOf(__ICONNAMES__),
-  /** An image URL or component to display. */
+  /** An image URL or Image component. */
   image: PropTypes.node,
   /** The size of the avatar. */
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),

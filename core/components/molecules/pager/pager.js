@@ -7,8 +7,8 @@ import containerStyles from '../../_helpers/container-styles'
 import Button from '../../atoms/button'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
-const Pager = ({ onPageChanged, page, perPage, items }) => (
-  <Pager.Element {...Automation('pager')}>
+const Pager = ({ onPageChanged, page, perPage, items, ...props }) => (
+  <Pager.Element {...Automation('pager')} {...props}>
     <Button
       position="left"
       size="compressed"
@@ -18,7 +18,7 @@ const Pager = ({ onPageChanged, page, perPage, items }) => (
     >
       Newer
     </Button>
-    <Pager.PageSelector page={page}>{totals(page, perPage, items)}</Pager.PageSelector>
+    <Pager.PageSelector page={page}>{items && totals(page, perPage, items)}</Pager.PageSelector>
     <Button
       position="right"
       size="compressed"
@@ -46,9 +46,9 @@ Pager.PageSelector = styled.div`
 `
 
 Pager.propTypes = {
-  page: PropTypes.number.isRequired,
-  perPage: PropTypes.number.isRequired,
-  items: PropTypes.number.isRequired,
+  page: PropTypes.number,
+  perPage: PropTypes.number,
+  items: PropTypes.number,
   onPageChanged: PropTypes.func
 }
 

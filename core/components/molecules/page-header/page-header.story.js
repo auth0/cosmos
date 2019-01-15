@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { PageHeader, Text } from '@auth0/cosmos'
+import { PageHeader, Link, Text } from '@auth0/cosmos'
 
 storiesOf('Page Header', module).add('default', () => (
   <Example title="default">
@@ -10,7 +10,7 @@ storiesOf('Page Header', module).add('default', () => (
       title="Clients"
       description={
         <span>
-          Setup a mobile, web or IoT application to{' '}
+          Setup a mobile, web or <Link href="https://auth0.com">IoT application</Link> to{' '}
           <Text type="strong">use Auth0 for Authentication</Text>.
         </span>
       }

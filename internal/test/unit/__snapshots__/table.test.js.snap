@@ -38,7 +38,7 @@ exports[`Table renders properly 1`] = `
       ]
     }
     onRowClick={[Function]}
-    onSort={null}
+    onSort={[Function]}
     rows={
       Array [
         <styled.tr

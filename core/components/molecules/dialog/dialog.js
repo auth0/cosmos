@@ -24,7 +24,7 @@ const createButtonForAction = (action, index) => {
     }
 
     /* Add index to the button component as a key prop */
-    return React.cloneElement(action, { key: index })
+    return React.cloneElement(action, { key: index, ...Automation('dialog.action') })
   }
 
   const buttonProps = {
@@ -32,7 +32,7 @@ const createButtonForAction = (action, index) => {
     appearance: action.appearance
   }
   return (
-    <Button key={index} {...buttonProps}>
+    <Button key={index} {...buttonProps} {...Automation('dialog.action')}>
       {action.label}
     </Button>
   )
@@ -98,6 +98,7 @@ class Dialog extends React.Component {
             role="dialog"
             aria-modal="true"
             aria-labelledby="dialog-title"
+            {...props}
           >
             <DialogClose>
               <Button
@@ -106,6 +107,7 @@ class Dialog extends React.Component {
                 appearance="link"
                 icon="close"
                 onClick={props.onClose}
+                {...Automation('dialog.close')}
               />
             </DialogClose>
 
