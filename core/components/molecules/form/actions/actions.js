@@ -36,7 +36,6 @@ const Actions = props => {
                 {primaryAction.label}
               </Button>
             )}
-
             {secondaryActions &&
               secondaryActions.map((action, index) => (
                 <Button
@@ -48,7 +47,6 @@ const Actions = props => {
                   {action.label}
                 </Button>
               ))}
-
             {destructiveAction && (
               <Right>
                 <Button {...getButtonProps(destructiveAction)} appearance="destructive">
