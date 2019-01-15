@@ -1,6 +1,3 @@
-import React from 'react'
-import { render } from 'react-testing-library'
-
 import Fixture from './page-header.fixture'
 import customIdTest from '../helpers/custom-id'
 

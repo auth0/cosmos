@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, fireEvent } from 'react-testing-library'
-
 import Fixture from './tooltip.fixture'
 
 test('Tooltip is hidden by default', () => {

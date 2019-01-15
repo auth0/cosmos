@@ -50,9 +50,12 @@ export function totals(page, perPage, items) {
   let toRecord = page * perPage
   const fromRecord = toRecord - perPage + 1
 
-  if (toRecord > items) toRecord = items
+  if (items > 0 && toRecord > items) toRecord = items
 
-  return `Showing ${fromRecord} - ${toRecord} of ${items}`
+  let result = `Showing ${fromRecord} - ${toRecord}`
+  if (items > 0) result += ` of ${items}`
+
+  return result
 }
 
 /**

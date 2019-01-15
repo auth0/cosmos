@@ -82,6 +82,7 @@ const DangerZone = ({ items, ...props }) => (
                 }}
                 appearance="destructive"
                 loading={item.action.loading}
+                {...Automation('danger-zone.action')}
               >
                 {item.action.label}
               </Button>
