@@ -83,7 +83,9 @@ storiesOf('ButtonGroup', module).add('compressed', () => (
     </Example>
     <Example title="compressed icons">
       <ButtonGroup compressed>
-        <Button icon="pencil" /> <Button icon="copy" /> <Button icon="delete" />
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
       </ButtonGroup>
     </Example>
   </div>

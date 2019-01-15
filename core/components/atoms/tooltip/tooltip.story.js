@@ -32,7 +32,9 @@ const ExampleContainer = ({ children, position, noMargins }) => {
 
 storiesOf('Tooltip', module).add('hidden by default', () => (
   <Example title="hidden by default">
-    <Tooltip content="Can you see me?">Hover over me</Tooltip>
+    <Tooltip content="Can you see me?">
+      <Button>Button</Button>
+    </Tooltip>
   </Example>
 ))
 
