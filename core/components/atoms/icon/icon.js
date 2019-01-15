@@ -5,7 +5,15 @@ import PropTypes from 'prop-types'
 import { colors } from '@auth0/cosmos-tokens'
 import { icons } from './icons.json'
 import Automation from '../../_helpers/automation-attribute'
-import customIcon from '../../../../assets/icon-custom.svg'
+
+const customIconProcessor = (CustomIcon, props) => {
+  const StyledCustomIcon = styled(CustomIcon)`
+    & path {
+      fill: ${props.color};
+    }
+  `
+  return <StyledCustomIcon {...props} />
+}
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
@@ -13,7 +21,7 @@ const Icon = props => {
 
   // Use an icon name from tokens, fallback to hexcode (without validation)
   const color = colors.base[props.color] || props.color
-  console.log({ props })
+  const CustomIcon = props.component
   return (
     <Icon.Element {...Automation('icon')} {...props}>
       {props.name && (
@@ -28,7 +36,14 @@ const Icon = props => {
           ))}
         </SVGImage>
       )}
-      {props.component}
+
+      {CustomIcon &&
+        customIconProcessor(CustomIcon, {
+          width: props.size,
+          height: props.size,
+          viewBox: `0 0 ${icon.width} ${icon.height}`,
+          color: color
+        })}
     </Icon.Element>
   )
 }
@@ -69,5 +84,4 @@ Icon.defaultProps = {
 }
 
 export default Icon
-export { customIcon }
 export { __ICONNAMES__ }
