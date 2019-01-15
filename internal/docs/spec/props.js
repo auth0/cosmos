@@ -20,7 +20,6 @@ const Type = styled.div`
 
 const Deprecated = Type.withComponent('span').extend`
   color: ${colors.text.error};
-  &:after { content: '(deprecated)' }
 `
 
 const Required = styled.span`
@@ -85,7 +84,7 @@ class Props extends React.Component {
                 <Code style={{ color: propData[key].deprecated ? colors.text.error : 'inherit' }}>
                   {key}
                 </Code>
-                {propData[key].deprecated && <Deprecated />}
+                {propData[key].deprecated && <Deprecated>(deprecated)</Deprecated>}
                 {propData[key].required && <Required />}
               </td>
               <td>
@@ -94,11 +93,17 @@ class Props extends React.Component {
               </td>
               <td>{getDefaultValue(propData[key])}</td>
               <td>
-                <PropSwitcher
-                  propName={key}
-                  data={propData[key]}
-                  onPropsChange={this.onPropsChange.bind(this)}
-                />
+                {propData[key].deprecated ? (
+                  <Deprecated>
+                    use <Code>{propData[key].deprecationData}</Code>
+                  </Deprecated>
+                ) : (
+                  <PropSwitcher
+                    propName={key}
+                    data={propData[key]}
+                    onPropsChange={this.onPropsChange.bind(this)}
+                  />
+                )}
               </td>
             </tr>
           ))}
