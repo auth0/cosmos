@@ -6,6 +6,7 @@ import { Example, Stack, IconStoryBox } from '@auth0/cosmos/_helpers/story-helpe
 import { Icon } from '@auth0/cosmos'
 import { spacing } from '@auth0/cosmos/tokens'
 import { icons } from './icons.json'
+import customIcon from '../../../../assets/icon-custom.svg'
 
 storiesOf('Icon', module).add('default', () => (
   <Example title="Icons">
@@ -72,5 +73,14 @@ storiesOf('Icon', module).add('named icons', () => (
         </IconStoryBox>
       ))}
     </div>
+  </Example>
+))
+
+storiesOf('Icon', module).add('custom SVG', () => (
+  <Example title="Custom SVG">
+    <Stack>
+      <Icon component={customIcon} />
+      <Icon color="red" size="40" component={customIcon} />
+    </Stack>
   </Example>
 ))

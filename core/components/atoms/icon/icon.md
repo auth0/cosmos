@@ -23,3 +23,13 @@ for icons by searching for words with similar meaning; for example, if you searc
 </Alert>
 
 <IconBrowser />
+
+## Custom Icons
+
+```
+import customIcon from 'path/to/custom.svg'
+```
+
+```js
+<Icon source={customIcon} />
+```

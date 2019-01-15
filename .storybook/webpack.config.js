@@ -8,6 +8,13 @@ module.exports = storybookBaseConfig => {
   //     COSMOS_DISABLE_RESETS: true
   //   })
   // )
+
+  storybookBaseConfig.module.rules.push({
+    test: /\.svg$/,
+    use: ['@svgr/webpack']
+    //include: path.resolve(__dirname, "../")
+  })
+
   const newConfig = { ...storybookBaseConfig }
 
   // Export bundles as libraries so we can access them on page scope.

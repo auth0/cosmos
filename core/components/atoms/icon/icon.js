@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { colors } from '@auth0/cosmos-tokens'
 import { icons } from './icons.json'
 import Automation from '../../_helpers/automation-attribute'
+import customIcon from '../../../../assets/icon-custom.svg'
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
@@ -12,19 +13,22 @@ const Icon = props => {
 
   // Use an icon name from tokens, fallback to hexcode (without validation)
   const color = colors.base[props.color] || props.color
-
+  console.log({ props })
   return (
     <Icon.Element {...Automation('icon')} {...props}>
-      <Image
-        width={props.size}
-        height={props.size}
-        viewBox={`0 0 ${icon.width} ${icon.height}`}
-        color={color}
-      >
-        {icon.paths.map((path, index) => (
-          <path key={index} d={path} />
-        ))}
-      </Image>
+      {props.name && (
+        <SVGImage
+          width={props.size}
+          height={props.size}
+          viewBox={`0 0 ${icon.width} ${icon.height}`}
+          color={color}
+        >
+          {icon.paths.map((path, index) => (
+            <path key={index} d={path} />
+          ))}
+        </SVGImage>
+      )}
+      {props.component}
     </Icon.Element>
   )
 }
@@ -35,7 +39,7 @@ Icon.Element = styled.i`
   width: ${props => props.size}px;
   height: ${props => props.size}px;
 `
-const Image = styled.svg`
+const SVGImage = styled.svg`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
@@ -55,7 +59,8 @@ Icon.propTypes = {
   /** Icon size */
   size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Icon foreground color */
-  color: PropTypes.oneOf(__COLORS__)
+  color: PropTypes.oneOf(__COLORS__),
+  component: PropTypes.node
 }
 
 Icon.defaultProps = {
@@ -64,4 +69,5 @@ Icon.defaultProps = {
 }
 
 export default Icon
+export { customIcon }
 export { __ICONNAMES__ }
