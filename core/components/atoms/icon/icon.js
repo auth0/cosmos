@@ -15,20 +15,18 @@ const customIconProcessor = (CustomIcon, props) => {
   return <StyledCustomIcon {...props} />
 }
 
-const namedIconProcessor = (icon, props, color) => {
-  return (
-    <SVGImage
-      width={props.size}
-      height={props.size}
-      viewBox={`0 0 ${icon.width} ${icon.height}`}
-      color={color}
-    >
-      {icon.paths.map((path, index) => (
-        <path key={index} d={path} />
-      ))}
-    </SVGImage>
-  )
-}
+const namedIconProcessor = (icon, props, color) => (
+  <SVGImage
+    width={props.size}
+    height={props.size}
+    viewBox={`0 0 ${icon.width} ${icon.height}`}
+    color={color}
+  >
+    {icon.paths.map((path, index) => (
+      <path key={index} d={path} />
+    ))}
+  </SVGImage>
+)
 
 const Icon = props => {
   // If the icon name isn't found, show a question mark instead.
