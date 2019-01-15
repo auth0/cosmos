@@ -78,5 +78,13 @@ test('Tooltip should hide on escape key', () => {
 })
 
 test('Calls custom event handler', () => {
-  eventHandlerTest(Fixture, 'tooltip')
+  const body = render(<Fixture />)
+
+  /* get tooltip to show */
+  const input = body.queryByTestId('text-input')
+  fireEvent.mouseEnter(input)
+
+  let tooltip = body.queryByTestId('tooltip')
+  fireEvent.click(tooltip)
+  expect(Fixture.onClick).toHaveBeenCalled()
 })

@@ -12,4 +12,6 @@ class Fixture extends React.Component {
   }
 }
 
+Fixture.onClick = mockFn
+
 export default Fixture
