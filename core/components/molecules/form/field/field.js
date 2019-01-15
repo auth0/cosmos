@@ -33,7 +33,7 @@ const Field = props => {
             {props.fieldComponent ? (
               <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
             ) : (
-              props.children
+              React.cloneElement(props.children, { id })
             )}
             {props.error ? <StyledError>{props.error}</StyledError> : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
