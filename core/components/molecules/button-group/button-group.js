@@ -72,7 +72,7 @@ ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
 
-  & > ${ButtonGroup.Child} {
+  & > * {
     ${marginForButton};
   }
 `

@@ -4,13 +4,18 @@ import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import { multiply } from '../../_helpers/pixel-calc'
+import uniqueId from '../../_helpers/uniqueId'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { visible: props.defaultVisible || false }
+    this.state = {
+      visible: props.defaultVisible || false,
+      // generating id in constructor to keep it consistent across renders
+      id: props.id || uniqueId('tooltip')
+    }
   }
   showTooltip = () => {
     this.setState({ visible: true })
@@ -24,14 +29,15 @@ class Tooltip extends React.Component {
     if (event.key === 'Escape') this.setState({ visible: false })
   }
   render() {
-    const { id, content, ...props } = this.props
+    const { content, ...props } = this.props
+    const { id } = this.state
     let child
 
-    /* There's just one child which is a React Element */
     if (React.Children.count(props.children) === 1 && React.isValidElement(props.children)) {
+      /* If there's just one child which is a React Element */
       child = React.cloneElement(props.children, { 'aria-describedby': id })
     } else {
-      /* weird case, should not really happen */
+      /* weird case, we don't really know what to do when this happens */
       child = props.children
     }
 
