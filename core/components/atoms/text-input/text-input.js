@@ -14,7 +14,7 @@ import InputWithActions from '../_input-with-actions'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 
 const TextInput = props => {
-  let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
+  let { name, defaultValue, placeholder, readOnly, ...restOfTheProps } = props
 
   /*
     override placeholder and readOnly for masked
@@ -35,6 +35,7 @@ const TextInput = props => {
       defaultValue={defaultValue}
       placeholder={placeholder}
       readOnly={readOnly}
+      name={name}
       {...restOfTheProps}
     />
   )
