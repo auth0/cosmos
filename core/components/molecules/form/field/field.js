@@ -9,6 +9,7 @@ import FormContext from '../form-context'
 import Automation from '../../../_helpers/automation-attribute'
 
 import StyledLabel from '../label'
+import FieldInput from './field-input'
 import StyledError from '../error'
 import HelpText from '../help-text'
 import TextArea from '../../../atoms/textarea'
@@ -30,11 +31,12 @@ const Field = props => {
             <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
           </Field.LabelLayout>
           <Field.ContentLayout layout={context.layout}>
-            {props.fieldComponent ? (
-              <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
-            ) : (
-              props.children
-            )}
+            <FieldInput
+              Component={props.fieldComponent}
+              id={id}
+              hasError={error ? true : false}
+              {...fieldProps}
+            />
             {props.error ? <StyledError>{props.error}</StyledError> : null}
             {props.helpText ? <HelpText>{props.helpText}</HelpText> : null}
           </Field.ContentLayout>

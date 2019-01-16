@@ -150,7 +150,7 @@ We leave the logic part of validation to you the developer, you can pass `error`
     error="This is not a valid URL"
     helpText="Make sure to specify the protocol, http:// or https://"
   >
-    <TextInput type="text" placeholder="Enter something" defaultValue="auth0.com" hasError={true} />
+    <TextInput type="text" hasError={true} placeholder="Enter something" defaultValue="auth0.com" />
   </Form.Field>
 </Form>
 ```
@@ -189,6 +189,7 @@ If you are using the old flavor of the API, you can continue using it till `1.0.
     label="Allowed URLs"
     type="text"
     placeholder="Enter something"
+    error="There's something wrong in the neighbourhood"
     actions={[
       { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
       { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
