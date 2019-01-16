@@ -10,7 +10,7 @@ You can put any input element inside it like another cosmos component `TextInput
 
 ```jsx
 <Form>
-  <Form.Field {props}>
+  <Form.Field {props} defaults={{label: "Field label"}}>
     <TextInput placeholder="Enter some text" />
   </Form.Field>
 </Form>
