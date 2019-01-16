@@ -1,14 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Tabs, Paragraph, Text, Button } from '@auth0/cosmos'
+import { Dialog, Form, Link, Tabs, Paragraph, Text, Button, TextInput } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
 `
 
-storiesOf('Dialog').add('default', () => (
+storiesOf('Dialog', module).add('default', () => (
   <StyledExample title="default">
     <Dialog
       open
@@ -25,7 +25,7 @@ storiesOf('Dialog').add('default', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with primary button only', () => (
+storiesOf('Dialog', module).add('with primary button only', () => (
   <StyledExample title="with primary button only">
     <Dialog
       open
@@ -42,7 +42,7 @@ storiesOf('Dialog').add('with primary button only', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('without footer', () => (
+storiesOf('Dialog', module).add('without footer', () => (
   <StyledExample title="without footer">
     <Dialog open title="Example Dialog" onClose={() => {}}>
       Some information
@@ -51,7 +51,7 @@ storiesOf('Dialog').add('without footer', () => (
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with form', () => (
+storiesOf('Dialog', module).add('with form', () => (
   <StyledExample title="with form">
     <Dialog
       open
@@ -69,15 +69,21 @@ storiesOf('Dialog').add('with form', () => (
       width={600}
     >
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field label="First Name">
+          <TextInput type="text" placeholder="John" />
+        </Form.Field>
+        <Form.Field label="Last Name">
+          <TextInput type="text" placeholder="Doe" />
+        </Form.Field>
+        <Form.Field label="Email Address">
+          <TextInput type="text" placeholder="john.doe@auth0.com" />
+        </Form.Field>
       </Form>
     </Dialog>
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('with introduction + form', () => (
+storiesOf('Dialog', module).add('with introduction + form', () => (
   <StyledExample title="with introduction + form">
     <Dialog
       open
@@ -99,15 +105,21 @@ storiesOf('Dialog').add('with introduction + form', () => (
         <Text type="strong">bold</Text> text.
       </Paragraph>
       <Form layout="label-on-top">
-        <Form.TextInput label="First Name" type="text" placeholder="John" />
-        <Form.TextInput label="Last Name" type="text" placeholder="Doe" />
-        <Form.TextInput label="Email Address" type="text" placeholder="john.doe@auth0.com" />
+        <Form.Field label="First Name">
+          <TextInput type="text" placeholder="John" />
+        </Form.Field>
+        <Form.Field label="Last Name">
+          <TextInput type="text" placeholder="Doe" />
+        </Form.Field>
+        <Form.Field label="Email Address">
+          <TextInput type="text" placeholder="john.doe@auth0.com" />
+        </Form.Field>
       </Form>
     </Dialog>
   </StyledExample>
 ))
 
-storiesOf('Dialog').add('stressed', () => (
+storiesOf('Dialog', module).add('stressed', () => (
   <StyledExample title="stressed">
     <Dialog
       open
@@ -196,6 +208,27 @@ storiesOf('Dialog').add('stressed', () => (
         starts and may include <Link href="#">links to other sites</Link> and/or{' '}
         <Text type="strong">bold</Text> text.
       </Paragraph>
+    </Dialog>
+  </StyledExample>
+))
+
+storiesOf('Dialog', module).add('dialog with tabs', () => (
+  <StyledExample title="dialog with tabs">
+    <Dialog
+      open
+      title="Example Dialog"
+      role="destructive"
+      onClose={() => {}}
+      actions={[
+        new Dialog.Action('OK', () => {}, 'primary'),
+        new Dialog.Action('Cancel', () => {}, 'secondary')
+      ]}
+    >
+      <Tabs selected={0} onSelect={_ => {}}>
+        <Tabs.Tab label="Tab 1">This is tab 1</Tabs.Tab>
+        <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
+        <Tabs.Tab label="Tab 3">Look, third tab is selected by default!</Tabs.Tab>
+      </Tabs>
     </Dialog>
   </StyledExample>
 ))

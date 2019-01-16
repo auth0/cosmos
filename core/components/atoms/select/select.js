@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import Icon from '../icon'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
@@ -46,7 +46,7 @@ const Select = ({ options, ...props }) => {
 
   return (
     <Select.Wrapper>
-      <Select.ArrowIcon name="dropdown-fill" size="14" color="black" />
+      <Select.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Select.Element {...props} {...Automation('select')}>
         {/* First option will be selected if there is no value passed as a prop */}
         <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
@@ -59,7 +59,7 @@ const Select = ({ options, ...props }) => {
   )
 }
 
-Select.Element = StyledInput.withComponent('select').extend`
+Select.Element = styled(StyledInput.withComponent('select'))`
   appearance: none;
 
   padding-right: ${spacing.large};
@@ -79,6 +79,7 @@ Select.Wrapper = styled.div`
 Select.ArrowIcon = styled(Icon)`
   position: absolute;
   right: 12px;
+  pointer-events: none;
 
   svg {
     display: block;

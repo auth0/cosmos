@@ -1,11 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { Avatar, Link } from '@auth0/cosmos'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 import { deprecate } from '../../_helpers/custom-validations'
 import containerStyles from '../../_helpers/container-styles'
+import Automation from '../../_helpers/automation-attribute'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
@@ -73,7 +74,7 @@ const AvatarBlock = props => {
   }
 
   return (
-    <AvatarBlock.Element>
+    <AvatarBlock.Element {...Automation('avatar-block')} {...props}>
       {avatar}
       <Text>
         {title}

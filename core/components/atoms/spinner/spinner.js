@@ -1,8 +1,9 @@
 import React from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, keyframes } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Logo from '../logo'
 import defaultPropChangeWarning from '../../_helpers/default-prop-change'
+import Automation from '../../_helpers/automation-attribute'
 
 const rotate = keyframes`
   0% { transform: rotate(0deg) }
@@ -41,7 +42,7 @@ const spinnerWithLogo = (variant, props) => {
 
   return (
     <Spinner.Container variant={variant}>
-      <Spinner.Element {...props} width={variant.width} />
+      <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
       <Logo size={variant.logo} color={iconColor} />
     </Spinner.Container>
   )
@@ -55,7 +56,7 @@ const Spinner = props => {
   return variant.logo ? (
     spinnerWithLogo(variant, props)
   ) : (
-    <Spinner.Element {...props} width={variant.width} />
+    <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
   )
 }
 

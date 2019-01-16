@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import TextInput from '../../atoms/text-input'
 import Button from '../../atoms/button'
@@ -39,14 +39,14 @@ Pager.Button = styled(Button)`
   }
 `
 
-const PaginationToolbar = ({ onPageChanged, page, perPage, items }) => {
+const PaginationToolbar = ({ onPageChanged, page, perPage, items, ...props }) => {
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is one page or less
   if (pages <= 1) return null
 
   return (
-    <PaginationToolbar.Element {...Automation('pagination-toolbar')}>
+    <PaginationToolbar.Element {...Automation('pagination-toolbar')} {...props}>
       <PaginationToolbar.PageSelector page={page}>
         <div>Page</div>
         <TextInput

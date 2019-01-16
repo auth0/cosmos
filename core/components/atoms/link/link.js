@@ -1,12 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { colors } from '@auth0/cosmos-tokens'
 
 const Link = props => (
-  <Link.Element {...props} {...Automation('link')}>
+  <Link.Element {...Automation('link')} {...props}>
     {props.children}
   </Link.Element>
 )

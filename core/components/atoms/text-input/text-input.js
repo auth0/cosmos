@@ -1,36 +1,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@auth0/cosmos/styled'
 
 import { misc } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
-import { deprecate } from '../../_helpers/custom-validations'
-import Automation from '../../_helpers/automation-attribute'
 
-const TextInput = ({ defaultValue, type, ...props }) => {
+/* Helpers */
+import Automation from '../../_helpers/automation-attribute'
+import { deprecate } from '../../_helpers/custom-validations'
+
+/* Input with actions */
+import InputWithActions from '../_input-with-actions'
+import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
+
+const TextInput = props => {
+  let { defaultValue, placeholder, readOnly, ...restOfTheProps } = props
+
+  /*
+    override placeholder and readOnly for masked
+
+    masked is like a readOnly field but with the values replaced with *
+    (like password, but without the value underneath)
+  */
   if (props.masked) {
-    const length = defaultValue ? defaultValue.length : 8
-    const maskedValue = new Array(length).join('•')
-    return (
-      <TextInput.Element
-        type={type}
-        {...props}
-        placeholder={maskedValue}
-        readOnly
-        {...Automation('text-input')}
-      />
-    )
+    const length = props.defaultValue ? props.defaultValue.length : 8
+    placeholder = new Array(length).join('•')
+    readOnly = true
+    defaultValue = null
   }
-  return (
+
+  const Input = (
     <TextInput.Element
       {...Automation('text-input')}
-      type={type}
       defaultValue={defaultValue}
-      {...props}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      {...restOfTheProps}
     />
   )
+
+  if (!props.actions.length) return Input
+  else {
+    /* Input is not a component, just JSX, hence wrapper in {} */
+    return (
+      <InputWithActions actions={props.actions} size={props.size}>
+        {Input}
+      </InputWithActions>
+    )
+  }
 }
 
-TextInput.Element = StyledInput.extend`
+TextInput.Element = styled(StyledInput)`
   height: ${props => misc.input[props.size].height};
 `
 
@@ -55,6 +75,11 @@ TextInput.propTypes = {
   type: PropTypes.string,
   /** The size of the input. */
   size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
+  /** Actions to be attached to the input */
+  actions: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  ]),
 
   /** deprecate error string prop */
   _error: props => deprecate(props, { name: 'error', replacement: 'hasError' })
@@ -66,7 +91,8 @@ TextInput.defaultProps = {
   error: null,
   onChange: null,
   type: 'text',
-  size: 'default'
+  size: 'default',
+  actions: []
 }
 
 export default TextInput

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import TableColumn from './table-column'
 import Automation from '../../_helpers/automation-attribute'
@@ -68,7 +68,6 @@ TableHeader.Cell = styled.th`
   border-bottom: 2px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: bottom;
-  line-height: 2;
   ${props => (props.width ? `width: ${props.width};` : '')}
   cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
   &:hover {

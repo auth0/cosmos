@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import getLayoutValues from '../layout'
@@ -36,7 +36,6 @@ const Actions = props => {
                 {primaryAction.label}
               </Button>
             )}
-
             {secondaryActions &&
               secondaryActions.map((action, index) => (
                 <Button
@@ -48,7 +47,6 @@ const Actions = props => {
                   {action.label}
                 </Button>
               ))}
-
             {destructiveAction && (
               <Right>
                 <Button {...getButtonProps(destructiveAction)} appearance="destructive">

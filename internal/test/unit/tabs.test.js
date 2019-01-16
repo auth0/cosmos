@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Tabs, { TabLink } from '@auth0/cosmos/molecules/tabs/tabs'
+import Tabs from '@auth0/cosmos/molecules/tabs/tabs'
 
 function tabsFactory() {
   const content = {
@@ -24,6 +24,7 @@ function tabsFactory() {
 
 describe('Tabs', () => {
   it('renders only selected tab content', () => {
+    jest.mock('../../../core/components/_helpers/uniqueId', () => () => 'abcdef1234')
     const { generator: wrapper } = tabsFactory()
 
     expect(wrapper).toMatchSnapshot()
@@ -46,12 +47,38 @@ describe('Tabs', () => {
 
     const wrapper = generator(0, selectedHandler)
     const unSelectedTab = wrapper
-      .find(TabLink)
-      .filter({ selected: false })
+      .find(Tabs.TabLink)
+      .filter({ 'aria-selected': false })
       .first()
 
     unSelectedTab.simulate('click')
 
     expect(selectedHandler).toHaveBeenCalled()
+  })
+
+  it('renders linked accessibility identifiers', () => {
+    const { generator } = tabsFactory()
+    const testableIndexes = [0, 1, 2]
+
+    testableIndexes.forEach(index => {
+      const tabs = generator(index)
+
+      const [tabList, activeTabPanel] = tabs.children()
+
+      const getPropFromTabLink = propName =>
+        tabList.props.children.map(link => link.props.children.props[propName])
+
+      const getPropFromTabPane = (propName, removeValue) => {
+        const value = activeTabPanel.props[propName]
+        return removeValue ? value.replace(removeValue, '') : value
+      }
+
+      const tabLinkIds = getPropFromTabLink('id')
+      const tabLinkAriaControls = getPropFromTabLink('aria-controls')
+
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('id', '-tab'))
+      expect(tabLinkIds[index]).toEqual(getPropFromTabPane('aria-labelledby', '-tab'))
+      expect(tabLinkAriaControls[index]).toEqual(getPropFromTabPane('id'))
+    })
   })
 })

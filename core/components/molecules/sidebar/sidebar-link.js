@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
@@ -13,6 +13,7 @@ const SidebarLink = props => {
       onClick={props.onClick}
       selected={props.selected}
       {...Automation('sidebar.link')}
+      {...props}
     >
       <Icon
         name={props.icon ? props.icon : 'arrow-right'}

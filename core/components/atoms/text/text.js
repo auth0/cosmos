@@ -1,18 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
 const Text = props => {
   if (props.type === 'subdued') {
-    return <Text.Subdued {...props}>{props.children}</Text.Subdued>
+    return (
+      <Text.Subdued {...Automation('text')} {...props}>
+        {props.children}
+      </Text.Subdued>
+    )
   }
   if (props.type === 'allcaps') {
-    return <Text.AllCaps {...props}>{props.children}</Text.AllCaps>
+    return (
+      <Text.AllCaps {...Automation('text')} {...props}>
+        {props.children}
+      </Text.AllCaps>
+    )
   }
   if (props.type === 'strong') {
-    return <Text.Strong {...props}>{props.children}</Text.Strong>
+    return (
+      <Text.Strong {...Automation('text')} {...props}>
+        {props.children}
+      </Text.Strong>
+    )
   }
   return props.children
 }

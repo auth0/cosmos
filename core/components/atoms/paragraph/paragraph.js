@@ -1,10 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import containerStyles from '@auth0/cosmos/_helpers/container-styles'
+import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
-const Paragraph = props => <Paragraph.Element {...props}>{props.children}</Paragraph.Element>
+const Paragraph = props => (
+  <Paragraph.Element {...Automation('paragraph')} {...props}>
+    {props.children}
+  </Paragraph.Element>
+)
 
 Paragraph.Element = styled.p`
   ${containerStyles};

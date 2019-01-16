@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { colors } from '@auth0/cosmos/tokens'
 
 const Title = styled.div`

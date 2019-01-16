@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import SidebarLink from './sidebar-link'
 import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
@@ -12,7 +12,7 @@ class SidebarLinkGroup extends React.Component {
 
     /* If a child is selected, group should be open */
     React.Children.forEach(props.children, child => {
-      if (child.props.selected) open = true
+      if (child && child.props && child.props.selected) open = true
     })
 
     this.state = { open }
@@ -26,7 +26,7 @@ class SidebarLinkGroup extends React.Component {
     const { icon, label, children } = this.props
     const { open } = this.state
     return (
-      <SidebarLinkGroup.Element {...Automation('sidebar.group')}>
+      <SidebarLinkGroup.Element {...Automation('sidebar.group')} {...this.props}>
         <SidebarLink icon={icon} label={label} onClick={this.handleClick} />
         <SidebarLinkGroup.Content open={open}>{children}</SidebarLinkGroup.Content>
       </SidebarLinkGroup.Element>

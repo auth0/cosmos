@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
@@ -9,7 +9,7 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 
 const List = props => {
   return (
-    <List.Element {...Automation('list')}>
+    <List.Element {...Automation('list')} {...props}>
       {props.label ? (
         <List.Label>
           <Heading size={4}>{props.label}</Heading>

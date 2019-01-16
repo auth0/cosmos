@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
@@ -14,7 +14,7 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
     <input
       type="checkbox"
       name={props.name}
@@ -23,6 +23,7 @@ const Checkbox = props => (
       defaultChecked={props.defaultChecked}
       onChange={props.onChange}
       readOnly
+      {...Automation('checkbox.input')}
     />
     <CheckMark />
     <Label>{props.children}</Label>

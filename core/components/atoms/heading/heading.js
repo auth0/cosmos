@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
+import Automation from '../../_helpers/automation-attribute'
 
 const BaseHeading = styled.h1`
   margin: 1em 0;
@@ -12,26 +13,30 @@ const BaseHeading = styled.h1`
 
 const Heading = props => {
   const Component = Heading.Element[props.size]
-  return <Component {...props}>{props.children}</Component>
+  return (
+    <Component {...Automation('heading')} {...props}>
+      {props.children}
+    </Component>
+  )
 }
 
 Heading.Element = []
 
-Heading.Element[1] = BaseHeading.withComponent('h1').extend`
+Heading.Element[1] = styled(BaseHeading.withComponent('h1'))`
   font-size: 36px;
 `
 
-Heading.Element[2] = BaseHeading.withComponent('h2').extend`
+Heading.Element[2] = styled(BaseHeading.withComponent('h2'))`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-Heading.Element[3] = BaseHeading.withComponent('h3').extend`
+Heading.Element[3] = styled(BaseHeading.withComponent('h3'))`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-Heading.Element[4] = BaseHeading.withComponent('h4').extend`
+Heading.Element[4] = styled(BaseHeading.withComponent('h4'))`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `

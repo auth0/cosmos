@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
@@ -29,19 +29,19 @@ const getHelpLink = link => {
   )
 }
 
-const EmptyState = props => {
-  let helpLink = getHelpLink(props.link || props.helpUrl)
+const EmptyState = ({ link, helpUrl, title, icon, action, ...props }) => {
+  let helpLink = getHelpLink(link || helpUrl)
 
   return (
-    <EmptyState.Element {...Automation('empty-state')}>
-      <Title size={1}>{props.title}</Title>
+    <EmptyState.Element {...Automation('empty-state')} {...props}>
+      <Title size={1}>{title}</Title>
       <EmptyState.Body>
-        <Icon name={props.icon} size={110} color="blue" />
+        <Icon name={icon} size={110} color="blue" />
         <FreeText {...props} useParagraph />
         {helpLink}
       </EmptyState.Body>
-      <Button size="large" appearance="cta" icon={props.action.icon} onClick={props.action.handler}>
-        {props.action.label}
+      <Button size="large" appearance="cta" icon={action.icon} onClick={action.handler}>
+        {action.label}
       </Button>
     </EmptyState.Element>
   )

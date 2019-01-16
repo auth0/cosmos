@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
+import Tabs from '../../molecules/tabs'
 import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
@@ -23,7 +24,7 @@ const createButtonForAction = (action, index) => {
     }
 
     /* Add index to the button component as a key prop */
-    return React.cloneElement(action, { key: index })
+    return React.cloneElement(action, { key: index, ...Automation('dialog.action') })
   }
 
   const buttonProps = {
@@ -31,7 +32,7 @@ const createButtonForAction = (action, index) => {
     appearance: action.appearance
   }
   return (
-    <Button key={index} {...buttonProps}>
+    <Button key={index} {...buttonProps} {...Automation('dialog.action')}>
       {action.label}
     </Button>
   )
@@ -97,6 +98,7 @@ class Dialog extends React.Component {
             role="dialog"
             aria-modal="true"
             aria-labelledby="dialog-title"
+            {...props}
           >
             <DialogClose>
               <Button
@@ -105,6 +107,7 @@ class Dialog extends React.Component {
                 appearance="link"
                 icon="close"
                 onClick={props.onClose}
+                {...Automation('dialog.close')}
               />
             </DialogClose>
 
@@ -138,6 +141,7 @@ class Dialog extends React.Component {
 
 const DialogBox = styled.div`
   ${containerStyles};
+  pointer-events: auto;
   position: relative;
   max-height: calc(100vh - (${spacing.xlarge} * 2));
   display: flex;
@@ -193,8 +197,17 @@ const DialogBody = styled.div`
   word-break: break-word;
   word-wrap: break-word;
   /* Clears the margin of the last item of the body */
-  > * {
+  > *:last-child {
     margin-bottom: 0;
+  }
+
+  ${Tabs.TabList} {
+    margin-top: -${spacing.small};
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
+    justify-content: center;
   }
 `
 

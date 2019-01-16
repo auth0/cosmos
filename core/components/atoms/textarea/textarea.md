@@ -51,3 +51,19 @@ The `onChange` prop is transparently passed to the underlying textarea
 ```js
 <TextArea onChange={event => console.log(event.target.value)} placeholder="change my text" />
 ```
+
+### Actions
+
+You can add actions to a `TextArea` by passing an array of `Button`:
+
+```js
+<TextInput
+  label="Allowed URLs"
+  type="text"
+  placeholder="Enter something"
+  actions={[
+    <Button icon="copy" onClick={e => console.log(e)} />,
+    <Button icon="delete" onClick={e => console.log(e)} />
+  ]}
+/>
+```

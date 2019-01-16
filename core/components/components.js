@@ -13,7 +13,6 @@ import './_helpers/globals'
 /* internal */
 import Box from './atoms/_box'
 import Well from './atoms/_well'
-import ActionInput from './molecules/_action-input'
 
 /* atoms */
 import Avatar from './atoms/avatar'
@@ -60,14 +59,16 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts (internal) */
+import AppLayout from './molecules/_app-layout'
 import ColumnLayout from './molecules/_column-layout'
 import RowLayout from './molecules/_row-layout'
 import GalleryLayout from './molecules/_gallery-layout'
 import PageLayout from './molecules/_page-layout'
+import StackLayout from './molecules/_stack-layout'
 
 export {
-  ActionInput,
   Alert,
+  AppLayout,
   Avatar,
   AvatarBlock,
   Badge,
@@ -104,6 +105,7 @@ export {
   Sidebar,
   Spinner,
   Stack,
+  StackLayout,
   Switch,
   Table,
   Tabs,

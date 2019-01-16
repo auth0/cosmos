@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { spacing, misc } from '@auth0/cosmos-tokens'
 import getLayoutValues from '../layout'
@@ -92,7 +92,7 @@ Field.propTypes = {
 }
 
 Field.defaultProps = {
-  label: 'Form label',
+  label: '',
   helpText: null,
   error: null
 }

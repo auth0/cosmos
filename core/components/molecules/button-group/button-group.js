@@ -1,29 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
 import { spacing } from '@auth0/cosmos-tokens'
 
+const ButtonGroup = props => (
+  <ButtonGroup.Element {...props} {...Automation('button-group')}>
+    {React.Children.map(props.children, (child, index) => {
+      if (child)
+        return (
+          <ButtonGroup.Child
+            key={index}
+            first={index === 0}
+            last={index === props.children.length - 1}
+            compressed={props.compressed}
+          >
+            {child}
+          </ButtonGroup.Child>
+        )
+    })}
+  </ButtonGroup.Element>
+)
+
+const firstButtonStyles = css`
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+`
+const lastButtonStyles = css`
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+`
+
+const middleButtonStyles = css`
+  border-radius: 0;
+`
+
+ButtonGroup.Child = styled.span`
+  ${Button.Element} {
+    ${props => (props.compressed && props.first ? firstButtonStyles : null)};
+    ${props => (props.compressed && props.last ? lastButtonStyles : null)};
+    ${props => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
+  }
+`
+
 const justifyContent = {
   left: 'flex-start',
   right: 'flex-end'
 }
-
-const groupRadiusStyles = css`
-  ${Button.Element}:first-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  ${Button.Element}:last-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  ${Button.Element}:not(:first-child):not(:last-child) {
-    border-radius: 0;
-  }
-`
 
 const marginForButton = props => {
   if (!props.children) return ''
@@ -43,12 +68,6 @@ const marginForButton = props => {
   `
 }
 
-const ButtonGroup = props => (
-  <ButtonGroup.Element {...props} {...Automation('button-group')}>
-    {props.children}
-  </ButtonGroup.Element>
-)
-
 ButtonGroup.Element = styled.div`
   display: flex;
   justify-content: ${props => justifyContent[props.align]};
@@ -56,8 +75,6 @@ ButtonGroup.Element = styled.div`
   & > * {
     ${marginForButton};
   }
-
-  ${props => (props.compressed ? groupRadiusStyles : null)};
 `
 
 const StyledButtonGroup = ButtonGroup.Element

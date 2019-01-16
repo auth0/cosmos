@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 
 import { subtract } from '../../_helpers/pixel-calc'
@@ -190,7 +190,7 @@ const ButtonContent = props => {
 }
 
 const Button = ({ children, ...props }) => {
-  let button = <ButtonContent {...props} text={children} {...Automation('button')} />
+  let button = <ButtonContent {...Automation('button')} {...props} text={children} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
@@ -275,7 +275,7 @@ Button.Text = styled.span`
   margin-top: 1px;
 `
 
-Button.LinkElement = Button.Element.withComponent('a').extend`
+Button.LinkElement = styled(Button.Element.withComponent('a'))`
   text-decoration: none;
 `
 

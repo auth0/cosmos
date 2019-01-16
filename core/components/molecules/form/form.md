@@ -6,15 +6,16 @@
 
 ---
 
-Form is a compound component that ships with extra props for elements that take care of layout, styling and accessibility.
+Form is a compound component that ships with `Form.Field` that can wrapped around input elements.
 
 ```jsx
 <Form {props}>
-  <Form.TextInput
-    label="Field label"
-    type="text"
-    placeholder="Enter something"
-  />
+  <Form.Field label="Field label">
+    <TextInput
+      type="text"
+      placeholder="Enter something"
+    />
+  </Form.Field>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
@@ -39,35 +40,35 @@ class Example extends React.Component {
   render() {
     return (
       <Form>
-        <Form.TextInput
-          label="Field label"
-          type="text"
-          placeholder="Enter something"
-          helpText="This is some helper text"
-        />
-        <Form.TextArea
-          label="Long input"
-          placeholder="Add a lot of text here"
-          error="Can't leave this empty"
-        />
-        <Form.Select
-          label="Options list"
-          options={[
-            { text: 'First option', value: '1', defaultSelected: true },
-            { text: 'Second option', value: '2' },
-            { text: 'Third option', value: '3' },
-            { text: 'Fourth option', value: '4' }
-          ]}
-        />
-        <Form.Switch label="Single Sign On" on onToggle={value => alert(value)} />
-        <Form.Radio
-          name="Radio"
-          selected={this.state.selected}
-          onChange={evt => this.handleChange(evt)}
-        >
-          <Form.Radio.Option value="React">React</Form.Radio.Option>
-          <Form.Radio.Option value="html">HTML + Liquid</Form.Radio.Option>
-        </Form.Radio>
+        <Form.Field label="Field label" helpText="This is some helper text">
+          <TextInput type="text" placeholder="Enter something" />
+        </Form.Field>
+        <Form.Field label="Long input" error="Can't leave this empty">
+          <TextArea placeholder="Add a lot of text here" hasError={true} />
+        </Form.Field>
+        <Form.Field label="Options list">
+          <Select
+            options={[
+              { text: 'First option', value: '1', defaultSelected: true },
+              { text: 'Second option', value: '2' },
+              { text: 'Third option', value: '3' },
+              { text: 'Fourth option', value: '4' }
+            ]}
+          />
+        </Form.Field>
+        <Form.Field label="Single Sign On">
+          <Switch on onToggle={value => alert(value)} />
+        </Form.Field>
+        <Form.Field label="Framework">
+          <Radio
+            name="Radio"
+            selected={this.state.selected}
+            onChange={evt => this.handleChange(evt)}
+          >
+            <Radio.Option value="React">React</Radio.Option>
+            <Radio.Option value="html">HTML + Liquid</Radio.Option>
+          </Radio>
+        </Form.Field>
         <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     )
@@ -82,13 +83,21 @@ Long forms should be divided into smaller groups using a `Form.FieldSet`. Read t
 ```js
 <Form>
   <Form.FieldSet label="Group 1">
-    <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-    <Form.TextArea label="Long input" placeholder="Add a lot of text here" />
+    <Form.Field label="Field label">
+      <TextInput type="text" placeholder="Enter something" />
+    </Form.Field>
+    <Form.Field label="Long input">
+      <TextArea placeholder="Add a lot of text here" />
+    </Form.Field>
   </Form.FieldSet>
 
   <Form.FieldSet label="Group 2">
-    <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-    <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+    <Form.Field label="Field label">
+      <TextInput label="Field label" type="text" placeholder="Enter something" />
+    </Form.Field>
+    <Form.Field label="Field label">
+      <TextInput label="Field label" type="text" placeholder="Enter something" />
+    </Form.Field>
   </Form.FieldSet>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
@@ -104,7 +113,9 @@ At the end of the forms, you need actions that the user can take. Read how to ad
 
 ```js
 <Form>
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```
@@ -115,7 +126,9 @@ At the end of the forms, you need actions that the user can take. Read how to ad
 
 ```js
 <Form layout="label-on-top">
-  <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+  <Form.Field label="Field label">
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
 </Form>
 ```

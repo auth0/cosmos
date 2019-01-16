@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
@@ -190,7 +190,7 @@ Table.Body = styled.tbody``
 Table.Row = styled.tr`
   cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
   &:hover {
-    background: ${colors.list.backgroundHover};
+    background-color: ${colors.list.backgroundHover};
   }
 `
 
@@ -199,7 +199,6 @@ Table.Cell = styled.td`
   border-top: 1px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: middle;
-  line-height: 2;
   overflow-wrap: break-word;
   width: ${props => props.column.width || 'auto'};
   ${props =>

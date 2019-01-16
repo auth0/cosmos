@@ -6,7 +6,7 @@ import CodeBlock from '../../docs-components/code-block'
 import { Code } from '@auth0/cosmos'
 
 const SystemGuidelines = () => (
-  <FoldingSection name="System guidelines">
+  <FoldingSection page="contribution-guide" name="System guidelines">
     <Text>
       Please enforce these guidelines at all times. Small or large, call out what's incorrect.
     </Text>

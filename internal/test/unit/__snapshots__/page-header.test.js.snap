@@ -3,6 +3,42 @@
 exports[`Page Header renders both primary and secondary actions 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  description="A description"
+  primaryAction={
+    Object {
+      "handler": [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+      "icon": "analytics",
+      "label": "Primary",
+    }
+  }
+  secondaryAction={
+    Object {
+      "handler": [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+      "icon": "copy",
+      "label": "Secondary",
+    }
+  }
+  title=""
 >
   <Heading
     size={1}
@@ -104,6 +140,24 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
 exports[`Page Header renders primary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  primaryAction={
+    Object {
+      "handler": [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+      "icon": "copy",
+      "label": "Button Content",
+    }
+  }
+  title=""
 >
   <Heading
     size={1}
@@ -163,6 +217,25 @@ exports[`Page Header renders primary action only 1`] = `
 exports[`Page Header renders secondary action only 1`] = `
 <styled.div
   data-cosmos-key="page-header"
+  description="A description"
+  secondaryAction={
+    Object {
+      "handler": [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+      "icon": "copy",
+      "label": "Button Content",
+    }
+  }
+  title=""
 >
   <Heading
     size={1}

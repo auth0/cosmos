@@ -26,6 +26,12 @@ class TabContainer extends React.Component {
 }
 ```
 
+## Usage
+
+As a general rule only use tabs to alternate between views within the same context, not to navigate to different areas.
+
+The [Nielsen Norman Group](https://www.nngroup.com/articles/tabs-used-right/) has a 12 point design guideline for tab controls to distinguish tabs from site navigation and address click uncertainty.
+
 ## Example
 
 You must pass a `selected` prop with the index of the selected tab. Also, you must listen for changes
@@ -68,3 +74,12 @@ class TabContainer extends React.Component {
   }
 }
 ```
+
+## Accessibility
+
+The component handles focus order and keyboard behavior following [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel).
+
+## Resources
+
+- [WAI-ARIA Authoring Practices](https://www.w3.org/TR/wai-aria-practices/#tabpanel)
+- [Tabs, Used Right by the Nielsen Norman Group](https://www.nngroup.com/articles/tabs-used-right/)

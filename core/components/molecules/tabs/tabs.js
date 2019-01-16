@@ -1,51 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
-
-export const TabLink = styled.a`
-  display: inline-block;
-  padding: ${spacing.small} 0;
-  margin-right: ${spacing.large};
-  color: ${colors.link.default};
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
-  &:hover {
-    color: ${props => (!props.selected ? colors.link.defaultHover : colors.text.default)};
-  }
-  &:focus {
-    outline: none;
-    border-bottom: 1px solid ${colors.link.default};
-  }
-  &:active {
-    border-bottom: 1px solid ${colors.base.text};
-  }
-  ${props =>
-    props.selected &&
-    css`
-      border-bottom: 1px solid ${colors.base.text};
-      cursor: default;
-      color: ${colors.text.default};
-      &:focus {
-        border-bottom: 1px solid ${colors.base.text};
-      }
-    `};
-`
-
-export const TabLinkGroup = styled.div`
-  border-bottom: 1px solid ${colors.base.grayLight};
-  ${TabLink}:last-child {
-    margin-right: 0;
-  }
-`
-
-const TabContent = styled.div`
-  padding-top: ${spacing.large};
-`
+import uniqueId from '../../_helpers/uniqueId'
 
 /* Used to keep selected tab on uncontrolled Tabs instances */
 const tabStore = {}
@@ -53,7 +13,7 @@ const tabStore = {}
 class Tabs extends React.Component {
   constructor(props) {
     super(props)
-    this.tabs = React.Children.toArray(props.children)
+    this.tabs = this.getTabsFromProps(props)
     this.state = {
       selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
     }
@@ -69,8 +29,12 @@ class Tabs extends React.Component {
     }
   }
 
+  getTabsFromProps(props) {
+    return React.Children.toArray(props.children)
+  }
+
   componentWillReceiveProps(newProps) {
-    this.tabs = React.Children.toArray(newProps.children)
+    this.tabs = this.getTabsFromProps(newProps)
     this.setState({
       selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
     })
@@ -95,32 +59,68 @@ class Tabs extends React.Component {
     }
   }
 
-  handleKeyPress(e, index) {
-    if (e.key === 'Enter') {
+  handleTabLinkKeypress(e, index, tabsId, tabsLength) {
+    if (e.key === 'Enter' || e.key === ' ') {
       this.changeTab(index)
+      return
     }
+
+    if (!(e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return
+
+    const firstTabIndex = 0
+    const lastTabIndex = tabsLength - 1
+
+    let nextPosition = e.key === 'ArrowLeft' ? index - 1 : index + 1
+    if (nextPosition > lastTabIndex) nextPosition = firstTabIndex
+    if (nextPosition < firstTabIndex) nextPosition = lastTabIndex
+
+    this.changeFocusedTab(tabsId, nextPosition)
+  }
+
+  changeFocusedTab(tabsId, index) {
+    const tab = document.querySelector(`#${tabsId}-${index}`)
+    tab.focus()
   }
 
   render() {
-    const { selected: selectedIndex } = this.props
+    const uniqueTabPrefix = `tabs${this.props.id}`
+    const { selected: selectedIndex, onSelect, ...restOfTheProps } = this.props
 
     return (
-      <Tabs.Element {...Automation('tabs')}>
-        <TabLinkGroup>
-          {this.tabs.map((tab, index) => (
-            <TabLink
-              {...Automation('tabs.item')}
-              onClick={() => this.changeTab(index)}
-              key={index}
-              selected={selectedIndex === index}
-              tabIndex="0"
-              onKeyPress={e => this.handleKeyPress(e, index)}
-            >
-              {tab.props.label}
-            </TabLink>
-          ))}
-        </TabLinkGroup>
-        {this.tabs[selectedIndex]}
+      <Tabs.Element {...Automation('tabs')} {...restOfTheProps}>
+        <Tabs.TabList role="tablist" {...Automation('tabs.list')}>
+          {this.tabs.map((tab, index) => {
+            const id = `${uniqueTabPrefix}-${index}`
+            const tabIsSelected = selectedIndex === index
+
+            return (
+              <Tabs.TabListItem role="presentation" key={id} {...Automation('tabs.list-item')}>
+                <Tabs.TabLink
+                  type="button"
+                  role="tab"
+                  id={id}
+                  tabIndex={tabIsSelected ? '0' : '-1'}
+                  aria-selected={tabIsSelected}
+                  aria-controls={id + '-tab'}
+                  onClick={() => this.changeTab(index)}
+                  onKeyDown={e =>
+                    this.handleTabLinkKeypress(e, index, uniqueTabPrefix, this.tabs.length)
+                  }
+                  {...Automation('tabs.link')}
+                >
+                  {tab.props.label}
+                </Tabs.TabLink>
+              </Tabs.TabListItem>
+            )
+          })}
+        </Tabs.TabList>
+        {this.tabs[selectedIndex] &&
+          React.cloneElement(this.tabs[selectedIndex], {
+            role: 'tabpanel',
+            id: `${uniqueTabPrefix}-${selectedIndex}-tab`,
+            'aria-labelledby': `${uniqueTabPrefix}-${selectedIndex}`,
+            ...Automation('tabs.item')
+          })}
       </Tabs.Element>
     )
   }
@@ -129,8 +129,55 @@ class Tabs extends React.Component {
 Tabs.Element = styled.div`
   ${containerStyles};
 `
+Tabs.TabList = styled.ul`
+  display: flex;
+  border-bottom: 1px solid ${colors.base.grayLight};
+`
 
-Tabs.Tab = TabContent
+Tabs.TabListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: ${spacing.large};
+  }
+`
+
+Tabs.TabLink = styled.button`
+  /* Resets button browser styles */
+  background-color: transparent;
+  border: none;
+  padding: ${spacing.small} 0;
+  color: ${colors.link.default};
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  line-height: 1.3;
+
+  &:hover {
+    color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
+  }
+  &:focus {
+    outline: none;
+    border-bottom-color: ${colors.link.default};
+  }
+  &:active {
+    border-bottom-color: ${colors.base.text};
+  }
+  ${props =>
+    props['aria-selected'] &&
+    css`
+      border-bottom: 1px solid ${colors.base.text};
+      cursor: default;
+      color: ${colors.text.default};
+      &:focus {
+        border-bottom: 1px solid ${colors.base.text};
+      }
+    `};
+`
+
+Tabs.TabContent = styled.div`
+  padding-top: ${spacing.large};
+`
+
+Tabs.Tab = Tabs.TabContent
 
 Tabs.propTypes = {
   /** Children should be an array of Tabs.Tab */
@@ -138,11 +185,14 @@ Tabs.propTypes = {
   /** Selected should be the index of the desired selected tab */
   selected: PropTypes.number.isRequired,
   /** onSelect will be called with the new index when a new tab is selected by the user */
-  onSelect: PropTypes.func.isRequired
+  onSelect: PropTypes.func.isRequired,
+  /** Unique identifier for each tab list */
+  id: PropTypes.string
 }
 
 Tabs.defaultProps = {
-  children: []
+  children: [],
+  id: uniqueId()
 }
 
 export default Tabs

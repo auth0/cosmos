@@ -4,7 +4,7 @@ import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { ButtonGroup, Button } from '@auth0/cosmos'
 
-storiesOf('ButtonGroup').add('default', () => (
+storiesOf('ButtonGroup', module).add('default', () => (
   <Example title="default">
     <ButtonGroup>
       <Button appearance="primary">Save changes</Button>
@@ -15,7 +15,7 @@ storiesOf('ButtonGroup').add('default', () => (
   </Example>
 ))
 
-storiesOf('ButtonGroup').add('alignment', () => (
+storiesOf('ButtonGroup', module).add('alignment', () => (
   <div>
     <Example title="default/left">
       <ButtonGroup align="left">
@@ -36,7 +36,7 @@ storiesOf('ButtonGroup').add('alignment', () => (
   </div>
 ))
 
-storiesOf('ButtonGroup').add('single button margin', () => (
+storiesOf('ButtonGroup', module).add('single button margin', () => (
   <div>
     <Example title="left single">
       <ButtonGroup align="left">
@@ -63,7 +63,7 @@ storiesOf('ButtonGroup').add('single button margin', () => (
   </div>
 ))
 
-storiesOf('ButtonGroup').add('icons', () => (
+storiesOf('ButtonGroup', module).add('icons', () => (
   <Example title="Icons">
     <ButtonGroup>
       <Button icon="pencil" />
@@ -73,16 +73,19 @@ storiesOf('ButtonGroup').add('icons', () => (
   </Example>
 ))
 
-storiesOf('ButtonGroup').add('compressed', () => (
+storiesOf('ButtonGroup', module).add('compressed', () => (
   <div>
     <Example title="Compressed buttons">
       <ButtonGroup compressed>
-        <Button>Copy</Button> <Button>Paste</Button>
+        <Button>Copy</Button>
+        <Button>Paste</Button>
       </ButtonGroup>
     </Example>
     <Example title="compressed icons">
       <ButtonGroup compressed>
-        <Button icon="pencil" /> <Button icon="copy" /> <Button icon="delete" />
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
       </ButtonGroup>
     </Example>
   </div>

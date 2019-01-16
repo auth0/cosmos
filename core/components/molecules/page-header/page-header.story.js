@@ -2,15 +2,15 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { PageHeader, Text } from '@auth0/cosmos'
+import { PageHeader, Link, Text } from '@auth0/cosmos'
 
-storiesOf('Page Header').add('default', () => (
+storiesOf('Page Header', module).add('default', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
       description={
         <span>
-          Setup a mobile, web or IoT application to{' '}
+          Setup a mobile, web or <Link href="https://auth0.com">IoT application</Link> to{' '}
           <Text type="strong">use Auth0 for Authentication</Text>.
         </span>
       }
@@ -29,7 +29,27 @@ storiesOf('Page Header').add('default', () => (
   </Example>
 ))
 
-storiesOf('Page Header').add('only primary action', () => (
+storiesOf('Page Header', module).add('no actions', () => (
+  <Example title="No actions">
+    <PageHeader
+      title="Clients"
+      description={
+        <span>
+          Setup a mobile, web or IoT application to{' '}
+          <Text type="strong">use Auth0 for Authentication</Text>.
+        </span>
+      }
+    />
+  </Example>
+))
+
+storiesOf('Page Header', module).add('no description', () => (
+  <Example title="No description">
+    <PageHeader title="Clients" />
+  </Example>
+))
+
+storiesOf('Page Header', module).add('only primary action', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
@@ -49,7 +69,7 @@ storiesOf('Page Header').add('only primary action', () => (
   </Example>
 ))
 
-storiesOf('Page Header').add('only secondary action', () => (
+storiesOf('Page Header', module).add('only secondary action', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
@@ -69,7 +89,7 @@ storiesOf('Page Header').add('only secondary action', () => (
   </Example>
 ))
 
-storiesOf('Page Header').add('only primary action with deprecated API', () => (
+storiesOf('Page Header', module).add('only primary action with deprecated API', () => (
   <Example title="default">
     <PageHeader
       title="Clients"
@@ -86,7 +106,7 @@ storiesOf('Page Header').add('only primary action with deprecated API', () => (
   </Example>
 ))
 
-storiesOf('Page Header').add('only secondary action with deprecated API', () => (
+storiesOf('Page Header', module).add('only secondary action with deprecated API', () => (
   <Example title="default">
     <PageHeader
       title="Clients"

@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Paragraph, Link, Code } from '@auth0/cosmos'
 
-storiesOf('Paragraph').add('default', () => (
+storiesOf('Paragraph', module).add('default', () => (
   <Example title="Paragraph">
     <Paragraph>
       Application metadata are custom string keys and values (max 255 characters each), set on a per
@@ -19,7 +19,7 @@ storiesOf('Paragraph').add('default', () => (
   </Example>
 ))
 
-storiesOf('Paragraph').add('with styles', () => (
+storiesOf('Paragraph', module).add('with styles', () => (
   <Example title="Paragraph with styles">
     <Paragraph>
       Now that you have an <Link url="https://auth0.com">account</Link>, we need to know about your

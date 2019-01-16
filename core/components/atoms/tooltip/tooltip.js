@@ -1,114 +1,159 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
+import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
+import Automation from '../../_helpers/automation-attribute'
+import { multiply } from '../../_helpers/pixel-calc'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
-const tooltipStyles = {
-  top: css`
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: ${spacing.xsmall};
-  `,
-  bottom: css`
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: ${spacing.xsmall};
-  `,
-  left: css`
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: ${spacing.xsmall};
-  `,
-  right: css`
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: ${spacing.xsmall};
-  `
-}
+class Tooltip extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { visible: props.defaultVisible || false }
+  }
+  showTooltip = () => {
+    this.setState({ visible: true })
+  }
+  hideTooltip = () => {
+    if (this.props.defaultVisible) return
+    this.setState({ visible: false })
+  }
+  render() {
+    const { content, ...props } = this.props
 
-const arrowStyles = {
-  top: css`
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-top-width: 6px;
-    border-bottom-width: 0;
-    border-top-color: ${colors.tooltip.background};
-  `,
-  bottom: css`
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-bottom-width: 6px;
-    border-top-width: 0;
-    border-bottom-color: ${colors.tooltip.background};
-  `,
-  left: css`
-    left: 100%;
-    top: 50%;
-    margin-top: -5px;
-    border-left-width: 6px;
-    border-right-width: 0;
-    border-left-color: ${colors.tooltip.background};
-  `,
-  right: css`
-    right: 100%;
-    top: 50%;
-    margin-top: -5px;
-    border-right-width: 6px;
-    border-left-width: 0;
-    border-right-color: ${colors.tooltip.background};
-  `
+    return (
+      <Manager>
+        <Reference>
+          {({ ref }) => (
+            <Tooltip.Trigger
+              onMouseEnter={this.showTooltip}
+              onFocus={this.showTooltip}
+              onMouseLeave={this.hideTooltip}
+              onBlur={this.hideTooltip}
+              innerRef={ref}
+              {...Automation('tooltip.trigger')}
+            >
+              {props.children}
+            </Tooltip.Trigger>
+          )}
+        </Reference>
+        <Popper
+          placement={props.position}
+          modifiers={{
+            preventOverflow: { enabled: false },
+            offset: { offset: '0, 10' }
+          }}
+        >
+          {({ ref, style, placement, arrowProps }) => (
+            <React.Fragment>
+              {this.state.visible ? (
+                <Tooltip.Element
+                  innerRef={ref}
+                  style={style}
+                  data-placement={placement}
+                  {...Automation('tooltip')}
+                  {...props}
+                >
+                  {content}
+                  <Tooltip.Arrow
+                    data-placement={placement}
+                    innerRef={arrowProps.ref}
+                    style={arrowProps.style}
+                  />
+                </Tooltip.Element>
+              ) : null}
+            </React.Fragment>
+          )}
+        </Popper>
+      </Manager>
+    )
+  }
 }
-
-const Tooltip = ({ content, ...props }) => (
-  <Tooltip.Trigger>
-    <Tooltip.Element {...props}>{content}</Tooltip.Element>
-    {props.children}
-  </Tooltip.Trigger>
-)
 
 Tooltip.Element = styled.div`
-  position: absolute;
   background: ${colors.tooltip.background};
   color: ${colors.tooltip.text};
   border-radius: ${misc.radius};
   width: max-content;
   text-align: center;
   padding: ${spacing.xsmall};
-  line-height: normal;
+  line-height: ${misc.lineHeight};
   font-size: 13px;
   pointer-events: none;
-  opacity: ${props => (props.defaultVisible ? 1 : 0)};
-  ${props => tooltipStyles[props.position]};
-
-  &:after {
-    position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    border: 5.5px solid transparent;
-    ${props => arrowStyles[props.position]};
-  }
+  max-width: 260px;
 `
 
 Tooltip.Trigger = styled.div`
   display: inline-block;
   position: relative;
+`
 
-  &:hover {
-    ${Tooltip.Element} {
-      opacity: 1;
+const arrowWidth = '6px'
+const arrowColor = colors.tooltip.background
+
+/*
+  popper doesn't arrange the tooltip right in the center,
+  so we add an adjustment
+*/
+const arrowAdjustment = multiply(arrowWidth, -2)
+
+Tooltip.Arrow = styled.div`
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  &::before {
+    content: '';
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: ${arrowWidth};
+    border-color: transparent;
+  }
+
+  &[data-placement*='top'] {
+    bottom: 0;
+    margin-left: ${arrowAdjustment};
+
+    &::before {
+      border-bottom-width: 0;
+      border-top-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='right'] {
+    left: 0;
+    margin-top: ${arrowAdjustment};
+    margin-left: -${arrowWidth};
+    &::before {
+      border-left-width: 0;
+      border-right-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='bottom'] {
+    top: 0;
+    left: 0;
+    margin-left: ${arrowAdjustment};
+    margin-top: -${arrowWidth};
+    &::before {
+      border-top-width: 0;
+      border-bottom-color: ${arrowColor};
+    }
+  }
+
+  &[data-placement*='left'] {
+    right: 0;
+    margin-top: ${arrowAdjustment};
+    &::before {
+      border-right-width: 0;
+      border-left-color: ${arrowColor};
     }
   }
 `
-
-const StyledTooltip = Tooltip.Element
 
 /**
  * We renamed `Wrapper` to `Trigger` when migrating
@@ -116,6 +161,7 @@ const StyledTooltip = Tooltip.Element
  * See: https://github.com/auth0/cosmos/pull/1080#discussion_r237026967
  */
 const TooltipWrapper = Tooltip.Trigger
+const StyledTooltip = Tooltip.Element
 
 Tooltip.propTypes = {
   /** Content to show in the tooltip */

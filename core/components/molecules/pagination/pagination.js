@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 import Button from '../../atoms/button'
@@ -38,8 +38,8 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
 }
 
-const Pagination = ({ page, perPage, items, appearance, onPageChanged }) => (
-  <Pagination.Element {...Automation('pagination')}>
+const Pagination = ({ page, perPage, items, appearance, onPageChanged, ...props }) => (
+  <Pagination.Element {...Automation('pagination')} {...props}>
     {renderPaginationItem({
       toPage: 1,
       content: 'First',
@@ -121,4 +121,3 @@ Pagination.propTypes = {
 }
 
 export default Pagination
-

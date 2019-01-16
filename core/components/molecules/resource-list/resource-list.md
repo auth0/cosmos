@@ -62,7 +62,10 @@ If necessary, you can override the actions for a specific list item by giving th
     {
       title: 'Item 3',
       subtitle: 'Example item',
-      actions: [<Button icon="settings" onClick={() => {}} label="Settings" />]
+      actions: [
+        <Button icon="settings" onClick={() => {}} label="Settings" disabled />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
+      ]
     }
   ]}
   actions={[
@@ -95,4 +98,44 @@ If you need more control over the rendering of list items, you can pass a `rende
     <Button icon="delete" onClick={() => {}} label="Delete" />
   ]}
 />
+```
+
+## Advanced: Drag and sort items
+
+You can use the `sortable` prop to make the list sortable by dragging and dropping the items.
+You will need to implement the `onSortEnd` method in order to reorder the items using the provided
+`arrayMove` function
+
+```js
+class SortableResourceListExample extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      items: [
+        { title: 'Title One', subtitle: 'Subtitle One', href: 'https://auth0.com/' },
+        { title: 'Title Two', subtitle: 'Subtitle Two', href: 'https://auth0.com/' },
+        { title: 'Title Three', subtitle: 'Subtitle Three', href: 'https://auth0.com/' }
+      ]
+    }
+  }
+  onSortEnd({ oldIndex, newIndex }) {
+    // The arrayMove example does not work on docs
+    this.setState({
+      items: arrayMove(this.state.items, oldIndex, newIndex)
+    })
+  }
+  render() {
+    return (
+      <ResourceList
+        actions={[
+          { icon: 'settings', handler: function() {}, label: 'Settings' },
+          { icon: 'delete', handler: function() {}, label: 'Delete' }
+        ]}
+        sortable
+        items={this.state.items}
+        onSortEnd={event => this.onSortEnd(event)}
+      />
+    )
+  }
+}
 ```

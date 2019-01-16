@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -16,70 +16,64 @@ import containerStyles from '../../_helpers/container-styles'
 
 const PageHeader = props => {
   return (
-    <PageHeader.Element {...Automation('page-header')}>
+    <PageHeader.Element {...Automation('page-header')} {...props}>
       <Heading size={1}>{props.title}</Heading>
       <PageHeader.Description {...props} />
-      <ButtonGroup>
-        {props.secondaryAction && (
-          <Button
-            size="large"
-            appearance="secondary"
-            icon={props.secondaryAction.icon}
-            onClick={props.secondaryAction.handler}
-          >
-            {props.secondaryAction.label}
-          </Button>
-        )}
-        {props.primaryAction && (
-          <Button
-            size="large"
-            appearance="cta"
-            icon={props.primaryAction.icon}
-            onClick={props.primaryAction.handler}
-          >
-            {props.primaryAction.label}
-          </Button>
-        )}
-      </ButtonGroup>
 
+      {(props.secondaryAction || props.primaryAction) && (
+        <ButtonGroup>
+          {props.secondaryAction && (
+            <Button
+              size="large"
+              appearance="secondary"
+              icon={props.secondaryAction.icon}
+              onClick={props.secondaryAction.handler}
+            >
+              {props.secondaryAction.label}
+            </Button>
+          )}
+          {props.primaryAction && (
+            <Button
+              size="large"
+              appearance="cta"
+              icon={props.primaryAction.icon}
+              onClick={props.primaryAction.handler}
+            >
+              {props.primaryAction.label}
+            </Button>
+          )}
+        </ButtonGroup>
+      )}
     </PageHeader.Element>
   )
 }
 
 PageHeader.Element = styled.div`
   ${containerStyles};
-  display: grid;
-  /* Placeholder width media feature until we have global variables for breakpoints */
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "title"
-    "subtitle"
-    "actions";
-  grid-row-gap: ${spacing.small};
-  
+
   @media (min-width: 768px) {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "title actions"
-      "subtitle subtitle";
-    grid-column-gap: ${spacing.xsmall};
-    grid-row-gap: ${spacing.medium};
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
   }
-  /* 
+  /*
   Components should not have margin by default.
   We'll remove this margin eventually
   */
   margin-bottom: ${spacing.large};
 
   ${ButtonGroup.Element} {
-    grid-area: actions;
+    margin-top: ${spacing.medium};
+    @media (min-width: 768px) {
+      margin-top: 0;
+      margin-left: ${spacing.small};
+    }
   }
 
   ${Heading.Element[1]} {
-    grid-area: title;
-    /* 
+    flex: 1;
+    /*
     Components should not have margin by default.
     We'll remove this margin reset when we remove margins from headers
     */

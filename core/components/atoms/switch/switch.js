@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
@@ -13,7 +13,10 @@ class Switch extends React.Component {
     super(props)
     this.state = { on: props.on }
   }
-  onToggle() {
+  onToggle(e) {
+    e.preventDefault()
+    e.stopPropagation()
+
     if (this.props.readOnly) return
     this.setState(currentState => {
       if (this.props.onToggle) this.props.onToggle(!currentState.on)
@@ -25,20 +28,36 @@ class Switch extends React.Component {
   }
   render() {
     let [onLabel, offLabel] = this.props.accessibleLabels
-    let elements = [
+
+    const checkbox = (
       <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
-    ]
-    const label = (
-      <Label labelPosition={this.props.labelPosition}>{this.state.on ? onLabel : offLabel}</Label>
     )
-    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} />
+
+    let elements = <React.Fragment>{checkbox}</React.Fragment>
+
+    const label = (
+      <Label labelPosition={this.props.labelPosition} key="switch-label">
+        {this.state.on ? onLabel : offLabel}
+      </Label>
+    )
+    const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} key="switch-toggle" />
 
     if (this.props.labelPosition == 'left') {
-      elements.push(label)
-      elements.push(toggle)
+      elements = (
+        <React.Fragment>
+          {checkbox}
+          {this.props.hideAccessibleLabels ? null : label}
+          {toggle}
+        </React.Fragment>
+      )
     } else if (this.props.labelPosition == 'right') {
-      elements.push(toggle)
-      elements.push(label)
+      elements = (
+        <React.Fragment>
+          {checkbox}
+          {toggle}
+          {this.props.hideAccessibleLabels ? null : label}
+        </React.Fragment>
+      )
     }
 
     /*
@@ -47,7 +66,7 @@ class Switch extends React.Component {
     */
 
     return (
-      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')}>
+      <Switch.Element onClick={this.onToggle.bind(this)} {...Automation('switch')} {...this.props}>
         {elements}
       </Switch.Element>
     )
@@ -120,6 +139,11 @@ const Label = styled.label`
   color: ${colors.text.secondary};
   margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
   margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+
+  /* if the label is empty, then remove the node so it doesn't create a margin */
+  &:empty {
+    display: none;
+  }
 `
 
 const StyledSwitch = Switch.Element
@@ -131,6 +155,8 @@ Switch.propTypes = {
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
   accessibleLabels: PropTypes.arrayOf(PropTypes.string),
+  /** Hides accessibility labels */
+  hideAccessibleLabels: PropTypes.bool,
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
@@ -141,6 +167,7 @@ Switch.defaultProps = {
   onToggle: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
+  hideAccessibleLabels: false,
   readOnly: false,
   labelPosition: 'right'
 }

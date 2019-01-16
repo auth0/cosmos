@@ -20,32 +20,31 @@ const Box = styled.div`
   ${borderStyles};
 `
 
-/* extend works */
-const TallBox = Box.extend`
-  height: 200px;
-`
+/*
+ extend works:
+ commented out because .extend will be deprecated in styled-components v4
+*/
+// const TallBox = Box.extend`
+//   height: 200px;
+// `
 
 /* styled wrapper works */
 const ShortBox = styled(Box)`
   height: 20px;
 `
+const TallBox = styled(Box)`
+  height: 200px;
+`
 
 /* withComponent works */
-const InputBox = Box.withComponent('input').extend`
+const InputBox = styled(Box.withComponent('input'))`
   :hover {
     background: #fff;
   }
 `
 
-/* attrs doesn't work properly
-  completely breaks:
-  const PasswordBox = styled.input.attrs({ type: 'password' })``
-  works without helpers
-  const PasswordBox = styled('input').attrs({ type: 'password' })``
-*/
-
-// weird workaround that works:
-const PasswordBox = styled(InputBox).attrs({ type: 'password' })``
+const PasswordBox = styled('input').attrs({ type: 'password' })``
+const ExtendedPasswordBox = styled(InputBox).attrs({ type: 'password' })``
 
 storiesOf('Component', module).add('default', () => (
   <Stack>
@@ -55,5 +54,6 @@ storiesOf('Component', module).add('default', () => (
     <ShortBox bg="blue" />
     <InputBox bg="blue" defaultValue="okay" />
     <PasswordBox bg="blue" defaultValue="okay" />
+    <ExtendedPasswordBox bg="blue" defaultValue="okay" />
   </Stack>
 ))

@@ -106,8 +106,8 @@ class App extends React.Component {
           </SideContent>
           <MainContent id="main">
             <Body>
-              {guides.map(guide => (
-                <Route exact path={guide.path} component={guide.component} />
+              {guides.map((guide, i) => (
+                <Route key={i} exact path={guide.path} component={guide.component} />
               ))}
 
               <Route exact path="/playground" component={Playground} />

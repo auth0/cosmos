@@ -4,7 +4,7 @@ import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Spinner } from '@auth0/cosmos'
 
-storiesOf('Spinner').add('default', () => (
+storiesOf('Spinner', module).add('default', () => (
   <React.Fragment>
     <Example title="Spinner – default">
       <Spinner size="small" />
@@ -18,7 +18,7 @@ storiesOf('Spinner').add('default', () => (
   </React.Fragment>
 ))
 
-storiesOf('Spinner').add('dark background', () => (
+storiesOf('Spinner', module).add('dark background', () => (
   <React.Fragment>
     <Example title="Spinner – small" background="dark">
       <Spinner inverse size="small" />

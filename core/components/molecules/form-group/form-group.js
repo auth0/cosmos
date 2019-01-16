@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
@@ -7,12 +7,16 @@ import containerStyles from '../../_helpers/container-styles'
 import Well from '../../atoms/_well'
 import { spacing } from '@auth0/cosmos-tokens'
 
-const FormGroup = props => {
-  const children = React.Children.map(props.children, child => {
+const FormGroup = ({ children, ...props }) => {
+  const wrappedChildren = React.Children.map(children, child => {
     return <FormGroup.FormWrapper>{child}</FormGroup.FormWrapper>
   })
 
-  return <FormGroup.Element {...Automation('form-group')}>{children}</FormGroup.Element>
+  return (
+    <FormGroup.Element {...Automation('form-group')} {...props}>
+      {wrappedChildren}
+    </FormGroup.Element>
+  )
 }
 
 FormGroup.Element = styled.div``

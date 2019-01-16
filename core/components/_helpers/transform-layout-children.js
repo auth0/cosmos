@@ -1,9 +1,14 @@
 import React from 'react'
 import Automation from './automation-attribute'
+import { LAYOUT_CHILDREN_CLASS_NAME } from './layout-margin-reset'
 
 const transformChildren = (props, ChildWrapperElement, automationAttributeName) => {
   const transformChild = (child, index) => (
-    <ChildWrapperElement key={index} {...Automation(automationAttributeName)}>
+    <ChildWrapperElement
+      className={LAYOUT_CHILDREN_CLASS_NAME}
+      key={index}
+      {...Automation(automationAttributeName)}
+    >
       {child}
     </ChildWrapperElement>
   )

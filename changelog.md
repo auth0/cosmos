@@ -4,6 +4,146 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.13.0 [January 14, 2019]
+
+### Added
+
+- Form.Field: Implement new API based on RFC [#1287]
+- Release proces: add quick guide [#1397]
+- Testing: Test event handlers [#1311]
+- Added missing icons [#1406]
+
+### Fixed
+
+- IE 11 fix: Use insertBefore instead of prepend in global style injection [#1412]
+- Form.Label: Replaces the default value to be an empty string [#1411]
+- Sidebar: Add object branch presence check [#1420][#1423]
+- Page Header: Fixed link hover and added stories [#1409]
+- Radio: Fix onChange callback firing twice [#1403]
+- Icon: Re-uploaded user-add icon [#1428]
+- Pager: Do not enforce totals [#1404]
+
+### Internal
+
+- Adds StackLayout [#1363]
+
+## 0.12.2 [January 9, 2019]
+
+### Fixed
+
+- Icon: Add “application” icon. [#1401]
+- Alternate implementation for uniqueId: This improves snapshot testing experience by removing random hashes from components attributes. [#1374] (Warning: You may need to update some snapshots and remove any uniqueId mock.)
+- Breadcrumb: Fix automation attribute naming. [#1309] (Warning: You may need to update some tests.)
+
+**Breadcrumb change**
+
+We have renamed the Breadcrumb.Link automation attribute from this:
+`<a data-cosmos-key="link">clicky</a>`
+to this:
+`<a data-cosmos-key="breadcrumb.link">clicky</a>`
+
+Please update your tests (if any) accordingly.
+
+**UniqueId helper change**
+
+In the past, we used to randomly generate an id for some attributes that were required to link components.
+Now we're using a global counter, which will lead to improve snapshot testing since each test is run in an isolated environment, and then each test run will have a fresh and pure start.
+
+If you were using a mock for `uniqueId` as a workaround:
+
+```js
+jest.mock('../../../core/components/_helpers/uniqueId', () => () => 'abcdef1234')
+```
+
+Please, remove it since is no longer needed.
+
+## 0.12.1 [January 8, 2019]
+
+### Fixed
+
+- Radio: Fixed rendering of label [#1393]
+
+## 0.12.0 [January 7, 2019]
+
+### Added
+
+- Testing: Custom prop tests [#1308][#1312]
+- ResourceList: Adds a prop to set the width to the resource list body [#1314]
+- Image: Images are now responsive by default [#1244]
+- Image: Added fit properties to scale images to a container proportionally [#1244]
+- Avatar: Images in avatar fit to cover the container. This allows to display portrait and landscape images inside the avatar. [#1244]
+- (Internal) Layouts: Row, Gallery, Columns and Page [#1282]
+
+### Fixed
+
+- Icon: Fixed chevron up not facing up [#1391]
+- Tabs: Quick aria labels fix [#1375]
+- Tooltip: Adds z-index to tooltips [#1369]
+- Security upgrades [#1387]
+
+### Changed
+
+- Move actions API to Input [#1281]
+
+## 0.11.0 [December 18, 2018]
+
+### Added
+
+- Sortable Resource List [#1098]
+- Integration tests for Tabs [#1278]
+
+### Fixed
+
+- Implement attrs to styled API [#1263]
+- Make Tabs accessible [#1264]
+- Examples: react + react-dom should have same version [#1284]
+- Tooltip: Fix wrapping for long text [#1262]
+- Fix dialog [#1260]
+- Fix react router dom dependency [#1300]
+- Fix Resource List columns [#1192]
+- Fix docs links [#1280]
+- Fix version switcher [#1256]
+- Fix button action onClick handler not including the item [#1276]
+
+- Internal: Clean up code for masked TextInput [#1283]
+- Internal: Add module to all stories [#1288]
+
+### Changed
+
+- Internal: Massive find and replace for styled [#1249]
+- Remove line height declaration on tables [#1286]
+- Replace extend with styled [#1279]
+- Remove pointer events from icon [#1298]
+- Changes the Page Header from grid to flex [#1285]
+
+## 0.10.1 [December 11, 2018]
+
+### Fixed
+
+- Fixes dialog not catching pointer events [#1260]
+
+## 0.10.0 [December 11, 2018]
+
+### Added
+
+- Switch: Add support for label position by @m4tr1k + alignment fixes [#1171]
+- Styling: Add styled-components-with-helpers [#1208]
+- Styling: Add styled-margin [#1248]
+
+### Fixed
+
+- Responsive PageHeader [#1138]
+- Fix FormGroup warning when only one child is passed [#1221]
+- Select arrow icon color fix [#1220]
+- Switch.onToggle stopPropagation of event [#1233]
+- Added stories around page header [#1230]
+- Updates dropbox icon [#1240]
+- Upgrade to latest 3.x styled-components [#1241]
+- Removes space when the switch label is empty [#1234]
+- Removes pointer events on the overlay component [#1243]
+- Fixed accordions in Contribution guide [#1246]
+- Manage PoC: Fix Security issue and fix error on example when opening Applications [#1253]
+
 ## 0.9.3 [December 4, 2018]
 
 ### Fixed
@@ -16,7 +156,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 - Docs: Make it easier to add a guide [#1201]
 - Docs: Hidden placeholder for layout + overriding guides [#1202]
-
 
 ## 0.9.2 [December 3, 2018]
 

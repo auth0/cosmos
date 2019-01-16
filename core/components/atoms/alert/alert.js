@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css } from '@auth0/cosmos/styled'
 import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
@@ -55,6 +55,7 @@ class Alert extends React.Component {
           type={this.props.type}
           dismissible={this.props.dismissible}
           {...Automation('alert')}
+          {...this.props}
         >
           {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
           <span>

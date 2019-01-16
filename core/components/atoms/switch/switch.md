@@ -51,3 +51,9 @@ You can change the accessibility labels by passing an array with two strings. Th
   />
 </Stack>
 ```
+
+You can hide the accessibility labels and display just the switch passing the `hideAccessibleLabels` prop.
+
+```js
+<Switch hideAccessibleLabels onToggle={() => {}} />
+```
