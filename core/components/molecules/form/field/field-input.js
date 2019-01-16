@@ -77,9 +77,16 @@ class FieldInput extends React.Component {
       If it's a cosmos component, it uses styled-components,
       which means we need to use innerRef
 
+      If it it's a html element, we can just use ref
+
       Note: This will give an error for a non cosmos element :/
     */
-    firstChildProps.innerRef = this.firstChildRef
+
+    if (typeof firstChild.type === 'string') {
+      firstChildProps.ref = this.firstChildRef
+    } else {
+      firstChildProps.innerRef = this.firstChildRef
+    }
 
     const taggedFirstChild = React.cloneElement(firstChild, firstChildProps)
     modifiedChildren[0] = taggedFirstChild
