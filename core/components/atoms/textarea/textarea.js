@@ -63,5 +63,7 @@ TextArea.defaultProps = {
   actions: []
 }
 
+TextArea.displayName = 'TextArea'
+
 export default TextArea
 export { StyledTextArea }

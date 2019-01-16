@@ -95,5 +95,7 @@ TextInput.defaultProps = {
   actions: []
 }
 
+TextInput.displayName = 'TextInput'
+
 export default TextInput
 export { StyledInput }

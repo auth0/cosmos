@@ -73,7 +73,13 @@ class FieldInput extends React.Component {
     const componentName = firstChild.type.displayName
     if (cosmosInputWhitelist.includes(componentName)) firstChildProps.id = id
 
-    firstChildProps.ref = this.firstChildRef
+    /*
+      If it's a cosmos component, it uses styled-components,
+      which means we need to use innerRef
+
+      Note: This will give an error for a non cosmos element :/
+    */
+    firstChildProps.innerRef = this.firstChildRef
 
     const taggedFirstChild = React.cloneElement(firstChild, firstChildProps)
     modifiedChildren[0] = taggedFirstChild
