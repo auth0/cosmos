@@ -55,6 +55,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                   label="Old API"
                 >
                   <Component
+                    innerRef={
+                      Object {
+                        "current": <input
+                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                          data-cosmos-key="text-input"
+                          id="-3"
+                          label=""
+                          type="text"
+                          value=""
+                        />,
+                      }
+                    }
                     key=".0"
                     type="text"
                   >
@@ -62,6 +74,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                       error={null}
                       fieldComponent={[Function]}
                       helpText={null}
+                      innerRef={
+                        Object {
+                          "current": <input
+                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                            data-cosmos-key="text-input"
+                            id="-3"
+                            label=""
+                            type="text"
+                            value=""
+                          />,
+                        }
+                      }
                       label=""
                       type="text"
                     >
@@ -101,6 +125,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                 hasError={false}
                                 helpText={null}
                                 id="-3"
+                                innerRef={
+                                  Object {
+                                    "current": <input
+                                      class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                                      data-cosmos-key="text-input"
+                                      id="-3"
+                                      label=""
+                                      type="text"
+                                      value=""
+                                    />,
+                                  }
+                                }
                                 label=""
                                 type="text"
                               >
@@ -112,6 +148,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   hasError={false}
                                   helpText={null}
                                   id="-3"
+                                  innerRef={
+                                    Object {
+                                      "current": <input
+                                        class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                                        data-cosmos-key="text-input"
+                                        id="-3"
+                                        label=""
+                                        type="text"
+                                        value=""
+                                      />,
+                                    }
+                                  }
                                   label=""
                                   onChange={null}
                                   readOnly={false}
@@ -127,6 +175,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                     hasError={false}
                                     helpText={null}
                                     id="-3"
+                                    innerRef={
+                                      Object {
+                                        "current": <input
+                                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                                          data-cosmos-key="text-input"
+                                          id="-3"
+                                          label=""
+                                          type="text"
+                                          value=""
+                                        />,
+                                      }
+                                    }
                                     label=""
                                     onChange={null}
                                     readOnly={false}
@@ -143,6 +203,18 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                       hasError={false}
                                       helpText={null}
                                       id="-3"
+                                      innerRef={
+                                        Object {
+                                          "current": <input
+                                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                                            data-cosmos-key="text-input"
+                                            id="-3"
+                                            label=""
+                                            type="text"
+                                            value=""
+                                          />,
+                                        }
+                                      }
                                       label=""
                                       onChange={null}
                                       readOnly={false}
@@ -238,6 +310,18 @@ exports[`Form Field renders the correct id 1`] = `
                     actions={Array []}
                     code={false}
                     error={null}
+                    id="field_label-1"
+                    innerRef={
+                      Object {
+                        "current": <input
+                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                          data-cosmos-key="text-input"
+                          id="field_label-1"
+                          type="text"
+                          value=""
+                        />,
+                      }
+                    }
                     key=".0"
                     onChange={null}
                     readOnly={false}
@@ -249,6 +333,18 @@ exports[`Form Field renders the correct id 1`] = `
                       code={false}
                       data-cosmos-key="text-input"
                       error={null}
+                      id="field_label-1"
+                      innerRef={
+                        Object {
+                          "current": <input
+                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                            data-cosmos-key="text-input"
+                            id="field_label-1"
+                            type="text"
+                            value=""
+                          />,
+                        }
+                      }
                       onChange={null}
                       readOnly={false}
                       size="default"
@@ -260,6 +356,18 @@ exports[`Form Field renders the correct id 1`] = `
                         code={false}
                         data-cosmos-key="text-input"
                         error={null}
+                        id="field_label-1"
+                        innerRef={
+                          Object {
+                            "current": <input
+                              class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                              data-cosmos-key="text-input"
+                              id="field_label-1"
+                              type="text"
+                              value=""
+                            />,
+                          }
+                        }
                         onChange={null}
                         readOnly={false}
                         size="default"
@@ -268,6 +376,7 @@ exports[`Form Field renders the correct id 1`] = `
                         <input
                           className="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
                           data-cosmos-key="text-input"
+                          id="field_label-1"
                           onChange={null}
                           readOnly={false}
                           size="default"
