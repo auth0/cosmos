@@ -27,7 +27,10 @@ const resolveAction = (item, action, key) => {
 
   // Patch action's onClick handler to include the item
   const { onClick: handler } = action.props
-  const onClick = evt => handler(evt, item)
+  const onClick = evt => {
+    evt.stopPropagation()
+    handler(evt, item)
+  }
 
   return React.cloneElement(action, { key, onClick })
 }
