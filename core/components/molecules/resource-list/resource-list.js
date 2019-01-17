@@ -19,6 +19,7 @@ const ResourceList = props => {
         index={index}
         draggingMode={draggingMode}
         reorderHandle={props.sortable ? SortableListHandle : null}
+        item={item}
         {...item}
       />
     )
@@ -37,13 +38,17 @@ const ResourceList = props => {
     const itemRenderer = renderItem || defaultItemRenderer
     const actualIndex = index || accessibilityIndex
 
+    const handleOnItemClick = evt => {
+      onItemClick(evt, item)
+    }
+
     return React.cloneElement(itemRenderer(item, props, actualIndex), {
       item,
       key: actualIndex,
       index: actualIndex,
       accessibilityOnSortEnd,
       actions: item.actions || actions,
-      onClick: item.onClick || onItemClick
+      onClick: item.onClick || handleOnItemClick
     })
   }
 
