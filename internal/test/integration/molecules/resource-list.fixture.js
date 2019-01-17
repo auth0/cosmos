@@ -1,5 +1,6 @@
 import React from 'react'
 import { ResourceList, Button } from '@auth0/cosmos'
+import { mockFn } from '../helpers/event-handler'
 
 class Default extends React.Component {
   render() {
@@ -26,7 +27,7 @@ class Default extends React.Component {
         actions={[
           <Button icon="warning" onClick={() => {}} label="Warning live without warning" />
         ]}
-        onItemClick={(evt, item) => alert(`${item.title} (${item.subtitle}) was clicked!`)}
+        onItemClick={mockFn}
       />
     )
   }
