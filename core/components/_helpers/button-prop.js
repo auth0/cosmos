@@ -1,13 +1,14 @@
 import React from 'react'
 import Button from '../atoms/button'
-export default (prop, overrides = {}) => {
-  if (!prop) return null
-  if (prop.type === Button) return React.cloneElement(prop, overrides)
 
-  if (typeof prop === 'object') {
+export default function buttonProp(action, overrides = {}) {
+  if (!action) return null
+  if (action.type === Button) return React.cloneElement(action, overrides)
+
+  if (typeof action === 'object') {
     return (
-      <Button icon={prop.icon} onClick={prop.handler} {...overrides}>
-        {prop.label}
+      <Button icon={action.icon} onClick={action.handler} {...overrides}>
+        {action.label}
       </Button>
     )
   }
