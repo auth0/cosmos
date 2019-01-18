@@ -10,6 +10,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 import widthString from '../../../_helpers/width-string-prop-validator'
+import { deprecate } from '../../../_helpers/custom-validations'
 
 const itemFocusOutline = '2px'
 
@@ -213,10 +214,12 @@ ListItem.propTypes = {
     if (!React.isValidElement(firstAction)) {
       // See: https://github.com/auth0/cosmos/issues/1133
       // See: https://github.com/auth0/cosmos/issues/1222
-      console.warn(
-        'Passing objects in actions is deprecated and will be removed in Cosmos 1.0.' +
-          ' See https://github.com/auth0/cosmos/pull/1133 for more information.'
-      )
+      return deprecate(props, {
+        name: 'actions',
+        oldAPI: 'Objects in actions',
+        replacement:
+          '<Button /> in actions. See https://github.com/auth0/cosmos/pull/1133 for an example.'
+      })
     }
   }
 }
