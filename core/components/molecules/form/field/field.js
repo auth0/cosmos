@@ -117,4 +117,5 @@ Field.defaultProps = {
 }
 
 Field.ContextConsumer = Consumer
+Field.Error = StyledError
 export default Field

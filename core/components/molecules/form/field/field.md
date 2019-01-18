@@ -179,12 +179,12 @@ This lets you can add multiple input elements inside the same `Form.Field`.
 </Form>
 ```
 
-You can even use bring your own input field. However, you are responsible for the error validation and accessibility needs.
+You can even use bring your own input field. Remember to care of the error state and accessibility though!
 
 ```js
 <Form>
-  <Form.Field htmlFor="bring-your-own" label="Custom Field">
-    <input type="file" id="bring-your-own" />
+  <Form.Field htmlFor="bring-your-own" label="Custom Field" error="Please attach a file">
+    <input type="text" id="bring-your-own" placeholder="Enter something" />
   </Form.Field>
 </Form>
 ```
