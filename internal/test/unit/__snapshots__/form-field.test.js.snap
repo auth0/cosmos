@@ -21,20 +21,20 @@ exports[`Form Field - old API renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-eXEjpC kVwyiz"
+            className="sc-gipzik kymbwE"
             data-cosmos-key="form.field"
           >
             <styled.div
               layout="label-on-left"
             >
               <div
-                className="sc-ibxdXY fQjZUt"
+                className="sc-csuQGl gbzmMu"
               >
                 <styled.label
                   htmlFor="old_api-2"
                 >
                   <label
-                    className="sc-kfGgVZ gqJFqL"
+                    className="sc-gPEVay fazPpZ"
                     htmlFor="old_api-2"
                   >
                     Old API
@@ -46,7 +46,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
               layout="label-on-left"
             >
               <div
-                className="sc-RefOD SmRKX"
+                className="sc-Rmtcm iqtOol"
               >
                 <FieldInput
                   hasError={false}
@@ -55,37 +55,12 @@ exports[`Form Field - old API renders the correct id 1`] = `
                   label="Old API"
                 >
                   <Component
-                    innerRef={
-                      Object {
-                        "current": <input
-                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                          data-cosmos-key="text-input"
-                          id="-3"
-                          label=""
-                          type="text"
-                          value=""
-                        />,
-                      }
-                    }
-                    key=".0"
                     type="text"
                   >
                     <Form Field
                       error={null}
                       fieldComponent={[Function]}
                       helpText={null}
-                      innerRef={
-                        Object {
-                          "current": <input
-                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                            data-cosmos-key="text-input"
-                            id="-3"
-                            label=""
-                            type="text"
-                            value=""
-                          />,
-                        }
-                      }
                       label=""
                       type="text"
                     >
@@ -94,20 +69,20 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-eXEjpC kVwyiz"
+                          className="sc-gipzik kymbwE"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-ibxdXY fQjZUt"
+                              className="sc-csuQGl gbzmMu"
                             >
                               <styled.label
                                 htmlFor="-3"
                               >
                                 <label
-                                  className="sc-kfGgVZ gqJFqL"
+                                  className="sc-gPEVay fazPpZ"
                                   htmlFor="-3"
                                 />
                               </styled.label>
@@ -117,7 +92,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-RefOD SmRKX"
+                              className="sc-Rmtcm iqtOol"
                             >
                               <FieldInput
                                 Component={[Function]}
@@ -125,18 +100,6 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                 hasError={false}
                                 helpText={null}
                                 id="-3"
-                                innerRef={
-                                  Object {
-                                    "current": <input
-                                      class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                                      data-cosmos-key="text-input"
-                                      id="-3"
-                                      label=""
-                                      type="text"
-                                      value=""
-                                    />,
-                                  }
-                                }
                                 label=""
                                 type="text"
                               >
@@ -148,18 +111,6 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   hasError={false}
                                   helpText={null}
                                   id="-3"
-                                  innerRef={
-                                    Object {
-                                      "current": <input
-                                        class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                                        data-cosmos-key="text-input"
-                                        id="-3"
-                                        label=""
-                                        type="text"
-                                        value=""
-                                      />,
-                                    }
-                                  }
                                   label=""
                                   onChange={null}
                                   readOnly={false}
@@ -175,18 +126,6 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                     hasError={false}
                                     helpText={null}
                                     id="-3"
-                                    innerRef={
-                                      Object {
-                                        "current": <input
-                                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                                          data-cosmos-key="text-input"
-                                          id="-3"
-                                          label=""
-                                          type="text"
-                                          value=""
-                                        />,
-                                      }
-                                    }
                                     label=""
                                     onChange={null}
                                     readOnly={false}
@@ -195,7 +134,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   >
                                     <styled.input
                                       actions={Array []}
-                                      className="sc-ksYbfQ fBGgFN"
+                                      className="sc-ckVGcZ dQMAUo"
                                       code={false}
                                       data-cosmos-key="text-input"
                                       error={null}
@@ -203,18 +142,6 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                       hasError={false}
                                       helpText={null}
                                       id="-3"
-                                      innerRef={
-                                        Object {
-                                          "current": <input
-                                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                                            data-cosmos-key="text-input"
-                                            id="-3"
-                                            label=""
-                                            type="text"
-                                            value=""
-                                          />,
-                                        }
-                                      }
                                       label=""
                                       onChange={null}
                                       readOnly={false}
@@ -222,7 +149,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                       type="text"
                                     >
                                       <input
-                                        className="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                                        className="sc-ckVGcZ dQMAUo sc-kgoBCf jejmud"
                                         data-cosmos-key="text-input"
                                         id="-3"
                                         label=""
@@ -273,20 +200,20 @@ exports[`Form Field renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-eXEjpC kVwyiz"
+            className="sc-gipzik kymbwE"
             data-cosmos-key="form.field"
           >
             <styled.div
               layout="label-on-left"
             >
               <div
-                className="sc-ibxdXY fQjZUt"
+                className="sc-csuQGl gbzmMu"
               >
                 <styled.label
                   htmlFor="field_label-1"
                 >
                   <label
-                    className="sc-kfGgVZ gqJFqL"
+                    className="sc-gPEVay fazPpZ"
                     htmlFor="field_label-1"
                   >
                     Field label
@@ -298,7 +225,7 @@ exports[`Form Field renders the correct id 1`] = `
               layout="label-on-left"
             >
               <div
-                className="sc-RefOD SmRKX"
+                className="sc-Rmtcm iqtOol"
               >
                 <FieldInput
                   hasError={false}
@@ -310,19 +237,6 @@ exports[`Form Field renders the correct id 1`] = `
                     actions={Array []}
                     code={false}
                     error={null}
-                    id="field_label-1"
-                    innerRef={
-                      Object {
-                        "current": <input
-                          class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                          data-cosmos-key="text-input"
-                          id="field_label-1"
-                          type="text"
-                          value=""
-                        />,
-                      }
-                    }
-                    key=".0"
                     onChange={null}
                     readOnly={false}
                     size="default"
@@ -334,17 +248,6 @@ exports[`Form Field renders the correct id 1`] = `
                       data-cosmos-key="text-input"
                       error={null}
                       id="field_label-1"
-                      innerRef={
-                        Object {
-                          "current": <input
-                            class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                            data-cosmos-key="text-input"
-                            id="field_label-1"
-                            type="text"
-                            value=""
-                          />,
-                        }
-                      }
                       onChange={null}
                       readOnly={false}
                       size="default"
@@ -352,29 +255,18 @@ exports[`Form Field renders the correct id 1`] = `
                     >
                       <styled.input
                         actions={Array []}
-                        className="sc-ksYbfQ fBGgFN"
+                        className="sc-ckVGcZ dQMAUo"
                         code={false}
                         data-cosmos-key="text-input"
                         error={null}
                         id="field_label-1"
-                        innerRef={
-                          Object {
-                            "current": <input
-                              class="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
-                              data-cosmos-key="text-input"
-                              id="field_label-1"
-                              type="text"
-                              value=""
-                            />,
-                          }
-                        }
                         onChange={null}
                         readOnly={false}
                         size="default"
                         type="text"
                       >
                         <input
-                          className="sc-ksYbfQ fBGgFN sc-Rmtcm dXDjAT"
+                          className="sc-ckVGcZ dQMAUo sc-kgoBCf jejmud"
                           data-cosmos-key="text-input"
                           id="field_label-1"
                           onChange={null}

@@ -179,6 +179,16 @@ This lets you can add multiple input elements inside the same `Form.Field`.
 </Form>
 ```
 
+You can even use bring your own input field. However, you are responsible for the error validation and accessibility needs.
+
+```js
+<Form>
+  <Form.Field htmlFor="bring-your-own" label="Custom Field">
+    <input type="file" id="bring-your-own" />
+  </Form.Field>
+</Form>
+```
+
 ### Old API
 
 If you are using the old flavor of the API, you can continue using it till `1.0.0` without any problems. Here's an example:
