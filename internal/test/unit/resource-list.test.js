@@ -24,15 +24,6 @@ describe('ResourceList Action Builder', () => {
     )
   })
 
-  it('calls the onItemClick handler when appropiate', () => {
-    const onItemClick = jest.fn()
-    const resourceList = resourceListFactory({ onItemClick })
-    const firstItem = resourceList.childAt(0)
-    firstItem.simulate('click')
-
-    expect(onItemClick).toHaveBeenCalled()
-  })
-
   it('calls the action#onClick handler', () => {
     const actionCallback = jest.fn()
     const items = [
@@ -44,15 +35,17 @@ describe('ResourceList Action Builder', () => {
     ]
 
     const resourceList = resourceListFactory({ items })
+    const event = { stopPropagation: jest.fn() }
     resourceList
       .childAt(0) // First ListItem
       .dive()
       .childAt(1) // Actions column
       .childAt(0) // Actions ButtonGroup
       .childAt(0) // First Action
-      .simulate('click')
+      .simulate('click', event)
 
-    expect(actionCallback).toHaveBeenCalledWith(undefined, items[0])
+    expect(actionCallback).toHaveBeenCalledWith(event, items[0])
+    expect(event.stopPropagation).toHaveBeenCalled()
   })
 
   it('calls the action#handler function when using objects as actions', () => {

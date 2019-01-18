@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.14.0 [January 17, 2019]
+
+### Added
+
+- Tooltip: Use react-popper instead of a custom solution [#1371]
+
+### Fixed
+
+- ResourceList: Fix item being undefined on onClick and onItemClick, fix onItemClick being fired on action onClick [#1443]
+
+## 0.13.0 [January 14, 2019]
+
+### Added
+
+- Form.Field: Implement new API based on RFC [#1287]
+- Release proces: add quick guide [#1397]
+- Testing: Test event handlers [#1311]
+- Added missing icons [#1406]
+
+### Fixed
+
+- IE 11 fix: Use insertBefore instead of prepend in global style injection [#1412]
+- Form.Label: Replaces the default value to be an empty string [#1411]
+- Sidebar: Add object branch presence check [#1420][#1423]
+- Page Header: Fixed link hover and added stories [#1409]
+- Radio: Fix onChange callback firing twice [#1403]
+- Icon: Re-uploaded user-add icon [#1428]
+- Pager: Do not enforce totals [#1404]
+
+### Internal
+
+- Adds StackLayout [#1363]
+
 ## 0.12.2 [January 9, 2019]
 
 ### Fixed

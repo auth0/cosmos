@@ -3,6 +3,11 @@ import { render, fireEvent } from 'react-testing-library'
 
 const mockFn = jest.fn()
 
+const sampleEvent = {
+  stopPropagation: jest.fn(),
+  preventDefault: jest.fn()
+}
+
 const checkEventIsValid = event => {
   const availableEvents = Object.keys(fireEvent)
 
@@ -12,7 +17,7 @@ const checkEventIsValid = event => {
     )
 }
 
-const eventHandlerTest = (Fixture, elementToTrigger, event = 'click', eventData = {}) => {
+const eventHandlerTest = (Fixture, elementToTrigger, event = 'click', eventData = sampleEvent) => {
   mockFn.mockReset()
   checkEventIsValid(event)
   const body = render(<Fixture />)
