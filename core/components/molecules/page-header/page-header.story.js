@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { PageHeader, Link, Text } from '@auth0/cosmos'
+import { PageHeader, Link, Text, Button } from '@auth0/cosmos'
 
 storiesOf('Page Header', module).add('default', () => (
   <Example title="default">
@@ -15,16 +15,16 @@ storiesOf('Page Header', module).add('default', () => (
         </span>
       }
       learnMore="/link"
-      primaryAction={{
-        label: 'Create Client',
-        icon: 'plus',
-        handler: () => {}
-      }}
-      secondaryAction={{
-        label: 'Tutorial',
-        icon: 'play-circle',
-        handler: () => {}
-      }}
+      primaryAction={
+        <Button icon="plus" onClick={() => {}}>
+          Create Client
+        </Button>
+      }
+      secondaryAction={
+        <Button icon="play-circle" onClick={() => {}}>
+          Tutorial
+        </Button>
+      }
     />
   </Example>
 ))
@@ -60,11 +60,11 @@ storiesOf('Page Header', module).add('only primary action', () => (
         </span>
       }
       learnMore="/link"
-      primaryAction={{
-        label: 'Create Client',
-        icon: 'plus',
-        handler: () => {}
-      }}
+      primaryAction={
+        <Button icon="plus" onClick={() => {}}>
+          Create Client
+        </Button>
+      }
     />
   </Example>
 ))
@@ -80,11 +80,11 @@ storiesOf('Page Header', module).add('only secondary action', () => (
         </span>
       }
       learnMore="/link"
-      secondaryAction={{
-        label: 'Tutorial',
-        icon: 'play-circle',
-        handler: () => {}
-      }}
+      secondaryAction={
+        <Button icon="play-circle" onClick={() => {}}>
+          Tutorial
+        </Button>
+      }
     />
   </Example>
 ))
@@ -97,11 +97,11 @@ storiesOf('Page Header', module).add('only primary action with deprecated API', 
         text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
         learnMore: '/clients'
       }}
-      primaryAction={{
-        label: 'Create Client',
-        icon: 'plus',
-        handler: () => {}
-      }}
+      primaryAction={
+        <Button icon="plus" onClick={() => {}}>
+          Create Client
+        </Button>
+      }
     />
   </Example>
 ))
@@ -114,11 +114,11 @@ storiesOf('Page Header', module).add('only secondary action with deprecated API'
         text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
         learnMore: '/clients'
       }}
-      secondaryAction={{
-        label: 'Tutorial',
-        icon: 'play-circle',
-        handler: () => {}
-      }}
+      secondaryAction={
+        <Button icon="play-circle" onClick={() => {}}>
+          Tutorial
+        </Button>
+      }
     >
       Setup a mobile, web or IoT application to{' '}
       <Text type="strong">use Auth0 for Authentication</Text>.
