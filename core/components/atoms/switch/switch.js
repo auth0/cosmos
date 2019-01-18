@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
+import Form from '../../molecules/form'
 
 const height = '32px'
 
@@ -30,7 +31,16 @@ class Switch extends React.Component {
     let [onLabel, offLabel] = this.props.accessibleLabels
 
     const checkbox = (
-      <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+      <Form.Field.ContextConsumer>
+        {context => (
+          <Checkbox
+            type="checkbox"
+            checked={this.state.on}
+            readOnly
+            id={this.props.id || context.formFieldId}
+          />
+        )}
+      </Form.Field.ContextConsumer>
     )
 
     let elements = <React.Fragment>{checkbox}</React.Fragment>

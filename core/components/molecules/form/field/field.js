@@ -9,7 +9,6 @@ import FormContext from '../form-context'
 import Automation from '../../../_helpers/automation-attribute'
 
 import StyledLabel from '../label'
-import FieldInput from './field-input'
 import StyledError from '../error'
 import HelpText from '../help-text'
 import TextArea from '../../../atoms/textarea'
@@ -18,17 +17,35 @@ import Radio from '../../../atoms/radio'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import containerStyles from '../../../_helpers/container-styles'
 
+const { Provider, Consumer } = React.createContext({})
+
+const FieldInput = props => {
+  const { Component, ...fieldProps } = props
+  /*
+    old API
+    we proxy through all the props to the input element
+  */
+  if (Component) return <Component {...fieldProps} />
+
+  /*
+    New API
+    We create a context around the field to pass the field id
+  */
+  let { children, id } = fieldProps
+  return <Provider value={{ formFieldId: id }}>{children}</Provider>
+}
+
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const { error, ...fieldProps } = props
+  const { error, htmlFor, ...fieldProps } = props
 
   return (
     <FormContext.Consumer>
       {context => (
         <Field.Element layout={context.layout} {...Automation('form.field')}>
           <Field.LabelLayout layout={context.layout}>
-            <StyledLabel htmlFor={id}>{props.label}</StyledLabel>
+            <StyledLabel htmlFor={htmlFor || id}>{props.label}</StyledLabel>
           </Field.LabelLayout>
           <Field.ContentLayout layout={context.layout}>
             <FieldInput
@@ -99,4 +116,5 @@ Field.defaultProps = {
   error: null
 }
 
+Field.ContextConsumer = Consumer
 export default Field
