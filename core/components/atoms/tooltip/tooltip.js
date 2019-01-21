@@ -42,6 +42,7 @@ class Tooltip extends React.Component {
           placement={props.position}
           modifiers={{
             preventOverflow: { enabled: false },
+            hide: { enabled: false },
             offset: { offset: '0, 10' }
           }}
         >
