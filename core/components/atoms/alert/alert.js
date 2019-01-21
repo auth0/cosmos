@@ -149,7 +149,7 @@ Alert.propTypes = {
   /** Title text (in bold) */
   title: PropTypes.string,
 
-  /** @deprecated Details */
+  /** @deprecated:children Details */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 
   /** Link to documentation */

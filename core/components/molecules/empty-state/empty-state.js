@@ -90,11 +90,11 @@ EmptyState.propTypes = {
   title: PropTypes.string.isRequired,
   /** Icon associated with section */
   icon: PropTypes.oneOf(__ICONNAMES__).isRequired,
-  /** @deprecated Message */
+  /** @deprecated:children Message */
   text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Message */
   children: PropTypes.node,
-  /** @deprecated url and target for "Learn more" */
+  /** @deprecated:link url and target for "Learn more" */
   helpUrl: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
