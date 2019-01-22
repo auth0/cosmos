@@ -124,19 +124,45 @@ class Dialog extends React.Component {
               id="dialog-description"
               {...Automation('dialog.body')}
             >
-              {props.children}
+              {excludeOfType(Dialog.Footer, props.children)}
             </DialogBody>
 
-            {props.actions.length > 0 && (
-              <DialogFooter {...Automation('dialog.footer')}>
-                <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-              </DialogFooter>
-            )}
+            {onlyOfType(Dialog.Footer, props.children)}
+
+            {renderActionsFromProp(props.actions)}
           </DialogBox>
         </FocusTrap>
       </Overlay>
     )
   }
+}
+
+function onlyOfType(type, children) {
+  return React.Children.map(children, child => {
+    if (!React.isValidElement(child)) return null
+    if (child.type === type) return child
+  })
+}
+
+function excludeOfType(type, children) {
+  if (children.constructor.name !== 'Array' && typeof children === 'string') {
+    return <span>{children}</span>
+  }
+
+  return React.Children.map(children, child => {
+    console.log('exclude', { child })
+    if (child.type !== type) return child
+  })
+}
+
+function renderActionsFromProp(actionsProp) {
+  if (actionsProp.length < 1) return null
+
+  return (
+    <DialogFooter {...Automation('dialog.footer')}>
+      <ButtonGroup>{actionsProp.map(createButtonForAction)}</ButtonGroup>
+    </DialogFooter>
+  )
 }
 
 const DialogBox = styled.div`
@@ -218,6 +244,8 @@ const DialogFooter = styled.footer`
   padding: ${spacing.small};
   border-top: 1px solid ${colors.base.grayLight};
 `
+
+Dialog.Footer = DialogFooter
 
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
