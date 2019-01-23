@@ -8,6 +8,11 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
 
+/**
+ * Removes the List.Drawer element from the
+ * list body child.
+ * @param {React.Element} child
+ */
 const excludeDrawer = child => {
   const newChildren = React.Children.map(child.props.children, child => {
     if (child.type === List.Drawer) return null
@@ -18,6 +23,11 @@ const excludeDrawer = child => {
   return React.cloneElement(child, { children: newChildren })
 }
 
+/**
+ * Filters the List.Drawer element from the
+ * list body child.
+ * @param {React.Element} child
+ */
 const getDrawer = child => {
   let onToggle
   const drawer = React.Children.map(child.props.children, child => {
@@ -31,6 +41,11 @@ const getDrawer = child => {
   return { drawer, onToggle }
 }
 
+/**
+ * Finds a List.Drawer element in the list
+ * and returns if the list is expandable or not.
+ * @param {React.Element} child
+ */
 const isListExpandable = child => {
   let isPresent = false
 
