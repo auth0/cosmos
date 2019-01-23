@@ -232,3 +232,26 @@ storiesOf('Dialog', module).add('dialog with tabs', () => (
     </Dialog>
   </StyledExample>
 ))
+
+storiesOf('Dialog', module).add('composable actions', () => (
+  <StyledExample title="test">
+    <Dialog title={'This is a test with composable actions'} open={true}>
+      <Tabs>
+        <Tabs.Tab title="Test">
+          <p>Are you sure</p>
+
+          <Dialog.Footer>
+            <Button>test</Button>
+          </Dialog.Footer>
+        </Tabs.Tab>
+        <Tabs.Tab>
+          <p>yo this is a test</p>
+
+          <Dialog.Footer>
+            <Button>another tab</Button>
+          </Dialog.Footer>
+        </Tabs.Tab>
+      </Tabs>
+    </Dialog>
+  </StyledExample>
+))
