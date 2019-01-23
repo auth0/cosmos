@@ -1,30 +1,7 @@
 import { fonts, misc } from '@auth0/cosmos-tokens'
+import { insertAtHeadStart } from './dom'
 
-let includeGlobals = true
-
-if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
-  includeGlobals = false
-}
-
-const insertAtTheStart = styles => {
-  let tag = document.getElementById('cosmos-globals')
-
-  if (tag) {
-    tag.innerHTML = styles
-  } else {
-    tag = document.createElement('style')
-    tag.type = 'text/css'
-    tag.id = 'cosmos-globals'
-    tag.innerHTML = styles
-
-    // Register the resets before anything else
-    const head = document.getElementsByTagName('head')[0]
-    head.insertBefore(tag, head.firstChild)
-  }
-}
-
-if (includeGlobals) {
-  insertAtTheStart(`
+const recommendedResets = `
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -89,12 +66,9 @@ if (includeGlobals) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+`
 
-  
-`)
-} else {
-  /* We still insert some styles to add missing fonts and keep other things sane 😅 */
-  insertAtTheStart(`
+const minimumResets = `
     * {
       box-sizing: border-box;
     }
@@ -113,5 +87,15 @@ if (includeGlobals) {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-  `)
-}
+`
+
+const includeGlobals = process && process.env && process.env.COSMOS_DISABLE_RESETS
+
+const resets = includeGlobals
+  ? recommendedResets
+  : /* We still insert some styles to add missing fonts and keep other things sane 😅 */
+    minimumResets
+
+const apply = ({ applyFn = insertAtHeadStart }) => applyFn(resets)
+
+export { resets, apply }
