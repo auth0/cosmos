@@ -83,7 +83,7 @@ StackLayout.propTypes = {
   /** Horizontally distribute the components within the stack. applyes to `justify-content` */
   distribution: PropTypes.oneOf(['spaceBetween', 'center', 'start', 'end']),
   /** Flex wrap */
-  wrap: PropTypes.bool,
+  wrap: PropTypes.oneOf(['true', 'false']),
   /** Defines how much space each item within the stack container will take in relation to the others. For example and array of {[1, 2, 'none']} will make the third item follow the with of its content, and the second item take double the remind space than the first one. */
   space: PropTypes.arrayOf(spaceItemProp)
 }
