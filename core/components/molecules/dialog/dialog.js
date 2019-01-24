@@ -85,7 +85,20 @@ class Dialog extends React.Component {
   }
 
   render() {
+    let tabsFooter, children
     const props = this.props
+    const selectedTab = getTabsSelectedIndex(props.children)
+
+    // explicit check for null since selectedTab can be 0
+    const childrenIsTab = selectedTab !== null
+    children = props.children
+
+    if (childrenIsTab) {
+      const compoundChildren = renderTabsChildren(props.children, selectedTab)
+      children = compoundChildren.tabs
+      tabsFooter = compoundChildren.footer
+    }
+
     return (
       <Overlay contentSize={props.width} {...props}>
         <FocusTrap persistentFocus={false} onExit={props.onClose}>
@@ -124,10 +137,10 @@ class Dialog extends React.Component {
               id="dialog-description"
               {...Automation('dialog.body')}
             >
-              {excludeOfType(Dialog.Footer, props.children)}
+              {children}
             </DialogBody>
 
-            {onlyOfType(Dialog.Footer, props.children)}
+            {tabsFooter}
 
             {renderActionsFromProp(props.actions)}
           </DialogBox>
@@ -137,22 +150,38 @@ class Dialog extends React.Component {
   }
 }
 
-function onlyOfType(type, children) {
-  return React.Children.map(children, child => {
-    if (!React.isValidElement(child)) return null
-    if (child.type === type) return child
-  })
+function getTabsSelectedIndex(children) {
+  const notUndefined = item => typeof item !== 'undefined'
+  const allTabs = React.Children.map(children, child => {
+    if (child.type !== Tabs) return
+    return child
+  }).filter(notUndefined)
+
+  if (allTabs.length < 1) return null
+  const tab = allTabs[0]
+
+  return tab.props.selected
 }
 
-function excludeOfType(type, children) {
-  if (children.constructor.name !== 'Array' && typeof children === 'string') {
-    return <span>{children}</span>
-  }
+function overrideChildren(element, transformation) {
+  const children = React.Children.map(element.props.children, transformation)
+  return React.cloneElement(element, { children: children })
+}
 
-  return React.Children.map(children, child => {
-    console.log('exclude', { child })
-    if (child.type !== type) return child
-  })
+function renderTabsChildren(children, selectedTab) {
+  let footers = []
+  const tabs = overrideChildren(children, tabs =>
+    overrideChildren(tabs, tabsElement => {
+      if (tabsElement.type === Dialog.Footer) {
+        footers.push(tabsElement)
+        return
+      }
+
+      return tabsElement
+    })
+  )
+
+  return { tabs, footer: footers[selectedTab] }
 }
 
 function renderActionsFromProp(actionsProp) {

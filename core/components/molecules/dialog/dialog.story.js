@@ -2,7 +2,17 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import { Dialog, Form, Link, Tabs, Paragraph, Text, Button, TextInput } from '@auth0/cosmos'
+import {
+  Dialog,
+  Form,
+  Link,
+  Tabs,
+  Paragraph,
+  Text,
+  Button,
+  TextInput,
+  Tooltip
+} from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -233,25 +243,46 @@ storiesOf('Dialog', module).add('dialog with tabs', () => (
   </StyledExample>
 ))
 
+class StatedDialogTabsExample extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { selected: 0 }
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(newIndex) {
+    this.setState({ selected: newIndex })
+  }
+
+  render() {
+    return (
+      <Dialog title={'This is a test with composable actions'} open={true}>
+        <Tabs selected={this.state.selected} onSelect={this.handleChange}>
+          <Tabs.Tab label="Test 1st tab">
+            <p>Are you sure</p>
+
+            <Dialog.Footer>
+              <Button>test</Button>
+            </Dialog.Footer>
+          </Tabs.Tab>
+          <Tabs.Tab label="Test 2nd tab">
+            <Tooltip content="Test d sjids jdis jds jdklmsjdsklfjdklf jkslf jdkl fjkdjf">
+              <Button>Test</Button>
+            </Tooltip>
+            <p>yo this is a test</p>
+
+            <Dialog.Footer>
+              <Button>another tab</Button>
+            </Dialog.Footer>
+          </Tabs.Tab>
+        </Tabs>
+      </Dialog>
+    )
+  }
+}
+
 storiesOf('Dialog', module).add('composable actions', () => (
   <StyledExample title="test">
-    <Dialog title={'This is a test with composable actions'} open={true}>
-      <Tabs>
-        <Tabs.Tab title="Test">
-          <p>Are you sure</p>
-
-          <Dialog.Footer>
-            <Button>test</Button>
-          </Dialog.Footer>
-        </Tabs.Tab>
-        <Tabs.Tab>
-          <p>yo this is a test</p>
-
-          <Dialog.Footer>
-            <Button>another tab</Button>
-          </Dialog.Footer>
-        </Tabs.Tab>
-      </Tabs>
-    </Dialog>
+    <StatedDialogTabsExample />
   </StyledExample>
 ))
