@@ -72,6 +72,84 @@ const focusOnFormInput = ({ current }) => {
 const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
 
+/**
+ * Resolves the Dialog's Tabs currently selected index.
+ *
+ * @param {React.Element} children
+ * @returns {number?}
+ */
+function getTabsSelectedIndex(children) {
+  if (!children) return null
+
+  const notUndefined = item => typeof item !== 'undefined'
+  const allTabs = React.Children.map(children, child => {
+    if (child.type !== Tabs) return
+    return child
+  }).filter(notUndefined)
+
+  if (allTabs.length < 1) return null
+  const tab = allTabs[0]
+
+  return tab.props.selected
+}
+
+/**
+ * Returns a clone of the element with its
+ * children transformed by the transformation function.
+ *
+ * @param {React.Element} element
+ * @param {function} transformation
+ * @returns {React.Element<{children: any[]}, HTMLElement>}
+ */
+function overrideChildren(element, transformation) {
+  const children = React.Children.map(element.props.children, transformation)
+  return React.cloneElement(element, { children: children })
+}
+
+/**
+ * Extracts any Dialog.Footer instance from the
+ * dialog body and returns them depending on the currently
+ * selected tab element index.
+ *
+ * @param {React.Element} children
+ * @param {number} selectedTab
+ * @returns {{footer: React.Element[], tabs: React.Element}}
+ */
+function renderTabsChildren(children, selectedTab) {
+  let footers = []
+
+  const tabs = overrideChildren(children, tabs =>
+    overrideChildren(tabs, tabsElement => {
+      if (tabsElement.type === Dialog.Footer) {
+        footers.push(tabsElement)
+        return
+      }
+
+      return tabsElement
+    })
+  )
+
+  return { tabs, footer: footers[selectedTab] }
+}
+
+
+/**
+ * Maps the actions coming to the dialog as a prop
+ * to a proper DialogFooter button group.
+ *
+ * @param {Array<React.Element>} actionsProp
+ * @returns {React.Element}
+ */
+function renderActionsFromProp(actionsProp) {
+  if (actionsProp.length < 1) return null
+
+  return (
+    <DialogFooter {...Automation('dialog.footer')}>
+      <ButtonGroup>{actionsProp.map(createButtonForAction)}</ButtonGroup>
+    </DialogFooter>
+  )
+}
+
 class Dialog extends React.Component {
   constructor(props) {
     super(props)
@@ -149,50 +227,6 @@ class Dialog extends React.Component {
       </Overlay>
     )
   }
-}
-
-function getTabsSelectedIndex(children) {
-  const notUndefined = item => typeof item !== 'undefined'
-  const allTabs = React.Children.map(children, child => {
-    if (child.type !== Tabs) return
-    return child
-  }).filter(notUndefined)
-
-  if (allTabs.length < 1) return null
-  const tab = allTabs[0]
-
-  return tab.props.selected
-}
-
-function overrideChildren(element, transformation) {
-  const children = React.Children.map(element.props.children, transformation)
-  return React.cloneElement(element, { children: children })
-}
-
-function renderTabsChildren(children, selectedTab) {
-  let footers = []
-  const tabs = overrideChildren(children, tabs =>
-    overrideChildren(tabs, tabsElement => {
-      if (tabsElement.type === Dialog.Footer) {
-        footers.push(tabsElement)
-        return
-      }
-
-      return tabsElement
-    })
-  )
-
-  return { tabs, footer: footers[selectedTab] }
-}
-
-function renderActionsFromProp(actionsProp) {
-  if (actionsProp.length < 1) return null
-
-  return (
-    <DialogFooter {...Automation('dialog.footer')}>
-      <ButtonGroup>{actionsProp.map(createButtonForAction)}</ButtonGroup>
-    </DialogFooter>
-  )
 }
 
 const DialogBox = styled.div`
