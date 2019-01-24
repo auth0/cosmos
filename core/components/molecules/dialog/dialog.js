@@ -85,13 +85,14 @@ class Dialog extends React.Component {
   }
 
   render() {
-    let tabsFooter, children
     const props = this.props
+    let { children } = props
+    let tabsFooter
+
     const selectedTab = getTabsSelectedIndex(props.children)
 
     // explicit check for null since selectedTab can be 0
     const childrenIsTab = selectedTab !== null
-    children = props.children
 
     if (childrenIsTab) {
       const compoundChildren = renderTabsChildren(props.children, selectedTab)

@@ -11,7 +11,8 @@ import {
   Text,
   Button,
   TextInput,
-  Tooltip
+  Tooltip,
+  ButtonGroup
 } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
@@ -261,18 +262,24 @@ class StatedDialogTabsExample extends React.Component {
           <Tabs.Tab label="Test 1st tab">
             <p>Are you sure</p>
 
-            <Dialog.Footer>
-              <Button>test</Button>
+            {/* Adding a key is optional but recommended
+            to avoid unexpected transitions between tab footer buttons */}
+            <Dialog.Footer key="1st-tab-footer">
+              <ButtonGroup>
+                <Button appearance="secondary">Cancel</Button>
+                <Button appearance="cta">Send</Button>
+              </ButtonGroup>
             </Dialog.Footer>
           </Tabs.Tab>
           <Tabs.Tab label="Test 2nd tab">
-            <Tooltip content="Test d sjids jdis jds jdklmsjdsklfjdklf jkslf jdkl fjkdjf">
-              <Button>Test</Button>
+            <Tooltip content="This is a tooltip which is soooo long that should go out of the dialog.">
+              <Button>Hover me</Button>
             </Tooltip>
-            <p>yo this is a test</p>
 
-            <Dialog.Footer>
-              <Button>another tab</Button>
+            <Dialog.Footer key="2nd-tab-footer">
+              <ButtonGroup>
+                <Button appearance="cta">Enable add-on</Button>
+              </ButtonGroup>
             </Dialog.Footer>
           </Tabs.Tab>
         </Tabs>
