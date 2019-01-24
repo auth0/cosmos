@@ -7,9 +7,6 @@
 
 /* eslint-disable import/first */
 
-/* resets for font */
-import './_helpers/globals'
-
 /* internal */
 import Box from './atoms/_box'
 import Well from './atoms/_well'
