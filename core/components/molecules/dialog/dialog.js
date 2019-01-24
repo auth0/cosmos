@@ -81,11 +81,10 @@ const getAccessibilityRole = (props, requiredRole, propObject) =>
 function getTabsSelectedIndex(children) {
   if (!children) return null
 
-  const notUndefined = item => typeof item !== 'undefined'
-  const allTabs = React.Children.map(children, child => {
-    if (child.type !== Tabs) return
-    return child
-  }).filter(notUndefined)
+  const notNull = item => item !== null
+  const allTabs = React.Children
+    .map(children, child => child.type === Tabs ? child : null)
+    .filter(notNull)
 
   if (allTabs.length < 1) return null
   const tab = allTabs[0]
