@@ -1,11 +1,9 @@
 import React from 'react'
 import { Form } from '@auth0/cosmos'
 
-const mockOnSubmit = event => {
-  event.preventDefault()
-  jest.fn()
-}
+const mockOnSubmit = jest.fn()
 const mockPrimaryAction = jest.fn()
+const mockSecondaryAction = jest.fn()
 const mockOnInputChange = jest.fn()
 
 class Fixture extends React.Component {
@@ -20,14 +18,18 @@ class Fixture extends React.Component {
           onChange={mockOnInputChange}
           onSubmit={mockOnSubmit}
         />
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: mockPrimaryAction }} />
+        <Form.Actions
+          primaryAction={{ label: 'Save Changes', handler: mockPrimaryAction }}
+          secondaryAction={[{ label: 'Reset', handler: mockSecondaryAction }]}
+        />
       </Form>
     )
   }
 }
 
-Fixture.onPrimaryClick = mockPrimaryAction
 Fixture.onSubmit = mockOnSubmit
+Fixture.onPrimaryClick = mockPrimaryAction
+Fixture.onSecondaryAction = mockSecondaryAction
 Fixture.onInputChange = mockOnInputChange
 
 export default Fixture

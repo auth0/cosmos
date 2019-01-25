@@ -21,9 +21,18 @@ test('Calls event handler on inputs', () => {
 test('Primary action calls submit and click handler', () => {
   const form = render(<Fixture />)
 
-  const primaryButton = form.getByTestId('button')
+  const primaryButton = form.getAllByTestId('button')[0]
   fireEvent.click(primaryButton)
 
   expect(Fixture.onPrimaryClick).toHaveBeenCalled()
   expect(Fixture.onSubmit).toHaveBeenCalled()
+})
+
+test('Secondary action calls handler', () => {
+  const form = render(<Fixture />)
+
+  const secondaryAction = form.getAllByTestId('button')[1]
+  fireEvent.click(secondaryAction)
+
+  expect(Fixture.onSecondaryAction).toHaveBeenCalled()
 })
