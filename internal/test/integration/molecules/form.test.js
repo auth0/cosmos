@@ -1,9 +1,8 @@
 import React from 'react'
-import { render } from 'react-testing-library'
+import { render, fireEvent } from 'react-testing-library'
 
 import Fixture from './form.fixture'
 import customIdTest from '../helpers/custom-id'
-import eventHandlerTest from '../helpers/event-handler'
 
 test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'form')
@@ -11,5 +10,20 @@ test('Accepts custom id prop', () => {
 })
 
 test('Calls event handler on inputs', () => {
-  eventHandlerTest(Fixture, 'text-input', 'change')
+  const form = render(<Fixture />)
+
+  const input = form.getByTestId('text-input')
+  fireEvent.change(input)
+
+  expect(Fixture.onInputChange).toHaveBeenCalled()
+})
+
+test('Primary action calls submit and click handler', () => {
+  const form = render(<Fixture />)
+
+  const primaryButton = form.getByTestId('button')
+  fireEvent.click(primaryButton)
+
+  expect(Fixture.onPrimaryClick).toHaveBeenCalled()
+  expect(Fixture.onSubmit).toHaveBeenCalled()
 })
