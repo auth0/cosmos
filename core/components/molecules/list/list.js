@@ -62,7 +62,7 @@ const List = props => {
       {...props}
       {...Automation('list')}
       role="list"
-      aria-label="Expandable data list example"
+      // aria-label="Expandable data list"
     >
       {props.label && (
         <List.Label>
@@ -73,13 +73,13 @@ const List = props => {
       {React.Children.map(props.children, child => {
         const { onToggle, drawer } = getDrawer(child)
         return (
-          <List.ItemContainer {...Automation('list.item')} aria-labelledby="example-id">
+          <List.ItemContainer {...Automation('list.item')}>
             {props.sortable && (
               <List.Handle
-                aria-expanded="true"
-                aria-label="Toggle details"
-                aria-labelledby="example-id button_id"
-                id="button_id"
+              // aria-expanded="true"
+              // aria-label="Toggle details"
+              // aria-labelledby="example-id button_id"
+              // id="button_id"
               >
                 <Icon name="resize-vertical" size="16" color="blue" />
               </List.Handle>
