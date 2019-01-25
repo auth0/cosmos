@@ -8,9 +8,3 @@ test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'button-group')
   customIdTest(Fixture, 'button')
 })
-
-import eventHandlerTest from '../helpers/event-handler'
-
-test('Calls custom event handler', () => {
-  eventHandlerTest(Fixture, 'button-group')
-})
