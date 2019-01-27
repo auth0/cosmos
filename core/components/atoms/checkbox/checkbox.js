@@ -6,7 +6,7 @@ import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
 const CheckMark = styled.span``
-const Label = styled.span``
+const Label = styled.p``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
@@ -33,6 +33,7 @@ const Checkbox = props => (
 Checkbox.Option = styled.label`
   ${containerStyles};
 
+  display: flex;
   position: relative;
   cursor: pointer;
   margin-bottom: 0;
@@ -57,9 +58,9 @@ Checkbox.Option = styled.label`
 
   ${CheckMark} {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(20%);
     height: 16px;
     width: 16px;
     background-color: ${props =>
