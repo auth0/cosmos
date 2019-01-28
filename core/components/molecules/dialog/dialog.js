@@ -117,9 +117,15 @@ function overrideChildren(element, transformation) {
  */
 function renderTabsChildren(children, selectedTab) {
   let footers = []
+  let headers = []
 
   const tabs = overrideChildren(children, tabs =>
     overrideChildren(tabs, tabsElement => {
+      if (tabsElement.type === Dialog.Header) {
+        headers.push(tabsElement)
+        return
+      }
+
       if (tabsElement.type === Dialog.Footer) {
         footers.push(tabsElement)
         return
@@ -129,7 +135,10 @@ function renderTabsChildren(children, selectedTab) {
     })
   )
 
-  return { tabs, footer: footers[selectedTab] }
+  const header = headers[selectedTab]
+  const footer = footers[selectedTab]
+
+  return { tabs, header, footer }
 }
 
 /**
@@ -158,7 +167,7 @@ function withAutomationAttribute(attributeValue, element) {
  * attributes to each matching children.
  *
  * @param children
- * @returns {any[]}
+ * @returns {React.Element[]}
  */
 function enhanceComposedChildren(children) {
   return React.Children.map(children, child => {
@@ -182,26 +191,20 @@ function enhanceComposedChildren(children) {
  * @param {object} props
  * @param {React.Element} children
  * @param {React.Element} tabsFooter
- * @returns {React.Element}
+ * @returns {React.Element[]}
  */
-function renderDialogContent(props, children, tabsFooter) {
+function renderDialogContent(props, children, tabsElements) {
   if (props.composed) return enhanceComposedChildren(props.children)
 
   return (
     <React.Fragment>
-      {props.title && (
-        <Dialog.Header {...Automation('dialog.title')}>
-          <Dialog.Title element={props.titleElement} id="dialog-title">
-            {props.title}
-          </Dialog.Title>
-        </Dialog.Header>
-      )}
+      {tabsElements.tabsHeader}
 
       <Dialog.Body ref={this.childrenRef} id="dialog-description" {...Automation('dialog.body')}>
         {children}
       </Dialog.Body>
 
-      {tabsFooter}
+      {tabsElements.tabsFooter}
 
       {renderActionsFromProp(props.actions)}
     </React.Fragment>
@@ -223,7 +226,7 @@ class Dialog extends React.Component {
   render() {
     const props = this.props
     let { children } = props
-    let tabsFooter
+    let tabsFooter, tabsHeader
 
     const selectedTab = getTabsSelectedIndex(props.children)
 
@@ -234,6 +237,7 @@ class Dialog extends React.Component {
       const compoundChildren = renderTabsChildren(props.children, selectedTab)
       children = compoundChildren.tabs
       tabsFooter = compoundChildren.footer
+      tabsHeader = compoundChildren.header
     }
 
     return (
@@ -261,7 +265,15 @@ class Dialog extends React.Component {
               />
             </Dialog.Close>
 
-            {renderDialogContent.bind(this)(props, children, tabsFooter)}
+            {props.title && (
+              <Dialog.Header {...Automation('dialog.title')}>
+                <Dialog.Title element={props.titleElement} id="dialog-title">
+                  {props.title}
+                </Dialog.Title>
+              </Dialog.Header>
+            )}
+
+            {renderDialogContent.bind(this)(props, children, { tabsHeader, tabsFooter })}
           </Dialog.Box>
         </FocusTrap>
       </Overlay>
@@ -316,6 +328,14 @@ Dialog.Title = props => {
   `
 
   return <InternalTitle {...props} />
+}
+
+Dialog.Title.propTypes = {
+  element: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4'])
+}
+
+Dialog.Title.defaultProps = {
+  element: 'h2'
 }
 
 Dialog.Body = styled.div`
@@ -374,7 +394,6 @@ Dialog.defaultProps = {
   width: 'medium',
   role: 'default',
   actions: [],
-  titleElement: 'h2',
   composed: false
 }
 

@@ -257,9 +257,12 @@ class StatedDialogTabsExample extends React.Component {
 
   render() {
     return (
-      <Dialog title={'This is a test with composable actions'} open={true}>
+      <Dialog open={true}>
         <Tabs selected={this.state.selected} onSelect={this.handleChange}>
           <Tabs.Tab label="Test 1st tab">
+            <Dialog.Header>
+              <Dialog.Title>Test 1</Dialog.Title>
+            </Dialog.Header>
             <p>Are you sure</p>
 
             {/* Adding a key is optional but recommended
@@ -272,6 +275,10 @@ class StatedDialogTabsExample extends React.Component {
             </Dialog.Footer>
           </Tabs.Tab>
           <Tabs.Tab label="Test 2nd tab">
+            <Dialog.Header>
+              <Dialog.Title>Test 2</Dialog.Title>
+            </Dialog.Header>
+
             <Tooltip content="This is a tooltip which is soooo long that should go out of the dialog.">
               <Button>Hover me</Button>
             </Tooltip>
@@ -296,9 +303,9 @@ storiesOf('Dialog', module).add('composed dialog with tabs', () => (
 
 storiesOf('Dialog', module).add('composed dialog', () => (
   <StyledExample title="test2">
-    <Dialog title={'This is a test with composed parts'} onClose={() => {}} open={true} composed>
+    <Dialog onClose={() => {}} open={true} composed>
       <Dialog.Header>
-        <Dialog.Title element={'h2'}>This is a simple title</Dialog.Title>
+        <Dialog.Title>This is a simple title</Dialog.Title>
       </Dialog.Header>
       <Dialog.Body>
         <p>
