@@ -52,7 +52,9 @@ import {
   StackLayout
 } from './components'
 
-if (process && process.env && process.env.COSMOS_MANUAL_RESETS) {
+const manualResets = process && process.env && process.env.COSMOS_MANUAL_RESETS
+
+if (!manualResets) {
   apply()
 }
 
