@@ -5,7 +5,7 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 const CheckMark = styled.span``
-const Label = styled.span``
+const Label = styled.div``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
@@ -55,13 +55,13 @@ Radio.Option.Element = styled.label`
 
   ${CheckMark} {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
+    transform: translateY(20%);
     height: 16px;
     width: 16px;
     background-color: ${props =>
-      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0
