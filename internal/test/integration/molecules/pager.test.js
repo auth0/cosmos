@@ -7,7 +7,7 @@ test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'pager')
 })
 
-test('Calls custom event handler', () => {
+test('Calls page change event handler', () => {
   const body = render(<Fixture />)
 
   const nextButton = body.getByText('Older')

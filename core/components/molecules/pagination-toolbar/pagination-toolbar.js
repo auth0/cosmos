@@ -20,12 +20,14 @@ const Pager = ({ page, pages, onPrevPressed, onNextPressed }) => {
         size="compressed"
         onClick={onPrevPressed}
         disabled={inFirstPage}
+        aria-label="Previous page"
       />
       <Pager.Button
         icon="chevron-right"
         size="compressed"
         onClick={onNextPressed}
         disabled={inLastPage}
+        aria-label="Next page"
       />
     </ButtonGroup>
   )
