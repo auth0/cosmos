@@ -3,7 +3,8 @@ import styled, {
   css,
   injectGlobal,
   StyledComponent,
-  ThemeProvider
+  ThemeProvider,
+  ServerStyleSheet
 } from 'styled-components'
 
 import domElements from './_helpers/dom-elements'
@@ -42,4 +43,4 @@ domElements.forEach(domElement => {
 })
 
 export default styledWithHelpers
-export { keyframes, css, injectGlobal, StyledComponent, ThemeProvider }
+export { keyframes, css, injectGlobal, StyledComponent, ThemeProvider, ServerStyleSheet }
