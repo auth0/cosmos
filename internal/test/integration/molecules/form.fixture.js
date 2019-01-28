@@ -1,26 +1,20 @@
 import React from 'react'
-import { Form } from '@auth0/cosmos'
+import { Form, TextInput } from '@auth0/cosmos'
 
 const mockOnSubmit = jest.fn()
 const mockPrimaryAction = jest.fn()
 const mockSecondaryAction = jest.fn()
-const mockOnInputChange = jest.fn()
 
 class Fixture extends React.Component {
   render() {
     return (
-      <Form id="custom-id">
-        <Form.TextInput
-          id="custom-id"
-          label="Field label"
-          type="text"
-          placeholder="Enter something"
-          onChange={mockOnInputChange}
-          onSubmit={mockOnSubmit}
-        />
+      <Form id="custom-id" onSubmit={mockOnSubmit}>
+        <Form.Field label="Field label">
+          <TextInput type="text" id="custom-id" placeholder="Enter something" />
+        </Form.Field>
         <Form.Actions
           primaryAction={{ label: 'Save Changes', handler: mockPrimaryAction }}
-          secondaryAction={[{ label: 'Reset', handler: mockSecondaryAction }]}
+          secondaryActions={[{ label: 'Reset', handler: mockSecondaryAction }]}
         />
       </Form>
     )
@@ -30,6 +24,5 @@ class Fixture extends React.Component {
 Fixture.onSubmit = mockOnSubmit
 Fixture.onPrimaryClick = mockPrimaryAction
 Fixture.onSecondaryAction = mockSecondaryAction
-Fixture.onInputChange = mockOnInputChange
 
 export default Fixture
