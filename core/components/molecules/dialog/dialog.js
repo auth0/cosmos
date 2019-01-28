@@ -82,8 +82,9 @@ function getTabsSelectedIndex(children) {
   if (!children) return null
 
   const notNull = item => item !== null
-  const allTabs = React.Children.map(children, child =>
-    child.type === Tabs ? child : null
+  const allTabs = React.Children.map(
+    children,
+    child => (child.type === Tabs ? child : null)
   ).filter(notNull)
 
   if (allTabs.length < 1) return null
@@ -365,6 +366,7 @@ Dialog.propTypes = {
   onClose: PropTypes.func,
   /** Whether you're presenting a form or a destructive action */
   role: PropTypes.oneOf(['default', 'form', 'destructive']),
+  /** Tells the dialog to not enforce its internal stucture. You provide the header, footer and body */
   composed: PropTypes.bool
 }
 
