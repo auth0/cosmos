@@ -1,6 +1,8 @@
 import React from 'react'
 import { Dialog, Button } from '@auth0/cosmos'
-import { mockFn } from '../helpers/event-handler'
+
+const mockActionOnClick = jest.fn()
+const mockOnClose = jest.fn()
 
 class Fixture extends React.Component {
   render() {
@@ -9,7 +11,7 @@ class Fixture extends React.Component {
         id="custom-id"
         open={true}
         title="Example Dialog"
-        onClose={mockFn}
+        onClose={Fixture.onClose}
         actions={[
           <Button appearance="primary" onClick={Fixture.actionOnClick}>
             OK
@@ -25,6 +27,7 @@ class Fixture extends React.Component {
   }
 }
 
-Fixture.actionOnClick = mockFn
+Fixture.actionOnClick = mockActionOnClick
+Fixture.onClose = mockOnClose
 
 export default Fixture
