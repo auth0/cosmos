@@ -82,9 +82,9 @@ function getTabsSelectedIndex(children) {
   if (!children) return null
 
   const notNull = item => item !== null
-  const allTabs = React.Children
-    .map(children, child => child.type === Tabs ? child : null)
-    .filter(notNull)
+  const allTabs = React.Children.map(children, child =>
+    child.type === Tabs ? child : null
+  ).filter(notNull)
 
   if (allTabs.length < 1) return null
   const tab = allTabs[0]
@@ -131,7 +131,6 @@ function renderTabsChildren(children, selectedTab) {
   return { tabs, footer: footers[selectedTab] }
 }
 
-
 /**
  * Maps the actions coming to the dialog as a prop
  * to a proper DialogFooter button group.
@@ -143,9 +142,68 @@ function renderActionsFromProp(actionsProp) {
   if (actionsProp.length < 1) return null
 
   return (
-    <DialogFooter {...Automation('dialog.footer')}>
+    <Dialog.Footer {...Automation('dialog.footer')}>
       <ButtonGroup>{actionsProp.map(createButtonForAction)}</ButtonGroup>
-    </DialogFooter>
+    </Dialog.Footer>
+  )
+}
+
+function withAutomationAttribute(attributeValue, element) {
+  return React.cloneElement(element, { ...Automation(attributeValue) })
+}
+
+/**
+ * Enhance children components by adding automation
+ * attributes to each matching children.
+ *
+ * @param children
+ * @returns {any[]}
+ */
+function enhanceComposedChildren(children) {
+  return React.Children.map(children, child => {
+    switch (child.type) {
+      case Dialog.Header:
+        return withAutomationAttribute('dialog.title', child)
+      case Dialog.Body:
+        return withAutomationAttribute('dialog.body', child)
+      case Dialog.Footer:
+        return withAutomationAttribute('dialog.footer', child)
+      default:
+        return child
+    }
+  })
+}
+
+/**
+ * Renders the dialog content enhancing its children if using
+ * composed mode.
+ *
+ * @param {object} props
+ * @param {React.Element} children
+ * @param {React.Element} tabsFooter
+ * @returns {React.Element}
+ */
+function renderDialogContent(props, children, tabsFooter) {
+  if (props.composed) return enhanceComposedChildren(props.children)
+
+  return (
+    <React.Fragment>
+      {props.title && (
+        <Dialog.Header {...Automation('dialog.title')}>
+          <Dialog.Title element={props.titleElement} id="dialog-title">
+            {props.title}
+          </Dialog.Title>
+        </Dialog.Header>
+      )}
+
+      <Dialog.Body ref={this.childrenRef} id="dialog-description" {...Automation('dialog.body')}>
+        {children}
+      </Dialog.Body>
+
+      {tabsFooter}
+
+      {renderActionsFromProp(props.actions)}
+    </React.Fragment>
   )
 }
 
@@ -180,7 +238,7 @@ class Dialog extends React.Component {
     return (
       <Overlay contentSize={props.width} {...props}>
         <FocusTrap persistentFocus={false} onExit={props.onClose}>
-          <DialogBox
+          <Dialog.Box
             width={props.width}
             {...Automation('dialog')}
             {...getAccessibilityRole(props, 'destructive', {
@@ -191,7 +249,7 @@ class Dialog extends React.Component {
             aria-labelledby="dialog-title"
             {...props}
           >
-            <DialogClose>
+            <Dialog.Close>
               <Button
                 aria-label="Close"
                 size="default"
@@ -200,35 +258,17 @@ class Dialog extends React.Component {
                 onClick={props.onClose}
                 {...Automation('dialog.close')}
               />
-            </DialogClose>
+            </Dialog.Close>
 
-            {props.title && (
-              <DialogHeader {...Automation('dialog.title')}>
-                <DialogTitle element={props.titleElement} id="dialog-title">
-                  {props.title}
-                </DialogTitle>
-              </DialogHeader>
-            )}
-
-            <DialogBody
-              ref={this.childrenRef}
-              id="dialog-description"
-              {...Automation('dialog.body')}
-            >
-              {children}
-            </DialogBody>
-
-            {tabsFooter}
-
-            {renderActionsFromProp(props.actions)}
-          </DialogBox>
+            {renderDialogContent.bind(this)(props, children, tabsFooter)}
+          </Dialog.Box>
         </FocusTrap>
       </Overlay>
     )
   }
 }
 
-const DialogBox = styled.div`
+Dialog.Box = styled.div`
   ${containerStyles};
   pointer-events: auto;
   position: relative;
@@ -240,7 +280,7 @@ const DialogBox = styled.div`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 `
 
-const DialogClose = styled.div`
+Dialog.Close = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -257,7 +297,7 @@ const DialogClose = styled.div`
   }
 `
 
-const DialogHeader = styled.header`
+Dialog.Header = styled.header`
   position: relative;
   padding: ${spacing.small} ${spacing.large} ${spacing.xsmall} ${spacing.large};
   color: ${colors.text.default};
@@ -267,7 +307,7 @@ const DialogHeader = styled.header`
   text-align: center;
 `
 
-const DialogTitle = props => {
+Dialog.Title = props => {
   const InternalTitle = styled(BaseHeading.withComponent(props.element))`
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.size.default};
@@ -277,7 +317,7 @@ const DialogTitle = props => {
   return <InternalTitle {...props} />
 }
 
-const DialogBody = styled.div`
+Dialog.Body = styled.div`
   padding: ${spacing.small} ${spacing.medium} ${spacing.large} ${spacing.medium};
   flex: 1 1 auto;
   overflow-y: auto;
@@ -300,7 +340,7 @@ const DialogBody = styled.div`
   }
 `
 
-const DialogFooter = styled.footer`
+Dialog.Footer = styled.footer`
   display: flex;
   flex: 0 0 auto;
   justify-content: center;
@@ -308,10 +348,8 @@ const DialogFooter = styled.footer`
   border-top: 1px solid ${colors.base.grayLight};
 `
 
-Dialog.Footer = DialogFooter
-
 Dialog.Action = DialogAction
-Dialog.Element = DialogBox
+Dialog.Element = Dialog.Box
 Dialog.propTypes = {
   /** Buttons that will be shown on the dialog's footer */
   actions: PropTypes.arrayOf(
@@ -326,14 +364,16 @@ Dialog.propTypes = {
   /* Callback triggered when the the dialog is closed by the user */
   onClose: PropTypes.func,
   /** Whether you're presenting a form or a destructive action */
-  role: PropTypes.oneOf(['default', 'form', 'destructive'])
+  role: PropTypes.oneOf(['default', 'form', 'destructive']),
+  composed: PropTypes.bool
 }
 
 Dialog.defaultProps = {
   width: 'medium',
   role: 'default',
   actions: [],
-  titleElement: 'h2'
+  titleElement: 'h2',
+  composed: false
 }
 
 export default Dialog

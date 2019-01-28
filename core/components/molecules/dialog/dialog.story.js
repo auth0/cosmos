@@ -288,8 +288,30 @@ class StatedDialogTabsExample extends React.Component {
   }
 }
 
-storiesOf('Dialog', module).add('composable actions', () => (
+storiesOf('Dialog', module).add('composed dialog with tabs', () => (
   <StyledExample title="test">
     <StatedDialogTabsExample />
+  </StyledExample>
+))
+
+storiesOf('Dialog', module).add('composed dialog', () => (
+  <StyledExample title="test2">
+    <Dialog title={'This is a test with composed parts'} onClose={() => {}} open={true} composed>
+      <Dialog.Header>
+        <Dialog.Title element={'h2'}>This is a simple title</Dialog.Title>
+      </Dialog.Header>
+      <Dialog.Body>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut autem delectus
+          inventore labore laboriosam laborum libero molestias obcaecati odit officia optio,
+          praesentium quam quasi sapiente unde vel voluptatem voluptatum.
+        </p>
+      </Dialog.Body>
+      <Dialog.Footer>
+        <ButtonGroup>
+          <Button appearance="cta">Test</Button>
+        </ButtonGroup>
+      </Dialog.Footer>
+    </Dialog>
   </StyledExample>
 ))
