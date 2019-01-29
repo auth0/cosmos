@@ -141,12 +141,12 @@ const global = {
   border: {
     width: {
       sm: '1px',
-      md: '2px',
-      lg: ''
+      md: '2px'
+      // lg: '4px'
     },
     radius: {
       sm: '',
-      md: '',
+      md: '3px', // this is the default
       lg: '30rem' // generated rounded corners
     }
   },
@@ -166,13 +166,14 @@ const global = {
   // Used for for padding, margins, and position coordinates.
 
   space: {
-    xs: '',
-    sm: '',
-    md: '', // this is the default
-    lg: '',
-    xl: '',
-    '2xl': '',
-    '3xl': ''
+    xxs: '4px',
+    xs: '8px',
+    sm: '12px',
+    md: '16px', // this is the default
+    lg: '24px',
+    xl: '32px',
+    '2xl': '40px',
+    '3xl': '56px'
   },
 
   // Size: Used for inputs/buttons height
@@ -184,15 +185,16 @@ const global = {
   },
 
   gutter: {
-    sm: '',
-    md: '', // this is the default
-    lg: ''
+    xs: '8px',
+    sm: '16px',
+    md: '24px', // this is the default
+    lg: '40px'
   },
 
   // Fonts ==========================
   font: {
     family: {
-      sansSerif:
+      sans:
         'fakt-web, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"', // Body and Headings
       monospace: 'Roboto Mono, "Courier New", Courier, monospace' // Code
       // serif: '' // Blog
