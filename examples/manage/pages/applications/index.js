@@ -35,12 +35,7 @@ class ApplicationIndex extends React.Component {
           />
         </PageLayout.Header>
         <PageLayout.Content>
-          <RowLayout gutter="spacious">
-            <Paragraph>
-              This is aparagraph loremThis is aparagraph loremThis is aparagraph loremThis is
-              aparagraph loremThis is aparagraph loremThis is aparagraph loremThis is aparagraph
-              loremThis is aparagraph lorem
-            </Paragraph>
+          <RowLayout gutter="medium">
             <ApplicationList />
             <DangerZone
               items={[
