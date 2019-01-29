@@ -7,10 +7,11 @@ import applyMarginReset from '../../_helpers/layout-margin-reset'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
-  none: '0',
-  condensed: spacing.small,
-  default: spacing.medium,
-  spacious: spacing.xlarge
+  none: 0,
+  xsmall: spacing.xsmall, // 8
+  small: spacing.small, // 16
+  medium: spacing.medium, // 24
+  large: spacing.xlarge // 40
 }
 
 const galleryOptions = {
@@ -46,7 +47,7 @@ GalleryLayout.propTypes = {
 
 GalleryLayout.defaultProps = {
   size: 'medium',
-  gutter: 'default'
+  gutter: 'medium'
 }
 
 export default GalleryLayout

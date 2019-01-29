@@ -128,9 +128,9 @@ storiesOf('Column Layout', module).add('3/4 1/4', () => (
   </Example>
 ))
 
-storiesOf('Column Layout', module).add('condensed', () => (
-  <Example title="condensed">
-    <ColumnLayout distribution="1/2 1/2" gutter="condensed">
+storiesOf('Column Layout', module).add('Gutter: none', () => (
+  <Example title="Gutter: none">
+    <ColumnLayout distribution="1/2 1/2" gutter="none">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -139,9 +139,42 @@ storiesOf('Column Layout', module).add('condensed', () => (
   </Example>
 ))
 
-storiesOf('Column Layout', module).add('spacious', () => (
-  <Example title="spacious">
-    <ColumnLayout distribution="1/2 1/2" gutter="spacious">
+storiesOf('Column Layout', module).add('Gutter: xsmall', () => (
+  <Example title="Gutter: xsmall">
+    <ColumnLayout distribution="1/2 1/2" gutter="xsmall">
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
+storiesOf('Column Layout', module).add('Gutter: small', () => (
+  <Example title="Gutter: small">
+    <ColumnLayout distribution="1/2 1/2" gutter="small">
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
+storiesOf('Column Layout', module).add('Gutter: medium', () => (
+  <Example title="Gutter: medium">
+    <ColumnLayout distribution="1/2 1/2" gutter="medium">
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
+storiesOf('Column Layout', module).add('Gutter: large', () => (
+  <Example title="Gutter: large">
+    <ColumnLayout distribution="1/2 1/2" gutter="large">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
