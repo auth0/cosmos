@@ -712,6 +712,91 @@ Spinner is another very straight-forward component.
 </div>
 ```
 
+## Switch
+
+### state prop
+
+```js
+<Stack>
+  <Switch /> <Switch on />
+</Stack>
+```
+
+### event handler
+
+```js
+<Stack>
+  <Switch onToggle={_ => _} />
+</Stack>
+```
+
+⚠️ onToggle should probably be called onChange to match other data input elements
+
+- accessibleLabels: we can probably just call it labels (and make them mandatory)
+
+- hideAccessibleLabels: we had to introduce this prop to hide labels without breaking, we can get rid of this now
+
+- labelPosition: child position prop, will contrast with other position props
+
+## Tag
+
+```js
+<Tag onClick={_ => _} onRemove={_ => _}>
+  Example
+</Tag>
+```
+
+- onClick is a bad prop because it restricts to click events (not keyboard, tap, etc.), should call it `onSelect` maybe
+
+- `onRemove` sounds like a good prop, let's contrast this with other destructive props
+
+### Text Input
+
+```js
+<TextInput type="text" placeholder="Placeholder text" size="default" />
+```
+
+- onChange: great prop
+- sizes: it has 4 sizes: default, large, small, compressed. we should 1) match this with size from other components 2) rename default, that's not a size
+- actions: this takes a shap {label, icon, handler}, we should replace this with a button with property overriding (must be blue icon of fixed size)
+- appearance?: `code` and `masked` are behaviour related appearances, we should merge them? (masked also makes the input readonly which is behavior but related to appearance?)
+- there's a deprecated `error` prop, we just need to delete it at some point
+
+### Text Area
+
+```js
+<TextArea length={3} resizable placeholder="Placeholder text" />
+```
+
+- length: this is a size prop, we should 1) rename it for consistency, give enum options instead of rows?
+- code: same concerns as text-input, is this an appearance?
+- actions: same concerns as text-input
+- resizable: interesting prop, i wonder if there's a default here. when/why would you want to restrict user resizing?
+
+### Text
+
+```js
+<Stack>
+  <Text type="subdued">Subdued text</Text>
+  <Text type="allcaps">All caps</Text>
+  <Text type="strong">Strong text</Text>
+</Stack>
+```
+
+- appearance property, let's call it appearance instead of type
+
+### Tooltip
+
+```js
+<Tooltip content="Here is some text" position="top">
+  Hover me
+</Tooltip>
+```
+
+- position: this seems consistent, great!
+- content: this is tricky, we want the prop to be named the same when it's explicit with a <Tooltip> or implicit with a <Button appearance="icon" title="something">, there's probably an accessibility name we can borrow - title / label / something else?
+- defaultVisible: should we just call this isVisible? it's not like you can hide it (unlike Alerts contrast the API with it)
+
 ## end
 
 click this to anchor (in url #end) to end of page in dev mode
