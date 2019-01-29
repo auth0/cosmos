@@ -35,7 +35,7 @@ class ApplicationIndex extends React.Component {
           />
         </PageLayout.Header>
         <PageLayout.Content>
-          <RowLayout gutter="medium">
+          <RowLayout gutter="large">
             <ApplicationList />
             <DangerZone
               items={[
