@@ -1,6 +1,6 @@
 {
   "name": "@auth0/cosmos-scripts",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "description": "",
   "bin": {
     "cosmos-scripts": "cli.js"
