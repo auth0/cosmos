@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Fixed
 
-- Tabs, List: Fixed list bullets appearing in apps that use Styleguide along Cosmos. 
+- Tabs, List: Fixed list bullets appearing in apps that use Styleguide along Cosmos.
 
 
 ## 0.14.0 [January 17, 2019]
