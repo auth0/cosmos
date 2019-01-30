@@ -9,7 +9,7 @@
     "start": "cosmos-scripts start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.14.1",
+    "@auth0/cosmos": "0.15.0",
     "@auth0/cosmos-fonts": "0.0.2",
     "fuzzysearch": "1.0.3",
     "js-beautify": "1.7.5",
@@ -26,6 +26,6 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
-    "@auth0/cosmos-scripts": "0.14.1"
+    "@auth0/cosmos-scripts": "0.15.0"
   }
 }
