@@ -25,6 +25,9 @@ const Field = props => {
   return (
     <FormContext.Consumer>
       {context => (
+        // The field element needs to be wrap by a fieldset when it has radios or checkboxes inside
+        // to make them accesible.
+        // There is a bug due to a browser bug https://github.com/w3c/csswg-drafts/issues/321
         <FieldSetWrapper>
           <Field.Element layout={context.layout} {...Automation('form.field')}>
             <Field.LabelLayout checkbox={props.checkbox} layout={context.layout}>
@@ -55,6 +58,11 @@ Field.Element = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: ${spacing.xxsmall};
+
+  &:not(:last-child):not(:only-child) {
+    margin-bottom: ${spacing.medium};
+  }
+
   @media (min-width: 768px) {
     grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xxsmall)};
     grid-template-columns: ${props => (props.layout === 'label-on-left' ? '0.35fr 1fr' : '1fr')};
@@ -71,7 +79,11 @@ Field.Element = styled.div`
   }
 `
 
-Field.FieldSetElement = styled.fieldset``
+Field.FieldSetElement = styled.fieldset`
+  &:not(:last-child):not(:only-child) {
+    margin-bottom: ${spacing.medium};
+  }
+`
 Field.CheckboxLabel = StyledLabel.withComponent('legend')
 
 Field.LabelLayout = styled.div`

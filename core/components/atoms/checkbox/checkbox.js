@@ -138,8 +138,6 @@ const StyledCheckbox = Checkbox.Element
 const StyledCheckboxOption = Checkbox.Option
 
 Checkbox.propTypes = {
-  /** The direction in which the options should be laid out */
-  align: PropTypes.oneOf(['horizontal', 'vertical']),
   /** The name of the checkbox */
   name: PropTypes.string.isRequired,
   /** The value of the currently-selected option */
@@ -149,8 +147,12 @@ Checkbox.propTypes = {
   /** Callback function which is called when the user selects an option */
   onChange: PropTypes.func
 }
+Checkbox.Group.propTypes = {
+  /** The direction in which the options should be laid out */
+  align: PropTypes.oneOf(['horizontal', 'vertical'])
+}
 
-Checkbox.defaultProps = {
+Checkbox.Group.defaultProps = {
   align: 'vertical'
 }
 

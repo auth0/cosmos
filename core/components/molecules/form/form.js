@@ -8,6 +8,7 @@ import TextArea from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
 import Radio from '../../atoms/radio'
+import Checkbox from '../../atoms/checkbox'
 import { spacing } from '@auth0/cosmos-tokens'
 
 import Field from './field'
@@ -23,12 +24,7 @@ const Form = props => (
 )
 
 Form.Element = styled.form`
-  max-width: 625px;
-
-  /* This margin goes here since the field element needs to be wrap by a fieldset sometimes due to a  browser bug https://github.com/w3c/csswg-drafts/issues/321 */
-  > *:not(:last-child):not(:only-child) {
-    margin-bottom: ${spacing.medium};
-  }
+  max-width: ${props => (props.limitedWidth ? '625px' : 'auto')};
 `
 
 Form.Field = props => <Field {...props} />
@@ -43,7 +39,9 @@ Form.FieldSet = FieldSet
 
 Form.propTypes = {
   /** Two options for controlling form layout */
-  layout: PropTypes.oneOf(['label-on-left', 'label-on-top'])
+  layout: PropTypes.oneOf(['label-on-left', 'label-on-top']),
+  /** Limits the width of the form container to 625px */
+  limitedWidth: PropTypes.bool
 }
 
 Form.defaultProps = {

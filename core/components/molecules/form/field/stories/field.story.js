@@ -70,7 +70,7 @@ storiesOf('Form').add('all the fields', () => (
           helpText="How tall are you?"
           error="Show only in the first field"
         >
-          <StackLayout gutter="condensed">
+          <StackLayout gutter="xsmall">
             <TextInput placeholder="Value" hasError />
             <Select
               options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]}
