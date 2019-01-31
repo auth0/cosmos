@@ -4,6 +4,7 @@ import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
+import { exclude } from '../../_helpers/exclude'
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -14,7 +15,11 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
+  <Checkbox.Option
+    readOnly={props.readOnly}
+    {...Automation('checkbox')}
+    {...exclude('onChange', props)}
+  >
     <input
       type="checkbox"
       name={props.name}
@@ -64,7 +69,7 @@ Checkbox.Option = styled.label`
     height: 16px;
     width: 16px;
     background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0
