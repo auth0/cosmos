@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 
 ### Fixed
 
-- Layouts: Fix rendering undefined/null children nodes.
+- Layouts: Fix rendering undefined/null children nodes. [#1470]
 
 ## 0.15.0 [January 30, 2019]
 
