@@ -4,19 +4,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.15.1 [January 31, 2019]
+
+### Fixed
+
+- Layouts: Fix rendering undefined/null children nodes.
+
 ## 0.15.0 [January 30, 2019]
 
 ### Added
+
 - PageHeader: Support buttons as actions in Page Header [#1429]
 
 ### Fixed
-- Checkbox: Fix case when label is too long [#1462] [#1466]
+
+- Checkbox: Fix case when label is too long [#1462][#1466]
 - Tooltip: Make it accessible [#1372]
-- Tooltip: Fix popper.js warning in console [#1448] [#1450]
+- Tooltip: Fix popper.js warning in console [#1448][#1450]
 - Switch: Make it have a consistent width [#1449]
 - Docs: Add prop replacement right next to deprecated prop [#1435]
 
 ### Internal
+
 - Base for Tokens v2 [#1431]
 - Add event handler tests for molecules [#1459]
 - Add replacement to deprecation warning (in dev console) [#1434]
@@ -27,7 +36,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). 
 ### Fixed
 
 - Tabs, List: Fixed list bullets appearing in apps that use Styleguide along Cosmos.
-
 
 ## 0.14.0 [January 17, 2019]
 
