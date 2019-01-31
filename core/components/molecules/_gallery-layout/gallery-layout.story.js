@@ -27,6 +27,29 @@ storiesOf('Gallery Layout').add('Size: small', () => (
   </Example>
 ))
 
+storiesOf('Gallery Layout').add('Size: small - with undisplayable children', () => (
+  <Example title="Size: small">
+    <GalleryLayout size="small">
+      <StyledPlaceholder />
+      {undefined}
+      <StyledPlaceholder />
+      {null}
+      <StyledPlaceholder />
+      {undefined}
+      <StyledPlaceholder />
+      {null}
+      <StyledPlaceholder />
+      {undefined}
+      <StyledPlaceholder />
+      {null}
+      <StyledPlaceholder />
+      {undefined}
+      <StyledPlaceholder />
+      {null}
+    </GalleryLayout>
+  </Example>
+))
+
 storiesOf('Gallery Layout').add('Size: medium', () => (
   <Example title="Size: medium">
     <GalleryLayout size="medium">
