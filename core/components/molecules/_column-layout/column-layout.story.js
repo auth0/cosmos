@@ -28,6 +28,19 @@ storiesOf('Column Layout', module).add('1/3 1/3 1/3', () => (
   </Example>
 ))
 
+storiesOf('Column Layout', module).add('1/3 1/3 1/3 - with undisplayable children', () => (
+  <Example title="1/3 1/3 1/3">
+    <ColumnLayout distribution="1/3 1/3 1/3">
+      <StyledPlaceholder />
+      {undefined}
+      <StyledPlaceholder />
+      {null}
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
 storiesOf('Column Layout', module).add('1/3 2/3', () => (
   <Example title="1/3 2/3">
     <ColumnLayout distribution="1/3 2/3">
