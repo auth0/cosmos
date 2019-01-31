@@ -26,6 +26,17 @@ storiesOf('Row Layout', module).add('Gutter: Extra Small', () => (
   </Example>
 ))
 
+storiesOf('Row Layout', module).add('Gutter: Extra Small - with undisplayable children', () => (
+  <Example title="Gutter: Extra Small">
+    <RowLayout gutter="xsmall">
+      <StyledPlaceholder />
+      {null}
+      {undefined}
+      <StyledPlaceholder />
+    </RowLayout>
+  </Example>
+))
+
 storiesOf('Row Layout', module).add('Gutter: Small', () => (
   <Example title="Gutter: Small">
     <RowLayout gutter="small">
@@ -72,6 +83,23 @@ storiesOf('Row & Column Grid', module).add('Gutter: test', () => (
         <StyledPlaceholder />
       </RowLayout>
       <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
+storiesOf('Row & Column Grid', module).add('Gutter: test - with undisplayable children', () => (
+  <Example title="Gutter: test">
+    <ColumnLayout distribution="2/4 1/4 1/4">
+      <RowLayout>
+        {undefined}
+        <ColumnLayout distribution="1/3 2/3">
+          <StyledPlaceholder />
+          {null}
+        </ColumnLayout>
+        <StyledPlaceholder />
+      </RowLayout>
+      {undefined}
       <StyledPlaceholder />
     </ColumnLayout>
   </Example>
