@@ -21,7 +21,7 @@ class ApplicationDetail extends React.Component {
     return (
       <PageLayout>
         <PageLayout.Header>
-          <RowLayout gutter="condensed">
+          <RowLayout gutter="medium">
             <Breadcrumb>
               <Breadcrumb.Link href="#/applications" icon="arrow-left-fill">
                 Back to Applications

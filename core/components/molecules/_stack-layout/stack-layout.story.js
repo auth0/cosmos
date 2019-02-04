@@ -25,12 +25,12 @@ storiesOf('Stack Layout', module).add('Resource list', () => (
         </RowLayout>
       </StackLayout>
 
-      <StackLayout gutter="condensed" space={['none', 1]}>
+      <StackLayout gutter="small" space={['none', 1]}>
         <Icon name="copy" size="20" color="default" />
         <Code>Some_sort_of_code_goes_here</Code>
       </StackLayout>
 
-      <StackLayout gutter="condensed">
+      <StackLayout gutter="small">
         <Button
           size="default"
           appearance="default"
@@ -52,15 +52,15 @@ storiesOf('Stack Layout', module).add('Resource list', () => (
 
 storiesOf('Stack Layout', module).add('Toolbar', () => (
   <Example title="tool bar">
-    <StackLayout gutter="spacious" distribution="spaceBetween">
-      <StackLayout gutter="spacious">
+    <StackLayout gutter="large" distribution="spaceBetween">
+      <StackLayout gutter="large">
         <ButtonGroup compressed>
           <Button icon="pencil" />
           <Button icon="copy" />
           <Button icon="delete" />
         </ButtonGroup>
 
-        <StackLayout gutter="condensed">
+        <StackLayout gutter="small">
           <Button size="default" appearance="default" iconAlign="left">
             Button
           </Button>

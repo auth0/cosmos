@@ -4,9 +4,9 @@ import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import { RowLayout, ColumnLayout } from '@auth0/cosmos'
 
-storiesOf('Row Layout', module).add('default', () => (
-  <Example title="default">
-    <RowLayout>
+storiesOf('Row Layout', module).add('Gutter: None', () => (
+  <Example title="Gutter: None">
+    <RowLayout gutter="none">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -15,9 +15,9 @@ storiesOf('Row Layout', module).add('default', () => (
   </Example>
 ))
 
-storiesOf('Row Layout', module).add('condensed', () => (
-  <Example title="condensed">
-    <RowLayout gutter="condensed">
+storiesOf('Row Layout', module).add('Gutter: Extra Small', () => (
+  <Example title="Gutter: Extra Small">
+    <RowLayout gutter="xsmall">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -26,9 +26,42 @@ storiesOf('Row Layout', module).add('condensed', () => (
   </Example>
 ))
 
-storiesOf('Row Layout', module).add('spacious', () => (
-  <Example title="spacious">
-    <RowLayout gutter="spacious">
+storiesOf('Row Layout', module).add('Gutter: Extra Small - with undisplayable children', () => (
+  <Example title="Gutter: Extra Small">
+    <RowLayout gutter="xsmall">
+      <StyledPlaceholder />
+      {null}
+      {undefined}
+      <StyledPlaceholder />
+    </RowLayout>
+  </Example>
+))
+
+storiesOf('Row Layout', module).add('Gutter: Small', () => (
+  <Example title="Gutter: Small">
+    <RowLayout gutter="small">
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </RowLayout>
+  </Example>
+))
+
+storiesOf('Row Layout', module).add('Gutter: Medium', () => (
+  <Example title="Gutter: Medium">
+    <RowLayout gutter="medium">
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+      <StyledPlaceholder />
+    </RowLayout>
+  </Example>
+))
+
+storiesOf('Row Layout', module).add('Gutter: Large', () => (
+  <Example title="Gutter: Large">
+    <RowLayout gutter="large">
       <StyledPlaceholder />
       <StyledPlaceholder />
       <StyledPlaceholder />
@@ -38,8 +71,8 @@ storiesOf('Row Layout', module).add('spacious', () => (
 ))
 
 // Grid Test
-storiesOf('Row & Column Grid', module).add('test', () => (
-  <Example title="test">
+storiesOf('Row & Column Grid', module).add('Gutter: test', () => (
+  <Example title="Gutter: test">
     <ColumnLayout distribution="2/4 1/4 1/4">
       <RowLayout>
         <StyledPlaceholder />
@@ -50,6 +83,23 @@ storiesOf('Row & Column Grid', module).add('test', () => (
         <StyledPlaceholder />
       </RowLayout>
       <StyledPlaceholder />
+      <StyledPlaceholder />
+    </ColumnLayout>
+  </Example>
+))
+
+storiesOf('Row & Column Grid', module).add('Gutter: test - with undisplayable children', () => (
+  <Example title="Gutter: test">
+    <ColumnLayout distribution="2/4 1/4 1/4">
+      <RowLayout>
+        {undefined}
+        <ColumnLayout distribution="1/3 2/3">
+          <StyledPlaceholder />
+          {null}
+        </ColumnLayout>
+        <StyledPlaceholder />
+      </RowLayout>
+      {undefined}
       <StyledPlaceholder />
     </ColumnLayout>
   </Example>

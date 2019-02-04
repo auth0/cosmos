@@ -4,13 +4,18 @@ import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import { multiply } from '../../_helpers/pixel-calc'
+import uniqueId from '../../_helpers/uniqueId'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { visible: props.defaultVisible || false }
+    this.state = {
+      visible: props.defaultVisible || false,
+      // generating id in constructor to keep it consistent across renders
+      id: props.id || uniqueId('tooltip')
+    }
   }
   showTooltip = () => {
     this.setState({ visible: true })
@@ -19,8 +24,22 @@ class Tooltip extends React.Component {
     if (this.props.defaultVisible) return
     this.setState({ visible: false })
   }
+  onKeyDown = event => {
+    /* this overrides defaultVisible as well */
+    if (event.key === 'Escape') this.setState({ visible: false })
+  }
   render() {
     const { content, ...props } = this.props
+    const { id } = this.state
+    let child
+
+    if (React.Children.count(props.children) === 1 && React.isValidElement(props.children)) {
+      /* If there's just one child which is a React Element */
+      child = React.cloneElement(props.children, { 'aria-describedby': id })
+    } else {
+      /* weird case, we don't really know what to do when this happens */
+      child = props.children
+    }
 
     return (
       <Manager>
@@ -32,9 +51,10 @@ class Tooltip extends React.Component {
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
               innerRef={ref}
+              onKeyDown={this.onKeyDown}
               {...Automation('tooltip.trigger')}
             >
-              {props.children}
+              {child}
             </Tooltip.Trigger>
           )}
         </Reference>
@@ -53,6 +73,7 @@ class Tooltip extends React.Component {
                   innerRef={ref}
                   style={style}
                   data-placement={placement}
+                  id={id}
                   {...Automation('tooltip')}
                   {...props}
                 >
@@ -165,6 +186,8 @@ const TooltipWrapper = Tooltip.Trigger
 const StyledTooltip = Tooltip.Element
 
 Tooltip.propTypes = {
+  /** Identifier for tooltip - important for accessibility */
+  id: PropTypes.string,
   /** Content to show in the tooltip */
   content: PropTypes.string.isRequired,
   /** Where to place the tooltip */

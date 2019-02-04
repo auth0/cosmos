@@ -18,7 +18,7 @@ class Settings extends React.Component {
   save() {}
   render() {
     return (
-      <RowLayout>
+      <RowLayout gutter="large">
         <Form>
           <Form.TextInput
             label="Name"
