@@ -281,7 +281,7 @@ storiesOf('Table', module).add('with buttons', () => (
           goals: 4,
           assists: 1,
           country: '🇧🇪',
-          image: 'https://twitter-avatar.now.sh/Romelu_lukaku9'
+          image: 'https://randomuser.me/api/portraits/men/43.jpg'
         },
         {
           name: 'Antoine Griezmann',
