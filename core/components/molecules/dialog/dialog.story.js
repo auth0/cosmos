@@ -14,6 +14,7 @@ import {
   Tooltip,
   ButtonGroup
 } from '@auth0/cosmos'
+import Checkbox from '../../atoms/checkbox'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -313,6 +314,29 @@ storiesOf('Dialog', module).add('composed dialog', () => (
           inventore labore laboriosam laborum libero molestias obcaecati odit officia optio,
           praesentium quam quasi sapiente unde vel voluptatem voluptatum.
         </p>
+      </Dialog.Body>
+      <Dialog.Footer>
+        <ButtonGroup>
+          <Button appearance="cta">Test</Button>
+        </ButtonGroup>
+      </Dialog.Footer>
+    </Dialog>
+  </StyledExample>
+))
+
+storiesOf('Dialog', module).add('composed dialog with consecutive tooltips', () => (
+  <StyledExample title="test">
+    <Dialog onClose={() => {}} open={true} composed>
+      <Dialog.Header>
+        <Dialog.Title>This is a simple title</Dialog.Title>
+      </Dialog.Header>
+      <Dialog.Body>
+        <Tooltip content="This is a sample tooltip" position="right" defaultVisible>
+          <Checkbox name="test">This is a sample checkbox</Checkbox>
+        </Tooltip>
+        <Tooltip content="This is a sample tooltip" position="left" defaultVisible>
+          <Checkbox name="test">This is a sample checkbox</Checkbox>
+        </Tooltip>
       </Dialog.Body>
       <Dialog.Footer>
         <ButtonGroup>
