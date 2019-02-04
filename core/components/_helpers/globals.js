@@ -89,13 +89,13 @@ const minimumResets = `
     }
 `
 
-const includeGlobals = process && process.env && process.env.COSMOS_DISABLE_RESETS
+const resetsDisabled = process && process.env && process.env.COSMOS_DISABLE_RESETS
 
-const resets = includeGlobals
-  ? recommendedResets
-  : /* We still insert some styles to add missing fonts and keep other things sane 😅 */
+const resets = resetsDisabled
+  ? /* We still insert some styles to add missing fonts and keep other things sane 😅 */
     minimumResets
+  : recommendedResets
 
-const apply = ({ applyFn = insertAtHeadStart }) => applyFn(resets)
+const apply = ({ applyFn = insertAtHeadStart } = {}) => applyFn(resets)
 
 export { resets, apply }
