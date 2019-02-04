@@ -77,7 +77,7 @@ StackLayout.propTypes = {
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset: PropTypes.bool,
   /** Regulates the size of the gutter between flexed items*/
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Vertically align the components within the stack. applyes to `align-items` */
   alignment: PropTypes.oneOf(['center', 'start', 'end']),
   /** Horizontally distribute the components within the stack. applyes to `justify-content` */
