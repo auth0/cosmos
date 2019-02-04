@@ -38,7 +38,7 @@ GalleryLayout.Item = styled.li``
 
 GalleryLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Regulates the size of the flexible columns */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /** Resets the margins of the component within the layout to generate consistent spaces. */

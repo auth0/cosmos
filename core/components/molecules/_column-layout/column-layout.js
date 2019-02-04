@@ -54,7 +54,7 @@ ColumnLayout.Item = styled.div``
 
 ColumnLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Defines the distribution and amount of columns */
   distribution: PropTypes.oneOf([
     '1/2 1/2',
