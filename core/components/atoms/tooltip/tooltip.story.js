@@ -149,7 +149,7 @@ storiesOf('Tooltip', module).add('inside a dialog', () => (
 
 storiesOf('Tooltip', module).add('with an input', () => (
   <Example title="with an input">
-    <Tooltip content="Here's some help" position="bottom">
+    <Tooltip id="input-tip" content="Here's some help" position="bottom">
       <TextInput placeholder="Enter something" />
     </Tooltip>
   </Example>

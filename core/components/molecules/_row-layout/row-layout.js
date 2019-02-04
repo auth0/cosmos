@@ -7,10 +7,11 @@ import applyMarginReset from '../../_helpers/layout-margin-reset'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
-  none: '0',
-  condensed: spacing.small,
-  default: spacing.medium,
-  spacious: spacing.xlarge
+  none: 0,
+  xsmall: spacing.xsmall, // 8
+  small: spacing.small, // 16
+  medium: spacing.medium, // 24
+  large: spacing.xlarge // 40
 }
 
 const RowLayout = props => (
@@ -30,13 +31,13 @@ RowLayout.Item = styled.div``
 
 RowLayout.propTypes = {
   /** Regulates the size of the gutter between rows*/
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset: PropTypes.bool
 }
 
 RowLayout.defaultProps = {
-  gutter: 'default'
+  gutter: 'medium'
 }
 
 export default RowLayout

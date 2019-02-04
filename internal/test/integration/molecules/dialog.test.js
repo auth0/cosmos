@@ -3,14 +3,9 @@ import { render } from 'react-testing-library'
 
 import Fixture from './dialog.fixture'
 import customIdTest from '../helpers/custom-id'
-import eventHandlerTest from '../helpers/event-handler'
 
 test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'dialog')
-})
-
-test('Calls custom handler', () => {
-  eventHandlerTest(Fixture, 'dialog.close')
 })
 
 test('Calls actions handler', () => {
@@ -20,4 +15,13 @@ test('Calls actions handler', () => {
   dialogAction.click()
 
   expect(Fixture.actionOnClick).toHaveBeenCalled()
+})
+
+test('Calls onClose handler', () => {
+  const dialog = render(<Fixture />)
+
+  const closeAction = dialog.getByTestId('dialog.close')
+  closeAction.click()
+
+  expect(Fixture.onClose).toHaveBeenCalled()
 })
