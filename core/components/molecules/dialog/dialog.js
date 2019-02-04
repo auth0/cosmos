@@ -107,6 +107,19 @@ function overrideChildren(element, transformation) {
 }
 
 /**
+ * Applies the 'dialog.action` automation attribute to each
+ * action on a Dialog's Footer.
+ * @param {React.Element} footer
+ */
+function applyAutomationAttributeToActions(footer) {
+  const actions = overrideChildren(footer, action =>
+    withAutomationAttribute('dialog.action', action)
+  )
+
+  return <ButtonGroup children={actions} />
+}
+
+/**
  * Extracts any Dialog.Footer instance from the
  * dialog body and returns them depending on the currently
  * selected tab element index.
@@ -136,7 +149,8 @@ function renderTabsChildren(children, selectedTab) {
   )
 
   const header = headers[selectedTab]
-  const footer = footers[selectedTab]
+  const rawFooter = footers[selectedTab]
+  const footer = applyAutomationAttributeToActions(rawFooter)
 
   return { tabs, header, footer }
 }
@@ -158,6 +172,11 @@ function renderActionsFromProp(actionsProp) {
   )
 }
 
+/**
+ * Applies an automation attribute to an React element.
+ * @param {string} attributeValue
+ * @param {React.Element} element
+ */
 function withAutomationAttribute(attributeValue, element) {
   return React.cloneElement(element, { ...Automation(attributeValue) })
 }
@@ -177,7 +196,7 @@ function enhanceComposedChildren(children) {
       case Dialog.Body:
         return withAutomationAttribute('dialog.body', child)
       case Dialog.Footer:
-        return withAutomationAttribute('dialog.footer', child)
+        return withAutomationAttribute('dialog.footer', applyAutomationAttributeToActions(child))
       default:
         return child
     }

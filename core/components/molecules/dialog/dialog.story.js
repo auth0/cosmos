@@ -269,10 +269,8 @@ class StatedDialogTabsExample extends React.Component {
             {/* Adding a key is optional but recommended
             to avoid unexpected transitions between tab footer buttons */}
             <Dialog.Footer key="1st-tab-footer">
-              <ButtonGroup>
-                <Button appearance="secondary">Cancel</Button>
-                <Button appearance="cta">Send</Button>
-              </ButtonGroup>
+              <Button appearance="secondary">Cancel</Button>
+              <Button appearance="cta">Send</Button>
             </Dialog.Footer>
           </Tabs.Tab>
           <Tabs.Tab label="Test 2nd tab">
@@ -285,9 +283,7 @@ class StatedDialogTabsExample extends React.Component {
             </Tooltip>
 
             <Dialog.Footer key="2nd-tab-footer">
-              <ButtonGroup>
-                <Button appearance="cta">Enable add-on</Button>
-              </ButtonGroup>
+              <Button appearance="cta">Enable add-on</Button>
             </Dialog.Footer>
           </Tabs.Tab>
         </Tabs>
@@ -316,9 +312,7 @@ storiesOf('Dialog', module).add('composed dialog', () => (
         </p>
       </Dialog.Body>
       <Dialog.Footer>
-        <ButtonGroup>
-          <Button appearance="cta">Test</Button>
-        </ButtonGroup>
+        <Button appearance="cta">Test</Button>
       </Dialog.Footer>
     </Dialog>
   </StyledExample>
