@@ -18,7 +18,7 @@ function widthString(props, propName, componentName) {
   const prop = props[propName]
   if (!prop) return
 
-  const expression = new RegExp('(-?)([0-9]+\\.[0-9]+)(px|%)')
+  const expression = new RegExp('(-?)([0-9]+.[0-9]+)(px|%)')
   if (!expression.test(prop)) return buildError()
 
   const [text, sign, strNumber, unit] = prop.match(expression)
