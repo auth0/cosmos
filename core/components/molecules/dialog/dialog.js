@@ -112,11 +112,13 @@ function overrideChildren(element, transformation) {
  * @param {React.Element} footer
  */
 function applyAutomationAttributeToActions(footer) {
-  const actions = overrideChildren(footer, action =>
+  const actions = React.Children.map(footer.props.children, action =>
     withAutomationAttribute('dialog.action', action)
   )
+  const wrappedActions = <ButtonGroup children={actions} />
+  const enhancedFooter = React.cloneElement(footer, { children: wrappedActions })
 
-  return <ButtonGroup children={actions} />
+  return enhancedFooter
 }
 
 /**
@@ -150,7 +152,7 @@ function renderTabsChildren(children, selectedTab) {
 
   const header = headers[selectedTab]
   const rawFooter = footers[selectedTab]
-  const footer = applyAutomationAttributeToActions(rawFooter)
+  const footer = rawFooter ? applyAutomationAttributeToActions(rawFooter) : rawFooter
 
   return { tabs, header, footer }
 }
