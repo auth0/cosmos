@@ -21,6 +21,7 @@
     "i": "nps-i",
     "dev": "echo Our scripts have changed, run yarn scripts to know more",
     "build": "nps -s production.build",
+    "build-packages": "nps -s deploy.build",
     "start": "nps -s production.start",
     "test": "nps -s test",
     "precommit": "nps icons.build && lint-staged",
