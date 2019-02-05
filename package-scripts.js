@@ -136,24 +136,6 @@ module.exports = {
       build: {
         script: 'build-storybook -c .storybook -o build/sandbox',
         description: 'Build sandbox'
-      },
-      sketch: {
-        script: 'SKETCH=true build-storybook -c .storybook -o build/sandbox',
-        description: 'Build sandbox for sketch files'
-      }
-    },
-    sketch: {
-      default: {
-        script: series('sandbox.sketch', 'sketch.story2sketch', 'sketch.cleanup'),
-        description: 'Generate asketch file from sketch components'
-      },
-      story2sketch: {
-        script: 'story2sketch --input=build/sandbox/iframe.html --output=dist/asketch.json',
-        description: 'Pick components from sandbox to build asketch file'
-      },
-      cleanup: {
-        script: 'node tooling/cleanup-sketch.js',
-        description: 'Clean up generated asketch file'
       }
     },
     codemods: {
