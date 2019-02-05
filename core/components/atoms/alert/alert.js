@@ -11,7 +11,7 @@ import Icon, { __ICONNAMES__ } from '../icon'
 import containerStyles from '../../_helpers/container-styles'
 
 const ReadMoreLink = styled(Link)`
-  color: ${props => colors.alert[props.type].text};
+  color: ${props => colors.alert[props.appearance].text};
   text-decoration: underline;
   &:hover {
     text-decoration: none;
@@ -49,19 +49,22 @@ class Alert extends React.Component {
   }
 
   render() {
+    /* new: appearance, old: type*/
+    const appearance = this.props.appearance || this.props.type
+
     if (this.state.visible) {
       return (
         <Alert.Element
-          type={this.props.type}
+          appearance={appearance}
           dismissible={this.props.dismissible}
           {...Automation('alert')}
           {...this.props}
         >
-          {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[this.props.type]} />}
+          {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[appearance]} />}
           <span>
             <Text type="strong">{this.props.title}</Text> <FreeText {...this.props} />
             {this.props.link && (
-              <ReadMoreLink type="default" href={this.props.link} target="_blank">
+              <ReadMoreLink appearance="default" href={this.props.link} target="_blank">
                 Read more
               </ReadMoreLink>
             )}
@@ -94,8 +97,8 @@ Alert.Element = styled.div`
   padding: ${spacing.small} ${spacing.small};
   ${props => props.dismissible && styledForCross};
 
-  background-color: ${props => colors.alert[props.type].background};
-  color: ${props => colors.alert[props.type].text};
+  background-color: ${props => colors.alert[props.appearance].background};
+  color: ${props => colors.alert[props.appearance].text};
   border-radius: 3px;
   position: relative;
   display: flex;
@@ -104,11 +107,11 @@ Alert.Element = styled.div`
     position: relative;
     top: 1px;
     path {
-      fill: ${props => colors.alert[props.type].text};
+      fill: ${props => colors.alert[props.appearance].text};
     }
   }
   ${StyledLink} {
-    color: ${props => colors.alert[props.type].text};
+    color: ${props => colors.alert[props.appearance].text};
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -118,7 +121,7 @@ Alert.Element = styled.div`
     position: absolute;
     right: 0;
     top: 0;
-    color: ${props => colors.alert[props.type].text};
+    color: ${props => colors.alert[props.appearance].text};
     opacity: 0.3;
     padding: ${spacing.small} ${spacing.small};
     &:hover {
@@ -140,8 +143,12 @@ const iconColorMap = {
 }
 
 Alert.propTypes = {
-  /** Style of alert to show */
+  /** /** @deprecated:type Use appearance instead */
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
+
+  /** Style of alert to show */
+  appearance: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger'])
+    .isRequired,
 
   /** Name of icon */
   icon: PropTypes.oneOf(__ICONNAMES__),
@@ -164,12 +171,19 @@ Alert.propTypes = {
   /** Automatically dismiss after N seconds */
   dismissAfterSeconds: PropTypes.number,
 
-  _error: props => deprecate(props, { name: 'text', replacement: 'children' })
+  _text: props => deprecate(props, { name: 'text', replacement: 'children' }),
+  _type: props => deprecate(props, { name: 'type', replacement: 'appearance' })
 }
 
 Alert.defaultProps = {
   type: 'default',
   dismissible: true
+  /*
+    default appearance is commented out on purpose,
+    so that it doesn't break old API.
+    TODO: Make this work when type is removed.
+  */
+  // appearance: 'default',
 }
 
 export default Alert
