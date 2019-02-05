@@ -27,6 +27,7 @@ const renderPaginationItem = ({
     appearance={appearance}
     size="compressed"
     onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
+    aria-label={right ? 'Next page' : 'Previous page'}
   >
     {content}
   </Button>

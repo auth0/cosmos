@@ -7,10 +7,11 @@ import transformChildren from '../../_helpers/transform-layout-children'
 import { spacing } from '@auth0/cosmos-tokens'
 
 const gutterOptions = {
-  none: '0',
-  condensed: spacing.small,
-  default: spacing.medium,
-  spacious: spacing.xlarge
+  none: 0,
+  xsmall: spacing.xsmall, // 8
+  small: spacing.small, // 16
+  medium: spacing.medium, // 24
+  large: spacing.xlarge // 40
 }
 
 const alignmentOptions = {
@@ -76,7 +77,7 @@ StackLayout.propTypes = {
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset: PropTypes.bool,
   /** Regulates the size of the gutter between flexed items*/
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Vertically align the components within the stack. applyes to `align-items` */
   alignment: PropTypes.oneOf(['center', 'start', 'end']),
   /** Horizontally distribute the components within the stack. applyes to `justify-content` */
@@ -88,7 +89,7 @@ StackLayout.propTypes = {
 }
 
 StackLayout.defaultProps = {
-  gutter: 'default',
+  gutter: 'medium',
   alignment: 'center',
   distribution: 'start'
 }

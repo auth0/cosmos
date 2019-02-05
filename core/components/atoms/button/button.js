@@ -311,7 +311,7 @@ Button.propTypes = {
   success: PropTypes.bool,
 
   /** Type of button */
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  type: PropTypes.oneOf(['submit', 'button', 'reset']),
 
   /** Handler to be called when the button is clicked */
   onClick: PropTypes.func

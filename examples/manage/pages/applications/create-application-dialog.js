@@ -106,7 +106,7 @@ class CreateApplicationDialog extends React.Component {
           />
 
           <Form.FieldSet label="Choose a application type">
-            <ColumnLayout distribution="1/4 1/4 1/4 1/4" gutter="condensed">
+            <ColumnLayout distribution="1/4 1/4 1/4 1/4" gutter="small">
               <ApplicationType
                 image={ApplicationTypeImages.native}
                 name="Native App"

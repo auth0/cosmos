@@ -9190,9 +9190,9 @@ react-dev-utils@^6.1.0:
     strip-ansi "4.0.0"
     text-table "0.2.0"
 
-react-docgen-deprecation-handler@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/react-docgen-deprecation-handler/-/react-docgen-deprecation-handler-1.0.0.tgz#2dcc39f92ee787a4ffd75d6ec3b46eeb4a2a26f6"
+react-docgen-deprecation-handler@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/react-docgen-deprecation-handler/-/react-docgen-deprecation-handler-1.1.0.tgz#883234272296eda3b174f6a7d1df7e240dca689a"
 
 react-docgen-displayname-handler@2.1.0:
   version "2.1.0"

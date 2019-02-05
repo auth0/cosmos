@@ -20,10 +20,11 @@ const gridTemplateColumns = {
 }
 
 const gutterOptions = {
-  none: '0',
-  condensed: spacing.small,
-  default: spacing.medium,
-  spacious: spacing.xlarge
+  none: 0,
+  xsmall: spacing.xsmall, // 8
+  small: spacing.small, // 16
+  medium: spacing.medium, // 24
+  large: spacing.xlarge // 40
 }
 
 const ColumnLayout = props => (
@@ -53,7 +54,7 @@ ColumnLayout.Item = styled.div``
 
 ColumnLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
-  gutter: PropTypes.oneOf(['none', 'default', 'condensed', 'spacious']),
+  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
   /** Defines the distribution and amount of columns */
   distribution: PropTypes.oneOf([
     '1/2 1/2',
@@ -72,7 +73,7 @@ ColumnLayout.propTypes = {
 }
 
 ColumnLayout.defaultProps = {
-  gutter: 'default',
+  gutter: 'medium',
   distribution: '1/2 1/2'
 }
 

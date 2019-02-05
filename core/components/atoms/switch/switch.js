@@ -6,8 +6,6 @@ import Automation from '../../_helpers/automation-attribute'
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 import Form from '../../molecules/form'
 
-const height = '32px'
-
 class Switch extends React.Component {
   static displayName = 'Switch'
   constructor(props) {
@@ -47,7 +45,8 @@ class Switch extends React.Component {
 
     const label = (
       <Label labelPosition={this.props.labelPosition} key="switch-label">
-        {this.state.on ? onLabel : offLabel}
+        <span aria-hidden={this.state.on}>{offLabel}</span>
+        <span aria-hidden={!this.state.on}>{onLabel}</span>
       </Label>
     )
     const toggle = <Toggle on={this.state.on} readOnly={this.props.readOnly} key="switch-toggle" />
@@ -84,10 +83,12 @@ class Switch extends React.Component {
 }
 
 Switch.Element = styled.span`
+  --switch-height: 32px;
+
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
-  height: ${height};
+  height: var(--switch-height);
   position: relative;
 
   input:focus ~ ${Toggle} {
@@ -103,7 +104,7 @@ const Checkbox = styled.input`
 const Toggle = styled.span`
   display: inline-block;
   width: 55px;
-  height: ${height};
+  height: var(--switch-height);
   border-radius: 21px;
   background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
@@ -142,17 +143,38 @@ const Toggle = styled.span`
 `
 
 const Label = styled.label`
-  font-size: ${fonts.size.small};
-  font-weight: ${fonts.weight.normal};
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: ${colors.text.secondary};
-  margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
-  margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+  height: var(--switch-height);
 
-  /* if the label is empty, then remove the node so it doesn't create a margin */
-  &:empty {
-    display: none;
+  span {
+    display: block;
+    font-size: ${fonts.size.small};
+    font-weight: ${fonts.weight.normal};
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: ${colors.text.secondary};
+
+    margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
+    margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+
+    /* 
+    In order to make the switch always the same width
+    we are setting a fixed height and overlapping the switch labels
+    */
+    height: var(--switch-height);
+    line-height: var(--switch-height);
+
+    &:last-child {
+      /* Moves the second label up to overlap the first */
+      margin-top: calc(var(--switch-height) * -1);
+    }
+
+    &[aria-hidden='true'] {
+      visibility: hidden;
+    }
+    /* if the label is empty, then remove the node so it doesn't create a margin */
+    &:empty {
+      display: none;
+    }
   }
 `
 

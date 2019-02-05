@@ -97,7 +97,7 @@ class IconBrowser extends React.Component {
 
     return (
       <section>
-        <RowLayout gutter="condensed">
+        <RowLayout gutter="small">
           <Heading>{section}</Heading>
           <Grid>
             {sectionIcons.map((name, index) => (
@@ -121,13 +121,13 @@ class IconBrowser extends React.Component {
 
     return (
       <Browser>
-        <RowLayout gutter="spacious">
+        <RowLayout gutter="large">
           <TextInput
             placeholder="Start typing to search for icons..."
             value={filter}
             onChange={this.handleChange}
           />
-          <Rows gutter="spacious">
+          <Rows gutter="large">
             {Object.keys(processedSections).map(section =>
               this.filterIconsForSection(section, matchingIcons)
             )}
