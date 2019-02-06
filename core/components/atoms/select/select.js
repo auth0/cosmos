@@ -12,7 +12,10 @@ const selectOpacity = {
   default: 1,
   disabled: 0.5
 }
+
 const PLACEHOLDER_VALUE = '__select_placeholder'
+
+const valueIsUndefined = value => value === undefined || value === null
 
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
@@ -43,7 +46,9 @@ const Select = ({ options, ...props }) => {
     but they do have disabled. we need the style of readOnly input
     and functionality of select disabled
   */
-  if (!(props.value || props.defaultValue)) props.value = PLACEHOLDER_VALUE
+
+  const shouldUsePlaceholder = valueIsUndefined(props.value) && !props.defaultValue
+  if (shouldUsePlaceholder) props.value = PLACEHOLDER_VALUE
 
   return (
     <Select.Wrapper>
