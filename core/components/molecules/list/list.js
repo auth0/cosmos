@@ -80,8 +80,10 @@ const List = props => {
 
       {React.Children.map(props.children, child => {
         const { onToggle, drawer } = getDrawer(child)
+        const hasOpenDrawer = isDrawerOpen(drawer)
+        const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
         return (
-          <List.ItemContainer {...Automation('list.item')} hasOpenDrawer={isDrawerOpen(drawer)}>
+          <List.ItemContainer {...Automation('list.item')} hasOpenDrawer={hasOpenDrawer}>
             {props.sortable && (
               <List.Handle
               // aria-expanded="true"
@@ -97,7 +99,7 @@ const List = props => {
 
             {isListExpandable(child) && (
               <List.Arrow onClick={onToggle}>
-                <Icon name="chevron-down" size="16" color="default" />
+                <Icon name={arrowIconName} size="16" color="default" />
               </List.Arrow>
             )}
 
@@ -117,7 +119,10 @@ List.Item = React.Fragment
 
 List.ItemContainer = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
-  padding: ${spacing.small};
+  padding-left: ${spacing.medium};
+  padding-right: ${spacing.medium};
+  padding-top: ${spacing.small};
+  padding-bottom: ${spacing.small};
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
