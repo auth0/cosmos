@@ -46,7 +46,7 @@ const Select = ({ options, ...props }) => {
     and functionality of select disabled
   */
 
-  const shouldUsePlaceholder = valueIsUndefined(props.value) && !props.defaultValue
+  const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue)
   if (shouldUsePlaceholder) props.value = PLACEHOLDER_VALUE
 
   return (
