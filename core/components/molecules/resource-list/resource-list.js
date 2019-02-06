@@ -39,7 +39,7 @@ const ResourceList = props => {
     const actualIndex = index || accessibilityIndex
 
     const handleOnItemClick = evt => {
-      onItemClick(evt, item)
+      if (typeof onItemClick === 'function') onItemClick(evt, item)
     }
 
     return React.cloneElement(itemRenderer(item, props, actualIndex), {
