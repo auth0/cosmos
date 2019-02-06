@@ -4,7 +4,6 @@ import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
-import { exclude } from '../../_helpers/exclude'
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -15,16 +14,7 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option
-    readOnly={props.readOnly}
-    {...Automation('checkbox')}
-    {
-      // Prevent passing the onChange handler
-      // both to the label and the checkbox.
-      // See: https://github.com/auth0/cosmos/pull/1473
-      ...exclude('onChange', props)
-    }
-  >
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} id={props.id}>
     <input
       type="checkbox"
       name={props.name}
