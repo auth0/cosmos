@@ -29,8 +29,9 @@ storiesOf('Form', module).add('all the fields', () => (
       </Form.Field>
       <Form.Field label="Options list">
         <Select
-          value={1}
+          value=""
           options={[
+            { text: 'Default option', value: '' },
             { text: 'First option', value: '1' },
             { text: 'Second option', value: '2' },
             { text: 'Third option', value: '3' },
