@@ -20,9 +20,9 @@ class GuidingPrinciples extends React.Component {
 
           <Heading2>Common language for all teams</Heading2>
           <Text>
-            Code (components, tokens, etc.) and design assets (sketch files, icons, etc.) should
-            always have the same naming convention/API and be kept in sync. The documentation is the
-            tool to help bridge the gap between design, engineering and product.
+            Code (components, tokens, etc.) and design assets (ui kits, icons, etc.) should always have the
+            same naming convention/API and be kept in sync. The documentation is the tool to help
+            bridge the gap between design, engineering and product.
           </Text>
 
           <Heading2>Encourage the best UX/UI practices</Heading2>

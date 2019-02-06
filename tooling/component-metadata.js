@@ -28,7 +28,6 @@ const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.js')) // ignore story files
-    .filter(path => !path.includes('sketch.js')) // ignore sketch files
     .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
     .map(path => {
       try {

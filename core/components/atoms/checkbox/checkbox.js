@@ -15,7 +15,7 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
     <Form.Field.ContextConsumer>
       {context => (
         <input
@@ -31,7 +31,6 @@ const Checkbox = props => (
         />
       )}
     </Form.Field.ContextConsumer>
-
     <CheckMark />
     <Label>{props.children}</Label>
   </Checkbox.Option>
