@@ -6,6 +6,7 @@ import styled from '@auth0/cosmos/styled'
 
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
+import Form from '../../molecules/form'
 
 const selectOpacity = {
   default: 1,
@@ -47,14 +48,18 @@ const Select = ({ options, ...props }) => {
   return (
     <Select.Wrapper>
       <Select.ArrowIcon name="dropdown-fill" size="14" color="default" />
-      <Select.Element {...props} {...Automation('select')}>
-        {/* First option will be selected if there is no value passed as a prop */}
-        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-          {props.placeholder}
-        </option>
+      <Form.Field.ContextConsumer>
+        {context => (
+          <Select.Element id={props.id || context.formFieldId} {...Automation('select')} {...props}>
+            {/* First option will be selected if there is no value passed as a prop */}
+            <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+              {props.placeholder}
+            </option>
 
-        {options.map(renderOption)}
-      </Select.Element>
+            {options.map(renderOption)}
+          </Select.Element>
+        )}
+      </Form.Field.ContextConsumer>
     </Select.Wrapper>
   )
 }

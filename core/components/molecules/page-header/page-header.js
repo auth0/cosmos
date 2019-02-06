@@ -6,7 +6,7 @@ import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 
 import Heading from '../../atoms/heading'
-import Description, { StyledParagraph } from './description'
+import Description from './description'
 
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
