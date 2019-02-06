@@ -13,6 +13,40 @@ storiesOf('Select', module).add('simple', () => (
   </Example>
 ))
 
+class SelectWithEmptyString extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { value: 'custom' }
+
+    this.handleValue = this.handleValue.bind(this)
+  }
+
+  handleValue(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  render() {
+    return (
+      <Select
+        options={[
+          { text: 'All apps', value: '' },
+          { text: 'Custom apps', value: 'custom' },
+          { text: 'Private apps', value: 'private' }
+        ]}
+        value={this.state.value}
+        onChange={this.handleValue}
+      />
+    )
+  }
+}
+
+storiesOf('Select', module).add('simple with empty string', () => (
+  <Example title="Select: simple">
+    <SelectWithEmptyString />
+  </Example>
+))
+
 storiesOf('Select', module).add('with placeholder', () => (
   <Example title="Select: with placeholder">
     <Select
