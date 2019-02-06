@@ -18,7 +18,12 @@ const Checkbox = props => (
   <Checkbox.Option
     readOnly={props.readOnly}
     {...Automation('checkbox')}
-    {...exclude('onChange', props)}
+    {
+      // Prevent passing the onChange handler
+      // both to the label and the checkbox.
+      // See: https://github.com/auth0/cosmos/pull/1473
+      ...exclude('onChange', props)
+    }
   >
     <input
       type="checkbox"
