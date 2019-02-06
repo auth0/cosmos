@@ -9,6 +9,14 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
 
 /**
+ * Resolves if the list item has an open drawer.
+ * @param {React.Element} drawers
+ */
+const isDrawerOpen = drawers => {
+  return drawers.length > 0 && drawers[0].props.hidden == false
+}
+
+/**
  * Removes the List.Drawer element from the
  * list body child.
  * @param {React.Element} child
@@ -73,7 +81,7 @@ const List = props => {
       {React.Children.map(props.children, child => {
         const { onToggle, drawer } = getDrawer(child)
         return (
-          <List.ItemContainer {...Automation('list.item')}>
+          <List.ItemContainer {...Automation('list.item')} hasOpenDrawer={isDrawerOpen(drawer)}>
             {props.sortable && (
               <List.Handle
               // aria-expanded="true"
@@ -114,6 +122,7 @@ List.ItemContainer = styled.li`
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
+  background-color: ${props => (props.hasOpenDrawer ? colors.list.backgroundHover : 'transparent')};
 
   &:hover {
     background-color: ${colors.list.backgroundHover};
