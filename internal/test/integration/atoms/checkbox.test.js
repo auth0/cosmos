@@ -3,7 +3,7 @@ import customIdTest from '../helpers/custom-id'
 import eventHandlerTest from '../helpers/event-handler'
 
 test('Accepts custom id prop', () => {
-  customIdTest(Fixture, 'checkbox')
+  customIdTest(Fixture, 'checkbox.input')
 })
 
 test('Calls custom event handler', () => {

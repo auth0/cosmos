@@ -14,7 +14,7 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
     <input
       type="checkbox"
       name={props.name}
@@ -22,6 +22,7 @@ const Checkbox = props => (
       checked={props.checked}
       defaultChecked={props.defaultChecked}
       onChange={props.onChange}
+      id={props.id}
       readOnly
       {...Automation('checkbox.input')}
     />
@@ -64,7 +65,7 @@ Checkbox.Option = styled.label`
     height: 16px;
     width: 16px;
     background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0
