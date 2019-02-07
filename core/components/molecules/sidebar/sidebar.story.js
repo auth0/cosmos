@@ -1,10 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import { Sidebar } from '@auth0/cosmos'
 
+const StyledExample = styled(Example)`
+  /* Temporal, until we fix sidebar styles */
+  height: 500px;
+`
+
 storiesOf('Sidebar', module).add('default', () => (
-  <Example>
+  <StyledExample>
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" />
       <Sidebar.Link icon="clients" label="Applications" />
@@ -19,11 +25,11 @@ storiesOf('Sidebar', module).add('default', () => (
       <Sidebar.Link icon="users" label="Users" />
       <Sidebar.Link icon="rules" label="Rules" />
     </Sidebar>
-  </Example>
+  </StyledExample>
 ))
 
 storiesOf('Sidebar', module).add('selected item', () => (
-  <Example>
+  <StyledExample>
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" selected={true} />
       <Sidebar.Link icon="clients" label="Applications" />
@@ -38,11 +44,11 @@ storiesOf('Sidebar', module).add('selected item', () => (
       <Sidebar.Link icon="users" label="Users" />
       <Sidebar.Link icon="rules" label="Rules" />
     </Sidebar>
-  </Example>
+  </StyledExample>
 ))
 
 storiesOf('Sidebar', module).add('open group', () => (
-  <Example>
+  <StyledExample>
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" />
       <Sidebar.Link icon="clients" label="Applications" />
@@ -57,11 +63,11 @@ storiesOf('Sidebar', module).add('open group', () => (
       <Sidebar.Link icon="users" label="Users" />
       <Sidebar.Link icon="rules" label="Rules" />
     </Sidebar>
-  </Example>
+  </StyledExample>
 ))
 
 storiesOf('Sidebar', module).add('selected sub-item', () => (
-  <Example>
+  <StyledExample>
     <Sidebar>
       <Sidebar.Link icon="dashboard" label="Dashboard" />
       <Sidebar.Link icon="clients" label="Applications" />
@@ -76,5 +82,5 @@ storiesOf('Sidebar', module).add('selected sub-item', () => (
       <Sidebar.Link icon="users" label="Users" />
       <Sidebar.Link icon="rules" label="Rules" />
     </Sidebar>
-  </Example>
+  </StyledExample>
 ))
