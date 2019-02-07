@@ -144,8 +144,16 @@ module.exports = {
     },
     deploy: {
       default: {
+        script: series('deploy.build', 'deploy.publish'),
+        description: 'Build and publish new versions of core packages'
+      },
+      publish: {
         script: 'node tooling/publish.js',
         description: 'Publish new versions of core packages'
+      },
+      build: {
+        script: 'node tooling/build.js',
+        description: 'Build packages'
       },
       catchup: {
         script: 'node tooling/catchup.js && yarn install',
