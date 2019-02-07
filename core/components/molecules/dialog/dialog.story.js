@@ -258,32 +258,31 @@ class StatedDialogTabsExample extends React.Component {
 
   render() {
     return (
-      <Dialog open={true}>
+      <Dialog open={true} title="Test 1">
         <Tabs selected={this.state.selected} onSelect={this.handleChange}>
           <Tabs.Tab label="Test 1st tab">
-            <Dialog.Header>
-              <Dialog.Title>Test 1</Dialog.Title>
-            </Dialog.Header>
             <p>Are you sure</p>
 
             {/* Adding a key is optional but recommended
             to avoid unexpected transitions between tab footer buttons */}
-            <Dialog.Footer key="1st-tab-footer">
-              <Button appearance="secondary">Cancel</Button>
-              <Button appearance="cta">Send</Button>
-            </Dialog.Footer>
+            <Dialog.FooterContainer>
+              <Dialog.Footer key="1st-tab-footer">
+                <ButtonGroup>
+                  <Button appearance="secondary">Cancel</Button>
+                  <Button appearance="cta">Send</Button>
+                </ButtonGroup>
+              </Dialog.Footer>
+            </Dialog.FooterContainer>
           </Tabs.Tab>
           <Tabs.Tab label="Test 2nd tab">
-            <Dialog.Header>
-              <Dialog.Title>Test 2</Dialog.Title>
-            </Dialog.Header>
-
             <Tooltip content="This is a tooltip which is soooo long that should go out of the dialog.">
               <Button>Hover me</Button>
             </Tooltip>
 
             <Dialog.Footer key="2nd-tab-footer">
-              <Button appearance="cta">Enable add-on</Button>
+              <ButtonGroup>
+                <Button appearance="cta">Enable add-on</Button>
+              </ButtonGroup>
             </Dialog.Footer>
           </Tabs.Tab>
         </Tabs>

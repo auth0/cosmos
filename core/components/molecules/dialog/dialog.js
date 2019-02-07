@@ -73,91 +73,6 @@ const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
 
 /**
- * Resolves the Dialog's Tabs currently selected index.
- *
- * @param {React.Element} children
- * @returns {number?}
- */
-function getTabsSelectedIndex(children) {
-  if (!children) return null
-
-  const notNull = item => item !== null
-  const allTabs = React.Children.map(
-    children,
-    child => (child.type === Tabs ? child : null)
-  ).filter(notNull)
-
-  if (allTabs.length < 1) return null
-  const tab = allTabs[0]
-
-  return tab.props.selected
-}
-
-/**
- * Returns a clone of the element with its
- * children transformed by the transformation function.
- *
- * @param {React.Element} element
- * @param {function} transformation
- * @returns {React.Element<{children: any[]}, HTMLElement>}
- */
-function overrideChildren(element, transformation) {
-  const children = React.Children.map(element.props.children, transformation)
-  return React.cloneElement(element, { children: children })
-}
-
-/**
- * Applies the 'dialog.action` automation attribute to each
- * action on a Dialog's Footer.
- * @param {React.Element} footer
- */
-function applyAutomationAttributeToActions(footer) {
-  const actions = React.Children.map(footer.props.children, action =>
-    withAutomationAttribute('dialog.action', action)
-  )
-  const wrappedActions = <ButtonGroup children={actions} />
-  const enhancedFooter = React.cloneElement(footer, { children: wrappedActions })
-
-  return enhancedFooter
-}
-
-/**
- * Extracts any Dialog.Footer instance from the
- * dialog body and returns them depending on the currently
- * selected tab element index.
- *
- * @param {React.Element} children
- * @param {number} selectedTab
- * @returns {{footer: React.Element[], tabs: React.Element}}
- */
-function renderTabsChildren(children, selectedTab) {
-  let footers = []
-  let headers = []
-
-  const tabs = overrideChildren(children, tabs =>
-    overrideChildren(tabs, tabsElement => {
-      if (tabsElement.type === Dialog.Header) {
-        headers.push(tabsElement)
-        return
-      }
-
-      if (tabsElement.type === Dialog.Footer) {
-        footers.push(tabsElement)
-        return
-      }
-
-      return tabsElement
-    })
-  )
-
-  const header = headers[selectedTab]
-  const rawFooter = footers[selectedTab]
-  const footer = rawFooter ? applyAutomationAttributeToActions(rawFooter) : rawFooter
-
-  return { tabs, header, footer }
-}
-
-/**
  * Maps the actions coming to the dialog as a prop
  * to a proper DialogFooter button group.
  *
@@ -247,19 +162,6 @@ class Dialog extends React.Component {
   render() {
     const props = this.props
     let { children } = props
-    let tabsFooter, tabsHeader
-
-    const selectedTab = getTabsSelectedIndex(props.children)
-
-    // explicit check for null since selectedTab can be 0
-    const childrenIsTab = selectedTab !== null
-
-    if (childrenIsTab) {
-      const compoundChildren = renderTabsChildren(props.children, selectedTab)
-      children = compoundChildren.tabs
-      tabsFooter = compoundChildren.footer
-      tabsHeader = compoundChildren.header
-    }
 
     return (
       <Overlay contentSize={props.width} {...props}>
@@ -294,7 +196,7 @@ class Dialog extends React.Component {
               </Dialog.Header>
             )}
 
-            {renderDialogContent.bind(this)(props, children, { tabsHeader, tabsFooter })}
+            {renderDialogContent.bind(this)(props, children, {})}
           </Dialog.Box>
         </FocusTrap>
       </Overlay>
@@ -380,6 +282,21 @@ Dialog.Body = styled.div`
     padding-right: ${spacing.medium};
     justify-content: center;
   }
+
+  ${Dialog.FooterContainer} {
+    margin-left: -${spacing.medium};
+    margin-right: -${spacing.medium};
+    padding-left: ${spacing.medium};
+    padding-right: ${spacing.medium};
+    margin-bottom: -${spacing.large};
+  }
+`
+Dialog.FooterContainer = styled.div`
+  /* position: absolute; */
+  /* bottom: 0; */
+  /* left: 0; */
+  width: 100%;
+  background-color: white;
 `
 
 Dialog.Footer = styled.footer`
