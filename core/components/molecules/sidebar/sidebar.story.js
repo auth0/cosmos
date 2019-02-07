@@ -48,7 +48,7 @@ storiesOf('Sidebar', module).add('open group', () => (
       <Sidebar.Link icon="clients" label="Applications" />
       <Sidebar.Link icon="apis" label="APIs" />
       <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
+      <Sidebar.LinkGroup icon="connections" label="Connections" defaultOpen>
         <Sidebar.Link label="Database" />
         <Sidebar.Link label="Social" />
         <Sidebar.Link label="Enterprise" />
