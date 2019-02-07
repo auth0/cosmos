@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.16.0 [February 7, 2019]
+
+### Added
+
+- Docs: Start migration guide [#1490]
+- Dialog: Composable actions for Dialog + Tabs [#1458]
+
+### Fixed
+
+- Sidebar: Fixed selected color for Link group and added basic stories [#1493]
+- Select: Allow using empty string as a value [#1483]
+- Checkbox: Fix onClick event firing twice [#1473]
+- ResourceList: Add check for onItemClick [#1491]
+- ResourceList: Fix Item body width validator [#1481][#1482]
+- Layouts: Update gutter sizes prop-type [#1480]
+- Table: Fix story image source [#1479]
+
+### Internal
+
+- Remove sketch files [#1485]
+
 ## 0.15.1 [January 31, 2019]
 
 ### Fixed
