@@ -9,14 +9,15 @@ class SidebarLinkGroup extends React.Component {
   constructor(props) {
     super(props)
     let open = false
-    /* If a child is selected... */
-    if (!props.defaultOpen) {
+
+    if (props.defaultOpen) {
+      open = true
+    } else {
+      /* If a child is selected... */
       React.Children.forEach(props.children, child => {
         /* group should be open and parent be selected */
         if (child && child.props && child.props.selected) open = true
       })
-    } else {
-      open = true
     }
 
     this.state = { open }
