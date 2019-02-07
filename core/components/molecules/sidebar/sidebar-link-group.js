@@ -10,10 +10,15 @@ class SidebarLinkGroup extends React.Component {
     super(props)
     let open = false
 
-    /* If a child is selected, group should be open */
-    React.Children.forEach(props.children, child => {
-      if (child && child.props && child.props.selected) open = true
-    })
+    if (props.defaultOpen) {
+      open = true
+    } else {
+      /* If a child is selected... */
+      React.Children.forEach(props.children, child => {
+        /* group should be open and parent be selected */
+        if (child && child.props && child.props.selected) open = true
+      })
+    }
 
     this.state = { open }
   }
@@ -25,9 +30,10 @@ class SidebarLinkGroup extends React.Component {
   render() {
     const { icon, label, children } = this.props
     const { open } = this.state
+
     return (
       <SidebarLinkGroup.Element {...Automation('sidebar.group')} {...this.props}>
-        <SidebarLink icon={icon} label={label} onClick={this.handleClick} />
+        <SidebarLink icon={icon} label={label} onClick={this.handleClick} selected={open} />
         <SidebarLinkGroup.Content open={open}>{children}</SidebarLinkGroup.Content>
       </SidebarLinkGroup.Element>
     )
