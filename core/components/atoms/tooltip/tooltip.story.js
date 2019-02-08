@@ -171,6 +171,7 @@ storiesOf('Tooltip', module).add('input actions inside dialog', () => (
                 icon="delete"
                 label="This is an intentionally long label"
                 onClick={e => console.log(e)}
+                labelDefaultVisible
               />
             ]}
           />
