@@ -71,7 +71,7 @@ class Tooltip extends React.Component {
               {this.state.visible ? (
                 <Tooltip.Element
                   innerRef={ref}
-                  style={{ zIndex: 1, ...style }}
+                  style={style}
                   data-placement={placement}
                   id={id}
                   {...Automation('tooltip')}

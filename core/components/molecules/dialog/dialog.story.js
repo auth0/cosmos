@@ -2,19 +2,7 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
-import {
-  Dialog,
-  Form,
-  Link,
-  Tabs,
-  Paragraph,
-  Text,
-  Button,
-  TextInput,
-  Tooltip,
-  ButtonGroup
-} from '@auth0/cosmos'
-import Checkbox from '../../atoms/checkbox'
+import { Dialog, Form, Link, Tabs, Paragraph, Text, Button, TextInput } from '@auth0/cosmos'
 
 const StyledExample = styled(Example)`
   min-height: 800px;
@@ -241,102 +229,6 @@ storiesOf('Dialog', module).add('dialog with tabs', () => (
         <Tabs.Tab label="Tab 2">You can render anything you want here</Tabs.Tab>
         <Tabs.Tab label="Tab 3">Look, third tab is selected by default!</Tabs.Tab>
       </Tabs>
-    </Dialog>
-  </StyledExample>
-))
-
-class StatedDialogTabsExample extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { selected: 0 }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(newIndex) {
-    this.setState({ selected: newIndex })
-  }
-
-  render() {
-    return (
-      <Dialog open={true}>
-        <Tabs selected={this.state.selected} onSelect={this.handleChange}>
-          <Tabs.Tab label="Test 1st tab">
-            <Dialog.Header>
-              <Dialog.Title>Test 1</Dialog.Title>
-            </Dialog.Header>
-            <p>Are you sure</p>
-
-            {/* Adding a key is optional but recommended
-            to avoid unexpected transitions between tab footer buttons */}
-            <Dialog.Footer key="1st-tab-footer">
-              <Button appearance="secondary">Cancel</Button>
-              <Button appearance="cta">Send</Button>
-            </Dialog.Footer>
-          </Tabs.Tab>
-          <Tabs.Tab label="Test 2nd tab">
-            <Dialog.Header>
-              <Dialog.Title>Test 2</Dialog.Title>
-            </Dialog.Header>
-
-            <Tooltip content="This is a tooltip which is soooo long that should go out of the dialog.">
-              <Button>Hover me</Button>
-            </Tooltip>
-
-            <Dialog.Footer key="2nd-tab-footer">
-              <Button appearance="cta">Enable add-on</Button>
-            </Dialog.Footer>
-          </Tabs.Tab>
-        </Tabs>
-      </Dialog>
-    )
-  }
-}
-
-storiesOf('Dialog', module).add('composed dialog with tabs', () => (
-  <StyledExample title="test">
-    <StatedDialogTabsExample />
-  </StyledExample>
-))
-
-storiesOf('Dialog', module).add('composed dialog', () => (
-  <StyledExample title="test2">
-    <Dialog onClose={() => {}} open={true} composed>
-      <Dialog.Header>
-        <Dialog.Title>This is a simple title</Dialog.Title>
-      </Dialog.Header>
-      <Dialog.Body>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aut autem delectus
-          inventore labore laboriosam laborum libero molestias obcaecati odit officia optio,
-          praesentium quam quasi sapiente unde vel voluptatem voluptatum.
-        </p>
-      </Dialog.Body>
-      <Dialog.Footer>
-        <Button appearance="cta">Test</Button>
-      </Dialog.Footer>
-    </Dialog>
-  </StyledExample>
-))
-
-storiesOf('Dialog', module).add('composed dialog with consecutive tooltips', () => (
-  <StyledExample title="test">
-    <Dialog onClose={() => {}} open={true} composed>
-      <Dialog.Header>
-        <Dialog.Title>This is a simple title</Dialog.Title>
-      </Dialog.Header>
-      <Dialog.Body>
-        <Tooltip content="This is a sample tooltip" position="right" defaultVisible>
-          <Checkbox name="test">This is a sample checkbox</Checkbox>
-        </Tooltip>
-        <Tooltip content="This is a sample tooltip" position="left" defaultVisible>
-          <Checkbox name="test">This is a sample checkbox</Checkbox>
-        </Tooltip>
-      </Dialog.Body>
-      <Dialog.Footer>
-        <ButtonGroup>
-          <Button appearance="cta">Test</Button>
-        </ButtonGroup>
-      </Dialog.Footer>
     </Dialog>
   </StyledExample>
 ))
