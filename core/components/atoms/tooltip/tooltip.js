@@ -9,13 +9,6 @@ import uniqueId from '../../_helpers/uniqueId'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 
-class TooltipPortal extends React.Component {
-  render() {
-    const { children, target = document.body } = this.props
-    return ReactDOM.createPortal(children, target)
-  }
-}
-
 class Tooltip extends React.Component {
   constructor(props) {
     super(props)
@@ -68,6 +61,7 @@ class Tooltip extends React.Component {
         </Reference>
         <Popper
           placement={props.position}
+          positionFixed={true}
           modifiers={{
             preventOverflow: { enabled: false },
             hide: { enabled: false },
@@ -77,23 +71,21 @@ class Tooltip extends React.Component {
           {({ ref, style, placement, arrowProps }) => (
             <React.Fragment>
               {this.state.visible ? (
-                <TooltipPortal>
-                  <Tooltip.Element
-                    innerRef={ref}
-                    style={{ zIndex: 20, ...style }}
+                <Tooltip.Element
+                  innerRef={ref}
+                  style={{ zIndex: 20, ...style }}
+                  data-placement={placement}
+                  id={id}
+                  {...Automation('tooltip')}
+                  {...props}
+                >
+                  {content}
+                  <Tooltip.Arrow
                     data-placement={placement}
-                    id={id}
-                    {...Automation('tooltip')}
-                    {...props}
-                  >
-                    {content}
-                    <Tooltip.Arrow
-                      data-placement={placement}
-                      innerRef={arrowProps.ref}
-                      style={arrowProps.style}
-                    />
-                  </Tooltip.Element>
-                </TooltipPortal>
+                    innerRef={arrowProps.ref}
+                    style={arrowProps.style}
+                  />
+                </Tooltip.Element>
               ) : null}
             </React.Fragment>
           )}
