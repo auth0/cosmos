@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 import styled from '@auth0/cosmos/styled'
-import { Tooltip, ButtonGroup, Button, Dialog, Icon, TextInput } from '@auth0/cosmos'
+import { Tooltip, ButtonGroup, Button, Dialog, Icon, Form, TextInput, Link } from '@auth0/cosmos'
 
 const positions = ['top', 'left', 'right', 'bottom']
 
@@ -143,6 +143,39 @@ storiesOf('Tooltip', module).add('inside a dialog', () => (
           <Icon name="help" size="15" color="default" />
         </Tooltip>
       </div>
+    </Dialog>
+  </Example>
+))
+
+storiesOf('Tooltip', module).add('input actions inside dialog', () => (
+  <Example title="input actions inside dialog">
+    <Dialog open={true} title="Test case for #1501">
+      <Form layout="label-on-top">
+        <Form.Field
+          label="Name"
+          helpText="If you are triggering a login manually, this is the identifier you would use on the connection parameter."
+        >
+          <TextInput defaultValue="Facebook" readOnly />
+        </Form.Field>
+        <Form.Field label="App ID" helpText={<Link>How to obtain a App ID?</Link>}>
+          <TextInput placeholder="Leave blank to use Auth0 dev keys" />
+        </Form.Field>
+        <Form.Field label="App Secret">
+          <TextInput
+            defaultValue="1234"
+            type="password"
+            readOnly
+            actions={[
+              <Button icon="copy" label="Copy to Clipboard" onClick={e => console.log(e)} />,
+              <Button
+                icon="delete"
+                label="This is an intentionally long label"
+                onClick={e => console.log(e)}
+              />
+            ]}
+          />
+        </Form.Field>
+      </Form>
     </Dialog>
   </Example>
 ))
