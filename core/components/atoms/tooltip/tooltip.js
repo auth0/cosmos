@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import styled, { css } from '@auth0/cosmos/styled'
 import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
@@ -7,6 +8,13 @@ import { multiply } from '../../_helpers/pixel-calc'
 import uniqueId from '../../_helpers/uniqueId'
 
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
+
+class TooltipPortal extends React.Component {
+  render() {
+    const { children, target = document.body } = this.props
+    return ReactDOM.createPortal(children, target)
+  }
+}
 
 class Tooltip extends React.Component {
   constructor(props) {
@@ -69,21 +77,23 @@ class Tooltip extends React.Component {
           {({ ref, style, placement, arrowProps }) => (
             <React.Fragment>
               {this.state.visible ? (
-                <Tooltip.Element
-                  innerRef={ref}
-                  style={{ zIndex: 1, ...style }}
-                  data-placement={placement}
-                  id={id}
-                  {...Automation('tooltip')}
-                  {...props}
-                >
-                  {content}
-                  <Tooltip.Arrow
+                <TooltipPortal>
+                  <Tooltip.Element
+                    innerRef={ref}
+                    style={{ zIndex: 20, ...style }}
                     data-placement={placement}
-                    innerRef={arrowProps.ref}
-                    style={arrowProps.style}
-                  />
-                </Tooltip.Element>
+                    id={id}
+                    {...Automation('tooltip')}
+                    {...props}
+                  >
+                    {content}
+                    <Tooltip.Arrow
+                      data-placement={placement}
+                      innerRef={arrowProps.ref}
+                      style={arrowProps.style}
+                    />
+                  </Tooltip.Element>
+                </TooltipPortal>
               ) : null}
             </React.Fragment>
           )}
