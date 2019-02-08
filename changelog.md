@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.16.1 [February 7, 2019]
+
+### Fixed
+
+- Sidebar: Fix sidebar linkgroup item colored when open but no subitems selected [#1498]
+- Tooltip: Apply z-index back to Tooltip Element [#1497]
+- Dialog: Revert Composable actions for Tabs in Dialog [#1496]
+- Icon: Fixed typo in icon ‘brand-weibo’ [#1495]
+
 ## 0.16.0 [February 7, 2019]
 
 ### Added
