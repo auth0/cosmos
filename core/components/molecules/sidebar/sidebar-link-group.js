@@ -8,15 +8,29 @@ import Automation from '../../_helpers/automation-attribute'
 class SidebarLinkGroup extends React.Component {
   constructor(props) {
     super(props)
-    const open = props.defaultOpen || false
-    let subItemSelected = false
 
+    this.state = { open: props.defaultOpen || false, subItemSelected: false }
+    this.evaluateSubItemSelection(props, { mounted: false })
+  }
+
+  evaluateSubItemSelection(props, { mounted }) {
+    let subItemSelected = false
     React.Children.forEach(props.children, child => {
       /* group should be open and parent be selected */
       if (child && child.props && child.props.selected) subItemSelected = true
     })
 
-    this.state = { open, subItemSelected }
+    if (this.state.subItemSelected !== subItemSelected) {
+      if (mounted) {
+        this.setState({ subItemSelected })
+      } else {
+        this.state.subItemSelected = subItemSelected
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    this.evaluateSubItemSelection(this.props, { mounted: true })
   }
 
   handleClick = () => {
