@@ -116,7 +116,7 @@ const arrowWidth = '6px'
 const arrowColor = colors.tooltip.background
 
 /*
-  popper doesn't arrange the tooltip right in the center,
+  Popper doesn't arrange the tooltip right in the center,
   so we add an adjustment
 */
 const arrowAdjustment = multiply(arrowWidth, -2)
