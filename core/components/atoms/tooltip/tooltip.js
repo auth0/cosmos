@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import styled, { css } from '@auth0/cosmos/styled'
 import { Manager, Reference, Popper } from 'react-popper'
 import PropTypes from 'prop-types'
