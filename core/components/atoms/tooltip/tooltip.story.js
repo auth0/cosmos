@@ -6,6 +6,10 @@ import { Tooltip, ButtonGroup, Button, Dialog, Icon, Form, TextInput, Link } fro
 
 const positions = ['top', 'left', 'right', 'bottom']
 
+const WithDialogExample = styled(Example)`
+  min-height: 800px;
+`
+
 const ExampleContainer = ({ children, position, noMargins }) => {
   const Container = styled.div`
     margin-top: 20px;
@@ -111,7 +115,7 @@ storiesOf('Tooltip', module).add('in a small container', () => (
 ))
 
 storiesOf('Tooltip', module).add('inside a dialog', () => (
-  <Example title="inside a dialog (#1367)">
+  <WithDialogExample title="inside a dialog (#1367)">
     <Dialog open={true} title="Test case for #1367">
       <div>
         plenty of room for the tooltip{' '}
@@ -144,7 +148,7 @@ storiesOf('Tooltip', module).add('inside a dialog', () => (
         </Tooltip>
       </div>
     </Dialog>
-  </Example>
+  </WithDialogExample>
 ))
 
 storiesOf('Tooltip', module).add('input actions inside dialog', () => (
