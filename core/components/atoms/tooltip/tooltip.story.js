@@ -152,7 +152,7 @@ storiesOf('Tooltip', module).add('inside a dialog', () => (
 ))
 
 storiesOf('Tooltip', module).add('input actions inside dialog', () => (
-  <Example title="input actions inside dialog">
+  <WithDialogExample title="input actions inside dialog">
     <Dialog open={true} title="Test case for #1501">
       <Form layout="label-on-top">
         <Form.Field
@@ -182,7 +182,7 @@ storiesOf('Tooltip', module).add('input actions inside dialog', () => (
         </Form.Field>
       </Form>
     </Dialog>
-  </Example>
+  </WithDialogExample>
 ))
 
 storiesOf('Tooltip', module).add('with an input', () => (
