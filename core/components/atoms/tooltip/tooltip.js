@@ -60,6 +60,7 @@ class Tooltip extends React.Component {
         </Reference>
         <Popper
           placement={props.position}
+          positionFixed={true}
           modifiers={{
             preventOverflow: { enabled: false },
             hide: { enabled: false },
@@ -71,7 +72,7 @@ class Tooltip extends React.Component {
               {this.state.visible ? (
                 <Tooltip.Element
                   innerRef={ref}
-                  style={{ zIndex: 1, ...style }}
+                  style={{ zIndex: 20, ...style }}
                   data-placement={placement}
                   id={id}
                   {...Automation('tooltip')}
@@ -115,7 +116,7 @@ const arrowWidth = '6px'
 const arrowColor = colors.tooltip.background
 
 /*
-  popper doesn't arrange the tooltip right in the center,
+  Popper doesn't arrange the tooltip right in the center,
   so we add an adjustment
 */
 const arrowAdjustment = multiply(arrowWidth, -2)
