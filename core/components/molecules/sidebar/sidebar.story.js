@@ -9,6 +9,85 @@ const StyledExample = styled(Example)`
   height: 500px;
 `
 
+class InteractiveExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selected: 'dashboard' }
+    this.select = this.select.bind(this)
+  }
+
+  select(selected) {
+    this.setState({ selected })
+  }
+
+  render() {
+    const { selected } = this.state
+    return (
+      <Sidebar>
+        <Sidebar.Link
+          onClick={() => this.select('dashboard')}
+          selected={selected === 'dashboard'}
+          icon="dashboard"
+          label="Dashboard"
+        />
+        <Sidebar.Link
+          onClick={() => this.select('clients')}
+          selected={selected === 'clients'}
+          icon="clients"
+          label="Applications"
+        />
+        <Sidebar.Link
+          onClick={() => this.select('apis')}
+          selected={selected === 'apis'}
+          icon="apis"
+          label="APIs"
+        />
+        <Sidebar.Link
+          onClick={() => this.select('sso')}
+          selected={selected === 'sso'}
+          icon="sso-integrations"
+          label="SSO Integrations"
+        />
+        <Sidebar.LinkGroup icon="connections" label="Connections">
+          <Sidebar.Link
+            onClick={() => this.select('database')}
+            selected={selected === 'database'}
+            label="Database"
+          />
+          <Sidebar.Link
+            onClick={() => this.select('social')}
+            selected={selected === 'social'}
+            label="Social"
+          />
+          <Sidebar.Link
+            onClick={() => this.select('enterprise')}
+            selected={selected === 'enterprise'}
+            label="Enterprise"
+          />
+          <Sidebar.Link
+            onClick={() => this.select('passwordless')}
+            selected={selected === 'passwordless'}
+            label="Passwordless"
+          />
+        </Sidebar.LinkGroup>
+        <Sidebar.Link
+          onClick={() => this.select('users')}
+          selected={selected === 'users'}
+          icon="users"
+          label="Users"
+        />
+        <Sidebar.Link
+          onClick={() => this.select('rules')}
+          selected={selected === 'rules'}
+          icon="rules"
+          label="Rules"
+        />
+      </Sidebar>
+    )
+  }
+}
+
 storiesOf('Sidebar', module).add('default', () => (
   <StyledExample>
     <Sidebar>
@@ -25,6 +104,12 @@ storiesOf('Sidebar', module).add('default', () => (
       <Sidebar.Link icon="users" label="Users" />
       <Sidebar.Link icon="rules" label="Rules" />
     </Sidebar>
+  </StyledExample>
+))
+
+storiesOf('Sidebar', module).add('interactive example', () => (
+  <StyledExample>
+    <InteractiveExample />
   </StyledExample>
 ))
 
