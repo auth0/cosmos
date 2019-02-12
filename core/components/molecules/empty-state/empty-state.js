@@ -34,7 +34,7 @@ const EmptyState = ({ link, helpUrl, title, icon, action, ...props }) => {
 
   return (
     <EmptyState.Element {...Automation('empty-state')} {...props}>
-      <Title size={1}>{title}</Title>
+      <Title>{title}</Title>
       <EmptyState.Body>
         <Icon name={icon} size={110} color="blue" />
         <FreeText {...props} useParagraph />
@@ -62,9 +62,9 @@ EmptyState.Body = styled.div`
     opacity: 0.2;
   }
 `
-const Title = styled(Heading)`
-  margin: 0 0 ${spacing.xlarge} 0;
-`
+const Title = props => (
+  <Heading size={1} margin={{ top: 0, bottom: spacing.xlarge, left: 0, right: 0 }} {...props} />
+)
 
 const LearnMore = styled.div`
   display: inline-block;
