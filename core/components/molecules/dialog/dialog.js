@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
-import { BaseHeading } from '../../atoms/heading'
+import Heading from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
 import Tabs from '../../molecules/tabs'
 import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
@@ -179,13 +179,7 @@ const DialogHeader = styled.header`
 `
 
 const DialogTitle = props => {
-  const InternalTitle = styled(BaseHeading.withComponent(props.element))`
-    font-weight: ${fonts.weight.medium};
-    font-size: ${fonts.size.default};
-    margin: 0;
-  `
-
-  return <InternalTitle {...props} />
+  return <Heading margin={{ top: 0 }} size={4} as={props.element} {...props} />
 }
 
 const DialogBody = styled.div`
