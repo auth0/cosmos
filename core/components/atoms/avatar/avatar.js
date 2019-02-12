@@ -90,7 +90,7 @@ Avatar.Element = styled.span`
 const StyledAvatar = Avatar.Element
 
 Avatar.propTypes = {
-  /** An icon to display. */
+  /** An icon to display */
   icon: PropTypes.oneOf(__ICONNAMES__),
   /** An image URL or Image component. */
   image: PropTypes.node,
