@@ -54,7 +54,7 @@ PageHeader.Element = styled.div`
     }
   }
 
-  ${Heading.Element[1]} {
+  ${Heading.Element} {
     flex: 1;
     /*
     Components should not have margin by default.
