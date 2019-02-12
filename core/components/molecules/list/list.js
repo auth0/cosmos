@@ -5,7 +5,7 @@ import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
 import { colors, spacing } from '@auth0/cosmos-tokens'
-import Heading, { StyledHeading } from '../../atoms/heading'
+import Heading from '../../atoms/heading'
 
 const List = props => {
   return (
@@ -31,7 +31,7 @@ List.Element = styled.ul`
 List.Label = styled.div`
   padding: ${spacing.xsmall};
 
-  ${StyledHeading[4]} {
+  ${Heading.Element} {
     margin: 0;
   }
 `
