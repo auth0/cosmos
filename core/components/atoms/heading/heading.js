@@ -19,7 +19,7 @@ const Heading = props => {
 const styles = {
   1: { size: '36px', weight: fonts.weight.normal },
   2: { size: '24px', weight: fonts.weight.medium },
-  3: { size: '18px', weight: fonts.weight.medium },
+  3: { size: '18px', weight: fonts.weight.bold },
   4: { size: '14px', weight: fonts.weight.medium }
 }
 
