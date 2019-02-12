@@ -50,7 +50,7 @@ Heading.propTypes = {
   /** Size of the heading */
   size: PropTypes.oneOf([1, 2, 3, 4]),
   /** h element to use instead of default one */
-  as: PropTypes.string,
+  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /** Successful state when action is completed successfuly */
   children: PropTypes.string
 }
