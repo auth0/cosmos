@@ -12,7 +12,10 @@ const BaseHeading = styled.h1`
 `
 
 const Heading = props => {
-  const Component = Heading.Element[props.size]
+  const element = props.as || 'h' + props.size
+
+  const Component = Heading.Element[props.size].withComponent(element)
+
   return (
     <Component {...Automation('heading')} {...props}>
       {props.children}
@@ -22,21 +25,21 @@ const Heading = props => {
 
 Heading.Element = []
 
-Heading.Element[1] = styled(BaseHeading.withComponent('h1'))`
+Heading.Element[1] = styled(BaseHeading)`
   font-size: 36px;
 `
 
-Heading.Element[2] = styled(BaseHeading.withComponent('h2'))`
+Heading.Element[2] = styled(BaseHeading)`
   font-size: 24px;
   font-weight: ${fonts.weight.medium};
 `
 
-Heading.Element[3] = styled(BaseHeading.withComponent('h3'))`
+Heading.Element[3] = styled(BaseHeading)`
   font-size: 18px; /* TO-DO: tokenize */
   font-weight: ${fonts.weight.bold};
 `
 
-Heading.Element[4] = styled(BaseHeading.withComponent('h4'))`
+Heading.Element[4] = styled(BaseHeading)`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
@@ -44,7 +47,11 @@ Heading.Element[4] = styled(BaseHeading.withComponent('h4'))`
 const StyledHeading = Heading.Element
 
 Heading.propTypes = {
+  /** Size of the heading */
   size: PropTypes.oneOf([1, 2, 3, 4]),
+  /** h element to use instead of default one */
+  as: PropTypes.string,
+  /** Successful state when action is completed successfuly */
   children: PropTypes.string
 }
 
