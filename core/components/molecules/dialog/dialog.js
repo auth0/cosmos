@@ -179,7 +179,14 @@ const DialogHeader = styled.header`
 `
 
 const DialogTitle = props => {
-  return <Heading margin={{ top: 0 }} size={4} as={props.element} {...props} />
+  return (
+    <Heading
+      margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+      size={4}
+      as={props.element}
+      {...props}
+    />
+  )
 }
 
 const DialogBody = styled.div`
