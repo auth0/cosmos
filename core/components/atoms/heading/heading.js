@@ -4,17 +4,10 @@ import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
-const BaseHeading = styled.h1`
-  margin: 1em 0;
-  color: ${colors.text.default};
-  font-weight: ${fonts.weight.normal};
-  line-height: 1.3;
-`
-
 const Heading = props => {
   const element = props.as || 'h' + props.size
 
-  const Component = Heading.Element[props.size].withComponent(element)
+  const Component = Heading.Element.withComponent(element)
 
   return (
     <Component {...Automation('heading')} {...props}>
@@ -23,7 +16,25 @@ const Heading = props => {
   )
 }
 
-Heading.Element = []
+const styles = {
+  1: { size: '36px', weight: fonts.weight.normal },
+  2: { size: '24px', weight: fonts.weight.medium },
+  3: { size: '18px', weight: fonts.weight.medium },
+  4: { size: '14px', weight: fonts.weight.medium }
+}
+
+Heading.Element = styled.h1`
+  margin: 1em 0;
+  color: ${colors.text.default};
+  font-size: ${props => styles[props.size].size};
+  font-weight: ${props => styles[props.size].weight};
+  line-height: 1.3;
+`
+
+/* Backward compatibility layer */
+
+const BaseHeading = Heading.Element
+const StyledHeading = Heading.Element
 
 Heading.Element[1] = styled(BaseHeading)`
   font-size: 36px;
@@ -43,8 +54,6 @@ Heading.Element[4] = styled(BaseHeading)`
   font-size: 14px;
   font-weight: ${fonts.weight.medium};
 `
-
-const StyledHeading = Heading.Element
 
 Heading.propTypes = {
   /** Size of the heading */
