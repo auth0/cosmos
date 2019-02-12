@@ -44,7 +44,7 @@ const ItemsContainer = styled.ul`
   }
 `
 
-const Title = styled(Heading)`
+const Title = styled(Heading.Element)`
   font-size: 1.0714285714em;
   color: ${colors.text.error};
   margin: 0;
