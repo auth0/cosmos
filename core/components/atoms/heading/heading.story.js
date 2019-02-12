@@ -12,3 +12,20 @@ storiesOf('Heading', module).add('sizes', () => (
     <Heading size={4}>Good design is good business</Heading>
   </Example>
 ))
+
+storiesOf('Heading', module).add('element', () => (
+  <Example title="Sizes">
+    <Heading size={1} as="h2">
+      Good design is good business
+    </Heading>
+    <Heading size={2} as="h2">
+      Good design is good business
+    </Heading>
+    <Heading size={3} as="h2">
+      Good design is good business
+    </Heading>
+    <Heading size={4} as="h2">
+      Good design is good business
+    </Heading>
+  </Example>
+))
