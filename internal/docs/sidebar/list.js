@@ -52,6 +52,12 @@ const List = props => {
         ))}
       </Group>
 
+      <Group label="Layouts" open>
+        {groups.layouts.map((component, index) => (
+          <Link key={index} component={component} />
+        ))}
+      </Group>
+
       <Group label="Building blocks" open>
         {groups.atoms.map((component, index) => (
           <Link key={index} component={component} />
@@ -75,12 +81,6 @@ const List = props => {
 
           return children
         })}
-      </Group>
-
-      <Group label="Layouts" open>
-        {groups.layouts.map((component, index) => (
-          <Link key={index} component={component} />
-        ))}
       </Group>
 
       <Group label="Hidden" className="hidden">
