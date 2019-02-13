@@ -13,6 +13,16 @@ storiesOf('Select', module).add('simple', () => (
   </Example>
 ))
 
+storiesOf('Select', module).add('simple: open', () => (
+  <Example title="Select: simple">
+    <Select
+      defaultMenuOpen
+      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+      onChange={event => console.log(event)}
+    />
+  </Example>
+))
+
 class SelectWithEmptyString extends React.Component {
   constructor(props) {
     super(props)
@@ -29,6 +39,7 @@ class SelectWithEmptyString extends React.Component {
   render() {
     return (
       <Select
+        defaultMenuOpen={this.props.defaultMenuOpen}
         options={[
           { text: 'All apps', value: '' },
           { text: 'Custom apps', value: 'custom' },
@@ -44,6 +55,11 @@ class SelectWithEmptyString extends React.Component {
 storiesOf('Select', module).add('simple with empty string', () => (
   <Example title="Select: simple">
     <SelectWithEmptyString />
+  </Example>
+))
+storiesOf('Select', module).add('simple with empty string: open', () => (
+  <Example title="Select: simple">
+    <SelectWithEmptyString defaultMenuOpen />
   </Example>
 ))
 
@@ -81,6 +97,7 @@ storiesOf('Select', module).add('disabled', () => (
 storiesOf('Select', module).add('disabled option', () => (
   <Example title="Select: disabled option">
     <Select
+      defaultMenuOpen
       placeholder="Select from the enabled options"
       options={[
         { text: 'One', value: 1, disabled: true },
@@ -124,6 +141,7 @@ storiesOf('Select', module).add('stressed', () => (
     <div style={{ width: 300 }}>
       <Select
         value={1}
+        defaultMenuOpen
         options={[
           {
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
