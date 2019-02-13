@@ -59,7 +59,7 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts (internal) */
-import AppLayout from './layouts/app-layout'
+import AppLayout from './layouts/_app-layout'
 import ColumnLayout from './layouts/column-layout'
 import RowLayout from './layouts/row-layout'
 import GalleryLayout from './layouts/gallery-layout'
