@@ -36,30 +36,19 @@ const cosmosToReactSelect = {
       label: groupName || label || text,
       options: items ? cosmosToReactSelect.options(items) : undefined,
       ...otherProperties
-    }))
-}
+    })),
+  value: (valueProp, options) => {
+    if (valueProp === null || typeof valueProp === 'undefined') return null
 
-const isGroup = option => option.groupName && option.items
-const renderOption = (option, idx) => {
-  if (isGroup(option)) {
-    return (
-      <optgroup key={idx} label={option.groupName} {...Automation('select.optgroup')}>
-        {option.items.map(renderOption)}
-      </optgroup>
-    )
+    if (valueProp.constructor.name === 'Array') {
+      return valueProp.map(item => cosmosToReactSelect.value(item, options))
+    }
+
+    return options.find(option => {
+      // TODO: Handle options
+      return option.value === valueProp
+    })
   }
-
-  return (
-    <option
-      key={idx}
-      value={option.value}
-      readOnly={option.disabled}
-      disabled={option.disabled}
-      {...Automation('select.option')}
-    >
-      {option.text}
-    </option>
-  )
 }
 
 const customOptionRenderer = providedRenderer => optionProps => {
@@ -115,7 +104,7 @@ const Select = props => {
     componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
   }
 
-  const value = options.find(option => option.value === props.value)
+  const value = cosmosToReactSelect.value(props.value, options)
 
   return (
     <ReactSelect
@@ -125,13 +114,13 @@ const Select = props => {
       isSearchable={props.searchable}
       isLoading={props.loading}
       menuIsOpen={props.defaultMenuOpen}
-      options={options}
+      defaultValue={props.defaultValue}
       placeholder={props.placeholder}
+      options={options}
       components={componentOverrides}
       theme={selectTheme}
-      {...Automation('select')}
       value={value}
-      defaultValue={props.defaultValue}
+      {...Automation('select')}
     />
   )
 }
@@ -139,6 +128,7 @@ const Select = props => {
 Select.ArrowIcon = styled(Icon)`
   pointer-events: none;
   margin-right: ${spacing.unit * 3}px;
+
   svg {
     display: block;
   }
