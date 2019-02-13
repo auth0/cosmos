@@ -1,26 +1,31 @@
 import React from 'react'
+import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Select } from '@auth0/cosmos'
 
+const ExampleForSelect = styled(Example)`
+  min-height: 450px;
+`
+
 storiesOf('Select', module).add('simple', () => (
-  <Example title="Select: simple">
+  <ExampleForSelect title="Select: simple">
     <Select
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('simple: open', () => (
-  <Example title="Select: simple">
+  <ExampleForSelect title="Select: simple">
     <Select
       defaultMenuOpen
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 class SelectWithEmptyString extends React.Component {
@@ -53,49 +58,49 @@ class SelectWithEmptyString extends React.Component {
 }
 
 storiesOf('Select', module).add('simple with empty string', () => (
-  <Example title="Select: simple">
+  <ExampleForSelect title="Select: simple">
     <SelectWithEmptyString />
-  </Example>
+  </ExampleForSelect>
 ))
 storiesOf('Select', module).add('simple with empty string: open', () => (
-  <Example title="Select: simple">
+  <ExampleForSelect title="Select: simple">
     <SelectWithEmptyString defaultMenuOpen />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('with placeholder', () => (
-  <Example title="Select: with placeholder">
+  <ExampleForSelect title="Select: with placeholder">
     <Select
       placeholder="Select an option..."
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('default value', () => (
-  <Example title="Select: with default value">
+  <ExampleForSelect title="Select: with default value">
     <Select
       value={2}
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('disabled', () => (
-  <Example title="Select: disabled">
+  <ExampleForSelect title="Select: disabled">
     <Select
       value={2}
       disabled
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('disabled option', () => (
-  <Example title="Select: disabled option">
+  <ExampleForSelect title="Select: disabled option">
     <Select
       defaultMenuOpen
       placeholder="Select from the enabled options"
@@ -106,11 +111,11 @@ storiesOf('Select', module).add('disabled option', () => (
       ]}
       onChange={event => console.log(event)}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('groups', () => (
-  <Example title="Select: groups">
+  <ExampleForSelect title="Select: groups">
     <Select
       defaultMenuOpen
       placeholder="Groups"
@@ -133,11 +138,11 @@ storiesOf('Select', module).add('groups', () => (
         }
       ]}
     />
-  </Example>
+  </ExampleForSelect>
 ))
 
 storiesOf('Select', module).add('stressed', () => (
-  <Example title="Select: stressed - 56 characters with 300px width">
+  <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
     <div style={{ width: 300 }}>
       <Select
         value={1}
@@ -159,5 +164,5 @@ storiesOf('Select', module).add('stressed', () => (
         onChange={event => console.log(event)}
       />
     </div>
-  </Example>
+  </ExampleForSelect>
 ))
