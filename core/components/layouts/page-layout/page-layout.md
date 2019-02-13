@@ -5,7 +5,7 @@ description: Use this component to create the separation between the header and 
 
 ---
 
-The `PageLayout` creates the structure for the Page by generating the space between the `PageLayout.Header` and the `PageLayout.Content`.
+The `PageLayout` creates the structure for the page by generating the space between the `PageLayout.Header` and the `PageLayout.Content`.
 
 Both sections accept as many children as needed to achieve the desired UI. For example the `PageLayout.Header` can have the `PageHeader` component and `Breadcrumbs` and the `PageLayout.Content` can nest other layouts like `RowLayout` or `ColumnLayout`.
 
@@ -22,7 +22,7 @@ Both sections accept as many children as needed to achieve the desired UI. For e
 
 ## Usage
 
-The `PageLayout` should be used specifically within the `main` area of the AppFrame to create the separation between the header and the content of the page.
+The `PageLayout` should be used specifically within the `main` area to create the separation between the header and the content of the page.
 
 **This layout is usecase speific to achevie just one goal, do not use it for anything else**
 
@@ -30,4 +30,4 @@ The `PageLayout` should be used specifically within the `main` area of the AppFr
 
 This layout is semantic free.
 
-always place it within the `<main>` area.
+Always place it within the `<main>` area.

@@ -1,13 +1,11 @@
 ```meta
 category: layout
-description: Use this component to organize elements vertically and horizontally into a gallery grid
+description: It organizes elements vertically and horizontally into a gallery grid
 ```
 
 ---
 
-Use a to organize its children into a row layouts, creating a separation between each item.
-
-The `GalleryLayout` arranges its children into a gallery like layout. For example to create a list of cards.
+The `GalleryLayout` arranges its children into a gallery grid. For example to create a list of cards.
 
 ```jsx
 <GalleryLayout {props}>
@@ -22,11 +20,11 @@ The `GalleryLayout` arranges its children into a gallery like layout. For exampl
 
 ## Usage
 
-Use this layout only to create for example list of cards.
+Use `GalleryLayout` to organize components into a gallery.
 
 ### Do not use it for:
 
-- **Columns Layouts:** Use the `ColumnLayout` instead.
+- **To create columns:** Use the `ColumnLayout` instead.
 
 ## Accessibility
 
