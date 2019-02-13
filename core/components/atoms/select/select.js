@@ -82,7 +82,6 @@ const customOptionRenderer = providedRenderer => optionProps => {
 
 const cosmosMultiValueTagRenderer = optionProps => {
   const { innerProps, removeProps, innerRef, data } = optionProps
-  console.log('tag', { optionProps })
   return (
     <Select.Tag {...innerProps} ref={innerRef} onRemove={removeProps.onClick}>
       {data.label}
@@ -102,9 +101,6 @@ const Select = props => {
     but they do have disabled. we need the style of readOnly input
     and functionality of select disabled
   */
-
-  console.table(props.options)
-  console.debug(props.value)
 
   const componentOverrides = {
     MultiValue: cosmosMultiValueTagRenderer,
