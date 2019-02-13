@@ -95,6 +95,7 @@ storiesOf('Select', module).add('disabled option', () => (
 storiesOf('Select', module).add('groups', () => (
   <Example title="Select: groups">
     <Select
+      defaultMenuOpen
       placeholder="Groups"
       options={[
         {

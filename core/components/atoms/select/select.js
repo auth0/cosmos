@@ -31,16 +31,13 @@ const selectTheme = {
 
 const cosmosToReactSelect = {
   options: cosmosOptions =>
-    cosmosOptions.map(({ disabled, label, text, ...otherProperties }) => ({
+    cosmosOptions.map(({ items, groupName, disabled, label, text, ...otherProperties }) => ({
       isDisabled: disabled,
-      label: label || text,
+      label: groupName || label || text,
+      options: items ? cosmosToReactSelect.options(items) : undefined,
       ...otherProperties
     }))
 }
-
-const PLACEHOLDER_VALUE = '__select_placeholder'
-
-const valueIsUndefined = value => value === undefined || value === null
 
 const isGroup = option => option.groupName && option.items
 const renderOption = (option, idx) => {
@@ -106,6 +103,9 @@ const Select = props => {
     and functionality of select disabled
   */
 
+  console.table(props.options)
+  console.debug(props.value)
+
   const componentOverrides = {
     MultiValue: cosmosMultiValueTagRenderer,
     DropdownIndicator: cosmosDownIndicator,
@@ -115,16 +115,11 @@ const Select = props => {
 
   let options = cosmosToReactSelect.options(props.options)
 
-  const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue)
-  const value = shouldUsePlaceholder ? PLACEHOLDER_VALUE : props.value
-
   if (props.customOptionRenderer) {
     componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
   }
 
-  if (shouldUsePlaceholder) {
-    options = [{ label: props.placeholder, value: PLACEHOLDER_VALUE, isDisabled: true }, ...options]
-  }
+  const value = options.find(option => option.value === props.value)
 
   return (
     <ReactSelect
@@ -133,13 +128,13 @@ const Select = props => {
       isMulti={props.multiple}
       isSearchable={props.searchable}
       isLoading={props.loading}
-      menuIsOpen={props.defaultOpen}
+      menuIsOpen={props.defaultMenuOpen}
       options={options}
       placeholder={props.placeholder}
       components={componentOverrides}
       theme={selectTheme}
       {...Automation('select')}
-      // value={value}
+      value={value}
       defaultValue={props.defaultValue}
     />
   )
