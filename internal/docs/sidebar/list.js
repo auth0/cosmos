@@ -77,6 +77,12 @@ const List = props => {
         })}
       </Group>
 
+      <Group label="Layouts" open>
+        {groups.layouts.map((component, index) => (
+          <Link key={index} component={component} />
+        ))}
+      </Group>
+
       <Group label="Hidden" className="hidden">
         {groups.internal.map((component, index) => {
           let children = <Link key={index} component={component} />

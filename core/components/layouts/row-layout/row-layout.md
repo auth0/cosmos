@@ -5,7 +5,7 @@ description: Row layout allows organization of it's children in row
 
 ---
 
-Use a `RowLayout` to organize its children into a row layouts, creating a separation between each item.
+The `RowLayout` organizes its children into rows, creating a vertical separation between them.
 
 ```jsx
   <RowLayout {props}>
@@ -18,18 +18,14 @@ Use a `RowLayout` to organize its children into a row layouts, creating a separa
 
 ## Usage
 
-Row layout allow to organize it's children vertically into row.
-
-Use this layout only to create row within the main area.
+Use the `Rowlayout` to organize components vertically into row.
 
 ### Do not use it for:
 
-- **Page chrome:** Use the App Frame instead for the page chrome.
-- **Arrange components next to each other:** To arrange components next to one another, with a consistent gutter use a Stack Layout.
-- **Toolbars**: To position a set of tools or actions use the ToolBar layout instead.
+- **Arrange components next to each other:** To arrange components next to one another while keeping their relative sizes use the Stack Layout.
 - **Card List**: Use the Gallery layout instead.
 
-Combine the Row layout with the Column Layout to achieve complex grid like dashboard for dashboard for examples.
+Combine the `ColymnLayout` with the `RowLayout` to achieve complex grid arrangments.
 
 ## Accecibility
 
