@@ -59,12 +59,12 @@ import Table from './molecules/table'
 import Tabs from './molecules/tabs'
 
 /* layouts (internal) */
-import AppLayout from './molecules/_app-layout'
-import ColumnLayout from './molecules/_column-layout'
-import RowLayout from './molecules/_row-layout'
-import GalleryLayout from './molecules/_gallery-layout'
-import PageLayout from './molecules/_page-layout'
-import StackLayout from './molecules/_stack-layout'
+import AppLayout from './layouts/app-layout'
+import ColumnLayout from './layouts/column-layout'
+import RowLayout from './layouts/row-layout'
+import GalleryLayout from './layouts/gallery-layout'
+import PageLayout from './layouts/page-layout'
+import StackLayout from './layouts/stack-layout'
 
 export {
   Alert,
