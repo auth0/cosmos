@@ -9,6 +9,23 @@ const ExampleForSelect = styled(Example)`
   min-height: 450px;
 `
 
+class InteractiveSelect extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { value: null }
+    this.onChange = this.onChange.bind(this)
+  }
+
+  onChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
+  render() {
+    return this.props.children(this.state.value, this.onChange)
+  }
+}
+
 storiesOf('Select', module).add('simple', () => (
   <ExampleForSelect title="Select: simple">
     <Select
@@ -141,6 +158,39 @@ storiesOf('Select', module).add('groups', () => (
   </ExampleForSelect>
 ))
 
+storiesOf('Select', module).add('interactive: groups', () => (
+  <ExampleForSelect title="Select: groups">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <Select
+          value={value}
+          onChange={onChange}
+          defaultMenuOpen
+          placeholder="Groups"
+          options={[
+            {
+              groupName: 'Group one',
+              items: [
+                { text: 'One one', value: 11 },
+                { text: 'One two', value: 12 },
+                { text: 'One three', value: 13 }
+              ]
+            },
+            {
+              groupName: 'Group two',
+              items: [
+                { text: 'Two one', value: 21 },
+                { text: 'Two two', value: 22 },
+                { text: 'Two three', value: 23 }
+              ]
+            }
+          ]}
+        />
+      )}
+    </InteractiveSelect>
+  </ExampleForSelect>
+))
+
 storiesOf('Select', module).add('stressed', () => (
   <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
     <div style={{ width: 300 }}>
@@ -163,6 +213,36 @@ storiesOf('Select', module).add('stressed', () => (
         ]}
         onChange={event => console.log(event)}
       />
+    </div>
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('interactive: stressed', () => (
+  <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
+    <div style={{ width: 300 }}>
+      <InteractiveSelect>
+        {(value, onChange) => (
+          <Select
+            value={value}
+            onChange={onChange}
+            defaultMenuOpen
+            options={[
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 1
+              },
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 2
+              },
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 3
+              }
+            ]}
+          />
+        )}
+      </InteractiveSelect>
     </div>
   </ExampleForSelect>
 ))

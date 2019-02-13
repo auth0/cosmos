@@ -44,10 +44,25 @@ const cosmosToReactSelect = {
       return valueProp.map(item => cosmosToReactSelect.value(item, options))
     }
 
-    return options.find(option => {
-      // TODO: Handle options
-      return option.value === valueProp
-    })
+    const matchValue = option => option.value === valueProp
+
+    const groupedValue = (options => {
+      let valueFound = null
+      if (options.options && options.options.constructor.name === 'Array') {
+        options.forEach(options => {
+          const localValue = options.find(matchValue)
+          if (localValue !== null) {
+            valueFound = localValue
+          }
+        })
+
+        if (valueFound !== null) return valueFound
+      }
+
+      return null
+    })(options)
+
+    return options.find(matchValue)
   }
 }
 
@@ -108,7 +123,7 @@ const Select = props => {
 
   return (
     <ReactSelect
-      onChange={option => props.onChange({ target: { value: option.value } })}
+      onChange={option => props.onChange && props.onChange({ target: { value: option.value } })}
       isDisabled={props.disabled}
       isMulti={props.multiple}
       isSearchable={props.searchable}
