@@ -9,6 +9,18 @@ import Label from '../../atoms/label'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
 
+const processChildren = props =>
+  React.Children.map(props.children, child => {
+    if (child && child.type === Icon) {
+      return React.cloneElement(child, {
+        size: 18,
+        color: props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar
+      })
+    }
+
+    return child
+  })
+
 const SidebarLink = props => {
   return (
     <SidebarLink.Item>
@@ -19,18 +31,11 @@ const SidebarLink = props => {
         aria-expanded={props.open}
         {...ariaCurrent(props)}
         {...Automation('sidebar.link')}
-        {...props}
+        id={props.id}
+        tabIndex="0"
       >
-        <Icon
-          name={props.icon ? props.icon : 'arrow-right'}
-          size={18}
-          color={props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar}
-        />
-        <SidebarLink.Text>{props.label}</SidebarLink.Text>
-        {props.new ? <Label appearance="default">NEW</Label> : null}
+        {processChildren(props)}
       </SidebarLink.Element>
-
-      {props.children}
     </SidebarLink.Item>
   )
 }
@@ -39,6 +44,7 @@ SidebarLink.Item = styled.li``
 
 SidebarLink.Element = styled.a`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   cursor: pointer;
   color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
@@ -56,15 +62,15 @@ SidebarLink.Element = styled.a`
     margin-right: ${spacing.xsmall};
   }
   ${Label.Element} {
-    margin-left: ${spacing.small};
     /* should we add a new appearance to the label? */
     color: ${colors.link.sidebarHover};
     border-color: ${colors.link.sidebarHover};
   }
 `
 
-SidebarLink.Text = styled.span`
-  display: block;
+SidebarLink.Text = styled.div``
+SidebarLink.Postfix = styled.div`
+  margin-left: ${spacing.small};
 `
 
 SidebarLink.propTypes = {

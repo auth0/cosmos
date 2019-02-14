@@ -61,6 +61,8 @@ class SidebarLinkGroup extends React.Component {
 SidebarLinkGroup.Element = React.Fragment
 
 SidebarLinkGroup.Content = styled.ul`
+  background-color: red;
+  flex: 1 0 100%;
   margin-left: calc(18px + ${spacing.xsmall});
   overflow: hidden;
   max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
