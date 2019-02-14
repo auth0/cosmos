@@ -29,12 +29,12 @@ const findSelectedSubItem = subMenu => {
   return found
 }
 
-const processIcon = props =>
-  React.Children.map(props.children, child => {
+const processIcon = (children, selected) =>
+  React.Children.map(children, child => {
     if (child && child.type === Icon) {
       return React.cloneElement(child, {
         size: 18, // FIXME: Use a token
-        color: props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar
+        color: selected ? colors.icon.sidebarFocus : colors.icon.sidebar
       })
     }
 
@@ -60,9 +60,7 @@ class SidebarLink extends React.Component {
 
   render() {
     const props = this.props
-
-    // Add color and size to the icon before using children.
-    const children = processIcon(props)
+    const { children } = props
 
     const { include, exclude } = childrenMover(SidebarLinkGroup)
     const [sidebarItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
@@ -82,7 +80,7 @@ class SidebarLink extends React.Component {
           {...ariaCurrent(props)}
           {...Automation('sidebar.link')}
         >
-          {sidebarItem}
+          {processIcon(sidebarItem, selected)}
         </SidebarLink.Element>
 
         {statefulSubMenu}
