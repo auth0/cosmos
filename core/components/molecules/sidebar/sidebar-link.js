@@ -6,10 +6,12 @@ import Automation from '../../_helpers/automation-attribute'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Label from '../../atoms/label'
+import SidebarLinkGroup from './sidebar-link-group'
+import { childrenMover } from '../../_helpers/children-mover'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
 
-const processChildren = props =>
+const iconProcessor = props =>
   React.Children.map(props.children, child => {
     if (child && child.type === Icon) {
       return React.cloneElement(child, {
@@ -22,6 +24,14 @@ const processChildren = props =>
   })
 
 const SidebarLink = props => {
+  const childrenWithEnhancedIcon = iconProcessor(props)
+
+  const { include, exclude } = childrenMover(SidebarLinkGroup)
+  const [sidebarItem, subMenu] = [
+    exclude(childrenWithEnhancedIcon),
+    include(childrenWithEnhancedIcon)
+  ]
+
   return (
     <SidebarLink.Item>
       <SidebarLink.Element
@@ -29,13 +39,14 @@ const SidebarLink = props => {
         onClick={props.onClick}
         selected={props.selected}
         aria-expanded={props.open}
-        {...ariaCurrent(props)}
-        {...Automation('sidebar.link')}
         id={props.id}
         tabIndex="0"
+        {...ariaCurrent(props)}
+        {...Automation('sidebar.link')}
       >
-        {processChildren(props)}
+        {sidebarItem}
       </SidebarLink.Element>
+      {subMenu}
     </SidebarLink.Item>
   )
 }
