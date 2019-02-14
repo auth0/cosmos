@@ -165,7 +165,6 @@ storiesOf('Select', module).add('interactive: groups', () => (
         <Select
           value={value}
           onChange={onChange}
-          defaultMenuOpen
           placeholder="Groups"
           options={[
             {
