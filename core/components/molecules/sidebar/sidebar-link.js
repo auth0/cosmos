@@ -42,7 +42,7 @@ SidebarLink.Element = styled.a`
   align-items: center;
   cursor: pointer;
   color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
-  /* font-size: 13px; */
+  font-size: 13px;
   text-decoration: none;
   padding-top: ${spacing.xsmall};
   padding-bottom: ${spacing.xsmall};
