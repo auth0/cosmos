@@ -259,7 +259,7 @@ storiesOf('Sidebar', module).add('api nueva con todo', () => (
           <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
         </Sidebar.Link>
 
-        <Sidebar.Link>
+        <Sidebar.Link defaultOpen>
           <Icon name="arrow-right" />
           <Sidebar.Link.Text>Submenu</Sidebar.Link.Text>
           <Sidebar.Link.Postfix>
@@ -268,7 +268,7 @@ storiesOf('Sidebar', module).add('api nueva con todo', () => (
             </Tooltip>
           </Sidebar.Link.Postfix>
 
-          <Sidebar.LinkGroup defaultOpen>
+          <Sidebar.LinkGroup>
             <Sidebar.Link selected>
               <Icon name="dashboard" />
               <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>

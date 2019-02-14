@@ -10,7 +10,8 @@ import SidebarLinkGroup from './sidebar-link-group'
 import { childrenMover } from '../../_helpers/children-mover'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
-const singleChildren = children => {
+
+const enforceSingleChildren = children => {
   if (!children) return null
   if (children.constructor.name === 'Array') {
     return children[0] || null
@@ -28,11 +29,11 @@ const findSelectedSubItem = subMenu => {
   return found
 }
 
-const iconProcessor = props =>
+const processIcon = props =>
   React.Children.map(props.children, child => {
     if (child && child.type === Icon) {
       return React.cloneElement(child, {
-        size: 18,
+        size: 18, // FIXME: Use a token
         color: props.selected ? colors.icon.sidebarFocus : colors.icon.sidebar
       })
     }
@@ -40,34 +41,54 @@ const iconProcessor = props =>
     return child
   })
 
-const SidebarLink = props => {
-  const childrenWithEnhancedIcon = iconProcessor(props)
+class SidebarLink extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { subMenuOpen: props.defaultOpen || false }
 
-  const { include, exclude } = childrenMover(SidebarLinkGroup)
-  const [sidebarItem, subMenu] = [
-    exclude(childrenWithEnhancedIcon),
-    singleChildren(include(childrenWithEnhancedIcon))
-  ]
+    this.toggleSubmenu = this.toggleSubmenu.bind(this)
+  }
 
-  const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
+  toggleSubmenu() {
+    this.setState({ subMenuOpen: !this.state.subMenuOpen })
+  }
 
-  return (
-    <SidebarLink.Item>
-      <SidebarLink.Element
-        href={props.url}
-        onClick={props.onClick}
-        selected={selected}
-        aria-expanded={props.open}
-        id={props.id}
-        tabIndex="0"
-        {...ariaCurrent(props)}
-        {...Automation('sidebar.link')}
-      >
-        {sidebarItem}
-      </SidebarLink.Element>
-      {subMenu}
-    </SidebarLink.Item>
-  )
+  setSubMenuState(subMenu, state) {
+    if (!subMenu) return null
+    return React.cloneElement(subMenu, state)
+  }
+
+  render() {
+    const props = this.props
+
+    // Add color and size to the icon before using children.
+    const children = processIcon(props)
+
+    const { include, exclude } = childrenMover(SidebarLinkGroup)
+    const [sidebarItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
+
+    const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
+    const statefulSubMenu = this.setSubMenuState(subMenu, { open: this.state.subMenuOpen })
+
+    return (
+      <SidebarLink.Item>
+        <SidebarLink.Element
+          href={props.url}
+          onClick={subMenu ? this.toggleSubmenu : props.onClick}
+          selected={selected}
+          aria-expanded={props.open}
+          id={props.id}
+          tabIndex="0"
+          {...ariaCurrent(props)}
+          {...Automation('sidebar.link')}
+        >
+          {sidebarItem}
+        </SidebarLink.Element>
+
+        {statefulSubMenu}
+      </SidebarLink.Item>
+    )
+  }
 }
 
 SidebarLink.Item = styled.li``
