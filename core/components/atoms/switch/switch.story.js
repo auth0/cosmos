@@ -6,19 +6,19 @@ import { Switch } from '@auth0/cosmos'
 
 storiesOf('Switch', module).add('default', () => (
   <Example title="Switch">
-    <Switch onToggle={value => console.log(value)} />
+    <Switch onChange={value => console.log(value)} />
   </Example>
 ))
 
 storiesOf('Switch', module).add('left label', () => (
   <Example title="Switch">
-    <Switch onToggle={value => console.log(value)} labelPosition="left" />
+    <Switch onChange={value => console.log(value)} labelPosition="left" />
   </Example>
 ))
 
 storiesOf('Switch', module).add('on', () => (
   <Example title="Switch">
-    <Switch on onToggle={value => console.log(value)} />
+    <Switch on onChange={value => console.log(value)} />
   </Example>
 ))
 
@@ -31,14 +31,14 @@ storiesOf('Switch', module).add('readonly', () => (
 
 storiesOf('Switch', module).add('accessibility labels', () => (
   <Example title="Switch">
-    <Switch accessibleLabels={[]} onToggle={() => {}} />
-    <Switch accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
-    <Switch on accessibleLabels={['ON', 'OFF']} onToggle={() => {}} />
+    <Switch accessibleLabels={[]} onChange={() => {}} />
+    <Switch accessibleLabels={['ON', 'OFF']} onChange={() => {}} />
+    <Switch on accessibleLabels={['ON', 'OFF']} onChange={() => {}} />
   </Example>
 ))
 
 storiesOf('Switch', module).add('hidden accessibility labels', () => (
   <Example title="Switch">
-    <Switch hideAccessibleLabels onToggle={() => {}} />
+    <Switch hideAccessibleLabels onChange={() => {}} />
   </Example>
 ))

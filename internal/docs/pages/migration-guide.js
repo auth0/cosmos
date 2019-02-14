@@ -67,6 +67,22 @@ class MigrationGuide extends React.Component {
         </div>
 
         <div>
+          <Heading3>Switch</Heading3>
+
+          <Link href="#/component/switch">Open docs</Link>
+
+          <CodeBlock language="jsx">
+            {`
+// replace onToggle:function
+<Switch onToggle={value => console.log(value)} />
+
+// with onChange:function
+<Switch onChange={value => console.log(value)} />
+        `}
+          </CodeBlock>
+        </div>
+
+        <div>
           <Heading3>AvatarBlock</Heading3>
 
           <Link href="#/component/avatar-block">Open docs</Link>
