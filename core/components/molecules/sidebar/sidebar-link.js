@@ -10,6 +10,23 @@ import SidebarLinkGroup from './sidebar-link-group'
 import { childrenMover } from '../../_helpers/children-mover'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
+const singleChildren = children => {
+  if (!children) return null
+  if (children.constructor.name === 'Array') {
+    return children[0] || null
+  }
+  return children
+}
+
+const findSelectedSubItem = subMenu => {
+  let found = false
+
+  React.Children.forEach(subMenu.props.children, link => {
+    if (link.props.selected) found = true
+  })
+
+  return found
+}
 
 const iconProcessor = props =>
   React.Children.map(props.children, child => {
@@ -29,15 +46,17 @@ const SidebarLink = props => {
   const { include, exclude } = childrenMover(SidebarLinkGroup)
   const [sidebarItem, subMenu] = [
     exclude(childrenWithEnhancedIcon),
-    include(childrenWithEnhancedIcon)
+    singleChildren(include(childrenWithEnhancedIcon))
   ]
+
+  const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
 
   return (
     <SidebarLink.Item>
       <SidebarLink.Element
         href={props.url}
         onClick={props.onClick}
-        selected={props.selected}
+        selected={selected}
         aria-expanded={props.open}
         id={props.id}
         tabIndex="0"
