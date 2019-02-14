@@ -122,23 +122,26 @@ const Select = props => {
   const value = cosmosToReactSelect.value(props.value, options)
 
   return (
-    <ReactSelect
-      onChange={option => props.onChange && props.onChange({ target: { value: option.value } })}
-      isDisabled={props.disabled}
-      isMulti={props.multiple}
-      isSearchable={props.searchable}
-      isLoading={props.loading}
-      menuIsOpen={props.defaultMenuOpen}
-      defaultValue={props.defaultValue}
-      placeholder={props.placeholder}
-      options={options}
-      components={componentOverrides}
-      theme={selectTheme}
-      value={value}
-      {...Automation('select')}
-    />
+    <Select.Wrapper>
+      <ReactSelect
+        onChange={option => props.onChange && props.onChange({ target: { value: option.value } })}
+        isDisabled={props.disabled}
+        isMulti={props.multiple}
+        isSearchable={props.searchable}
+        isLoading={props.loading}
+        menuIsOpen={props.defaultMenuOpen}
+        defaultValue={props.defaultValue}
+        placeholder={props.placeholder}
+        options={options}
+        components={componentOverrides}
+        theme={selectTheme}
+        value={value}
+      />
+    </Select.Wrapper>
   )
 }
+
+Select.Wrapper = styled.div.attrs({ ...Automation('select') })``
 
 Select.ArrowIcon = styled(Icon)`
   pointer-events: none;
