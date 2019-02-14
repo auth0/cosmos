@@ -46,28 +46,32 @@ class InteractiveExample extends React.Component {
 
         <Sidebar.Link>
           <Icon name="connections" />
-          <Sidebar.Link.Text>Connectionns</Sidebar.Link.Text>
+          <Sidebar.Link.Text>Connections</Sidebar.Link.Text>
 
           <Sidebar.LinkGroup>
             <Sidebar.Link
               onClick={() => this.select('database')}
               selected={selected === 'database'}
             >
+              <Icon name="arrow-right" />
               <Sidebar.Link.Text>Database</Sidebar.Link.Text>
             </Sidebar.Link>
             <Sidebar.Link onClick={() => this.select('social')} selected={selected === 'social'}>
+              <Icon name="arrow-right" />
               <Sidebar.Link.Text>Social</Sidebar.Link.Text>
             </Sidebar.Link>
             <Sidebar.Link
               onClick={() => this.select('enterprise')}
               selected={selected === 'enterprise'}
             >
+              <Icon name="arrow-right" />
               <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
             </Sidebar.Link>
             <Sidebar.Link
               onClick={() => this.select('passwordless')}
               selected={selected === 'passwordless'}
             >
+              <Icon name="arrow-right" />
               <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
             </Sidebar.Link>
           </Sidebar.LinkGroup>
@@ -89,18 +93,53 @@ class InteractiveExample extends React.Component {
 storiesOf('Sidebar', module).add('default', () => (
   <StyledExample>
     <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
+      <Sidebar.Link>
+        <Icon name="dashboard" />
+        <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="clients" />
+        <Sidebar.Link.Text>Applications</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="apis" />
+        <Sidebar.Link.Text>APIs</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="sso-integrations" />
+        <Sidebar.Link.Text>SSO Integrations</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="connections" />
+        <Sidebar.Link.Text>Connections</Sidebar.Link.Text>
+
+        <Sidebar.LinkGroup>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Database</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Social</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
+          </Sidebar.Link>
+        </Sidebar.LinkGroup>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="users" />
+        <Sidebar.Link.Text>Users</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="rules" />
+        <Sidebar.Link.Text>Rules</Sidebar.Link.Text>
+      </Sidebar.Link>
     </Sidebar>
   </StyledExample>
 ))
@@ -114,18 +153,52 @@ storiesOf('Sidebar', module).add('interactive example', () => (
 storiesOf('Sidebar', module).add('selected item', () => (
   <StyledExample>
     <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" selected={true} />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
+      <Sidebar.Link selected>
+        <Icon name="dashboard" />
+        <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="clients" />
+        <Sidebar.Link.Text>Applications</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="apis" />
+        <Sidebar.Link.Text>APIs</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="sso-integrations" />
+        <Sidebar.Link.Text>SSO Integrations</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="connections" />
+        <Sidebar.Link.Text>Connections</Sidebar.Link.Text>
+        <Sidebar.LinkGroup>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Database</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Social</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
+          </Sidebar.Link>
+        </Sidebar.LinkGroup>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="users" />
+        <Sidebar.Link.Text>Users</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="rules" />
+        <Sidebar.Link.Text>Rules</Sidebar.Link.Text>
+      </Sidebar.Link>
     </Sidebar>
   </StyledExample>
 ))
@@ -133,18 +206,55 @@ storiesOf('Sidebar', module).add('selected item', () => (
 storiesOf('Sidebar', module).add('open group', () => (
   <StyledExample>
     <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections" defaultOpen>
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
+      <Sidebar.Link>
+        <Icon name="dashboard" />
+        <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="clients" />
+        <Sidebar.Link.Text>Applications</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="apis" />
+        <Sidebar.Link.Text>APIs</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="sso-integrations" />
+        <Sidebar.Link.Text>SSO Integrations</Sidebar.Link.Text>
+      </Sidebar.Link>
+
+      <Sidebar.Link defaultOpen>
+        <Icon name="connections" />
+        <Sidebar.Link.Text>Connections</Sidebar.Link.Text>
+
+        <Sidebar.LinkGroup>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Database</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Social</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
+          </Sidebar.Link>
+        </Sidebar.LinkGroup>
+      </Sidebar.Link>
+
+      <Sidebar.Link>
+        <Icon name="users" />
+        <Sidebar.Link.Text>Users</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="rules" />
+        <Sidebar.Link.Text>Rules</Sidebar.Link.Text>
+      </Sidebar.Link>
     </Sidebar>
   </StyledExample>
 ))
@@ -152,105 +262,60 @@ storiesOf('Sidebar', module).add('open group', () => (
 storiesOf('Sidebar', module).add('selected sub-item', () => (
   <StyledExample>
     <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" selected={true} />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
+      <Sidebar.Link>
+        <Icon name="dashboard" />
+        <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="clients" />
+        <Sidebar.Link.Text>Applications</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="apis" />
+        <Sidebar.Link.Text>APIs</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="sso-integrations" />
+        <Sidebar.Link.Text>SSO Integrations</Sidebar.Link.Text>
+      </Sidebar.Link>
+
+      <Sidebar.Link defaultOpen>
+        <Icon name="connections" />
+        <Sidebar.Link.Text>Connections</Sidebar.Link.Text>
+
+        <Sidebar.LinkGroup>
+          <Sidebar.Link selected>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Database</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Social</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
+          </Sidebar.Link>
+          <Sidebar.Link>
+            <Icon name="arrow-right" />
+            <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
+          </Sidebar.Link>
+        </Sidebar.LinkGroup>
+      </Sidebar.Link>
+
+      <Sidebar.Link>
+        <Icon name="users" />
+        <Sidebar.Link.Text>Users</Sidebar.Link.Text>
+      </Sidebar.Link>
+      <Sidebar.Link>
+        <Icon name="rules" />
+        <Sidebar.Link.Text>Rules</Sidebar.Link.Text>
+      </Sidebar.Link>
     </Sidebar>
   </StyledExample>
 ))
 
-storiesOf('Sidebar', module).add('default', () => (
-  <StyledExample>
-    <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
-    </Sidebar>
-  </StyledExample>
-))
-
-storiesOf('Sidebar', module).add('interactive example', () => (
-  <StyledExample>
-    <InteractiveExample />
-  </StyledExample>
-))
-
-storiesOf('Sidebar', module).add('selected item', () => (
-  <StyledExample>
-    <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" selected={true} />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
-    </Sidebar>
-  </StyledExample>
-))
-
-storiesOf('Sidebar', module).add('open group', () => (
-  <StyledExample>
-    <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections" defaultOpen>
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
-    </Sidebar>
-  </StyledExample>
-))
-
-storiesOf('Sidebar', module).add('selected sub-item', () => (
-  <StyledExample>
-    <Sidebar>
-      <Sidebar.Link icon="dashboard" label="Dashboard" />
-      <Sidebar.Link icon="clients" label="Applications" />
-      <Sidebar.Link icon="apis" label="APIs" />
-      <Sidebar.Link icon="sso-integrations" label="SSO Integrations" />
-      <Sidebar.LinkGroup icon="connections" label="Connections">
-        <Sidebar.Link label="Database" />
-        <Sidebar.Link label="Social" selected={true} />
-        <Sidebar.Link label="Enterprise" />
-        <Sidebar.Link label="Passwordless" />
-      </Sidebar.LinkGroup>
-      <Sidebar.Link icon="users" label="Users" />
-      <Sidebar.Link icon="rules" label="Rules" />
-    </Sidebar>
-  </StyledExample>
-))
-
-storiesOf('Sidebar', module).add('api nueva con todo', () => (
+storiesOf('Sidebar', module).add('groups and postfix', () => (
   <StyledExample>
     <Sidebar>
       <Sidebar.Group title="grupo 1">

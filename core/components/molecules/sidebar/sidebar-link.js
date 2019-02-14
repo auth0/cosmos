@@ -8,6 +8,7 @@ import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Label from '../../atoms/label'
 import SidebarLinkGroup from './sidebar-link-group'
 import { childrenMover } from '../../_helpers/children-mover'
+import uniqueId from '../../_helpers/uniqueId'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
 
@@ -59,11 +60,13 @@ class SidebarLink extends React.Component {
   }
 
   render() {
+    console.log('props', this.props)
     const props = this.props
     const { children } = props
 
     const { include, exclude } = childrenMover(SidebarLinkGroup)
     const [sidebarItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
+    console.log({ sidebarItem, subMenu })
 
     const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
     const statefulSubMenu = this.setSubMenuState(subMenu, { open: this.state.subMenuOpen })
