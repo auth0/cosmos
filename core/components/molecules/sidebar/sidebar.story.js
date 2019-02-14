@@ -27,64 +27,60 @@ class InteractiveExample extends React.Component {
     const { selected } = this.state
     return (
       <Sidebar>
-        <Sidebar.Link
-          onClick={() => this.select('dashboard')}
-          selected={selected === 'dashboard'}
-          icon="dashboard"
-          label="Dashboard"
-        />
-        <Sidebar.Link
-          onClick={() => this.select('clients')}
-          selected={selected === 'clients'}
-          icon="clients"
-          label="Applications"
-        />
-        <Sidebar.Link
-          onClick={() => this.select('apis')}
-          selected={selected === 'apis'}
-          icon="apis"
-          label="APIs"
-        />
-        <Sidebar.Link
-          onClick={() => this.select('sso')}
-          selected={selected === 'sso'}
-          icon="sso-integrations"
-          label="SSO Integrations"
-        />
-        <Sidebar.LinkGroup icon="connections" label="Connections">
-          <Sidebar.Link
-            onClick={() => this.select('database')}
-            selected={selected === 'database'}
-            label="Database"
-          />
-          <Sidebar.Link
-            onClick={() => this.select('social')}
-            selected={selected === 'social'}
-            label="Social"
-          />
-          <Sidebar.Link
-            onClick={() => this.select('enterprise')}
-            selected={selected === 'enterprise'}
-            label="Enterprise"
-          />
-          <Sidebar.Link
-            onClick={() => this.select('passwordless')}
-            selected={selected === 'passwordless'}
-            label="Passwordless"
-          />
-        </Sidebar.LinkGroup>
-        <Sidebar.Link
-          onClick={() => this.select('users')}
-          selected={selected === 'users'}
-          icon="users"
-          label="Users"
-        />
-        <Sidebar.Link
-          onClick={() => this.select('rules')}
-          selected={selected === 'rules'}
-          icon="rules"
-          label="Rules"
-        />
+        <Sidebar.Link onClick={() => this.select('dashboard')} selected={selected === 'dashboard'}>
+          <Icon name="dashboard" />
+          <Sidebar.Link.Text>Dashboard</Sidebar.Link.Text>
+        </Sidebar.Link>
+        <Sidebar.Link onClick={() => this.select('clients')} selected={selected === 'clients'}>
+          <Icon name="clients" />
+          <Sidebar.Link.Text>Applications</Sidebar.Link.Text>
+        </Sidebar.Link>
+        <Sidebar.Link onClick={() => this.select('apis')} selected={selected === 'apis'}>
+          <Icon name="apis" />
+          <Sidebar.Link.Text>APIs</Sidebar.Link.Text>
+        </Sidebar.Link>
+        <Sidebar.Link onClick={() => this.select('sso')} selected={selected === 'sso'}>
+          <Icon name="sso-integrations" />
+          <Sidebar.Link.Text>SSO Integrations</Sidebar.Link.Text>
+        </Sidebar.Link>
+
+        <Sidebar.Link>
+          <Icon name="connections" />
+          <Sidebar.Link.Text>Connectionns</Sidebar.Link.Text>
+
+          <Sidebar.LinkGroup>
+            <Sidebar.Link
+              onClick={() => this.select('database')}
+              selected={selected === 'database'}
+            >
+              <Sidebar.Link.Text>Database</Sidebar.Link.Text>
+            </Sidebar.Link>
+            <Sidebar.Link onClick={() => this.select('social')} selected={selected === 'social'}>
+              <Sidebar.Link.Text>Social</Sidebar.Link.Text>
+            </Sidebar.Link>
+            <Sidebar.Link
+              onClick={() => this.select('enterprise')}
+              selected={selected === 'enterprise'}
+            >
+              <Sidebar.Link.Text>Enterprise</Sidebar.Link.Text>
+            </Sidebar.Link>
+            <Sidebar.Link
+              onClick={() => this.select('passwordless')}
+              selected={selected === 'passwordless'}
+            >
+              <Sidebar.Link.Text>Passwordless</Sidebar.Link.Text>
+            </Sidebar.Link>
+          </Sidebar.LinkGroup>
+        </Sidebar.Link>
+
+        <Sidebar.Link onClick={() => this.select('users')} selected={selected === 'users'}>
+          <Icon name="users" />
+          <Sidebar.Link.Text>Users</Sidebar.Link.Text>
+        </Sidebar.Link>
+        <Sidebar.Link onClick={() => this.select('rules')} selected={selected === 'rules'}>
+          <Icon name="rules" />
+          <Sidebar.Link.Text>Rules</Sidebar.Link.Text>
+        </Sidebar.Link>
       </Sidebar>
     )
   }
