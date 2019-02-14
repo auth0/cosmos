@@ -10,12 +10,13 @@ import { colors } from '@auth0/cosmos-tokens'
 const Sidebar = props => {
   return (
     <Sidebar.Element
-      {...Automation('Sidebar Nav')}
+      {...Automation('sidebar')}
       aria-label={props.description}
       role="navigation"
+      id={props.id}
     >
       {/* if group, then do the ul within the section, else do the ul outside. */}
-      <Sidebar.List {...Automation('sidebar.list')} {...props} />
+      <Sidebar.List {...Automation('sidebar.group')} {...props} />
     </Sidebar.Element>
   )
 }
