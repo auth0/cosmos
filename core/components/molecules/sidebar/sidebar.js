@@ -15,7 +15,7 @@ const Sidebar = props => {
       role="navigation"
     >
       {/* if group, then do the ul within the section, else do the ul outside. */}
-      <Sidebar.List {...Automation('Sidebar List')} {...props} />
+      <Sidebar.List {...Automation('sidebar.list')} {...props} />
     </Sidebar.Element>
   )
 }
