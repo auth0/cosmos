@@ -5,7 +5,7 @@ import Icon from '../icon'
 import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
-import ReactSelect, { defaultTheme, components } from 'react-select'
+import ReactSelect, { defaultTheme } from 'react-select'
 
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 
@@ -63,7 +63,18 @@ const cosmosToReactSelect = {
     })(options)
 
     return options.find(matchValue)
-  }
+  },
+  styles: props => ({
+    control: provided =>
+      console.log({ provided }) || props.hasError
+        ? {
+            ...provided,
+            borderColor: colors.input.borderError,
+            boxShadow: `0 0 0 1px ${colors.input.borderError}`,
+            '&:hover': { borderColor: colors.input.borderError }
+          }
+        : provided
+  })
 }
 
 const customOptionRenderer = providedRenderer => optionProps => {
@@ -129,6 +140,7 @@ const Select = props => {
   }
 
   const value = cosmosToReactSelect.value(props.value, options)
+  const styles = cosmosToReactSelect.styles(props)
 
   return (
     <Select.Wrapper {...Automation('select.wrapper')}>
@@ -148,6 +160,7 @@ const Select = props => {
         components={componentOverrides}
         theme={selectTheme}
         value={value}
+        styles={styles}
       />
     </Select.Wrapper>
   )
