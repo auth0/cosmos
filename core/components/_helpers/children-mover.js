@@ -3,7 +3,7 @@ import React from 'react'
 /**
  * Children mover is a utility that helps components have cleaner APIs by
  * allowing the user to pass different kind of sub-components to a component
- * and letting the component internal logic to separate each children and
+ * and letting the component internal logic to separate each child and
  * put it when and where it should be displayed in the output.
  *
  * For example:
