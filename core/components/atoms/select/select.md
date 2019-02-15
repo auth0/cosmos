@@ -132,8 +132,79 @@ class Example extends React.Component {
           {
             label: 'Ten',
             value: 10
+          }
+        ]}
+      />
+    )
+  }
+}
+```
+
+## Searchable items (typeahead)
+
+Mark the select as `searchable` in order to be able to type to search through items in the select.
+
+```js
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  render() {
+    return (
+      <Select
+        multiple
+        searchable
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        options={[
+          {
+            label: 'One',
+            value: 1
           },
-          {}
+          {
+            label: 'Two',
+            value: 2
+          },
+          {
+            label: 'Three',
+            value: 3
+          },
+          {
+            label: 'Four',
+            value: 4
+          },
+          {
+            label: 'Five',
+            value: 5
+          },
+          {
+            label: 'Six',
+            value: 6
+          },
+          {
+            label: 'Seven',
+            value: 7
+          },
+          {
+            label: 'Eight',
+            value: 8
+          },
+          {
+            label: 'Nine',
+            value: 9
+          },
+          {
+            label: 'Ten',
+            value: 10
+          }
         ]}
       />
     )
