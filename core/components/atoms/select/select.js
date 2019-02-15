@@ -152,7 +152,6 @@ const Select = props => {
         isMulti={props.multiple}
         isSearchable={props.searchable}
         isLoading={props.loading}
-        isClearable={props.clearable}
         menuIsOpen={props.defaultMenuOpen}
         defaultValue={props.defaultValue}
         placeholder={props.placeholder}
@@ -204,8 +203,6 @@ Select.propTypes = {
   multiple: PropTypes.bool,
   /** Shows a spinner inside the select control */
   loading: PropTypes.bool,
-  /** Shows a cross icon that clears the select */
-  clearable: PropTypes.bool,
   /** Lets you define a custom component to render each option */
   customOptionRenderer: PropTypes.func
 }
