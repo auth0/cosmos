@@ -92,6 +92,7 @@ class Example extends React.Component {
         multiple
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
         options={[
           {
             label: 'One',
@@ -164,6 +165,7 @@ class Example extends React.Component {
         searchable
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
         options={[
           {
             label: 'One',
@@ -250,6 +252,7 @@ class Example extends React.Component {
       <Select
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
         customOptionRenderer={this.renderOption}
         options={[
           {
