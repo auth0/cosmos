@@ -5,7 +5,7 @@ import Icon from '../icon'
 import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
-import ReactSelect, { defaultTheme } from 'react-select'
+import ReactSelect, { defaultTheme, components } from 'react-select'
 
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 
@@ -122,7 +122,7 @@ const Select = props => {
   const value = cosmosToReactSelect.value(props.value, options)
 
   return (
-    <Select.Wrapper>
+    <Select.Wrapper {...Automation('select.wrapper')}>
       <ReactSelect
         onChange={option => props.onChange && props.onChange({ target: { value: option.value } })}
         isDisabled={props.disabled}
@@ -141,7 +141,7 @@ const Select = props => {
   )
 }
 
-Select.Wrapper = styled.div.attrs({ ...Automation('select') })``
+Select.Wrapper = styled.div``
 
 Select.ArrowIcon = styled(Icon)`
   pointer-events: none;
