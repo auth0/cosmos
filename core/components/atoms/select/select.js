@@ -140,6 +140,7 @@ const Select = props => {
         isMulti={props.multiple}
         isSearchable={props.searchable}
         isLoading={props.loading}
+        isClearable={props.clearable}
         menuIsOpen={props.defaultMenuOpen}
         defaultValue={props.defaultValue}
         placeholder={props.placeholder}
