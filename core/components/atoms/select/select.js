@@ -99,6 +99,15 @@ const cosmosDownIndicator = ({ innerProps }) => (
 
 const cosmosLoadingIndicator = () => <Select.Spinner />
 
+const oneOrMore = options => {
+  const transformation = option => option.value
+
+  if (options.constructor.name === 'Array') {
+    return options.map(transformation)
+  }
+  return transformation(options)
+}
+
 const Select = props => {
   /*
     select boxes do not support readonly like input boxes,
@@ -124,7 +133,9 @@ const Select = props => {
   return (
     <Select.Wrapper {...Automation('select.wrapper')}>
       <ReactSelect
-        onChange={option => props.onChange && props.onChange({ target: { value: option.value } })}
+        onChange={options =>
+          props.onChange && props.onChange({ target: { value: oneOrMore(options) } })
+        }
         isDisabled={props.disabled}
         isMulti={props.multiple}
         isSearchable={props.searchable}
@@ -180,7 +191,9 @@ Select.propTypes = {
   /** Shows a spinner inside the select control */
   loading: PropTypes.bool,
   /** Shows a cross icon that clears the select */
-  clearable: PropTypes.bool
+  clearable: PropTypes.bool,
+  /** Lets you define a custom component to render each option */
+  customOptionRenderer: PropTypes.func
 }
 
 Select.defaultProps = {
