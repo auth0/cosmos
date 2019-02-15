@@ -190,6 +190,40 @@ storiesOf('Select', module).add('interactive: groups', () => (
   </ExampleForSelect>
 ))
 
+storiesOf('Select', module).add('interactive: groups - multiple', () => (
+  <ExampleForSelect title="Select: groups">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <Select
+          multiple
+          searchable
+          value={value}
+          onChange={onChange}
+          placeholder="Groups"
+          options={[
+            {
+              groupName: 'Group one',
+              items: [
+                { text: 'One one', value: 11 },
+                { text: 'One two', value: 12 },
+                { text: 'One three', value: 13 }
+              ]
+            },
+            {
+              groupName: 'Group two',
+              items: [
+                { text: 'Two one', value: 21 },
+                { text: 'Two two', value: 22 },
+                { text: 'Two three', value: 23 }
+              ]
+            }
+          ]}
+        />
+      )}
+    </InteractiveSelect>
+  </ExampleForSelect>
+))
+
 storiesOf('Select', module).add('stressed', () => (
   <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
     <div style={{ width: 300 }}>

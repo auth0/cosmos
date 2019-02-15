@@ -46,27 +46,25 @@ const cosmosToReactSelect = {
 
     const matchValue = option => option.value === valueProp
 
-    const groupedValue = (options => {
-      let valueFound = null
-      if (options.options && options.options.constructor.name === 'Array') {
-        options.forEach(options => {
-          const localValue = options.find(matchValue)
-          if (localValue !== null) {
-            valueFound = localValue
+    let valueFound = null
+
+    options.forEach(option => {
+      if (option.options && option.options.constructor.name === 'Array') {
+        option.options.forEach(subOption => {
+          if (matchValue(subOption)) {
+            valueFound = subOption
           }
         })
-
-        if (valueFound !== null) return valueFound
       }
+    })
 
-      return null
-    })(options)
+    if (valueFound !== null) return valueFound
 
     return options.find(matchValue)
   },
   styles: props => ({
     control: provided =>
-      console.log({ provided }) || props.hasError
+      props.hasError
         ? {
             ...provided,
             borderColor: colors.input.borderError,
