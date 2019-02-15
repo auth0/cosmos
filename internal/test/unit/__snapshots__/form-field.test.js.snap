@@ -21,7 +21,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-eXEjpC gGdoaR"
+            className="sc-eXEjpC koSCVH"
             data-cosmos-key="form.field"
           >
             <styled.div
@@ -63,7 +63,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                       layout="label-on-left"
                     >
                       <div
-                        className="sc-eXEjpC gGdoaR"
+                        className="sc-eXEjpC koSCVH"
                         data-cosmos-key="form.field"
                       >
                         <styled.div
@@ -134,7 +134,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   type="text"
                                 >
                                   <input
-                                    className="sc-ksYbfQ fBGgFN sc-Rmtcm eIYyWG"
+                                    className="sc-ksYbfQ fBGgFN sc-gisBJw eoIOhY"
                                     data-cosmos-key="text-input"
                                     id="-3"
                                     label=""
@@ -183,7 +183,7 @@ exports[`Form Field renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-eXEjpC gGdoaR"
+            className="sc-eXEjpC koSCVH"
             data-cosmos-key="form.field"
           >
             <styled.div
@@ -241,7 +241,7 @@ exports[`Form Field renders the correct id 1`] = `
                       type="text"
                     >
                       <input
-                        className="sc-ksYbfQ fBGgFN sc-Rmtcm eIYyWG"
+                        className="sc-ksYbfQ fBGgFN sc-gisBJw eoIOhY"
                         data-cosmos-key="text-input"
                         onChange={null}
                         readOnly={false}
