@@ -28,20 +28,19 @@ const sources = {
   icon: 'icon'
 }
 
-const imageForAvatar = (source, handleError) =>
-  console.log({ source }) || (
-    <Image
-      width="100%"
-      height="100%"
-      fit="cover"
-      src={source}
-      onError={event => {
-        event.target.src = null
-        event.target.onError = undefined
-        handleError(event)
-      }}
-    />
-  )
+const imageForAvatar = (source, handleError) => (
+  <Image
+    width="100%"
+    height="100%"
+    fit="cover"
+    src={source}
+    onError={event => {
+      event.target.src = null
+      event.target.onError = undefined
+      handleError(event)
+    }}
+  />
+)
 
 const getImageForAvatar = (props, source, onError) => {
   const errorHandler = ({ discard }) => event => onError(discard, event)
@@ -73,7 +72,6 @@ class Avatar extends React.Component {
   }
 
   discardSource(source) {
-    console.log('discarding', source)
     const stateKey = `${source}Errored`
     this.setState({ [stateKey]: true })
   }
@@ -94,7 +92,6 @@ class Avatar extends React.Component {
 
   render() {
     const source = this.getSource()
-    console.log('coso', { source })
     const image = getImageForAvatar(this.props, this.getSource(), this.discardSource)
 
     return (
