@@ -12,6 +12,7 @@ import Testing from './contribution-guide/testing'
 import LineHeight from './contribution-guide/line-height'
 import OrderOfProps from './contribution-guide/order-of-props'
 import ReleaseProcess from './contribution-guide/release-process'
+import BuildPipeline from './contribution-guide/build-pipeline'
 
 class ContributionGuide extends React.Component {
   render() {
@@ -29,6 +30,7 @@ class ContributionGuide extends React.Component {
         <LineHeight />
         <OrderOfProps />
         <ReleaseProcess />
+        <BuildPipeline />
       </div>
     )
   }
