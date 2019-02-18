@@ -4,6 +4,7 @@ import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
+import Form from '../../molecules/form'
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -15,17 +16,21 @@ const justifyContent = {
 
 const Checkbox = props => (
   <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
-    <input
-      type="checkbox"
-      name={props.name}
-      value={props.value}
-      checked={props.checked}
-      defaultChecked={props.defaultChecked}
-      onChange={props.onChange}
-      id={props.id}
-      readOnly
-      {...Automation('checkbox.input')}
-    />
+    <Form.Field.ContextConsumer>
+      {context => (
+        <input
+          id={props.id || context.formFieldId}
+          type="checkbox"
+          name={props.name}
+          value={props.value}
+          checked={props.checked}
+          defaultChecked={props.defaultChecked}
+          onChange={props.onChange}
+          readOnly
+          {...Automation('checkbox.input')}
+        />
+      )}
+    </Form.Field.ContextConsumer>
     <CheckMark />
     <Label>{props.children}</Label>
   </Checkbox.Option>
