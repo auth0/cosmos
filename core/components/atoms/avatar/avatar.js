@@ -77,12 +77,12 @@ class Avatar extends React.Component {
   }
 
   getSource() {
-    const { imageErrored: image, gravatarErrored: gravatar } = this.state
-    const { email, initials, icon } = this.props
+    const { imageErrored, gravatarErrored } = this.state
+    const { email, initials, icon, image } = this.props
 
     if (icon) return sources.icon
-    if (image && gravatar) return sources.fallback
-    if (image) {
+    if (imageErrored && gravatarErrored) return sources.fallback
+    if (imageErrored || !image) {
       if (email || initials) return sources.gravatar
       return sources.fallback
     }
