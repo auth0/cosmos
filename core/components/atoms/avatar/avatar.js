@@ -21,42 +21,93 @@ const iconSizes = {
   xxlarge: 52
 }
 
-const getImageForAvatar = props => {
-  if (props.icon) return <Icon name={props.icon} size={iconSizes[props.size]} />
-  if (props.email && props.initials)
-    return (
-      <Image
-        width="100%"
-        height="100%"
-        fit="cover"
-        source={getUserAvatarUrl(props.image, props.email, props.initials)}
-      />
-    )
-  if (typeof props.image === 'string') {
-    return <Image width="100%" height="100%" fit="cover" source={props.image} />
-  }
-
-  if (!props.image)
-    return (
-      <Image
-        width="100%"
-        height="100%"
-        fit="cover"
-        source={props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE}
-      />
-    )
-
-  return props.image
+const sources = {
+  image: 'image',
+  fallback: 'fallback',
+  gravatar: 'gravatar',
+  icon: 'icon'
 }
 
-const Avatar = props => {
-  const image = getImageForAvatar(props)
-
-  return (
-    <Avatar.Element type={props.type} size={props.size} {...Automation('avatar')} {...props}>
-      {image}
-    </Avatar.Element>
+const imageForAvatar = (source, handleError) =>
+  console.log({ source }) || (
+    <Image
+      width="100%"
+      height="100%"
+      fit="cover"
+      src={source}
+      onError={event => {
+        event.target.src = null
+        event.target.onError = undefined
+        handleError(event)
+      }}
+    />
   )
+
+const getImageForAvatar = (props, source, onError) => {
+  const errorHandler = ({ discard }) => event => onError(discard, event)
+
+  switch (source) {
+    case sources.icon:
+      return <Icon name={props.icon} size={iconSizes[props.size]} />
+    case sources.gravatar:
+      return imageForAvatar(
+        getUserAvatarUrl(props.email, props.initials),
+        errorHandler({ discard: sources.gravatar })
+      )
+    case sources.image:
+      return imageForAvatar(props.image, errorHandler({ discard: sources.image }))
+    default:
+      return imageForAvatar(
+        props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE,
+        onError
+      )
+  }
+}
+
+class Avatar extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { imageErrored: false, gravatarErrored: false }
+    this.discardSource = this.discardSource.bind(this)
+  }
+
+  discardSource(source) {
+    console.log('discarding', source)
+    const stateKey = `${source}Errored`
+    this.setState({ [stateKey]: true })
+  }
+
+  getSource() {
+    const { imageErrored: image, gravatarErrored: gravatar } = this.state
+    const { email, initials, icon } = this.props
+
+    if (icon) return sources.icon
+    if (image && gravatar) return sources.fallback
+    if (image) {
+      if (email || initials) return sources.gravatar
+      return sources.fallback
+    }
+
+    return sources.image
+  }
+
+  render() {
+    const source = this.getSource()
+    console.log('coso', { source })
+    const image = getImageForAvatar(this.props, this.getSource(), this.discardSource)
+
+    return (
+      <Avatar.Element
+        type={this.props.type}
+        size={this.props.size}
+        {...Automation('avatar')}
+        {...this.props}
+      >
+        {image}
+      </Avatar.Element>
+    )
+  }
 }
 
 Avatar.Element = styled.span`

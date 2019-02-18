@@ -30,9 +30,9 @@ Image.Element = styled.img`
 
 Image.propTypes = {
   /** @depreacted:src URL of the image */
-  source: PropTypes.string.isRequired,
+  source: PropTypes.string,
   /** URL of the image */
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   /** Alt text is mandatory, please read the accessibility section */
   alt: PropTypes.string,
   /** Image height, can be any length unit, absolute or relative */
