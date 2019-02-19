@@ -28,19 +28,23 @@ const sources = {
   icon: 'icon'
 }
 
-const imageForAvatar = (source, handleError) => (
-  <Image
-    width="100%"
-    height="100%"
-    fit="cover"
-    src={source}
-    onError={event => {
-      event.target.src = null
-      event.target.onError = undefined
-      handleError(event)
-    }}
-  />
-)
+const imageForAvatar = (source, handleError) => {
+  if (React.isValidElement(source)) return source
+
+  return (
+    <Image
+      width="100%"
+      height="100%"
+      fit="cover"
+      src={source}
+      onError={event => {
+        event.target.src = null
+        event.target.onError = undefined
+        handleError(event)
+      }}
+    />
+  )
+}
 
 const getImageForAvatar = (props, source, onError) => {
   const errorHandler = ({ discard }) => event => onError(discard, event)
@@ -93,6 +97,7 @@ class Avatar extends React.Component {
   render() {
     const source = this.getSource()
     const image = getImageForAvatar(this.props, this.getSource(), this.discardSource)
+    console.log({ source }, this.props.image)
 
     return (
       <Avatar.Element
