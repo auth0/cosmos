@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { Text } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import FoldingSection from '../../docs-components/folding-section'
+import { Text, CodeBlock, FoldingSection } from '../../docs-components'
 
 const Setup = () => (
   <FoldingSection page="contribution-guide" name="Setup">

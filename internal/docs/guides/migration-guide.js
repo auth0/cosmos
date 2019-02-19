@@ -2,10 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Heading3, Subheader, Text, Link } from '../docs-components/typography'
-
-import Tag from '../docs-components/tag'
-import CodeBlock from '../docs-components/code-block'
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Subheader,
+  Text,
+  Link,
+  Tag,
+  CodeBlock
+} from '../docs-components'
 
 class MigrationGuide extends React.Component {
   render() {

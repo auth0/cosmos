@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { spacing, colors, fonts, misc } from '@auth0/cosmos/tokens'
-import { Code } from '@auth0/cosmos'
 import parseType from './prop-type'
 import addDefaultValues, { getDefaultValue } from './default-props'
 import getConflictingProps from './prop-conflicts'
 import PropSwitcher from './prop-switcher'
-import Table from '../docs-components/table'
+import { Table, Code } from '../docs-components'
 
 const Type = styled.div`
   font-size: 13px;

@@ -1,9 +1,6 @@
 import React from 'react'
 
-import FoldingSection from '../../docs-components/folding-section'
-import { Text, Link } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import { Code } from '@auth0/cosmos'
+import { FoldingSection, Text, Link, CodeBlock, Code } from '../../docs-components'
 
 const LineHeight = () => (
   <FoldingSection page="contribution-guide" name="Line Height Strategy">

@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { Text, Link } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import FoldingSection from '../../docs-components/folding-section'
-import { Code } from '@auth0/cosmos'
+import { Text, Link, CodeBlock, FoldingSection, Code } from '../../docs-components'
 
 const Installation = () => (
   <FoldingSection page="usage" name="Installation">

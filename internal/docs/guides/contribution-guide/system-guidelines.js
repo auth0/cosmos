@@ -1,9 +1,16 @@
 import React from 'react'
 
-import FoldingSection from '../../docs-components/folding-section'
-import { Heading3, Heading4, Text, Link, List, ListItem } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import { Code } from '@auth0/cosmos'
+import {
+  Heading3,
+  Heading4,
+  FoldingSection,
+  Text,
+  Code,
+  Link,
+  List,
+  ListItem,
+  CodeBlock
+} from '../../docs-components'
 
 const SystemGuidelines = () => (
   <FoldingSection page="contribution-guide" name="System guidelines">

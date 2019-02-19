@@ -1,6 +1,5 @@
 import React from 'react'
 
-import FoldingSection from '../../docs-components/folding-section'
 import {
   Heading3,
   Heading4,
@@ -8,10 +7,12 @@ import {
   Link,
   List,
   ListItem,
-  ListItemItem
-} from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import { Code, Checkbox } from '@auth0/cosmos'
+  ListItemItem,
+  CodeBlock,
+  Code,
+  Checkbox,
+  FoldingSection
+} from '../../docs-components'
 
 const ReleaseProcess = () => (
   <FoldingSection page="contribution-guide" name="Release process">

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import kebabCase from 'lodash.kebabcase'
 
-import { Heading2, Heading3 } from '../docs-components/typography'
+import { Heading2, Heading3 } from '../docs-components'
 
 const StyledHeader = styled.div`
   a {

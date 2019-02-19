@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import startCase from 'lodash.startcase'
 
 import { Alert } from '@auth0/cosmos'
-import { Heading1, Subheader } from '../docs-components/typography'
+import { Heading1, Subheader } from '../docs-components'
 
 const Headings = styled.div`
   margin-bottom: 3rem;

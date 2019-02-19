@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1 } from '../docs-components/typography'
+import { Heading1 } from '../docs-components'
 
 import Setup from './contribution-guide/setup'
 import SystemGuidelines from './contribution-guide/system-guidelines'

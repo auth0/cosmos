@@ -4,18 +4,7 @@ import Helmet from 'react-helmet'
 import Markdown from 'markdown-to-jsx'
 import { changelog } from '@auth0/cosmos/meta/changelog'
 
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Text,
-  Link,
-  List,
-  ListItem
-} from '../docs-components/typography'
-import { Code } from '@auth0/cosmos'
-
-const Container = styled.div``
+import { Heading1, Heading2, Heading3, Text, Code, Link, List, ListItem } from '../docs-components'
 
 function convertPRToLink(match, p1) {
   return `<a href="https://github.com/auth0/cosmos/pull/${p1}" target="_blank">${match}</a>`
@@ -49,9 +38,8 @@ class Changes extends React.Component {
     return (
       <div>
         <Helmet title="Documentation &mdash; Cosmos" />
-        <Container>
-          <Markdown options={options}>{content}</Markdown>
-        </Container>
+
+        <Markdown options={options}>{content}</Markdown>
       </div>
     )
   }

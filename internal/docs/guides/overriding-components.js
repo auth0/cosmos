@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
-import CodeBlock from './docs-components/code-block'
-import Tag from './docs-components/tag'
+import { Heading1, Heading2, Text, Link, Subheader, CodeBlock, Tag } from './docs-components'
 
 class Overriding extends React.Component {
   render() {

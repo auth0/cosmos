@@ -8,7 +8,7 @@ import Sidebar from './sidebar'
 import Spec from './spec'
 import Overview from './overview'
 import Playground from './playground'
-import Navigation from './docs-components/navigation'
+import { Navigation } from './docs-components'
 import guides from './guides'
 
 class App extends React.Component {

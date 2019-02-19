@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { Text, List, ListItem } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import FoldingSection from '../../docs-components/folding-section'
-import { Code } from '@auth0/cosmos'
+import { Text, Code, List, ListItem, CodeBlock, FoldingSection } from '../../docs-components'
 
 const Architecture = () => (
   <FoldingSection page="contribution-guide" name="Architecture">

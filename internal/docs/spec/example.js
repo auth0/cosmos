@@ -6,10 +6,9 @@ import Playground from './playground'
 import Break from './break'
 
 import IconBrowser from './icon-browser'
-import { Alert, Code } from '@auth0/cosmos'
-import { Text, ListItem, List, Link } from '../docs-components/typography'
+import { Alert } from '@auth0/cosmos'
+import { Text, ListItem, List, Link, Code, Table } from '../docs-components'
 import PageHeader from './page-header'
-import Table from '../docs-components/table'
 import { SectionHeader, ExampleHeader } from './header'
 
 const Example = props => {
