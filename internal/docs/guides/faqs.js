@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Text, Code, Link, List, ListItem } from '../docs-components'
+import { Heading1, Heading2, Text, Code, Link, List } from '../docs-components'
 
 const Container = styled.div``
 
@@ -68,7 +68,7 @@ class FAQs extends React.Component {
             following reasons:
           </Text>
           <List>
-            <ListItem>
+            <List.Item>
               We can reach the same visual result by adopting a component library and customising
               it, but the underlying architecture would not be as good as we want it to be. This is
               not to say that we are smarter than the creators of these component libraries{' '}
@@ -80,14 +80,14 @@ class FAQs extends React.Component {
               different than adapting a library like hapi.js or react, because we **use** the public
               APIs that are made available by these libraries, we don't have to customise the inner
               parts)
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               Building it from scratch will give us a greater level of understanding and control to
               **craft** a better system. And we can implement smart optimisations for reducing
               bundle sizes/improving performance and improving developer experience because we
               control the core.
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               The component library is just one of the pieces of the component library, our brand's
               design philosophy and tokens are more significant -{' '}
               <Link href="https://paper.dropbox.com/doc/Introduction-to-Design-Systems-QfcpzS4woLRnxL0nhAjyQ#:uid=265215018043384192160227&h2=%F0%9F%98%AB-But%2C-isn%E2%80%99t-it-a-Styleguide">
@@ -95,36 +95,36 @@ class FAQs extends React.Component {
               </Link>
               . It will be very tricky to adopt a component library and make it work with our lower
               level of abstractions.
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               Because of the above reasons, It will be easier + faster to implement new components
               or modifications to existing components when a product team needs them. In the long
               run, we wish that product teams are able to contribute to the design system, and
               having an in-house expertise will help*
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               This isn't to say that we will develop our design systems in a cave. We will actively
               ~steal~ take inspiration from other design systems for patterns and architecture. In
               addition to that, we will adapt complex components from the community and build thin
               abstractions over them.
-            </ListItem>
+            </List.Item>
           </List>
           It's useful to state the cons of this approach, so that we make sure we are making a
           conscious decision:
           <List>
-            <ListItem>
+            <List.Item>
               It will take more time and humans to build out the design system in the short term.
               It's an investment which will reap its rewards over time.
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               Even though we'll try to do our best, our implementation will not be battle tested by
               the wider web community that same open source frameworks have access to.
-            </ListItem>
-            <ListItem>
+            </List.Item>
+            <List.Item>
               This is a comment on reason number 4, even though we will have in-house expertise and
               support for teams wanting to contribute to the design system, the benefit of having
               blog posts and stack overflow questions for an established library are unmatched.
-            </ListItem>
+            </List.Item>
           </List>
         </Container>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, List, ListItem, CodeBlock, FoldingSection, Code } from '../../docs-components'
+import { Text, List, CodeBlock, FoldingSection, Code } from '../../docs-components'
 
 const ComponentFiles = () => (
   <FoldingSection page="contribution-guide" name="Component files">
@@ -9,7 +9,7 @@ const ComponentFiles = () => (
     </Text>
     <Text>Each component directory has these 5 files:</Text>
     <List>
-      <ListItem>
+      <List.Item>
         <Code>component.js</Code>
         <Text>This is where all the component code sits.</Text>
         <Text>
@@ -43,8 +43,8 @@ export default Avatar
 export { AvatarElement }
         `}
         </CodeBlock>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Code>index.js</Code>
         <Text>This file exports the component for easy imports</Text>
         <CodeBlock language="javascript">
@@ -54,9 +54,9 @@ import Avatar from './avatar'
 export default Avatar
         `}
         </CodeBlock>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Code>component.md</Code>
         <Text>
           Documentation is pulled from markdown files, there are a few different sections in the
@@ -92,8 +92,8 @@ With use case
 
         `}
         </CodeBlock>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Code>component.story.js</Code>
         <Text>Story for visual tests, these are compared for every pull request</Text>
 
@@ -111,10 +111,10 @@ storiesOf('Avatar').add('with images', () => (
 ))
         `}
         </CodeBlock>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Text>+ you can add as many files as you need</Text>
-      </ListItem>
+      </List.Item>
     </List>
   </FoldingSection>
 )

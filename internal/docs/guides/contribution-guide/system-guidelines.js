@@ -8,7 +8,6 @@ import {
   Code,
   Link,
   List,
-  ListItem,
   CodeBlock
 } from '../../docs-components'
 
@@ -33,8 +32,8 @@ const SystemGuidelines = () => (
     <Heading3>Separation of concerns</Heading3>
     <Text>Cosmos is made out of isolated and modular structures that fall into 2 categories:</Text>
     <List>
-      <ListItem>Layouts</ListItem>
-      <ListItem>Components</ListItem>
+      <List.Item>Layouts</List.Item>
+      <List.Item>Components</List.Item>
     </List>
 
     <Heading3>Layouts</Heading3>
@@ -43,7 +42,7 @@ const SystemGuidelines = () => (
       page.
     </Text>
     <List>
-      <ListItem>A layout never imposes padding or element styles on its children.</ListItem>
+      <List.Item>A layout never imposes padding or element styles on its children.</List.Item>
     </List>
 
     <Heading4>Syntax</Heading4>
@@ -56,17 +55,17 @@ const SystemGuidelines = () => (
     <Heading3>Components</Heading3>
     <Text>Components are modular and independent structures concerned with how a thing looks.</Text>
     <List>
-      <ListItem>A component always touches all four sides of its parent container.</ListItem>
-      <ListItem>The component itself never has widths, floats or margins.</ListItem>
-      <ListItem>
+      <List.Item>A component always touches all four sides of its parent container.</List.Item>
+      <List.Item>The component itself never has widths, floats or margins.</List.Item>
+      <List.Item>
         Elements inside a component never use top margins. The first element touches the top of its
         component and the last element's margin is cleared.
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         Components should include semantic markup and necessary Aria tags implemented following
         WAI-ARIA AA standards and meet{' '}
         <Link href="https://a11yproject.com/checklist">the a11y project checklist</Link>.
-      </ListItem>
+      </List.Item>
     </List>
 
     <Heading4>Syntax</Heading4>
@@ -85,11 +84,11 @@ const SystemGuidelines = () => (
     <Heading3>Requirements</Heading3>
     <Text>Every layout and component must be:</Text>
     <List>
-      <ListItem>documented</ListItem>
-      <ListItem>responsive</ListItem>
-      <ListItem>accessible</ListItem>
-      <ListItem>behave and look correctly cross-browser</ListItem>
-      <ListItem>pass all tests</ListItem>
+      <List.Item>documented</List.Item>
+      <List.Item>responsive</List.Item>
+      <List.Item>accessible</List.Item>
+      <List.Item>behave and look correctly cross-browser</List.Item>
+      <List.Item>pass all tests</List.Item>
     </List>
 
     <Heading3>Atomic Design</Heading3>
@@ -136,22 +135,22 @@ const SystemGuidelines = () => (
     </Text>
 
     <List>
-      <ListItem>
+      <List.Item>
         They are prefixed with the word <Code>Global</Code> and follow the formula{' '}
         <Code>Global.Concept.Modifier</Code>.
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         a <Code>Concept</Code> is something like a <Code>Spacer</Code>, or a CSS property like{' '}
         <Code>BackgroundColor</Code> or <Code>FontSize</Code>;
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         a <Code>Modifier</Code> is something like <Code>Small</Code>, or <Code>Large</Code>, or a
         state like <Code>Hover</Code>, or <Code>Expanded</Code>;
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         They are concepts, never tied to an element or component. This is incorrect:{' '}
         <Code>Global.FontSize.H1</Code>, this is correct: <Code>Global.FontSize.ExtraLarge</Code>.
-      </ListItem>
+      </List.Item>
     </List>
 
     <Heading3>Component tokens</Heading3>
@@ -160,16 +159,18 @@ const SystemGuidelines = () => (
     </Text>
 
     <List>
-      <ListItem>
+      <List.Item>
         They follow this formula <Code>Block.Element.prop.state.CSSProperty</Code>.
-      </ListItem>
-      <ListItem>The `Block.Element` is the selector name for example `Dialog.Header` </ListItem>
-      <ListItem>The `prop` is something like `Primary`;</ListItem>
-      <ListItem>a `state` is something like `hover` or `active`;</ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>The `Block.Element` is the selector name for example `Dialog.Header` </List.Item>
+      <List.Item>The `prop` is something like `Primary`;</List.Item>
+      <List.Item>a `state` is something like `hover` or `active`;</List.Item>
+      <List.Item>
         The value of component scoped tokens is **always** defined by a global token.
-      </ListItem>
-      <ListItem>There should be tokens for all properties that are not related to layout.</ListItem>
+      </List.Item>
+      <List.Item>
+        There should be tokens for all properties that are not related to layout.
+      </List.Item>
     </List>
 
     <Text>

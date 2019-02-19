@@ -1,49 +1,49 @@
 import React from 'react'
 
-import { Text, Code, List, ListItem, CodeBlock, FoldingSection } from '../../docs-components'
+import { Text, Code, List, CodeBlock, FoldingSection } from '../../docs-components'
 
 const Architecture = () => (
   <FoldingSection page="contribution-guide" name="Architecture">
     <Text>The repository is broken into 3 parts:</Text>
     <List>
-      <ListItem>
+      <List.Item>
         <Code>src</Code> or <Code>core</Code>: This contains packages that are published
         <List nested>
-          <ListItem>
+          <List.Item>
             <Code>tokens</Code>: configs that can be shared imported into projects
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <Code>components</Code>: React component library
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <Code>babel-preset</Code>: Optional Babel preset to use cosmos
-          </ListItem>
+          </List.Item>
 
           <Text>
             <Code>src</Code> also contains 3 other directories that are not published
           </Text>
-          <ListItem>
+          <List.Item>
             <Code>codemods</Code>: Codemods for cosmos (not published)
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <Code>icons</Code>: Birds eye view of components
-          </ListItem>
-          <ListItem>
+          </List.Item>
+          <List.Item>
             <Code>overview</Code>: Birds eye view of components
-          </ListItem>
+          </List.Item>
         </List>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Code>internal</Code>:
         <List nested>
-          <ListItem>
+          <List.Item>
             <Code>docs</Code>: Generated documentation site
-          </ListItem>
+          </List.Item>
         </List>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Code>examples</Code>: Examples of using cosmos
-      </ListItem>
+      </List.Item>
     </List>
   </FoldingSection>
 )

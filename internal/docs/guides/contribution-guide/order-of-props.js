@@ -8,14 +8,13 @@ import {
   Heading4,
   Text,
   Link,
-  List,
-  ListItem
+  List
 } from '../../docs-components'
 
 const OrderOfProps = () => (
   <FoldingSection page="contribution-guide" name="Order of props">
     <List>
-      <ListItem>
+      <List.Item>
         <Heading3>
           Components should respect the props passed to them and set them on the underlying element
         </Heading3>
@@ -30,9 +29,9 @@ render(<Link id="custom-id">)
         </CodeBlock>
         renders
         <CodeBlock language="html">{`<a id="custom-id">`}</CodeBlock>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Heading3>Props should override local attributes.</Heading3>
         <Text>This will make sure the parent gets preference over what is rendered. </Text>
         <Text>
@@ -73,8 +72,8 @@ const Link = (props) => (
           <Code>...props</Code>
           should be the last thing inside a <Code>Component.Element</Code>
         </Heading4>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Heading3>When needed, cosmos can override the user's intent</Heading3>
         <Text>
           This is a tricky one, you usually want the user to be able to have the final say.
@@ -95,7 +94,7 @@ const InputAction = (props) => (
           Here we are locking <Code>appearance</Code> to link even if the user passed{' '}
           <Code>appearance="destructive"</Code>
         </Text>
-      </ListItem>
+      </List.Item>
     </List>
   </FoldingSection>
 )

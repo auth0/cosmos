@@ -7,7 +7,7 @@ import Break from './break'
 
 import IconBrowser from './icon-browser'
 import { Alert } from '@auth0/cosmos'
-import { Text, ListItem, List, Link, Code, Table } from '../docs-components'
+import { Text, List, Link, Code, Table } from '../docs-components'
 import PageHeader from './page-header'
 import { SectionHeader, ExampleHeader } from './header'
 
@@ -19,7 +19,7 @@ const Example = props => {
       h3: ExampleHeader,
       p: Text,
       a: Link,
-      li: ListItem,
+      li: List.Item,
       ul: List,
       table: Table,
       /* use playground for js code blocks */

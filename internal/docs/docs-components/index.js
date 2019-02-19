@@ -9,8 +9,6 @@ import Tag from './tag'
 
 import { Code } from '@auth0/cosmos'
 
-const ListItem = List.Item
-
 export {
   Code,
   CodeBlock,
@@ -21,7 +19,6 @@ export {
   Heading4,
   Link,
   List,
-  ListItem,
   Navigation,
   Pre,
   Subheader,

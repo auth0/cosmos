@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Markdown from 'markdown-to-jsx'
 import { changelog } from '@auth0/cosmos/meta/changelog'
 
-import { Heading1, Heading2, Heading3, Text, Code, Link, List, ListItem } from '../docs-components'
+import { Heading1, Heading2, Heading3, Text, Code, Link, List } from '../docs-components'
 
 function convertPRToLink(match, p1) {
   return `<a href="https://github.com/auth0/cosmos/pull/${p1}" target="_blank">${match}</a>`
@@ -27,7 +27,7 @@ const options = {
     h3: Heading3,
     p: Text,
     a: Link,
-    li: ListItem,
+    li: List.Item,
     ul: List,
     code: Code
   }
