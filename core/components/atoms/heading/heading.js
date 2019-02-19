@@ -45,7 +45,7 @@ const StyledHeading = Heading.Element
 
 Heading.propTypes = {
   size: PropTypes.oneOf([1, 2, 3, 4]),
-  children: PropTypes.element
+  children: PropTypes.node
 }
 
 Heading.defaultProps = {

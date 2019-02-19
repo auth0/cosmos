@@ -80,7 +80,7 @@ PageHeader.displayName = 'Page Header'
 
 PageHeader.propTypes = {
   /** Page title of the section */
-  title: PropTypes.element.isRequired,
+  title: PropTypes.node.isRequired,
   /** Description to give more information to the user */
   description: PropTypes.oneOfType([
     PropTypes.shape({
