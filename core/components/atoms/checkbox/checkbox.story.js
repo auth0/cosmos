@@ -6,7 +6,7 @@ import { Checkbox, Paragraph } from '@auth0/cosmos'
 
 const CheckBoxExample = () => (
   <Checkbox.Group name="example1" selected={['one', 'two']}>
-    <Checkbox name="one" value="one">
+    <Checkbox name="one" value="one" readOnly>
       Option 1
     </Checkbox>
     <Checkbox name="two" value="two">
