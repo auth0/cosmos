@@ -97,7 +97,6 @@ class Avatar extends React.Component {
   render() {
     const source = this.getSource()
     const image = getImageForAvatar(this.props, this.getSource(), this.discardSource)
-    console.log({ source }, this.props.image)
 
     return (
       <Avatar.Element
