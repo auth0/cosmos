@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { PageHeader, Link, Text, Button } from '@auth0/cosmos'
+import { PageHeader, Link, Text, Button, Badge } from '@auth0/cosmos'
 
 storiesOf('Page Header', module).add('default', () => (
   <Example title="default">
@@ -123,5 +123,26 @@ storiesOf('Page Header', module).add('only secondary action with deprecated API'
       Setup a mobile, web or IoT application to{' '}
       <Text type="strong">use Auth0 for Authentication</Text>.
     </PageHeader>
+  </Example>
+))
+
+storiesOf('Page Header', module).add('with dynamic title', () => (
+  <Example title="default">
+    <PageHeader
+      title={
+        <React.Fragment>
+          Hooks <Badge appearance="information">BETA</Badge>
+        </React.Fragment>
+      }
+      description={{
+        text: 'Setup a mobile, web or IoT application to use Auth0 for Authentication.',
+        learnMore: '/clients'
+      }}
+      primaryAction={
+        <Button icon="plus" onClick={() => {}}>
+          Create Client
+        </Button>
+      }
+    />
   </Example>
 ))
