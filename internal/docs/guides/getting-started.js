@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { Heading1, Heading2, Text, Link, Subheader } from './docs-components/typography'
-import CodeBlock from './docs-components/code-block'
-import Tag from './docs-components/tag'
+import { Heading1, Heading2, Text, Link, Subheader } from '../docs-components/typography'
+import CodeBlock from '../docs-components/code-block'
+import Tag from '../docs-components/tag'
 
 import { Code, Icon, List, Badge } from '@auth0/cosmos'
 
@@ -47,8 +47,7 @@ class Home extends React.Component {
         <Text>
           Issues or feature requests can be created on
           <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
-          <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.
-          <br />
+          <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.<br />
           <br />
           You can use the <Link href="#/playground">playground</Link> to test and share code, report
           bugs and ask for feedback.
