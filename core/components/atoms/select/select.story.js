@@ -45,6 +45,73 @@ storiesOf('Select', module).add('simple: open', () => (
   </ExampleForSelect>
 ))
 
+storiesOf('Select', module).add('multiple tags', () => (
+  <ExampleForSelect title="Select: stressed multiple tags">
+    <Select
+      multiple
+      value={[1, 2, 3]}
+      options={[
+        { text: 'Applications', value: 1 },
+        { text: 'Connections', value: 2 },
+        { text: 'Logs', value: 3 }
+      ]}
+    />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('multiple tags: open', () => (
+  <ExampleForSelect title="Select: stressed multiple tags">
+    <Select
+      multiple
+      defaultMenuOpen
+      value={[1]}
+      options={[
+        { text: 'Applications', value: 1 },
+        { text: 'Connections', value: 2 },
+        { text: 'Logs', value: 3 }
+      ]}
+    />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('stressed: multiple tags', () => (
+  <ExampleForSelect title="Select: stressed multiple tags">
+    <Select
+      multiple
+      defaultMenuOpen
+      value={[1, 2, 3, 4, 5, 6, 7]}
+      options={[
+        { text: 'This is a very long tag, like super long', value: 1 },
+        { text: 'This is a very long tag, like super long for real', value: 2 },
+        { text: 'This is a long tag, like super long for real', value: 3 },
+        { text: 'Very long tag, like super long for real', value: 4 },
+        { text: 'Long tag, like super long for real', value: 5 },
+        { text: 'This is a long tag', value: 6 },
+        { text: 'This is a very long tag, like super long for real', value: 7 }
+      ]}
+    />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('stressed: multiple tags - open', () => (
+  <ExampleForSelect title="Select: stressed multiple tags">
+    <Select
+      multiple
+      defaultMenuOpen
+      value={[1]}
+      options={[
+        { text: 'This is a very long tag, like super long', value: 1 },
+        { text: 'This is a very long tag, like super long for real', value: 2 },
+        { text: 'This is a long tag, like super long for real', value: 3 },
+        { text: 'Very long tag, like super long for real', value: 4 },
+        { text: 'Long tag, like super long for real', value: 5 },
+        { text: 'This is a long tag', value: 6 },
+        { text: 'This is a very long tag, like super long for real', value: 7 }
+      ]}
+    />
+  </ExampleForSelect>
+))
+
 class SelectWithEmptyString extends React.Component {
   constructor(props) {
     super(props)
