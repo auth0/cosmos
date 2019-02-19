@@ -2,7 +2,7 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 import yaml from 'yamljs'
 
-import Playground from './playground'
+import LiveCodeBlock from './live-code-block'
 import Break from './break'
 
 import IconBrowser from './icon-browser'
@@ -30,7 +30,7 @@ const Example = props => {
         else if (['lang-js', 'lang-jsx'].includes(language)) {
           return (
             <div>
-              <Playground
+              <LiveCodeBlock
                 code={markdownProps.children}
                 language={language}
                 component={props.component}

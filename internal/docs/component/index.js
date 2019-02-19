@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { metadata as components } from '@auth0/cosmos/meta/metadata.json'
 import kebabCase from 'lodash.kebabcase'
 
-import Example from './example'
+import ComponentPage from './page'
 
 export default props => {
   const componentName = props.match.params.componentName
@@ -14,7 +14,7 @@ export default props => {
   return (
     <div>
       <Helmet title={component.displayName + ' — Cosmos'} />
-      <Example documentation={component.documentation} component={component} />
+      <ComponentPage documentation={component.documentation} component={component} />
     </div>
   )
 }

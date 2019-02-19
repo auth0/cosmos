@@ -59,7 +59,7 @@ const CodeToggle = styled.div`
   padding: ${spacing.xsmall} 0;
 `
 
-class Playground extends React.Component {
+class LiveCodeBlock extends React.Component {
   constructor(props) {
     super(props)
     const showProps = props.language === 'lang-jsx'
@@ -109,6 +109,6 @@ class Playground extends React.Component {
   }
 }
 
-export default Playground
+export default LiveCodeBlock
 
 export { Container }
