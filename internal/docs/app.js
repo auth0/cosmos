@@ -5,7 +5,7 @@ import { Icon } from '@auth0/cosmos'
 import '@auth0/cosmos-fonts'
 
 import Sidebar from './sidebar'
-import Spec from './spec'
+import ComponentPage from './component'
 import Overview from './overview'
 import Playground from './playground'
 import { Navigation } from './docs-components'
@@ -56,7 +56,7 @@ class App extends React.Component {
               ))}
 
               <Route exact path="/playground" component={Playground} />
-              <Route exact path="/component/:componentName" component={Spec} />
+              <Route exact path="/component/:componentName" component={ComponentPage} />
             </Body>
             <Route exact path="/overview" component={Overview} />
           </MainContent>
