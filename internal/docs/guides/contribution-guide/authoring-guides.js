@@ -1,28 +1,25 @@
 import React from 'react'
 
-import { Heading3, Text, Link, List, ListItem } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import FoldingSection from '../../docs-components/folding-section'
-import { Code } from '@auth0/cosmos'
+import { Heading3, Text, Code, Link, List, CodeBlock, FoldingSection } from '../../docs-components'
 
 const AuthoringGuides = () => (
   <FoldingSection page="contribution-guide" name="Authoring Guides">
     <List>
-      <ListItem>
+      <List.Item>
         <Text>
           Create a new file under <Code>docs/pages/</Code>. Example:{' '}
           <Code>docs/pages/new-guide.js</Code>
         </Text>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Text>
           Export a React component from this file. You can import `docs-components` and cosmos
           components to make authoring easier.
         </Text>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Text>
           Import this component and add it to <Code>docs/guides.js</Code>
         </Text>
@@ -36,11 +33,11 @@ const guides = [
   { path: '/new-guide', title: 'New Guide', component: NewGuide }
 ]
     `}</CodeBlock>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Text>That's it, you should see your new guided in the sidebar.</Text>
-      </ListItem>
+      </List.Item>
     </List>
   </FoldingSection>
 )

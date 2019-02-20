@@ -6,15 +6,16 @@ import {
   Text,
   Link,
   List,
+  Checkbox,
   CodeBlock,
   Code,
-  Checkbox,
   FoldingSection
 } from '../../docs-components'
 
 const ReleaseProcess = () => (
   <FoldingSection page="contribution-guide" name="Release process">
     <Text>You can check off steps of this list as you go along the steps</Text>
+
     <List style={{ listStyle: 'none' }}>
       <List.Item>
         <Checkbox name="task" />
@@ -77,6 +78,7 @@ const ReleaseProcess = () => (
         <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">design-system</Link>
       </List.Item>
     </List>
+
     <Text>The changelog has a format we follow:</Text>
     <CodeBlock>{`
 0.9.0 [November 29, 2018]

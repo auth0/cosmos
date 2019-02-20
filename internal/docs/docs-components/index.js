@@ -7,9 +7,10 @@ import Pre from './pre'
 import Table from './table'
 import Tag from './tag'
 
-import { Code } from '@auth0/cosmos'
+import { Code, Checkbox } from '@auth0/cosmos'
 
 export {
+  Checkbox,
   Code,
   CodeBlock,
   FoldingSection,

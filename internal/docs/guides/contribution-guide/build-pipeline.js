@@ -1,9 +1,6 @@
 import React from 'react'
 
-import { Code } from '@auth0/cosmos'
-import { Text, Link, Heading3, List, ListItem } from '../../docs-components/typography'
-import CodeBlock from '../../docs-components/code-block'
-import FoldingSection from '../../docs-components/folding-section'
+import { Text, Code, Link, Heading3, List, CodeBlock, FoldingSection } from '../../docs-components'
 
 const BuildPipeline = () => (
   <FoldingSection page="contribution-guide" name="Build Pipeline">
@@ -31,7 +28,7 @@ $ yarn i
       When you run <Code>docs.dev</Code>, there are a few things that start
     </Text>
     <List>
-      <ListItem>
+      <List.Item>
         <Code>metadata.dev</Code>
         <Text>
           This script takes the component (<Code>.js</Code>) and documentation files (
@@ -39,9 +36,9 @@ $ yarn i
           <Code>displayName</Code>, <Code>propTypes</Code> and documentation properties (See
           <Code>components/meta/metadata.json</Code>)
         </Text>
-      </ListItem>
+      </List.Item>
 
-      <ListItem>
+      <List.Item>
         <Code>docs.dev_site</Code>
         <Text>
           The documentation site takes information from the `metadata.json` file and creates a page
@@ -50,8 +47,8 @@ $ yarn i
         <Text>
           The documentation site also contains guides for using and contributing to cosmos.
         </Text>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Code>icons.dev</Code>
         <Text>
           Icon files live in <Code>/core/icons</Code>, to make them usable by components and
@@ -59,7 +56,7 @@ $ yarn i
           as icons metadata (Like other metadata, this also lives in{' '}
           <Code>/core/components/meta/</Code>)
         </Text>
-      </ListItem>
+      </List.Item>
     </List>
     <Text>
       To work on the manage demo application or in the storybook environmeent, you can run their
@@ -78,12 +75,12 @@ $ yarn i
       <Link href="https://auth0-cosmos.now.sh">auth0-cosmos.now.sh</Link>
       ), the <Code>build</Code> scripts for all the moving pieces is run:{' '}
       <List>
-        <ListItem>
+        <List.Item>
           Metadata: <Code>metadata.build</Code>, <Code>icons.build</Code>
-        </ListItem>
-        <ListItem>
+        </List.Item>
+        <List.Item>
           Websites: <Code>docs.build</Code>, <Code>manage.build</Code>, <Code>sandbox.build</Code>
-        </ListItem>
+        </List.Item>
       </List>
     </Text>
     <Text>
