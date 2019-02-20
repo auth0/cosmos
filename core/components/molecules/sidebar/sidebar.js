@@ -5,7 +5,7 @@ import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 import Automation from '../../_helpers/automation-attribute'
 import uniqueId from '../../_helpers/uniqueId'
-import { colors } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '@auth0/cosmos-tokens'
 
 const Sidebar = props => {
   return (
@@ -21,13 +21,7 @@ const Sidebar = props => {
   )
 }
 
-Sidebar.Element = styled.nav`
-  /* * {
-    border: 1px solid red;
-  } */
-  /* float: left; */
-  /* width: 160px; */
-`
+Sidebar.Element = styled.nav``
 
 Sidebar.Group = ({ title, children }) => {
   const id = uniqueId('sidebargroup')
@@ -43,12 +37,11 @@ Sidebar.Group = ({ title, children }) => {
 Sidebar.Group.Element = styled.section`
   /* background-color: violet; */
   :not(:last-of-type):not(:only-of-type) {
-    margin-bottom: 20px;
+    margin-bottom: ${spacing.medium};
   }
 `
 
 Sidebar.GroupHeader = styled.h2`
-  /* background-color: papayawhip; */
   text-transform: uppercase;
   font-size: 11px;
   color: ${colors.text.secondary};

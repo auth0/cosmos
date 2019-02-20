@@ -8,7 +8,6 @@ import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Label from '../../atoms/label'
 import SidebarLinkGroup from './sidebar-link-group'
 import { childrenMover } from '../../_helpers/children-mover'
-import uniqueId from '../../_helpers/uniqueId'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
 
@@ -96,7 +95,6 @@ SidebarLink.Item = styled.li``
 
 SidebarLink.Element = styled.a`
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   cursor: pointer;
   color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};

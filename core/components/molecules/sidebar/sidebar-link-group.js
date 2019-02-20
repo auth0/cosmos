@@ -2,7 +2,10 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
+import SidebarLink from './sidebar-link'
+
 import { spacing, colors } from '@auth0/cosmos-tokens'
+
 import Automation from '../../_helpers/automation-attribute'
 
 const SidebarLinkGroup = props => {
@@ -24,7 +27,14 @@ SidebarLinkGroup.Content = styled.ul`
   transition: all 0.3s ease-in-out;
 
   ${Icon.Element} path {
-    fill: ${colors.text.secondary};
+    fill: ${props => (props.selected ? colors.icon.sidebarFocus : colors.text.subtle)};
+  }
+
+  ${SidebarLink} {
+    a {
+      padding-top: ${spacing.xxsmall};
+      padding-bottom: ${spacing.xxsmall};
+    }
   }
 `
 
