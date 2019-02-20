@@ -8,12 +8,15 @@ import { spacing, colors } from '@auth0/cosmos-tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 
+const passSubMenuPropToChildren = children =>
+  React.Children.map(children, el => React.cloneElement(el, { inSubMenu: true }))
+
 const SidebarLinkGroup = props => {
   const { children, open } = props
 
   return (
     <SidebarLinkGroup.Content {...Automation('sidebar.link-group')} open={open} hidden={!open}>
-      {children}
+      {passSubMenuPropToChildren(children)}
     </SidebarLinkGroup.Content>
   )
 }
@@ -25,10 +28,6 @@ SidebarLinkGroup.Content = styled.ul`
   max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
   transition: all 0.3s ease-in-out;
-
-  ${Icon.Element} path {
-    fill: ${props => (props.selected ? colors.icon.sidebarFocus : colors.text.subtle)};
-  }
 
   ${SidebarLink} {
     a {
