@@ -66,9 +66,7 @@ It does recieve a `content` object with the following keys:
     <Tooltip.Action
       content={{
         default: 'Copy',
-        loading: 'Copying...',
-        success: 'Copied!',
-        errored: 'Could not copy'
+        success: 'Copied!'
       }}
     >
       <Button icon="copy" onClick={e => console.log(e)} />
