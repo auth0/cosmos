@@ -5,7 +5,7 @@ import Tooltip from './tooltip'
 class ActionTooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { tooltipContent: null }
+    this.state = { tooltipContent: null, asyncTaskIsRunnning: false }
   }
 
   /**
@@ -57,7 +57,7 @@ class ActionTooltip extends React.Component {
 
   render() {
     const { tooltipContent } = this.state
-    const { content, actionSuccess } = this.props
+    const content = this.preprocessContent()
     const children = this.processAction()
 
     return (

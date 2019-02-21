@@ -127,3 +127,52 @@ storiesOf('TextInput').add('with actions as buttons', () => (
     />
   </Example>
 ))
+
+class InteractiveExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { working: false }
+  }
+
+  exampleAsyncTask() {
+    this.setState({ working: true })
+    return new Promise(resolve =>
+      setTimeout(() => {
+        this.setState({ working: false })
+        resolve()
+      }, 500)
+    )
+  }
+
+  render() {
+    return (
+      <TextInput
+        type="text"
+        placeholder="Enter some text"
+        actions={[
+          <Tooltip.Action
+            content={{
+              default: 'Do work',
+              loading: 'Working...',
+              success: 'Done!',
+              error: 'Could not work'
+            }}
+          >
+            <Button
+              disabled={this.state.working}
+              icon="wrench"
+              onClick={this.exampleAsyncTask.bind(this)}
+            />
+          </Tooltip.Action>
+        ]}
+      />
+    )
+  }
+}
+
+storiesOf('TextInput').add('interactive example', () => (
+  <Example title="with actions as buttons">
+    <InteractiveExample />
+  </Example>
+))
