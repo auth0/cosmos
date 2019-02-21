@@ -73,17 +73,13 @@ class ActionTooltip extends React.Component {
    * from a text input / text area action.
    */
   processAction() {
-    const { children: button, loadingTimeout } = this.props
+    const { children: button, resetDelay } = this.props
     const content = this.preprocessContent()
 
     const newHandler = event => {
       this.resetState()
       if (content.loading) {
-        this.setTooltipContent(
-          content.loading,
-          { resetDelay: loadingTimeout || 5000 },
-          { taskIsRunning: true }
-        )
+        this.setTooltipContent(content.loading, { resetDelay: resetDelay }, { taskIsRunning: true })
       } else {
         this.setState({ taskIsRunning: true })
       }
@@ -134,7 +130,12 @@ ActionTooltip.propTypes = {
       success: PropTypes.string,
       error: PropTypes.string
     })
-  ])
+  ]),
+  resetDelay: PropTypes.number
+}
+
+ActionTooltip.defaultProps = {
+  resetDelay: 5000
 }
 
 export default ActionTooltip
