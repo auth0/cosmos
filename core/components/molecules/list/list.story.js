@@ -44,7 +44,7 @@ class ExampleList extends React.Component {
             />
           </List.Header>
           <List.Body>
-            <StackLayout gutter="condensed">
+            <StackLayout gutter="small">
               <p>hola</p>
               <TextInput
                 code
@@ -81,7 +81,7 @@ class ExampleList extends React.Component {
         </List.Item>
         <List.Item>
           <List.Header>
-            <StackLayout space={['none', 1]} gutter="condensed" wrap="true">
+            <StackLayout space={['none', 1]} gutter="small" wrap="true">
               <Avatar type="resource" />
               <RowLayout gutter="none">
                 <Heading size={4}>Title</Heading>
