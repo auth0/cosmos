@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Button, TextInput } from '@auth0/cosmos'
+import { Button, TextInput, Tooltip } from '@auth0/cosmos'
 
 storiesOf('TextInput', module).add('simple', () => (
   <Example title="simple">
@@ -83,13 +83,45 @@ storiesOf('TextInput').add('with actions as shape', () => (
   </Example>
 ))
 
+const sampleAsyncAction = event => new Promise(resolve => setTimeout(resolve, 900))
+const sampleAsyncFailingAction = event => new Promise((_, reject) => setTimeout(reject, 900))
+
 storiesOf('TextInput').add('with actions as buttons', () => (
   <Example title="with actions as buttons">
     <TextInput
       type="text"
       placeholder="Enter some text"
       actions={[
-        <Button icon="copy" onClick={e => console.log(e)} />,
+        <Tooltip.Action
+          content={{
+            default: 'Copy',
+            loading: 'Copying...',
+            success: 'Copied!',
+            errored: 'Could not copy'
+          }}
+        >
+          <Button icon="copy" onClick={e => console.log(e)} />
+        </Tooltip.Action>,
+        <Tooltip.Action
+          content={{
+            default: 'Do work',
+            loading: 'Working...',
+            success: 'Done!',
+            errored: 'Could not work'
+          }}
+        >
+          <Button icon="wrench" onClick={sampleAsyncAction} />
+        </Tooltip.Action>,
+        <Tooltip.Action
+          content={{
+            default: 'Do work',
+            loading: 'Working...',
+            success: 'Done!',
+            errored: 'Could not work'
+          }}
+        >
+          <Button icon="reload" onClick={sampleAsyncFailingAction} />
+        </Tooltip.Action>,
         <Button icon="delete" onClick={e => console.log(e)} />
       ]}
     />
