@@ -79,7 +79,7 @@ It does recieve a `content` object with the following keys:
         error: 'Could not work'
       }}
     >
-      <Button icon="wrench" onClick={sampleAsyncAction} />
+      <Button icon="wrench" onClick={e => console.log(e)} />
     </Tooltip.Action>,
     <Tooltip.Action
       content={{
@@ -89,7 +89,7 @@ It does recieve a `content` object with the following keys:
         error: 'Could not work'
       }}
     >
-      <Button icon="reload" onClick={sampleAsyncFailingAction} />
+      <Button icon="reload" onClick={e => console.log(e)} />
     </Tooltip.Action>,
     <Button icon="delete" onClick={e => console.log(e)} />
   ]}

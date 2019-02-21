@@ -5,7 +5,7 @@ import Tooltip from './tooltip'
 class ActionTooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { tooltipContent: null, asyncTaskIsRunnning: false }
+    this.state = { tooltipContent: null }
   }
 
   /**
