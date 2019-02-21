@@ -9,6 +9,16 @@ class ActionTooltip extends React.Component {
     this.timer = null
   }
 
+  componentWillUnmount() {
+    this.clearTimer()
+  }
+
+  clearTimer() {
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+  }
+
   /**
    * If you provide a string as a content prop,
    * this function will transform it to a
@@ -29,8 +39,10 @@ class ActionTooltip extends React.Component {
     const content = this.preprocessContent()
     this.setState({ tooltipContent: newContent })
 
-    if (this.timer) {
-      clearTimeout(this.timer)
+    this.clearTimer()
+
+    if (newContent === content.default) {
+      return
     }
 
     this.timer = setTimeout(() => this.setState({ tooltipContent: content.default }), resetDelay)
