@@ -84,13 +84,8 @@ class ExampleList extends React.Component {
             <StackLayout space={['none', 1]} gutter="condensed" wrap="true">
               <Avatar type="resource" />
               <RowLayout gutter="none">
-                <Heading size={4}>
-                  Title Title Title Title Title Title Title tle Title Title Title
-                </Heading>
-                <Paragraph>
-                  Descrifption Description Description Description Description Description
-                  Description Description Description Description Description Description
-                </Paragraph>
+                <Heading size={4}>Title</Heading>
+                <Paragraph>Descrifption Description</Paragraph>
               </RowLayout>
             </StackLayout>
           </List.Header>
@@ -236,7 +231,10 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
     <List>
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <div>github</div>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
           <div>GitHub</div>
           <Switch on labelPosition="left" />
         </StackLayout>
@@ -244,7 +242,10 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <div>github</div>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
           <div>GitHub</div>
           <Switch on labelPosition="left" />
         </StackLayout>
@@ -252,7 +253,10 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <div>github</div>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
           <div>GitHub</div>
           <Switch on labelPosition="left" />
         </StackLayout>
@@ -260,7 +264,10 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <div>github</div>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
           <div>GitHub</div>
           <Switch on labelPosition="left" />
         </StackLayout>
@@ -269,15 +276,104 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
   </Example>
 ))
 
-storiesOf('List', module).add('stressed new', () => (
-  <Example title="mfkdfd">
+storiesOf('List', module).add('switch in the middle', () => (
+  <Example title="switch in the middle">
+    <List sortable>
+      <List.Item>
+        <List.Header>Empty Rule</List.Header>
+        <List.Body>
+          <Switch hideAccessibleLabels />
+        </List.Body>
+        <List.Footer>
+          <ButtonGroup>
+            <Button icon="copy" />
+            <Button icon="delete" />
+          </ButtonGroup>
+        </List.Footer>
+      </List.Item>
+      <List.Item>
+        <List.Header>Empty Rule</List.Header>
+        <List.Body>
+          <Switch hideAccessibleLabels />
+        </List.Body>
+        <List.Footer>
+          <ButtonGroup>
+            <Button icon="copy" />
+            <Button icon="delete" />
+          </ButtonGroup>
+        </List.Footer>
+      </List.Item>
+      <List.Item>
+        <List.Header>Empty Rule</List.Header>
+        <List.Body>
+          <Switch hideAccessibleLabels />
+        </List.Body>
+        <List.Footer>
+          <ButtonGroup>
+            <Button icon="copy" />
+            <Button icon="delete" />
+          </ButtonGroup>
+        </List.Footer>
+      </List.Item>
+    </List>
+  </Example>
+))
+
+storiesOf('List', module).add('Drawer and switch', () => (
+  <Example title="Drawer and switch">
     <List>
-      <List.Item>item</List.Item>
-      <List.Item>item</List.Item>
-      <List.Item>item</List.Item>
+      <List.Item>
+        <List.Header>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
+        </List.Header>
+        <List.Footer>
+          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+        </List.Footer>
+        <List.Drawer>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+          Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
+          sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+        </List.Drawer>
+      </List.Item>
+      <List.Item>
+        <List.Header>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
+        </List.Header>
+        <List.Footer>
+          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+        </List.Footer>
+        <List.Drawer>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+          Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
+          sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+        </List.Drawer>
+      </List.Item>
+      <List.Item>
+        <List.Header>
+          <RowLayout gutter="xxsmall">
+            <Heading size="3">M2M</Heading>
+            <Paragraph>CLIENT ID whatever</Paragraph>
+          </RowLayout>
+        </List.Header>
+        <List.Footer>
+          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+        </List.Footer>
+        <List.Drawer>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+          Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
+          sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+        </List.Drawer>
+      </List.Item>
     </List>
   </Example>
 ))
+
 storiesOf('List', module).add('stressed', () => (
   <Example title="stressed">
     <List>
