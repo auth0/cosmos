@@ -5,7 +5,7 @@ import Tooltip from './tooltip'
 class ActionTooltip extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { tooltipContent: null }
+    this.state = { tooltipContent: null, taskIsRunning: false }
     this.timer = null
   }
 
@@ -13,9 +13,23 @@ class ActionTooltip extends React.Component {
     this.clearTimer()
   }
 
+  /**
+   * Resets the tooltip content timer if appropiate.
+   */
   clearTimer() {
     if (this.timer) {
       clearTimeout(this.timer)
+    }
+  }
+
+  /**
+   * Resets the tooltip content timer and sets
+   * its content to the default state.
+   */
+  resetState() {
+    if (!this.state.taskIsRunning) {
+      this.clearTimer()
+      this.setState({ tooltipContent: null })
     }
   }
 
@@ -34,8 +48,9 @@ class ActionTooltip extends React.Component {
    * and resets the content to `props.content.default` after `resetDelay`.
    * @param {string} newContent - Text to be set in the tooltip
    * @param {string} resetDelay - Time in milliseconds to reset back to default text.
+   * @param {object} additionalState - Any additional data you want to set in the state.
    */
-  setTooltipContent(newContent, { resetDelay = 3000 } = {}) {
+  setTooltipContent(newContent, { resetDelay = 3000 } = {}, additionalState = {}) {
     const content = this.preprocessContent()
     this.setState({ tooltipContent: newContent })
 
@@ -45,7 +60,10 @@ class ActionTooltip extends React.Component {
       return
     }
 
-    this.timer = setTimeout(() => this.setState({ tooltipContent: content.default }), resetDelay)
+    this.timer = setTimeout(
+      () => this.setState({ tooltipContent: content.default, ...additionalState }),
+      resetDelay
+    )
   }
 
   /**
@@ -59,18 +77,41 @@ class ActionTooltip extends React.Component {
     const content = this.preprocessContent()
 
     const newHandler = event => {
+      this.resetState()
       if (content.loading) {
-        this.setTooltipContent(content.loading, { resetDelay: loadingTimeout || 5000 })
+        this.setTooltipContent(
+          content.loading,
+          { resetDelay: loadingTimeout || 5000 },
+          { taskIsRunning: true }
+        )
+      } else {
+        this.setState({ taskIsRunning: true })
       }
 
       Promise.resolve(button.props.onClick(event))
-        .then(result => {
-          this.setTooltipContent(content.success || content.default)
-        })
-        .catch(() => this.setTooltipContent(content.error || 'Something did not work'))
+        .then(result =>
+          this.setTooltipContent(content.success || content.default, { taskIsRunning: false })
+        )
+        .catch(() =>
+          this.setTooltipContent(content.error || 'Something did not work', {
+            taskIsRunning: false
+          })
+        )
     }
 
-    return React.cloneElement(button, { onClick: newHandler, appearance: 'link' })
+    const onMouseLeave = ev => {
+      if (button.props.onMouseLeave) {
+        button.props.onMouseLeave(ev)
+      }
+
+      this.resetState()
+    }
+
+    return React.cloneElement(button, {
+      onClick: newHandler,
+      appearance: 'link',
+      onMouseLeave
+    })
   }
 
   render() {
