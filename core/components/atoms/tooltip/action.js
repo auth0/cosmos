@@ -49,7 +49,7 @@ class ActionTooltip extends React.Component {
         .then(result => {
           this.setTooltipContent(content.success)
         })
-        .catch(() => this.setTooltipContent(content.errored || 'Something did not work'))
+        .catch(() => this.setTooltipContent(content.error || 'Something did not work'))
     }
 
     return React.cloneElement(button, { onClick: newHandler, appearance: 'link' })
@@ -73,7 +73,7 @@ ActionTooltip.propTypes = {
       default: PropTypes.string.isRequired,
       loading: PropTypes.string,
       success: PropTypes.string,
-      default: PropTypes.string
+      error: PropTypes.string
     })
   ])
 }

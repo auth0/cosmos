@@ -54,7 +54,7 @@ It does recieve a `content` object with the following keys:
 - `default`: Is the default text to show in the tooltip (same as `content` in a normal tooltip).
 - `loading`: Is the text will show if the child button `onClick` handler is an async function (Promise) while it's loading.
 - `success`: Is the text will show when the `onClick` returns (if it's a sync function) or resolves (if it's async).
-- `errored`: If the text will show if the `onClick` is an async function and is rejected.
+- `error`: If the text will show if the `onClick` is an async function and is rejected.
 
 #### Example
 
@@ -76,7 +76,7 @@ It does recieve a `content` object with the following keys:
         default: 'Do work',
         loading: 'Working...',
         success: 'Done!',
-        errored: 'Could not work'
+        error: 'Could not work'
       }}
     >
       <Button icon="wrench" onClick={sampleAsyncAction} />
@@ -86,7 +86,7 @@ It does recieve a `content` object with the following keys:
         default: 'Do work',
         loading: 'Working...',
         success: 'Done!',
-        errored: 'Could not work'
+        error: 'Could not work'
       }}
     >
       <Button icon="reload" onClick={sampleAsyncFailingAction} />

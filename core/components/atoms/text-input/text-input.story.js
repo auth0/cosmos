@@ -97,7 +97,7 @@ storiesOf('TextInput').add('with actions as buttons', () => (
             default: 'Copy',
             loading: 'Copying...',
             success: 'Copied!',
-            errored: 'Could not copy'
+            error: 'Could not copy'
           }}
         >
           <Button icon="copy" onClick={e => console.log(e)} />
@@ -107,7 +107,7 @@ storiesOf('TextInput').add('with actions as buttons', () => (
             default: 'Do work',
             loading: 'Working...',
             success: 'Done!',
-            errored: 'Could not work'
+            error: 'Could not work'
           }}
         >
           <Button icon="wrench" onClick={sampleAsyncAction} />
@@ -117,7 +117,7 @@ storiesOf('TextInput').add('with actions as buttons', () => (
             default: 'Do work',
             loading: 'Working...',
             success: 'Done!',
-            errored: 'Could not work'
+            error: 'Could not work'
           }}
         >
           <Button icon="reload" onClick={sampleAsyncFailingAction} />
