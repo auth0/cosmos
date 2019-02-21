@@ -139,9 +139,9 @@ class InteractiveExample extends React.Component {
     this.setState({ working: true })
     return new Promise(resolve =>
       setTimeout(() => {
-        this.setState({ working: false })
         resolve()
-      }, 500)
+        this.setState({ working: false })
+      }, 1500)
     )
   }
 
@@ -161,6 +161,7 @@ class InteractiveExample extends React.Component {
           >
             <Button
               disabled={this.state.working}
+              loading={this.state.working}
               icon="wrench"
               onClick={this.exampleAsyncTask.bind(this)}
             />

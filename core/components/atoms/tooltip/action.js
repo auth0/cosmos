@@ -6,6 +6,7 @@ class ActionTooltip extends React.Component {
   constructor(props) {
     super(props)
     this.state = { tooltipContent: null }
+    this.timer = null
   }
 
   /**
@@ -27,7 +28,12 @@ class ActionTooltip extends React.Component {
   setTooltipContent(newContent, { resetDelay = 3000 } = {}) {
     const content = this.preprocessContent()
     this.setState({ tooltipContent: newContent })
-    setTimeout(() => this.setState({ tooltipContent: content.default }), resetDelay)
+
+    if (this.timer) {
+      clearTimeout(this.timer)
+    }
+
+    this.timer = setTimeout(() => this.setState({ tooltipContent: content.default }), resetDelay)
   }
 
   /**
