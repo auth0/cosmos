@@ -53,7 +53,7 @@ class ActionTooltip extends React.Component {
 
       Promise.resolve(button.props.onClick(event))
         .then(result => {
-          this.setTooltipContent(content.success)
+          this.setTooltipContent(content.success || content.default)
         })
         .catch(() => this.setTooltipContent(content.error || 'Something did not work'))
     }
