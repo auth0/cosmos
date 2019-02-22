@@ -67,10 +67,11 @@ class Tooltip extends React.Component {
             offset: { offset: '0, 10' }
           }}
         >
-          {({ ref, style, placement, arrowProps }) => (
+          {({ ref, style, placement, arrowProps, scheduleUpdate }) => (
             <React.Fragment>
               {this.state.visible ? (
-                <Tooltip.Element
+                <Tooltip.ObservedElement
+                  scheduleUpdate={scheduleUpdate}
                   innerRef={ref}
                   style={{ zIndex: 20, ...style }}
                   data-placement={placement}
@@ -84,13 +85,22 @@ class Tooltip extends React.Component {
                     innerRef={arrowProps.ref}
                     style={arrowProps.style}
                   />
-                </Tooltip.Element>
+                </Tooltip.ObservedElement>
               ) : null}
             </React.Fragment>
           )}
         </Popper>
       </Manager>
     )
+  }
+}
+
+Tooltip.ObservedElement = class extends React.Component {
+  componentDidUpdate() {
+    this.props.scheduleUpdate()
+  }
+  render() {
+    return <Tooltip.Element {...this.props} />
   }
 }
 
