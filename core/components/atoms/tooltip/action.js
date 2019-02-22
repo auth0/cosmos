@@ -47,7 +47,6 @@ class ActionTooltip extends React.Component {
    * Sets the tooltip inner text to `newContent`
    * and resets the content to `props.content.default` after `resetDelay`.
    * @param {string} newContent - Text to be set in the tooltip
-   * @param {string} resetDelay - Time in milliseconds to reset back to default text.
    * @param {object} additionalState - Any additional data you want to set in the state.
    */
   setTooltipContent(newContent, { resetDelay = 3000 } = {}, additionalState = {}) {
