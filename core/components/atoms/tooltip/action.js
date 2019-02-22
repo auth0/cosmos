@@ -52,7 +52,7 @@ class ActionTooltip extends React.Component {
    */
   setTooltipContent(newContent, { resetDelay = 3000 } = {}, additionalState = {}) {
     const content = this.preprocessContent()
-    this.setState({ tooltipContent: newContent })
+    this.setState({ tooltipContent: newContent, ...additionalState })
 
     this.clearTimer()
 
