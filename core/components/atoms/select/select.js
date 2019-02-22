@@ -64,13 +64,19 @@ const cosmosToReactSelect = {
     return options.find(matchValue)
   },
   styles: props => ({
-    control: provided =>
+    control: (provided, state) =>
       props.hasError
         ? {
             ...provided,
             borderColor: colors.input.borderError,
-            boxShadow: `0 0 0 1px ${colors.input.borderError}`,
-            '&:hover': { borderColor: colors.input.borderError }
+            boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
+            '&:hover': {
+              borderColor: colors.input.borderError
+            },
+            '&:focus': {
+              borderColor: colors.input.borderError,
+              boxShadow: `0 0 0 2px ${colors.input.borderError}`
+            }
           }
         : provided
   })

@@ -45,6 +45,16 @@ storiesOf('Select', module).add('simple: open', () => (
   </ExampleForSelect>
 ))
 
+storiesOf('Select', module).add('hasError', () => (
+  <ExampleForSelect title="Select: simple">
+    <Select
+      hasError
+      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+      onChange={event => console.log(event)}
+    />
+  </ExampleForSelect>
+))
+
 storiesOf('Select', module).add('multiple tags', () => (
   <ExampleForSelect title="Select: stressed multiple tags">
     <Select
