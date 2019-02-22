@@ -8,7 +8,6 @@ import BreadcrumbFixture from './atoms/breadcrumb.fixture'
 import ButtonFixture from './atoms/button.fixture'
 import CheckboxFixture from './atoms/checkbox.fixture'
 import RadioFixture from './atoms/radio.fixture'
-import SelectFixture from './atoms/select.fixture'
 import SwitchFixture from './atoms/switch.fixture'
 import TagFixture from './atoms/tag.fixture'
 import TextInputFixture from './atoms/text-input.fixture'
@@ -61,13 +60,6 @@ describe('Automation data attributes', () => {
 
   it(tests('Radio'), () => {
     automationAttributeTest(RadioFixture, 'radio')
-  })
-
-  it(tests('Select'), () => {
-    automationAttributeTest(SelectFixture, 'select')
-
-    // TODO: Specify location
-    automationAttributeTest(SelectFixture, 'select.option')
   })
 
   it(tests('Switch'), () => {
