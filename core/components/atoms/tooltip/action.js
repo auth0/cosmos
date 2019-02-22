@@ -49,7 +49,7 @@ class ActionTooltip extends React.Component {
    * @param {string} newContent - Text to be set in the tooltip
    * @param {object} additionalState - Any additional data you want to set in the state.
    */
-  setTooltipContent(newContent, { resetDelay = 3000 } = {}, additionalState = {}) {
+  setTooltipContent(newContent, additionalState = {}) {
     const content = this.preprocessContent()
     this.setState({ tooltipContent: newContent, ...additionalState })
 
