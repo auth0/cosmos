@@ -330,7 +330,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
           </RowLayout>
         </List.Header>
         <List.Footer>
-          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+          <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
         </List.Footer>
         <List.Drawer>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
@@ -346,7 +346,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
           </RowLayout>
         </List.Header>
         <List.Footer>
-          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+          <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
         </List.Footer>
         <List.Drawer>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
@@ -362,7 +362,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
           </RowLayout>
         </List.Header>
         <List.Footer>
-          <Switch on labelPosition="right" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+          <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
         </List.Footer>
         <List.Drawer>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
