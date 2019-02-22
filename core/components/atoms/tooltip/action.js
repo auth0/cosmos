@@ -61,7 +61,7 @@ class ActionTooltip extends React.Component {
     }
 
     this.timer = setTimeout(
-      () => this.setState({ tooltipContent: content.default, ...additionalState }),
+      () => this.setState({ tooltipContent: content.default }),
       resetDelay
     )
   }
