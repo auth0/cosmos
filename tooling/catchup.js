@@ -31,6 +31,7 @@ directories.forEach(directory => {
 
 const dependants = [
   'internal/docs',
+  'internal/docs2',
   'examples/manage',
   'examples/perf-tests',
   'examples/webpack-hello-world'

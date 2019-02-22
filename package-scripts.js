@@ -100,11 +100,11 @@ module.exports = {
         description: 'Start metadata + documentation site in dev mode'
       },
       dev_site: {
-        script: 'cd internal/docs && yarn dev',
+        script: 'cd internal/docs2 && yarn develop',
         description: 'Start documentation site in dev mode'
       },
       build: {
-        script: 'cd internal/docs && yarn build',
+        script: 'cd internal/docs2 && yarn build',
         description: 'Build documentation site'
       }
     },

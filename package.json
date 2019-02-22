@@ -11,6 +11,7 @@
     "internal/cosmos-scripts",
     "internal/overview",
     "internal/docs",
+    "internal/docs2",
     "internal/test",
     "examples/manage",
     "examples/webpack-hello-world",
