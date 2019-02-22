@@ -24,7 +24,8 @@ const getPaddingForActions = actions => {
 const StyledWrapper = styled.div`
   position: relative;
 
-  input {
+  input,
+  textarea {
     padding-right: ${props => getPaddingForActions(props.actions)};
   }
 
