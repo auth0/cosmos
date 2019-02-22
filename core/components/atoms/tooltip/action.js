@@ -79,7 +79,7 @@ class ActionTooltip extends React.Component {
     const newHandler = event => {
       this.resetState()
       if (content.loading) {
-        this.setTooltipContent(content.loading, { resetDelay: resetDelay }, { taskIsRunning: true })
+        this.setTooltipContent(content.loading, { taskIsRunning: true })
       } else {
         this.setState({ taskIsRunning: true })
       }
