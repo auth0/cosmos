@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { deprecate } from '../../_helpers/custom-validations'
 
 const imageFit = {
   contain: 'contain',
@@ -11,7 +12,12 @@ const imageFit = {
 }
 
 const Image = props => (
-  <Image.Element src={props.source} alt={props.alt} {...Automation('image')} {...props} />
+  <Image.Element
+    src={props.src || props.source}
+    alt={props.alt}
+    {...Automation('image')}
+    {...props}
+  />
 )
 
 Image.Element = styled.img`
@@ -23,8 +29,10 @@ Image.Element = styled.img`
 `
 
 Image.propTypes = {
+  /** @depreacted:src URL of the image */
+  source: PropTypes.string,
   /** URL of the image */
-  source: PropTypes.string.isRequired,
+  src: PropTypes.string,
   /** Alt text is mandatory, please read the accessibility section */
   alt: PropTypes.string,
   /** Image height, can be any length unit, absolute or relative */
@@ -34,7 +42,10 @@ Image.propTypes = {
   /** Sets how the content of the image is been resized to fit its container. */
   fit: PropTypes.oneOf(['none', 'contain', 'cover', 'scale-down']),
   /** Sets the image width to auto */
-  disableResponsive: PropTypes.bool
+  disableResponsive: PropTypes.bool,
+
+  /** deprecate source prop */
+  _source: props => deprecate(props, { name: 'source', replacement: 'src' })
 }
 
 Image.defaultProps = {

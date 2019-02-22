@@ -36,7 +36,7 @@ const Group = props => (
 )
 
 const getGroups = components => {
-  const groups = { atoms: [], molecules: [], internal: [] }
+  const groups = { atoms: [], molecules: [], internal: [], layouts: [] }
 
   components.map(component => {
     let category

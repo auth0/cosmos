@@ -5,7 +5,9 @@ description: The StackLayout horizontally organizes its children
 
 ---
 
-The `StackLayout` is made of flexible items that wrap each of the stack’s children and positions them horizontally in a row. It lets you control the way they spread, space, and align.
+The `StackLayout` organizes it's children into flexible horizontal row.
+
+It gives control over the way they spread, space, and align.
 
 ```jsx
   <StackLayout {props}>
@@ -20,18 +22,15 @@ The `StackLayout` is made of flexible items that wrap each of the stack’s chil
 
 ## Usage
 
-Use to quickly lay out a horizontal row of components and maintain their relative sizes.
+Use the `StackLayout` to generate a horizontal row of components that maintain their relative sizes.
 
 You can nest StackLayouts or combine it with other layouts to create complex arrangements.
 
 ### Do not use it for:
 
-- **Page chrome:** Use the App Frame instead for the page chrome.
-- **Create columns:** To create a column layout, use the Column Layout instead.
-- **Card List**: Use the Gallery layout instead.
+- **Create columns:** To create a column layout, use the `ColumnLayout` instead.
+- **Card List**: Use the `GalleryLayout` instead.
 
 ## Accessibility
 
 This layout is semantic free.
-
-Make sure the Row layout is within a correct landmark.

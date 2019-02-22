@@ -8,6 +8,7 @@ import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
 
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
+import Form from '../../molecules/form'
 
 const selectOpacity = {
   default: 1,
@@ -142,23 +143,28 @@ const Select = props => {
 
   return (
     <Select.Wrapper {...Automation('select.wrapper')}>
-      <ReactSelect
-        onChange={options =>
-          props.onChange && props.onChange({ target: { value: oneOrMore(options) } })
-        }
-        isDisabled={props.disabled}
-        isMulti={props.multiple}
-        isSearchable={props.searchable}
-        isLoading={props.loading}
-        menuIsOpen={props.defaultMenuOpen}
-        defaultValue={props.defaultValue}
-        placeholder={props.placeholder}
-        options={options}
-        components={componentOverrides}
-        theme={selectTheme}
-        value={value}
-        styles={styles}
-      />
+      <Form.Field.ContextConsumer>
+        {context => (
+          <ReactSelect
+            onChange={options =>
+              props.onChange && props.onChange({ target: { value: oneOrMore(options) } })
+            }
+            isDisabled={props.disabled}
+            isMulti={props.multiple}
+            isSearchable={props.searchable}
+            isLoading={props.loading}
+            menuIsOpen={props.defaultMenuOpen}
+            defaultValue={props.defaultValue}
+            placeholder={props.placeholder}
+            options={options}
+            components={componentOverrides}
+            theme={selectTheme}
+            value={value}
+            styles={styles}
+            id={props.id || context.formFieldId}
+          />
+        )}
+      </Form.Field.ContextConsumer>
     </Select.Wrapper>
   )
 }

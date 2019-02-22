@@ -4,7 +4,7 @@ import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
   render() {
-    return <Switch id="custom-id" onToggle={mockFn} />
+    return <Switch id="custom-id" onChange={mockFn} />
   }
 }
 
