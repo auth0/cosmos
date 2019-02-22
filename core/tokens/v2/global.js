@@ -140,55 +140,60 @@ const global = {
   // Borders ==========================
   border: {
     width: {
-      sm: '1px',
-      md: '2px'
+      small: '1px',
+      medium: '2px'
       // lg: '4px'
     },
     radius: {
-      sm: '',
-      md: '3px', // this is the default
-      lg: '30rem' // generated rounded corners
+      small: '',
+      medium: '3px', // this is the default
+      large: '30rem' // generated rounded corners
     }
   },
 
   // Shadows ==========================
   shadow: {
-    sm: '',
-    md: '', // this is the default
-    lg: '',
-    inset: ''
+    inset: '',
+    small: '',
+    medium: '', // this is the default
+    large: ''
   },
+
+  /* Transparency
+  // ========================== */
+
+  // ?????????
 
   /* Sizes & spaces
   // ========================== */
 
-  // Spaces:
+  // Spacing:
   // Used for for padding, margins, and position coordinates.
 
-  space: {
-    xxs: '4px',
-    xs: '8px',
-    sm: '12px',
-    md: '16px', // this is the default
-    lg: '24px',
-    xl: '32px',
+  spacing: {
+    xxsmall: '4px',
+    xsmall: '8px',
+    small: '12px',
+    medium: '16px', // this is the default
+    large: '24px',
+    xlarge: '32px',
     '2xl': '40px',
     '3xl': '56px'
   },
 
   // Size: Used for inputs/buttons height
   size: {
-    xs: '32px',
-    sm: '36px',
-    md: '44px', // this is the default
-    lg: '48px'
+    xsmall: '32px',
+    small: '36px',
+    medium: '44px', // this is the default
+    large: '48px'
   },
 
   gutter: {
-    xs: '8px',
-    sm: '16px',
-    md: '24px', // this is the default
-    lg: '40px'
+    xsmall: '8px',
+    small: '16px',
+    medium: '24px', // this is the default
+    large: '40px'
   },
 
   // Fonts ==========================
@@ -216,14 +221,14 @@ const global = {
       '4xl': ''
     },
     sizeRelative: {
-      sm: '90%'
+      smaller: '90%'
     },
     lineHeight: {
       sm: '1.3',
       md: '1.6' // this is the default
     },
     letterSpacing: {
-      lg: '1px'
+      large: '1px'
     }
   },
 
@@ -242,7 +247,7 @@ const global = {
     sm: '200', // Tooltip, dropmenus
     md: '300',
     lg: '400', // App header
-    xl: '500',
+    xl: '500', // Clippo
     '2xl': '600' // Modal overlay
   }
   //Animations

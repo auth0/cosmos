@@ -1,6 +1,7 @@
-import colors from './colors'
-import spacing from './spacing'
-import fonts from './fonts'
-import misc from './misc'
+import global from './global'
+// import colors from './colors'
+// import spacing from './spacing'
+// import fonts from './fonts'
+// import misc from './misc'
 
-export { colors, spacing, fonts, misc }
+export { global }
