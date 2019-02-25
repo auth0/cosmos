@@ -125,6 +125,13 @@ const oneOrMore = options => {
   return transformation(options)
 }
 
+const componentOverrides = {
+  MultiValue: cosmosMultiValueTagRenderer,
+  DropdownIndicator: cosmosDownIndicator,
+  LoadingIndicator: cosmosLoadingIndicator,
+  IndicatorSeparator: () => null
+}
+
 class Select extends React.Component {
   constructor(props) {
     super(props)
@@ -165,13 +172,6 @@ class Select extends React.Component {
       but they do have disabled. we need the style of readOnly input
       and functionality of select disabled
     */
-
-    const componentOverrides = {
-      MultiValue: cosmosMultiValueTagRenderer,
-      DropdownIndicator: cosmosDownIndicator,
-      LoadingIndicator: cosmosLoadingIndicator,
-      IndicatorSeparator: () => null
-    }
 
     let options = cosmosToReactSelect.options(props.options)
 
