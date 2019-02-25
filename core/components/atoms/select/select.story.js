@@ -35,16 +35,6 @@ storiesOf('Select', module).add('simple', () => (
   </ExampleForSelect>
 ))
 
-storiesOf('Select', module).add('simple: open', () => (
-  <ExampleForSelect title="Select: simple">
-    <Select
-      defaultMenuOpen
-      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
-    />
-  </ExampleForSelect>
-))
-
 storiesOf('Select', module).add('hasError', () => (
   <ExampleForSelect title="Select: simple">
     <Select
@@ -154,11 +144,6 @@ class SelectWithEmptyString extends React.Component {
 storiesOf('Select', module).add('simple with empty string', () => (
   <ExampleForSelect title="Select: simple">
     <SelectWithEmptyString />
-  </ExampleForSelect>
-))
-storiesOf('Select', module).add('simple with empty string: open', () => (
-  <ExampleForSelect title="Select: simple">
-    <SelectWithEmptyString defaultMenuOpen />
   </ExampleForSelect>
 ))
 
@@ -358,7 +343,7 @@ storiesOf('Select', module).add('interactive: stressed', () => (
 ))
 
 storiesOf('Select', module).add('dropdown out of dialog', () => (
-  <Example title="Select: stressed - 56 characters with 300px width">
+  <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
     <Dialog open title="This is an example">
       <InteractiveSelect>
         {(value, onChange) => (
@@ -384,5 +369,5 @@ storiesOf('Select', module).add('dropdown out of dialog', () => (
         )}
       </InteractiveSelect>
     </Dialog>
-  </Example>
+  </ExampleForSelect>
 ))
