@@ -1,0 +1,4 @@
+---
+title: Resources
+template: page
+---
