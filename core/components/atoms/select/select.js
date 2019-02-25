@@ -153,7 +153,8 @@ const Select = props => {
         {context => (
           <ReactSelect
             onChange={options =>
-              props.onChange && props.onChange({ target: { value: oneOrMore(options) } })
+              props.onChange &&
+              props.onChange({ target: { value: oneOrMore(options), name: props.name } })
             }
             isDisabled={props.disabled}
             isMulti={props.multiple}
