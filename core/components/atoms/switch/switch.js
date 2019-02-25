@@ -2,8 +2,10 @@ import React from 'react'
 import styled, { css } from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
+import { deprecate } from '../../_helpers/custom-validations'
 
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
+import Form from '../../molecules/form'
 
 class Switch extends React.Component {
   static displayName = 'Switch'
@@ -17,7 +19,9 @@ class Switch extends React.Component {
 
     if (this.props.readOnly) return
     this.setState(currentState => {
-      if (this.props.onToggle) this.props.onToggle(!currentState.on)
+      if (this.props.onChange) this.props.onChange(!currentState.on)
+      else if (this.props.onToggle) this.props.onToggle(!currentState.on)
+
       return { on: !currentState.on }
     })
   }
@@ -28,7 +32,16 @@ class Switch extends React.Component {
     let [onLabel, offLabel] = this.props.accessibleLabels
 
     const checkbox = (
-      <Checkbox type="checkbox" checked={this.state.on} readOnly id={this.props.id} />
+      <Form.Field.ContextConsumer>
+        {context => (
+          <Checkbox
+            type="checkbox"
+            checked={this.state.on}
+            readOnly
+            id={this.props.id || context.formFieldId}
+          />
+        )}
+      </Form.Field.ContextConsumer>
     )
 
     let elements = <React.Fragment>{checkbox}</React.Fragment>
@@ -146,7 +159,7 @@ const Label = styled.label`
     margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
     margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
 
-    /* 
+    /*
     In order to make the switch always the same width
     we are setting a fixed height and overlapping the switch labels
     */
@@ -171,8 +184,10 @@ const Label = styled.label`
 const StyledSwitch = Switch.Element
 
 Switch.propTypes = {
-  /** Function called on toggle */
+  /** @deprecatede:onChange Function called on toggle */
   onToggle: PropTypes.func,
+  /** Function called when value changes */
+  onChange: PropTypes.func,
   /** State of the toggle */
   on: PropTypes.bool,
   /** Labels to show, import for accessibility */
@@ -182,11 +197,15 @@ Switch.propTypes = {
   /** Locked switch */
   readOnly: PropTypes.bool,
   /** Label on left side */
-  labelPosition: PropTypes.oneOf(['right', 'left'])
+  labelPosition: PropTypes.oneOf(['right', 'left']),
+
+  /** deprecations */
+  _onToggle: props => deprecate(props, { name: 'onToggle', replacement: 'onChange' })
 }
 
 Switch.defaultProps = {
   onToggle: null,
+  onChange: null,
   on: false,
   accessibleLabels: ['Enabled', 'Disabled'],
   hideAccessibleLabels: false,

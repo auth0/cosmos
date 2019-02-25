@@ -10,7 +10,7 @@ You can put any input element inside it like another cosmos component `TextInput
 
 ```jsx
 <Form>
-  <Form.Field {props}>
+  <Form.Field {props} defaults={{label: "Field label"}}>
     <TextInput placeholder="Enter some text" />
   </Form.Field>
 </Form>
@@ -44,12 +44,14 @@ class Example extends React.Component {
         </Form.Field>
         <Form.Field label="Options list">
           <Select
+            value="1"
             options={[
-              { text: 'First option', value: '1', defaultSelected: true },
+              { text: 'First option', value: '1' },
               { text: 'Second option', value: '2' },
               { text: 'Third option', value: '3' },
               { text: 'Fourth option', value: '4' }
             ]}
+            onChange={e => console.log(e)}
           />
         </Form.Field>
         <Form.Field label="Subscribe">
@@ -148,7 +150,7 @@ We leave the logic part of validation to you the developer, you can pass `error`
     error="This is not a valid URL"
     helpText="Make sure to specify the protocol, http:// or https://"
   >
-    <TextInput type="text" placeholder="Enter something" defaultValue="auth0.com" hasError={true} />
+    <TextInput type="text" hasError={true} placeholder="Enter something" defaultValue="auth0.com" />
   </Form.Field>
 </Form>
 ```
@@ -167,11 +169,22 @@ This lets you can add multiple input elements inside the same `Form.Field`.
       <Select
         value="in"
         options={[{ text: 'centimetres', value: 'cm' }, { text: 'inches', value: 'in' }]}
+        onChange={e => console.log(e)}
       />
       <Button appearance="primary" onClick={e => console.log(e)}>
         Save
       </Button>
     </Stack>
+  </Form.Field>
+</Form>
+```
+
+You can even use bring your own input field. Remember to care of the error state and accessibility though!
+
+```js
+<Form>
+  <Form.Field htmlFor="bring-your-own" label="Custom Field" error="Please attach a file">
+    <input type="text" id="bring-your-own" placeholder="Enter something" />
   </Form.Field>
 </Form>
 ```
@@ -186,6 +199,7 @@ If you are using the old flavor of the API, you can continue using it till `1.0.
     label="Allowed URLs"
     type="text"
     placeholder="Enter something"
+    error="There's something wrong in the neighbourhood"
     actions={[
       { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
       { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }

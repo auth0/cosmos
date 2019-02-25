@@ -28,6 +28,7 @@ Form.Element = styled.form`
 `
 
 Form.Field = props => <Field {...props} />
+Form.Field.ContextConsumer = Field.ContextConsumer
 Form.TextInput = props => <Field {...props} fieldComponent={TextInput} />
 Form.TextArea = props => <Field {...props} fieldComponent={TextArea} />
 Form.Select = props => <Field {...props} fieldComponent={Select} />

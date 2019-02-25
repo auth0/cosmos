@@ -48,12 +48,14 @@ class Example extends React.Component {
         </Form.Field>
         <Form.Field label="Options list">
           <Select
+            value={1}
             options={[
-              { text: 'First option', value: '1', defaultSelected: true },
+              { text: 'First option', value: '1' },
               { text: 'Second option', value: '2' },
               { text: 'Third option', value: '3' },
               { text: 'Fourth option', value: '4' }
             ]}
+            onChange={event => console.log(event)}
           />
         </Form.Field>
         <Form.Field label="Single Sign On">

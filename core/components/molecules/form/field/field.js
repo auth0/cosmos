@@ -27,10 +27,28 @@ const shouldFieldUseCheckboxStyle = props => {
   return false
 }
 
+const { Provider, Consumer } = React.createContext({})
+
+const FieldInput = props => {
+  const { Component, ...fieldProps } = props
+  /*
+    old API
+    we proxy through all the props to the input element
+  */
+  if (Component) return <Component {...fieldProps} />
+
+  /*
+    New API
+    We create a context around the field to pass the field id
+  */
+  let { children, id } = fieldProps
+  return <Provider value={{ formFieldId: id }}>{children}</Provider>
+}
+
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
-  const { error, ...fieldProps } = props
+  const { error, htmlFor, ...fieldProps } = props
   const useCheckboxStyle = shouldFieldUseCheckboxStyle(props)
   const Label = useCheckboxStyle ? Field.CheckboxLabel : StyledLabel
   const FieldSetWrapper = useCheckboxStyle ? Field.FieldSetElement : React.Fragment
@@ -133,4 +151,6 @@ Field.defaultProps = {
   error: null
 }
 
+Field.ContextConsumer = Consumer
+Field.Error = StyledError
 export default Field

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
+import Form from '../../molecules/form'
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -26,7 +27,18 @@ const Radio = props => (
 
 Radio.Option = ({ readOnly, children, ...props }) => (
   <Radio.Option.Element readOnly={props.readOnly}>
-    <input {...Automation('radio.option')} type="radio" readOnly {...props} />
+    <Form.Field.ContextConsumer>
+      {context => (
+        <input
+          id={props.id || context.formFieldId}
+          {...Automation('radio.option')}
+          type="radio"
+          readOnly
+          {...props}
+        />
+      )}
+    </Form.Field.ContextConsumer>
+
     <CheckMark />
     <Label>{children}</Label>
   </Radio.Option.Element>
@@ -58,7 +70,7 @@ Radio.Option.Element = styled.label`
     height: 16px;
     width: 16px;
     background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0

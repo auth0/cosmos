@@ -5,17 +5,17 @@
 `import { Switch } from '@auth0/cosmos'`
 
 ```jsx
-<Switch {props} onToggle={value => console.log(value)} />
+<Switch {props} onChange={value => console.log(value)} />
 ```
 
 ## Examples
 
 ### Events
 
-`onToggle` should always be provided for handling changes in the value.
+`onChange` should always be provided for handling changes in the value.
 
 ```js
-<Switch onToggle={value => console.log(value)} />
+<Switch onChange={value => console.log(value)} />
 ```
 
 ### Default state
@@ -23,7 +23,7 @@
 You can change the default state of the switch by passing the `on` prop.
 
 ```js
-<Switch on onToggle={value => console.log(value)} />
+<Switch on onChange={value => console.log(value)} />
 ```
 
 ### Read-only
@@ -43,10 +43,10 @@ You can change the accessibility labels by passing an array with two strings. Th
 
 ```js
 <Stack align="space-between">
-  <Switch accessibleLabels={['ON', 'OFF']} onToggle={value => console.log(value)} />
+  <Switch accessibleLabels={['ON', 'OFF']} onChange={value => console.log(value)} />
   <Switch
     accessibleLabels={['ON', 'OFF']}
-    onToggle={value => console.log(value)}
+    onChange={value => console.log(value)}
     labelPosition="left"
   />
 </Stack>
@@ -55,5 +55,5 @@ You can change the accessibility labels by passing an array with two strings. Th
 You can hide the accessibility labels and display just the switch passing the `hideAccessibleLabels` prop.
 
 ```js
-<Switch hideAccessibleLabels onToggle={() => {}} />
+<Switch hideAccessibleLabels onChange={() => {}} />
 ```
