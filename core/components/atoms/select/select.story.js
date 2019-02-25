@@ -3,7 +3,7 @@ import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Select } from '@auth0/cosmos'
+import { Select, Dialog } from '@auth0/cosmos'
 
 const ExampleForSelect = styled(Example)`
   min-height: 450px;
@@ -355,4 +355,34 @@ storiesOf('Select', module).add('interactive: stressed', () => (
       </InteractiveSelect>
     </div>
   </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('dropdown out of dialog', () => (
+  <Example title="Select: stressed - 56 characters with 300px width">
+    <Dialog open title="This is an example">
+      <InteractiveSelect>
+        {(value, onChange) => (
+          <Select
+            value={value}
+            onChange={onChange}
+            defaultMenuOpen
+            options={[
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 1
+              },
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 2
+              },
+              {
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+                value: 3
+              }
+            ]}
+          />
+        )}
+      </InteractiveSelect>
+    </Dialog>
+  </Example>
 ))

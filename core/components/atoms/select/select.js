@@ -64,6 +64,7 @@ const cosmosToReactSelect = {
     return options.find(matchValue)
   },
   styles: props => ({
+    menuPortal: provided => ({ ...provided, zIndex: 99 }),
     control: (provided, state) =>
       props.hasError
         ? {
@@ -124,56 +125,94 @@ const oneOrMore = options => {
   return transformation(options)
 }
 
-const Select = props => {
-  /*
-    select boxes do not support readonly like input boxes,
-    but they do have disabled. we need the style of readOnly input
-    and functionality of select disabled
-  */
-
-  const componentOverrides = {
-    MultiValue: cosmosMultiValueTagRenderer,
-    DropdownIndicator: cosmosDownIndicator,
-    LoadingIndicator: cosmosLoadingIndicator,
-    IndicatorSeparator: () => null
+class Select extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { menuIsOpen: props.defaultMenuOpen || false }
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
-  let options = cosmosToReactSelect.options(props.options)
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll, true)
 
-  if (props.customOptionRenderer) {
-    componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
+    if (this.props.defaultMenuOpen) {
+      // If `defaultMenuOpen` is passed (only for testing)
+      // force react-select to render portal for dropdown
+      this.forceUpdate()
+    }
   }
 
-  const value = cosmosToReactSelect.value(props.value, options)
-  const styles = cosmosToReactSelect.styles(props)
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll, true)
+  }
 
-  return (
-    <Select.Wrapper {...Automation('select.wrapper')}>
-      <Form.Field.ContextConsumer>
-        {context => (
-          <ReactSelect
-            onChange={options =>
-              props.onChange &&
-              props.onChange({ target: { value: oneOrMore(options), name: props.name } })
-            }
-            isDisabled={props.disabled}
-            isMulti={props.multiple}
-            isSearchable={props.searchable}
-            isLoading={props.loading}
-            menuIsOpen={props.defaultMenuOpen}
-            defaultValue={props.defaultValue}
-            placeholder={props.placeholder}
-            options={options}
-            components={componentOverrides}
-            theme={selectTheme}
-            value={value}
-            styles={styles}
-            id={props.id || context.formFieldId}
-          />
-        )}
-      </Form.Field.ContextConsumer>
-    </Select.Wrapper>
-  )
+  handleScroll() {
+    if (this.state.menuIsOpen) {
+      // Force update for react-select to
+      // re-compute portal dropdown position
+      this.forceUpdate()
+    }
+  }
+
+  updateMenuState(newState) {
+    return () => this.setState({ menuIsOpen: newState })
+  }
+
+  render() {
+    const props = this.props
+    /*
+      select boxes do not support readonly like input boxes,
+      but they do have disabled. we need the style of readOnly input
+      and functionality of select disabled
+    */
+
+    const componentOverrides = {
+      MultiValue: cosmosMultiValueTagRenderer,
+      DropdownIndicator: cosmosDownIndicator,
+      LoadingIndicator: cosmosLoadingIndicator,
+      IndicatorSeparator: () => null
+    }
+
+    let options = cosmosToReactSelect.options(props.options)
+
+    if (props.customOptionRenderer) {
+      componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
+    }
+
+    const value = cosmosToReactSelect.value(props.value, options)
+    const styles = cosmosToReactSelect.styles(props)
+
+    return (
+      <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
+        <Form.Field.ContextConsumer>
+          {context => (
+            <ReactSelect
+              onChange={options =>
+                props.onChange &&
+                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
+              }
+              isDisabled={props.disabled}
+              isMulti={props.multiple}
+              isSearchable={props.searchable}
+              isLoading={props.loading}
+              onMenuOpen={this.updateMenuState(true)}
+              onMenuClose={this.updateMenuState(false)}
+              menuPortalTarget={document.body}
+              menuIsOpen={props.defaultMenuOpen}
+              defaultValue={props.defaultValue}
+              placeholder={props.placeholder}
+              options={options}
+              components={componentOverrides}
+              theme={selectTheme}
+              value={value}
+              styles={styles}
+              id={props.id || context.formFieldId}
+            />
+          )}
+        </Form.Field.ContextConsumer>
+      </Select.Wrapper>
+    )
+  }
 }
 
 Select.Wrapper = styled.div``
