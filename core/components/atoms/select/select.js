@@ -167,6 +167,10 @@ class Select extends React.Component {
 
   render() {
     const props = this.props
+
+    if (props.searchable || props.multiple || props.customOptionRenderer)
+      return <SimpleSelect {...props} />
+
     /*
       select boxes do not support readonly like input boxes,
       but they do have disabled. we need the style of readOnly input
@@ -185,34 +189,30 @@ class Select extends React.Component {
     return (
       <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
-          {context =>
-            props.multiple || props.searchable ? (
-              <ReactSelect
-                onChange={options =>
-                  props.onChange &&
-                  props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
-                }
-                isDisabled={props.disabled}
-                isMulti={props.multiple}
-                isSearchable={props.searchable}
-                isLoading={props.loading}
-                onMenuOpen={this.updateMenuState(true)}
-                onMenuClose={this.updateMenuState(false)}
-                menuPortalTarget={document.body}
-                menuIsOpen={props.defaultMenuOpen}
-                defaultValue={props.defaultValue}
-                placeholder={props.placeholder}
-                options={options}
-                components={componentOverrides}
-                theme={selectTheme}
-                value={value}
-                styles={styles}
-                id={props.id || context.formFieldId}
-              />
-            ) : (
-              <SimpleSelect {...props} />
-            )
-          }
+          {context => (
+            <ReactSelect
+              onChange={options =>
+                props.onChange &&
+                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
+              }
+              isDisabled={props.disabled}
+              isMulti={props.multiple}
+              isSearchable={props.searchable}
+              isLoading={props.loading}
+              onMenuOpen={this.updateMenuState(true)}
+              onMenuClose={this.updateMenuState(false)}
+              menuPortalTarget={document.body}
+              menuIsOpen={props.defaultMenuOpen}
+              defaultValue={props.defaultValue}
+              placeholder={props.placeholder}
+              options={options}
+              components={componentOverrides}
+              theme={selectTheme}
+              value={value}
+              styles={styles}
+              id={props.id || context.formFieldId}
+            />
+          )}
         </Form.Field.ContextConsumer>
       </Select.Wrapper>
     )
