@@ -64,7 +64,7 @@ const cosmosToReactSelect = {
     return options.find(matchValue)
   },
   styles: props => ({
-    menuPortal: provided => ({ ...provided, zIndex: 99 }),
+    menuPortal: provided => ({ ...provided, zIndex: 20 }),
     control: (provided, state) =>
       props.hasError
         ? {
