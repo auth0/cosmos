@@ -358,7 +358,7 @@ storiesOf('Select', module).add('interactive: stressed', () => (
 ))
 
 storiesOf('Select', module).add('dropdown out of dialog', () => (
-  <Example title="Select: stressed - 56 characters with 300px width">
+  <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
     <Dialog open title="This is an example">
       <InteractiveSelect>
         {(value, onChange) => (
@@ -384,5 +384,5 @@ storiesOf('Select', module).add('dropdown out of dialog', () => (
         )}
       </InteractiveSelect>
     </Dialog>
-  </Example>
+  </ExampleForSelect>
 ))
