@@ -6,7 +6,7 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
-
+import SimpleSelect from './simple-select'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import Form from '../../molecules/form'
 
@@ -185,30 +185,34 @@ class Select extends React.Component {
     return (
       <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
-          {context => (
-            <ReactSelect
-              onChange={options =>
-                props.onChange &&
-                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
-              }
-              isDisabled={props.disabled}
-              isMulti={props.multiple}
-              isSearchable={props.searchable}
-              isLoading={props.loading}
-              onMenuOpen={this.updateMenuState(true)}
-              onMenuClose={this.updateMenuState(false)}
-              menuPortalTarget={document.body}
-              menuIsOpen={props.defaultMenuOpen}
-              defaultValue={props.defaultValue}
-              placeholder={props.placeholder}
-              options={options}
-              components={componentOverrides}
-              theme={selectTheme}
-              value={value}
-              styles={styles}
-              id={props.id || context.formFieldId}
-            />
-          )}
+          {context =>
+            props.multiple || props.searchable ? (
+              <ReactSelect
+                onChange={options =>
+                  props.onChange &&
+                  props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
+                }
+                isDisabled={props.disabled}
+                isMulti={props.multiple}
+                isSearchable={props.searchable}
+                isLoading={props.loading}
+                onMenuOpen={this.updateMenuState(true)}
+                onMenuClose={this.updateMenuState(false)}
+                menuPortalTarget={document.body}
+                menuIsOpen={props.defaultMenuOpen}
+                defaultValue={props.defaultValue}
+                placeholder={props.placeholder}
+                options={options}
+                components={componentOverrides}
+                theme={selectTheme}
+                value={value}
+                styles={styles}
+                id={props.id || context.formFieldId}
+              />
+            ) : (
+              <SimpleSelect {...props} />
+            )
+          }
         </Form.Field.ContextConsumer>
       </Select.Wrapper>
     )
