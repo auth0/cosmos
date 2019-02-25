@@ -15,7 +15,7 @@ import {
   RowLayout
 } from '@auth0/cosmos'
 
-storiesOf('Form').add('all the fields', () => (
+storiesOf('Form', module).add('all the fields', () => (
   <Example title="all the fields">
     <RowLayout gutter="spacious">
       <Form>

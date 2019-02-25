@@ -1,6 +1,7 @@
 const unit = 4
 
 const spacing = {
+  unit,
   xxsmall: unit + 'px', // 4
   xsmall: unit * 2 + 'px', // 8
   small: unit * 4 + 'px', // 16

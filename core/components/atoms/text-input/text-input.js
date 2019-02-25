@@ -11,6 +11,7 @@ import { deprecate } from '../../_helpers/custom-validations'
 
 /* Input with actions */
 import InputWithActions from '../_input-with-actions'
+import Form from '../../molecules/form'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 
 const TextInput = props => {
@@ -29,14 +30,27 @@ const TextInput = props => {
     defaultValue = null
   }
 
+  /*
+    the input element can get it's id from multiple sources
+    1. the user might provide it on the element
+    2. if this element is part of a form field, the field will pass one
+
+    the user's id takes preference over the field's
+  */
+
   const Input = (
-    <TextInput.Element
-      {...Automation('text-input')}
-      defaultValue={defaultValue}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      {...restOfTheProps}
-    />
+    <Form.Field.ContextConsumer>
+      {context => (
+        <TextInput.Element
+          {...Automation('text-input')}
+          id={props.id || context.formFieldId}
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          {...restOfTheProps}
+        />
+      )}
+    </Form.Field.ContextConsumer>
   )
 
   if (!props.actions.length) return Input
