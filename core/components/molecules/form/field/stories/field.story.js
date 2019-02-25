@@ -46,13 +46,13 @@ storiesOf('Form').add('all the fields', () => (
         <Form.Field label="Subscribe">
           <Switch on />
         </Form.Field>
-        <Form.Field checkbox label="Agree">
+        <Form.Field label="Agree">
           <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
         </Form.Field>
-        <Form.Field checkbox label="Framework">
+        <Form.Field label="Framework">
           <Checkbox.Group name="example1" selected={['one', 'two']}>
             <Checkbox name="one" value="one">
               Option 1
@@ -114,13 +114,13 @@ storiesOf('Form').add('all the fields', () => (
         <Form.Field label="Subscribe">
           <Switch on />
         </Form.Field>
-        <Form.Field checkbox label="Agree">
+        <Form.Field label="Agree">
           <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
         </Form.Field>
-        <Form.Field checkbox label="Framework">
+        <Form.Field label="Framework">
           <Checkbox.Group name="example1" selected={['one', 'two']}>
             <Checkbox name="one" value="one">
               Option 1

@@ -12,15 +12,28 @@ import StyledError from '../error'
 import HelpText from '../help-text'
 import TextArea from '../../../atoms/textarea'
 import Switch from '../../../atoms/switch'
+import Checkbox from '../../../atoms/checkbox'
+import Radio from '../../../atoms/radio'
 import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape'
 import containerStyles from '../../../_helpers/container-styles'
+
+const shouldFieldUseCheckboxStyle = props => {
+  if (props.checkbox) return true
+  if (props.children) {
+    const children = React.Children.toArray(props.children)
+    const type = children[0].type
+    return type === Checkbox || type === Radio
+  }
+  return false
+}
 
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
   const { error, ...fieldProps } = props
-  const Label = props.checkbox ? Field.CheckboxLabel : StyledLabel
-  const FieldSetWrapper = props.checkbox ? Field.FieldSetElement : React.Fragment
+  const useCheckboxStyle = shouldFieldUseCheckboxStyle(props)
+  const Label = useCheckboxStyle ? Field.CheckboxLabel : StyledLabel
+  const FieldSetWrapper = useCheckboxStyle ? Field.FieldSetElement : React.Fragment
 
   return (
     <FormContext.Consumer>
@@ -30,7 +43,7 @@ const Field = props => {
         // There is a bug due to a browser bug https://github.com/w3c/csswg-drafts/issues/321
         <FieldSetWrapper>
           <Field.Element layout={context.layout} {...Automation('form.field')}>
-            <Field.LabelLayout checkbox={props.checkbox} layout={context.layout}>
+            <Field.LabelLayout checkbox={useCheckboxStyle} layout={context.layout}>
               <Label htmlFor={id}>{props.label}</Label>
             </Field.LabelLayout>
             <Field.ContentLayout layout={context.layout} {...Automation('form.field.content')}>
