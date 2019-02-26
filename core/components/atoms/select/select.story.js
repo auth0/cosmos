@@ -387,6 +387,7 @@ class CustomRendererExample extends React.Component {
         onChange={ev => this.handleChange(ev)}
         placeholder="Select an item..."
         customOptionRenderer={this.renderOption}
+        defaultMenuOpen={this.props.defaultMenuOpen}
         options={[
           {
             label: 'One',
@@ -447,5 +448,13 @@ class CustomRendererExample extends React.Component {
 storiesOf('Select', module).add('custom renderer', () => (
   <ExampleForSelect title="Select: custom renderer">
     <CustomRendererExample />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('custom renderer in dialog', () => (
+  <ExampleForSelect title="Select: custom renderer">
+    <Dialog open title="A dialog example">
+      <CustomRendererExample defaultMenuOpen />
+    </Dialog>
   </ExampleForSelect>
 ))
