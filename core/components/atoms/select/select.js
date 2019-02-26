@@ -196,6 +196,7 @@ class Select extends React.Component {
                 props.onChange &&
                 props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
               }
+              isClearable
               isDisabled={props.disabled}
               isMulti={props.multiple}
               isSearchable={props.searchable}

@@ -341,3 +341,101 @@ storiesOf('Select', module).add('interactive: stressed', () => (
     </div>
   </ExampleForSelect>
 ))
+
+class CustomRendererExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  renderOption(option, { isHovered }) {
+    return (
+      <div
+        style={{
+          padding: '12px 16px',
+          backgroundColor: isHovered ? 'rgba(66, 134, 244, 0.2)' : 'white'
+        }}
+      >
+        <p>
+          <strong>{option.label}</strong>
+        </p>
+        <p>{option.description}</p>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <Select
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
+        customOptionRenderer={this.renderOption}
+        options={[
+          {
+            label: 'One',
+            description: 'This item holds the One number as 1.',
+            value: 1
+          },
+          {
+            label: 'Two',
+            description: 'This item holds the Two number as 2.',
+            value: 2
+          },
+          {
+            label: 'Three',
+            description: 'This item holds the Three number as 3.',
+            value: 3
+          },
+          {
+            label: 'Four',
+            description: 'This item holds the Four number as 4.',
+            value: 4
+          },
+          {
+            label: 'Five',
+            description: 'This item holds the Five number as 5.',
+            value: 5
+          },
+          {
+            label: 'Six',
+            description: 'This item holds the Six number as 6.',
+            value: 6
+          },
+          {
+            label: 'Seven',
+            description: 'This item holds the Seven number as 7.',
+            value: 7
+          },
+          {
+            label: 'Eight',
+            description: 'This item holds the Eight number as 8.',
+            value: 8
+          },
+          {
+            label: 'Nine',
+            description: 'This item holds the Nine number as 9.',
+            value: 9
+          },
+          {
+            label: 'Ten',
+            description: 'This item holds the Ten number as 10.',
+            value: 10
+          }
+        ]}
+      />
+    )
+  }
+}
+
+storiesOf('Select', module).add('custom renderer', () => (
+  <ExampleForSelect title="Select: custom renderer">
+    <CustomRendererExample />
+  </ExampleForSelect>
+))
