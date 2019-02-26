@@ -27,67 +27,67 @@ class InteractiveExample extends React.Component {
     const { selected } = this.state
     return (
       <Navigation>
-        <Navigation.Link
+        <Navigation.Item
           onClick={() => this.select('dashboard')}
           selected={selected === 'dashboard'}
         >
           <Icon name="dashboard" />
-          <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-        </Navigation.Link>
-        <Navigation.Link onClick={() => this.select('clients')} selected={selected === 'clients'}>
+          <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+        </Navigation.Item>
+        <Navigation.Item onClick={() => this.select('clients')} selected={selected === 'clients'}>
           <Icon name="clients" />
-          <Navigation.Link.Text>Applications</Navigation.Link.Text>
-        </Navigation.Link>
-        <Navigation.Link onClick={() => this.select('apis')} selected={selected === 'apis'}>
+          <Navigation.Item.Text>Applications</Navigation.Item.Text>
+        </Navigation.Item>
+        <Navigation.Item onClick={() => this.select('apis')} selected={selected === 'apis'}>
           <Icon name="apis" />
-          <Navigation.Link.Text>APIs</Navigation.Link.Text>
-        </Navigation.Link>
-        <Navigation.Link onClick={() => this.select('sso')} selected={selected === 'sso'}>
+          <Navigation.Item.Text>APIs</Navigation.Item.Text>
+        </Navigation.Item>
+        <Navigation.Item onClick={() => this.select('sso')} selected={selected === 'sso'}>
           <Icon name="sso-integrations" />
-          <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-        </Navigation.Link>
+          <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+        </Navigation.Item>
 
-        <Navigation.Link>
+        <Navigation.Item>
           <Icon name="connections" />
-          <Navigation.Link.Text>Connections</Navigation.Link.Text>
+          <Navigation.Item.Text>Connections</Navigation.Item.Text>
 
-          <Navigation.LinkGroup>
-            <Navigation.Link
+          <Navigation.Subnav>
+            <Navigation.Item
               onClick={() => this.select('database')}
               selected={selected === 'database'}
             >
               <Icon name="arrow-right" />
-              <Navigation.Link.Text>Database</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link onClick={() => this.select('social')} selected={selected === 'social'}>
+              <Navigation.Item.Text>Database</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item onClick={() => this.select('social')} selected={selected === 'social'}>
               <Icon name="arrow-right" />
-              <Navigation.Link.Text>Social</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link
+              <Navigation.Item.Text>Social</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item
               onClick={() => this.select('enterprise')}
               selected={selected === 'enterprise'}
             >
               <Icon name="arrow-right" />
-              <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link
+              <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item
               onClick={() => this.select('passwordless')}
               selected={selected === 'passwordless'}
             >
               <Icon name="arrow-right" />
-              <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-            </Navigation.Link>
-          </Navigation.LinkGroup>
-        </Navigation.Link>
+              <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+            </Navigation.Item>
+          </Navigation.Subnav>
+        </Navigation.Item>
 
-        <Navigation.Link onClick={() => this.select('users')} selected={selected === 'users'}>
+        <Navigation.Item onClick={() => this.select('users')} selected={selected === 'users'}>
           <Icon name="users" />
-          <Navigation.Link.Text>Users</Navigation.Link.Text>
-        </Navigation.Link>
-        <Navigation.Link onClick={() => this.select('rules')} selected={selected === 'rules'}>
+          <Navigation.Item.Text>Users</Navigation.Item.Text>
+        </Navigation.Item>
+        <Navigation.Item onClick={() => this.select('rules')} selected={selected === 'rules'}>
           <Icon name="rules" />
-          <Navigation.Link.Text>Rules</Navigation.Link.Text>
-        </Navigation.Link>
+          <Navigation.Item.Text>Rules</Navigation.Item.Text>
+        </Navigation.Item>
       </Navigation>
     )
   }
@@ -96,53 +96,53 @@ class InteractiveExample extends React.Component {
 storiesOf('Navigation', module).add('default', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Link>
+      <Navigation.Item url="http://google.com/">
         <Icon name="dashboard" />
-        <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="clients" />
-        <Navigation.Link.Text>Applications</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Applications</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="apis" />
-        <Navigation.Link.Text>APIs</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>APIs</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="sso-integrations" />
-        <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="connections" />
-        <Navigation.Link.Text>Connections</Navigation.Link.Text>
+        <Navigation.Item.Text>Connections</Navigation.Item.Text>
 
-        <Navigation.LinkGroup>
-          <Navigation.Link>
+        <Navigation.Subnav>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Database</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Database</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Social</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Social</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-          </Navigation.Link>
-        </Navigation.LinkGroup>
-      </Navigation.Link>
-      <Navigation.Link>
+            <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+          </Navigation.Item>
+        </Navigation.Subnav>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="users" />
-        <Navigation.Link.Text>Users</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Users</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="rules" />
-        <Navigation.Link.Text>Rules</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>Rules</Navigation.Item.Text>
+      </Navigation.Item>
     </Navigation>
   </StyledExample>
 ))
@@ -156,52 +156,53 @@ storiesOf('Navigation', module).add('interactive example', () => (
 storiesOf('Navigation', module).add('selected item', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Link selected>
+      <Navigation.Item selected>
         <Icon name="dashboard" />
-        <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="clients" />
-        <Navigation.Link.Text>Applications</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Applications</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="apis" />
-        <Navigation.Link.Text>APIs</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>APIs</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="sso-integrations" />
-        <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="connections" />
-        <Navigation.Link.Text>Connections</Navigation.Link.Text>
-        <Navigation.LinkGroup>
-          <Navigation.Link>
+        <Navigation.Item.Text>Connections</Navigation.Item.Text>
+
+        <Navigation.Subnav>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Database</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Database</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Social</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Social</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-          </Navigation.Link>
-        </Navigation.LinkGroup>
-      </Navigation.Link>
-      <Navigation.Link>
+            <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+          </Navigation.Item>
+        </Navigation.Subnav>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="users" />
-        <Navigation.Link.Text>Users</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Users</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="rules" />
-        <Navigation.Link.Text>Rules</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>Rules</Navigation.Item.Text>
+      </Navigation.Item>
     </Navigation>
   </StyledExample>
 ))
@@ -209,55 +210,55 @@ storiesOf('Navigation', module).add('selected item', () => (
 storiesOf('Navigation', module).add('open group', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Link>
+      <Navigation.Item>
         <Icon name="dashboard" />
-        <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="clients" />
-        <Navigation.Link.Text>Applications</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Applications</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="apis" />
-        <Navigation.Link.Text>APIs</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>APIs</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="sso-integrations" />
-        <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+      </Navigation.Item>
 
-      <Navigation.Link defaultOpen>
+      <Navigation.Item defaultOpen>
         <Icon name="connections" />
-        <Navigation.Link.Text>Connections</Navigation.Link.Text>
+        <Navigation.Item.Text>Connections</Navigation.Item.Text>
 
-        <Navigation.LinkGroup>
-          <Navigation.Link>
+        <Navigation.Subnav>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Database</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Database</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Social</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Social</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-          </Navigation.Link>
-        </Navigation.LinkGroup>
-      </Navigation.Link>
+            <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+          </Navigation.Item>
+        </Navigation.Subnav>
+      </Navigation.Item>
 
-      <Navigation.Link>
+      <Navigation.Item>
         <Icon name="users" />
-        <Navigation.Link.Text>Users</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Users</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="rules" />
-        <Navigation.Link.Text>Rules</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>Rules</Navigation.Item.Text>
+      </Navigation.Item>
     </Navigation>
   </StyledExample>
 ))
@@ -265,55 +266,55 @@ storiesOf('Navigation', module).add('open group', () => (
 storiesOf('Navigation', module).add('selected sub-item', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Link>
+      <Navigation.Item>
         <Icon name="dashboard" />
-        <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="clients" />
-        <Navigation.Link.Text>Applications</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Applications</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="apis" />
-        <Navigation.Link.Text>APIs</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>APIs</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="sso-integrations" />
-        <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+      </Navigation.Item>
 
-      <Navigation.Link defaultOpen>
+      <Navigation.Item defaultOpen>
         <Icon name="connections" />
-        <Navigation.Link.Text>Connections</Navigation.Link.Text>
+        <Navigation.Item.Text>Connections</Navigation.Item.Text>
 
-        <Navigation.LinkGroup>
-          <Navigation.Link selected>
+        <Navigation.Subnav>
+          <Navigation.Item selected>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Database</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Database</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Social</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Social</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-          </Navigation.Link>
-          <Navigation.Link>
+            <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+          </Navigation.Item>
+          <Navigation.Item>
             <Icon name="arrow-right" />
-            <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-          </Navigation.Link>
-        </Navigation.LinkGroup>
-      </Navigation.Link>
+            <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+          </Navigation.Item>
+        </Navigation.Subnav>
+      </Navigation.Item>
 
-      <Navigation.Link>
+      <Navigation.Item>
         <Icon name="users" />
-        <Navigation.Link.Text>Users</Navigation.Link.Text>
-      </Navigation.Link>
-      <Navigation.Link>
+        <Navigation.Item.Text>Users</Navigation.Item.Text>
+      </Navigation.Item>
+      <Navigation.Item>
         <Icon name="rules" />
-        <Navigation.Link.Text>Rules</Navigation.Link.Text>
-      </Navigation.Link>
+        <Navigation.Item.Text>Rules</Navigation.Item.Text>
+      </Navigation.Item>
     </Navigation>
   </StyledExample>
 ))
@@ -322,61 +323,61 @@ storiesOf('Navigation', module).add('groups and postfix', () => (
   <StyledExample>
     <Navigation>
       <Navigation.Group title="grupo 1">
-        <Navigation.Link>
+        <Navigation.Item>
           <Icon name="dashboard" />
-          <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-        </Navigation.Link>
+          <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+        </Navigation.Item>
 
-        <Navigation.Link defaultOpen>
+        <Navigation.Item defaultOpen>
           <Icon name="arrow-right" />
-          <Navigation.Link.Text>Submenu</Navigation.Link.Text>
-          <Navigation.Link.Postfix>
+          <Navigation.Item.Text>Submenu</Navigation.Item.Text>
+          <Navigation.Item.Postfix>
             <Tooltip content="this is a tooltip test">
               <Label>new</Label>
             </Tooltip>
-          </Navigation.Link.Postfix>
+          </Navigation.Item.Postfix>
 
-          <Navigation.LinkGroup>
-            <Navigation.Link selected>
+          <Navigation.Subnav>
+            <Navigation.Item selected>
               <Icon name="dashboard" />
-              <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link>
+              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item>
               <Icon name="dashboard" />
-              <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link>
+              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item>
               <Icon name="dashboard" />
-              <Navigation.Link.Text>Dashboard</Navigation.Link.Text>
-            </Navigation.Link>
-          </Navigation.LinkGroup>
-        </Navigation.Link>
+              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+            </Navigation.Item>
+          </Navigation.Subnav>
+        </Navigation.Item>
       </Navigation.Group>
       <Navigation.Group title="grupo 2">
-        <Navigation.Link icon="sso-integrations" label="SSO Integrations">
+        <Navigation.Item icon="sso-integrations" label="SSO Integrations">
           <Icon name="sso-integrations" />
-          <Navigation.Link.Text>SSO Integrations</Navigation.Link.Text>
-        </Navigation.Link>
-        <Navigation.Link>
+          <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
+        </Navigation.Item>
+        <Navigation.Item>
           <Icon name="connections" />
-          <Navigation.Link.Text>Connections</Navigation.Link.Text>
-          <Navigation.LinkGroup icon="connections" label="Connections">
-            <Navigation.Link>
-              <Navigation.Link.Text>Database</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link>
-              <Navigation.Link.Text>Social</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link>
-              <Navigation.Link.Text>Enterprise</Navigation.Link.Text>
-            </Navigation.Link>
-            <Navigation.Link>
-              <Navigation.Link.Text>Passwordless</Navigation.Link.Text>
-            </Navigation.Link>
-          </Navigation.LinkGroup>
-        </Navigation.Link>
-        <Navigation.Link icon="users" label="Users" />
-        <Navigation.Link icon="rules" label="Rules" />
+          <Navigation.Item.Text>Connections</Navigation.Item.Text>
+          <Navigation.Subnav icon="connections" label="Connections">
+            <Navigation.Item>
+              <Navigation.Item.Text>Database</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item>
+              <Navigation.Item.Text>Social</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item>
+              <Navigation.Item.Text>Enterprise</Navigation.Item.Text>
+            </Navigation.Item>
+            <Navigation.Item>
+              <Navigation.Item.Text>Passwordless</Navigation.Item.Text>
+            </Navigation.Item>
+          </Navigation.Subnav>
+        </Navigation.Item>
+        <Navigation.Item icon="users" label="Users" />
+        <Navigation.Item icon="rules" label="Rules" />
       </Navigation.Group>
     </Navigation>
   </StyledExample>

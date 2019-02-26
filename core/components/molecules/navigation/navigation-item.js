@@ -6,7 +6,7 @@ import Automation from '../../_helpers/automation-attribute'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import Label from '../../atoms/label'
-import NavigationLinkGroup from './navigation-link-group'
+import NavigationSubnav from './navigation-subnav'
 import { childrenMover } from '../../_helpers/children-mover'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
@@ -45,7 +45,7 @@ const processIcon = (children, selected, inSubMenu) =>
     return child
   })
 
-class NavigationLink extends React.Component {
+class NavigationItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = { subMenuOpen: props.defaultOpen || false }
@@ -66,15 +66,15 @@ class NavigationLink extends React.Component {
     const props = this.props
     const { inSubMenu, children } = props
 
-    const { include, exclude } = childrenMover(NavigationLinkGroup)
+    const { include, exclude } = childrenMover(NavigationSubnav)
     const [navigationItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
 
     const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
     const statefulSubMenu = this.setSubMenuState(subMenu, { open: this.state.subMenuOpen })
 
     return (
-      <NavigationLink.Item>
-        <NavigationLink.Element
+      <NavigationItem.Item>
+        <NavigationItem.Element
           href={props.url}
           onClick={subMenu ? this.toggleSubmenu : props.onClick}
           selected={selected}
@@ -85,23 +85,24 @@ class NavigationLink extends React.Component {
           {...Automation('navigation.link')}
         >
           {processIcon(navigationItem, selected, inSubMenu)}
-        </NavigationLink.Element>
+        </NavigationItem.Element>
 
         {statefulSubMenu}
-      </NavigationLink.Item>
+      </NavigationItem.Item>
     )
   }
 }
 
-NavigationLink.Item = styled.li``
+NavigationItem.Item = styled.li``
 
-NavigationLink.Element = styled.a`
+NavigationItem.Element = styled.a`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
   color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
   font-size: 13px;
   text-decoration: none;
+  word-break: break-word;
   padding-top: ${spacing.xsmall};
   padding-bottom: ${spacing.xsmall};
   &:hover  {
@@ -112,6 +113,7 @@ NavigationLink.Element = styled.a`
   }
   ${Icon.Element} {
     margin-right: ${spacing.xsmall};
+    margin-top: 1px;
   }
   ${Label.Element} {
     /* should we add a new appearance to the label? */
@@ -120,12 +122,13 @@ NavigationLink.Element = styled.a`
   }
 `
 
-NavigationLink.Text = styled.div``
-NavigationLink.Postfix = styled.div`
+NavigationItem.Text = styled.div``
+
+NavigationItem.Postfix = styled.div`
   margin-left: ${spacing.small};
 `
 
-NavigationLink.propTypes = {
+NavigationItem.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOf(__ICONNAMES__),
   onClick: PropTypes.func,
@@ -134,6 +137,6 @@ NavigationLink.propTypes = {
   url: PropTypes.string
 }
 
-NavigationLink.defaultProps = {}
+NavigationItem.defaultProps = {}
 
-export default NavigationLink
+export default NavigationItem

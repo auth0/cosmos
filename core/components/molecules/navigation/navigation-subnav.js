@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
-import NavigationLink from './navigation-link'
+import NavigationItem from './navigation-item'
 
 import { spacing, colors } from '@auth0/cosmos-tokens'
 
@@ -11,21 +11,17 @@ import Automation from '../../_helpers/automation-attribute'
 const passSubMenuPropToChildren = children =>
   React.Children.map(children, el => React.cloneElement(el, { inSubMenu: true }))
 
-const NavigationLinkGroup = props => {
+const NavigationSubnav = props => {
   const { children, open } = props
 
   return (
-    <NavigationLinkGroup.Content
-      {...Automation('navigation.link-group')}
-      open={open}
-      hidden={!open}
-    >
+    <NavigationSubnav.Content {...Automation('navigation.link-group')} open={open} hidden={!open}>
       {passSubMenuPropToChildren(children)}
-    </NavigationLinkGroup.Content>
+    </NavigationSubnav.Content>
   )
 }
 
-NavigationLinkGroup.Content = styled.ul`
+NavigationSubnav.Content = styled.ul`
   flex: 1 0 100%;
   margin-left: calc(18px + ${spacing.xsmall});
   overflow: hidden;
@@ -33,7 +29,7 @@ NavigationLinkGroup.Content = styled.ul`
   visibility: ${props => (props.open ? 'visible' : 'hidden')};
   transition: all 0.3s ease-in-out;
 
-  ${NavigationLink} {
+  ${NavigationItem} {
     a {
       padding-top: ${spacing.xxsmall};
       padding-bottom: ${spacing.xxsmall};
@@ -41,10 +37,10 @@ NavigationLinkGroup.Content = styled.ul`
   }
 `
 
-NavigationLinkGroup.propTypes = {
+NavigationSubnav.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-NavigationLinkGroup.defaultProps = {}
+NavigationSubnav.defaultProps = {}
 
-export default NavigationLinkGroup
+export default NavigationSubnav

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
-import NavigationLink from './navigation-link'
-import NavigationLinkGroup from './navigation-link-group'
+import NavigationItem from './navigation-item'
+import NavigationSubnav from './navigation-subnav'
 import Automation from '../../_helpers/automation-attribute'
 import uniqueId from '../../_helpers/uniqueId'
 import { colors, spacing } from '@auth0/cosmos-tokens'
@@ -49,8 +49,8 @@ Navigation.GroupHeader = styled.h2`
 
 Navigation.List = styled.ul``
 
-Navigation.Link = NavigationLink
-Navigation.LinkGroup = NavigationLinkGroup
+Navigation.Item = NavigationItem
+Navigation.Subnav = NavigationSubnav
 
 Navigation.propTypes = {
   description: PropTypes.string.isRequired
