@@ -6,8 +6,8 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
-
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
+import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
 
 const selectOpacity = {
@@ -117,6 +117,8 @@ const cosmosDownIndicator = ({ innerProps }) => (
 const cosmosLoadingIndicator = () => <Select.Spinner />
 
 const oneOrMore = options => {
+  if (options === null) return null
+
   const transformation = option => option.value
 
   if (options.constructor.name === 'Array') {
@@ -167,6 +169,10 @@ class Select extends React.Component {
 
   render() {
     const props = this.props
+
+    if (!(props.searchable || props.multiple || props.customOptionRenderer))
+      return <SimpleSelect {...props} />
+
     /*
       select boxes do not support readonly like input boxes,
       but they do have disabled. we need the style of readOnly input
@@ -191,6 +197,7 @@ class Select extends React.Component {
                 props.onChange &&
                 props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
               }
+              isClearable
               isDisabled={props.disabled}
               isMulti={props.multiple}
               isSearchable={props.searchable}
@@ -241,6 +248,8 @@ Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object),
   /** Value selected by default */
   value: PropTypes.any,
+  /** Pass hasError to show error state */
+  hasError: PropTypes.bool,
   /** onChange transparently passed to select */
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */
