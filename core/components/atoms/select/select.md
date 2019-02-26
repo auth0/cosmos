@@ -29,17 +29,28 @@
 />
 ```
 
-### Disabled state
+### Disabled options
 
-You disable a select by setting the `disabled` prop:
+You can disable a option by setting it as `disabled`. You can disable the whole select as well.
 
 ```js
-<Select
-  disabled
-  value={1}
-  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-  onChange={event => console.log(event)}
-/>
+<RowLayout>
+  <Select
+    value={1}
+    options={[
+      { text: 'One', value: 1 },
+      { text: 'Two', value: 2 },
+      { text: 'Three is disabled', value: 3, disabled: true }
+    ]}
+    onChange={event => console.log(event)}
+  />
+  <Select
+    disabled
+    value={1}
+    options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+    onChange={event => console.log(event)}
+  />
+</RowLayout>
 ```
 
 ## Single select
@@ -62,7 +73,7 @@ You can make groups of options inside a select:
 
 ```js
 <Select
-  placeholder="Groups"
+  placeholder="Grouped items"
   value={11}
   onChange={event => console.log(event)}
   options={[
@@ -109,7 +120,7 @@ class Example extends React.Component {
         searchable
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Search for an item..."
+        placeholder="Search for a number..."
         options={[
           {
             label: 'One',
@@ -183,7 +194,7 @@ class Example extends React.Component {
         multiple
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Select numbers..."
         options={[
           {
             label: 'One',
@@ -256,7 +267,7 @@ class Example extends React.Component {
         searchable
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Search for multiple numbers..."
         options={[
           {
             label: 'One',
