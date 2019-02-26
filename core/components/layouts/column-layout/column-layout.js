@@ -47,14 +47,14 @@ ColumnLayout.Element = styled.div`
     grid-template-columns: ${props => gridTemplateColumns[props.distribution]};
   }
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 
-ColumnLayout.Item = styled.div`
-  &:empty {
-    display: none;
-  }
-`
+ColumnLayout.Item = styled.div``
 
 ColumnLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */

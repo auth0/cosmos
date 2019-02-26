@@ -31,14 +31,14 @@ GalleryLayout.Element = styled.ul`
   grid-template-columns: ${props => galleryOptions[props.size]};
   grid-gap: ${props => gutterOptions[props.gutter]};
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 
-GalleryLayout.Item = styled.li`
-  &:empty {
-    display: none;
-  }
-`
+GalleryLayout.Item = styled.li``
 
 GalleryLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */

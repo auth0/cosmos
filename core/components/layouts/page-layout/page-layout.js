@@ -16,11 +16,11 @@ PageLayout.Element = styled.div`
   grid-template-columns: 1fr;
   grid-gap: ${spacing.xlarge};
 
-  ${applyMarginReset()};
-
   & > *:empty {
     display: none;
   }
+
+  ${applyMarginReset()};
 `
 
 PageLayout.Header = styled.div``

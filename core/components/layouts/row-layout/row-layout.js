@@ -25,13 +25,14 @@ RowLayout.Element = styled.div`
   grid-template-columns: 1fr;
   grid-gap: ${props => gutterOptions[props.gutter]};
 
-  ${applyMarginReset()};
-`
-RowLayout.Item = styled.div`
-  &:empty {
+  & > *:empty {
     display: none;
   }
+
+  ${applyMarginReset()};
 `
+
+RowLayout.Item = styled.div``
 
 RowLayout.propTypes = {
   /** Regulates the size of the gutter between rows*/
