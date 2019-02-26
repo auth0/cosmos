@@ -51,6 +51,11 @@ StackLayout.Element = styled.div`
   > *:not(:last-child) {
     margin-right: ${props => gutterOptions[props.gutter]};
   }
+
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 
@@ -59,7 +64,6 @@ StackLayout.Item = styled.div`
 
   /* Avoids any component to be larger than it's parent */
   max-width: 100%;
-  }
 `
 
 function spaceItemProp(props, propName) {
