@@ -11,7 +11,7 @@ const Label = styled.div``
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
-  vertical: `margin-bottom: ${spacing.small}`
+  vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
 const Checkbox = props => (

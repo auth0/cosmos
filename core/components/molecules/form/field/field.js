@@ -88,7 +88,7 @@ Field.Element = styled.div`
   ${containerStyles};
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: ${spacing.xxsmall};
+  grid-gap: ${spacing.xsmall};
 
   &:not(:last-child):not(:only-child) {
     margin-bottom: ${spacing.medium};
