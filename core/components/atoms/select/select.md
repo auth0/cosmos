@@ -17,18 +17,21 @@
 />
 ```
 
-By default, the first option will be selected. To override this, you can set `value`
-to match a value from options
+## Examples
+
+### Placeholder text
 
 ```js
 <Select
-  value={2}
+  placeholder="Select an option..."
   options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
   onChange={event => console.log(event)}
 />
 ```
 
-You disable a `<Select>` by setting the `disabled` prop:
+### Disabled state
+
+You disable a select by setting the `disabled` prop:
 
 ```js
 <Select
@@ -39,7 +42,21 @@ You disable a `<Select>` by setting the `disabled` prop:
 />
 ```
 
-## Groups
+## Single select
+
+### Single selected option
+
+When there is no placeholder text, the first option will be selected by default. To override this, you can set `value` to match a value from options.
+
+```js
+<Select
+  value={2}
+  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
+/>
+```
+
+### Single with groups
 
 You can make groups of options inside a select:
 
@@ -69,7 +86,81 @@ You can make groups of options inside a select:
 />
 ```
 
-## Multiple items selection
+### Single searchable option (with Typeahead)
+
+Mark the select as `searchable` in order to be able to type to search through items in the select.
+
+```js
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  render() {
+    return (
+      <Select
+        searchable
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Search for an item..."
+        options={[
+          {
+            label: 'One',
+            value: 1
+          },
+          {
+            label: 'Two',
+            value: 2
+          },
+          {
+            label: 'Three',
+            value: 3
+          },
+          {
+            label: 'Four',
+            value: 4
+          },
+          {
+            label: 'Five',
+            value: 5
+          },
+          {
+            label: 'Six',
+            value: 6
+          },
+          {
+            label: 'Seven',
+            value: 7
+          },
+          {
+            label: 'Eight',
+            value: 8
+          },
+          {
+            label: 'Nine',
+            value: 9
+          },
+          {
+            label: 'Ten',
+            value: 10
+          }
+        ]}
+      />
+    )
+  }
+}
+```
+
+## Select Multiple
+
+### Multiple selected options
 
 You can use the `multiple` prop in order to select more than one item at a time.
 
@@ -141,7 +232,7 @@ class Example extends React.Component {
 }
 ```
 
-## Searchable items (typeahead)
+### Multiple searchable options (with Typeahead)
 
 Mark the select as `searchable` in order to be able to type to search through items in the select.
 
@@ -150,7 +241,7 @@ class Example extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItems: [] }
+    this.state = { selectedItems: [1, 2] }
   }
 
   handleChange(event) {
@@ -214,7 +305,7 @@ class Example extends React.Component {
 }
 ```
 
-## Custom option renderer
+## Select with custom options
 
 You can use the `customOptionRenderer` prop in order to render custom components as options in the select menu.
 
@@ -252,7 +343,7 @@ class Example extends React.Component {
       <Select
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Select a custom item..."
         customOptionRenderer={this.renderOption}
         options={[
           {
