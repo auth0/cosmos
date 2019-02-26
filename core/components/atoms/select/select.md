@@ -169,7 +169,7 @@ class Example extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItems: [] }
+    this.state = { selectedItems: [1, 2] }
   }
 
   handleChange(event) {
@@ -241,7 +241,7 @@ class Example extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItems: [1, 2] }
+    this.state = { selectedItems: [] }
   }
 
   handleChange(event) {
