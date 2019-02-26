@@ -62,7 +62,7 @@ const SimpleSelect = ({ options, ...props }) => {
           >
             {/* First option will be selected if there is no value passed as a prop */}
             {props.placeholder && (
-              <option value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+              <option disabled value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
                 {props.placeholder}
               </option>
             )}
