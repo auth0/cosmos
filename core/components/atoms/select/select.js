@@ -6,7 +6,7 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
-import SimpleSelect from './simple-select'
+import SimpleSelect from './_simple-select'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import Form from '../../molecules/form'
 
