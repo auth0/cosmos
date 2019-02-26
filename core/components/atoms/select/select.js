@@ -170,7 +170,6 @@ class Select extends React.Component {
   render() {
     const props = this.props
 
-    console.log({ props })
     if (!(props.searchable || props.multiple || props.customOptionRenderer))
       return <SimpleSelect {...props} />
 
