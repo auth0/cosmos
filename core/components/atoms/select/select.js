@@ -117,6 +117,8 @@ const cosmosDownIndicator = ({ innerProps }) => (
 const cosmosLoadingIndicator = () => <Select.Spinner />
 
 const oneOrMore = options => {
+  if (options === null) return null
+
   const transformation = option => option.value
 
   if (options.constructor.name === 'Array') {
