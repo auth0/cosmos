@@ -27,7 +27,11 @@ RowLayout.Element = styled.div`
 
   ${applyMarginReset()};
 `
-RowLayout.Item = styled.div``
+RowLayout.Item = styled.div`
+  &:empty {
+    display: none;
+  }
+`
 
 RowLayout.propTypes = {
   /** Regulates the size of the gutter between rows*/

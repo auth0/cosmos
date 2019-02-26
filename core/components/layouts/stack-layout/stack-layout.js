@@ -59,6 +59,8 @@ StackLayout.Item = styled.div`
 
   /* Avoids any component to be larger than it's parent */
   max-width: 100%;
+  &:empty {
+    display: none;
   }
 `
 

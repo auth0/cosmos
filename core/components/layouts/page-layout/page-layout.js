@@ -17,6 +17,10 @@ PageLayout.Element = styled.div`
   grid-gap: ${spacing.xlarge};
 
   ${applyMarginReset()};
+
+  & > *:empty {
+    display: none;
+  }
 `
 
 PageLayout.Header = styled.div``

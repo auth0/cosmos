@@ -50,7 +50,11 @@ ColumnLayout.Element = styled.div`
   ${applyMarginReset()};
 `
 
-ColumnLayout.Item = styled.div``
+ColumnLayout.Item = styled.div`
+  &:empty {
+    display: none;
+  }
+`
 
 ColumnLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */

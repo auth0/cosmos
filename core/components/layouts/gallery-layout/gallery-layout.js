@@ -34,7 +34,11 @@ GalleryLayout.Element = styled.ul`
   ${applyMarginReset()};
 `
 
-GalleryLayout.Item = styled.li``
+GalleryLayout.Item = styled.li`
+  &:empty {
+    display: none;
+  }
+`
 
 GalleryLayout.propTypes = {
   /** Regulates the size of the gutter betwen each column */
