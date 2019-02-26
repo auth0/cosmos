@@ -40,7 +40,7 @@ const renderOption = (option, idx) => {
   )
 }
 
-const Select = ({ options, ...props }) => {
+const SimpleSelect = ({ options, ...props }) => {
   /*
     select boxes do not support readonly like input boxes,
     but they do have disabled. we need the style of readOnly input
@@ -51,25 +51,31 @@ const Select = ({ options, ...props }) => {
   if (shouldUsePlaceholder) props.value = PLACEHOLDER_VALUE
 
   return (
-    <Select.Wrapper>
-      <Select.ArrowIcon name="dropdown-fill" size="14" color="default" />
+    <SimpleSelect.Wrapper>
+      <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Form.Field.ContextConsumer>
         {context => (
-          <Select.Element id={props.id || context.formFieldId} {...Automation('select')} {...props}>
+          <SimpleSelect.Element
+            id={props.id || context.formFieldId}
+            {...Automation('select')}
+            {...props}
+          >
             {/* First option will be selected if there is no value passed as a prop */}
-            <option disabled value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-              {props.placeholder}
-            </option>
+            {props.placeholder && (
+              <option value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+                {props.placeholder}
+              </option>
+            )}
 
             {options.map(renderOption)}
-          </Select.Element>
+          </SimpleSelect.Element>
         )}
       </Form.Field.ContextConsumer>
-    </Select.Wrapper>
+    </SimpleSelect.Wrapper>
   )
 }
 
-Select.Element = styled(StyledInput.withComponent('select'))`
+SimpleSelect.Element = styled(StyledInput.withComponent('select'))`
   appearance: none;
 
   padding-right: ${spacing.large};
@@ -80,13 +86,13 @@ Select.Element = styled(StyledInput.withComponent('select'))`
     props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
 `
 
-Select.Wrapper = styled.div`
+SimpleSelect.Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
 `
 
-Select.ArrowIcon = styled(Icon)`
+SimpleSelect.ArrowIcon = styled(Icon)`
   position: absolute;
   right: 12px;
   pointer-events: none;
@@ -102,7 +108,7 @@ const selectOptionShape = PropTypes.shape({
   disabled: PropTypes.bool
 })
 
-Select.propTypes = {
+SimpleSelect.propTypes = {
   /** Options to render inside select */
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
@@ -123,9 +129,9 @@ Select.propTypes = {
   disabled: PropTypes.bool
 }
 
-Select.defaultProps = {
+SimpleSelect.defaultProps = {
   options: [],
   placeholder: ''
 }
 
-export default Select
+export default SimpleSelect

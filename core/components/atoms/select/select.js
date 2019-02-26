@@ -6,8 +6,8 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
-import SimpleSelect from './_simple-select'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
+import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
 
 const selectOpacity = {
@@ -249,6 +249,8 @@ Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object),
   /** Value selected by default */
   value: PropTypes.any,
+  /** Pass hasError to show error state */
+  hasError: PropTypes.bool,
   /** onChange transparently passed to select */
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */

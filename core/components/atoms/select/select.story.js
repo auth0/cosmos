@@ -18,6 +18,7 @@ class InteractiveSelect extends React.Component {
   }
 
   onChange(event) {
+    console.log('Changing to:', event.target.value)
     this.setState({ value: event.target.value })
   }
 
@@ -32,6 +33,25 @@ storiesOf('Select', module).add('simple', () => (
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
       onChange={event => console.log(event)}
     />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('simple with placeholder', () => (
+  <ExampleForSelect title="Select: with placeholder">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <Select
+          placeholder="Select an option..."
+          value={value}
+          options={[
+            { text: 'One', value: 1 },
+            { text: 'Two', value: 2 },
+            { text: 'Three', value: 3 }
+          ]}
+          onChange={onChange}
+        />
+      )}
+    </InteractiveSelect>
   </ExampleForSelect>
 ))
 
@@ -144,16 +164,6 @@ class SelectWithEmptyString extends React.Component {
 storiesOf('Select', module).add('simple with empty string', () => (
   <ExampleForSelect title="Select: simple">
     <SelectWithEmptyString />
-  </ExampleForSelect>
-))
-
-storiesOf('Select', module).add('with placeholder', () => (
-  <ExampleForSelect title="Select: with placeholder">
-    <Select
-      placeholder="Select an option..."
-      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
-    />
   </ExampleForSelect>
 ))
 
