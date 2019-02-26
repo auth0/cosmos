@@ -1,7 +1,9 @@
 import React from 'react'
 import { Code } from '@auth0/cosmos'
 import { Example } from './story-helpers'
-const ComponentWithContent = () => <p>Something</p>
+import StyledPlaceholder from './story-layout-placeholder'
+
+const ComponentWithContent = () => <StyledPlaceholder />
 const ComponentResolvingToNull = () => null
 
 export const layoutSpacingStoryTest = (LayoutComponent, spacing, otherProps = {}) => (
