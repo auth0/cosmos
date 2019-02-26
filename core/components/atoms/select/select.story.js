@@ -18,6 +18,7 @@ class InteractiveSelect extends React.Component {
   }
 
   onChange(event) {
+    console.log('Changing to:', event.target.value)
     this.setState({ value: event.target.value })
   }
 
@@ -35,17 +36,26 @@ storiesOf('Select', module).add('simple', () => (
   </ExampleForSelect>
 ))
 
-storiesOf('Select', module).add('simple: open', () => (
-  <ExampleForSelect title="Select: simple">
-    <Select
-      defaultMenuOpen
-      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
-    />
+storiesOf('Select', module).add('simple with placeholder', () => (
+  <ExampleForSelect title="Select: with placeholder">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <Select
+          placeholder="Select an option..."
+          value={value}
+          options={[
+            { text: 'One', value: 1 },
+            { text: 'Two', value: 2 },
+            { text: 'Three', value: 3 }
+          ]}
+          onChange={onChange}
+        />
+      )}
+    </InteractiveSelect>
   </ExampleForSelect>
 ))
 
-storiesOf('Select', module).add('hasError', () => (
+storiesOf('Select', module).add('simple with error', () => (
   <ExampleForSelect title="Select: simple">
     <Select
       hasError
@@ -154,21 +164,6 @@ class SelectWithEmptyString extends React.Component {
 storiesOf('Select', module).add('simple with empty string', () => (
   <ExampleForSelect title="Select: simple">
     <SelectWithEmptyString />
-  </ExampleForSelect>
-))
-storiesOf('Select', module).add('simple with empty string: open', () => (
-  <ExampleForSelect title="Select: simple">
-    <SelectWithEmptyString defaultMenuOpen />
-  </ExampleForSelect>
-))
-
-storiesOf('Select', module).add('with placeholder', () => (
-  <ExampleForSelect title="Select: with placeholder">
-    <Select
-      placeholder="Select an option..."
-      options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
-    />
   </ExampleForSelect>
 ))
 
@@ -357,32 +352,109 @@ storiesOf('Select', module).add('interactive: stressed', () => (
   </ExampleForSelect>
 ))
 
-storiesOf('Select', module).add('dropdown out of dialog', () => (
-  <ExampleForSelect title="Select: stressed - 56 characters with 300px width">
-    <Dialog open title="This is an example">
-      <InteractiveSelect>
-        {(value, onChange) => (
-          <Select
-            value={value}
-            onChange={onChange}
-            defaultMenuOpen
-            options={[
-              {
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                value: 1
-              },
-              {
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                value: 2
-              },
-              {
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                value: 3
-              }
-            ]}
-          />
-        )}
-      </InteractiveSelect>
+class CustomRendererExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  renderOption(option, { isHovered }) {
+    return (
+      <div
+        style={{
+          padding: '12px 16px',
+          backgroundColor: isHovered ? 'rgba(66, 134, 244, 0.2)' : 'white'
+        }}
+      >
+        <p>
+          <strong>{option.label}</strong>
+        </p>
+        <p>{option.description}</p>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <Select
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
+        customOptionRenderer={this.renderOption}
+        defaultMenuOpen={this.props.defaultMenuOpen}
+        options={[
+          {
+            label: 'One',
+            description: 'This item holds the One number as 1.',
+            value: 1
+          },
+          {
+            label: 'Two',
+            description: 'This item holds the Two number as 2.',
+            value: 2
+          },
+          {
+            label: 'Three',
+            description: 'This item holds the Three number as 3.',
+            value: 3
+          },
+          {
+            label: 'Four',
+            description: 'This item holds the Four number as 4.',
+            value: 4
+          },
+          {
+            label: 'Five',
+            description: 'This item holds the Five number as 5.',
+            value: 5
+          },
+          {
+            label: 'Six',
+            description: 'This item holds the Six number as 6.',
+            value: 6
+          },
+          {
+            label: 'Seven',
+            description: 'This item holds the Seven number as 7.',
+            value: 7
+          },
+          {
+            label: 'Eight',
+            description: 'This item holds the Eight number as 8.',
+            value: 8
+          },
+          {
+            label: 'Nine',
+            description: 'This item holds the Nine number as 9.',
+            value: 9
+          },
+          {
+            label: 'Ten',
+            description: 'This item holds the Ten number as 10.',
+            value: 10
+          }
+        ]}
+      />
+    )
+  }
+}
+
+storiesOf('Select', module).add('custom renderer', () => (
+  <ExampleForSelect title="Select: custom renderer">
+    <CustomRendererExample />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('custom renderer in dialog', () => (
+  <ExampleForSelect title="Select: custom renderer">
+    <Dialog open title="A dialog example">
+      <CustomRendererExample defaultMenuOpen />
     </Dialog>
   </ExampleForSelect>
 ))

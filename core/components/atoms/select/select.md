@@ -17,8 +17,47 @@
 />
 ```
 
-By default, the first option will be selected. To override this, you can set `value`
-to match a value from options
+## Examples
+
+### Placeholder text
+
+```js
+<Select
+  placeholder="Select an option..."
+  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+  onChange={event => console.log(event)}
+/>
+```
+
+### Disabled options
+
+You can disable a option by setting it as `disabled`. You can disable the whole select as well.
+
+```js
+<RowLayout>
+  <Select
+    value={1}
+    options={[
+      { text: 'One', value: 1 },
+      { text: 'Two', value: 2 },
+      { text: 'Three is disabled', value: 3, disabled: true }
+    ]}
+    onChange={event => console.log(event)}
+  />
+  <Select
+    disabled
+    value={1}
+    options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
+    onChange={event => console.log(event)}
+  />
+</RowLayout>
+```
+
+## Single select
+
+### Single selected option
+
+When there is no placeholder text, the first option will be selected by default. To override this, you can set `value` to match a value from options.
 
 ```js
 <Select
@@ -28,24 +67,13 @@ to match a value from options
 />
 ```
 
-You disable a `<Select>` by setting the `disabled` prop:
-
-```js
-<Select
-  disabled
-  value={1}
-  options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-  onChange={event => console.log(event)}
-/>
-```
-
-## Groups
+### Single with groups
 
 You can make groups of options inside a select:
 
 ```js
 <Select
-  placeholder="Groups"
+  placeholder="Grouped items"
   value={11}
   onChange={event => console.log(event)}
   options={[
@@ -69,9 +97,9 @@ You can make groups of options inside a select:
 />
 ```
 
-## Multiple items selection
+### Single searchable option (with Typeahead)
 
-You can use the `multiple` prop in order to select more than one item at a time.
+Mark the select as `searchable` in order to be able to type to search through items in the select.
 
 ```js
 class Example extends React.Component {
@@ -89,10 +117,10 @@ class Example extends React.Component {
   render() {
     return (
       <Select
-        multiple
+        searchable
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Search for a number..."
         options={[
           {
             label: 'One',
@@ -141,7 +169,81 @@ class Example extends React.Component {
 }
 ```
 
-## Searchable items (typeahead)
+## Select Multiple
+
+### Multiple selected options
+
+You can use the `multiple` prop in order to select more than one item at a time.
+
+```js
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [1, 2] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  render() {
+    return (
+      <Select
+        multiple
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select numbers..."
+        options={[
+          {
+            label: 'One',
+            value: 1
+          },
+          {
+            label: 'Two',
+            value: 2
+          },
+          {
+            label: 'Three',
+            value: 3
+          },
+          {
+            label: 'Four',
+            value: 4
+          },
+          {
+            label: 'Five',
+            value: 5
+          },
+          {
+            label: 'Six',
+            value: 6
+          },
+          {
+            label: 'Seven',
+            value: 7
+          },
+          {
+            label: 'Eight',
+            value: 8
+          },
+          {
+            label: 'Nine',
+            value: 9
+          },
+          {
+            label: 'Ten',
+            value: 10
+          }
+        ]}
+      />
+    )
+  }
+}
+```
+
+### Multiple searchable options (with Typeahead)
 
 Mark the select as `searchable` in order to be able to type to search through items in the select.
 
@@ -165,7 +267,7 @@ class Example extends React.Component {
         searchable
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Search for multiple numbers..."
         options={[
           {
             label: 'One',
@@ -214,7 +316,7 @@ class Example extends React.Component {
 }
 ```
 
-## Custom option renderer
+## Select with custom options
 
 You can use the `customOptionRenderer` prop in order to render custom components as options in the select menu.
 
@@ -252,7 +354,7 @@ class Example extends React.Component {
       <Select
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
-        placeholder="Select an item..."
+        placeholder="Select a custom item..."
         customOptionRenderer={this.renderOption}
         options={[
           {
