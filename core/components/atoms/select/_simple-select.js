@@ -13,7 +13,7 @@ const selectOpacity = {
   disabled: 0.5
 }
 
-const PLACEHOLDER_VALUE = '__select_placeholder'
+const PLACEHOLDER_VALUE = '0'
 
 const valueIsUndefined = value => value === undefined || value === null
 
@@ -57,7 +57,7 @@ const Select = ({ options, ...props }) => {
         {context => (
           <Select.Element id={props.id || context.formFieldId} {...Automation('select')} {...props}>
             {/* First option will be selected if there is no value passed as a prop */}
-            <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+            <option disabled value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
               {props.placeholder}
             </option>
 
