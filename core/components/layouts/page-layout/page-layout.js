@@ -16,6 +16,10 @@ PageLayout.Element = styled.div`
   grid-template-columns: 1fr;
   grid-gap: ${spacing.xlarge};
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 
