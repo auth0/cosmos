@@ -9,7 +9,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-cHGsZl ieQseL"
+      className="sc-ksYbfQ dMBYTI"
       data-cosmos-key="form"
     >
       <Component
@@ -25,7 +25,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-Rmtcm jdcrfw"
+              className="sc-fBuWsC bHuYmJ"
               data-cosmos-key="form.field"
             >
               <styled.div
@@ -33,13 +33,13 @@ exports[`Form Field - old API renders the correct id 1`] = `
                 layout="label-on-left"
               >
                 <div
-                  className="sc-jhAzac hDYBCw"
+                  className="sc-eqIVtm hNZzIz"
                 >
                   <styled.label
                     htmlFor="old_api-2"
                   >
                     <label
-                      className="sc-jlyJG eJEemj"
+                      className="sc-bRBYWo zKDiV"
                       htmlFor="old_api-2"
                     >
                       Old API
@@ -52,7 +52,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                 layout="label-on-left"
               >
                 <div
-                  className="sc-fBuWsC eeihxG"
+                  className="sc-fAjcbJ byigni"
                   data-cosmos-key="form.field.content"
                 >
                   <Component
@@ -70,7 +70,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-Rmtcm jdcrfw"
+                          className="sc-fBuWsC bHuYmJ"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
@@ -78,13 +78,13 @@ exports[`Form Field - old API renders the correct id 1`] = `
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-jhAzac hDYBCw"
+                              className="sc-eqIVtm hNZzIz"
                             >
                               <styled.label
                                 htmlFor="-3"
                               >
                                 <label
-                                  className="sc-jlyJG eJEemj"
+                                  className="sc-bRBYWo zKDiV"
                                   htmlFor="-3"
                                 />
                               </styled.label>
@@ -95,7 +95,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-fBuWsC eeihxG"
+                              className="sc-fAjcbJ byigni"
                               data-cosmos-key="form.field.content"
                             >
                               <TextInput
@@ -182,7 +182,7 @@ exports[`Form Field renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-cHGsZl ieQseL"
+      className="sc-ksYbfQ dMBYTI"
       data-cosmos-key="form"
     >
       <Component
@@ -198,7 +198,7 @@ exports[`Form Field renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-Rmtcm jdcrfw"
+              className="sc-fBuWsC bHuYmJ"
               data-cosmos-key="form.field"
             >
               <styled.div
@@ -206,13 +206,13 @@ exports[`Form Field renders the correct id 1`] = `
                 layout="label-on-left"
               >
                 <div
-                  className="sc-jhAzac hDYBCw"
+                  className="sc-eqIVtm hNZzIz"
                 >
                   <styled.label
                     htmlFor="field_label-1"
                   >
                     <label
-                      className="sc-jlyJG eJEemj"
+                      className="sc-bRBYWo zKDiV"
                       htmlFor="field_label-1"
                     >
                       Field label
@@ -225,7 +225,7 @@ exports[`Form Field renders the correct id 1`] = `
                 layout="label-on-left"
               >
                 <div
-                  className="sc-fBuWsC eeihxG"
+                  className="sc-fAjcbJ byigni"
                   data-cosmos-key="form.field.content"
                 >
                   <TextInput
