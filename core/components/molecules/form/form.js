@@ -24,7 +24,7 @@ const Form = props => (
 )
 
 Form.Element = styled.form`
-  max-width: ${props => (props.fullWidth ? 'auto' : '625px')};
+  max-width: ${props => (props.restricted ? '625px' : 'auto')};
 `
 
 Form.Field = props => <Field {...props} />
@@ -41,8 +41,8 @@ Form.FieldSet = FieldSet
 Form.propTypes = {
   /** Two options for controlling form layout */
   layout: PropTypes.oneOf(['label-on-left', 'label-on-top']),
-  /** Removes the 625px width limits from the form container */
-  fullWidth: PropTypes.bool
+  /** Sets a 625px width limits to the form container */
+  restricted: PropTypes.bool
 }
 
 Form.defaultProps = {
