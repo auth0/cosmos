@@ -47,6 +47,10 @@ ColumnLayout.Element = styled.div`
     grid-template-columns: ${props => gridTemplateColumns[props.distribution]};
   }
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 

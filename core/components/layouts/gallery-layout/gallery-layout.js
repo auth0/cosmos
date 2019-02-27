@@ -31,6 +31,10 @@ GalleryLayout.Element = styled.ul`
   grid-template-columns: ${props => galleryOptions[props.size]};
   grid-gap: ${props => gutterOptions[props.gutter]};
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 

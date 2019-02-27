@@ -13,6 +13,11 @@ import {
   TextInput,
   ButtonGroup
 } from '@auth0/cosmos'
+import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+
+storiesOf('Stack Layout', module).add('Null children check', () =>
+  layoutSpacingStoryTest(StackLayout, 'small')
+)
 
 storiesOf('Stack Layout', module).add('Resource list', () => (
   <Example title="Resource list">
