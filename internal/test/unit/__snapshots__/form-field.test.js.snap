@@ -4,56 +4,55 @@ exports[`Form Field - old API renders the correct id 1`] = `
 <Form
   layout="label-on-left"
 >
-  <styled.form
+  <form
     data-cosmos-key="form"
     layout="label-on-left"
   >
-    <form
-      className="sc-cHGsZl ehVhhc"
-      data-cosmos-key="form"
+    <Component
+      label="Old API"
     >
-      <Component
+      <Form Field
+        error={null}
+        helpText={null}
         label="Old API"
       >
-        <Form Field
-          error={null}
-          helpText={null}
-          label="Old API"
+        <styled.div
+          data-cosmos-key="form.field"
+          layout="label-on-left"
         >
-          <styled.div
+          <div
+            className="sc-fBuWsC uWCJU"
             data-cosmos-key="form.field"
-            layout="label-on-left"
           >
-            <div
-              className="sc-Rmtcm fuEfoQ"
-              data-cosmos-key="form.field"
+            <styled.div
+              layout="label-on-left"
             >
-              <styled.div
-                checkbox={false}
-                layout="label-on-left"
+              <div
+                className="sc-fMiknA brUQCf"
               >
-                <div
-                  className="sc-jhAzac hDYBCw"
+                <styled.label
+                  htmlFor="old_api-2"
                 >
-                  <styled.label
+                  <label
+                    className="sc-bRBYWo hkmFYm"
                     htmlFor="old_api-2"
                   >
-                    <label
-                      className="sc-jlyJG eJEemj"
-                      htmlFor="old_api-2"
-                    >
-                      Old API
-                    </label>
-                  </styled.label>
-                </div>
-              </styled.div>
-              <styled.div
-                data-cosmos-key="form.field.content"
-                layout="label-on-left"
+                    Old API
+                  </label>
+                </styled.label>
+              </div>
+            </styled.div>
+            <styled.div
+              layout="label-on-left"
+            >
+              <div
+                className="sc-dVhcbM etVTlY"
               >
-                <div
-                  className="sc-fBuWsC eeihxG"
-                  data-cosmos-key="form.field.content"
+                <FieldInput
+                  hasError={false}
+                  helpText={null}
+                  id="old_api-2"
+                  label="Old API"
                 >
                   <Component
                     type="text"
@@ -70,52 +69,43 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-Rmtcm fuEfoQ"
+                          className="sc-fBuWsC uWCJU"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
-                            checkbox={false}
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-jhAzac hDYBCw"
+                              className="sc-fMiknA brUQCf"
                             >
                               <styled.label
                                 htmlFor="-3"
                               >
                                 <label
-                                  className="sc-jlyJG eJEemj"
+                                  className="sc-bRBYWo hkmFYm"
                                   htmlFor="-3"
                                 />
                               </styled.label>
                             </div>
                           </styled.div>
                           <styled.div
-                            data-cosmos-key="form.field.content"
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-fBuWsC eeihxG"
-                              data-cosmos-key="form.field.content"
+                              className="sc-dVhcbM etVTlY"
                             >
-                              <TextInput
-                                actions={Array []}
-                                code={false}
-                                error={null}
+                              <FieldInput
+                                Component={[Function]}
                                 fieldComponent={[Function]}
                                 hasError={false}
                                 helpText={null}
                                 id="-3"
                                 label=""
-                                onChange={null}
-                                readOnly={false}
-                                size="default"
                                 type="text"
                               >
-                                <Styled(styled.input)
+                                <TextInput
                                   actions={Array []}
                                   code={false}
-                                  data-cosmos-key="text-input"
                                   error={null}
                                   fieldComponent={[Function]}
                                   hasError={false}
@@ -127,9 +117,8 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   size="default"
                                   type="text"
                                 >
-                                  <styled.input
+                                  <Styled(styled.input)
                                     actions={Array []}
-                                    className="sc-ckVGcZ dQMAUo"
                                     code={false}
                                     data-cosmos-key="text-input"
                                     error={null}
@@ -143,33 +132,50 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                     size="default"
                                     type="text"
                                   >
-                                    <input
-                                      className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
+                                    <styled.input
+                                      actions={Array []}
+                                      className="sc-ckVGcZ dQMAUo"
+                                      code={false}
                                       data-cosmos-key="text-input"
+                                      error={null}
+                                      fieldComponent={[Function]}
+                                      hasError={false}
+                                      helpText={null}
                                       id="-3"
                                       label=""
                                       onChange={null}
                                       readOnly={false}
                                       size="default"
                                       type="text"
-                                    />
-                                  </styled.input>
-                                </Styled(styled.input)>
-                              </TextInput>
+                                    >
+                                      <input
+                                        className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
+                                        data-cosmos-key="text-input"
+                                        id="-3"
+                                        label=""
+                                        onChange={null}
+                                        readOnly={false}
+                                        size="default"
+                                        type="text"
+                                      />
+                                    </styled.input>
+                                  </Styled(styled.input)>
+                                </TextInput>
+                              </FieldInput>
                             </div>
                           </styled.div>
                         </div>
                       </styled.div>
                     </Form Field>
                   </Component>
-                </div>
-              </styled.div>
-            </div>
-          </styled.div>
-        </Form Field>
-      </Component>
-    </form>
-  </styled.form>
+                </FieldInput>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </Form Field>
+    </Component>
+  </form>
 </Form>
 `;
 
@@ -177,56 +183,55 @@ exports[`Form Field renders the correct id 1`] = `
 <Form
   layout="label-on-left"
 >
-  <styled.form
+  <form
     data-cosmos-key="form"
     layout="label-on-left"
   >
-    <form
-      className="sc-cHGsZl ehVhhc"
-      data-cosmos-key="form"
+    <Component
+      label="Field label"
     >
-      <Component
+      <Form Field
+        error={null}
+        helpText={null}
         label="Field label"
       >
-        <Form Field
-          error={null}
-          helpText={null}
-          label="Field label"
+        <styled.div
+          data-cosmos-key="form.field"
+          layout="label-on-left"
         >
-          <styled.div
+          <div
+            className="sc-fBuWsC uWCJU"
             data-cosmos-key="form.field"
-            layout="label-on-left"
           >
-            <div
-              className="sc-Rmtcm fuEfoQ"
-              data-cosmos-key="form.field"
+            <styled.div
+              layout="label-on-left"
             >
-              <styled.div
-                checkbox={false}
-                layout="label-on-left"
+              <div
+                className="sc-fMiknA brUQCf"
               >
-                <div
-                  className="sc-jhAzac hDYBCw"
+                <styled.label
+                  htmlFor="field_label-1"
                 >
-                  <styled.label
+                  <label
+                    className="sc-bRBYWo hkmFYm"
                     htmlFor="field_label-1"
                   >
-                    <label
-                      className="sc-jlyJG eJEemj"
-                      htmlFor="field_label-1"
-                    >
-                      Field label
-                    </label>
-                  </styled.label>
-                </div>
-              </styled.div>
-              <styled.div
-                data-cosmos-key="form.field.content"
-                layout="label-on-left"
+                    Field label
+                  </label>
+                </styled.label>
+              </div>
+            </styled.div>
+            <styled.div
+              layout="label-on-left"
+            >
+              <div
+                className="sc-dVhcbM etVTlY"
               >
-                <div
-                  className="sc-fBuWsC eeihxG"
-                  data-cosmos-key="form.field.content"
+                <FieldInput
+                  hasError={false}
+                  helpText={null}
+                  id="field_label-1"
+                  label="Field label"
                 >
                   <TextInput
                     actions={Array []}
@@ -242,6 +247,7 @@ exports[`Form Field renders the correct id 1`] = `
                       code={false}
                       data-cosmos-key="text-input"
                       error={null}
+                      id="field_label-1"
                       onChange={null}
                       readOnly={false}
                       size="default"
@@ -253,6 +259,7 @@ exports[`Form Field renders the correct id 1`] = `
                         code={false}
                         data-cosmos-key="text-input"
                         error={null}
+                        id="field_label-1"
                         onChange={null}
                         readOnly={false}
                         size="default"
@@ -261,6 +268,7 @@ exports[`Form Field renders the correct id 1`] = `
                         <input
                           className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
                           data-cosmos-key="text-input"
+                          id="field_label-1"
                           onChange={null}
                           readOnly={false}
                           size="default"
@@ -269,13 +277,13 @@ exports[`Form Field renders the correct id 1`] = `
                       </styled.input>
                     </Styled(styled.input)>
                   </TextInput>
-                </div>
-              </styled.div>
-            </div>
-          </styled.div>
-        </Form Field>
-      </Component>
-    </form>
-  </styled.form>
+                </FieldInput>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </Form Field>
+    </Component>
+  </form>
 </Form>
 `;
