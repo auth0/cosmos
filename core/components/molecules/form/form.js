@@ -8,8 +8,6 @@ import TextArea from '../../atoms/textarea'
 import Select from '../../atoms/select'
 import Switch from '../../atoms/switch'
 import Radio from '../../atoms/radio'
-import Checkbox from '../../atoms/checkbox'
-import { spacing } from '@auth0/cosmos-tokens'
 
 import Field from './field'
 import Actions from './actions'
