@@ -22,7 +22,7 @@ const shouldFieldUseCheckboxStyle = props => {
   if (props.children) {
     const children = React.Children.toArray(props.children)
     const type = children[0].type
-    return type === Checkbox || type === Radio
+    return type === Checkbox || type === Radio || type === Checkbox.Group
   }
   return false
 }
