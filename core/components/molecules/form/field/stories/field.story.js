@@ -52,7 +52,7 @@ storiesOf('Form', module).add('all the fields', () => (
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
         </Form.Field>
-        <Form.Field checkbox label="Framework">
+        <Form.Field label="Framework">
           <Checkbox.Group name="example1" selected={['one', 'two']}>
             <Checkbox name="one" value="one">
               Option 1
