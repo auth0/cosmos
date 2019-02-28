@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '@auth0/cosmos'
-import { metadata } from '@auth0/cosmos/meta/metadata.json'
+//import { metadata } from '../../../content/data/metadata.json'
+import metadataContext from '../../templates/metadata-context'
 
 import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
 import Props from './props'
@@ -68,10 +69,6 @@ class Playground extends React.Component {
     super(props)
     const showProps = props.language === 'language-jsx'
 
-    const componentMetadata = metadata.find(
-      component => component.displayName === props.componentName
-    )
-
     const defaultsFromDocs = getDefaultsFromCode(props.code)
     const code = stripDefaultsFromDocs(props.code)
 
@@ -80,7 +77,6 @@ class Playground extends React.Component {
       codeVisible: showProps,
       code,
       defaultsFromDocs,
-      componentMetadata,
     }
   }
   toggleCode() {
@@ -92,6 +88,14 @@ class Playground extends React.Component {
     this.setState({ code: code.replace(' {props}', propString) })
   }
   render() {
+    const componentName = this.props.componentName
+    function getProps(metadata) {
+      const componentMetadata = metadata.find(
+        component => component.displayName === componentName
+      )
+      return JSON.parse(componentMetadata.propString)
+    }
+
     return (
       <Container codeVisible={this.state.codeVisible}>
         <LiveProvider code={this.state.code} scope={Components}>
@@ -114,12 +118,16 @@ class Playground extends React.Component {
           {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
         </CodeToggle>
         {this.state.showProps && (
-          <Props
-            propData={this.state.componentMetadata.props}
-            code={this.state.code}
-            defaultsFromDocs={this.state.defaultsFromDocs}
-            onPropsChange={this.onPropsChange.bind(this)}
-          />
+          <metadataContext.Consumer>
+            {metadata => (
+              <Props
+                propData={getProps(metadata)}
+                code={this.state.code}
+                defaultsFromDocs={this.state.defaultsFromDocs}
+                onPropsChange={this.onPropsChange.bind(this)}
+              />
+            )}
+          </metadataContext.Consumer>
         )}
       </Container>
     )

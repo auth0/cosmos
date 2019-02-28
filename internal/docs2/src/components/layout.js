@@ -13,7 +13,7 @@ import Sidebar from './sidebar'
 
 // import './layout.css'
 
-const Layout = ({ children, componentName }) => (
+const Layout = ({ children, componentName, metadata }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

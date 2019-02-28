@@ -12,10 +12,12 @@ category: Forms
 
 ## Examples
 
+<Demo for="Button"/>
+
 ### Basic button
 
 ```jsx
-<Button>Save</Button>
+<Button {props}>Save</Button>
 ```
 
 ### Button appearance

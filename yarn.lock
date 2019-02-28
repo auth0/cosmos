@@ -7644,7 +7644,7 @@ gatsby-source-filesystem@^2.0.8:
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-gatsby-transformer-json@^2.1.7:
+gatsby-transformer-json@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-2.1.8.tgz#bc424941f0bd72b05f80b1449f6e14e5de0e02c8"
   integrity sha512-iFb+dXL4Q6dlnpxEJxWPZUxRZqh5ETg9V3WaclGGpFpv/QbabPIe+qEvcYPsbRPqcFgoLgKorNkDVPgmbrT7rg==

@@ -82,6 +82,8 @@ const run = () => {
               prop.type.raw = prop.type.raw.replace('.isRequired', '')
             }
           })
+
+          data.propString = JSON.stringify(data.props)
         }
 
         /* add filepath to metadata */
@@ -153,6 +155,14 @@ const run = () => {
     JSON.stringify({ metadata }, null, 2),
     'utf8'
   )
+
+  fs.writeFileSync(
+    'internal/docs2/content/data/metadata.json',
+    JSON.stringify({ metadata }, null, 2),
+    'utf8'
+  )
+
+  // Write all components mds to Gatsby docs
 
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format

@@ -310,7 +310,7 @@ Button.propTypes = {
   /** Successful state when action is completed successfuly */
   success: PropTypes.bool,
 
-  /** Type of button */
+  /** Type of buttons */
   type: PropTypes.oneOf(['submit', 'button', 'reset']),
 
   /** Handler to be called when the button is clicked */

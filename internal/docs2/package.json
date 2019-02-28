@@ -20,7 +20,7 @@
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-filesystem": "^2.0.8",
-    "gatsby-transformer-json": "^2.1.7",
+    "gatsby-transformer-json": "^2.1.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "gatsby-transformer-yaml": "^2.1.7",
     "prop-types": "^15.6.2",
