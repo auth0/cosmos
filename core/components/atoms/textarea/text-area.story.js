@@ -51,3 +51,12 @@ storiesOf('TextArea').add('with actions as buttons', () => (
     />
   </Example>
 ))
+
+storiesOf('TextArea').add('with a copy action', () => (
+  <Example title="with a copy action">
+    <TextArea
+      placeholder="Small text area"
+      actions={[<Button icon="copy" onClick={e => console.log(e)} />]}
+    />
+  </Example>
+))

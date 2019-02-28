@@ -6,7 +6,7 @@ import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 
 import Heading from '../../atoms/heading'
-import Description, { StyledParagraph } from './description'
+import Description from './description'
 
 import Button from '../../atoms/button'
 import ButtonGroup from '../../molecules/button-group'
@@ -80,7 +80,7 @@ PageHeader.displayName = 'Page Header'
 
 PageHeader.propTypes = {
   /** Page title of the section */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   /** Description to give more information to the user */
   description: PropTypes.oneOfType([
     PropTypes.shape({

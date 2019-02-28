@@ -21,14 +21,13 @@ let warning = 0
 fs.ensureDirSync('core/components/meta')
 
 /* Get list of js and md files from atoms and molecules */
-const javascriptFiles = glob.sync('core/components/+(atoms|molecules)/**/*.js')
-let markdownFiles = glob.sync('core/components/+(atoms|molecules)/**/*.md')
+const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.js')
+let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.md')
 
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.js')) // ignore story files
-    .filter(path => !path.includes('sketch.js')) // ignore sketch files
     .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
     .map(path => {
       try {
