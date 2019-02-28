@@ -116,22 +116,6 @@ storiesOf('Avatar').add('with images', () => (
         </CodeBlock>
       </ListItem>
       <ListItem>
-        <Code>component.sketch.js</Code>
-        <Text>Story that are converted into sketch symbols</Text>
-        <CodeBlock language="javascript">
-          {`
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-
-import { Avatar } from '@auth0/cosmos'
-
-storiesOf('Avatar', module).add('small', () => (
-<Avatar size="small" image="https://cdn.auth0.com/logo.svg" />
-))
-        `}
-        </CodeBlock>
-      </ListItem>
-      <ListItem>
         <Text>+ you can add as many files as you need</Text>
       </ListItem>
     </List>

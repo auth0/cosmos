@@ -9,12 +9,14 @@ storiesOf('Form', module).add('select field', () => (
     <Form>
       <Form.Field label="Options list">
         <Select
+          value={1}
           options={[
-            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'First option', value: '1' },
             { text: 'Second option', value: '2' },
             { text: 'Third option', value: '3' },
             { text: 'Fourth option', value: '4' }
           ]}
+          onChange={event => console.log(event)}
         />
       </Form.Field>
     </Form>
@@ -27,12 +29,14 @@ storiesOf('Form', module).add('select field + error', () => (
       <Form.Field label="Options list" error="Everything is broken">
         <Select
           hasError={true}
+          value={1}
           options={[
-            { text: 'First option', value: '1', defaultSelected: true },
+            { text: 'First option', value: '1' },
             { text: 'Second option', value: '2' },
             { text: 'Third option', value: '3' },
             { text: 'Fourth option', value: '4' }
           ]}
+          onChange={event => console.log(event)}
         />
       </Form.Field>
     </Form>
@@ -45,12 +49,14 @@ storiesOf('Form', module).add('select field - old API', () => (
       <Form.Select
         label="Options list"
         error="Everything is broken"
+        value={1}
         options={[
-          { text: 'First option', value: '1', defaultSelected: true },
+          { text: 'First option', value: '1' },
           { text: 'Second option', value: '2' },
           { text: 'Third option', value: '3' },
           { text: 'Fourth option', value: '4' }
         ]}
+        onChange={event => console.log(event)}
       />
     </Form>
   </Example>

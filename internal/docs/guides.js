@@ -4,6 +4,7 @@ import ContributionGuide from './pages/contribution-guide'
 import FAQS from './pages/faqs'
 import Changes from './pages/changes'
 import AutomationGlossary from './pages/automation-glossary'
+import MigrationGuide from './pages/migration-guide'
 
 const guides = [
   { path: '/', title: 'Getting started' },
@@ -12,7 +13,8 @@ const guides = [
   { path: '/faqs', title: 'FAQs', component: FAQS },
   { path: '/changes', title: 'Changelog', component: Changes },
   { path: '/automation', title: 'Automation Glossary', component: AutomationGlossary },
-  { path: '/contribution-guide', title: 'Contributing to Cosmos', component: ContributionGuide }
+  { path: '/contribution-guide', title: 'Contributing to Cosmos', component: ContributionGuide },
+  { path: '/migration-guide', title: 'Migration Guide', component: MigrationGuide }
 ]
 
 export default guides

@@ -4,6 +4,7 @@ import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
+import Form from '../../molecules/form'
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -14,17 +15,22 @@ const justifyContent = {
 }
 
 const Checkbox = props => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')} {...props}>
-    <input
-      type="checkbox"
-      name={props.name}
-      value={props.value}
-      checked={props.checked}
-      defaultChecked={props.defaultChecked}
-      onChange={props.onChange}
-      readOnly
-      {...Automation('checkbox.input')}
-    />
+  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
+    <Form.Field.ContextConsumer>
+      {context => (
+        <input
+          id={props.id || context.formFieldId}
+          type="checkbox"
+          name={props.name}
+          value={props.value}
+          checked={props.checked}
+          defaultChecked={props.defaultChecked}
+          onChange={props.onChange}
+          readOnly
+          {...Automation('checkbox.input')}
+        />
+      )}
+    </Form.Field.ContextConsumer>
     <CheckMark />
     <Label>{props.children}</Label>
   </Checkbox.Option>
@@ -63,12 +69,10 @@ Checkbox.Option = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
-    border: 1px solid
-      ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
-    box-shadow: inset 0 1px 2px 0
-      ${props => (props.readOnly ? colors.radio.shadowDisabled : colors.radio.shadow)};
+    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    background-color: ${colors.radio.background};
+    border: 1px solid ${colors.radio.border};
+    box-shadow: inset 0 1px 2px 0 ${colors.radio.shadow};
     border-radius: 2px;
   }
 

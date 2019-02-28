@@ -8,14 +8,29 @@ import Automation from '../../_helpers/automation-attribute'
 class SidebarLinkGroup extends React.Component {
   constructor(props) {
     super(props)
-    let open = false
 
-    /* If a child is selected, group should be open */
+    this.state = { open: props.defaultOpen || false, subItemSelected: false }
+    this.evaluateSubItemSelection(props, { mounted: false })
+  }
+
+  evaluateSubItemSelection(props, { mounted }) {
+    let subItemSelected = false
     React.Children.forEach(props.children, child => {
-      if (child && child.props && child.props.selected) open = true
+      /* group should be open and parent be selected */
+      if (child && child.props && child.props.selected) subItemSelected = true
     })
 
-    this.state = { open }
+    if (this.state.subItemSelected !== subItemSelected) {
+      if (mounted) {
+        this.setState({ subItemSelected })
+      } else {
+        this.state.subItemSelected = subItemSelected
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    this.evaluateSubItemSelection(this.props, { mounted: true })
   }
 
   handleClick = () => {
@@ -24,11 +39,19 @@ class SidebarLinkGroup extends React.Component {
 
   render() {
     const { icon, label, children } = this.props
-    const { open } = this.state
+    const { open, subItemSelected } = this.state
+
     return (
       <SidebarLinkGroup.Element {...Automation('sidebar.group')} {...this.props}>
-        <SidebarLink icon={icon} label={label} onClick={this.handleClick} />
-        <SidebarLinkGroup.Content open={open}>{children}</SidebarLinkGroup.Content>
+        <SidebarLink
+          icon={icon}
+          label={label}
+          onClick={this.handleClick}
+          selected={subItemSelected}
+        />
+        <SidebarLinkGroup.Content open={subItemSelected || open}>
+          {children}
+        </SidebarLinkGroup.Content>
       </SidebarLinkGroup.Element>
     )
   }
