@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import * as Components from '@auth0/cosmos'
+import { metadata } from '@auth0/cosmos/meta/metadata.json'
 
 import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
 import Props from './props'
@@ -67,6 +68,10 @@ class Playground extends React.Component {
     super(props)
     const showProps = props.language === 'language-jsx'
 
+    const componentMetadata = metadata.find(
+      component => component.displayName === props.componentName
+    )
+
     const defaultsFromDocs = getDefaultsFromCode(props.code)
     const code = stripDefaultsFromDocs(props.code)
 
@@ -75,6 +80,7 @@ class Playground extends React.Component {
       codeVisible: showProps,
       code,
       defaultsFromDocs,
+      componentMetadata,
     }
   }
   toggleCode() {
@@ -109,7 +115,7 @@ class Playground extends React.Component {
         </CodeToggle>
         {this.state.showProps && (
           <Props
-            propData={this.props.component.props}
+            propData={this.state.componentMetadata.props}
             code={this.state.code}
             defaultsFromDocs={this.state.defaultsFromDocs}
             onPropsChange={this.onPropsChange.bind(this)}

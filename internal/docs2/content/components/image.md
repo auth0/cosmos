@@ -1,5 +1,6 @@
 ---
 title: Image
+componentName: Image
 category: Images
 description: Displays different types of images.
 status: experimental

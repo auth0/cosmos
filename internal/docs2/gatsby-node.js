@@ -1,6 +1,5 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
-const metadata = require('@auth0/cosmos/meta/metadata.json')
 
 // gatsby-node.js
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -11,19 +10,11 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
-function getComponentMetadata(componentName) {
-  return JSON.stringify(
-    metadata.metadata.find(component => component.displayName === componentName)
-  )
-}
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
-
-    const metadata = getComponentMetadata(node.frontmatter.componentName)
 
     createNodeField({
       name: 'slug',
@@ -34,11 +25,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'template',
       node,
       value: node.frontmatter.template,
-    })
-    createNodeField({
-      name: 'metadata',
-      node,
-      value: metadata,
     })
   }
 }
@@ -58,7 +44,6 @@ exports.createPages = ({ graphql, actions }) => {
                   fields {
                     slug
                     template
-                    metadata
                   }
                   frontmatter {
                     template
@@ -107,7 +92,6 @@ exports.createPages = ({ graphql, actions }) => {
               context: {
                 id: node.id,
                 slug: node.slug,
-                metadata: node.metadata,
               },
             })
           }

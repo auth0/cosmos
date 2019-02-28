@@ -7,7 +7,7 @@ import { Heading, Label } from '@auth0/cosmos'
 
 export default ({ data: { mdx } }) => {
   return (
-    <Layout metadata={JSON.parse(mdx.fields.metadata)}>
+    <Layout componentName={mdx.frontmatter.componentName}>
       <Heading size={1}>{mdx.frontmatter.title}</Heading>
 
       <p>{mdx.frontmatter.description}</p>
@@ -22,10 +22,10 @@ export const pageQuery = graphql`
       id
       fields {
         slug
-        metadata
       }
       frontmatter {
         title
+        componentName
         description
         status
       }

@@ -1,5 +1,6 @@
 ---
 title: Button
+componentName: Button
 category: Forms
 ---
 

@@ -13,7 +13,7 @@ import Sidebar from './sidebar'
 
 // import './layout.css'
 
-const Layout = ({ children, metadata }) => (
+const Layout = ({ children, componentName }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -29,6 +29,7 @@ const Layout = ({ children, metadata }) => (
         <SiteMetadata />
         <Header siteTitle={data.site.siteMetadata.title} />
         <Sidebar />
+
         <MDXProvider
           components={{
             // Map HTML element tag to React component
@@ -40,7 +41,6 @@ const Layout = ({ children, metadata }) => (
             p: Paragraph,
             code: props => {
               const language = props.className
-              console.log(metadata)
 
               if (!language) return <Code>{props.children}</Code>
               else if (['language-js', 'language-jsx'].includes(language)) {
@@ -49,7 +49,7 @@ const Layout = ({ children, metadata }) => (
                     <Playground
                       code={props.children}
                       language={language}
-                      component={metadata}
+                      componentName={componentName}
                     />
                   </div>
                 )
