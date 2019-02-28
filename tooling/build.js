@@ -41,7 +41,7 @@ directories.forEach(directory => {
 })
 info('BUILD', 'Copied files to dist')
 
-const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
+const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js')
 
 /* transpile components */
 try {
