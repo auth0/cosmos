@@ -8,6 +8,6 @@ const StyledHelpText = styled.p`
   color: ${colors.text.secondary};
 `
 
-const HelpText = props => <StyledHelpText>{props.children}</StyledHelpText>
+const HelpText = props => <StyledHelpText id={props.id}>{props.children}</StyledHelpText>
 
 export default HelpText

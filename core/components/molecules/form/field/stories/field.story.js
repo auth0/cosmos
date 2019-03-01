@@ -31,7 +31,7 @@ storiesOf('Form', module).add('all the fields', () => (
           helpText="How tall are you?"
           error="Show only in the first field"
         >
-          <TextArea hasError placeholder="Add a lot of text here" />
+          <TextArea hasError id="custom-id" placeholder="Add a lot of text here" />
         </Form.Field>
         <Form.Field label="Options list">
           <Select

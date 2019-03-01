@@ -60,11 +60,19 @@ const applyAriaToFieldChild = (child, inputId, helperTextId, errorTextId) =>
     ...ariaDescribedBy(helperTextId, errorTextId)
   })
 
-const getIdFromChild = children => React.Children.only(children).props.id
+const getIdFromChild = child => child.props.id
+
+const getIdFromChildren = rawChildren => {
+  const children = React.Children.toArray(rawChildren)
+  if (children.length === 0) {
+    return null
+  }
+  return getIdFromChild(children[0])
+}
 
 const Field = props => {
   /* Get unique id for label */
-  let id = getIdFromChild(props.children) || uniqueId(props.label)
+  let id = getIdFromChildren(props.children) || uniqueId(props.label)
   const { error, htmlFor, ...fieldProps } = props
   const useCheckboxStyle = shouldFieldUseCheckboxStyle(props)
   const Label = useCheckboxStyle ? Field.CheckboxLabel : StyledLabel
