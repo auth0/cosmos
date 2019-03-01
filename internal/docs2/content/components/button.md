@@ -8,7 +8,7 @@ category: Forms
 
 ## Examples
 
-<Demo component="Button"/>
+<Demo of="Button"/>
 
 ### Basic button
 

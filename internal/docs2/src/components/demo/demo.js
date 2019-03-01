@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Demo = props => (
   <metadataContext.Consumer>
     {metadata => {
-      const component = metadata.find(c => c.displayName === props.component)
+      const component = metadata.find(c => c.displayName === props.of)
 
       return (
         <Wrapper>
