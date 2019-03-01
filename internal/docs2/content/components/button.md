@@ -6,10 +6,6 @@ category: Forms
 
 `import { Button } from '@auth0/cosmos'`
 
-```
-<Button {props}>Button</Button>
-```
-
 ## Examples
 
 <Demo component="Button"/>

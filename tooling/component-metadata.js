@@ -156,6 +156,7 @@ const run = () => {
     'utf8'
   )
 
+  // Make a copy of the metadata to Gatsby docs
   fs.writeFileSync(
     'internal/docs2/content/data/metadata.json',
     JSON.stringify({ metadata }, null, 2),
