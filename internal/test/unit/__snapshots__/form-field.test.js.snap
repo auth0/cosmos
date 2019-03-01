@@ -83,11 +83,11 @@ exports[`Form Field - old API renders the correct id 1`] = `
                               className="sc-eqIVtm hNZzIz"
                             >
                               <styled.label
-                                htmlFor="old_api-2"
+                                htmlFor="-3"
                               >
                                 <label
                                   className="sc-bRBYWo zKDiV"
-                                  htmlFor="old_api-2"
+                                  htmlFor="-3"
                                 />
                               </styled.label>
                             </div>
