@@ -2,125 +2,274 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import Icon from '../icon'
+import Tag from '../tag'
+import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
-
+import ReactSelect, { defaultTheme } from 'react-select'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
-import { StyledInput } from '../_styled-input'
+import SimpleSelect from '../_simple-select'
+import Form from '../../molecules/form'
 
 const selectOpacity = {
   default: 1,
   disabled: 0.5
 }
 
-const PLACEHOLDER_VALUE = '__select_placeholder'
+const selectTheme = {
+  ...defaultTheme,
+  colors: {
+    ...defaultTheme.colors,
+    danger: colors.input.borderError,
+    primary: colors.input.borderFocus
+  },
+  borderRadius: misc.radius,
+  spacing: {
+    menuGutter: 4,
+    baseUnit: spacing.unit,
+    controlHeight: misc.input.default.height
+  }
+}
 
-const valueIsUndefined = value => value === undefined || value === null
+const cosmosToReactSelect = {
+  options: cosmosOptions =>
+    cosmosOptions.map(({ items, groupName, disabled, label, text, ...otherProperties }) => ({
+      isDisabled: disabled,
+      label: groupName || label || text,
+      options: items ? cosmosToReactSelect.options(items) : undefined,
+      ...otherProperties
+    })),
+  value: (valueProp, options) => {
+    if (valueProp === null || typeof valueProp === 'undefined') return null
 
-const isGroup = option => option.groupName && option.items
-const renderOption = (option, idx) => {
-  if (isGroup(option)) {
-    return (
-      <optgroup key={idx} label={option.groupName} {...Automation('select.optgroup')}>
-        {option.items.map(renderOption)}
-      </optgroup>
-    )
+    if (valueProp.constructor.name === 'Array') {
+      return valueProp.map(item => cosmosToReactSelect.value(item, options))
+    }
+
+    const matchValue = option => option.value === valueProp
+
+    let valueFound = null
+
+    options.forEach(option => {
+      if (option.options && option.options.constructor.name === 'Array') {
+        option.options.forEach(subOption => {
+          if (matchValue(subOption)) {
+            valueFound = subOption
+          }
+        })
+      }
+    })
+
+    if (valueFound !== null) return valueFound
+
+    return options.find(matchValue)
+  },
+  styles: props => ({
+    menuPortal: provided => ({ ...provided, zIndex: 20 }),
+    control: (provided, state) =>
+      props.hasError
+        ? {
+            ...provided,
+            borderColor: colors.input.borderError,
+            boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
+            '&:hover': {
+              borderColor: colors.input.borderError
+            },
+            '&:focus': {
+              borderColor: colors.input.borderError,
+              boxShadow: `0 0 0 2px ${colors.input.borderError}`
+            }
+          }
+        : provided
+  })
+}
+
+const customOptionRenderer = providedRenderer => optionProps => {
+  const { innerProps, innerRef, data } = optionProps
+  const ifDisabled = (disabledValue, enabledValue) =>
+    data.isDisabled ? disabledValue : enabledValue
+
+  const state = { isHovered: optionProps.isFocused }
+  const opacity = selectOpacity[ifDisabled('disabled', 'default')]
+  const cursor = ifDisabled('no-drop', 'pointer')
+
+  const style = { width: '100%', opacity, cursor }
+
+  return (
+    <div ref={innerRef} {...innerProps} style={style}>
+      {providedRenderer(data, state)}
+    </div>
+  )
+}
+
+const cosmosMultiValueTagRenderer = optionProps => {
+  const { innerProps, removeProps, innerRef, data } = optionProps
+  return (
+    <Select.Tag {...innerProps} ref={innerRef} onRemove={removeProps.onClick}>
+      {data.label}
+    </Select.Tag>
+  )
+}
+
+const cosmosDownIndicator = ({ innerProps }) => (
+  <Select.ArrowIcon {...innerProps} name="dropdown-fill" size="14" color="default" />
+)
+
+const cosmosLoadingIndicator = () => <Select.Spinner />
+
+const oneOrMore = options => {
+  if (options === null) return null
+
+  const transformation = option => option.value
+
+  if (options.constructor.name === 'Array') {
+    return options.map(transformation)
+  }
+  return transformation(options)
+}
+
+const componentOverrides = {
+  MultiValue: cosmosMultiValueTagRenderer,
+  DropdownIndicator: cosmosDownIndicator,
+  LoadingIndicator: cosmosLoadingIndicator,
+  IndicatorSeparator: () => null
+}
+
+class Select extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { menuIsOpen: props.defaultMenuOpen || false }
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
-  return (
-    <option
-      key={idx}
-      value={option.value}
-      readOnly={option.disabled}
-      disabled={option.disabled}
-      {...Automation('select.option')}
-    >
-      {option.text}
-    </option>
-  )
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleScroll, true)
+
+    if (this.props.defaultMenuOpen) {
+      // If `defaultMenuOpen` is passed (only for testing)
+      // force react-select to render portal for dropdown
+      this.forceUpdate()
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleScroll, true)
+  }
+
+  handleScroll() {
+    if (this.state.menuIsOpen) {
+      // Force update for react-select to
+      // re-compute portal dropdown position
+      this.forceUpdate()
+    }
+  }
+
+  updateMenuState(newState) {
+    return () => this.setState({ menuIsOpen: newState })
+  }
+
+  render() {
+    const props = this.props
+
+    if (!(props.searchable || props.multiple || props.customOptionRenderer))
+      return <SimpleSelect {...props} />
+
+    /*
+      select boxes do not support readonly like input boxes,
+      but they do have disabled. we need the style of readOnly input
+      and functionality of select disabled
+    */
+
+    let options = cosmosToReactSelect.options(props.options)
+
+    if (props.customOptionRenderer) {
+      componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
+    }
+
+    const value = cosmosToReactSelect.value(props.value, options)
+    const styles = cosmosToReactSelect.styles(props)
+
+    return (
+      <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
+        <Form.Field.ContextConsumer>
+          {context => (
+            <ReactSelect
+              onChange={options =>
+                props.onChange &&
+                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
+              }
+              isClearable
+              isDisabled={props.disabled}
+              isMulti={props.multiple}
+              isSearchable={props.searchable}
+              isLoading={props.loading}
+              onMenuOpen={this.updateMenuState(true)}
+              onMenuClose={this.updateMenuState(false)}
+              menuPortalTarget={document.body}
+              menuIsOpen={props.defaultMenuOpen}
+              defaultValue={props.defaultValue}
+              placeholder={props.placeholder}
+              options={options}
+              components={componentOverrides}
+              theme={selectTheme}
+              value={value}
+              styles={styles}
+              id={props.id || context.formFieldId}
+            />
+          )}
+        </Form.Field.ContextConsumer>
+      </Select.Wrapper>
+    )
+  }
 }
 
-const Select = ({ options, ...props }) => {
-  /*
-    select boxes do not support readonly like input boxes,
-    but they do have disabled. we need the style of readOnly input
-    and functionality of select disabled
-  */
-
-  const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue)
-  if (shouldUsePlaceholder) props.value = PLACEHOLDER_VALUE
-
-  return (
-    <Select.Wrapper>
-      <Select.ArrowIcon name="dropdown-fill" size="14" color="default" />
-      <Select.Element {...props} {...Automation('select')}>
-        {/* First option will be selected if there is no value passed as a prop */}
-        <option disabled hidden value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
-          {props.placeholder}
-        </option>
-
-        {options.map(renderOption)}
-      </Select.Element>
-    </Select.Wrapper>
-  )
-}
-
-Select.Element = styled(StyledInput.withComponent('select'))`
-  appearance: none;
-
-  padding-right: ${spacing.large};
-
-  height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
-    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
-`
-
-Select.Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-`
+Select.Wrapper = styled.div``
 
 Select.ArrowIcon = styled(Icon)`
-  position: absolute;
-  right: 12px;
   pointer-events: none;
+  margin-right: ${spacing.unit * 3}px;
 
   svg {
     display: block;
   }
 `
 
-const selectOptionShape = PropTypes.shape({
-  text: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
-  disabled: PropTypes.bool
-})
+Select.Spinner = styled(Spinner)`
+  margin-right: ${spacing.xsmall};
+`
+
+Select.Tag = styled(Tag)`
+  margin-top: calc(${spacing.xxsmall} / 2);
+  margin-bottom: calc(${spacing.xxsmall} / 2);
+  margin-right: ${spacing.xxsmall};
+`
 
 Select.propTypes = {
   /** Options to render inside select */
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      selectOptionShape,
-      PropTypes.shape({
-        groupName: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(selectOptionShape)
-      })
-    ])
-  ),
+  options: PropTypes.arrayOf(PropTypes.object),
   /** Value selected by default */
   value: PropTypes.any,
+  /** Pass hasError to show error state */
+  hasError: PropTypes.bool,
   /** onChange transparently passed to select */
   onChange: PropTypes.func,
   /** String to show when the first empty choice is selected */
   placeholder: PropTypes.string,
   /** Determines if the select should be disabled */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Determines if the user can type to search for items */
+  searchable: PropTypes.bool,
+  /** Determines if the user can select more than one item */
+  multiple: PropTypes.bool,
+  /** Shows a spinner inside the select control */
+  loading: PropTypes.bool,
+  /** Lets you define a custom component to render each option */
+  customOptionRenderer: PropTypes.func
 }
 
 Select.defaultProps = {
   options: [],
-  placeholder: ''
+  placeholder: '',
+  searchable: false
 }
 
 export default Select

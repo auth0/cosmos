@@ -6,6 +6,6 @@ test('Accepts custom id prop', () => {
   customIdTest(Fixture, 'switch')
 })
 
-test('Calls onToggle', () => {
+test('Calls onChange', () => {
   eventHandlerTest(Fixture, 'switch')
 })

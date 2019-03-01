@@ -5,13 +5,25 @@ import styled from '@auth0/cosmos/styled'
 import { StyledInput } from '../_styled-input'
 import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
+import Form from '../../molecules/form'
 
 /* Input with actions */
 import InputWithActions from '../_input-with-actions'
 import { actionShapeWithRequiredIcon } from '../../_helpers/action-shape'
 
 const TextArea = props => {
-  const Input = <TextArea.Element rows={props.length} {...props} {...Automation('text-area')} />
+  const Input = (
+    <Form.Field.ContextConsumer>
+      {context => (
+        <TextArea.Element
+          rows={props.length}
+          id={props.id || context.formFieldId}
+          {...props}
+          {...Automation('text-area')}
+        />
+      )}
+    </Form.Field.ContextConsumer>
+  )
 
   if (!props.actions.length) return Input
   else {
