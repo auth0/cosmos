@@ -9,7 +9,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-ksYbfQ dMBYTI"
+      className="sc-ksYbfQ bAIYNB"
       data-cosmos-key="form"
     >
       <Component
@@ -25,7 +25,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-fBuWsC bHuYmJ"
+              className="sc-fBuWsC jWDHcc"
               data-cosmos-key="form.field"
             >
               <styled.div
@@ -56,12 +56,14 @@ exports[`Form Field - old API renders the correct id 1`] = `
                   data-cosmos-key="form.field.content"
                 >
                   <Component
+                    id="old_api-2"
                     type="text"
                   >
                     <Form Field
                       error={null}
                       fieldComponent={[Function]}
                       helpText={null}
+                      id="old_api-2"
                       label=""
                       type="text"
                     >
@@ -70,7 +72,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-fBuWsC bHuYmJ"
+                          className="sc-fBuWsC jWDHcc"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
@@ -81,11 +83,11 @@ exports[`Form Field - old API renders the correct id 1`] = `
                               className="sc-eqIVtm hNZzIz"
                             >
                               <styled.label
-                                htmlFor="-3"
+                                htmlFor="old_api-2"
                               >
                                 <label
                                   className="sc-bRBYWo zKDiV"
-                                  htmlFor="-3"
+                                  htmlFor="old_api-2"
                                 />
                               </styled.label>
                             </div>
@@ -105,7 +107,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                 fieldComponent={[Function]}
                                 hasError={false}
                                 helpText={null}
-                                id="-3"
+                                id="old_api-2"
                                 label=""
                                 onChange={null}
                                 readOnly={false}
@@ -120,7 +122,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                   fieldComponent={[Function]}
                                   hasError={false}
                                   helpText={null}
-                                  id="-3"
+                                  id="old_api-2"
                                   label=""
                                   onChange={null}
                                   readOnly={false}
@@ -136,7 +138,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                     fieldComponent={[Function]}
                                     hasError={false}
                                     helpText={null}
-                                    id="-3"
+                                    id="old_api-2"
                                     label=""
                                     onChange={null}
                                     readOnly={false}
@@ -146,7 +148,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                                     <input
                                       className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
                                       data-cosmos-key="text-input"
-                                      id="-3"
+                                      id="old_api-2"
                                       label=""
                                       onChange={null}
                                       readOnly={false}
@@ -182,7 +184,7 @@ exports[`Form Field renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-ksYbfQ dMBYTI"
+      className="sc-ksYbfQ bAIYNB"
       data-cosmos-key="form"
     >
       <Component
@@ -198,7 +200,7 @@ exports[`Form Field renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-fBuWsC bHuYmJ"
+              className="sc-fBuWsC jWDHcc"
               data-cosmos-key="form.field"
             >
               <styled.div
@@ -232,6 +234,7 @@ exports[`Form Field renders the correct id 1`] = `
                     actions={Array []}
                     code={false}
                     error={null}
+                    id="field_label-1"
                     onChange={null}
                     readOnly={false}
                     size="default"
@@ -242,6 +245,7 @@ exports[`Form Field renders the correct id 1`] = `
                       code={false}
                       data-cosmos-key="text-input"
                       error={null}
+                      id="field_label-1"
                       onChange={null}
                       readOnly={false}
                       size="default"
@@ -253,6 +257,7 @@ exports[`Form Field renders the correct id 1`] = `
                         code={false}
                         data-cosmos-key="text-input"
                         error={null}
+                        id="field_label-1"
                         onChange={null}
                         readOnly={false}
                         size="default"
@@ -261,6 +266,7 @@ exports[`Form Field renders the correct id 1`] = `
                         <input
                           className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
                           data-cosmos-key="text-input"
+                          id="field_label-1"
                           onChange={null}
                           readOnly={false}
                           size="default"
