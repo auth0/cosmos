@@ -31,7 +31,7 @@ storiesOf('Form', module).add('all the fields', () => (
           helpText="How tall are you?"
           error="Show only in the first field"
         >
-          <TextArea placeholder="Add a lot of text here" />
+          <TextArea hasError placeholder="Add a lot of text here" />
         </Form.Field>
         <Form.Field label="Options list">
           <Select
@@ -99,7 +99,7 @@ storiesOf('Form', module).add('all the fields', () => (
           helpText="How tall are you?"
           error="Show only in the first field"
         >
-          <TextArea placeholder="Add a lot of text here" />
+          <TextArea hasError placeholder="Add a lot of text here" />
         </Form.Field>
         <Form.Field label="Options list">
           <Select
@@ -237,6 +237,7 @@ storiesOf('Form', module).add('Form full width', () => (
           />
         </Form.Field>
         <Form.Field
+          hasError
           label="Long input"
           helpText="How tall are you?"
           error="Show only in the first field"

@@ -45,6 +45,21 @@ const FieldInput = props => {
   return <Provider value={{ formFieldId: id }}>{children}</Provider>
 }
 
+const ariaDescribedBy = (helperTextId, errorTextId) => {
+  if (errorTextId) {
+    return { 'aria-invalid': true, 'aria-errormessage': errorTextId }
+  }
+  if (helperTextId) {
+    return { 'aria-describedby': helperTextId }
+  }
+}
+
+const applyAriaToFieldChild = (child, inputId, helperTextId, errorTextId) =>
+  React.cloneElement(React.Children.only(child), {
+    id: inputId,
+    ...ariaDescribedBy(helperTextId, errorTextId)
+  })
+
 const Field = props => {
   /* Get unique id for label */
   let id = props.id || uniqueId(props.label)
@@ -52,6 +67,8 @@ const Field = props => {
   const useCheckboxStyle = shouldFieldUseCheckboxStyle(props)
   const Label = useCheckboxStyle ? Field.CheckboxLabel : StyledLabel
   const FieldSetWrapper = useCheckboxStyle ? Field.FieldSetElement : React.Fragment
+  const helperTextId = props.helpText ? id + '-helper-text' : null
+  const errorTextId = props.error ? id + '-error-text' : null
 
   return (
     <FormContext.Consumer>
@@ -66,14 +83,19 @@ const Field = props => {
             </Field.LabelLayout>
             <Field.ContentLayout layout={context.layout} {...Automation('form.field.content')}>
               {props.fieldComponent ? (
-                <props.fieldComponent id={id} hasError={error ? true : false} {...fieldProps} />
+                <props.fieldComponent
+                  id={id}
+                  hasError={error ? true : false}
+                  {...fieldProps}
+                  {...ariaDescribedBy(helperTextId, errorTextId)}
+                />
               ) : (
-                props.children
+                applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
               )}
               {(props.error || props.helpText) && (
                 <Field.FeedbackContainer>
-                  {props.error && <StyledError>{props.error}</StyledError>}
-                  {props.helpText && <HelpText>{props.helpText}</HelpText>}
+                  {props.error && <StyledError id={errorTextId}>{props.error}</StyledError>}
+                  {props.helpText && <HelpText id={helperTextId}>{props.helpText}</HelpText>}
                 </Field.FeedbackContainer>
               )}
             </Field.ContentLayout>
