@@ -79,15 +79,3 @@ storiesOf('Stack Layout', module).add('Toolbar', () => (
 storiesOf('Stack Layout', module).add('Null children check', () =>
   layoutSpacingStoryTest(StackLayout, 'small')
 )
-
-storiesOf('Stack Layout', module).add('Null children with space', () => {
-  return (
-    <Example title="Conditional children">
-      <StackLayout space={['none', 1, 'none']}>
-        {null}
-        <StyledPlaceholder />
-        {null}
-      </StackLayout>
-    </Example>
-  )
-})
