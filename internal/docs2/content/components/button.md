@@ -12,7 +12,7 @@ category: Forms
 
 ## Examples
 
-<Demo for="Button"/>
+<Demo component="Button"/>
 
 ### Basic button
 
