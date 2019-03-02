@@ -13,8 +13,8 @@ export default ({ data: { mdx, allDataJson } }) => {
       componentName={mdx.frontmatter.componentName}
     >
       <Heading size={1}>{mdx.frontmatter.title}</Heading>
-
       <p>{mdx.frontmatter.description}</p>
+
       <metadataContext.Provider value={allDataJson.edges[0].node.metadata}>
         <MDXRenderer>{mdx.code.body}</MDXRenderer>
       </metadataContext.Provider>

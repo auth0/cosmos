@@ -6,10 +6,10 @@ import { MDXProvider } from '@mdx-js/tag'
 import { Code, Heading, Paragraph, Link } from '@auth0/cosmos'
 import '@auth0/cosmos-fonts'
 
-import Playground from '../components/playground'
-import SiteMetadata from '../components/site-metadata'
-import Header from './header'
-import Sidebar from './sidebar'
+import Playground from '../../components/playground'
+import SiteMetadata from '../../components/site-metadata'
+import Header from '../header'
+import Sidebar from '../sidebar'
 
 // import './layout.css'
 

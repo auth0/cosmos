@@ -63,7 +63,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
         // We'll call `createPage` for each result
         result.data.allMdx.edges.forEach(({ node }) => {
-          console.log(node)
+          //console.log(node)
 
           // Components Index
           if (node.frontmatter.template === 'components') {
