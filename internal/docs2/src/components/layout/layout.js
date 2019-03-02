@@ -50,6 +50,7 @@ const Layout = ({ children, componentName, metadata }) => (
               // Or define component inline
               a: Link,
               p: Paragraph,
+              inlineCode: Code,
               code: props => {
                 const language = props.className
 
