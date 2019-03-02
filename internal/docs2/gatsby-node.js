@@ -48,6 +48,7 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     template
                     title
+                    componentName
                   }
                 }
               }
