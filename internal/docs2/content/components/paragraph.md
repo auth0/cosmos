@@ -1,6 +1,7 @@
-```meta
-  category: Text
-```
+---
+title: Paragraph
+componentName: Paragraph
+---
 
 `import { Paragraph } from '@auth0/cosmos'`
 

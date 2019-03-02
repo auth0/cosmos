@@ -1,8 +1,9 @@
-```meta
-  category: Layout
-  description: Display a table of data
-  unstable: true
-```
+---
+title: Table
+componentName: Table
+description: Display a table of data
+status: experimental
+---
 
 `import { Table } from '@auth0/cosmos'`
 

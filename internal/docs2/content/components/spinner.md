@@ -1,8 +1,7 @@
-```meta
-category: Miscellaneous
-desciption: Spinner is useful to notify the user of background activity
-```
-
+---
+title: Spinner
+componentName: Spinner
+description: Spinner is useful to notify the user of background activity
 ---
 
 ## Examples

@@ -1,9 +1,8 @@
-```meta
-  category: Forms
-  description: "Empty states are displayed when a page has no content."
-```
-
-Empty states are displayed when a page has no content.
+---
+title: Empty state
+componentName: EmptyState
+description: Empty states are displayed when a page has no content.
+---
 
 ```jsx
 <EmptyState

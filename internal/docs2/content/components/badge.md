@@ -1,11 +1,10 @@
-```meta
-  category: Text
-  description: Displays a numeric indicator
-```
+---
+title: Badge
+componentName: Badge
+description: Displays a numeric indicator
+---
 
 `import { Badge } from '@auth0/cosmos'`
-
----
 
 ```jsx
 <Badge {props}>99</Badge>

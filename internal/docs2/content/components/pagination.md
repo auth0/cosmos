@@ -1,8 +1,8 @@
-```meta
-  category: Layout
-  description: "Paginate resources with a handy pagination component"
-  unstable: true
-```
+---
+title: Pagination
+componentName: Pagination
+unstable: true
+---
 
 ```jsx
 <Pagination {props} defaults={{items: "20372", perPage: "10", page: "3":}} />

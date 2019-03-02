@@ -1,6 +1,7 @@
-```meta
-  category: Forms
-```
+---
+title: Checkbox
+componentName: Checkbox
+---
 
 `import { Checkbox } from '@auth0/cosmos'`
 

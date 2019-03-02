@@ -1,8 +1,7 @@
-```meta
-category: Miscellaneous
+---
+title: Tooltip
+componentName: Tooltip
 description: Use tooltips for giving extra context AND to make visual cues accessible
-```
-
 ---
 
 ```jsx

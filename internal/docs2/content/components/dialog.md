@@ -1,8 +1,8 @@
-```meta
-category: Layout
-```
-
-A <code>Dialog</code> opens a modal dialog in a layer above the existing UI.
+---
+title: Dialog
+componentName: Dialog
+description: Opens a modal dialog in a layer above the existing UI.
+---
 
 It can be used to involve the user temporarily in a different context; for example, you can use a Dialog to ask a user a question or confirm that they want to perform an action.
 

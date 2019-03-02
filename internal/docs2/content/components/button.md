@@ -1,7 +1,6 @@
 ---
 title: Button
 componentName: Button
-category: Forms
 ---
 
 `import { Button } from '@auth0/cosmos'`

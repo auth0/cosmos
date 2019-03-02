@@ -1,11 +1,10 @@
-```meta
-category: forms
+---
+title: Form Group
+componentName: FormGroup
 description: If a page has multiple forms, you can use FormGroup to separate them out.
-```
+---
 
 `import { FormGroup } from '@auth0/cosmos'`
-
----
 
 Use a `Form.FieldSet` to add meaningful titles.
 

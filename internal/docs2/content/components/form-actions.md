@@ -1,6 +1,8 @@
-```meta
-  category: Forms
-```
+---
+title: Actions
+componentName: Form.Actions
+parent: Form
+---
 
 At the end of the forms, you need actions that the user can take.
 

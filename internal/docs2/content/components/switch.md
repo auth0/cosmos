@@ -1,7 +1,6 @@
 ---
 title: Switch
 componentName: Switch
-category: Forms
 ---
 
 `import { Switch } from '@auth0/cosmos'`

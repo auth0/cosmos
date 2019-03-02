@@ -1,6 +1,7 @@
-```meta
-  category: Forms
-```
+---
+title: Text Area
+componentName: TextArea
+---
 
 `import { TextArea } from '@auth0/cosmos'`
 

@@ -1,7 +1,9 @@
-```meta
-  category: Layout
-  description: "Use this component to horizontally layout children"
-```
+---
+title: Stack
+componentName: Stack
+description: Organizes it's children into flexible horizontal row.
+status: deprecated
+---
 
 `import { Stack } from '@auth0/cosmos'`
 

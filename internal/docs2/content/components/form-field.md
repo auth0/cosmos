@@ -1,6 +1,7 @@
 ---
-title: Form Field
-category: Forms
+title: Field
+componentName: Form.Field
+parent: Form
 ---
 
 `Form.Field` is a wrapper component inside supported in `Form`.

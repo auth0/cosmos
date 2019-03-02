@@ -1,7 +1,8 @@
-```meta
-category: layout
+---
+title: Row Layout
+componentName: RowLayout
 description: Row layout allows organization of it's children in row
-```
+---
 
 ---
 

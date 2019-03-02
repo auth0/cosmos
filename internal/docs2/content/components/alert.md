@@ -1,8 +1,9 @@
-```meta
-  category: Layout
-  description: Show a message intended to draw the user's attention
-  unstable: true
-```
+---
+title: Alert
+componentName: Alert
+description: Show a message intended to draw the user's attention
+unstable: true
+---
 
 `import { Alert } from '@auth0/cosmos'`
 

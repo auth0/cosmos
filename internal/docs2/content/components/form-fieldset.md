@@ -1,6 +1,8 @@
-```meta
-  category: Forms
-```
+---
+title: Field Set
+componentName: Form.FieldSet
+parent: Form
+---
 
 Long forms should be divided into smaller groups using `Form.FieldSet`
 

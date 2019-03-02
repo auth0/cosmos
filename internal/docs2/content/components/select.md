@@ -1,8 +1,7 @@
-```meta
-  category: Forms
-  description: Select renders a styled drop-down selector.
-```
-
+---
+title: Select
+componentName: Select
+description: Select renders a styled drop-down selector.
 ---
 
 ```jsx

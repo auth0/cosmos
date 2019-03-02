@@ -1,8 +1,7 @@
-```meta
-category: layout
+---
+title: Column Layout
+componentName: ColumnLayout
 description: Column layout allows organization of it's children in columns
-```
-
 ---
 
 The `ColumnLayout` organizes its children into 2, 3, or 4 column layouts.

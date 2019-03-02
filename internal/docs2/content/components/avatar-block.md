@@ -1,8 +1,9 @@
-```meta
-  category: Actions
-  description: Displays an image and supporting text for a user or resource
-  unstable: true
-```
+---
+title: Avatar Block
+componentName: AvatarBlock
+description: Displays an image and supporting text for a user or resource
+unstable: true
+---
 
 `import { AvatarBlock } from '@auth0/cosmos'`
 
