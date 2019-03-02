@@ -1,5 +1,5 @@
 import React from 'react'
 
-const metadataContext = React.createContext()
+const MetadataContext = React.createContext()
 
-export default metadataContext
+export default MetadataContext
