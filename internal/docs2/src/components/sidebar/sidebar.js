@@ -3,19 +3,20 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Item from './sidebar-item'
+import { Nav } from './styles'
 
 const Sidebar = ({ data }) => {
   let components = data.allFile.edges
   let navItems = data.allSidebarYaml.edges
 
   return (
-    <nav>
+    <Nav>
       <ul>
         {navItems.map((item, index) => (
           <Item item={item} key={index} components={components} />
         ))}
       </ul>
-    </nav>
+    </Nav>
   )
 }
 
