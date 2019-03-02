@@ -9,15 +9,13 @@ const Sidebar = ({ data }) => {
   let navItems = data.allSidebarYaml.edges
 
   return (
-    <section>
-      <nav>
-        <ul>
-          {navItems.map((item, index) => (
-            <Item item={item} key={index} components={components} />
-          ))}
-        </ul>
-      </nav>
-    </section>
+    <nav>
+      <ul>
+        {navItems.map((item, index) => (
+          <Item item={item} key={index} components={components} />
+        ))}
+      </ul>
+    </nav>
   )
 }
 
