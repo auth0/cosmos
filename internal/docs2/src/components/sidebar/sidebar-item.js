@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { Label, Stack } from '@auth0/cosmos'
 

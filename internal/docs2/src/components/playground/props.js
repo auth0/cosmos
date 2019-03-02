@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@auth0/cosmos/styled'
 
 import { spacing, colors, fonts, misc } from '@auth0/cosmos/tokens'
 import { Code } from '@auth0/cosmos'
