@@ -1,4 +1,7 @@
-# Changelog
+---
+title: Changelog
+template: page
+---
 
 All notable changes to this project will be documented in this file.
 
@@ -61,7 +64,7 @@ Now we're using a global counter, which will lead to improve snapshot testing si
 
 If you were using a mock for `uniqueId` as a workaround:
 
-```js
+```
 jest.mock('../../../core/components/_helpers/uniqueId', () => () =>
   'abcdef1234'
 )
@@ -464,7 +467,7 @@ Shoutout to all the hacktoberfest contributions we received!
 
 - **BREAKING** `method` has been renamed to `handler` for all components that accept actions as a prop [#551]
 
-  ```jsx
+  ```
   <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
   ```
 
