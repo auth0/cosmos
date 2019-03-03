@@ -4,8 +4,6 @@ import React from 'react'
 
 import { Icon, Logo, Label } from '@auth0/cosmos'
 import HamburgerButton from './hamburger-button'
-import IconSketch from './sketch-icon'
-import IconGithub from './github-icon'
 
 import { Head, LogoContainer, LogoName, NavLinks, NavContainer } from './styles'
 
@@ -65,7 +63,7 @@ class Header extends React.Component {
           </li>
           <li>
             <a href="/" onClick={() => this.toggleMenu()}>
-              <IconSketch />
+              <Icon name="gem" color="grayLightest" size={20} />
               <span>UI Kit</span>
               <Label appearance="information">Soon</Label>
             </a>
@@ -77,7 +75,7 @@ class Header extends React.Component {
               rel="noopener noreferrer"
               onClick={() => this.toggleMenu()}
             >
-              <IconGithub />
+              <Icon name="brand-github" color="grayLightest" size={20} />
               <span>Github</span>
             </a>
           </li>
