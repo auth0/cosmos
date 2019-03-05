@@ -49,6 +49,7 @@ const ariaDescribedBy = (helperTextId, errorTextId) => {
   if (errorTextId) {
     return { 'aria-invalid': true, 'aria-errormessage': errorTextId }
   }
+
   if (helperTextId) {
     return { 'aria-describedby': helperTextId }
   }
@@ -127,7 +128,7 @@ Field.Element = styled.div`
   }
 
   @media (min-width: 768px) {
-    grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xxsmall)};
+    grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xsmall)};
     grid-template-columns: ${props => (props.layout === 'label-on-left' ? '0.35fr 0.65fr' : '1fr')};
   }
 
