@@ -135,6 +135,7 @@ Field.Element = styled.div`
   ${TextArea.Element} {
     min-height: ${misc.input.default.height};
   }
+
   ${Switch.Element} {
     /* Adds a space so the label aligns with the switch */
     @media (min-width: 768px) {
