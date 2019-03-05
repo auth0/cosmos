@@ -46,6 +46,19 @@ const Text = styled.div`
   margin: 1em 0;
 `
 
+const ListItem = styled.li`
+  color: #414141;
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: ${fonts.weight.normal};
+`
+
+const List = styled.ul`
+  list-style: ${props => (props.nested ? 'circle' : 'disc')};
+  margin: 1em 0;
+  margin-left: 1.5em;
+`
+
 const Link = styled.a`
   color: ${colors.link.default};
   text-decoration: none;
@@ -54,4 +67,4 @@ const Link = styled.a`
   }
 `
 
-export { Heading1, Heading2, Heading3, Heading4, Subheader, Text, Link }
+export { Heading1, Heading2, Heading3, Heading4, Subheader, Text, Link, List, ListItem }
