@@ -32,7 +32,7 @@ class ExampleList extends React.Component {
 
   render() {
     return (
-      <List sortable>
+      <List draggable>
         <List.Item>
           <List.Header>
             <AvatarBlock

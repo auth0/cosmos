@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
+import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
@@ -64,52 +65,72 @@ const isListExpandable = child => {
   return isPresent
 }
 
-const List = props => {
+const ListContainer = SortableContainer(props =>
+  React.Children.map(props.children, renderItem(props, ListItemContainer))
+)
+
+const ListItemContainer = SortableElement(props =>
+  React.cloneElement(props.children, { sortIndex: props.index, value: props.value })
+)
+
+const renderItem = (props, wrapperElement = React.Fragment) => (child, index) => {
+  const { onToggle, drawer } = getDrawer(child)
+  const hasOpenDrawer = isDrawerOpen(drawer)
+  const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
+  const ItemWrapper = wrapperElement
+
   return (
-    <List.Element
-      {...props}
-      {...Automation('list')}
-      role="list"
-      // aria-label="Expandable data list"
-    >
-      {props.label && (
-        <List.Label>
-          <Heading size={4}>{props.label}</Heading>
-        </List.Label>
-      )}
+    <ItemWrapper index={index} value={index}>
+      <List.ItemContainer
+        {...Automation('list.item')}
+        hasOpenDrawer={hasOpenDrawer}
+        draggable={props.draggable}
+      >
+        {props.draggable && (
+          <List.Handle
+          // aria-expanded="true"
+          // aria-label="Toggle details"
+          // aria-labelledby="example-id button_id"
+          // id="button_id"
+          >
+            <Icon name="resize-vertical" size="16" color="blue" />
+          </List.Handle>
+        )}
 
-      {React.Children.map(props.children, child => {
-        const { onToggle, drawer } = getDrawer(child)
-        const hasOpenDrawer = isDrawerOpen(drawer)
-        const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
-        return (
-          <List.ItemContainer {...Automation('list.item')} hasOpenDrawer={hasOpenDrawer}>
-            {props.sortable && (
-              <List.Handle
-              // aria-expanded="true"
-              // aria-label="Toggle details"
-              // aria-labelledby="example-id button_id"
-              // id="button_id"
-              >
-                <Icon name="resize-vertical" size="16" color="blue" />
-              </List.Handle>
-            )}
+        <List.Content>{excludeDrawer(child)}</List.Content>
 
-            <List.Content>{excludeDrawer(child)}</List.Content>
+        {isListExpandable(child) && (
+          <List.Arrow onClick={onToggle}>
+            <Icon name={arrowIconName} size="16" color="default" />
+          </List.Arrow>
+        )}
 
-            {isListExpandable(child) && (
-              <List.Arrow onClick={onToggle}>
-                <Icon name={arrowIconName} size="16" color="default" />
-              </List.Arrow>
-            )}
-
-            {drawer}
-          </List.ItemContainer>
-        )
-      })}
-    </List.Element>
+        {drawer}
+      </List.ItemContainer>
+    </ItemWrapper>
   )
 }
+
+const List = props => (
+  <List.Element
+    {...props}
+    {...Automation('list')}
+    role="list"
+    // aria-label="Expandable data list"
+  >
+    {props.label && (
+      <List.Label>
+        <Heading size={4}>{props.label}</Heading>
+      </List.Label>
+    )}
+
+    {props.draggable ? (
+      <ListContainer useDragHandle={true} onSortEnd={props.onDragEnd} {...props} />
+    ) : (
+      React.Children.map(props.children, renderItem(props))
+    )}
+  </List.Element>
+)
 
 List.Element = styled.ul`
   ${containerStyles};
@@ -172,7 +193,7 @@ List.Footer = styled.div`
 `
 
 // Sortable List
-List.Handle = styled.button`
+List.Handle = SortableHandle(styled.button`
   border: none;
   padding: 0;
   background-color: transparent;
@@ -181,7 +202,7 @@ List.Handle = styled.button`
   margin-left: -${spacing.small};
   padding-left: ${spacing.small};
   padding-right: ${spacing.small};
-`
+`)
 
 // Sortable List
 List.Arrow = styled.button`
@@ -221,9 +242,14 @@ List.Label = styled.div`
 List.propTypes = {
   /** header for list */
   label: PropTypes.string,
-  sortable: PropTypes.bool,
-  expandable: PropTypes.bool
+  /** whether the list should show dragging handles */
+  draggable: PropTypes.bool,
+  expandable: PropTypes.bool,
+  /** this function is called when dragging items have finished */
+  onDragEnd: PropTypes.func
 }
+
+List.arrayMove = arrayMove
 
 List.defaultProps = {}
 
