@@ -28,6 +28,7 @@ const distributionOptions = {
 }
 
 const resolveSpace = (props, child, index) => {
+  if (!child) return null
   if (!props.space) return child
 
   return React.cloneElement(child, { space: props.space[index] })
@@ -82,9 +83,9 @@ StackLayout.propTypes = {
   disableMarginReset: PropTypes.bool,
   /** Regulates the size of the gutter between flexed items*/
   gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
-  /** Vertically align the components within the stack. applyes to `align-items` */
+  /** Vertically align the components within the stack. Applies to `align-items` */
   alignment: PropTypes.oneOf(['center', 'start', 'end']),
-  /** Horizontally distribute the components within the stack. applyes to `justify-content` */
+  /** Horizontally distribute the components within the stack. Applies to `justify-content` */
   distribution: PropTypes.oneOf(['spaceBetween', 'center', 'start', 'end']),
   /** Flex wrap */
   wrap: PropTypes.bool,
