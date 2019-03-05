@@ -1,6 +1,6 @@
 import React from 'react'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
-import { Container } from './spec/playground'
+import { Container } from './component/live-code-block'
 import * as Components from '@auth0/cosmos'
 import styled from '@auth0/cosmos/styled'
 import { Button, TextInput } from '@auth0/cosmos'
