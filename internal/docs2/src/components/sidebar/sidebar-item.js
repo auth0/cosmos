@@ -18,7 +18,9 @@ const Item = ({ item, components }) => {
           <ul>
             {subitems.map((item, index) => (
               <NavItem key={index}>
-                <NavLink to={item.link}>{item.title}</NavLink>
+                <NavLink activeClassName="active" to={item.link}>
+                  {item.title}
+                </NavLink>
               </NavItem>
             ))}
           </ul>

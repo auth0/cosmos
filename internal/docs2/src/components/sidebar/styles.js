@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import styled from '@auth0/cosmos/styled'
-
+import { colors } from '@auth0/cosmos/tokens'
 const Nav = styled.nav`
   background-color: #f1f1f1;
 `
@@ -16,6 +16,9 @@ const NavLink = styled(Link)`
   padding: 0.3em 1.5em;
   &:hover {
     color: #333;
+  }
+  &.active {
+    color: ${colors.link.default};
   }
 `
 
