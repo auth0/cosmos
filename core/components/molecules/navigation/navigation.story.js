@@ -96,7 +96,7 @@ class InteractiveExample extends React.Component {
 storiesOf('Navigation', module).add('default', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Item url="http://google.com/">
+      <Navigation.Item url="#">
         <Icon name="dashboard" />
         <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
       </Navigation.Item>

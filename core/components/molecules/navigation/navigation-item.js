@@ -80,7 +80,6 @@ class NavigationItem extends React.Component {
           selected={selected}
           aria-expanded={props.open}
           id={props.id}
-          tabIndex="0"
           {...ariaCurrent(props)}
           {...Automation('navigation.link')}
         >
@@ -137,6 +136,8 @@ NavigationItem.propTypes = {
   url: PropTypes.string
 }
 
-NavigationItem.defaultProps = {}
+NavigationItem.defaultProps = {
+  url: '#'
+}
 
 export default NavigationItem
