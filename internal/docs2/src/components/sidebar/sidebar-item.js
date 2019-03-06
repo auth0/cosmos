@@ -31,7 +31,10 @@ const Item = ({ item, components }) => {
               <ul>
                 {components.map((item, index) => (
                   <NavItem key={index}>
-                    <NavLink to={item.node.childMdx.fields.slug}>
+                    <NavLink
+                      to={item.node.childMdx.fields.slug}
+                      activeClassName="active"
+                    >
                       <span>
                         {item.node.childMdx.frontmatter.title}
                         {item.node.childMdx.frontmatter.status ===

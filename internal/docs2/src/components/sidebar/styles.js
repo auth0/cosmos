@@ -14,6 +14,9 @@ const NavLink = styled(Link)`
   text-decoration: none;
   display: block;
   padding: 0.3em 1.5em;
+  &:hover {
+    color: #333;
+  }
 `
 
 const NavHeader = styled(NavLink)`
