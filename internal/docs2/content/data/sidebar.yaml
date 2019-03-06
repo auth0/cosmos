@@ -1,30 +1,27 @@
 - title: Getting Started
   link: /getting-started
-- title: Guidelines
-  link: /guidelines
   items:
     - title: How to use Cosmos
       link: /guidelines/using-cosmos/
-    - title: Data Entry
-      link: /guidelines/data-entry/
-- title: Contribute
-  link: /contributing
+    - title: Changelog
+      link: /changelog
+- title: Guides
+  link: /guides
   items:
-    - title: Setup
-      link: /contributing/setup
-    - title: System Guidelines
-      link: /contributing/system-guidelines
-    - title: Architecture
-      link: /contributing/architecture
-    - title: Component file
-      link: /contributing/component-file
-    - title: Testing
-      link: /contributing/testing
-    - title: Releasing
-      link: /contributing/releasing
+    - title: Contributing
+      link: /guidelines/contributing/
+      items:
+        - title: Setup
+          link: /contributing/setup
+        - title: System Guidelines
+          link: /contributing/system-guidelines
+        - title: Architecture
+          link: /contributing/architecture
+        - title: Component file
+          link: /contributing/component-file
+        - title: Testing
+          link: /contributing/testing
+        - title: Releasing
+          link: /contributing/releasing
 - title: Components
   link: /components
-- title: Resources
-  link: /resources
-- title: Changelog
-  link: /changelog
