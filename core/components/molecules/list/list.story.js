@@ -11,8 +11,6 @@ import {
   Heading,
   ColumnLayout,
   RowLayout,
-  AvatarBlock,
-  TextInput,
   Avatar,
   Code
 } from '@auth0/cosmos'
@@ -21,7 +19,10 @@ import { Paragraph } from '../../components'
 class ExampleList extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { listDrawers: { uno: false, dos: false, tres: false } }
+    this.state = {
+      listDrawers: { uno: false, dos: false, tres: false },
+      items: ['uno', 'dos', 'tres']
+    }
   }
 
   toggleList(listId) {
@@ -30,92 +31,58 @@ class ExampleList extends React.Component {
     })
   }
 
+  buildItem(item) {
+    return (
+      <List.Item>
+        <List.Header>
+          <StackLayout space={['none', 1]} gutter="small" wrap="true">
+            <Avatar type="resource" />
+            <RowLayout gutter="none">
+              <Heading size={4}>Title</Heading>
+              <Paragraph>Descrifption Description</Paragraph>
+            </RowLayout>
+          </StackLayout>
+        </List.Header>
+        <List.Body>
+          <span>ID:</span> <Code>98367683783</Code>
+        </List.Body>
+        <List.Footer>
+          <ButtonGroup>
+            <Button icon="pencil" />
+            <Button icon="copy" />
+            <Button icon="delete" />
+          </ButtonGroup>
+        </List.Footer>
+        <List.Drawer
+          open={this.state.listDrawers[item]}
+          onToggle={() => this.toggleList(item)}
+          description="desciption of the drawer"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+          Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
+          sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+          Tincidunt arcu nonLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          temporellentesque. Risus ultricies tristique nulla aliquet enim. Proin libero nunc
+          consequat interdum varius sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut
+          morbi tincidunt. Tincidunt arcu nonLorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod temporellentesque. Risus ultricies tristique nulla aliquet enim.
+          Proin libero nunc consequat interdum varius sit amet. Scelerisque viverra mauris in
+          aliquam sem fringilla ut morbi tincidunt. Tincidunt arcu non
+        </List.Drawer>
+      </List.Item>
+    )
+  }
+
   render() {
     return (
-      <List draggable>
-        <List.Item>
-          <List.Header>
-            <AvatarBlock
-              type="resource"
-              icon="apis"
-              title="Auth0 Management API"
-              subtitle="System API"
-              size="default"
-            />
-          </List.Header>
-          <List.Body>
-            <StackLayout gutter="small">
-              <p>hola</p>
-              <TextInput
-                code
-                size="small"
-                readOnly
-                type="text"
-                placeholder="978387639783876367833678367897838763678336783678978387636783367836789783876367833678367897838763678336783678678336783678"
-              />
-            </StackLayout>
-          </List.Body>
-          <List.Footer>
-            <ButtonGroup>
-              <Button icon="pencil" />
-              <Button icon="copy" />
-              <Button icon="delete" />
-            </ButtonGroup>
-          </List.Footer>
-          <List.Drawer
-            open={this.state.listDrawers.uno}
-            onToggle={() => this.toggleList('uno')}
-            description="desciption of the drawer"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            temporellentesque. Risus ultricies tristique nulla aliquet enim. Proin libero nunc
-            consequat interdum varius sit amet. Scelerisque viverra mauris in aliquam sem fringilla
-            ut morbi tincidunt. Tincidunt arcu nonLorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod temporellentesque. Risus ultricies tristique nulla aliquet enim.
-            Proin libero nunc consequat interdum varius sit amet. Scelerisque viverra mauris in
-            aliquam sem fringilla ut morbi tincidunt. Tincidunt arcu nonLorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod temporellentesque. Risus ultricies tristique
-            nulla aliquet enim. Proin libero nunc consequat interdum varius sit amet. Scelerisque
-            viverra mauris in aliquam sem fringilla ut morbi tincidunt. Tincidunt arcu non
-          </List.Drawer>
-        </List.Item>
-        <List.Item>
-          <List.Header>
-            <StackLayout space={['none', 1]} gutter="small" wrap="true">
-              <Avatar type="resource" />
-              <RowLayout gutter="none">
-                <Heading size={4}>Title</Heading>
-                <Paragraph>Descrifption Description</Paragraph>
-              </RowLayout>
-            </StackLayout>
-          </List.Header>
-          <List.Body>
-            <span>ID:</span> <Code>98367683783</Code>
-          </List.Body>
-          <List.Footer>
-            <ButtonGroup>
-              <Button icon="pencil" />
-              <Button icon="copy" />
-              <Button icon="delete" />
-            </ButtonGroup>
-          </List.Footer>
-          <List.Drawer
-            open={this.state.listDrawers.dos}
-            onToggle={() => this.toggleList('dos')}
-            description="desciption of the drawer"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            temporellentesque. Risus ultricies tristique nulla aliquet enim. Proin libero nunc
-            consequat interdum varius sit amet. Scelerisque viverra mauris in aliquam sem fringilla
-            ut morbi tincidunt. Tincidunt arcu nonLorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod temporellentesque. Risus ultricies tristique nulla aliquet enim.
-            Proin libero nunc consequat interdum varius sit amet. Scelerisque viverra mauris in
-            aliquam sem fringilla ut morbi tincidunt. Tincidunt arcu nonLorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod temporellentesque. Risus ultricies tristique
-            nulla aliquet enim. Proin libero nunc consequat interdum varius sit amet. Scelerisque
-            viverra mauris in aliquam sem fringilla ut morbi tincidunt. Tincidunt arcu non
-          </List.Drawer>
-        </List.Item>
+      <List
+        label={'something'}
+        draggable
+        onDragEnd={(oldItems, newItems) =>
+          this.setState({ items: List.arrayMove(this.state.items, oldItems, newItems) })
+        }
+      >
+        {this.state.items.map(item => this.buildItem(item))}
       </List>
     )
   }
@@ -129,7 +96,7 @@ storiesOf('List', module).add('Default structure', () => (
 
 storiesOf('List', module).add('Simple list', () => (
   <Example title="Simple list">
-    <List>
+    <List draggable onDragEnd={() => {}}>
       <List.Item>Item 1</List.Item>
       <List.Item>Item 2</List.Item>
       <List.Item>Item 3</List.Item>

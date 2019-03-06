@@ -65,9 +65,9 @@ const isListExpandable = child => {
   return isPresent
 }
 
-const ListContainer = SortableContainer(props =>
-  React.Children.map(props.children, renderItem(props, ListItemContainer))
-)
+const ListContainer = SortableContainer(props => (
+  <div>{React.Children.map(props.children, renderItem(props, ListItemContainer))}</div>
+))
 
 const ListItemContainer = SortableElement(props =>
   React.cloneElement(props.children, { sortIndex: props.index, value: props.value })
@@ -80,7 +80,7 @@ const renderItem = (props, wrapperElement = React.Fragment) => (child, index) =>
   const ItemWrapper = wrapperElement
 
   return (
-    <ItemWrapper index={index} value={index}>
+    <ItemWrapper key={`item-${index}`} index={index} value={index}>
       <List.ItemContainer
         {...Automation('list.item')}
         hasOpenDrawer={hasOpenDrawer}
@@ -125,7 +125,7 @@ const List = props => (
     )}
 
     {props.draggable ? (
-      <ListContainer useDragHandle={true} onSortEnd={props.onDragEnd} {...props} />
+      <ListContainer axis="y" useDragHandle={true} onSortEnd={props.onDragEnd} {...props} />
     ) : (
       React.Children.map(props.children, renderItem(props))
     )}
