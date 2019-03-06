@@ -160,7 +160,7 @@ storiesOf('Form', module).add('all the fields', () => (
 storiesOf('Form', module).add('Form full width', () => (
   <Example title="Form full width">
     <RowLayout gutter="spacious">
-      <Form>
+      <Form fullWidth>
         <Form.Field label="Something">
           <TextInput
             type="text"
