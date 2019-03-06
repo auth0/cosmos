@@ -16,13 +16,13 @@ import FieldSet from './fieldset'
 import FormContext from './form-context'
 
 const Form = props => (
-  <FormContext.Provider value={{ layout: props.layout }}>
+  <FormContext.Provider value={{ layout: props.layout, fullWidth: props.fullWidth }}>
     <Form.Element {...props} {...Automation('form')} />
   </FormContext.Provider>
 )
 
 Form.Element = styled.form`
-  ${Field.Element} {
+  ${Field.Element}, ${Actions.Element} {
     max-width: ${props => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '625px')};
   }
 `

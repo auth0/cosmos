@@ -88,7 +88,11 @@ const Field = props => {
         // to make them accesible.
         // There is a bug due to a browser bug https://github.com/w3c/csswg-drafts/issues/321
         <FieldSetWrapper>
-          <Field.Element layout={context.layout} {...Automation('form.field')}>
+          <Field.Element
+            layout={context.layout}
+            fullWidth={context.fullWidth}
+            {...Automation('form.field')}
+          >
             <Field.LabelLayout checkbox={useCheckboxStyle} layout={context.layout}>
               <Label htmlFor={id}>{props.label}</Label>
             </Field.LabelLayout>
@@ -129,7 +133,9 @@ Field.Element = styled.div`
 
   @media (min-width: 768px) {
     grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xsmall)};
-    grid-template-columns: ${props => (props.layout === 'label-on-left' ? '0.35fr 0.65fr' : '1fr')};
+
+    grid-template-columns: ${props =>
+      props.layout === 'label-on-left' ? (props.fullWidth ? '200px 1fr' : '.35fr .65fr') : '1fr'};
   }
 
   ${TextArea.Element} {

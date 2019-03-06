@@ -5,7 +5,7 @@ import { fonts, colors } from '@auth0/cosmos-tokens'
 const StyledLabel = styled.label`
   color: ${colors.text.default};
   font-weight: ${fonts.weight.medium};
-  word-break: break-all;
+  word-break: break-word;
 `
 
 export default StyledLabel

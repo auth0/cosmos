@@ -28,7 +28,7 @@ const Actions = props => {
   return (
     <FormContext.Consumer>
       {context => (
-        <Actions.Element layout={context.layout}>
+        <Actions.Element layout={context.layout} fullWidth={context.fullWidth}>
           <ButtonGroup>
             {primaryAction && (
               <Button {...getButtonProps(primaryAction)} appearance="primary">
@@ -63,7 +63,9 @@ Actions.Element = styled.div`
   margin-top: ${spacing.medium};
   grid-gap: ${props => (props.layout === 'label-on-left' ? '25px' : '0')};
   @media (min-width: 768px) {
-    grid-template-columns: ${props => (props.layout === 'label-on-left' ? '0.35fr 1fr' : '1fr')};
+    grid-template-columns: ${props =>
+      props.layout === 'label-on-left' ? (props.fullWidth ? '200px 1fr' : '.35fr .65fr') : '1fr'};
+
     ${ButtonGroup.Element} {
       grid-column-start: ${props => (props.layout === 'label-on-left' ? '2' : '1')};
     }
