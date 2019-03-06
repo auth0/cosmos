@@ -289,7 +289,9 @@ Select.propTypes = {
   customOptionRenderer: PropTypes.func,
   /** If you want an async select, you can pass a function which can return a Promise here */
   loadOptions: PropTypes.func,
+  /** Used to specify a message for when there's no options */
   noOptionsMessage: PropTypes.oneOfType([PropTypes.string || PropTypes.func]),
+  /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
   defaultOptions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.bool])
 }
 
