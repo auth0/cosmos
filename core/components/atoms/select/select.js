@@ -6,6 +6,7 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
+import AsyncSelect from 'react-select/lib/Async'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
@@ -170,7 +171,7 @@ class Select extends React.Component {
   render() {
     const props = this.props
 
-    if (!(props.searchable || props.multiple || props.customOptionRenderer))
+    if (!(props.async || props.searchable || props.multiple || props.customOptionRenderer))
       return <SimpleSelect {...props} />
 
     /*
@@ -187,12 +188,15 @@ class Select extends React.Component {
 
     const value = cosmosToReactSelect.value(props.value, options)
     const styles = cosmosToReactSelect.styles(props)
+    const searchable = props.async || props.searchable
+
+    const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
     return (
       <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
           {context => (
-            <ReactSelect
+            <SelectProvider
               onChange={options =>
                 props.onChange &&
                 props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
@@ -200,7 +204,7 @@ class Select extends React.Component {
               isClearable
               isDisabled={props.disabled}
               isMulti={props.multiple}
-              isSearchable={props.searchable}
+              isSearchable={searchable}
               isLoading={props.loading}
               onMenuOpen={this.updateMenuState(true)}
               onMenuClose={this.updateMenuState(false)}
@@ -209,6 +213,8 @@ class Select extends React.Component {
               defaultValue={props.defaultValue}
               placeholder={props.placeholder}
               options={options}
+              loadOptions={props.loadOptions}
+              defaultOptions
               components={componentOverrides}
               theme={selectTheme}
               value={value}
@@ -263,7 +269,9 @@ Select.propTypes = {
   /** Shows a spinner inside the select control */
   loading: PropTypes.bool,
   /** Lets you define a custom component to render each option */
-  customOptionRenderer: PropTypes.func
+  customOptionRenderer: PropTypes.func,
+  async: PropTypes.bool,
+  loadOptions: PropTypes.func
 }
 
 Select.defaultProps = {
