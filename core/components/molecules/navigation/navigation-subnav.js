@@ -35,6 +35,10 @@ NavigationSubnav.Content = styled.ul`
       padding-bottom: ${spacing.xxsmall};
     }
   }
+  ${Icon.Element} svg {
+    width: 16px;
+    height: 16px;
+  }
 `
 
 NavigationSubnav.propTypes = {

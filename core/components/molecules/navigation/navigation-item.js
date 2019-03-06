@@ -125,7 +125,7 @@ NavigationItem.Element = styled.a`
 NavigationItem.Text = styled.div``
 
 NavigationItem.Postfix = styled.div`
-  margin-left: ${spacing.small};
+  margin-left: ${spacing.xsmall};
 `
 
 NavigationItem.propTypes = {
