@@ -322,14 +322,14 @@ storiesOf('Navigation', module).add('selected sub-item', () => (
 storiesOf('Navigation', module).add('groups and postfix', () => (
   <StyledExample>
     <Navigation>
-      <Navigation.Group title="grupo 1">
+      <Navigation.Group title="Group 1">
         <Navigation.Item>
           <Icon name="dashboard" />
           <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
         </Navigation.Item>
 
         <Navigation.Item defaultOpen>
-          <Icon name="arrow-right" />
+          <Icon name="logs" />
           <Navigation.Item.Text>Submenu</Navigation.Item.Text>
           <Navigation.Item.Postfix>
             <Tooltip content="this is a tooltip test">
@@ -339,21 +339,21 @@ storiesOf('Navigation', module).add('groups and postfix', () => (
 
           <Navigation.Subnav>
             <Navigation.Item selected>
-              <Icon name="dashboard" />
-              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+              <Icon name="arrow-right" />
+              <Navigation.Item.Text>Item 1</Navigation.Item.Text>
             </Navigation.Item>
             <Navigation.Item>
-              <Icon name="dashboard" />
-              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+              <Icon name="arrow-right" />
+              <Navigation.Item.Text>Item 2</Navigation.Item.Text>
             </Navigation.Item>
             <Navigation.Item>
-              <Icon name="dashboard" />
-              <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
+              <Icon name="arrow-right" />
+              <Navigation.Item.Text>Item 3</Navigation.Item.Text>
             </Navigation.Item>
           </Navigation.Subnav>
         </Navigation.Item>
       </Navigation.Group>
-      <Navigation.Group title="grupo 2">
+      <Navigation.Group title="Group 2">
         <Navigation.Item icon="sso-integrations" label="SSO Integrations">
           <Icon name="sso-integrations" />
           <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>

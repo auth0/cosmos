@@ -43,8 +43,10 @@ Navigation.Group.Element = styled.section`
 
 Navigation.GroupHeader = styled.h2`
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   color: ${colors.text.secondary};
+  letter-spacing: 1px;
+  padding-bottom: ${spacing.xxsmall};
 `
 
 Navigation.List = styled.ul``
