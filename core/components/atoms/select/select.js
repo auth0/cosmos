@@ -181,26 +181,41 @@ class Select extends React.Component {
     */
 
     let options = cosmosToReactSelect.options(props.options)
+    const defaultOptions = props.defaultOptions
+      ? cosmosToReactSelect.options(props.defaultOptions)
+      : null
 
     if (props.customOptionRenderer) {
       componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
     }
 
-    const value = cosmosToReactSelect.value(props.value, options)
+    /**
+     * If the Select is async we need to get the complete object value from the user,
+     * while if it's a sync select, we can just get the value and match it from the options.
+     */
+    const value = props.async ? props.value : cosmosToReactSelect.value(props.value, options)
     const styles = cosmosToReactSelect.styles(props)
     const searchable = props.async || props.searchable
 
+    // React Select requires `noOptionsMessage` to be a function
+    const noOptionsMessage =
+      typeof props.noOptionsMessage === 'function'
+        ? props.noOptionsMessage
+        : () => props.noOptionsMessage
+
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
+
+    const onChange = options => {
+      const value = props.async ? options : oneOrMore(options)
+      if (props.onChange) props.onChange({ target: { name: props.name, value } })
+    }
 
     return (
       <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
           {context => (
             <SelectProvider
-              onChange={options =>
-                props.onChange &&
-                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
-              }
+              onChange={onChange}
               isClearable
               isDisabled={props.disabled}
               isMulti={props.multiple}
@@ -214,11 +229,13 @@ class Select extends React.Component {
               placeholder={props.placeholder}
               options={options}
               loadOptions={props.loadOptions}
-              defaultOptions
               components={componentOverrides}
+              noOptionsMessage={noOptionsMessage}
+              defaultOptions={defaultOptions}
               theme={selectTheme}
               value={value}
               styles={styles}
+              key={value.length}
               id={props.id || context.formFieldId}
             />
           )}
@@ -270,14 +287,17 @@ Select.propTypes = {
   loading: PropTypes.bool,
   /** Lets you define a custom component to render each option */
   customOptionRenderer: PropTypes.func,
-  async: PropTypes.bool,
-  loadOptions: PropTypes.func
+  /** If you want an async select, you can pass a function which can return a Promise here */
+  loadOptions: PropTypes.func,
+  noOptionsMessage: PropTypes.oneOfType([PropTypes.string || PropTypes.func]),
+  defaultOptions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.bool])
 }
 
 Select.defaultProps = {
   options: [],
   placeholder: '',
-  searchable: false
+  searchable: false,
+  noOptionsMessage: 'No options'
 }
 
 export default Select

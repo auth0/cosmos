@@ -463,7 +463,7 @@ class AsyncExample extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { selectedItems: [], options: [] }
+    this.state = { selectedItems: [] }
     this.allOptions = [
       {
         label: 'One',
@@ -518,10 +518,12 @@ class AsyncExample extends React.Component {
     ]
 
     this.loadOptions = this.loadOptions.bind(this)
+    this.noOptionsMessage = this.noOptionsMessage.bind(this)
   }
 
   handleChange(event) {
     const selectedItems = event.target.value
+    console.log({ selectedItems })
     this.setState({ selectedItems })
   }
 
@@ -535,6 +537,10 @@ class AsyncExample extends React.Component {
     }, 500)
   }
 
+  noOptionsMessage({ inputValue }) {
+    return inputValue.length > 0 ? 'No options' : 'Type to search...'
+  }
+
   render() {
     return (
       <Select
@@ -542,6 +548,7 @@ class AsyncExample extends React.Component {
         value={this.state.selectedItems}
         onChange={ev => this.handleChange(ev)}
         placeholder="Select an item..."
+        noOptionsMessage={this.noOptionsMessage}
         loadOptions={this.loadOptions}
       />
     )
