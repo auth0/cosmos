@@ -7,8 +7,6 @@
       link: /guidelines/using-cosmos/
     - title: Data Entry
       link: /guidelines/data-entry/
-- title: Components
-  link: /components
 - title: Contribute
   link: /contributing
   items:
@@ -24,6 +22,8 @@
       link: /contributing/testing
     - title: Releasing
       link: /contributing/releasing
+- title: Components
+  link: /components
 - title: Resources
   link: /resources
 - title: Changelog

@@ -7664,10 +7664,10 @@ gatsby-mdx@^0.3.5:
     unist-util-remove "^1.0.1"
     unist-util-visit "^1.4.0"
 
-gatsby-plugin-catch-links@^2.0.9:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-2.0.11.tgz#c2d390978ffe5a353901b981116fdf231103b625"
-  integrity sha512-tnnXRSNdH5oIdH70WIvOHu7zNZQeHvY210fcNGZLJ00JNetetJqkBlklRgGIqG7kClBoHB7LcGxMu/2cXnHH/g==
+gatsby-plugin-catch-links@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-2.0.12.tgz#d09b4910c183d6a50940bd1d9c39455e957f8340"
+  integrity sha512-ofdfXNiPeHf+VNtsaQnvrWvS3g0afzQg9LAMv5vxnKbuUKd2g+rT6NFFWQoMJX4su4D5tUZPPDmNw1kChcOcLw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     escape-string-regexp "^1.0.5"

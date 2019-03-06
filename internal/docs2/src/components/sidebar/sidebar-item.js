@@ -3,26 +3,7 @@ import { Link } from 'gatsby'
 import styled from '@auth0/cosmos/styled'
 
 import { Label, Stack } from '@auth0/cosmos'
-
-const NavItem = styled.li`
-  display: block;
-  > ul > li {
-    margin-left: 1rem;
-    border-left: 1px solid #333;
-  }
-`
-
-const NavLink = styled(Link)`
-  color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 0.25em 1em;
-`
-
-const Header = styled(NavLink)`
-  color: #333;
-  font-weight: bolder;
-`
+import { NavHeader, NavItem, NavLink } from './styles'
 
 const Item = ({ item, components }) => {
   let url = item.node.link
@@ -33,7 +14,7 @@ const Item = ({ item, components }) => {
     <Fragment>
       {subitems ? (
         <NavItem>
-          <Header to={url}>{title}</Header>
+          <NavHeader to={url}>{title}</NavHeader>
           <ul>
             {subitems.map((item, index) => (
               <NavItem key={index}>
@@ -46,25 +27,25 @@ const Item = ({ item, components }) => {
         <NavItem>
           {title === 'Components' ? (
             <Fragment>
-              <Header to={url}>{title}</Header>
+              <NavHeader to={url}>{title}</NavHeader>
               <ul>
                 {components.map((item, index) => (
                   <NavItem key={index}>
                     <NavLink to={item.node.childMdx.fields.slug}>
-                      <Stack>
+                      <span>
                         {item.node.childMdx.frontmatter.title}
                         {item.node.childMdx.frontmatter.status ===
                         'experimental' ? (
                           <Label appearance="warning">Experimental</Label>
                         ) : null}
-                      </Stack>
+                      </span>
                     </NavLink>
                   </NavItem>
                 ))}
               </ul>
             </Fragment>
           ) : (
-            <Header to={url}>{title}</Header>
+            <NavHeader to={url}>{title}</NavHeader>
           )}
         </NavItem>
       )}
