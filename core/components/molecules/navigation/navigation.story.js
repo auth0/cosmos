@@ -26,7 +26,7 @@ class InteractiveExample extends React.Component {
   render() {
     const { selected } = this.state
     return (
-      <Navigation>
+      <Navigation description="Main sidebar navigation">
         <Navigation.Item
           onClick={() => this.select('dashboard')}
           selected={selected === 'dashboard'}
@@ -95,7 +95,7 @@ class InteractiveExample extends React.Component {
 
 storiesOf('Navigation', module).add('default', () => (
   <StyledExample>
-    <Navigation>
+    <Navigation description="Main sidebar navigation">
       <Navigation.Item url="#">
         <Icon name="dashboard" />
         <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
@@ -155,7 +155,7 @@ storiesOf('Navigation', module).add('interactive example', () => (
 
 storiesOf('Navigation', module).add('selected item', () => (
   <StyledExample>
-    <Navigation>
+    <Navigation description="Main sidebar navigation">
       <Navigation.Item selected>
         <Icon name="dashboard" />
         <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
@@ -209,7 +209,7 @@ storiesOf('Navigation', module).add('selected item', () => (
 
 storiesOf('Navigation', module).add('open group', () => (
   <StyledExample>
-    <Navigation>
+    <Navigation description="Main sidebar navigation">
       <Navigation.Item>
         <Icon name="dashboard" />
         <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
@@ -265,7 +265,7 @@ storiesOf('Navigation', module).add('open group', () => (
 
 storiesOf('Navigation', module).add('selected sub-item', () => (
   <StyledExample>
-    <Navigation>
+    <Navigation description="Main sidebar navigation">
       <Navigation.Item>
         <Icon name="dashboard" />
         <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
@@ -321,7 +321,7 @@ storiesOf('Navigation', module).add('selected sub-item', () => (
 
 storiesOf('Navigation', module).add('groups and postfix', () => (
   <StyledExample>
-    <Navigation>
+    <Navigation description="Main sidebar navigation">
       <Navigation.Group title="Group 1">
         <Navigation.Item>
           <Icon name="dashboard" />
