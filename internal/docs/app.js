@@ -5,12 +5,68 @@ import { Icon } from '@auth0/cosmos'
 import '@auth0/cosmos-fonts'
 
 import Sidebar from './sidebar'
-import Spec from './spec'
-import Home from './home'
+import ComponentPage from './component'
 import Overview from './overview'
 import Playground from './playground'
-import Navigation from './docs-components/navigation'
+import { Navigation } from './docs-components'
 import guides from './guides'
+
+class App extends React.Component {
+  constructor() {
+    super()
+
+    this.state = { sidebarVisible: false }
+  }
+  toggleSidebar = () => {
+    this.setState({ sidebarVisible: !this.state.sidebarVisible })
+  }
+  componentDidMount() {
+    // Copied from: https://github.com/ReactTraining/react-router/issues/394#issuecomment-128148470
+    // Decode entities in the URL
+    // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+    window.location.hash = window.decodeURIComponent(window.location.hash)
+    const scrollToAnchor = () => {
+      const hashParts = window.location.hash.split('#')
+      if (hashParts.length > 2) {
+        const hash = hashParts.slice(-1)[0]
+        const link = document.querySelector(`#${hash}`)
+        if (link) link.scrollIntoView()
+      } else {
+        document.querySelector('nav').scrollIntoView()
+      }
+    }
+    scrollToAnchor()
+    window.onhashchange = scrollToAnchor
+  }
+  render() {
+    return (
+      <Router>
+        <Layout>
+          <Navigation />
+          <SidebarToggle sidebarVisible={this.state.sidebarVisible} onClick={this.toggleSidebar}>
+            <Icon name={this.state.sidebarVisible ? 'close' : 'arrow-right'} />
+          </SidebarToggle>
+          <SideContent visible={this.state.sidebarVisible}>
+            <Sidebar />
+          </SideContent>
+          <MainContent id="main">
+            <Body>
+              {guides.map((guide, i) => (
+                <Route key={i} exact path={guide.path} component={guide.component} />
+              ))}
+
+              <Route exact path="/playground" component={Playground} />
+              <Route exact path="/component/:componentName" component={ComponentPage} />
+            </Body>
+            <Route exact path="/overview" component={Overview} />
+          </MainContent>
+        </Layout>
+      </Router>
+    )
+  }
+}
+
+export default App
 
 const SideContent = styled.div`
   width: 19rem;
@@ -65,61 +121,3 @@ const Layout = styled.div`
   margin-top: 80px;
   ${'' /* make room for the fixed top navigation */};
 `
-
-class App extends React.Component {
-  constructor() {
-    super()
-
-    this.state = { sidebarVisible: false }
-  }
-  toggleSidebar = () => {
-    this.setState({ sidebarVisible: !this.state.sidebarVisible })
-  }
-  componentDidMount() {
-    // Copied from: https://github.com/ReactTraining/react-router/issues/394#issuecomment-128148470
-    // Decode entities in the URL
-    // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
-    window.location.hash = window.decodeURIComponent(window.location.hash)
-    const scrollToAnchor = () => {
-      const hashParts = window.location.hash.split('#')
-      if (hashParts.length > 2) {
-        const hash = hashParts.slice(-1)[0]
-        const link = document.querySelector(`#${hash}`)
-        if (link) link.scrollIntoView()
-      } else {
-        document.querySelector('nav').scrollIntoView()
-      }
-    }
-    scrollToAnchor()
-    window.onhashchange = scrollToAnchor
-  }
-  render() {
-    return (
-      <Router>
-        <Layout>
-          <Navigation />
-          <SidebarToggle sidebarVisible={this.state.sidebarVisible} onClick={this.toggleSidebar}>
-            <Icon name={this.state.sidebarVisible ? 'close' : 'arrow-right'} />
-          </SidebarToggle>
-          <SideContent visible={this.state.sidebarVisible}>
-            <Sidebar />
-          </SideContent>
-          <MainContent id="main">
-            <Body>
-              {guides.map((guide, i) => (
-                <Route key={i} exact path={guide.path} component={guide.component} />
-              ))}
-
-              <Route exact path="/playground" component={Playground} />
-              <Route exact path="/component/:componentName" component={Spec} />
-              <Route exact path="/" component={Home} />
-            </Body>
-            <Route exact path="/overview" component={Overview} />
-          </MainContent>
-        </Layout>
-      </Router>
-    )
-  }
-}
-
-export default App

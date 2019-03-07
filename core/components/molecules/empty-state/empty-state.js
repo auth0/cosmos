@@ -40,9 +40,11 @@ const EmptyState = ({ link, helpUrl, title, icon, action, ...props }) => {
         <FreeText {...props} useParagraph />
         {helpLink}
       </EmptyState.Body>
-      <Button size="large" appearance="cta" icon={action.icon} onClick={action.handler}>
-        {action.label}
-      </Button>
+      {action && (
+        <Button size="large" appearance="cta" icon={action.icon} onClick={action.handler}>
+          {action.label}
+        </Button>
+      )}
     </EmptyState.Element>
   )
 }
@@ -111,7 +113,7 @@ EmptyState.propTypes = {
     })
   ]),
   /** Primary call to action */
-  action: actionShapeWithRequiredIcon.isRequired,
+  action: actionShapeWithRequiredIcon,
 
   _deprecation_text: props => deprecate(props, { name: 'text', replacement: 'children' }),
   _deprecation_helpUrl: props => deprecate(props, { name: 'helpUrl', replacement: 'link' })

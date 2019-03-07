@@ -107,7 +107,7 @@ Field.propTypes = {
   /** Error message to show in case of failed validation */
   error: PropTypes.string,
   /** Actions to be attached to input */
-  actions: PropTypes.arrayOf(actionShapeWithRequiredIcon)
+  actions: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.node, actionShapeWithRequiredIcon]))
 }
 
 Field.defaultProps = {

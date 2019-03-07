@@ -36,3 +36,15 @@ You can change how the help link opens by passing an `object` with `target` inst
   No items have been added to this section.
 </EmptyState>
 ```
+
+### Empty state with no action
+
+```js
+<EmptyState
+  icon="folder-cancel"
+  title="Files"
+  link={{ href: 'https://auth0.com', target: '_blank' }}
+>
+  We couldn't find files that match your search.
+</EmptyState>
+```

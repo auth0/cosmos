@@ -6,6 +6,7 @@ import Tag from '../tag'
 import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
+import AsyncSelect from 'react-select/lib/Async'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
@@ -170,7 +171,7 @@ class Select extends React.Component {
   render() {
     const props = this.props
 
-    if (!(props.searchable || props.multiple || props.customOptionRenderer))
+    if (!(props.async || props.searchable || props.multiple || props.customOptionRenderer))
       return <SimpleSelect {...props} />
 
     /*
@@ -180,27 +181,46 @@ class Select extends React.Component {
     */
 
     let options = cosmosToReactSelect.options(props.options)
+    const defaultOptions = props.defaultOptions
+      ? cosmosToReactSelect.options(props.defaultOptions)
+      : null
 
     if (props.customOptionRenderer) {
       componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
     }
 
-    const value = cosmosToReactSelect.value(props.value, options)
+    /**
+     * If the Select is async we need to get the complete object value from the user,
+     * while if it's a sync select, we can just get the value and match it from the options.
+     */
+    const value = props.async ? props.value : cosmosToReactSelect.value(props.value, options)
     const styles = cosmosToReactSelect.styles(props)
+    const searchable = props.async || props.searchable
+
+    // React Select requires `noOptionsMessage` to be a function
+    const noOptionsMessage = props.noOptionsMessage
+      ? typeof props.noOptionsMessage === 'function'
+        ? props.noOptionsMessage
+        : () => props.noOptionsMessage
+      : () => 'No options'
+
+    const SelectProvider = props.async ? AsyncSelect : ReactSelect
+
+    const onChange = options => {
+      const newValue = props.async ? options : oneOrMore(options)
+      if (props.onChange) props.onChange({ target: { name: props.name, value: newValue } })
+    }
 
     return (
       <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
           {context => (
-            <ReactSelect
-              onChange={options =>
-                props.onChange &&
-                props.onChange({ target: { name: props.name, value: oneOrMore(options) } })
-              }
+            <SelectProvider
+              onChange={onChange}
               isClearable
               isDisabled={props.disabled}
               isMulti={props.multiple}
-              isSearchable={props.searchable}
+              isSearchable={searchable}
               isLoading={props.loading}
               onMenuOpen={this.updateMenuState(true)}
               onMenuClose={this.updateMenuState(false)}
@@ -209,10 +229,14 @@ class Select extends React.Component {
               defaultValue={props.defaultValue}
               placeholder={props.placeholder}
               options={options}
+              loadOptions={props.loadOptions}
               components={componentOverrides}
+              noOptionsMessage={noOptionsMessage}
+              defaultOptions={defaultOptions}
               theme={selectTheme}
               value={value}
               styles={styles}
+              key={value ? value.length : 0}
               id={props.id || context.formFieldId}
             />
           )}
@@ -263,7 +287,13 @@ Select.propTypes = {
   /** Shows a spinner inside the select control */
   loading: PropTypes.bool,
   /** Lets you define a custom component to render each option */
-  customOptionRenderer: PropTypes.func
+  customOptionRenderer: PropTypes.func,
+  /** If you want an async select, you can pass a function which can return a Promise here */
+  loadOptions: PropTypes.func,
+  /** Used to specify a message for when there's no options */
+  noOptionsMessage: PropTypes.oneOfType([PropTypes.func || PropTypes.string]),
+  /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
+  defaultOptions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.bool])
 }
 
 Select.defaultProps = {
