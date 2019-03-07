@@ -6,7 +6,7 @@
 ---
 
 ```jsx
-<Select {props}
+<Select
   placeholder="Select an option..."
   options={[
     { text: 'One', value: 1, disabled: true },
