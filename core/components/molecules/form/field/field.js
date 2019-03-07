@@ -134,8 +134,7 @@ Field.Element = styled.div`
   @media (min-width: 768px) {
     grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xsmall)};
 
-    grid-template-columns: ${props =>
-      props.layout === 'label-on-left' ? (props.fullWidth ? '200px 1fr' : '.35fr .65fr') : '1fr'};
+    grid-template-columns: ${props => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
   }
 
   ${TextArea.Element} {

@@ -23,7 +23,7 @@ const Form = props => (
 
 Form.Element = styled.form`
   ${Field.Element}, ${Actions.Element} {
-    max-width: ${props => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '625px')};
+    max-width: ${props => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '624px')};
   }
 `
 
