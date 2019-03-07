@@ -202,7 +202,7 @@ class Select extends React.Component {
       ? typeof props.noOptionsMessage === 'function'
         ? props.noOptionsMessage
         : () => props.noOptionsMessage
-      : 'No options'
+      : () => 'No options'
 
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
