@@ -413,3 +413,207 @@ class Example extends React.Component {
   }
 }
 ```
+
+## Asynchronous select
+
+In case you need to load data from an asynchronous data source, you can use the `async` prop along with `loadOptions`
+instead of `options` to let the Select know it will need to call the function to get its options.
+
+```js
+class AsyncExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+    this.allOptions = [
+      {
+        label: 'One',
+        description: 'This item holds the One number as 1.',
+        value: 1
+      },
+      {
+        label: 'Two',
+        description: 'This item holds the Two number as 2.',
+        value: 2
+      },
+      {
+        label: 'Three',
+        description: 'This item holds the Three number as 3.',
+        value: 3
+      },
+      {
+        label: 'Four',
+        description: 'This item holds the Four number as 4.',
+        value: 4
+      },
+      {
+        label: 'Five',
+        description: 'This item holds the Five number as 5.',
+        value: 5
+      },
+      {
+        label: 'Six',
+        description: 'This item holds the Six number as 6.',
+        value: 6
+      },
+      {
+        label: 'Seven',
+        description: 'This item holds the Seven number as 7.',
+        value: 7
+      },
+      {
+        label: 'Eight',
+        description: 'This item holds the Eight number as 8.',
+        value: 8
+      },
+      {
+        label: 'Nine',
+        description: 'This item holds the Nine number as 9.',
+        value: 9
+      },
+      {
+        label: 'Ten',
+        description: 'This item holds the Ten number as 10.',
+        value: 10
+      }
+    ]
+
+    this.loadOptions = this.loadOptions.bind(this)
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  filterOptions(value) {
+    return this.allOptions.filter(item => item.label.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  loadOptions(inputValue, callback) {
+    setTimeout(() => {
+      callback(this.filterOptions(inputValue))
+    }, 500)
+  }
+
+  render() {
+    return (
+      <Select
+        async
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
+        noOptionsMessage={({ inputValue }) =>
+          inputValue.length > 0 ? 'No options' : 'Type to search...'
+        }
+        loadOptions={this.loadOptions}
+      />
+    )
+  }
+}
+```
+
+### The loadOptions function
+
+> If you pass a function as the `loadOptions` prop, the Select component will call the function with
+> the `inputValue` and a `callback`. You may choose to use the callback to pass your async data
+> or you may want to return a `Promise` and ignore the callback completely. Both options will work.
+
+### With muliple items
+
+The asynchronous Select is fully compatible `multiple` mode.
+
+```js
+class AsyncExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+    this.allOptions = [
+      {
+        label: 'One',
+        description: 'This item holds the One number as 1.',
+        value: 1
+      },
+      {
+        label: 'Two',
+        description: 'This item holds the Two number as 2.',
+        value: 2
+      },
+      {
+        label: 'Three',
+        description: 'This item holds the Three number as 3.',
+        value: 3
+      },
+      {
+        label: 'Four',
+        description: 'This item holds the Four number as 4.',
+        value: 4
+      },
+      {
+        label: 'Five',
+        description: 'This item holds the Five number as 5.',
+        value: 5
+      },
+      {
+        label: 'Six',
+        description: 'This item holds the Six number as 6.',
+        value: 6
+      },
+      {
+        label: 'Seven',
+        description: 'This item holds the Seven number as 7.',
+        value: 7
+      },
+      {
+        label: 'Eight',
+        description: 'This item holds the Eight number as 8.',
+        value: 8
+      },
+      {
+        label: 'Nine',
+        description: 'This item holds the Nine number as 9.',
+        value: 9
+      },
+      {
+        label: 'Ten',
+        description: 'This item holds the Ten number as 10.',
+        value: 10
+      }
+    ]
+
+    this.loadOptions = this.loadOptions.bind(this)
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  filterOptions(value) {
+    return this.allOptions.filter(item => item.label.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  loadOptions(inputValue, callback) {
+    setTimeout(() => {
+      callback(this.filterOptions(inputValue))
+    }, 500)
+  }
+
+  render() {
+    return (
+      <Select
+        async
+        multiple
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select an item..."
+        noOptionsMessage={({ inputValue }) =>
+          inputValue.length > 0 ? 'No options' : 'Type to search...'
+        }
+        loadOptions={this.loadOptions}
+      />
+    )
+  }
+}
+```

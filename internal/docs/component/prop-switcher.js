@@ -5,7 +5,7 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
   let handler = value => onPropsChange(propName, value.toString())
 
   if (data.type.name === 'bool') {
-    return <Switch accessibleLabels={[]} on={data.value === 'true'} onToggle={handler} />
+    return <Switch accessibleLabels={[]} on={data.value === 'true'} onChange={handler} />
   } else if (['string', 'number'].includes(data.type.name)) {
     if (data.value === 'null') data.value = ''
     return <TextInput defaultValue={data.value} onChange={e => handler(e.target.value)} />
