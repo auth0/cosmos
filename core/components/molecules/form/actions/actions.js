@@ -60,7 +60,7 @@ const Actions = props => {
 
 Actions.Element = styled.div`
   display: grid;
-  margin-top: ${spacing.medium};
+  margin-top: ${spacing.xlarge};
   grid-gap: ${props => (props.layout === 'label-on-left' ? '25px' : '0')};
   @media (min-width: 768px) {
     grid-template-columns: ${props => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
