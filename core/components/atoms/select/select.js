@@ -207,8 +207,8 @@ class Select extends React.Component {
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
     const onChange = options => {
-      const value = props.async ? options : oneOrMore(options)
-      if (props.onChange) props.onChange({ target: { name: props.name, value } })
+      const newValue = props.async ? options : oneOrMore(options)
+      if (props.onChange) props.onChange({ target: { name: props.name, newValue } })
     }
 
     return (
@@ -236,7 +236,7 @@ class Select extends React.Component {
               theme={selectTheme}
               value={value}
               styles={styles}
-              key={value.length}
+              key={value ? value.length : 0}
               id={props.id || context.formFieldId}
             />
           )}
