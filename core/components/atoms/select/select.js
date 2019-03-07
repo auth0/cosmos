@@ -208,7 +208,7 @@ class Select extends React.Component {
 
     const onChange = options => {
       const newValue = props.async ? options : oneOrMore(options)
-      if (props.onChange) props.onChange({ target: { name: props.name, newValue } })
+      if (props.onChange) props.onChange({ target: { name: props.name, value: newValue } })
     }
 
     return (
