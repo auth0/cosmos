@@ -9,7 +9,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-ksYbfQ feDOET"
+      className="sc-ksYbfQ fMBGNW"
       data-cosmos-key="form"
     >
       <Component
@@ -25,7 +25,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-fBuWsC ndgNq"
+              className="sc-fBuWsC draRVl"
               data-cosmos-key="form.field"
             >
               <styled.div
@@ -72,7 +72,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-fBuWsC ndgNq"
+                          className="sc-fBuWsC draRVl"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
@@ -184,7 +184,7 @@ exports[`Form Field renders the correct id 1`] = `
     layout="label-on-left"
   >
     <form
-      className="sc-ksYbfQ feDOET"
+      className="sc-ksYbfQ fMBGNW"
       data-cosmos-key="form"
     >
       <Component
@@ -200,7 +200,7 @@ exports[`Form Field renders the correct id 1`] = `
             layout="label-on-left"
           >
             <div
-              className="sc-fBuWsC ndgNq"
+              className="sc-fBuWsC draRVl"
               data-cosmos-key="form.field"
             >
               <styled.div
