@@ -46,14 +46,14 @@ const InputBox = styled(Box.withComponent('input'))`
 const PasswordBox = styled('input').attrs({ type: 'password' })``
 const ExtendedPasswordBox = styled(InputBox).attrs({ type: 'password' })``
 
-storiesOf('Component', module).add('default', () => (
-  <Stack>
-    <Box />
-    <Box bg="blue" />
-    <TallBox bg="blue" />
-    <ShortBox bg="blue" />
-    <InputBox bg="blue" defaultValue="okay" />
-    <PasswordBox bg="blue" defaultValue="okay" />
-    <ExtendedPasswordBox bg="blue" defaultValue="okay" />
-  </Stack>
-))
+// storiesOf('Component', module).add('default', () => (
+//   <Stack>
+//     <Box />
+//     <Box bg="blue" />
+//     <TallBox bg="blue" />
+//     <ShortBox bg="blue" />
+//     <InputBox bg="blue" defaultValue="okay" />
+//     <PasswordBox bg="blue" defaultValue="okay" />
+//     <ExtendedPasswordBox bg="blue" defaultValue="okay" />
+//   </Stack>
+// ))
