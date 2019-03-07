@@ -37,8 +37,8 @@ const processIcon = (children, selected, inSubMenu) =>
         color: selected
           ? colors.icon.sidebarFocus
           : inSubMenu
-            ? colors.text.subtle
-            : colors.icon.sidebar
+          ? colors.text.subtle
+          : colors.icon.sidebar
       })
     }
 
@@ -128,7 +128,6 @@ NavigationItem.Postfix = styled.div`
 `
 
 NavigationItem.propTypes = {
-  label: PropTypes.string.isRequired,
   icon: PropTypes.oneOf(__ICONNAMES__),
   onClick: PropTypes.func,
   selected: PropTypes.bool,
