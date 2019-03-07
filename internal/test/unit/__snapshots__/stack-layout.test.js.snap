@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stack Layout renders correctly when a child is null and it has a space assigned 1`] = `
+<styled.div
+  alignment="center"
+  data-cosmos-key="stack-layout"
+  distribution="start"
+  gutter="medium"
+  space={
+    Array [
+      "none",
+      1,
+    ]
+  }
+>
+  <styled.div
+    className="cosmos-layout-child"
+    data-cosmos-key="stack-layout.item"
+    key=".$1"
+    space={1}
+  >
+    <div>
+      something
+    </div>
+  </styled.div>
+</styled.div>
+`;
