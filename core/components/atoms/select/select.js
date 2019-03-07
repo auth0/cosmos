@@ -198,10 +198,11 @@ class Select extends React.Component {
     const searchable = props.async || props.searchable
 
     // React Select requires `noOptionsMessage` to be a function
-    const noOptionsMessage =
-      typeof props.noOptionsMessage === 'function'
+    const noOptionsMessage = props.noOptionsMessage
+      ? typeof props.noOptionsMessage === 'function'
         ? props.noOptionsMessage
         : () => props.noOptionsMessage
+      : 'No options'
 
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
@@ -290,7 +291,7 @@ Select.propTypes = {
   /** If you want an async select, you can pass a function which can return a Promise here */
   loadOptions: PropTypes.func,
   /** Used to specify a message for when there's no options */
-  noOptionsMessage: PropTypes.oneOfType([PropTypes.string || PropTypes.func]),
+  noOptionsMessage: PropTypes.oneOfType([PropTypes.func || PropTypes.string]),
   /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
   defaultOptions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.bool])
 }
@@ -298,8 +299,7 @@ Select.propTypes = {
 Select.defaultProps = {
   options: [],
   placeholder: '',
-  searchable: false,
-  noOptionsMessage: 'No options'
+  searchable: false
 }
 
 export default Select
