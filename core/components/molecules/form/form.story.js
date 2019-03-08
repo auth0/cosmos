@@ -9,6 +9,17 @@ storiesOf('Form', module).add('layouts', () => (
     <Example title="label-on-left">
       <Form>
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput
+          label="Field label"
+          type="text"
+          placeholder="Enter something"
+          error="Show only in the first field"
+        />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
+        <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
         <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </Example>

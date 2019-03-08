@@ -158,7 +158,7 @@ ListItem.Header = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  word-break: break-all;
+  word-break: break-word;
 
   ${StyledAvatar} {
     /* This is a magic number */

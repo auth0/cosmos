@@ -18,9 +18,8 @@ FieldSet.Element = styled.fieldset`
   ${containerStyles};
   border: none;
   padding: 0;
-  margin-bottom: ${spacing.xlarge};
-  &:last-of-type {
-    margin-bottom: 0;
+  &:not(:last-of-type) {
+    margin-bottom: ${spacing.xlarge};
   }
 `
 
