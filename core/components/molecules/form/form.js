@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import TextInput from '../../atoms/text-input'
@@ -15,10 +16,16 @@ import FieldSet from './fieldset'
 import FormContext from './form-context'
 
 const Form = props => (
-  <FormContext.Provider value={{ layout: props.layout }}>
-    <form {...props} {...Automation('form')} />
+  <FormContext.Provider value={{ layout: props.layout, fullWidth: props.fullWidth }}>
+    <Form.Element {...props} {...Automation('form')} />
   </FormContext.Provider>
 )
+
+Form.Element = styled.form`
+  ${Field.Element}, ${Actions.Element} {
+    max-width: ${props => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '624px')};
+  }
+`
 
 Form.Field = props => <Field {...props} />
 Form.Field.ContextConsumer = Field.ContextConsumer
@@ -33,7 +40,9 @@ Form.FieldSet = FieldSet
 
 Form.propTypes = {
   /** Two options for controlling form layout */
-  layout: PropTypes.oneOf(['label-on-left', 'label-on-top'])
+  layout: PropTypes.oneOf(['label-on-left', 'label-on-top']),
+  /** Remove the 625px constraint from the form fields width */
+  fullWidth: PropTypes.bool
 }
 
 Form.defaultProps = {
