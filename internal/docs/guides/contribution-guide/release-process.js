@@ -2,6 +2,7 @@ import React from 'react'
 
 import {
   Heading3,
+  Heading4,
   Text,
   Link,
   List,
@@ -78,8 +79,6 @@ const ReleaseProcess = () => (
         <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">design-system</Link>
       </List.Item>
     </List>
-
-    <Heading3>Changelog format</Heading3>
 
     <Text>The changelog has a format we follow:</Text>
     <CodeBlock>{`
