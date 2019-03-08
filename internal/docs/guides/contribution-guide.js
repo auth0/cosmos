@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { Heading1 } from '../docs-components'
@@ -14,6 +13,7 @@ import OrderOfProps from './contribution-guide/order-of-props'
 import ReleaseProcess from './contribution-guide/release-process'
 import BuildPipeline from './contribution-guide/build-pipeline'
 import AuthoringGuides from './contribution-guide/authoring-guides'
+import LinkingCosmos from './contribution-guide/linking-cosmos'
 
 class ContributionGuide extends React.Component {
   render() {
@@ -33,6 +33,7 @@ class ContributionGuide extends React.Component {
         <ReleaseProcess />
         <BuildPipeline />
         <AuthoringGuides />
+        <LinkingCosmos />
       </div>
     )
   }
