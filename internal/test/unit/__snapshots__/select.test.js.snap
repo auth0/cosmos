@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select async variant renders ReactSelect 1`] = `
+<div
+  class="sc-cvbbAY dbHDoR"
+  data-cosmos-key="select.wrapper"
+>
+  <div
+    class="css-10nd86i"
+  >
+    <div
+      class="css-1dhouxp"
+    >
+      <div
+        class="css-1hwfws3"
+      >
+        <div
+          class="css-1492t68"
+        >
+          Something
+        </div>
+        <div
+          class="css-1g6gooi"
+        >
+          <div
+            class=""
+            style="display:inline-block"
+          >
+            <input
+              aria-autocomplete="list"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              id="react-select-5-input"
+              spellcheck="false"
+              style="box-sizing:content-box;width:1px;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              style="position:absolute;top:0;left:0;visibility:hidden;height:0;overflow:scroll;white-space:pre"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-1wy0on6"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          color="default"
+          data-cosmos-key="icon"
+          name="dropdown-fill"
+          size="14"
+        >
+          <svg
+            class="sc-bxivhb bRFGON"
+            color="#333"
+            height="14"
+            viewBox="0 0 20 20"
+            width="14"
+          >
+            <path
+              d="M17.5 6.903h-15L10 15z"
+            />
+          </svg>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select customOptionRenderer variant renders ReactSelect 1`] = `
+<div
+  class="sc-cvbbAY dbHDoR"
+  data-cosmos-key="select.wrapper"
+>
+  <div
+    class="css-10nd86i"
+  >
+    <div
+      class="css-1dhouxp"
+    >
+      <div
+        class="css-1hwfws3"
+      >
+        <div
+          class="css-1492t68"
+        >
+          Something
+        </div>
+        <input
+          class="css-14uuagi"
+          id="react-select-4-input"
+          readonly=""
+          tabindex="0"
+          value=""
+        />
+      </div>
+      <div
+        class="css-1wy0on6"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          color="default"
+          data-cosmos-key="icon"
+          name="dropdown-fill"
+          size="14"
+        >
+          <svg
+            class="sc-bxivhb bRFGON"
+            color="#333"
+            height="14"
+            viewBox="0 0 20 20"
+            width="14"
+          >
+            <path
+              d="M17.5 6.903h-15L10 15z"
+            />
+          </svg>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select multiple variant renders ReactSelect 1`] = `
+<div
+  class="sc-cvbbAY dbHDoR"
+  data-cosmos-key="select.wrapper"
+>
+  <div
+    class="css-10nd86i"
+  >
+    <div
+      class="css-1dhouxp"
+    >
+      <div
+        class="css-1hwfws3"
+      >
+        <div
+          class="css-1492t68"
+        >
+          Something
+        </div>
+        <input
+          class="css-14uuagi"
+          id="react-select-2-input"
+          readonly=""
+          tabindex="0"
+          value=""
+        />
+      </div>
+      <div
+        class="css-1wy0on6"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          color="default"
+          data-cosmos-key="icon"
+          name="dropdown-fill"
+          size="14"
+        >
+          <svg
+            class="sc-bxivhb bRFGON"
+            color="#333"
+            height="14"
+            viewBox="0 0 20 20"
+            width="14"
+          >
+            <path
+              d="M17.5 6.903h-15L10 15z"
+            />
+          </svg>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select searchable variant renders ReactSelect 1`] = `
+<div
+  class="sc-cvbbAY dbHDoR"
+  data-cosmos-key="select.wrapper"
+>
+  <div
+    class="css-10nd86i"
+  >
+    <div
+      class="css-1dhouxp"
+    >
+      <div
+        class="css-1hwfws3"
+      >
+        <div
+          class="css-1492t68"
+        >
+          Something
+        </div>
+        <div
+          class="css-1g6gooi"
+        >
+          <div
+            class=""
+            style="display:inline-block"
+          >
+            <input
+              aria-autocomplete="list"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              id="react-select-3-input"
+              spellcheck="false"
+              style="box-sizing:content-box;width:1px;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              style="position:absolute;top:0;left:0;visibility:hidden;height:0;overflow:scroll;white-space:pre"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-1wy0on6"
+      >
+        <i
+          aria-hidden="true"
+          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          color="default"
+          data-cosmos-key="icon"
+          name="dropdown-fill"
+          size="14"
+        >
+          <svg
+            class="sc-bxivhb bRFGON"
+            color="#333"
+            height="14"
+            viewBox="0 0 20 20"
+            width="14"
+          >
+            <path
+              d="M17.5 6.903h-15L10 15z"
+            />
+          </svg>
+        </i>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select simple variant renders SimpleSelect 1`] = `
+<div
+  class="sc-hSdWYo golqQu"
+>
+  <i
+    class="sc-eHgmQL eaFXET sc-htpNat hBMtaZ"
+    color="default"
+    data-cosmos-key="icon"
+    name="dropdown-fill"
+    size="14"
+  >
+    <svg
+      class="sc-bxivhb bRFGON"
+      color="#333"
+      height="14"
+      viewBox="0 0 20 20"
+      width="14"
+    >
+      <path
+        d="M17.5 6.903h-15L10 15z"
+      />
+    </svg>
+  </i>
+  <select
+    class="sc-iAyFgw iXjopj sc-kkGfuU HofkO"
+    data-cosmos-key="select"
+    placeholder="Something"
+  >
+    <option
+      data-cosmos-key="select.option"
+      disabled=""
+      selected=""
+      value="0"
+    >
+      Something
+    </option>
+    <option
+      data-cosmos-key="select.option"
+      value="1"
+    >
+      One
+    </option>
+    <option
+      data-cosmos-key="select.option"
+      value="2"
+    >
+      Two
+    </option>
+    <option
+      data-cosmos-key="select.option"
+      value="3"
+    >
+      Three
+    </option>
+  </select>
+</div>
+`;

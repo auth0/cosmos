@@ -5,7 +5,7 @@ import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
 
 const Divider = props => <Divider.Element {...props} />
 
-Divider.Element = styled.div`
+Divider.Element = styled.legend`
   font-size: 14px;
   letter-spacing: 0.5px;
   font-weight: ${fonts.weight.medium};

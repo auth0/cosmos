@@ -28,6 +28,7 @@ const distributionOptions = {
 }
 
 const resolveSpace = (props, child, index) => {
+  if (!child) return null
   if (!props.space) return child
 
   return React.cloneElement(child, { space: props.space[index] })

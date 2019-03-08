@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import kebabCase from 'lodash.kebabcase'
 import startCase from 'lodash.startcase'
 
-import Tag from '../docs-components/tag'
+import { Tag } from '../docs-components'
 import { spacing, colors } from '@auth0/cosmos/tokens'
 
 const StyledLink = styled.div`
