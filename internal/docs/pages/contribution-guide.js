@@ -15,7 +15,6 @@ import ReleaseProcess from './contribution-guide/release-process'
 import BuildPipeline from './contribution-guide/build-pipeline'
 import AuthoringGuides from './contribution-guide/authoring-guides'
 
-
 class ContributionGuide extends React.Component {
   render() {
     return (
