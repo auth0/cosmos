@@ -143,7 +143,7 @@ const iconColorMap = {
 }
 
 Alert.propTypes = {
-  /** /** @deprecated:type Use appearance instead */
+  /** @deprecated:type Use appearance instead */
   type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
 
   /** Style of alert to show */
