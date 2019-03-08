@@ -3,24 +3,24 @@
 exports[`Navigation renders 1`] = `
 <nav
   aria-label="Test navigation"
-  class="sc-iujRgT jeaRWG"
+  class="sc-gojNiO jknDzv"
   data-cosmos-key="navigation"
   role="navigation"
 >
   <ul
-    class="sc-cQFLBn jkOaFm"
+    class="sc-lkqHmb fgSdED"
     data-cosmos-key="navigation.group"
   >
     <li
-      class="sc-gqPbQI lnbsjh"
+      class="sc-iujRgT jeaRWG"
     >
       <a
-        class="sc-hORach fVaydx"
+        class="sc-GMQeP loPdcJ"
         data-cosmos-key="navigation.link"
         href="#"
       >
         <div
-          class="sc-bMVAic bLqoya"
+          class="sc-exAgwC kvVgIg"
         >
           Dashboard
         </div>
@@ -33,12 +33,12 @@ exports[`Navigation renders 1`] = `
 exports[`Navigation renders empty 1`] = `
 <nav
   aria-label="Test navigation"
-  class="sc-iujRgT jeaRWG"
+  class="sc-gojNiO jknDzv"
   data-cosmos-key="navigation"
   role="navigation"
 >
   <ul
-    class="sc-cQFLBn jkOaFm"
+    class="sc-lkqHmb fgSdED"
     data-cosmos-key="navigation.group"
   />
 </nav>
@@ -47,31 +47,31 @@ exports[`Navigation renders empty 1`] = `
 exports[`Navigation renders navigation groups 1`] = `
 <nav
   aria-label="Test navigation"
-  class="sc-iujRgT jeaRWG"
+  class="sc-gojNiO jknDzv"
   data-cosmos-key="navigation"
   role="navigation"
 >
   <ul
-    class="sc-cQFLBn jkOaFm"
+    class="sc-lkqHmb fgSdED"
     data-cosmos-key="navigation.group"
   >
     <section
       aria-labelledby="navigationgroup-1"
-      class="sc-GMQeP gMtPPI"
+      class="sc-daURTG hyDpwY"
       data-cosmos-key="navigation.group"
     >
       <h2
-        class="sc-exAgwC eakGBK"
+        class="sc-bXGyLb fCqjSW"
         id="navigationgroup-1"
       >
         Group 1
       </h2>
       <ul>
         <li
-          class="sc-gqPbQI lnbsjh"
+          class="sc-iujRgT jeaRWG"
         >
           <a
-            class="sc-hORach fVaydx"
+            class="sc-GMQeP loPdcJ"
             data-cosmos-key="navigation.link"
             href="#"
           >
@@ -95,17 +95,17 @@ exports[`Navigation renders navigation groups 1`] = `
               </svg>
             </i>
             <div
-              class="sc-bMVAic bLqoya"
+              class="sc-exAgwC kvVgIg"
             >
               Dashboard
             </div>
           </a>
         </li>
         <li
-          class="sc-gqPbQI lnbsjh"
+          class="sc-iujRgT jeaRWG"
         >
           <a
-            class="sc-hORach fVaydx"
+            class="sc-GMQeP loPdcJ"
             data-cosmos-key="navigation.link"
             href="#"
           >
@@ -129,7 +129,7 @@ exports[`Navigation renders navigation groups 1`] = `
               </svg>
             </i>
             <div
-              class="sc-bMVAic bLqoya"
+              class="sc-exAgwC kvVgIg"
             >
               Another
             </div>
@@ -139,21 +139,21 @@ exports[`Navigation renders navigation groups 1`] = `
     </section>
     <section
       aria-labelledby="navigationgroup-2"
-      class="sc-GMQeP gMtPPI"
+      class="sc-daURTG hyDpwY"
       data-cosmos-key="navigation.group"
     >
       <h2
-        class="sc-exAgwC eakGBK"
+        class="sc-bXGyLb fCqjSW"
         id="navigationgroup-2"
       >
         Group 2
       </h2>
       <ul>
         <li
-          class="sc-gqPbQI lnbsjh"
+          class="sc-iujRgT jeaRWG"
         >
           <a
-            class="sc-hORach fVaydx"
+            class="sc-GMQeP loPdcJ"
             data-cosmos-key="navigation.link"
             href="#"
           >
@@ -177,17 +177,17 @@ exports[`Navigation renders navigation groups 1`] = `
               </svg>
             </i>
             <div
-              class="sc-bMVAic bLqoya"
+              class="sc-exAgwC kvVgIg"
             >
               Dashboard
             </div>
           </a>
         </li>
         <li
-          class="sc-gqPbQI lnbsjh"
+          class="sc-iujRgT jeaRWG"
         >
           <a
-            class="sc-hORach fVaydx"
+            class="sc-GMQeP loPdcJ"
             data-cosmos-key="navigation.link"
             href="#"
           >
@@ -211,7 +211,7 @@ exports[`Navigation renders navigation groups 1`] = `
               </svg>
             </i>
             <div
-              class="sc-bMVAic bLqoya"
+              class="sc-exAgwC kvVgIg"
             >
               Another
             </div>
@@ -226,19 +226,19 @@ exports[`Navigation renders navigation groups 1`] = `
 exports[`Navigation renders with icon item 1`] = `
 <nav
   aria-label="Test navigation"
-  class="sc-iujRgT jeaRWG"
+  class="sc-gojNiO jknDzv"
   data-cosmos-key="navigation"
   role="navigation"
 >
   <ul
-    class="sc-cQFLBn jkOaFm"
+    class="sc-lkqHmb fgSdED"
     data-cosmos-key="navigation.group"
   >
     <li
-      class="sc-gqPbQI lnbsjh"
+      class="sc-iujRgT jeaRWG"
     >
       <a
-        class="sc-hORach fVaydx"
+        class="sc-GMQeP loPdcJ"
         data-cosmos-key="navigation.link"
         href="#"
       >
@@ -262,7 +262,7 @@ exports[`Navigation renders with icon item 1`] = `
           </svg>
         </i>
         <div
-          class="sc-bMVAic bLqoya"
+          class="sc-exAgwC kvVgIg"
         >
           Dashboard
         </div>
@@ -275,19 +275,19 @@ exports[`Navigation renders with icon item 1`] = `
 exports[`Navigation renders with sub navigation 1`] = `
 <nav
   aria-label="Test navigation"
-  class="sc-iujRgT jeaRWG"
+  class="sc-gojNiO jknDzv"
   data-cosmos-key="navigation"
   role="navigation"
 >
   <ul
-    class="sc-cQFLBn jkOaFm"
+    class="sc-lkqHmb fgSdED"
     data-cosmos-key="navigation.group"
   >
     <li
-      class="sc-gqPbQI lnbsjh"
+      class="sc-iujRgT jeaRWG"
     >
       <a
-        class="sc-hORach fVaydx"
+        class="sc-GMQeP loPdcJ"
         data-cosmos-key="navigation.link"
         href="#"
       >
@@ -311,26 +311,26 @@ exports[`Navigation renders with sub navigation 1`] = `
           </svg>
         </i>
         <div
-          class="sc-bMVAic bLqoya"
+          class="sc-exAgwC kvVgIg"
         >
           Dashboard
         </div>
       </a>
       <ul
-        class="sc-cLQEGU jUzqgC"
+        class="sc-bAeIUo fcqtlx"
         data-cosmos-key="navigation.link-group"
         hidden=""
       >
         <li
-          class="sc-gqPbQI lnbsjh"
+          class="sc-iujRgT jeaRWG"
         >
           <a
-            class="sc-hORach fVaydx"
+            class="sc-GMQeP loPdcJ"
             data-cosmos-key="navigation.link"
             href="#"
           >
             <div
-              class="sc-bMVAic bLqoya"
+              class="sc-exAgwC kvVgIg"
             >
               Test element
             </div>
@@ -339,10 +339,10 @@ exports[`Navigation renders with sub navigation 1`] = `
       </ul>
     </li>
     <li
-      class="sc-gqPbQI lnbsjh"
+      class="sc-iujRgT jeaRWG"
     >
       <a
-        class="sc-hORach fVaydx"
+        class="sc-GMQeP loPdcJ"
         data-cosmos-key="navigation.link"
         href="#"
       >
@@ -366,7 +366,7 @@ exports[`Navigation renders with sub navigation 1`] = `
           </svg>
         </i>
         <div
-          class="sc-bMVAic bLqoya"
+          class="sc-exAgwC kvVgIg"
         >
           Another
         </div>
