@@ -4,23 +4,44 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.19.0 [February 26, 2019]
+
+### Changed
+
+- Select: Use `react-select` wrapper only on `multiple` and/or `searchable` selects. [#1528]
+
+### Fixed
+
+- Layouts: avoid rendering empty children. [#1529]
+- Select: Fix dialog overflow when using a `react-select` based Select. [#1527]
+- TextArea: Add a space when using actions in Textarea. [#1523]
+
+## 0.18.0 [February 22, 2019]
+
+### Added
+
+- Select: `react-select` wrapper. [#1512]
+- Tooltip: new variant for input action tooltips. [#1522]
+
 ## 0.17.0 [February 19, 2019]
 
 ### Added
-- Docs: Display Layouts section [#1510] [#1511]
+
+- Docs: Display Layouts section [#1510][#1511]
 - PageHeader: Support passing React nodes as `title`. [#1518].
 - Avatar: Add image resolution failover. [#1515]
 - Docs: New authoring guide. [#1513]
 - Docs: Document build pipeline. [#1514]
 
 ### Fixed
+
 - Form.Field: Automatically add id to fields. [#1439]
 - Checkbox: Improve `readOnly` visual state. [#1517]
 
 ### Changed
+
 - Image: Rename `source` to `src` (via soft deprecation) [#1505]
 - Switch: Rename `onToggle` to `onChange` (via soft deprecation) [#1506]
-
 
 ## 0.16.2 [February 13, 2019]
 

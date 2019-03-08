@@ -14,6 +14,7 @@ import {
 
 const ReleaseProcess = () => (
   <FoldingSection page="contribution-guide" name="Release process">
+    <Heading3>Release checklist</Heading3>
     <Text>You can check off steps of this list as you go along the steps</Text>
 
     <List style={{ listStyle: 'none' }}>
@@ -113,6 +114,27 @@ const ReleaseProcess = () => (
         The internal changes are used just as a good-to-know, as does not affect the app.
       </List.Item>
     </List>
+
+    <Heading3>Jenkins workflow</Heading3>
+
+    <Text>
+      When you merge a branch to <Code>stable</Code>, a jenkins build is triggered. Trigger
+      configuration UI:{' '}
+      <Link href="https://tools-jenkins-us-west-2.forge.auth0.net/job/cosmos/configure">
+        tools-jenkins
+      </Link>
+    </Text>
+    <Text>
+      The steps to perform are written in the{' '}
+      <Link href="https://github.com/auth0/cosmos/blob/master/Jenkinsfile">Jenkinsfile</Link> which
+      sits at the root of this codebase. After cloning the codebase and installing dependencies, we
+      run the deployment script: <Code>npm run scripts deploy</Code>
+    </Text>
+    <Text>
+      The unique part about this file is that it creates a <Code>.npmrc</Code> from the auth token.
+      This token is saved in the jenkins environment and not accessible outside it. We set it in{' '}
+      <Code>.npmrc</Code> to be able to run <Code>npm publish</Code> from anywhere in the codebase.
+    </Text>
   </FoldingSection>
 )
 

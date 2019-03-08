@@ -21,20 +21,20 @@ exports[`Form Field - old API renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-gipzik psgQi"
+            className="sc-fBuWsC uWCJU"
             data-cosmos-key="form.field"
           >
             <styled.div
               layout="label-on-left"
             >
               <div
-                className="sc-csuQGl gbzmMu"
+                className="sc-fMiknA brUQCf"
               >
                 <styled.label
                   htmlFor="old_api-2"
                 >
                   <label
-                    className="sc-gPEVay fazPpZ"
+                    className="sc-bRBYWo hkmFYm"
                     htmlFor="old_api-2"
                   >
                     Old API
@@ -46,7 +46,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
               layout="label-on-left"
             >
               <div
-                className="sc-Rmtcm iqtOol"
+                className="sc-dVhcbM etVTlY"
               >
                 <FieldInput
                   hasError={false}
@@ -69,20 +69,20 @@ exports[`Form Field - old API renders the correct id 1`] = `
                         layout="label-on-left"
                       >
                         <div
-                          className="sc-gipzik psgQi"
+                          className="sc-fBuWsC uWCJU"
                           data-cosmos-key="form.field"
                         >
                           <styled.div
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-csuQGl gbzmMu"
+                              className="sc-fMiknA brUQCf"
                             >
                               <styled.label
                                 htmlFor="-3"
                               >
                                 <label
-                                  className="sc-gPEVay fazPpZ"
+                                  className="sc-bRBYWo hkmFYm"
                                   htmlFor="-3"
                                 />
                               </styled.label>
@@ -92,7 +92,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                             layout="label-on-left"
                           >
                             <div
-                              className="sc-Rmtcm iqtOol"
+                              className="sc-dVhcbM etVTlY"
                             >
                               <FieldInput
                                 Component={[Function]}
@@ -200,20 +200,20 @@ exports[`Form Field renders the correct id 1`] = `
           layout="label-on-left"
         >
           <div
-            className="sc-gipzik psgQi"
+            className="sc-fBuWsC uWCJU"
             data-cosmos-key="form.field"
           >
             <styled.div
               layout="label-on-left"
             >
               <div
-                className="sc-csuQGl gbzmMu"
+                className="sc-fMiknA brUQCf"
               >
                 <styled.label
                   htmlFor="field_label-1"
                 >
                   <label
-                    className="sc-gPEVay fazPpZ"
+                    className="sc-bRBYWo hkmFYm"
                     htmlFor="field_label-1"
                   >
                     Field label
@@ -225,7 +225,7 @@ exports[`Form Field renders the correct id 1`] = `
               layout="label-on-left"
             >
               <div
-                className="sc-Rmtcm iqtOol"
+                className="sc-dVhcbM etVTlY"
               >
                 <FieldInput
                   hasError={false}
