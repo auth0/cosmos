@@ -21,59 +21,6 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     // 'internal/cosmos-scripts'
   ]
 
-  /* copy root version to all dependencies */
-  directories.forEach(directory => {
-    const packageJSONPath = directory + '/package.json'
-    let content = fs.readJsonSync(packageJSONPath)
-    content.version = version
-
-    /* components should import the same version of tokens */
-    if (directory === 'core/components') {
-      content.dependencies['@auth0/cosmos-tokens'] = version
-    }
-
-    /* scripts should import the same version of preset */
-    if (directory === 'internal/cosmos-scripts') {
-      content.dependencies['@auth0/babel-preset-cosmos'] = version
-    }
-
-    fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
-  })
-  info('PUBLISH', 'Copied root version to all packages')
-
-  /* create dist folder */
-  fs.removeSync('dist')
-  fs.mkdirsSync('dist')
-  info('PUBLISH', 'created dist')
-
-  /* copy all packages for publishing */
-  directories.forEach(directory => {
-    fs.copySync(directory, directory.replace('core', 'dist').replace('internal', 'dist'))
-  })
-  info('PUBLISH', 'copied files')
-
-  const presetPath = path.resolve(__dirname, '../dist/babel-preset/index.js')
-
-  /* transpile components */
-  try {
-    execa.shellSync(
-      `./node_modules/.bin/babel --presets=${presetPath} core/components -d dist/components`
-    )
-    info('PUBLISH', 'transpiled components')
-  } catch (err) {
-    console.log(err)
-    process.exit(1)
-  }
-
-  /* transpile tokens */
-  try {
-    execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
-    info('PUBLISH', 'transpiled tokens')
-  } catch (err) {
-    console.log(err)
-    process.exit(1)
-  }
-
   /* copy .npmrc to each package */
   directories.forEach(directory => {
     execa.shellSync(`cp .npmrc ${directory.replace('core', 'dist')}/`)
