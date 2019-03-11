@@ -23,7 +23,7 @@ const findSelectedSubItem = subMenu => {
   let found = false
 
   React.Children.forEach(subMenu.props.children, link => {
-    if (link.props.selected) found = true
+    if (link && link.props.selected) found = true
   })
 
   return found
@@ -37,8 +37,8 @@ const processIcon = (children, selected, inSubMenu) =>
         color: selected
           ? colors.icon.sidebarFocus
           : inSubMenu
-          ? colors.text.subtle
-          : colors.icon.sidebar
+            ? colors.text.subtle
+            : colors.icon.sidebar
       })
     }
 
