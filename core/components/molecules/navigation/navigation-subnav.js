@@ -9,7 +9,10 @@ import { spacing, colors } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 const passSubMenuPropToChildren = children =>
-  React.Children.map(children, el => React.cloneElement(el, { inSubMenu: true }))
+  React.Children.map(children, el => {
+    if (!el) return null
+    return React.cloneElement(el, { inSubMenu: true })
+  })
 
 const NavigationSubnav = props => {
   const { children, open } = props
