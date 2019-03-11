@@ -57,6 +57,7 @@ exports[`Form Field - old API renders the correct id 1`] = `
                 >
                   <Component
                     id="old_api-2"
+                    key=".0"
                     type="text"
                   >
                     <Form Field
@@ -235,6 +236,7 @@ exports[`Form Field renders the correct id 1`] = `
                     code={false}
                     error={null}
                     id="field_label-1"
+                    key=".0"
                     onChange={null}
                     readOnly={false}
                     size="default"
