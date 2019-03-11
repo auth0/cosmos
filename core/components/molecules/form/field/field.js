@@ -55,11 +55,13 @@ const ariaDescribedBy = (helperTextId, errorTextId) => {
   }
 }
 
-const applyAriaToFieldChild = (child, inputId, helperTextId, errorTextId) =>
-  React.cloneElement(React.Children.only(child), {
-    id: inputId,
-    ...ariaDescribedBy(helperTextId, errorTextId)
-  })
+const applyAriaToFieldChild = (children, inputId, helperTextId, errorTextId) =>
+  React.Children.map(children, child =>
+    React.cloneElement(child, {
+      id: inputId,
+      ...ariaDescribedBy(helperTextId, errorTextId)
+    })
+  )
 
 const getIdFromChild = child => child.props.id
 
