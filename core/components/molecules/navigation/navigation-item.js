@@ -76,6 +76,7 @@ class NavigationItem extends React.Component {
       <NavigationItem.Item>
         <NavigationItem.Element
           href={props.url}
+          target={props.target}
           onClick={subMenu ? this.toggleSubmenu : props.onClick}
           selected={selected}
           aria-expanded={props.open}
@@ -132,7 +133,8 @@ NavigationItem.propTypes = {
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   new: PropTypes.bool,
-  url: PropTypes.string
+  url: PropTypes.string,
+  target: PropTypes.string
 }
 
 NavigationItem.defaultProps = {
