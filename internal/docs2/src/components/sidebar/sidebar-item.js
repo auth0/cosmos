@@ -21,6 +21,15 @@ const Item = ({ item, components }) => {
                 <NavLink activeClassName="active" to={item.link}>
                   {item.title}
                 </NavLink>
+                {item.items ? (
+                  <ul>
+                    {item.items.map((subitem, index) => (
+                      <NavLink activeClassName="active" to={subitem.link}>
+                        {subitem.title}
+                      </NavLink>
+                    ))}
+                  </ul>
+                ) : null}
               </NavItem>
             ))}
           </ul>

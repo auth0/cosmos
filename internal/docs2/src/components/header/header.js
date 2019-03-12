@@ -42,7 +42,13 @@ class Header extends React.Component {
           <li>
             <Link to="/?url=docs" onClick={() => this.toggleMenu()}>
               <Icon name="logs" color="grayLightest" size={20} />
-              <span>Documentation</span>
+              <span>Getting started</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/components" onClick={() => this.toggleMenu()}>
+              <Icon name="logs" color="grayLightest" size={20} />
+              <span>Components</span>
             </Link>
           </li>
           <li>

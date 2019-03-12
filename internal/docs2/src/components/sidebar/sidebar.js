@@ -32,6 +32,10 @@ export default props => (
               items {
                 title
                 link
+                items {
+                  title
+                  link
+                }
               }
             }
           }
