@@ -16,6 +16,8 @@ const selectOpacity = {
   disabled: 0.5
 }
 
+const defaultGetOptionValue = option => option.value
+
 const selectTheme = {
   ...defaultTheme,
   colors: {
@@ -39,14 +41,14 @@ const cosmosToReactSelect = {
       options: items ? cosmosToReactSelect.options(items) : undefined,
       ...otherProperties
     })),
-  value: (valueProp, options) => {
+  value: (valueProp, options, getOptionValue = defaultGetOptionValue) => {
     if (valueProp === null || typeof valueProp === 'undefined') return null
 
     if (valueProp.constructor.name === 'Array') {
-      return valueProp.map(item => cosmosToReactSelect.value(item, options))
+      return valueProp.map(item => cosmosToReactSelect.value(item, options, getOptionValue))
     }
 
-    const matchValue = option => option.value === valueProp
+    const matchValue = option => getOptionValue(option) === valueProp
 
     let valueFound = null
 
@@ -117,15 +119,13 @@ const cosmosDownIndicator = ({ innerProps }) => (
 
 const cosmosLoadingIndicator = () => <Select.Spinner />
 
-const oneOrMore = options => {
+const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
   if (options === null) return null
 
-  const transformation = option => option.value
-
   if (options.constructor.name === 'Array') {
-    return options.map(transformation)
+    return options.map(getOptionValue)
   }
-  return transformation(options)
+  return getOptionValue(options)
 }
 
 const componentOverrides = {
@@ -171,7 +171,15 @@ class Select extends React.Component {
   render() {
     const props = this.props
 
-    if (!(props.async || props.searchable || props.multiple || props.customOptionRenderer))
+    if (
+      !(
+        props.async ||
+        props.searchable ||
+        props.multiple ||
+        props.customOptionRenderer ||
+        props.getOptionValue
+      )
+    )
       return <SimpleSelect {...props} />
 
     /*
@@ -193,7 +201,9 @@ class Select extends React.Component {
      * If the Select is async we need to get the complete object value from the user,
      * while if it's a sync select, we can just get the value and match it from the options.
      */
-    const value = props.async ? props.value : cosmosToReactSelect.value(props.value, options)
+    const value = props.async
+      ? props.value
+      : cosmosToReactSelect.value(props.value, options, props.getOptionValue)
     const styles = cosmosToReactSelect.styles(props)
     const searchable = props.async || props.searchable
 
@@ -207,7 +217,7 @@ class Select extends React.Component {
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
     const onChange = options => {
-      const newValue = props.async ? options : oneOrMore(options)
+      const newValue = props.async ? options : oneOrMore(options, props.getOptionValue)
       if (props.onChange) props.onChange({ target: { name: props.name, value: newValue } })
     }
 
@@ -227,6 +237,7 @@ class Select extends React.Component {
               menuPortalTarget={document.body}
               menuIsOpen={props.defaultMenuOpen}
               defaultValue={props.defaultValue}
+              getOptionValue={props.getOptionValue}
               placeholder={props.placeholder}
               options={options}
               loadOptions={props.loadOptions}
@@ -290,6 +301,8 @@ Select.propTypes = {
   customOptionRenderer: PropTypes.func,
   /** If you want an async select, you can pass a function which can return a Promise here */
   loadOptions: PropTypes.func,
+  /** Lets you specify a different key from where the select should take the value from a selected option */
+  getOptionValue: PropTypes.func,
   /** Used to specify a message for when there's no options */
   noOptionsMessage: PropTypes.oneOfType([PropTypes.func || PropTypes.string]),
   /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
