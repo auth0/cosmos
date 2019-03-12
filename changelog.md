@@ -7,9 +7,12 @@ follow semver beginning with our `1.0` release. In the meantime, please read thi
 
 ## 0.21.0 [March 12, 2019]
 
-### Fixed
+### Added
 
 - Select: add `getOptionValue` support. [#1555]
+
+### Fixed
+
 - Do not try to clone null elements. [#1554]
 
 ## 0.20.3 [March 11, 2019]
