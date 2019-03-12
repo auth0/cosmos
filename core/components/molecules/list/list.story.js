@@ -195,7 +195,7 @@ storiesOf('List', module).add('with columns', () => (
 
 storiesOf('List', module).add('StackLayout with a switch', () => (
   <Example title="StackLayout with a switch">
-    <List>
+    <List onItemClick={(ev, item) => console.log({ ev, item })}>
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
           <RowLayout gutter="xxsmall">

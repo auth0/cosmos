@@ -65,6 +65,12 @@ const isListExpandable = child => {
   return isPresent
 }
 
+const onItemClickHandler = (props, child) => {
+  if (!props.onItemClick) return
+
+  return ev => props.onItemClick(ev, child.props)
+}
+
 const ListContainer = SortableContainer(props => (
   <div>{React.Children.map(props.children, renderItem(props, ListItemContainer))}</div>
 ))
@@ -85,6 +91,7 @@ const renderItem = (props, wrapperElement = React.Fragment) => (child, index) =>
         {...Automation('list.item')}
         hasOpenDrawer={hasOpenDrawer}
         draggable={props.draggable}
+        onClick={onItemClickHandler(props, child)}
       >
         {props.draggable && (
           <List.Handle
@@ -246,7 +253,8 @@ List.propTypes = {
   draggable: PropTypes.bool,
   expandable: PropTypes.bool,
   /** this function is called when dragging items have finished */
-  onDragEnd: PropTypes.func
+  onDragEnd: PropTypes.func,
+  onItemClick: PropTypes.func
 }
 
 List.arrayMove = arrayMove
