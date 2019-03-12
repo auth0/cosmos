@@ -102,6 +102,16 @@ const customOptionRenderer = providedRenderer => optionProps => {
   )
 }
 
+const customValueRenderer = providedRenderer => optionProps => {
+  const { innerProps, innerRef, data } = optionProps
+
+  return (
+    <div ref={innerRef} {...innerProps}>
+      {providedRenderer(data)}
+    </div>
+  )
+}
+
 const cosmosMultiValueTagRenderer = optionProps => {
   const { innerProps, removeProps, innerRef, data } = optionProps
   return (
@@ -171,7 +181,15 @@ class Select extends React.Component {
   render() {
     const props = this.props
 
-    if (!(props.async || props.searchable || props.multiple || props.customOptionRenderer))
+    if (
+      !(
+        props.async ||
+        props.searchable ||
+        props.multiple ||
+        props.customOptionRenderer ||
+        props.customValueRenderer
+      )
+    )
       return <SimpleSelect {...props} />
 
     /*
@@ -187,6 +205,10 @@ class Select extends React.Component {
 
     if (props.customOptionRenderer) {
       componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
+    }
+
+    if (props.customValueRenderer) {
+      componentOverrides.SingleValue = customValueRenderer(props.customValueRenderer)
     }
 
     /**
@@ -288,6 +310,8 @@ Select.propTypes = {
   loading: PropTypes.bool,
   /** Lets you define a custom component to render each option */
   customOptionRenderer: PropTypes.func,
+  /** Lets you define a custom component to render the selected value */
+  customValueRenderer: PropTypes.func,
   /** If you want an async select, you can pass a function which can return a Promise here */
   loadOptions: PropTypes.func,
   /** Used to specify a message for when there's no options */

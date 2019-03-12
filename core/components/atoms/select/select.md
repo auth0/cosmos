@@ -414,6 +414,66 @@ class Example extends React.Component {
 }
 ```
 
+## Select with custom value
+
+You can use the `customValueRenderer` prop in order to render a custom component as the selected value.
+
+```js
+class Example extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { selectedItems: [] }
+  }
+
+  handleChange(event) {
+    const selectedItems = event.target.value
+    this.setState({ selectedItems })
+  }
+
+  renderValue(option) {
+    return (
+      <span>
+        {option.country} {option.label}
+      </span>
+    )
+  }
+
+  render() {
+    return (
+      <Select
+        value={this.state.selectedItems}
+        onChange={ev => this.handleChange(ev)}
+        placeholder="Select a custom item..."
+        customValueRenderer={this.renderValue}
+        options={[
+          {
+            value: 'Harry Kane',
+            text: 'Harry Kane',
+            country: '🇬🇧'
+          },
+          {
+            value: 'Lionel Messi',
+            text: 'Lionel Messi',
+            country: '🇦🇷'
+          },
+          {
+            value: 'Antoine Griezmann',
+            text: 'Antoine Griezmann',
+            country: '🇫🇷'
+          },
+          {
+            value: 'Luis Suarez',
+            text: 'Luis Suarez',
+            country: '🇺🇾'
+          }
+        ]}
+      />
+    )
+  }
+}
+```
+
 ## Asynchronous select
 
 In case you need to load data from an asynchronous data source, you can use the `async` prop along with `loadOptions`

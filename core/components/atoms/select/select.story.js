@@ -451,6 +451,85 @@ storiesOf('Select', module).add('custom renderer', () => (
   </ExampleForSelect>
 ))
 
+storiesOf('Select', module).add('custom value renderer', () => (
+  <ExampleForSelect title="Select: custom value renderer">
+    <Select
+      defaultMenuOpen
+      value={'Harry Kane'}
+      onChange={ev => this.handleChange(ev)}
+      placeholder="Select a custom item..."
+      customValueRenderer={option => (
+        <span>
+          {option.country} {option.label}
+        </span>
+      )}
+      options={[
+        {
+          value: 'Harry Kane',
+          text: 'Harry Kane',
+          country: '🇬🇧'
+        },
+        {
+          value: 'Lionel Messi',
+          text: 'Lionel Messi',
+          country: '🇦🇷'
+        },
+        {
+          value: 'Antoine Griezmann',
+          text: 'Antoine Griezmann',
+          country: '🇫🇷'
+        },
+        {
+          value: 'Luis Suarez',
+          text: 'Luis Suarez',
+          country: '🇺🇾'
+        }
+      ]}
+    />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('interactive: custom value renderer', () => (
+  <ExampleForSelect title="Select: custom value renderer (interactive)">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <Select
+          value={value}
+          onChange={onChange}
+          placeholder="Select a custom item..."
+          customValueRenderer={option => (
+            <span>
+              {option.country} {option.label}
+            </span>
+          )}
+          options={[
+            {
+              value: 'Harry Kane',
+              text: 'Harry Kane',
+              country: '🇬🇧'
+            },
+            {
+              value: 'Lionel Messi',
+              text: 'Lionel Messi',
+              country: '🇦🇷'
+            },
+            {
+              value: 'Antoine Griezmann',
+              text: 'Antoine Griezmann',
+              country: '🇫🇷'
+            },
+            {
+              value: 'Luis Suarez',
+              text: 'Luis Suarez',
+              country: '🇺🇾'
+            }
+          ]}
+        />
+      )}
+    </InteractiveSelect>
+  </ExampleForSelect>
+))
+
 storiesOf('Select', module).add('custom renderer in dialog', () => (
   <ExampleForSelect title="Select: custom renderer">
     <Dialog open title="A dialog example">
