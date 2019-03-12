@@ -299,3 +299,22 @@ storiesOf('Form', module).add('Form full width', () => (
     </RowLayout>
   </Example>
 ))
+
+storiesOf('Form', module).add('Form Fields with null children', () => (
+  <Example title="Form Fields with null children">
+    <RowLayout gutter="spacious">
+      <Form>
+        <Form.Field label="Something">
+          <TextInput
+            type="text"
+            placeholder="Enter something"
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
+          />
+          {null}
+        </Form.Field>
+
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
+      </Form>
+    </RowLayout>
+  </Example>
+))

@@ -73,6 +73,7 @@ class ActionTooltip extends React.Component {
   processAction() {
     const { children: button, resetDelay } = this.props
     const content = this.preprocessContent()
+    if (!button) return null
 
     const newHandler = event => {
       this.resetState()
