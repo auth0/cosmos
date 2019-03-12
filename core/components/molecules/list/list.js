@@ -85,8 +85,10 @@ const renderItem = (props, wrapperElement = React.Fragment) => (child, index) =>
   const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
   const ItemWrapper = wrapperElement
 
+  const itemWrapperProps = ItemWrapper === React.Fragment ? {} : { index, value: index }
+
   return (
-    <ItemWrapper key={`item-${index}`} index={index} value={index}>
+    <ItemWrapper key={`item-${index}`} {...itemWrapperProps}>
       <List.ItemContainer
         {...Automation('list.item')}
         hasOpenDrawer={hasOpenDrawer}
