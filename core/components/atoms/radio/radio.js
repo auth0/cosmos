@@ -15,13 +15,14 @@ const justifyContent = {
 
 const Radio = props => (
   <Radio.Element {...props} {...Automation('radio')}>
-    {React.Children.map(props.children, child =>
-      React.cloneElement(child, {
+    {React.Children.map(props.children, child => {
+      if (!child) return null
+      return React.cloneElement(child, {
         name: props.name,
         checked: props.selected === child.props.value,
         readOnly: props.readOnly || child.props.readOnly
       })
-    )}
+    })}
   </Radio.Element>
 )
 
