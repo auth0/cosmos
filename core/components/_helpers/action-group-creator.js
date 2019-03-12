@@ -10,6 +10,7 @@ const getActionGroup = (actions = [], actionOverrides = {}) => {
       <ButtonGroup compressed>
         {actions.map((action, index) => {
           /* add key to each element of array */
+          if (!action) return null
           return React.cloneElement(action, { key: index, ...actionOverrides })
         })}
       </ButtonGroup>
