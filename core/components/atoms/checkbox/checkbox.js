@@ -125,6 +125,7 @@ Checkbox.Element = styled.div`
 Checkbox.Group = props => (
   <Checkbox.Element {...props} {...Automation('checkbox.group')}>
     {React.Children.map(props.children, child => {
+      if (!child) return null
       return React.cloneElement(child, {
         name: props.name,
         defaultChecked: props.selected.indexOf(child.props.value) > -1,

@@ -4,9 +4,10 @@ import { css } from '@auth0/cosmos/styled'
 export const LAYOUT_CHILDREN_CLASS_NAME = 'cosmos-layout-child'
 
 export const applyLayoutChildClass = children =>
-  React.Children.map(children, child =>
-    React.cloneElement(child, { className: LAYOUT_CHILDREN_CLASS_NAME })
-  )
+  React.Children.map(children, child => {
+    if (!child) return null
+    return React.cloneElement(child, { className: LAYOUT_CHILDREN_CLASS_NAME })
+  })
 
 /**
  * Applies the margin reset depending on the prop value that comes
