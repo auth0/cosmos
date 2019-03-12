@@ -500,7 +500,7 @@ storiesOf('Select', module).add('custom value renderer', () => (
   <ExampleForSelect title="Select: custom value renderer">
     <Select
       defaultMenuOpen
-      value={'Harry Kane'}
+      value="Harry Kane"
       onChange={ev => this.handleChange(ev)}
       placeholder="Select a custom item..."
       customValueRenderer={option => (
