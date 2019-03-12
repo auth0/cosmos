@@ -18,7 +18,6 @@ class InteractiveSelect extends React.Component {
   }
 
   onChange(event) {
-    console.log('Changing to:', event.target.value)
     this.setState({ value: event.target.value })
   }
 
@@ -76,6 +75,52 @@ storiesOf('Select', module).add('multiple tags', () => (
         { text: 'Logs', value: 3 }
       ]}
     />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('simple with custom getOptionValue', () => (
+  <ExampleForSelect title="Select: custom getOptionValue">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <div>
+          <Select
+            options={[
+              { text: 'One', myCustomValue: 1 },
+              { text: 'Two', myCustomValue: 2 },
+              { text: 'Three', myCustomValue: 3 }
+            ]}
+            value={value}
+            onChange={onChange}
+            getOptionValue={option => option.myCustomValue}
+          />
+          <p>Selected value: {value}</p>
+        </div>
+      )}
+    </InteractiveSelect>
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('multiple with custom getOptionValue', () => (
+  <ExampleForSelect title="Select: custom getOptionValue">
+    <InteractiveSelect>
+      {(value, onChange) => (
+        <div>
+          <Select
+            multiple
+            searchable
+            options={[
+              { text: 'One', myCustomValue: 1 },
+              { text: 'Two', myCustomValue: 2 },
+              { text: 'Three', myCustomValue: 3 }
+            ]}
+            value={value}
+            onChange={onChange}
+            getOptionValue={option => option.myCustomValue}
+          />
+          <p>Selected value: {(value || []).join(',')}</p>
+        </div>
+      )}
+    </InteractiveSelect>
   </ExampleForSelect>
 ))
 
