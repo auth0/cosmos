@@ -11,8 +11,8 @@
   "dependencies": {
     "@auth0/cosmos": "0.21.0",
     "@auth0/cosmos-fonts": "0.0.1",
-    "react": "16.6.3",
-    "react-dom": "16.6.3",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
     "react-router-dom": "4.2.2"
   },
   "devDependencies": {
