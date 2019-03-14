@@ -10,6 +10,7 @@ import NavigationSubnav from './navigation-subnav'
 import { childrenMover } from '../../_helpers/children-mover'
 
 const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
+const { include: includeSubnav, exclude: excludeSubnav } = childrenMover(NavigationSubnav)
 
 const enforceSingleChildren = children => {
   if (!children) return null
@@ -48,9 +49,15 @@ const processIcon = (children, selected, inSubMenu) =>
 class NavigationItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { subMenuOpen: props.defaultOpen || null }
+    this.state = { subMenuOpen: props.defaultOpen || this.isSelected }
 
     this.toggleSubmenu = this.toggleSubmenu.bind(this)
+  }
+
+  get isSelected() {
+    const { selected, children } = this.props
+    const subMenu = enforceSingleChildren(includeSubnav(children))
+    return selected || (subMenu ? findSelectedSubItem(subMenu) : false)
   }
 
   toggleSubmenu() {
@@ -66,13 +73,13 @@ class NavigationItem extends React.Component {
     const props = this.props
     const { inSubMenu, children } = props
 
-    const { include, exclude } = childrenMover(NavigationSubnav)
-    const [navigationItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
+    const [navigationItem, subMenu] = [
+      excludeSubnav(children),
+      enforceSingleChildren(includeSubnav(children))
+    ]
 
-    const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
-    const statefulSubMenu = this.setSubMenuState(subMenu, {
-      open: this.state.subMenuOpen === null ? selected : this.state.subMenuOpen
-    })
+    const selected = this.props.defaultOpen || this.isSelected
+    const statefulSubMenu = this.setSubMenuState(subMenu, { open: this.state.subMenuOpen })
 
     return (
       <NavigationItem.Item>
