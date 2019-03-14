@@ -48,7 +48,7 @@ const processIcon = (children, selected, inSubMenu) =>
 class NavigationItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { subMenuOpen: props.defaultOpen || false }
+    this.state = { subMenuOpen: props.defaultOpen || null }
 
     this.toggleSubmenu = this.toggleSubmenu.bind(this)
   }
@@ -70,7 +70,9 @@ class NavigationItem extends React.Component {
     const [navigationItem, subMenu] = [exclude(children), enforceSingleChildren(include(children))]
 
     const selected = props.selected ? true : subMenu ? findSelectedSubItem(subMenu) : false
-    const statefulSubMenu = this.setSubMenuState(subMenu, { open: this.state.subMenuOpen })
+    const statefulSubMenu = this.setSubMenuState(subMenu, {
+      open: this.state.subMenuOpen === null ? selected : this.state.subMenuOpen
+    })
 
     return (
       <NavigationItem.Item>
