@@ -9,6 +9,9 @@ const urlTemplate = (hash, initials, size) =>
   `https://s.gravatar.com/avatar/${hash}?s=${size}&r=pg&d=${initialsAvatar(initials)}`
 
 export default function avatarUrl(email, initials, size = 480) {
-  const hash = md5(email.toLowerCase())
+  if (!email && !initials)
+    throw new Error('You need to provide either `email`, `initials` or both to the Avatar.')
+
+  const hash = email ? md5(email.toLowerCase()) : ''
   return urlTemplate(hash, initials, size)
 }
