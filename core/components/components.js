@@ -44,6 +44,7 @@ import AvatarBlock from './molecules/avatar-block'
 import ButtonGroup from './molecules/button-group'
 import DangerZone from './molecules/danger-zone'
 import Dialog from './molecules/dialog'
+import DataList from './molecules/data-list'
 import EmptyState from './molecules/empty-state'
 import Form from './molecules/form'
 import FormGroup from './molecules/form-group'
@@ -82,6 +83,7 @@ export {
   ColumnLayout,
   DangerZone,
   Dialog,
+  DataList,
   EmptyState,
   Form,
   FormGroup,
