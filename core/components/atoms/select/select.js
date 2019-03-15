@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
-import Icon from '../icon'
-import Tag from '../tag'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
 import AsyncSelect from 'react-select/lib/Async'
