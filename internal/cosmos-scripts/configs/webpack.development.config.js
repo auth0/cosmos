@@ -8,7 +8,6 @@ module.exports = {
   mode: 'development',
   entry: [
     path.join(__dirname, '../utils/prop-type-errors.js'),
-    'react-hot-loader/patch',
     path.resolve(process.cwd(), './index.js')
   ],
   output: {
