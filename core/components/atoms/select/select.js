@@ -174,7 +174,7 @@ class Select extends React.Component {
       ? cosmosToReactSelect.options(props.defaultOptions)
       : null
 
-    if (typeof props.customOptionRenderer !== 'undefined') {
+    if (props.customOptionRenderer) {
       componentOverrides.Option = optionRenderer(props.customOptionRenderer)
     }
 
