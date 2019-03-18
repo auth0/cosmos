@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.22.0 [March 18, 2019]
+
+### Changed
+
+- React: Update to v16.8.4. [#1558]
+
+### Fixed
+
+- Avatar: Fix avatarUrl helper and add tests. [#1561]
+- Navigation: Fix submenu not being opened when subitem is selected. [#1560].
+- Avoid displaying a native tooltip in elements with a `title` prop. [#1557].
+
+### Internal
+
+- Introduced new List component (experimental). [#1364]
+
 ## 0.21.0 [March 12, 2019]
 
 ### Added
