@@ -13,7 +13,7 @@ import {
   CosmosMenuList,
   CosmosOption,
   CosmosLoadingIndicator,
-  CosmosDownIndicator,
+  CosmosDropdownIndicator,
   CosmosClearIndicator,
   CosmosMultiValue,
   CosmosGroup,
@@ -105,7 +105,7 @@ const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
 
 const componentOverrides = {
   MultiValue: CosmosMultiValue,
-  DropdownIndicator: CosmosDownIndicator,
+  DropdownIndicator: CosmosDropdownIndicator,
   LoadingIndicator: CosmosLoadingIndicator,
   ClearIndicator: CosmosClearIndicator,
   GroupHeading: CosmosGroupHeading,
