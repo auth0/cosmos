@@ -158,6 +158,7 @@ const Label = styled.label`
 
     margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
     margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
+    text-align: ${props => (props.labelPosition == 'left' ? 'right' : 'left')};
 
     /*
     In order to make the switch always the same width
