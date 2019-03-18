@@ -3,6 +3,11 @@ import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import { GalleryLayout } from '@auth0/cosmos'
+import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+
+storiesOf('Gallery Layout', module).add('Null children check', () =>
+  layoutSpacingStoryTest(GalleryLayout, 'small')
+)
 
 storiesOf('Gallery Layout').add('Size: small', () => (
   <Example title="Size: small">

@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.17.0",
+  "version": "0.21.0",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -21,6 +21,7 @@
     "i": "nps-i",
     "dev": "echo Our scripts have changed, run yarn scripts to know more",
     "build": "nps -s production.build",
+    "build-packages": "nps -s deploy.build",
     "start": "nps -s production.start",
     "test": "nps -s test",
     "precommit": "nps icons.build && lint-staged",
@@ -55,7 +56,7 @@
     "execa": "1.0.0",
     "fs-extra": "6.0.1",
     "htmlparser2": "3.9.2",
-    "jest": "^23.5.0",
+    "jest": "^24.1.0",
     "latest-version": "4.0.0",
     "lint-staged": "7.2.0",
     "lodash.camelcase": "4.3.0",

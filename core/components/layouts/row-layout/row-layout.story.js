@@ -3,6 +3,11 @@ import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
 import { RowLayout, ColumnLayout } from '@auth0/cosmos'
+import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+
+storiesOf('Row Layout', module).add('Null children check', () =>
+  layoutSpacingStoryTest(RowLayout, 'small')
+)
 
 storiesOf('Row Layout', module).add('Gutter: None', () => (
   <Example title="Gutter: None">

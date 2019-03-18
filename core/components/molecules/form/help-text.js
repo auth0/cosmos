@@ -3,14 +3,11 @@ import styled from '@auth0/cosmos/styled'
 
 import { spacing, colors } from '@auth0/cosmos-tokens'
 
-const StyledHelpText = styled.div`
+const StyledHelpText = styled.p`
   font-size: 13px;
-  line-height: 1.8;
   color: ${colors.text.secondary};
-  margin-top: ${spacing.xsmall};
-  margin-bottom: ${spacing.xsmall};
 `
 
-const HelpText = props => <StyledHelpText>{props.children}</StyledHelpText>
+const HelpText = props => <StyledHelpText id={props.id}>{props.children}</StyledHelpText>
 
 export default HelpText

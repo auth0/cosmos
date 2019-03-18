@@ -25,8 +25,13 @@ RowLayout.Element = styled.div`
   grid-template-columns: 1fr;
   grid-gap: ${props => gutterOptions[props.gutter]};
 
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
+
 RowLayout.Item = styled.div``
 
 RowLayout.propTypes = {

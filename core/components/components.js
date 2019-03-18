@@ -48,6 +48,7 @@ import EmptyState from './molecules/empty-state'
 import Form from './molecules/form'
 import FormGroup from './molecules/form-group'
 import List from './molecules/list'
+import Navigation from './molecules/navigation'
 import PageHeader from './molecules/page-header'
 import Pagination from './molecules/pagination'
 import PaginationToolbar from './molecules/pagination-toolbar'
@@ -92,6 +93,7 @@ export {
   Link,
   List,
   Logo,
+  Navigation,
   PageHeader,
   PageLayout,
   Pagination,

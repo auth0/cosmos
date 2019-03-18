@@ -28,6 +28,7 @@ const distributionOptions = {
 }
 
 const resolveSpace = (props, child, index) => {
+  if (!child) return null
   if (!props.space) return child
 
   return React.cloneElement(child, { space: props.space[index] })
@@ -51,6 +52,11 @@ StackLayout.Element = styled.div`
   > *:not(:last-child) {
     margin-right: ${props => gutterOptions[props.gutter]};
   }
+
+  & > *:empty {
+    display: none;
+  }
+
   ${applyMarginReset()};
 `
 
@@ -59,7 +65,6 @@ StackLayout.Item = styled.div`
 
   /* Avoids any component to be larger than it's parent */
   max-width: 100%;
-  }
 `
 
 function spaceItemProp(props, propName) {

@@ -1,0 +1,377 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders 1`] = `
+<nav
+  aria-label="Test navigation"
+  class="sc-gojNiO jknDzv"
+  data-cosmos-key="navigation"
+  role="navigation"
+>
+  <ul
+    class="sc-lkqHmb fgSdED"
+    data-cosmos-key="navigation.group"
+  >
+    <li
+      class="sc-iujRgT jeaRWG"
+    >
+      <a
+        class="sc-GMQeP loPdcJ"
+        data-cosmos-key="navigation.link"
+        href="#"
+      >
+        <div
+          class="sc-exAgwC kvVgIg"
+        >
+          Dashboard
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Navigation renders empty 1`] = `
+<nav
+  aria-label="Test navigation"
+  class="sc-gojNiO jknDzv"
+  data-cosmos-key="navigation"
+  role="navigation"
+>
+  <ul
+    class="sc-lkqHmb fgSdED"
+    data-cosmos-key="navigation.group"
+  />
+</nav>
+`;
+
+exports[`Navigation renders navigation groups 1`] = `
+<nav
+  aria-label="Test navigation"
+  class="sc-gojNiO jknDzv"
+  data-cosmos-key="navigation"
+  role="navigation"
+>
+  <ul
+    class="sc-lkqHmb fgSdED"
+    data-cosmos-key="navigation.group"
+  >
+    <section
+      aria-labelledby="navigationgroup-1"
+      class="sc-daURTG hyDpwY"
+      data-cosmos-key="navigation.group"
+    >
+      <h2
+        class="sc-bXGyLb fCqjSW"
+        id="navigationgroup-1"
+      >
+        Group 1
+      </h2>
+      <ul>
+        <li
+          class="sc-iujRgT jeaRWG"
+        >
+          <a
+            class="sc-GMQeP loPdcJ"
+            data-cosmos-key="navigation.link"
+            href="#"
+          >
+            <i
+              class="sc-htpNat geZmyw"
+              color="default"
+              data-cosmos-key="icon"
+              name="apis"
+              size="18"
+            >
+              <svg
+                class="sc-bxivhb kNQFVa"
+                color="#333"
+                height="18"
+                viewBox="0 0 20 20"
+                width="18"
+              >
+                <path
+                  d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+                />
+              </svg>
+            </i>
+            <div
+              class="sc-exAgwC kvVgIg"
+            >
+              Dashboard
+            </div>
+          </a>
+        </li>
+        <li
+          class="sc-iujRgT jeaRWG"
+        >
+          <a
+            class="sc-GMQeP loPdcJ"
+            data-cosmos-key="navigation.link"
+            href="#"
+          >
+            <i
+              class="sc-htpNat geZmyw"
+              color="default"
+              data-cosmos-key="icon"
+              name="apis"
+              size="18"
+            >
+              <svg
+                class="sc-bxivhb kNQFVa"
+                color="#333"
+                height="18"
+                viewBox="0 0 20 20"
+                width="18"
+              >
+                <path
+                  d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+                />
+              </svg>
+            </i>
+            <div
+              class="sc-exAgwC kvVgIg"
+            >
+              Another
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section
+      aria-labelledby="navigationgroup-2"
+      class="sc-daURTG hyDpwY"
+      data-cosmos-key="navigation.group"
+    >
+      <h2
+        class="sc-bXGyLb fCqjSW"
+        id="navigationgroup-2"
+      >
+        Group 2
+      </h2>
+      <ul>
+        <li
+          class="sc-iujRgT jeaRWG"
+        >
+          <a
+            class="sc-GMQeP loPdcJ"
+            data-cosmos-key="navigation.link"
+            href="#"
+          >
+            <i
+              class="sc-htpNat geZmyw"
+              color="default"
+              data-cosmos-key="icon"
+              name="apis"
+              size="18"
+            >
+              <svg
+                class="sc-bxivhb kNQFVa"
+                color="#333"
+                height="18"
+                viewBox="0 0 20 20"
+                width="18"
+              >
+                <path
+                  d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+                />
+              </svg>
+            </i>
+            <div
+              class="sc-exAgwC kvVgIg"
+            >
+              Dashboard
+            </div>
+          </a>
+        </li>
+        <li
+          class="sc-iujRgT jeaRWG"
+        >
+          <a
+            class="sc-GMQeP loPdcJ"
+            data-cosmos-key="navigation.link"
+            href="#"
+          >
+            <i
+              class="sc-htpNat geZmyw"
+              color="default"
+              data-cosmos-key="icon"
+              name="apis"
+              size="18"
+            >
+              <svg
+                class="sc-bxivhb kNQFVa"
+                color="#333"
+                height="18"
+                viewBox="0 0 20 20"
+                width="18"
+              >
+                <path
+                  d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+                />
+              </svg>
+            </i>
+            <div
+              class="sc-exAgwC kvVgIg"
+            >
+              Another
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </ul>
+</nav>
+`;
+
+exports[`Navigation renders with icon item 1`] = `
+<nav
+  aria-label="Test navigation"
+  class="sc-gojNiO jknDzv"
+  data-cosmos-key="navigation"
+  role="navigation"
+>
+  <ul
+    class="sc-lkqHmb fgSdED"
+    data-cosmos-key="navigation.group"
+  >
+    <li
+      class="sc-iujRgT jeaRWG"
+    >
+      <a
+        class="sc-GMQeP loPdcJ"
+        data-cosmos-key="navigation.link"
+        href="#"
+      >
+        <i
+          class="sc-htpNat geZmyw"
+          color="default"
+          data-cosmos-key="icon"
+          name="apis"
+          size="18"
+        >
+          <svg
+            class="sc-bxivhb kNQFVa"
+            color="#333"
+            height="18"
+            viewBox="0 0 20 20"
+            width="18"
+          >
+            <path
+              d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+            />
+          </svg>
+        </i>
+        <div
+          class="sc-exAgwC kvVgIg"
+        >
+          Dashboard
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Navigation renders with sub navigation 1`] = `
+<nav
+  aria-label="Test navigation"
+  class="sc-gojNiO jknDzv"
+  data-cosmos-key="navigation"
+  role="navigation"
+>
+  <ul
+    class="sc-lkqHmb fgSdED"
+    data-cosmos-key="navigation.group"
+  >
+    <li
+      class="sc-iujRgT jeaRWG"
+    >
+      <a
+        class="sc-GMQeP loPdcJ"
+        data-cosmos-key="navigation.link"
+        href="#"
+      >
+        <i
+          class="sc-htpNat geZmyw"
+          color="default"
+          data-cosmos-key="icon"
+          name="apis"
+          size="18"
+        >
+          <svg
+            class="sc-bxivhb kNQFVa"
+            color="#333"
+            height="18"
+            viewBox="0 0 20 20"
+            width="18"
+          >
+            <path
+              d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+            />
+          </svg>
+        </i>
+        <div
+          class="sc-exAgwC kvVgIg"
+        >
+          Dashboard
+        </div>
+      </a>
+      <ul
+        class="sc-bAeIUo fcqtlx"
+        data-cosmos-key="navigation.link-group"
+        hidden=""
+      >
+        <li
+          class="sc-iujRgT jeaRWG"
+        >
+          <a
+            class="sc-GMQeP loPdcJ"
+            data-cosmos-key="navigation.link"
+            href="#"
+          >
+            <div
+              class="sc-exAgwC kvVgIg"
+            >
+              Test element
+            </div>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li
+      class="sc-iujRgT jeaRWG"
+    >
+      <a
+        class="sc-GMQeP loPdcJ"
+        data-cosmos-key="navigation.link"
+        href="#"
+      >
+        <i
+          class="sc-htpNat geZmyw"
+          color="default"
+          data-cosmos-key="icon"
+          name="apis"
+          size="18"
+        >
+          <svg
+            class="sc-bxivhb kNQFVa"
+            color="#333"
+            height="18"
+            viewBox="0 0 20 20"
+            width="18"
+          >
+            <path
+              d="M12.992 17.433H3V3h5.551v4.44h4.441v4.442h4.441v5.551h-4.44zM7.441 4.11H4.11v3.33h3.33V4.11zm0 4.441H4.11v3.331h3.33v-3.33zm0 4.441H4.11v3.331h3.33v-3.33zm4.44-4.44h-3.33v3.33h3.33v-3.33zm0 4.44h-3.33v3.331h3.33v-3.33zm4.442 0h-3.33v3.331h3.33v-3.33z"
+            />
+          </svg>
+        </i>
+        <div
+          class="sc-exAgwC kvVgIg"
+        >
+          Another
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

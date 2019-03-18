@@ -2,25 +2,96 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
+follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
+
+## 0.21.0 [March 12, 2019]
+
+### Added
+
+- Select: add `getOptionValue` support. [#1555]
+
+### Fixed
+
+- Do not try to clone null elements. [#1554]
+
+## 0.20.3 [March 11, 2019]
+
+### Fixed
+
+- Navigation: Add null checks. [#1551]
+
+## 0.20.2 [March 11, 2019]
+
+### Fixed
+
+- Navigation: Add `target` link prop to `Navigation.Item`. [#1549]
+
+## 0.20.1 [March 11, 2019]
+
+### Fixed
+
+- Form.Field: Do not require only one child [#1547]
+
+## 0.20.0 [March 8, 2019]
+
+### Added
+
+- Introduce Navigation component. [#1539]
+- Select: Add async support. [#1538]
+- EmptyState: Add variant without actions. [#1543]
+- Make cosmos locally linkable. [#1476][#1484]
+
+### Changed
+
+- API: Consistent appearance prop. [#1488]
+- Docs: Remove automation glossary. [#1545]
+- Forms: Internal output improvement. [#1468]
+- Alert: Component is no longer unstable. [#1544]
+
+### Fixed
+
+- Field: Fix field actions prop type to support raw buttons. [#1531]
+- StackLayout: Check for null when distributing children spaces. [#1532]
+
+## 0.19.0 [February 26, 2019]
+
+### Changed
+
+- Select: Use `react-select` wrapper only on `multiple` and/or `searchable` selects. [#1528]
+
+### Fixed
+
+- Layouts: avoid rendering empty children. [#1529]
+- Select: Fix dialog overflow when using a `react-select` based Select. [#1527]
+- TextArea: Add a space when using actions in Textarea. [#1523]
+
+## 0.18.0 [February 22, 2019]
+
+### Added
+
+- Select: `react-select` wrapper. [#1512]
+- Tooltip: new variant for input action tooltips. [#1522]
 
 ## 0.17.0 [February 19, 2019]
 
 ### Added
-- Docs: Display Layouts section [#1510] [#1511]
+
+- Docs: Display Layouts section [#1510][#1511]
 - PageHeader: Support passing React nodes as `title`. [#1518].
 - Avatar: Add image resolution failover. [#1515]
 - Docs: New authoring guide. [#1513]
 - Docs: Document build pipeline. [#1514]
 
 ### Fixed
+
 - Form.Field: Automatically add id to fields. [#1439]
 - Checkbox: Improve `readOnly` visual state. [#1517]
 
 ### Changed
+
 - Image: Rename `source` to `src` (via soft deprecation) [#1505]
 - Switch: Rename `onToggle` to `onChange` (via soft deprecation) [#1506]
-
 
 ## 0.16.2 [February 13, 2019]
 

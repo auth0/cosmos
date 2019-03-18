@@ -1,6 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import StyledPlaceholder from '../../_helpers/story-layout-placeholder'
 import {
   StackLayout,
   RowLayout,
@@ -13,10 +14,11 @@ import {
   TextInput,
   ButtonGroup
 } from '@auth0/cosmos'
+import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
 
 storiesOf('Stack Layout', module).add('Resource list', () => (
   <Example title="Resource list">
-    <StackLayout distribution="spaceBetween" space={[1, 1.5, 'none']}>
+    <StackLayout distribution="spaceBetween" space={[1, 2, 'none']}>
       <StackLayout space={['none', 1]}>
         <Avatar type="resource" icon="clients" size="large" />
         <RowLayout gutter="none">
@@ -73,3 +75,7 @@ storiesOf('Stack Layout', module).add('Toolbar', () => (
     </StackLayout>
   </Example>
 ))
+
+storiesOf('Stack Layout', module).add('Null children check', () =>
+  layoutSpacingStoryTest(StackLayout, 'small')
+)
