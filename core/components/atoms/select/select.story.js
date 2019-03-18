@@ -84,10 +84,26 @@ storiesOf('Select', module).add('simple with custom getOptionValue', () => (
       {(value, onChange) => (
         <div>
           <Select
+            defaultMenuOpen
             options={[
-              { text: 'One', myCustomValue: 1 },
-              { text: 'Two', myCustomValue: 2 },
-              { text: 'Three', myCustomValue: 3 }
+              { text: '1', myCustomValue: 1 },
+              { text: '2', myCustomValue: 2 },
+              { text: '3', myCustomValue: 3 },
+              { text: '4', myCustomValue: 4 },
+              { text: '5', myCustomValue: 5 },
+              { text: '6', myCustomValue: 6 },
+              { text: '7', myCustomValue: 7 },
+              { text: '8', myCustomValue: 8 },
+              { text: '9', myCustomValue: 9 },
+              { text: '10', myCustomValue: 10 },
+              { text: '11', myCustomValue: 11 },
+              { text: '12', myCustomValue: 12 },
+              { text: '13', myCustomValue: 13 },
+              { text: '14', myCustomValue: 14 },
+              { text: '15', myCustomValue: 15 },
+              { text: '16', myCustomValue: 16 },
+              { text: '17', myCustomValue: 17 },
+              { text: '18', myCustomValue: 18 }
             ]}
             value={value}
             onChange={onChange}
@@ -314,7 +330,7 @@ storiesOf('Select', module).add('interactive: groups - multiple', () => (
         <Select
           multiple
           searchable
-          defaultMenuOpen
+          // defaultMenuOpen
           value={value}
           onChange={onChange}
           placeholder="Groups"
@@ -412,12 +428,7 @@ class CustomRendererExample extends React.Component {
 
   renderOption(option, { isHovered }) {
     return (
-      <div
-        style={{
-          padding: '12px 16px',
-          backgroundColor: isHovered ? 'rgba(66, 134, 244, 0.2)' : 'white'
-        }}
-      >
+      <div>
         <p>
           <strong>{option.label}</strong>
         </p>

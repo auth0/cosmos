@@ -14,7 +14,10 @@ import {
   CosmosOption,
   CosmosLoadingIndicator,
   CosmosDownIndicator,
-  CosmosMultiValue
+  CosmosClearIndicator,
+  CosmosMultiValue,
+  CosmosGroup,
+  optionRenderer
 } from './components'
 
 const defaultGetOptionValue = option => option.value
@@ -71,6 +74,8 @@ const cosmosToReactSelect = {
     menuPortal: CosmosMenu.portalTheme,
     menu: CosmosMenu.theme,
     groupHeading: CosmosGroupHeading.theme,
+    group: CosmosGroup.theme,
+    menuList: CosmosMenuList.theme,
     control: (provided, state) =>
       props.hasError
         ? {
@@ -102,10 +107,12 @@ const componentOverrides = {
   MultiValue: CosmosMultiValue,
   DropdownIndicator: CosmosDownIndicator,
   LoadingIndicator: CosmosLoadingIndicator,
+  ClearIndicator: CosmosClearIndicator,
   GroupHeading: CosmosGroupHeading,
   Menu: CosmosMenu,
   MenuList: CosmosMenuList,
   Option: CosmosOption,
+  Group: CosmosGroup,
   IndicatorSeparator: () => null
 }
 
@@ -167,8 +174,8 @@ class Select extends React.Component {
       ? cosmosToReactSelect.options(props.defaultOptions)
       : null
 
-    if (props.customOptionRenderer) {
-      componentOverrides.Option = CosmosOption.renderer(props.customOptionRenderer)
+    if (typeof props.customOptionRenderer !== 'undefined') {
+      componentOverrides.Option = optionRenderer(props.customOptionRenderer)
     }
 
     /**
