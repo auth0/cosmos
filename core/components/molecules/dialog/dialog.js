@@ -13,6 +13,7 @@ import Automation from '../../_helpers/automation-attribute'
 
 import FocusTrap from 'react-focus-lock'
 import containerStyles from '../../_helpers/container-styles'
+import { rootProps } from '../../_helpers/root-props'
 
 const createButtonForAction = (action, index) => {
   // As we also support passing raw <Button> components
@@ -98,7 +99,7 @@ class Dialog extends React.Component {
             role="dialog"
             aria-modal="true"
             aria-labelledby="dialog-title"
-            {...props}
+            {...rootProps(props)}
           >
             <DialogClose>
               <Button
