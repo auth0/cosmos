@@ -1,289 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form Field - old API renders the correct id 1`] = `
-<Form
-  layout="label-on-left"
+<ContextProvider
+  value={
+    Object {
+      "fullWidth": undefined,
+      "layout": "label-on-left",
+    }
+  }
 >
   <styled.form
     data-cosmos-key="form"
     layout="label-on-left"
   >
-    <form
-      className="sc-ksYbfQ fMBGNW"
-      data-cosmos-key="form"
+    <Component
+      label="Old API"
     >
       <Component
-        label="Old API"
-      >
-        <Form Field
-          error={null}
-          helpText={null}
-          label="Old API"
-        >
-          <styled.div
-            data-cosmos-key="form.field"
-            layout="label-on-left"
-          >
-            <div
-              className="sc-fBuWsC draRVl"
-              data-cosmos-key="form.field"
-            >
-              <styled.div
-                checkbox={false}
-                layout="label-on-left"
-              >
-                <div
-                  className="sc-eqIVtm hNZzIz"
-                >
-                  <styled.label
-                    htmlFor="old_api-2"
-                  >
-                    <label
-                      className="sc-bRBYWo fKMZjk"
-                      htmlFor="old_api-2"
-                    >
-                      Old API
-                    </label>
-                  </styled.label>
-                </div>
-              </styled.div>
-              <styled.div
-                data-cosmos-key="form.field.content"
-                layout="label-on-left"
-              >
-                <div
-                  className="sc-fAjcbJ byigni"
-                  data-cosmos-key="form.field.content"
-                >
-                  <Component
-                    id="old_api-2"
-                    key=".0"
-                    type="text"
-                  >
-                    <Form Field
-                      error={null}
-                      fieldComponent={[Function]}
-                      helpText={null}
-                      id="old_api-2"
-                      label=""
-                      type="text"
-                    >
-                      <styled.div
-                        data-cosmos-key="form.field"
-                        layout="label-on-left"
-                      >
-                        <div
-                          className="sc-fBuWsC draRVl"
-                          data-cosmos-key="form.field"
-                        >
-                          <styled.div
-                            checkbox={false}
-                            layout="label-on-left"
-                          >
-                            <div
-                              className="sc-eqIVtm hNZzIz"
-                            >
-                              <styled.label
-                                htmlFor="-3"
-                              >
-                                <label
-                                  className="sc-bRBYWo fKMZjk"
-                                  htmlFor="-3"
-                                />
-                              </styled.label>
-                            </div>
-                          </styled.div>
-                          <styled.div
-                            data-cosmos-key="form.field.content"
-                            layout="label-on-left"
-                          >
-                            <div
-                              className="sc-fAjcbJ byigni"
-                              data-cosmos-key="form.field.content"
-                            >
-                              <TextInput
-                                actions={Array []}
-                                code={false}
-                                error={null}
-                                fieldComponent={[Function]}
-                                hasError={false}
-                                helpText={null}
-                                id="old_api-2"
-                                label=""
-                                onChange={null}
-                                readOnly={false}
-                                size="default"
-                                type="text"
-                              >
-                                <Styled(styled.input)
-                                  actions={Array []}
-                                  code={false}
-                                  data-cosmos-key="text-input"
-                                  error={null}
-                                  fieldComponent={[Function]}
-                                  hasError={false}
-                                  helpText={null}
-                                  id="old_api-2"
-                                  label=""
-                                  onChange={null}
-                                  readOnly={false}
-                                  size="default"
-                                  type="text"
-                                >
-                                  <styled.input
-                                    actions={Array []}
-                                    className="sc-ckVGcZ dQMAUo"
-                                    code={false}
-                                    data-cosmos-key="text-input"
-                                    error={null}
-                                    fieldComponent={[Function]}
-                                    hasError={false}
-                                    helpText={null}
-                                    id="old_api-2"
-                                    label=""
-                                    onChange={null}
-                                    readOnly={false}
-                                    size="default"
-                                    type="text"
-                                  >
-                                    <input
-                                      className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
-                                      data-cosmos-key="text-input"
-                                      id="old_api-2"
-                                      label=""
-                                      onChange={null}
-                                      readOnly={false}
-                                      size="default"
-                                      type="text"
-                                    />
-                                  </styled.input>
-                                </Styled(styled.input)>
-                              </TextInput>
-                            </div>
-                          </styled.div>
-                        </div>
-                      </styled.div>
-                    </Form Field>
-                  </Component>
-                </div>
-              </styled.div>
-            </div>
-          </styled.div>
-        </Form Field>
-      </Component>
-    </form>
+        type="text"
+      />
+    </Component>
   </styled.form>
-</Form>
+</ContextProvider>
 `;
 
 exports[`Form Field renders the correct id 1`] = `
-<Form
-  layout="label-on-left"
+<ContextProvider
+  value={
+    Object {
+      "fullWidth": undefined,
+      "layout": "label-on-left",
+    }
+  }
 >
   <styled.form
     data-cosmos-key="form"
     layout="label-on-left"
   >
-    <form
-      className="sc-ksYbfQ fMBGNW"
-      data-cosmos-key="form"
+    <Component
+      label="Field label"
     >
-      <Component
-        label="Field label"
-      >
-        <Form Field
-          error={null}
-          helpText={null}
-          label="Field label"
-        >
-          <styled.div
-            data-cosmos-key="form.field"
-            layout="label-on-left"
-          >
-            <div
-              className="sc-fBuWsC draRVl"
-              data-cosmos-key="form.field"
-            >
-              <styled.div
-                checkbox={false}
-                layout="label-on-left"
-              >
-                <div
-                  className="sc-eqIVtm hNZzIz"
-                >
-                  <styled.label
-                    htmlFor="field_label-1"
-                  >
-                    <label
-                      className="sc-bRBYWo fKMZjk"
-                      htmlFor="field_label-1"
-                    >
-                      Field label
-                    </label>
-                  </styled.label>
-                </div>
-              </styled.div>
-              <styled.div
-                data-cosmos-key="form.field.content"
-                layout="label-on-left"
-              >
-                <div
-                  className="sc-fAjcbJ byigni"
-                  data-cosmos-key="form.field.content"
-                >
-                  <TextInput
-                    actions={Array []}
-                    code={false}
-                    error={null}
-                    id="field_label-1"
-                    key=".0"
-                    onChange={null}
-                    readOnly={false}
-                    size="default"
-                    type="text"
-                  >
-                    <Styled(styled.input)
-                      actions={Array []}
-                      code={false}
-                      data-cosmos-key="text-input"
-                      error={null}
-                      id="field_label-1"
-                      onChange={null}
-                      readOnly={false}
-                      size="default"
-                      type="text"
-                    >
-                      <styled.input
-                        actions={Array []}
-                        className="sc-ckVGcZ dQMAUo"
-                        code={false}
-                        data-cosmos-key="text-input"
-                        error={null}
-                        id="field_label-1"
-                        onChange={null}
-                        readOnly={false}
-                        size="default"
-                        type="text"
-                      >
-                        <input
-                          className="sc-ckVGcZ dQMAUo sc-kgoBCf jZzEBr"
-                          data-cosmos-key="text-input"
-                          id="field_label-1"
-                          onChange={null}
-                          readOnly={false}
-                          size="default"
-                          type="text"
-                        />
-                      </styled.input>
-                    </Styled(styled.input)>
-                  </TextInput>
-                </div>
-              </styled.div>
-            </div>
-          </styled.div>
-        </Form Field>
-      </Component>
-    </form>
+      <TextInput
+        actions={Array []}
+        code={false}
+        error={null}
+        onChange={null}
+        readOnly={false}
+        size="default"
+        type="text"
+      />
+    </Component>
   </styled.form>
-</Form>
+</ContextProvider>
 `;
