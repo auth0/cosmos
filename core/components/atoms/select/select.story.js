@@ -84,7 +84,6 @@ storiesOf('Select', module).add('simple with custom getOptionValue', () => (
       {(value, onChange) => (
         <div>
           <Select
-            defaultMenuOpen
             options={[
               { text: '1', myCustomValue: 1 },
               { text: '2', myCustomValue: 2 },
