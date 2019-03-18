@@ -103,24 +103,23 @@ const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
   return getOptionValue(options)
 }
 
-const componentOverrides = {
-  MultiValue,
-  DropdownIndicator,
-  LoadingIndicator,
-  ClearIndicator,
-  GroupHeading,
-  Menu,
-  MenuList,
-  Option,
-  Group,
-  IndicatorSeparator: () => null
-}
-
 class Select extends React.Component {
   constructor(props) {
     super(props)
     this.state = { menuIsOpen: props.defaultMenuOpen || false }
     this.handleScroll = this.handleScroll.bind(this)
+    this.componentOverrides = {
+      MultiValue,
+      DropdownIndicator,
+      LoadingIndicator,
+      ClearIndicator,
+      GroupHeading,
+      Menu,
+      MenuList,
+      Option,
+      Group,
+      IndicatorSeparator: () => null
+    }
   }
 
   componentDidMount() {
@@ -175,7 +174,7 @@ class Select extends React.Component {
       : null
 
     if (props.customOptionRenderer) {
-      componentOverrides.Option = optionRenderer(props.customOptionRenderer)
+      this.componentOverrides.Option = optionRenderer(props.customOptionRenderer)
     }
 
     /**
@@ -222,7 +221,7 @@ class Select extends React.Component {
               placeholder={props.placeholder}
               options={options}
               loadOptions={props.loadOptions}
-              components={componentOverrides}
+              components={this.componentOverrides}
               noOptionsMessage={noOptionsMessage}
               defaultOptions={defaultOptions}
               theme={selectTheme}
