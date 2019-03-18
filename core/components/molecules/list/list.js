@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
-
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
