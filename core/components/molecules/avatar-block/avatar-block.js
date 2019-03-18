@@ -10,6 +10,7 @@ import Automation from '../../_helpers/automation-attribute'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
 import { StyledLink } from '@auth0/cosmos/atoms/link'
+import { rootProps } from '../../_helpers/root-props'
 
 const avatarSizes = {
   compact: 'small',
@@ -74,7 +75,7 @@ const AvatarBlock = props => {
   }
 
   return (
-    <AvatarBlock.Element {...Automation('avatar-block')} {...props}>
+    <AvatarBlock.Element {...Automation('avatar-block')} {...rootProps(props)}>
       {avatar}
       <Text>
         {title}
