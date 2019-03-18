@@ -9,6 +9,7 @@ import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
 import containerStyles from '../../_helpers/container-styles'
+import { rootProps } from '../../_helpers/root-props'
 
 const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.appearance].text};
@@ -58,7 +59,7 @@ class Alert extends React.Component {
           appearance={appearance}
           dismissible={this.props.dismissible}
           {...Automation('alert')}
-          {...this.props}
+          {...rootProps(this.props)}
         >
           {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[appearance]} />}
           <span>

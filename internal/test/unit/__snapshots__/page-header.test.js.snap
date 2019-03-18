@@ -38,7 +38,6 @@ exports[`Page Header renders both primary and secondary actions 1`] = `
       "label": "Secondary",
     }
   }
-  title=""
 >
   <Heading
     size={1}
@@ -157,7 +156,6 @@ exports[`Page Header renders primary action only 1`] = `
       "label": "Button Content",
     }
   }
-  title=""
 >
   <Heading
     size={1}
@@ -235,7 +233,6 @@ exports[`Page Header renders secondary action only 1`] = `
       "label": "Button Content",
     }
   }
-  title=""
 >
   <Heading
     size={1}
