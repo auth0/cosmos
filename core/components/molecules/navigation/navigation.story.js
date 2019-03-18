@@ -283,7 +283,7 @@ storiesOf('Navigation', module).add('selected sub-item', () => (
         <Navigation.Item.Text>SSO Integrations</Navigation.Item.Text>
       </Navigation.Item>
 
-      <Navigation.Item defaultOpen>
+      <Navigation.Item>
         <Icon name="connections" />
         <Navigation.Item.Text>Connections</Navigation.Item.Text>
 
