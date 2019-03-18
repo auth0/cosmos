@@ -8,15 +8,15 @@ import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
 import {
-  CosmosGroupHeading,
-  CosmosMenu,
-  CosmosMenuList,
-  CosmosOption,
-  CosmosLoadingIndicator,
-  CosmosDropdownIndicator,
-  CosmosClearIndicator,
-  CosmosMultiValue,
-  CosmosGroup,
+  GroupHeading,
+  Menu,
+  MenuList,
+  Option,
+  LoadingIndicator,
+  DropdownIndicator,
+  ClearIndicator,
+  MultiValue,
+  Group,
   optionRenderer
 } from './components'
 
@@ -71,11 +71,11 @@ const cosmosToReactSelect = {
     return options.find(matchValue)
   },
   styles: props => ({
-    menuPortal: CosmosMenu.portalTheme,
-    menu: CosmosMenu.theme,
-    groupHeading: CosmosGroupHeading.theme,
-    group: CosmosGroup.theme,
-    menuList: CosmosMenuList.theme,
+    menuPortal: Menu.portalTheme,
+    menu: Menu.theme,
+    groupHeading: GroupHeading.theme,
+    group: Group.theme,
+    menuList: MenuList.theme,
     control: (provided, state) =>
       props.hasError
         ? {
@@ -104,15 +104,15 @@ const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
 }
 
 const componentOverrides = {
-  MultiValue: CosmosMultiValue,
-  DropdownIndicator: CosmosDropdownIndicator,
-  LoadingIndicator: CosmosLoadingIndicator,
-  ClearIndicator: CosmosClearIndicator,
-  GroupHeading: CosmosGroupHeading,
-  Menu: CosmosMenu,
-  MenuList: CosmosMenuList,
-  Option: CosmosOption,
-  Group: CosmosGroup,
+  MultiValue,
+  DropdownIndicator,
+  LoadingIndicator,
+  ClearIndicator,
+  GroupHeading,
+  Menu,
+  MenuList,
+  Option,
+  Group,
   IndicatorSeparator: () => null
 }
 

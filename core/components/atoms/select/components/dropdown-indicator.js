@@ -12,6 +12,6 @@ const StyledArrowIcon = styled(Icon)`
   }
 `
 
-export const CosmosDropdownIndicator = ({ innerProps }) => (
+export const DropdownIndicator = ({ innerProps }) => (
   <StyledArrowIcon {...innerProps} name="dropdown-fill" size="14" color="default" />
 )

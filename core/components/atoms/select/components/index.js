@@ -1,4 +1,5 @@
 export * from './menu'
+export * from './group'
 export * from './group-heading'
 export * from './menu-list'
 export * from './option'

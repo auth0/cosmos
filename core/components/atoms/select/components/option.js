@@ -17,15 +17,15 @@ export const optionRenderer = providedRenderer => optionProps => {
   const boxContent = providedRenderer(data, state)
 
   return (
-    <CosmosOptionElement noStyles={boxContent.props.noStyles} {...state} {...innerProps}>
+    <OptionElement noStyles={boxContent.props.noStyles} {...state} {...innerProps}>
       {boxContent}
-    </CosmosOptionElement>
+    </OptionElement>
   )
 }
 
-export const CosmosOption = optionRenderer(data => <p>{data.label}</p>)
+export const Option = optionRenderer(data => <p>{data.label}</p>)
 
-export const CosmosOptionElement = styled.div`
+export const OptionElement = styled.div`
   background-color: ${props =>
     props.noStyles ? 'none' : props.isHovered ? hoverBackgroundColor : 'white'};
   display: flex;

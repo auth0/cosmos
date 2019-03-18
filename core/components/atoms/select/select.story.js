@@ -615,3 +615,32 @@ storiesOf('Select', module).add('async select', () => (
     <AsyncExample />
   </ExampleForSelect>
 ))
+
+storiesOf('Select', module).add('disabled options', () => (
+  <ExampleForSelect title="Select: disabled options">
+    <div style={{ width: 300 }}>
+      <Select
+        value={3}
+        searchable
+        defaultMenuOpen
+        options={[
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 1,
+            disabled: true
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 2,
+            disabled: true
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 3
+          }
+        ]}
+        onChange={event => console.log(event)}
+      />
+    </div>
+  </ExampleForSelect>
+))

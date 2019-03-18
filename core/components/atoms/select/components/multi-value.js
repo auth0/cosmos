@@ -18,7 +18,7 @@ const StyledTag = styled(Tag)`
   }
 `
 
-export const CosmosMultiValue = optionProps => {
+export const MultiValue = optionProps => {
   const { innerProps, removeProps, innerRef, data } = optionProps
   return (
     <StyledTag {...innerProps} ref={innerRef} onRemove={removeProps.onClick}>
