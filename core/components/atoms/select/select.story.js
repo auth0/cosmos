@@ -329,7 +329,6 @@ storiesOf('Select', module).add('interactive: groups - multiple', () => (
         <Select
           multiple
           searchable
-          // defaultMenuOpen
           value={value}
           onChange={onChange}
           placeholder="Groups"
