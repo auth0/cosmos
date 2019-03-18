@@ -9,21 +9,129 @@
 
 ```jsx
 <List {props}>
-  <div>one</div>
-  <div>two</div>
-  <div>three</div>
+  <List.Item>
+    <div>one</div>
+  </List.Item>
+  <List.Item>
+    <div>two</div>
+  </List.Item>
+  <List.Item>
+    <div>three</div>
+  </List.Item>
 </List>
 ```
 
 ## Examples
 
-You can pass an optional label for the list
+### Default structure
 
 ```js
-<List label="Short List">
-  <div>one</div>
-  <div>two</div>
-  <div>three</div>
+<List>
+  <List.Item>
+    <List.Header>
+      <AvatarBlock
+        type="resource"
+        icon="apis"
+        title="Auth0 Management"
+        subtitle="System API"
+        size="default"
+      />
+    </List.Header>
+    <List.Body>
+      <span>ID:</span> <Code>98367683783</Code>
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+  <List.Item>
+    <List.Header>
+      <AvatarBlock
+        type="resource"
+        icon="apis"
+        title="Auth0 Management"
+        subtitle="System API"
+        size="default"
+      />
+    </List.Header>
+    <List.Body>
+      <span>ID:</span> <Code>98367683783</Code>
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+
+  <List.Item>
+    <List.Header>
+      <AvatarBlock
+        type="resource"
+        icon="apis"
+        title="Auth0 Management"
+        subtitle="System API"
+        size="default"
+      />
+    </List.Header>
+    <List.Body>
+      <span>ID:</span> <Code>98367683783</Code>
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+</List>
+```
+
+```js
+<List sortable>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
+    <List.Body>
+      <Switch hideAccessibleLabels />
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
+    <List.Body>
+      <Switch hideAccessibleLabels />
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
+    <List.Body>
+      <Switch hideAccessibleLabels />
+    </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
 </List>
 ```
 
