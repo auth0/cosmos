@@ -17,7 +17,8 @@ import {
   ClearIndicator,
   MultiValue,
   Group,
-  optionRenderer
+  optionRenderer,
+  valueRenderer
 } from './components'
 
 const defaultGetOptionValue = option => option.value
@@ -157,6 +158,7 @@ class Select extends React.Component {
         props.searchable ||
         props.multiple ||
         props.customOptionRenderer ||
+        props.customValueRenderer ||
         props.getOptionValue
       )
     )
@@ -175,6 +177,10 @@ class Select extends React.Component {
 
     if (props.customOptionRenderer) {
       this.componentOverrides.Option = optionRenderer(props.customOptionRenderer)
+    }
+
+    if (props.customValueRenderer) {
+      this.componentOverrides.SingleValue = valueRenderer(props.customValueRenderer)
     }
 
     /**
@@ -260,6 +266,8 @@ Select.propTypes = {
   loading: PropTypes.bool,
   /** Lets you define a custom component to render each option */
   customOptionRenderer: PropTypes.func,
+  /** Lets you define a custom component to render the selected value */
+  customValueRenderer: PropTypes.func,
   /** If you want an async select, you can pass a function which can return a Promise here */
   loadOptions: PropTypes.func,
   /** Lets you specify a different key from where the select should take the value from a selected option */
