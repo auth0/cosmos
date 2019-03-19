@@ -1,20 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
-import Icon from '../icon'
-import Tag from '../tag'
-import Spinner from '../spinner'
 import styled from '@auth0/cosmos/styled'
 import ReactSelect, { defaultTheme } from 'react-select'
 import AsyncSelect from 'react-select/lib/Async'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
-
-const selectOpacity = {
-  default: 1,
-  disabled: 0.5
-}
+import {
+  GroupHeading,
+  Menu,
+  MenuList,
+  Option,
+  LoadingIndicator,
+  DropdownIndicator,
+  ClearIndicator,
+  MultiValue,
+  Group,
+  optionRenderer
+} from './components'
 
 const defaultGetOptionValue = option => option.value
 
@@ -27,7 +31,7 @@ const selectTheme = {
   },
   borderRadius: misc.radius,
   spacing: {
-    menuGutter: 4,
+    menuGutter: 0,
     baseUnit: spacing.unit,
     controlHeight: misc.input.default.height
   }
@@ -67,7 +71,11 @@ const cosmosToReactSelect = {
     return options.find(matchValue)
   },
   styles: props => ({
-    menuPortal: provided => ({ ...provided, zIndex: 20 }),
+    menuPortal: Menu.portalTheme,
+    menu: Menu.theme,
+    groupHeading: GroupHeading.theme,
+    group: Group.theme,
+    menuList: MenuList.theme,
     control: (provided, state) =>
       props.hasError
         ? {
@@ -86,49 +94,6 @@ const cosmosToReactSelect = {
   })
 }
 
-const customOptionRenderer = providedRenderer => optionProps => {
-  const { innerProps, innerRef, data } = optionProps
-  const ifDisabled = (disabledValue, enabledValue) =>
-    data.isDisabled ? disabledValue : enabledValue
-
-  const state = { isHovered: optionProps.isFocused }
-  const opacity = selectOpacity[ifDisabled('disabled', 'default')]
-  const cursor = ifDisabled('no-drop', 'pointer')
-
-  const style = { width: '100%', opacity, cursor }
-
-  return (
-    <div ref={innerRef} {...innerProps} style={style}>
-      {providedRenderer(data, state)}
-    </div>
-  )
-}
-
-const customValueRenderer = providedRenderer => optionProps => {
-  const { innerProps, innerRef, data } = optionProps
-
-  return (
-    <div ref={innerRef} {...innerProps}>
-      {providedRenderer(data)}
-    </div>
-  )
-}
-
-const cosmosMultiValueTagRenderer = optionProps => {
-  const { innerProps, removeProps, innerRef, data } = optionProps
-  return (
-    <Select.Tag {...innerProps} ref={innerRef} onRemove={removeProps.onClick}>
-      {data.label}
-    </Select.Tag>
-  )
-}
-
-const cosmosDownIndicator = ({ innerProps }) => (
-  <Select.ArrowIcon {...innerProps} name="dropdown-fill" size="14" color="default" />
-)
-
-const cosmosLoadingIndicator = () => <Select.Spinner />
-
 const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
   if (options === null) return null
 
@@ -138,18 +103,23 @@ const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
   return getOptionValue(options)
 }
 
-const componentOverrides = {
-  MultiValue: cosmosMultiValueTagRenderer,
-  DropdownIndicator: cosmosDownIndicator,
-  LoadingIndicator: cosmosLoadingIndicator,
-  IndicatorSeparator: () => null
-}
-
 class Select extends React.Component {
   constructor(props) {
     super(props)
     this.state = { menuIsOpen: props.defaultMenuOpen || false }
     this.handleScroll = this.handleScroll.bind(this)
+    this.componentOverrides = {
+      MultiValue,
+      DropdownIndicator,
+      LoadingIndicator,
+      ClearIndicator,
+      GroupHeading,
+      Menu,
+      MenuList,
+      Option,
+      Group,
+      IndicatorSeparator: () => null
+    }
   }
 
   componentDidMount() {
@@ -205,7 +175,7 @@ class Select extends React.Component {
       : null
 
     if (props.customOptionRenderer) {
-      componentOverrides.Option = customOptionRenderer(props.customOptionRenderer)
+      this.componentOverrides.Option = optionRenderer(props.customOptionRenderer)
     }
 
     if (props.customValueRenderer) {
@@ -256,7 +226,7 @@ class Select extends React.Component {
               placeholder={props.placeholder}
               options={options}
               loadOptions={props.loadOptions}
-              components={componentOverrides}
+              components={this.componentOverrides}
               noOptionsMessage={noOptionsMessage}
               defaultOptions={defaultOptions}
               theme={selectTheme}
@@ -273,25 +243,6 @@ class Select extends React.Component {
 }
 
 Select.Wrapper = styled.div``
-
-Select.ArrowIcon = styled(Icon)`
-  pointer-events: none;
-  margin-right: ${spacing.unit * 3}px;
-
-  svg {
-    display: block;
-  }
-`
-
-Select.Spinner = styled(Spinner)`
-  margin-right: ${spacing.xsmall};
-`
-
-Select.Tag = styled(Tag)`
-  margin-top: calc(${spacing.xxsmall} / 2);
-  margin-bottom: calc(${spacing.xxsmall} / 2);
-  margin-right: ${spacing.xxsmall};
-`
 
 Select.propTypes = {
   /** Options to render inside select */

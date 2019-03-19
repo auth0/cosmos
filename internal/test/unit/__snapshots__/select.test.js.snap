@@ -2,7 +2,7 @@
 
 exports[`Select async variant renders ReactSelect 1`] = `
 <div
-  class="sc-cvbbAY dbHDoR"
+  class="sc-csuQGl CQhxV"
   data-cosmos-key="select.wrapper"
 >
   <div
@@ -49,7 +49,7 @@ exports[`Select async variant renders ReactSelect 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          class="sc-jAaTju hBILce sc-htpNat hBMtaZ"
           color="default"
           data-cosmos-key="icon"
           name="dropdown-fill"
@@ -75,7 +75,7 @@ exports[`Select async variant renders ReactSelect 1`] = `
 
 exports[`Select customOptionRenderer variant renders ReactSelect 1`] = `
 <div
-  class="sc-cvbbAY dbHDoR"
+  class="sc-csuQGl CQhxV"
   data-cosmos-key="select.wrapper"
 >
   <div
@@ -105,7 +105,7 @@ exports[`Select customOptionRenderer variant renders ReactSelect 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          class="sc-jAaTju hBILce sc-htpNat hBMtaZ"
           color="default"
           data-cosmos-key="icon"
           name="dropdown-fill"
@@ -131,7 +131,7 @@ exports[`Select customOptionRenderer variant renders ReactSelect 1`] = `
 
 exports[`Select multiple variant renders ReactSelect 1`] = `
 <div
-  class="sc-cvbbAY dbHDoR"
+  class="sc-csuQGl CQhxV"
   data-cosmos-key="select.wrapper"
 >
   <div
@@ -161,7 +161,7 @@ exports[`Select multiple variant renders ReactSelect 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          class="sc-jAaTju hBILce sc-htpNat hBMtaZ"
           color="default"
           data-cosmos-key="icon"
           name="dropdown-fill"
@@ -187,7 +187,7 @@ exports[`Select multiple variant renders ReactSelect 1`] = `
 
 exports[`Select searchable variant renders ReactSelect 1`] = `
 <div
-  class="sc-cvbbAY dbHDoR"
+  class="sc-csuQGl CQhxV"
   data-cosmos-key="select.wrapper"
 >
   <div
@@ -234,7 +234,7 @@ exports[`Select searchable variant renders ReactSelect 1`] = `
       >
         <i
           aria-hidden="true"
-          class="sc-jWBwVP gTENKX sc-htpNat hBMtaZ"
+          class="sc-jAaTju hBILce sc-htpNat hBMtaZ"
           color="default"
           data-cosmos-key="icon"
           name="dropdown-fill"
@@ -260,10 +260,10 @@ exports[`Select searchable variant renders ReactSelect 1`] = `
 
 exports[`Select simple variant renders SimpleSelect 1`] = `
 <div
-  class="sc-hSdWYo golqQu"
+  class="sc-kkGfuU kIeepR"
 >
   <i
-    class="sc-eHgmQL eaFXET sc-htpNat hBMtaZ"
+    class="sc-iAyFgw InZsX sc-htpNat hBMtaZ"
     color="default"
     data-cosmos-key="icon"
     name="dropdown-fill"
@@ -282,7 +282,7 @@ exports[`Select simple variant renders SimpleSelect 1`] = `
     </svg>
   </i>
   <select
-    class="sc-iAyFgw iXjopj sc-kkGfuU HofkO"
+    class="sc-kEYyzF cFmTSj sc-hMqMXs biHhnR"
     data-cosmos-key="select"
     placeholder="Something"
   >

@@ -85,9 +85,24 @@ storiesOf('Select', module).add('simple with custom getOptionValue', () => (
         <div>
           <Select
             options={[
-              { text: 'One', myCustomValue: 1 },
-              { text: 'Two', myCustomValue: 2 },
-              { text: 'Three', myCustomValue: 3 }
+              { text: '1', myCustomValue: 1 },
+              { text: '2', myCustomValue: 2 },
+              { text: '3', myCustomValue: 3 },
+              { text: '4', myCustomValue: 4 },
+              { text: '5', myCustomValue: 5 },
+              { text: '6', myCustomValue: 6 },
+              { text: '7', myCustomValue: 7 },
+              { text: '8', myCustomValue: 8 },
+              { text: '9', myCustomValue: 9 },
+              { text: '10', myCustomValue: 10 },
+              { text: '11', myCustomValue: 11 },
+              { text: '12', myCustomValue: 12 },
+              { text: '13', myCustomValue: 13 },
+              { text: '14', myCustomValue: 14 },
+              { text: '15', myCustomValue: 15 },
+              { text: '16', myCustomValue: 16 },
+              { text: '17', myCustomValue: 17 },
+              { text: '18', myCustomValue: 18 }
             ]}
             value={value}
             onChange={onChange}
@@ -411,12 +426,7 @@ class CustomRendererExample extends React.Component {
 
   renderOption(option, { isHovered }) {
     return (
-      <div
-        style={{
-          padding: '12px 16px',
-          backgroundColor: isHovered ? 'rgba(66, 134, 244, 0.2)' : 'white'
-        }}
-      >
+      <div>
         <p>
           <strong>{option.label}</strong>
         </p>
@@ -682,5 +692,34 @@ class AsyncExample extends React.Component {
 storiesOf('Select', module).add('async select', () => (
   <ExampleForSelect title="Select: async select">
     <AsyncExample />
+  </ExampleForSelect>
+))
+
+storiesOf('Select', module).add('disabled options', () => (
+  <ExampleForSelect title="Select: disabled options">
+    <div style={{ width: 300 }}>
+      <Select
+        value={3}
+        searchable
+        defaultMenuOpen
+        options={[
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 1,
+            disabled: true
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 2,
+            disabled: true
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet',
+            value: 3
+          }
+        ]}
+        onChange={event => console.log(event)}
+      />
+    </div>
   </ExampleForSelect>
 ))

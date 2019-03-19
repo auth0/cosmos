@@ -1,16 +1,16 @@
 import React from 'react'
-import { render } from 'enzyme'
+import { shallow } from 'enzyme'
 import { Icon, Navigation } from '@auth0/cosmos'
 
 describe('Navigation', () => {
   it('renders empty', () => {
-    const nav = render(<Navigation description="Test navigation" />)
+    const nav = shallow(<Navigation description="Test navigation" />)
 
     expect(nav).toMatchSnapshot()
   })
 
   it('renders', () => {
-    const nav = render(
+    const nav = shallow(
       <Navigation description="Test navigation">
         <Navigation.Item onClick={() => {}}>
           <Navigation.Item.Text>Dashboard</Navigation.Item.Text>
@@ -22,7 +22,7 @@ describe('Navigation', () => {
   })
 
   it('renders with icon item', () => {
-    const nav = render(
+    const nav = shallow(
       <Navigation description="Test navigation">
         <Navigation.Item onClick={() => {}}>
           <Icon name="apis" />
@@ -35,7 +35,7 @@ describe('Navigation', () => {
   })
 
   it('renders with sub navigation', () => {
-    const nav = render(
+    const nav = shallow(
       <Navigation description="Test navigation">
         <Navigation.Item onClick={() => {}}>
           <Icon name="apis" />
@@ -58,7 +58,7 @@ describe('Navigation', () => {
   })
 
   it('renders navigation groups', () => {
-    const nav = render(
+    const nav = shallow(
       <Navigation description="Test navigation">
         <Navigation.Group title="Group 1">
           <Navigation.Item onClick={() => {}}>

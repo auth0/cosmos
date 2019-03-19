@@ -14,10 +14,11 @@ import { actionShapeWithRequiredIcon } from '@auth0/cosmos/_helpers/action-shape
 import { descriptionIsObject } from '../../_helpers/page-header'
 import containerStyles from '../../_helpers/container-styles'
 import buttonPropHelper from '../../_helpers/button-prop'
+import { rootProps } from '../../_helpers/root-props'
 
 const PageHeader = props => {
   return (
-    <PageHeader.Element {...Automation('page-header')} {...props}>
+    <PageHeader.Element {...Automation('page-header')} {...rootProps(props)}>
       <Heading size={1}>{props.title}</Heading>
       <PageHeader.Description {...props} />
 

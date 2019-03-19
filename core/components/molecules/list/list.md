@@ -43,3 +43,37 @@ Use `List` with `Stack` to create complex structures like this:
   </Stack>
 </List>
 ```
+
+### Draggable List
+
+You can make use of the `draggable` prop in order to make your list draggable & sortable.
+
+```js
+class DraggableListExample extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      items: ['Item #1', 'Item #2', 'Item #3']
+    }
+
+    this.handleDragEnd = this.handleDragEnd.bind(this)
+  }
+
+  handleDragEnd(oldItems, newItems) {
+    this.setState({
+      items: List.arrayMove(this.state.items, oldItems, newItems)
+    })
+  }
+
+  render() {
+    return (
+      <List draggable onDragEnd={this.handleDragEnd}>
+        {this.state.items.map(item => (
+          <List.Item>{item}</List.Item>
+        ))}
+      </List>
+    )
+  }
+}
+```

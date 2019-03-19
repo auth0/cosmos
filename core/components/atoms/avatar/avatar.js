@@ -7,11 +7,6 @@ import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
 import Automation from '../../_helpers/automation-attribute'
 
-const PLACEHOLDERS = {
-  USER: 'https://cdn.auth0.com/website/cosmos/avatar-user-default.svg',
-  RESOURCE: 'https://cdn.auth0.com/website/cosmos/avatar-resource-default.svg'
-}
-
 const iconSizes = {
   xsmall: 14,
   small: 16,
@@ -60,10 +55,7 @@ const getImageForAvatar = (props, source, onError) => {
     case sources.image:
       return imageForAvatar(props.image, errorHandler({ discard: sources.image }))
     default:
-      return imageForAvatar(
-        props.type === 'user' ? PLACEHOLDERS.USER : PLACEHOLDERS.RESOURCE,
-        onError
-      )
+      return imageForAvatar(getUserAvatarUrl(null, null, props.type), onError)
   }
 }
 
@@ -150,7 +142,7 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
   /** The type of item represented by the avatar. */
   type: PropTypes.oneOf(['user', 'resource']).isRequired,
-  /** Initials of the user */
+  /** Initials of the user (max 2 characters) */
   initials: PropTypes.string,
   /** E-mail of the user */
   email: PropTypes.string
