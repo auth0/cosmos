@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@auth0/cosmos/styled'
 import PropTypes from 'prop-types'
 import { SortableContainer, SortableElement, SortableHandle, arrayMove } from 'react-sortable-hoc'
@@ -47,17 +47,15 @@ const excludeDrawer = child => {
  * list body child.
  * @param {React.Element} child
  */
-const getDrawer = child => {
-  let onToggle
+const getDrawer = (child, drawerIsOpen) => {
   const drawer = React.Children.map(child.props.children, child => {
     if (child.type !== List.Drawer) return null
     const { props } = child
-    onToggle = props.onToggle
 
-    return React.cloneElement(child, { hidden: !props.open, 'aria-label': props.description })
+    return React.cloneElement(child, { hidden: !drawerIsOpen, 'aria-label': props.description })
   })
 
-  return { drawer, onToggle }
+  return drawer
 }
 
 /**
@@ -90,9 +88,6 @@ const ListItemContainer = SortableElement(props =>
 )
 
 const renderItem = (props, wrapperElement = Div) => (child, index) => {
-  const { onToggle, drawer } = getDrawer(child)
-  const hasOpenDrawer = isDrawerOpen(drawer)
-  const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
   const ItemWrapper = wrapperElement
 
   const itemWrapperProps = ItemWrapper === Div ? {} : { index, value: index }
@@ -101,30 +96,41 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
     <ItemWrapper key={`item-${index}`} {...itemWrapperProps}>
       <List.ItemContainer
         {...Automation('list.item')}
-        hasOpenDrawer={hasOpenDrawer}
         draggable={props.draggable}
         onClick={onItemClickHandler(props, child)}
       >
-        {props.draggable && (
-          <List.Handle
-          // aria-expanded="true"
-          // aria-label="Toggle details"
-          // aria-labelledby="example-id button_id"
-          // id="button_id"
-          >
-            <Icon name="resize-vertical" size="16" color="blue" />
-          </List.Handle>
-        )}
+        {(drawerIsOpen, setDrawerState) => {
+          const drawer = getDrawer(child, drawerIsOpen)
 
-        <List.Item>{excludeDrawer(child)}</List.Item>
+          return (
+            <React.Fragment>
+              {props.draggable && (
+                <List.Handle
+                // aria-expanded="true"
+                // aria-label="Toggle details"
+                // aria-labelledby="example-id button_id"
+                // id="button_id"
+                >
+                  <Icon name="resize-vertical" size="16" color="blue" />
+                </List.Handle>
+              )}
 
-        {isListExpandable(child) && (
-          <List.Arrow onClick={onToggle}>
-            <Icon name={arrowIconName} size="16" color="default" />
-          </List.Arrow>
-        )}
+              <List.Item>{excludeDrawer(child)}</List.Item>
 
-        {drawer}
+              {isListExpandable(child) && (
+                <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
+                  <Icon
+                    name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
+                    size="16"
+                    color="default"
+                  />
+                </List.Arrow>
+              )}
+
+              {drawer}
+            </React.Fragment>
+          )
+        }}
       </List.ItemContainer>
     </ItemWrapper>
   )
@@ -155,7 +161,17 @@ List.Element = styled.ul`
   ${containerStyles};
 `
 
-List.ItemContainer = styled.li`
+List.ItemContainer = props => {
+  const [drawerOpen, setDrawerState] = useState(false)
+
+  return (
+    <List.ItemContainer.Element {...props} hasOpenDrawer={drawerOpen}>
+      {props.children(drawerOpen, setDrawerState)}
+    </List.ItemContainer.Element>
+  )
+}
+
+List.ItemContainer.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding-left: ${spacing.medium};
   padding-right: ${spacing.medium};

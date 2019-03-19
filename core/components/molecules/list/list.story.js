@@ -76,7 +76,6 @@ class ExampleList extends React.Component {
   render() {
     return (
       <List
-        onItemClick={(e, item) => alert(item.id)}
         label={'something'}
         draggable
         onDragEnd={(oldItems, newItems) =>
