@@ -237,8 +237,8 @@ List.Handle = SortableHandle(styled.button`
   padding-right: ${spacing.small};
 `)
 
-// Sortable List
 List.Arrow = styled.button`
+  cursor: pointer;
   border: none;
   padding: 0;
   background-color: transparent;
