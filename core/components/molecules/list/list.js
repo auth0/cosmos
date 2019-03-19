@@ -227,6 +227,7 @@ List.Footer = styled.div`
 
 // Sortable List
 List.Handle = SortableHandle(styled.button`
+  cursor: move;
   border: none;
   padding: 0;
   background-color: transparent;
