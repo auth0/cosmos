@@ -7,6 +7,7 @@ import containerStyles from '../../_helpers/container-styles'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
+import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from '../../_helpers/list'
 
 /**
  * Used to store a div element constructor.
@@ -17,67 +18,7 @@ import Icon from '../../atoms/icon'
  *
  * @param {object} props
  */
-const Div = props => <div {...props} />
-
-/**
- * Resolves if the list item has an open drawer.
- * @param {React.Element} drawers
- */
-const isDrawerOpen = drawers => {
-  return drawers.length > 0 && drawers[0].props.hidden == false
-}
-
-/**
- * Removes the List.Drawer element from the
- * list body child.
- * @param {React.Element} child
- */
-const excludeDrawer = child => {
-  const newChildren = React.Children.map(child.props.children, child => {
-    if (child.type === List.Drawer) return null
-
-    return child
-  })
-
-  return React.cloneElement(child, { children: newChildren })
-}
-
-/**
- * Filters the List.Drawer element from the
- * list body child.
- * @param {React.Element} child
- */
-const getDrawer = (child, drawerIsOpen) => {
-  const drawer = React.Children.map(child.props.children, child => {
-    if (child.type !== List.Drawer) return null
-    const { props } = child
-
-    return React.cloneElement(child, { hidden: !drawerIsOpen, 'aria-label': props.description })
-  })
-
-  return drawer
-}
-
-/**
- * Finds a List.Drawer element in the list
- * and returns if the list is expandable or not.
- * @param {React.Element} child
- */
-const isListExpandable = child => {
-  let isPresent = false
-
-  React.Children.map(child.props.children, item => {
-    if (item.type === List.Drawer) isPresent = true
-  })
-
-  return isPresent
-}
-
-const onItemClickHandler = (props, child) => {
-  if (!props.onItemClick) return
-
-  return ev => props.onItemClick(ev, child.props)
-}
+export const Div = props => <div {...props} />
 
 const ListContainer = SortableContainer(props => (
   <div>{React.Children.map(props.children, renderItem(props, ListItemContainer))}</div>
@@ -100,7 +41,7 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
         onClick={onItemClickHandler(props, child)}
       >
         {(drawerIsOpen, setDrawerState) => {
-          const drawer = getDrawer(child, drawerIsOpen)
+          const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
 
           return (
             <React.Fragment>
@@ -115,9 +56,9 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
                 </List.Handle>
               )}
 
-              <List.Item>{excludeDrawer(child)}</List.Item>
+              <List.Item>{excludeDrawer(child, List.Drawer)}</List.Item>
 
-              {isListExpandable(child) && (
+              {isListExpandable(child, List.Drawer) && (
                 <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
                   <Icon
                     name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
