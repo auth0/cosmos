@@ -10,13 +10,13 @@
 ```jsx
 <List {props}>
   <List.Item>
-    <div>one</div>
+    one
   </List.Item>
   <List.Item>
-    <div>two</div>
+    two
   </List.Item>
   <List.Item>
-    <div>three</div>
+    three
   </List.Item>
 </List>
 ```
@@ -94,8 +94,10 @@
 </List>
 ```
 
+### Default structure with switched
+
 ```js
-<List sortable>
+<List>
   <List.Item>
     <List.Header>Empty Rule</List.Header>
     <List.Body>
@@ -125,6 +127,188 @@
     <List.Body>
       <Switch hideAccessibleLabels />
     </List.Body>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+</List>
+```
+
+### Default structure with expandable drawer
+
+```js
+<List>
+  <List.Item>
+    <List.Header>
+      <RowLayout gutter="none">
+        <Heading size={3}>M2M</Heading>
+        <Paragraph>CLIENT ID whatever</Paragraph>
+      </RowLayout>
+    </List.Header>
+    <List.Footer>
+      <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+    </List.Footer>
+    <List.Drawer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+      Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius sit
+      amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+    </List.Drawer>
+  </List.Item>
+  <List.Item>
+    <List.Header>
+      <RowLayout gutter="xsmall">
+        <Heading size={3}>M2M</Heading>
+        <Paragraph>CLIENT ID whatever</Paragraph>
+      </RowLayout>
+    </List.Header>
+    <List.Footer>
+      <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+    </List.Footer>
+    <List.Drawer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+      Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius sit
+      amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+    </List.Drawer>
+  </List.Item>
+  <List.Item>
+    <List.Header>
+      <RowLayout gutter="xsmall">
+        <Heading size={3}>M2M</Heading>
+        <Paragraph>CLIENT ID whatever</Paragraph>
+      </RowLayout>
+    </List.Header>
+    <List.Footer>
+      <Switch on labelPosition="left" accessibleLabels={['AUTHORIZED', 'NOT AUTHORIZED']} />
+    </List.Footer>
+    <List.Drawer>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
+      Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius sit
+      amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
+    </List.Drawer>
+  </List.Item>
+</List>
+```
+
+### Basic structure with StackLayout and different column size
+
+```js
+<List>
+  <List.Item>
+    <StackLayout space={[1.3, 1, 'none']} distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+
+  <List.Item>
+    <StackLayout space={[1.3, 1, 'none']} distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+
+  <List.Item>
+    <StackLayout space={[1.3, 1, 'none']} distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+</List>
+```
+
+### Basic structure with StackLayout and 4 columns
+
+```js
+<List>
+  <List.Item>
+    <StackLayout distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+
+  <List.Item>
+    <StackLayout distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+
+  <List.Item>
+    <StackLayout distribution="spaceBetween">
+      <Heading size={4}>Heading</Heading>
+      <Paragraph>Something</Paragraph>
+      <Paragraph>Something</Paragraph>
+
+      <ButtonGroup compressed>
+        <Button icon="pencil" />
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </StackLayout>
+  </List.Item>
+</List>
+```
+
+### Dragable List
+
+```js
+<List draggable>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
+    <List.Footer>
+      <ButtonGroup>
+        <Button icon="copy" />
+        <Button icon="delete" />
+      </ButtonGroup>
+    </List.Footer>
+  </List.Item>
+  <List.Item>
+    <List.Header>Empty Rule</List.Header>
     <List.Footer>
       <ButtonGroup>
         <Button icon="copy" />
