@@ -17,7 +17,8 @@ import {
   ClearIndicator,
   MultiValue,
   Group,
-  optionRenderer
+  optionRenderer,
+  valueRenderer
 } from './components'
 
 const defaultGetOptionValue = option => option.value
@@ -179,7 +180,7 @@ class Select extends React.Component {
     }
 
     if (props.customValueRenderer) {
-      componentOverrides.SingleValue = customValueRenderer(props.customValueRenderer)
+      this.componentOverrides.SingleValue = valueRenderer(props.customValueRenderer)
     }
 
     /**
