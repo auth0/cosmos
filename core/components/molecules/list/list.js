@@ -116,7 +116,7 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
           </List.Handle>
         )}
 
-        <List.Content>{excludeDrawer(child)}</List.Content>
+        <List.Item>{excludeDrawer(child)}</List.Item>
 
         {isListExpandable(child) && (
           <List.Arrow onClick={onToggle}>
@@ -155,8 +155,6 @@ List.Element = styled.ul`
   ${containerStyles};
 `
 
-List.Item = styled.div``
-
 List.ItemContainer = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding-left: ${spacing.medium};
@@ -174,7 +172,7 @@ List.ItemContainer = styled.li`
   }
 `
 
-List.Content = styled.div`
+List.Item = styled.div`
   flex: 1;
   display: flex;
   flex-wrap: wrap;

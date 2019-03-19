@@ -33,7 +33,7 @@ class ExampleList extends React.Component {
 
   buildItem(item) {
     return (
-      <List.Item>
+      <List.Item id="algo">
         <List.Header>
           <StackLayout space={['none', 1]} gutter="small" wrap="true">
             <Avatar type="resource" />
@@ -76,6 +76,7 @@ class ExampleList extends React.Component {
   render() {
     return (
       <List
+        onItemClick={(e, item) => alert(item.id)}
         label={'something'}
         draggable
         onDragEnd={(oldItems, newItems) =>
