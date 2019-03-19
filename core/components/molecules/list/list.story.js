@@ -96,10 +96,10 @@ storiesOf('List', module).add('Default structure', () => (
 
 storiesOf('List', module).add('Simple list', () => (
   <Example title="Simple list">
-    <List draggable onDragEnd={() => {}}>
-      <List.Item>Item 1</List.Item>
-      <List.Item>Item 2</List.Item>
-      <List.Item>Item 3</List.Item>
+    <List draggable onDragEnd={() => {}} onItemClick={(e, props) => alert(props.id)}>
+      <List.Item id="a">Item 1</List.Item>
+      <List.Item id="b">Item 2</List.Item>
+      <List.Item id="c">Item 3</List.Item>
     </List>
   </Example>
 ))

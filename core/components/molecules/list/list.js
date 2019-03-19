@@ -9,6 +9,17 @@ import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
 
 /**
+ * Used to store a div element constructor.
+ *
+ * <Div someProp="someValue"> ... </Div>
+ * is the same as:
+ * <div someProp="someValue"> ... </div>
+ *
+ * @param {object} props
+ */
+const Div = props => <div {...props} />
+
+/**
  * Resolves if the list item has an open drawer.
  * @param {React.Element} drawers
  */
@@ -78,13 +89,13 @@ const ListItemContainer = SortableElement(props =>
   React.cloneElement(props.children, { sortIndex: props.index, value: props.value })
 )
 
-const renderItem = (props, wrapperElement = React.Fragment) => (child, index) => {
+const renderItem = (props, wrapperElement = Div) => (child, index) => {
   const { onToggle, drawer } = getDrawer(child)
   const hasOpenDrawer = isDrawerOpen(drawer)
   const arrowIconName = hasOpenDrawer ? 'chevron-up' : 'chevron-down'
   const ItemWrapper = wrapperElement
 
-  const itemWrapperProps = ItemWrapper === React.Fragment ? {} : { index, value: index }
+  const itemWrapperProps = ItemWrapper === Div ? {} : { index, value: index }
 
   return (
     <ItemWrapper key={`item-${index}`} {...itemWrapperProps}>
@@ -144,7 +155,7 @@ List.Element = styled.ul`
   ${containerStyles};
 `
 
-List.Item = React.Fragment
+List.Item = styled.div``
 
 List.ItemContainer = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
