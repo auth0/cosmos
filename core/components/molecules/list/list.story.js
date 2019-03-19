@@ -53,11 +53,7 @@ class ExampleList extends React.Component {
             <Button icon="delete" />
           </ButtonGroup>
         </List.Footer>
-        <List.Drawer
-          open={this.state.listDrawers[item]}
-          onToggle={() => this.toggleList(item)}
-          description="desciption of the drawer"
-        >
+        <List.Drawer description="desciption of the drawer">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
           Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
           sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
@@ -76,7 +72,6 @@ class ExampleList extends React.Component {
   render() {
     return (
       <List
-        onItemClick={(e, item) => alert(item.id)}
         label={'something'}
         draggable
         onDragEnd={(oldItems, newItems) =>
