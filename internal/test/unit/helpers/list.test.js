@@ -4,6 +4,13 @@ import { getDrawer, isListExpandable, excludeDrawer } from '@auth0/cosmos/_helpe
 import { List } from '@auth0/cosmos'
 
 const testCases = {
+  hiddenListDrawer: () => (
+    <List.Item>
+      <List.Drawer hidden description="Something">
+        <p>This is a test</p>
+      </List.Drawer>
+    </List.Item>
+  ),
   includingListDrawer: () => (
     <List.Item>
       <List.Drawer description="Something">
@@ -60,6 +67,18 @@ describe('isListExpandable', () => {
     const [isExpandable, _] = isListExpandable(testCases.nullChildren(), List.Drawer)
 
     expect(isExpandable).toBe(false)
+  })
+
+  it('should mark the arrow as visible if hidden is not passed to List.Drawer', () => {
+    const [_, arrowIsVisible] = isListExpandable(testCases.includingListDrawer(), List.Drawer)
+
+    expect(arrowIsVisible).toBe(true)
+  })
+
+  it('should mark the arrow as not visible when hidden is passed to List.Drawer', () => {
+    const [_, arrowIsVisible] = isListExpandable(testCases.hiddenListDrawer(), List.Drawer)
+
+    expect(arrowIsVisible).toBe(false)
   })
 })
 
