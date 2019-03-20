@@ -43,9 +43,12 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
         {(drawerIsOpen, setDrawerState) => {
           const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
           const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer)
-          const listContent = React.cloneElement(excludeDrawer(child, List.Drawer), {
-            arrowIsVisible
-          })
+          const rawListContent = excludeDrawer(child, List.Drawer)
+          const listContent = rawListContent
+            ? React.cloneElement(rawListContent, {
+                arrowIsVisible
+              })
+            : null
 
           return (
             <React.Fragment>
