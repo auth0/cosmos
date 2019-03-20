@@ -42,6 +42,7 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
       >
         {(drawerIsOpen, setDrawerState) => {
           const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
+          const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer)
 
           return (
             <React.Fragment>
@@ -56,17 +57,20 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
                 </List.Handle>
               )}
 
-              <List.Item>{excludeDrawer(child, List.Drawer)}</List.Item>
+              <List.Item arrowIsVisible={arrowIsVisible}>
+                {excludeDrawer(child, List.Drawer)}
+              </List.Item>
 
-              {isListExpandable(child, List.Drawer) && (
-                <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
-                  <Icon
-                    name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
-                    size="16"
-                    color="default"
-                  />
-                </List.Arrow>
-              )}
+              {listIsExpandable &&
+                arrowIsVisible && (
+                  <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
+                    <Icon
+                      name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
+                      size="16"
+                      color="default"
+                    />
+                  </List.Arrow>
+                )}
 
               {drawer}
             </React.Fragment>
@@ -135,8 +139,9 @@ List.Item = styled.div`
   flex-wrap: wrap;
   align-items: center;
   word-break: break-word;
+  margin-right: ${props => (props.arrowIsVisible ? '0' : '32px')};
 
-  > *:not(:last-child):not(:only-child) {
+  > *:not(:last-child) {
     margin-right: ${spacing.medium};
   }
 
