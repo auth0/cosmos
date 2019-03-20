@@ -43,23 +43,24 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
         {(drawerIsOpen, setDrawerState) => {
           const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
           const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer)
+          const listContent = React.cloneElement(excludeDrawer(child, List.Drawer), {
+            arrowIsVisible
+          })
 
           return (
             <React.Fragment>
               {props.draggable && (
                 <List.Handle
-                // aria-expanded="true"
-                // aria-label="Toggle details"
-                // aria-labelledby="example-id button_id"
-                // id="button_id"
+                  aria-expanded={drawerIsOpen ? 'true' : 'false'}
+                  // aria-label="Toggle details"
+                  // aria-labelledby="example-id button_id"
+                  // id="button_id"
                 >
                   <Icon name="resize-vertical" size="16" color="blue" />
                 </List.Handle>
               )}
 
-              <List.Item arrowIsVisible={arrowIsVisible}>
-                {excludeDrawer(child, List.Drawer)}
-              </List.Item>
+              {listContent}
 
               {listIsExpandable &&
                 arrowIsVisible && (
@@ -220,7 +221,7 @@ List.Label = styled.div`
 `
 
 List.propTypes = {
-  /** header for list */
+  /** @deprecated header for list. Use a Heading component */
   label: PropTypes.string,
   /** whether the list should show dragging handles */
   draggable: PropTypes.bool,
