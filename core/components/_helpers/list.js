@@ -7,7 +7,7 @@ import React from 'react'
  */
 export const excludeDrawer = (child, type) => {
   const newChildren = React.Children.map(child.props.children, child => {
-    if (child.type === type) return null
+    if (!child || child.type === type) return null
 
     return child
   })
@@ -42,7 +42,7 @@ export const isListExpandable = (child, type) => {
   let isPresent = false
 
   React.Children.map(child.props.children, item => {
-    if (item.type === type) isPresent = true
+    if (item && item.type === type) isPresent = true
   })
 
   return isPresent
