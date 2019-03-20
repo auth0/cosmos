@@ -1,6 +1,6 @@
 ```meta
   category: Layout
-  description: "Use this component to layout a list of components vertically"
+  description: "Use this component to create a list"
 ```
 
 `import { List } from '@auth0/cosmos'`
@@ -24,6 +24,8 @@
 ## Examples
 
 ### Default structure
+
+The `List` default structure has a `List.Header`, `List.Body`, and `List.Footer` to distribute the content within a row.
 
 ```js
 <List>
@@ -96,6 +98,8 @@
 
 ### Default structure with switched
 
+You can nest any component within each section, for example as `Switch`.
+
 ```js
 <List>
   <List.Item>
@@ -138,6 +142,8 @@
 ```
 
 ### Default structure with expandable drawer
+
+The `List` has an optional expandable `List.Drawer` that you can nest within a `List.Item`. It will automatically generate the arrow and handle the toggle.
 
 ```js
 <List>
@@ -193,6 +199,8 @@
 ```
 
 ### Basic structure with StackLayout and different column size
+
+If you need to create a different distrubution from the default, you can nest any Layout within the `List.Item` for example a `StackLayout`.
 
 ```js
 <List>
@@ -287,6 +295,8 @@
 
 ### Dragable List
 
+You can make use of the `draggable` prop to make your list draggable and sortable.
+
 ```js
 <List draggable>
   <List.Item>
@@ -317,55 +327,4 @@
     </List.Footer>
   </List.Item>
 </List>
-```
-
-Use `List` with `Stack` to create complex structures like this:
-
-```js
-<List label="Social">
-  <Stack>
-    <div>github</div>
-    <div>GitHub</div>
-    <Switch on />
-  </Stack>
-  <Stack>
-    <div>google-oauth2</div>
-    <div>Google</div>
-    <Switch />
-  </Stack>
-</List>
-```
-
-### Draggable List
-
-You can make use of the `draggable` prop in order to make your list draggable & sortable.
-
-```js
-class DraggableListExample extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      items: ['Item #1', 'Item #2', 'Item #3']
-    }
-
-    this.handleDragEnd = this.handleDragEnd.bind(this)
-  }
-
-  handleDragEnd(oldItems, newItems) {
-    this.setState({
-      items: List.arrayMove(this.state.items, oldItems, newItems)
-    })
-  }
-
-  render() {
-    return (
-      <List draggable onDragEnd={this.handleDragEnd}>
-        {this.state.items.map(item => (
-          <List.Item>{item}</List.Item>
-        ))}
-      </List>
-    )
-  }
-}
 ```
