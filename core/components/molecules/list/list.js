@@ -42,31 +42,39 @@ const renderItem = (props, wrapperElement = Div) => (child, index) => {
       >
         {(drawerIsOpen, setDrawerState) => {
           const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
+          const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer)
+          const rawListContent = excludeDrawer(child, List.Drawer)
+          const listContent = rawListContent
+            ? React.cloneElement(rawListContent, {
+                arrowIsVisible
+              })
+            : null
 
           return (
             <React.Fragment>
               {props.draggable && (
                 <List.Handle
-                // aria-expanded="true"
-                // aria-label="Toggle details"
-                // aria-labelledby="example-id button_id"
-                // id="button_id"
+                  aria-expanded={drawerIsOpen ? 'true' : 'false'}
+                  // aria-label="Toggle details"
+                  // aria-labelledby="example-id button_id"
+                  // id="button_id"
                 >
                   <Icon name="resize-vertical" size="16" color="blue" />
                 </List.Handle>
               )}
 
-              <List.Item>{excludeDrawer(child, List.Drawer)}</List.Item>
+              {listContent}
 
-              {isListExpandable(child, List.Drawer) && (
-                <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
-                  <Icon
-                    name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
-                    size="16"
-                    color="default"
-                  />
-                </List.Arrow>
-              )}
+              {listIsExpandable &&
+                arrowIsVisible && (
+                  <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
+                    <Icon
+                      name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
+                      size="16"
+                      color="default"
+                    />
+                  </List.Arrow>
+                )}
 
               {drawer}
             </React.Fragment>
@@ -114,8 +122,8 @@ List.ItemContainer = props => {
 
 List.ItemContainer.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
-  padding-left: ${spacing.medium};
-  padding-right: ${spacing.medium};
+  padding-left: ${spacing.xsmall};
+  padding-right: ${spacing.xsmall};
   padding-top: ${spacing.small};
   padding-bottom: ${spacing.small};
   display: flex;
@@ -135,8 +143,9 @@ List.Item = styled.div`
   flex-wrap: wrap;
   align-items: center;
   word-break: break-word;
+  margin-right: ${props => (props.arrowIsVisible ? '0' : '32px')};
 
-  > *:not(:last-child):not(:only-child) {
+  > *:not(:last-child) {
     margin-right: ${spacing.medium};
   }
 
@@ -174,8 +183,8 @@ List.Handle = SortableHandle(styled.button`
   background-color: transparent;
   margin-top: -${spacing.small};
   margin-bottom: -${spacing.small};
-  margin-left: -${spacing.small};
-  padding-left: ${spacing.small};
+  margin-left: -${spacing.xsmall};
+  padding-left: ${spacing.xsmall};
   padding-right: ${spacing.small};
 `)
 
@@ -186,9 +195,9 @@ List.Arrow = styled.button`
   background-color: transparent;
   margin-top: -${spacing.small};
   margin-bottom: -${spacing.small};
-  margin-right: -${spacing.small};
+  margin-right: -${spacing.xsmall};
   padding-left: ${spacing.small};
-  padding-right: ${spacing.small};
+  padding-right: ${spacing.xsmall};
 `
 
 List.Drawer = styled.section`
@@ -215,7 +224,7 @@ List.Label = styled.div`
 `
 
 List.propTypes = {
-  /** header for list */
+  /** @deprecated header for list. Use a Heading component */
   label: PropTypes.string,
   /** whether the list should show dragging handles */
   draggable: PropTypes.bool,
