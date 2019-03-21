@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled, { css } from '@auth0/cosmos/styled'
 import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
@@ -20,7 +19,22 @@ const ReadMoreLink = styled(Link)`
   margin-left: ${spacing.xxsmall};
 `
 
-class Alert extends React.Component {
+interface IAlertProps {
+  type?: 'default' | 'information' | 'success' | 'warning' | 'danger' // deprecated: use appearance
+  appearance?: 'default' | 'information' | 'success' | 'warning' | 'danger'
+  icon?: string
+  title?: string
+  text?: string // deprecated: use children
+  dismisssible: boolean
+  onDismiss: () => void
+  dismissAfterSeconds: number
+}
+
+interface IAlertState {
+  visible: boolean
+}
+
+class Alert extends React.Component<IAlertProps, IAlertState> {
   constructor(props) {
     super(props)
     this.state = { visible: true }
@@ -143,48 +157,15 @@ const iconColorMap = {
   danger: 'redDarker'
 }
 
-Alert.propTypes = {
-  /** @deprecated:appearance Use appearance instead */
-  type: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger']).isRequired,
-
-  /** Style of alert to show */
-  appearance: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger'])
-    .isRequired,
-
-  /** Name of icon */
-  icon: PropTypes.oneOf(__ICONNAMES__),
-
-  /** Title text (in bold) */
-  title: PropTypes.string,
-
-  /** @deprecated:children Details */
-  text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-
-  /** Link to documentation */
-  link: PropTypes.string,
-
-  /** Allow user to dismiss this alert */
-  dismissible: PropTypes.bool,
-
-  /** Function to call on dismissal */
-  onDismiss: PropTypes.func,
-
-  /** Automatically dismiss after N seconds */
-  dismissAfterSeconds: PropTypes.number,
-
-  _text: props => deprecate(props, { name: 'text', replacement: 'children' }),
-  _type: props => deprecate(props, { name: 'type', replacement: 'appearance' })
-}
-
-Alert.defaultProps = {
-  type: 'default',
-  dismissible: true
-  /*
-    default appearance is commented out on purpose,
-    so that it doesn't break old API.
-    TODO: Make this work when type is removed.
-  */
-  // appearance: 'default',
-}
+// Alert.defaultProps = {
+//   type: 'default',
+//   dismissible: true
+//   /*
+//     default appearance is commented out on purpose,
+//     so that it doesn't break old API.
+//     TODO: Make this work when type is removed.
+//   */
+//   // appearance: 'default',
+// }
 
 export default Alert
