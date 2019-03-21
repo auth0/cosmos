@@ -122,8 +122,8 @@ List.ItemContainer = props => {
 
 List.ItemContainer.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
-  padding-left: ${spacing.medium};
-  padding-right: ${spacing.medium};
+  padding-left: ${spacing.xsmall};
+  padding-right: ${spacing.xsmall};
   padding-top: ${spacing.small};
   padding-bottom: ${spacing.small};
   display: flex;
@@ -183,8 +183,8 @@ List.Handle = SortableHandle(styled.button`
   background-color: transparent;
   margin-top: -${spacing.small};
   margin-bottom: -${spacing.small};
-  margin-left: -${spacing.small};
-  padding-left: ${spacing.small};
+  margin-left: -${spacing.xsmall};
+  padding-left: ${spacing.xsmall};
   padding-right: ${spacing.small};
 `)
 
@@ -195,9 +195,9 @@ List.Arrow = styled.button`
   background-color: transparent;
   margin-top: -${spacing.small};
   margin-bottom: -${spacing.small};
-  margin-right: -${spacing.small};
+  margin-right: -${spacing.xsmall};
   padding-left: ${spacing.small};
-  padding-right: ${spacing.small};
+  padding-right: ${spacing.xsmall};
 `
 
 List.Drawer = styled.section`

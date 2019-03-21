@@ -72,7 +72,6 @@ class ExampleList extends React.Component {
   render() {
     return (
       <List
-        label={'something'}
         draggable
         onDragEnd={(oldItems, newItems) =>
           this.setState({ items: List.arrayMove(this.state.items, oldItems, newItems) })
