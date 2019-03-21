@@ -31,7 +31,7 @@ class ExampleList extends React.Component {
     })
   }
 
-  buildItem(item) {
+  buildItem(item, i) {
     return (
       <List.Item id="algo">
         <List.Header>
@@ -53,7 +53,7 @@ class ExampleList extends React.Component {
             <Button icon="delete" />
           </ButtonGroup>
         </List.Footer>
-        <List.Drawer description="desciption of the drawer">
+        <List.Drawer description="desciption of the drawer" hidden={i % 2 === 0}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporellentesque.
           Risus ultricies tristique nulla aliquet enim. Proin libero nunc consequat interdum varius
           sit amet. Scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt.
@@ -72,13 +72,12 @@ class ExampleList extends React.Component {
   render() {
     return (
       <List
-        label={'something'}
         draggable
         onDragEnd={(oldItems, newItems) =>
           this.setState({ items: List.arrayMove(this.state.items, oldItems, newItems) })
         }
       >
-        {this.state.items.map(item => this.buildItem(item))}
+        {this.state.items.map((item, i) => this.buildItem(item, i))}
       </List>
     )
   }

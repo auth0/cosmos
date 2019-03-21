@@ -40,12 +40,19 @@ export const getDrawer = (child, drawerIsOpen, type) => {
  */
 export const isListExpandable = (child, type) => {
   let isPresent = false
+  let arrowIsVisible = true
 
   React.Children.map(child.props.children, item => {
-    if (item && item.type === type) isPresent = true
+    if (item && item.type === type) {
+      isPresent = true
+
+      if (item.props.hidden) {
+        arrowIsVisible = false
+      }
+    }
   })
 
-  return isPresent
+  return [isPresent, arrowIsVisible]
 }
 
 export const onItemClickHandler = (props, child) => {
