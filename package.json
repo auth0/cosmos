@@ -39,7 +39,9 @@
     "semi": false,
     "printWidth": 100
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.clonedeep": "^4.5.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "7.1.2",
@@ -48,7 +50,8 @@
     "@storybook/addons": "4.0.8",
     "@storybook/react": "4.0.8",
     "@types/jest": "^24.0.11",
-    "@types/styled-components": "^3.0.2",
+    "@types/react": "^16.8.8",
+    "@types/styled-components": "3",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
     "chokidar": "2.0.4",

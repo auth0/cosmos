@@ -2,22 +2,27 @@ import styled, {
   keyframes,
   css,
   injectGlobal,
-  StyledComponent,
-  ThemeProvider
+  ThemeProvider,
+  StyledComponentClass,
+  StyledInterface
 } from 'styled-components'
-
+import cloneDeep from 'lodash.clonedeep'
 import domElements from './_helpers/dom-elements'
 
 /* import cosmos specific helpers */
 import margin from './_helpers/styled-margin'
+import Alert from './atoms/alert'
 
 /*
   create a thin replacement for styled
   styledWithHelpers(c) = styled(c)
 */
-let styledWithHelpers = styledComponent => {
-  return styled(styledComponent)
+
+export interface ICosmosStyled extends StyledInterface {
+  (styledComponent: any): any
 }
+
+const styledWithHelpers: StyledInterface = cloneDeep<StyledInterface>(styled)
 
 /* create functions for all the elements supported in styled */
 domElements.forEach(domElement => {
@@ -33,7 +38,7 @@ domElements.forEach(domElement => {
     */
     interpolations.push(margin)
 
-    return styled(domElement)(styles, ...interpolations)
+    return styled[domElement](styles, ...interpolations)
   }
 
   /* attach inbuilt styled-components helpers back */
@@ -41,5 +46,9 @@ domElements.forEach(domElement => {
   styledWithHelpers[domElement].attrs = styled[domElement].attrs
 })
 
+const a = styledWithHelpers.div`
+
+`
+
 export default styledWithHelpers
-export { keyframes, css, injectGlobal, StyledComponent, ThemeProvider }
+export { keyframes, css, injectGlobal, StyledComponentClass, ThemeProvider }

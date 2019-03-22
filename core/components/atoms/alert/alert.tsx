@@ -9,22 +9,16 @@ import Icon, { __ICONNAMES__ } from '../icon'
 import containerStyles from '../../_helpers/container-styles'
 import { rootProps } from '../../_helpers/root-props'
 
-const ReadMoreLink = styled(Link)`
-  color: ${props => colors.alert[props.appearance].text};
-  text-decoration: underline;
-  &:hover {
-    text-decoration: none;
-  }
-  margin-left: ${spacing.xxsmall};
-`
+type ISubElementProps = Partial<IAlertProps>
 
 interface IAlertProps {
   type?: 'default' | 'information' | 'success' | 'warning' | 'danger' // deprecated: use appearance
-  appearance?: 'default' | 'information' | 'success' | 'warning' | 'danger'
+  appearance: 'default' | 'information' | 'success' | 'warning' | 'danger'
   icon?: string
   title?: string
   text?: string // deprecated: use children
-  dismisssible: boolean
+  link?: string
+  dismissible: boolean
   onDismiss: () => void
   dismissAfterSeconds: number
 }
@@ -33,8 +27,18 @@ interface IAlertState {
   visible: boolean
 }
 
+const ReadMoreLink = styled(Link)<ISubElementProps>`
+  color: ${props => colors.alert[props.appearance].text};
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  margin-left: ${spacing.xxsmall};
+`
+
 class Alert extends React.Component<IAlertProps, IAlertState> {
   timer: any
+  static Element: any
 
   constructor(props) {
     super(props)
@@ -108,7 +112,7 @@ const styledForCross = css`
   padding-right: ${spacing.large};
 `
 
-Alert.Element = styled.div`
+Alert.Element = styled.div<ISubElementProps>`
   ${containerStyles};
   padding: ${spacing.small} ${spacing.small};
   ${props => props.dismissible && styledForCross};

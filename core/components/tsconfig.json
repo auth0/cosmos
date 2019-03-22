@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "../../dist/components/",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
     "lib": ["es7", "dom"],
     "sourceMap": true,
@@ -13,23 +13,20 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": false,
-    "noImplicitAny": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    // "noImplicitAny": false,
     // "noUnusedLocals": true,
-    // "skipLibCheck": true,
     // "experimentalDecorators": true,
     // "emitDecoratorMetadata": true,
     "preserveConstEnums": true,
     "types": ["node", "jest"],
-    // "paths": {
-    // "@auth0/manhattan-ui/*": ["*", "./src/*"]
-    // },
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
-    ]
-  },
-  "exclude": ["node_modules", "build", "dist", "tooling", "examples", "src/setupTests.ts"]
+    "paths": {
+      "@auth0/cosmos/*": ["./*"]
+    }
+    // "plugins": [{ "name": "typescript-tslint-plugin" }]
+  }
+  // "exclude": ["node_modules", "build", "dist", "tooling", "examples"]
 }

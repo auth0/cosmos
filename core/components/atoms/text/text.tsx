@@ -1,33 +1,35 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts } from '@auth0/cosmos-tokens'
 
-const Text = props => {
-  if (props.type === 'subdued') {
-    return (
-      <Text.Subdued {...Automation('text')} {...props}>
-        {props.children}
-      </Text.Subdued>
-    )
+type TextType = 'allcaps' | 'subdued' | 'strong'
+
+export interface ITextProps {
+  type: TextType
+  children: React.ReactNode
+}
+
+const resolveTextComponent = (type: TextType) => {
+  switch (type) {
+    case 'subdued':
+      return Text.Subdued
+    case 'allcaps':
+      return Text.AllCaps
+    case 'strong':
+      return Text.Strong
+    default:
+      return null
   }
-  if (props.type === 'allcaps') {
-    return (
-      <Text.AllCaps {...Automation('text')} {...props}>
-        {props.children}
-      </Text.AllCaps>
-    )
-  }
-  if (props.type === 'strong') {
-    return (
-      <Text.Strong {...Automation('text')} {...props}>
-        {props.children}
-      </Text.Strong>
-    )
-  }
-  return props.children
+}
+
+const Text = (props: ITextProps) => {
+  const TextComponent = resolveTextComponent(props.type)
+
+  if (!TextComponent) return <>{props.children}</>
+
+  return <TextComponent {...Automation('text')} {...props} />
 }
 
 Text.Subdued = styled.span`
@@ -46,10 +48,6 @@ Text.AllCaps = styled.span`
 Text.Strong = styled.strong`
   font-weight: ${fonts.weight.bold};
 `
-
-Text.propTypes = {
-  type: PropTypes.oneOf(['allcaps', 'subdued', 'strong'])
-}
 
 Text.defaultProps = {}
 
