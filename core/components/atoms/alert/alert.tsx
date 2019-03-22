@@ -9,25 +9,26 @@ import Icon, { __ICONNAMES__ } from '../icon'
 import containerStyles from '../../_helpers/container-styles'
 import { rootProps } from '../../_helpers/root-props'
 
-type ISubElementProps = Partial<IAlertProps>
+export type IAlertElementProps = Partial<IAlertProps>
+export type IAlertAppearance = 'default' | 'information' | 'success' | 'warning' | 'danger'
 
-interface IAlertProps {
-  type?: 'default' | 'information' | 'success' | 'warning' | 'danger' // deprecated: use appearance
-  appearance: 'default' | 'information' | 'success' | 'warning' | 'danger'
+export interface IAlertProps {
+  type?: IAlertAppearance // deprecated: use appearance
+  appearance: IAlertAppearance
   icon?: string
   title?: string
   text?: string // deprecated: use children
   link?: string
-  dismissible: boolean
-  onDismiss: () => void
-  dismissAfterSeconds: number
+  dismissible?: boolean
+  onDismiss?: () => void
+  dismissAfterSeconds?: number
 }
 
-interface IAlertState {
+export interface IAlertState {
   visible: boolean
 }
 
-const ReadMoreLink = styled(Link)<ISubElementProps>`
+const ReadMoreLink = styled(Link)`
   color: ${props => colors.alert[props.appearance].text};
   text-decoration: underline;
   &:hover {
@@ -112,7 +113,7 @@ const styledForCross = css`
   padding-right: ${spacing.large};
 `
 
-Alert.Element = styled.div<ISubElementProps>`
+Alert.Element = styled.div<IAlertElementProps>`
   ${containerStyles};
   padding: ${spacing.small} ${spacing.small};
   ${props => props.dismissible && styledForCross};

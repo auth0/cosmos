@@ -1,8 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
 import { Example as ExampleHelper } from '@auth0/cosmos/_helpers/story-helpers'
 import { Alert, Link, Text } from '@auth0/cosmos'
+import { IAlertAppearance } from './alert'
 
 const Example = styled(ExampleHelper)`
   ${Alert.Element} {
@@ -10,7 +11,7 @@ const Example = styled(ExampleHelper)`
   }
 `
 
-const appearances = ['default', 'information', 'success', 'warning', 'danger']
+const appearances: IAlertAppearance[] = ['default', 'information', 'success', 'warning', 'danger']
 
 storiesOf('Alert', module).add('default', () => (
   <Example>
@@ -95,7 +96,7 @@ storiesOf('Alert', module).add('with no children/text', () => (
 storiesOf('Alert', module).add('old API', () => (
   <Example>
     {appearances.map(appearance => (
-      <Alert key={appearance} type={appearance} title="Warning!" text="This is the old API" />
+      <Alert key={appearance} appearance={appearance} title="Warning!" text="This is the old API" />
     ))}
   </Example>
 ))

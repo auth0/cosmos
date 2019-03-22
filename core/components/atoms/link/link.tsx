@@ -1,11 +1,19 @@
-import React from 'react'
-import propTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { colors } from '@auth0/cosmos-tokens'
 
-const Link = props => (
+export type ILinkTarget = '_blank' | '_self' | '_parent' | '_top'
+
+export interface ILinkProps {
+  href?: string
+  target?: ILinkTarget
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  children?: React.ReactNode
+}
+
+const Link = (props: ILinkProps) => (
   <Link.Element {...Automation('link')} {...props}>
     {props.children}
   </Link.Element>
@@ -20,15 +28,6 @@ Link.Element = styled.a`
 `
 
 const StyledLink = Link.Element
-
-Link.propTypes = {
-  /** URL to follow */
-  href: propTypes.string,
-  /** specifies where to open the linked document */
-  target: propTypes.oneOf(['_blank', '_self', '_parent', '_top']),
-  /** function to be called on click */
-  onClick: propTypes.func
-}
 
 Link.defaultProps = {
   target: '_self'

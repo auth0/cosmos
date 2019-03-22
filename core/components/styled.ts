@@ -6,8 +6,8 @@ import styled, {
   StyledComponentClass,
   StyledInterface
 } from 'styled-components'
-import cloneDeep from 'lodash.clonedeep'
 import domElements from './_helpers/dom-elements'
+const cloneDeep = require('lodash.clonedeep')
 
 /* import cosmos specific helpers */
 import margin from './_helpers/styled-margin'
@@ -22,7 +22,7 @@ export interface ICosmosStyled extends StyledInterface {
   (styledComponent: any): any
 }
 
-const styledWithHelpers: StyledInterface = cloneDeep<StyledInterface>(styled)
+const styledWithHelpers: any = cloneDeep(styled)
 
 /* create functions for all the elements supported in styled */
 domElements.forEach(domElement => {

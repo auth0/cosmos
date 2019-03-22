@@ -1,0 +1,6 @@
+{
+  "extends": "./core/components/",
+  "compilerOptions": {
+    "jsx": "react"
+  }
+}

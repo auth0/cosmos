@@ -1,17 +1,23 @@
-const webpack = require('webpack')
+const path = require('path')
+const { TsConfigPathsPlugin } = require('awesome-typescript-loader')
 
-module.exports = storybookBaseConfig => {
-  const plugins = storybookBaseConfig.plugins
+module.exports = (baseConfig, env, config) => {
+  config.node = {
+    ...baseConfig.node,
+    ...config.node,
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
+  }
+  config.output.library = '[name]'
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    loader: require.resolve('awesome-typescript-loader')
+  })
+  config.resolve.extensions.push('.ts', '.tsx', 'js')
+  config.resolve.plugins = [new TsConfigPathsPlugin()]
 
-  // plugins.push(
-  //   new webpack.EnvironmentPlugin({
-  //     COSMOS_DISABLE_RESETS: true
-  //   })
-  // )
-  const newConfig = { ...storybookBaseConfig }
-
-  // Export bundles as libraries so we can access them on page scope.
-  newConfig.output.library = '[name]'
-
-  return newConfig
+  return config
 }

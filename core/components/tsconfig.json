@@ -1,10 +1,11 @@
 {
+  "include": ["./**/*"],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "../../dist/components/",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es7", "dom"],
+    "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
