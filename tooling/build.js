@@ -52,6 +52,16 @@ try {
   process.exit(1)
 }
 
+try {
+  execa.shellSync(
+    `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/components/`
+  )
+  info('BUILD', 'Generated type definitions')
+} catch (err) {
+  console.log(err)
+  process.exit(1)
+}
+
 /* transpile tokens */
 try {
   execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)

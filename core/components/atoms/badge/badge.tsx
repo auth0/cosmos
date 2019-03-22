@@ -1,10 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
-const Badge = props => (
+export interface IBadgeProps {
+  appearance?: 'default' | 'information' | 'success' | 'warning' | 'danger'
+  children?: React.ReactNode
+}
+
+const Badge = (props: IBadgeProps) => (
   <Badge.Element {...Automation('badge')} {...props}>
     {props.children}
   </Badge.Element>
@@ -24,11 +28,6 @@ Badge.Element = styled.span`
 
 // Backwards compatibility (will be removed in 1.0)
 const StyledBadge = Badge.Element
-
-Badge.propTypes = {
-  /** The visual style used to convey the label's purpose */
-  appearance: PropTypes.oneOf(['default', 'information', 'success', 'warning', 'danger'])
-}
 
 Badge.defaultProps = {
   appearance: 'default'
