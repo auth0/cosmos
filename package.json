@@ -41,11 +41,14 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "7.1.2",
     "@storybook/addon-actions": "4.0.8",
     "@storybook/addon-links": "4.0.8",
     "@storybook/addons": "4.0.8",
     "@storybook/react": "4.0.8",
-    "@babel/core": "7.1.2",
+    "@types/jest": "^24.0.11",
+    "@types/styled-components": "^3.0.2",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.4",
     "chokidar": "2.0.4",
@@ -72,7 +75,7 @@
     "read-pkg": "4.0.1",
     "storybook-chromatic": "1.2.1",
     "svgo": "1.0.5",
-    "typescript": "^3.3.4000",
-    "tslint": "5.11.0"
+    "tslint": "5.11.0",
+    "typescript": "^3.3.4000"
   }
 }

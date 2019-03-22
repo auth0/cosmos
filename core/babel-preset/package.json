@@ -7,8 +7,13 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "babel-plugin-module-resolver": "^3.1.3",
     "babel-plugin-styled-components": "1.5.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0"
   }
 }

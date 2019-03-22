@@ -4,7 +4,7 @@ const main = require('./')
  * Add babel's module resolver plugin to replace all
  * '@auth0/cosmos' occurrences to './core/components'
  */
-module.exports = {
+module.exports = () => ({
   ...main,
   plugins: [
     ...main.plugins,
@@ -17,4 +17,4 @@ module.exports = {
       }
     ]
   ]
-}
+})

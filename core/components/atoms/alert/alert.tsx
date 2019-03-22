@@ -4,7 +4,6 @@ import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
 import FreeText from '../../_helpers/free-text'
-import { deprecate } from '../../_helpers/custom-validations'
 import Automation from '../../_helpers/automation-attribute'
 import Icon, { __ICONNAMES__ } from '../icon'
 import containerStyles from '../../_helpers/container-styles'
@@ -35,6 +34,8 @@ interface IAlertState {
 }
 
 class Alert extends React.Component<IAlertProps, IAlertState> {
+  timer: any
+
   constructor(props) {
     super(props)
     this.state = { visible: true }

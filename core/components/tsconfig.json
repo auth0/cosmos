@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "build/dist",
+    "outDir": "../../dist/components/",
     "module": "esnext",
     "target": "es5",
     "lib": ["es7", "dom"],
@@ -16,10 +16,10 @@
     "noImplicitAny": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    // "noUnusedLocals": true,
+    // "skipLibCheck": true,
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
     "preserveConstEnums": true,
     "types": ["node", "jest"],
     // "paths": {

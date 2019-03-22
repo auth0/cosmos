@@ -41,13 +41,11 @@ directories.forEach(directory => {
 })
 info('BUILD', 'Copied files to dist')
 
-const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js')
+const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js --extensions .ts')
 
 /* transpile components */
 try {
-  execa.shellSync(
-    `./node_modules/.bin/babel --presets=${presetPath} core/components -d dist/components`
-  )
+  execa.shellSync(`./node_modules/.bin/tsc --project ./core/components/`)
   info('BUILD', 'Transpiled components')
 } catch (err) {
   console.log(err)
