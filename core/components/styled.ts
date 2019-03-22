@@ -7,22 +7,16 @@ import styled, {
   StyledInterface
 } from 'styled-components'
 import domElements from './_helpers/dom-elements'
-const cloneDeep = require('lodash.clonedeep')
 
 /* import cosmos specific helpers */
 import margin from './_helpers/styled-margin'
-import Alert from './atoms/alert'
 
 /*
   create a thin replacement for styled
   styledWithHelpers(c) = styled(c)
 */
 
-export interface ICosmosStyled extends StyledInterface {
-  (styledComponent: any): any
-}
-
-const styledWithHelpers: any = cloneDeep(styled)
+const styledWithHelpers: any = styledComponent => styled(styledComponent)
 
 /* create functions for all the elements supported in styled */
 domElements.forEach(domElement => {
@@ -45,10 +39,6 @@ domElements.forEach(domElement => {
   styledWithHelpers[domElement].withConfig = styled[domElement].withConfig
   styledWithHelpers[domElement].attrs = styled[domElement].attrs
 })
-
-const a = styledWithHelpers.div`
-
-`
 
 export default styledWithHelpers
 export { keyframes, css, injectGlobal, StyledComponentClass, ThemeProvider }

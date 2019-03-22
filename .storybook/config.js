@@ -3,8 +3,8 @@ import { getStorybook } from '@storybook/react'
 import 'storybook-chromatic'
 
 /* This line loads all the .story files from the components */
-const components = require.context('../core/components/', true, /story\.js$/)
-const examples = require.context('../examples/', true, /story\.js$/)
+const components = require.context('../core/components/', true, /story\.(js|tsx)$/)
+const examples = require.context('../examples/', true, /story\.(js|tsx)$/)
 
 function loadStories() {
   components.keys().forEach(components)
