@@ -1,12 +1,14 @@
 import * as React from 'react'
 
-import Button from '../atoms/button'
+import Button, { ButtonAppearance, ButtonSize } from '../atoms/button'
 import ButtonGroup from '../molecules/button-group'
 
 export interface IObjectAction {
   label: string
   icon?: string
   handler?: Function
+  appearance?: ButtonAppearance
+  size?: ButtonSize
 }
 
 export type IAction = IObjectAction | JSX.Element

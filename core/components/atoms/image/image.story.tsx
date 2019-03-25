@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import styled from '@auth0/cosmos/styled'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Image, Paragraph, Avatar, StyledAvatar } from '@auth0/cosmos'
+import { Image, Paragraph, Avatar } from '@auth0/cosmos'
 
 storiesOf('Image', module).add('Image svg', () => (
   <Example title="Image SVG">

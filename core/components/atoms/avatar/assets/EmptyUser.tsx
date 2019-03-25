@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 const EmptyUser = props => (
   <svg viewBox="0 0 96 96" width="1em" height="1em" {...props}>

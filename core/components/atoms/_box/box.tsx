@@ -12,18 +12,25 @@
   - import tokens instead of hard coding values
 */
 
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 
 import { colors, misc } from '@auth0/cosmos-tokens'
 
 /*
-  Step 2: Create a styled element with css
+ * Step 2: Create a React component,
+ * Add description above the component, this will be shown in the docs
+ */
+const Box = (props: IBoxProps) => {
+  /* you can pass on all the props to the component like this */
+  return <Box.Element {...props} />
+}
+
+/*
+  Step 3: Create a styled element with css
   You can get the html element from styled.element like styled.a
 */
-
-const StyledBox = styled.div`
+Box.Element = styled.div`
   /* all your css goes here */
 
   /* you can use variables here like tokens */
@@ -42,23 +49,12 @@ const StyledBox = styled.div`
 `
 
 /*
- * Step 3: Create a React component that returns the styled element,
- * Add description above the component, this will be shown in the docs
- */
-
-const Box = props => {
-  /* you can pass on all the props to the component like this */
-  return <StyledBox {...props} />
-}
-
-/*
   Step 4: We need to add prop information for our component
-  - Add propTypes to make for documentation and validation
-  - Add defaultProps for documentation
+  - Add type definitions to make for documentation and validation
+  - Add defaultProps for documentation and behavior
 */
-Box.propTypes = {
-  /** This comment will be picked up by the docs */
-  big: PropTypes.bool
+interface IBoxProps {
+  big?: boolean
 }
 
 Box.defaultProps = {

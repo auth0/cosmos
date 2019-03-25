@@ -22,7 +22,8 @@ const config = {
     background: colors.input.background,
     border: colors.input.borderError,
     hoverBorder: colors.input.borderError,
-    focusBorder: colors.input.borderError
+    focusBorder: colors.input.borderError,
+    placeholder: colors.input.placeholder
   }
 }
 

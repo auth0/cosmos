@@ -1,6 +1,5 @@
-import React from 'react'
-import styled, { css, keyframes } from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
+import * as React from 'react'
+import styled, { keyframes } from '@auth0/cosmos/styled'
 import Logo from '../logo'
 import defaultPropChangeWarning from '../../_helpers/default-prop-change'
 import Automation from '../../_helpers/automation-attribute'
@@ -10,7 +9,7 @@ const rotate = keyframes`
   100% { transform: rotate(1turn) }
 `
 
-const getColor = (props, highlight) => {
+const getColor = (props, highlight: boolean | null = null) => {
   let color = '0, 0, 0'
   let opacity = highlight ? 0.4 : 0.08
 
@@ -48,7 +47,13 @@ const spinnerWithLogo = (variant, props) => {
   )
 }
 
-const Spinner = props => {
+export interface ISpinnerProps {
+  /** Invert for dark background */
+  inverse: boolean
+  size: 'small' | 'medium' | 'large'
+}
+
+const Spinner = (props: ISpinnerProps) => {
   defaultPropChangeWarning(Spinner, 'size', props.size, 'medium', '1.0.0')
 
   const variant = spinners[props.size]
@@ -85,12 +90,6 @@ Spinner.Container = styled.div`
     transform: translate(-50%, -50%);
   }
 `
-
-Spinner.propTypes = {
-  /** Invert for dark background */
-  inverse: PropTypes.bool,
-  size: PropTypes.oneOf(['small', 'medium', 'large'])
-}
 
 Spinner.defaultProps = {
   inverse: false,

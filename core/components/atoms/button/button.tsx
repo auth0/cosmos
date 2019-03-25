@@ -1,15 +1,37 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
-
-import { subtract } from '../../_helpers/pixel-calc'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
-import Spinner, { StyledSpinner } from '../spinner'
+import Spinner from '../spinner'
 import Tooltip from '../tooltip'
 import Automation from '../../_helpers/automation-attribute'
 
-const appearances = {
+export interface IButtonAppearance {
+  text: string
+  icon: string
+  background: string
+  border: string
+  hoverBackground: string
+  hoverBorder: string
+  hoverText?: string
+  focusBackground: string
+  focusBorder: string
+  focusText?: string
+  activeBackground?: string
+  activeBorder?: string
+  loadingInverse?: boolean
+}
+
+export interface IButtonAppearanceSet {
+  default: IButtonAppearance
+  primary: IButtonAppearance
+  secondary: IButtonAppearance
+  cta: IButtonAppearance
+  destructive: IButtonAppearance
+  link: IButtonAppearance
+}
+
+const appearances: IButtonAppearanceSet = {
   default: {
     text: colors.button.default.text,
     icon: colors.button.default.icon,
@@ -165,8 +187,45 @@ const getAttributes = props => {
   return styles
 }
 
+export type ButtonSize = 'default' | 'large' | 'small' | 'compressed'
+export type ButtonAppearance = 'default' | 'primary' | 'secondary' | 'cta' | 'link' | 'destructive'
+export type ButtonIconAlign = 'left' | 'right'
+export type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
+export type ButtonType = 'submit' | 'button' | 'reset'
+
+export interface IButtonProps {
+  /** The size of the button */
+  size?: ButtonSize
+  /** The visual style used to convey the button's purpose */
+  appearance?: ButtonAppearance
+  /** Name of icon */
+  icon?: string
+  /** Name of icon */
+  iconAlign?: ButtonIconAlign
+  /** Tooltip to show when the user hovers over the button */
+  label?: string
+  /** The URL to navigate to when the button is clicked */
+  href?: string
+  /** Specifies where to open the navigated document */
+  target?: ButtonTarget
+  /** Disables the button|changing the visual style and make it unable to be pressed */
+  disabled?: boolean
+  /** Loading state when waiting for an action to complete */
+  loading?: boolean
+  /** Successful state when action is completed successfuly */
+  success?: boolean
+  /** Type of button */
+  type?: ButtonType
+  /** Handler to be called when the button is clicked */
+  onClick?: Function
+  /** Content of the button */
+  children?: JSX.Element | string
+  /** @internal */
+  labelDefaultVisible?: boolean
+}
+
 const ButtonContent = props => {
-  let content = []
+  let content: JSX.Element[] = []
 
   let icon = props.success ? 'check' : props.icon
   const iconNode = icon ? (
@@ -189,7 +248,7 @@ const ButtonContent = props => {
   return <Element {...props}>{content}</Element>
 }
 
-const Button = ({ children, ...props }) => {
+const Button = ({ children, ...props }: IButtonProps) => {
   let button = <ButtonContent {...Automation('button')} {...props} text={children} />
 
   // If a label was specified, wrap the Button in a Tooltip.
@@ -278,44 +337,6 @@ Button.Text = styled.span`
 Button.LinkElement = styled(Button.Element.withComponent('a'))`
   text-decoration: none;
 `
-
-Button.propTypes = {
-  /** The size of the button */
-  size: PropTypes.oneOf(['default', 'large', 'small', 'compressed']),
-
-  /** The visual style used to convey the button's purpose */
-  appearance: PropTypes.oneOf(['default', 'primary', 'secondary', 'cta', 'link', 'destructive']),
-
-  /** Name of icon */
-  icon: PropTypes.oneOf(__ICONNAMES__),
-
-  /** Name of icon */
-  iconAlign: PropTypes.oneOf(['left', 'right']),
-
-  /** Tooltip to show when the user hovers over the button */
-  label: PropTypes.string,
-
-  /** The URL to navigate to when the button is clicked */
-  href: PropTypes.string,
-
-  /** Specifies where to open the navigated document */
-  target: PropTypes.oneOf(['_blank', '_self', '_parent', '_top']),
-
-  /** Disables the button, changing the visual style and make it unable to be pressed */
-  disabled: PropTypes.bool,
-
-  /** Loading state when waiting for an action to complete */
-  loading: PropTypes.bool,
-
-  /** Successful state when action is completed successfuly */
-  success: PropTypes.bool,
-
-  /** Type of button */
-  type: PropTypes.oneOf(['submit', 'button', 'reset']),
-
-  /** Handler to be called when the button is clicked */
-  onClick: PropTypes.func
-}
 
 Button.defaultProps = {
   size: 'default',

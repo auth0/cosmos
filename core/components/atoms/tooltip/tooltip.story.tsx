@@ -1,16 +1,25 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import styled from '@auth0/cosmos/styled'
 import { Tooltip, ButtonGroup, Button, Dialog, Icon, Form, TextInput, Link } from '@auth0/cosmos'
+import { TooltipPosition } from './'
 
-const positions = ['top', 'left', 'right', 'bottom']
+const positions: TooltipPosition[] = ['top', 'left', 'right', 'bottom']
 
 const WithDialogExample = styled(Example)`
   min-height: 800px;
 `
 
-const ExampleContainer = ({ children, position, noMargins }) => {
+const ExampleContainer = ({
+  children,
+  position,
+  noMargins
+}: {
+  children: JSX.Element
+  position: TooltipPosition
+  noMargins?: boolean
+}) => {
   const Container = styled.div`
     margin-top: 20px;
     min-height: 80px;

@@ -1,12 +1,27 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import Tooltip from './tooltip'
 
-class ActionTooltip extends React.Component {
+export interface IActionTooltipProps {
+  content: string | { default: string; loading?: string; success?: string; error?: string }
+  resetDelay: number
+  children: JSX.Element
+}
+
+interface IActionTooltipState {
+  tooltipContent?: string | null
+  taskIsRunning: boolean
+}
+
+class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipState> {
+  static defaultProps = {
+    resetDelay: 5000
+  }
+
+  timer?: number
+
   constructor(props) {
     super(props)
     this.state = { tooltipContent: null, taskIsRunning: false }
-    this.timer = null
   }
 
   componentWillUnmount() {
@@ -61,7 +76,10 @@ class ActionTooltip extends React.Component {
 
     const { resetDelay } = this.props
 
-    this.timer = setTimeout(() => this.setState({ tooltipContent: content.default }), resetDelay)
+    this.timer = window.setTimeout(
+      () => this.setState({ tooltipContent: content.default }),
+      resetDelay
+    )
   }
 
   /**
@@ -118,23 +136,6 @@ class ActionTooltip extends React.Component {
       <Tooltip content={tooltipContent ? tooltipContent : content.default} children={children} />
     )
   }
-}
-
-ActionTooltip.propTypes = {
-  content: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      default: PropTypes.string.isRequired,
-      loading: PropTypes.string,
-      success: PropTypes.string,
-      error: PropTypes.string
-    })
-  ]),
-  resetDelay: PropTypes.number
-}
-
-ActionTooltip.defaultProps = {
-  resetDelay: 5000
 }
 
 export default ActionTooltip

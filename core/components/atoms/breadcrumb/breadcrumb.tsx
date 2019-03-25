@@ -1,6 +1,5 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
@@ -17,7 +16,13 @@ const LinkIcon = styled(Icon)`
   margin-right: ${spacing.xsmall};
 `
 
-const Breadcrumb = props => <Breadcrumb.Element {...Automation('breadcrumb')} {...props} />
+export interface IBreadcrumbProps {
+  children?: JSX.Element | JSX.Element[]
+}
+
+const Breadcrumb = (props: IBreadcrumbProps) => (
+  <Breadcrumb.Element {...Automation('breadcrumb')} {...props} />
+)
 
 Breadcrumb.Element = styled.div`
   ${containerStyles};
@@ -72,20 +77,18 @@ Breadcrumb.Element = styled.div`
   }
 `
 
-Breadcrumb.Link = props => (
+export interface IBreadcrumbLinkProps {
+  href?: string
+  icon?: string
+  children?: string | JSX.Element
+}
+
+Breadcrumb.Link = (props: IBreadcrumbLinkProps) => (
   <Link {...Automation('breadcrumb.link')} {...props}>
     {props.icon && <LinkIcon name={props.icon} size={12} color="grayDarkest" />}
     {props.children}
     <Separator name="chevron-right-fill" size={12} color="grayMedium" />
   </Link>
 )
-
-Breadcrumb.propTypes = {
-  children: PropTypes.node
-}
-
-Breadcrumb.Link.propTypes = {
-  link: PropTypes.string
-}
 
 export default Breadcrumb

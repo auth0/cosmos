@@ -1,12 +1,11 @@
-import React from 'react'
+import * as React from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'
 import Tabs from '../../molecules/tabs'
-import Overlay, { overlayContentSizes } from '../../atoms/_overlay'
+import Overlay, { OverlaySize } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
@@ -73,7 +72,24 @@ const focusOnFormInput = ({ current }) => {
 const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
 
-class Dialog extends React.Component {
+export type DialogActionOrElement = DialogAction | JSX.Element
+
+export interface IDialogProps {
+  /** Buttons that will be shown on the dialog's footer */
+  actions?: DialogActionOrElement[]
+  /** Dialog's header title */
+  title?: string
+  /** Dialog's header title heading element */
+  titleElement?: 'h1' | 'h2' | 'h3' | 'h4'
+  /** Dialog's container width */
+  width?: OverlaySize | number
+  /* Callback triggered when the the dialog is closed by the user */
+  onClose?: Function
+  /** Whether you're presenting a form or a destructive action */
+  role?: 'default' | 'form' | 'destructive'
+}
+
+class Dialog extends React.Component<IDialogProps> {
   constructor(props) {
     super(props)
     this.childrenRef = React.createRef()
@@ -222,22 +238,6 @@ const DialogFooter = styled.footer`
 
 Dialog.Action = DialogAction
 Dialog.Element = DialogBox
-Dialog.propTypes = {
-  /** Buttons that will be shown on the dialog's footer */
-  actions: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.instanceOf(DialogAction), PropTypes.element])
-  ),
-  /** Dialog's header title */
-  title: PropTypes.string,
-  /** Dialog's header title heading element */
-  titleElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']),
-  /** Dialog's container width */
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf(Object.keys(overlayContentSizes))]),
-  /* Callback triggered when the the dialog is closed by the user */
-  onClose: PropTypes.func,
-  /** Whether you're presenting a form or a destructive action */
-  role: PropTypes.oneOf(['default', 'form', 'destructive'])
-}
 
 Dialog.defaultProps = {
   width: 'medium',

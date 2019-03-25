@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 
 import { spacing, misc } from '@auth0/cosmos-tokens'
@@ -6,7 +6,7 @@ import { spacing, misc } from '@auth0/cosmos-tokens'
 import ButtonGroup from '../../molecules/button-group'
 import Button from '../button'
 
-import getActionGroup from '../../_helpers/action-group-creator'
+import getActionGroup, { IObjectAction } from '../../_helpers/action-group-creator'
 import { multiply, add } from '../../_helpers/pixel-calc'
 
 /* TODO: width of button should be exported by button component */
@@ -42,10 +42,11 @@ const StyledWrapper = styled.div`
 `
 
 /* Override appearance and size of actions */
-const actionOverrides = { appearance: 'link', size: 'small' }
+const actionOverrides: Partial<IObjectAction> = { appearance: 'link', size: 'small' }
 
 const InputWithActions = props => {
   const Actions = getActionGroup(props.actions, actionOverrides)
+
   return (
     <StyledWrapper actions={props.actions} size={props.size}>
       {props.children} {Actions}
