@@ -1,6 +1,6 @@
-```meta
+---
 category: Layout
-```
+---
 
 A <code>Dialog</code> opens a modal dialog in a layer above the existing UI.
 

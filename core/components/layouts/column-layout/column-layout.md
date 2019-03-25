@@ -1,7 +1,7 @@
-```meta
+---
 category: layout
 description: Column layout allows organization of it's children in columns
-```
+---
 
 ---
 

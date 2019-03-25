@@ -1,6 +1,6 @@
-```meta
-  category: Forms
-```
+---
+category: Forms
+---
 
 `Form.Field` is a wrapper component inside supported in `Form`.
 

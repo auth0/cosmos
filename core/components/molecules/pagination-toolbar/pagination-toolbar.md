@@ -1,8 +1,8 @@
-```meta
-  category: Layout
-  description: "Paginate resource lists and tables"
-  unstable: true
-```
+---
+category: Layout
+description: 'Paginate resource lists and tables'
+unstable: true
+---
 
 A `<PaginationToolbar />` component is meant to be used along `ResourceList` and `Table`.
 

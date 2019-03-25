@@ -1,8 +1,8 @@
-```meta
-  category: Layout
-  description: "A list of actions that can break functionality"
-  unstable: true
-```
+---
+category: Layout
+description: 'A list of actions that can break functionality'
+unstable: true
+---
 
 `import { DangerZone } from '@auth0/cosmos'`
 

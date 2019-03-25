@@ -1,7 +1,7 @@
-```meta
+---
 category: layout
 description: Row layout allows organization of it's children in row
-```
+---
 
 ---
 

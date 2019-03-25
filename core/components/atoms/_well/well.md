@@ -1,7 +1,7 @@
-```meta
-  category: Container
-  description: Put things in a visual container
-```
+---
+category: Container
+description: Put things in a visual container
+---
 
 ```js
 <Well>

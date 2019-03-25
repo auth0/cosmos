@@ -1,7 +1,7 @@
-```meta
-  category: Forms
-  description: Provides a way for a user to select from a group of options
-```
+---
+category: Forms
+description: Provides a way for a user to select from a group of options
+---
 
 `import { Radio } from '@auth0/cosmos'`
 

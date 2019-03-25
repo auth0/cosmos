@@ -1,7 +1,7 @@
-```meta
-  category: Layout
-  description: "Use this component to layout a list of components vertically"
-```
+---
+category: Layout
+description: 'Use this component to layout a list of components vertically'
+---
 
 `import { List } from '@auth0/cosmos'`
 

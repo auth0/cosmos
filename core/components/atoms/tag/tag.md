@@ -1,7 +1,7 @@
-```meta
-  category: Actions
-  description: Displays a value in a set, and allows the user to interact with it
-```
+---
+category: Actions
+description: Displays a value in a set, and allows the user to interact with it
+---
 
 `import { Tag } from '@auth0/cosmos'`
 

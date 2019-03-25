@@ -1,0 +1,46 @@
+- title: Getting Started
+  path: /getting-started
+- title: Guiding Principles
+  path: /guiding-principles
+- title: How to use Cosmos
+  path: /usage
+  items:
+    - title: Installation
+      path: /usage/installation
+    - title: Using components
+      path: /usage/using-components
+    - title: Building your own components
+      path: /usage/building-your-own-components
+    - title: Usage with styleguide
+      path: /usage/usage-with-styleguide
+- title: Contributing
+  path: /contribution-guide
+  items:
+    - title: Setup
+      path: /contribution-guide/setup
+    - title: System Guidelines
+      path: /contribution-guide/system-guidelines
+    - title: Architecture
+      path: /contribution-guide/architecture
+    - title: Component file
+      path: /contribution-guide/component-files
+    - title: Testing
+      path: /contribution-guide/testing
+    - title: Line Height Strategy
+      path: /contribution-guide/line-height-strategy
+    - title: Order of props
+      path: /contribution-guide/order-of-props
+    - title: Release process
+      path: /contribution-guide/release-process
+    - title: Build Pipeline
+      path: /contribution-guide/build-pipeline
+    - title: Authoring Guides
+      path: /contribution-guide/authoring-guides
+    - title: Locally Linking Cosmos
+      path: /contribution-guide/locally-linking-cosmos
+- title: FAQs
+  path: /faqs
+- title: Changelog
+  path: /changelog
+- title: Migration Guide
+  path: /migration-guide

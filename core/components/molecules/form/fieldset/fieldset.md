@@ -1,6 +1,6 @@
-```meta
-  category: Forms
-```
+---
+category: Forms
+---
 
 Long forms should be divided into smaller groups using `Form.FieldSet`
 

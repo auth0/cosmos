@@ -1,7 +1,7 @@
-```meta
-  category: Layout
-  description: Show a message intended to draw the user's attention
-```
+---
+category: Layout
+description: Show a message intended to draw the user's attention
+---
 
 `import { Alert } from '@auth0/cosmos'`
 

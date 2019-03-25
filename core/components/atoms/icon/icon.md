@@ -1,7 +1,7 @@
-```meta
-  category: Actions
-  description: The Icon component displays an icon glyph as an <svg> element
-```
+---
+category: Actions
+description: The Icon component displays an icon glyph as an <svg> element
+---
 
 `import { Icon } from '@auth0/cosmos'`
 

@@ -1,6 +1,6 @@
-```meta
-  category: Text
-```
+---
+category: Text
+---
 
 `import { Code } from '@auth0/cosmos'`
 

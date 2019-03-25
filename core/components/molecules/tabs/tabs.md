@@ -1,7 +1,7 @@
-```meta
-  category: Layout
-  description: Tabs are great for splitting information into sections to make them easy to consume.
-```
+---
+category: Layout
+description: Tabs are great for splitting information into sections to make them easy to consume.
+---
 
 ```jsx
 class TabContainer extends React.Component {

@@ -1,7 +1,7 @@
-```meta
-  category: Text
-  description: Displays a numeric indicator
-```
+---
+category: Text
+description: Displays a numeric indicator
+---
 
 `import { Badge } from '@auth0/cosmos'`
 

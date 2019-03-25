@@ -1,7 +1,7 @@
-```meta
+---
 category: layout
 description: The StackLayout horizontally organizes its children
-```
+---
 
 ---
 

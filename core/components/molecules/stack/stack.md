@@ -1,7 +1,7 @@
-```meta
-  category: Layout
-  description: "Use this component to horizontally layout children"
-```
+---
+category: Layout
+description: 'Use this component to horizontally layout children'
+---
 
 `import { Stack } from '@auth0/cosmos'`
 

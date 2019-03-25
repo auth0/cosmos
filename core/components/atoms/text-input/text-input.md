@@ -1,7 +1,7 @@
-```meta
-  category: Forms
-  description: Use TextInput to ask for input from the user
-```
+---
+category: Forms
+description: Use TextInput to ask for input from the user
+---
 
 `import { TextInput } from '@auth0/cosmos'`
 

@@ -1,6 +1,6 @@
-```meta
-  category: Forms
-```
+---
+category: Forms
+---
 
 `import { Form } from '@auth0/cosmos'`
 

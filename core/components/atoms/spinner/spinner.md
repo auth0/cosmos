@@ -1,7 +1,7 @@
-```meta
+---
 category: Miscellaneous
 desciption: Spinner is useful to notify the user of background activity
-```
+---
 
 ---
 

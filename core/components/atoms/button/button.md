@@ -1,7 +1,7 @@
-```meta
-  category: Actions
-  description: Buttons are great to ask users for action
-```
+---
+category: Actions
+description: Buttons are great to ask users for action
+---
 
 `import { Button } from '@auth0/cosmos'`
 

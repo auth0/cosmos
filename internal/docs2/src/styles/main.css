@@ -1,0 +1,11 @@
+.hidden {
+  display: none;
+}
+.heading {
+  color: initial;
+  text-decoration: none;
+}
+.repo-link {
+  display: block;
+  text-align: center;
+}

@@ -1,7 +1,7 @@
-```meta
-  category: Forms
-  description: "Empty states are displayed when a page has no content."
-```
+---
+category: Forms
+description: 'Empty states are displayed when a page has no content.'
+---
 
 Empty states are displayed when a page has no content.
 

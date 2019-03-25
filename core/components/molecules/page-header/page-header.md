@@ -1,7 +1,7 @@
-```meta
-  category: Layout
-  description: "Use to add a title, description and main actions to pages."
-```
+---
+category: Layout
+description: 'Use to add a title, description and main actions to pages.'
+---
 
 `import { PageHeader } from '@auth0/cosmos'`
 

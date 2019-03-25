@@ -1,6 +1,6 @@
-```meta
-  category: Forms
-```
+---
+category: Forms
+---
 
 At the end of the forms, you need actions that the user can take.
 

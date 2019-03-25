@@ -1,6 +1,6 @@
 const fs = require('fs-extra')
 const glob = require('glob')
-
+const path = require('path')
 const docgen = require('react-docgen')
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const deprecationHandler = require('react-docgen-deprecation-handler')
@@ -12,6 +12,7 @@ const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 const colors = require('@auth0/cosmos-tokens/colors')
 
+const META_DIR = 'internal/docs2/.tmp'
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
@@ -19,6 +20,7 @@ let warning = 0
 
 /* Ensure meta directory exists */
 fs.ensureDirSync('core/components/meta')
+fs.ensureDirSync(META_DIR)
 
 /* Get list of js and md files from atoms and molecules */
 const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.js')
@@ -27,24 +29,24 @@ let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.m
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
-    .filter(path => !path.includes('story.js')) // ignore story files
-    .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
-    .map(path => {
+    .filter(filepath => !filepath.includes('story.js')) // ignore story files
+    .filter(filepath => !filepath.includes('.d.ts')) // ignore typescript definitions
+    .map(filepath => {
       try {
         /* ignore secondary files */
-        const directoryName = path.split('/').splice(-2, 1)[0]
+        const directoryName = filepath.split('/').splice(-2, 1)[0]
         const componentFileName = directoryName.replace('_', '') + '.js'
 
         /* if component file does not exist, move on*/
-        if (!path.includes(componentFileName)) return
+        if (!filepath.includes(componentFileName)) return
 
         /* append display name handler to handlers list */
         const handlers = docgen.defaultHandlers
-          .concat(createDisplayNameHandler(path))
+          .concat(createDisplayNameHandler(filepath))
           .concat(deprecationHandler)
 
         /* read file to get source code */
-        const code = fs.readFileSync(path, 'utf8')
+        const code = fs.readFileSync(filepath, 'utf8')
 
         /* parse the component code to get metadata */
         const data = docgen.parse(code, null, handlers)
@@ -82,35 +84,40 @@ const run = () => {
               prop.type.raw = prop.type.raw.replace('.isRequired', '')
             }
           })
+          data.props = JSON.stringify(data.props)
         }
-
+        delete data.methods
         /* add filepath to metadata */
-        data.filepath = path
+        data.filepath = filepath
 
         /* get documentation file path */
-        const documentationPath = path.replace('.js', '.md')
+        const documentationPath = filepath.replace('.js', '.md')
 
         /* add documentation if exists */
         if (fs.existsSync(documentationPath)) {
-          data.documentation = fs.readFileSync(documentationPath, 'utf8')
+          const documentation = fs.readFileSync(documentationPath, 'utf8')
+          const documentationFile = path.join(META_DIR, documentationPath)
+          fs.ensureFileSync(documentationFile)
+          fs.outputFileSync(documentationFile, documentation)
+          data.documentationFile = documentationPath
           /* remove from markdown files list (useful later) */
-          markdownFiles = markdownFiles.filter(path => path !== documentationPath)
-          /* pull meta from docs */
-          data.meta = getMetadata(documentationPath)
+          markdownFiles = markdownFiles.filter(filepath => filepath !== documentationPath)
+          // /* pull meta from docs */
+          // data.meta = getMetadata(documentationPath)
         } else if (debug) {
-          warn('documentation not found for ' + path)
+          warn('documentation not found for ' + filepath)
         } else {
           warning++
         }
 
         /* add lazy hint for documentation */
         data.implemented = true
-        data.internal = path.includes('_')
+        data._internal = filepath.includes('_')
 
         return data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
-        if (debug) warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
+        if (debug) warn(`Could not parse metadata for ${filepath}: ${err.stack || err}`)
         else warning++
       }
     })
@@ -121,18 +128,18 @@ const run = () => {
     .filter(meta => meta)
 
   /* Add documentation files that are not implemented yet */
-  markdownFiles.map(path => {
+  markdownFiles.map(filepath => {
     const data = {}
 
     /* attach content of documentation file */
-    data.documentation = fs.readFileSync(path, 'utf8')
+    data.documentation = fs.readFileSync(filepath, 'utf8')
 
     /* attach temporary filepath */
-    data.filepath = path
+    data.filepath = filepath
 
     /* infer display name from path */
     data.displayName = camelCase(
-      path
+      filepath
         .split('/')
         .pop()
         .replace('.md', '')
@@ -153,7 +160,8 @@ const run = () => {
     JSON.stringify({ metadata }, null, 2),
     'utf8'
   )
-
+  fs.writeFileSync(`${META_DIR}/component.json`, JSON.stringify(metadata, null, 2), 'utf8')
+  fs.copyFileSync('core/icons/aliases.json', `${META_DIR}/aliases.json`)
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format
   // so we can display it more intelligently in the docs?
@@ -164,7 +172,7 @@ const run = () => {
     JSON.stringify({ changelog }, null, 2),
     'utf8'
   )
-
+  fs.copyFileSync('changelog.md', `${META_DIR}/changelog.md`)
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
   }

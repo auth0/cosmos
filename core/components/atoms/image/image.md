@@ -1,7 +1,7 @@
-```meta
-  category: Images
-  description: Displays different types of images.
-```
+---
+category: Images
+description: Displays different types of images.
+---
 
 `import { Image } from '@auth0/cosmos'`
 

@@ -1,6 +1,6 @@
-```meta
-  category: Images
-```
+---
+category: Images
+---
 
 `import { Logo } from '@auth0/cosmos'`
 

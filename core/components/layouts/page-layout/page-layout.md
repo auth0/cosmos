@@ -1,7 +1,7 @@
-```meta
+---
 category: layout
 description: Use this component to create the separation between the header and the content of the page.
-```
+---
 
 ---
 

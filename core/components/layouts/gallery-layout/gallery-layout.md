@@ -1,7 +1,7 @@
-```meta
+---
 category: layout
 description: It organizes elements vertically and horizontally into a gallery grid
-```
+---
 
 ---
 

@@ -1,7 +1,7 @@
-```meta
-  category: Actions
-  description: Use Links to connect pages with each other
-```
+---
+category: Actions
+description: Use Links to connect pages with each other
+---
 
 `import { Button } from '@auth0/cosmos'`
 

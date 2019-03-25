@@ -1,7 +1,7 @@
-```meta
-  category: Forms
-  description: Select renders a styled drop-down selector.
-```
+---
+category: Forms
+description: Select renders a styled drop-down selector.
+---
 
 ---
 
