@@ -80,6 +80,7 @@
     "read-pkg": "4.0.1",
     "storybook-chromatic": "1.2.1",
     "svgo": "1.0.5",
+    "ts-jest": "^24.0.0",
     "tslint": "5.11.0",
     "typescript": "^3.3.4000"
   }

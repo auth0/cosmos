@@ -5,7 +5,7 @@
     "outDir": "../../dist/components/",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es5", "es6", "es7", "es2017", "dom"],
+    "lib": ["es2016", "dom"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",

@@ -16,19 +16,21 @@
   },
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup.ts"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "transform": {
-      "^.+\\.js?$": "<rootDir>/jestPreprocess.js"
-    }
+    "preset": "ts-jest"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "babel-jest": "^23.4.2",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.3.0",
-    "jest": "^23.5.0",
+    "jest": "^24.1.0",
     "jest-styled-components": "^6.1.1",
     "react-testing-library": "5.3.2"
   },
