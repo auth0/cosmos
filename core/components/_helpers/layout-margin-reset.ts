@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { css } from '@auth0/cosmos/styled'
 
 export const LAYOUT_CHILDREN_CLASS_NAME = 'cosmos-layout-child'
 
-export const applyLayoutChildClass = children =>
+export const applyLayoutChildClass = (children: JSX.Element) =>
   React.Children.map(children, child => {
     if (!child) return null
     return React.cloneElement(child, { className: LAYOUT_CHILDREN_CLASS_NAME })

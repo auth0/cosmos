@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 /**
  * Children mover is a utility that helps components have cleaner APIs by

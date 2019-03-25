@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Code } from '@auth0/cosmos'
 import { Example } from './story-helpers'
 import StyledPlaceholder from './story-layout-placeholder'

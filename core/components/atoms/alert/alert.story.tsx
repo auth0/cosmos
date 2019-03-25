@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { storiesOf } from '@storybook/react'
-import { Example as ExampleHelper } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example as ExampleHelper } from '../../_helpers/story-helpers'
 import { Alert, Link, Text } from '@auth0/cosmos'
 import { IAlertAppearance } from './alert'
 

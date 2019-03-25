@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import Automation from './automation-attribute'
 import { LAYOUT_CHILDREN_CLASS_NAME } from './layout-margin-reset'
 
 const transformChildren = (props, ChildWrapperElement, automationAttributeName) => {
-  const transformChild = (child, index) => {
+  const transformChild = (child, index = null) => {
     // if child is undefined or null, do not wrap/render anything
     if (!child) return null
 

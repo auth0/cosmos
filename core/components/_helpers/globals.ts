@@ -13,7 +13,6 @@ const insertAtTheStart = styles => {
     tag.innerHTML = styles
   } else {
     tag = document.createElement('style')
-    tag.type = 'text/css'
     tag.id = 'cosmos-globals'
     tag.innerHTML = styles
 
@@ -55,7 +54,7 @@ if (includeGlobals) {
   body {
     line-height: ${misc.lineHeight};
   }
-  
+
   ol, ul {
     list-style: none;
   }
@@ -90,7 +89,7 @@ if (includeGlobals) {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  
+
 `)
 } else {
   /* We still insert some styles to add missing fonts and keep other things sane 😅 */

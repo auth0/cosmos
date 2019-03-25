@@ -4,7 +4,7 @@
  * @param {string} propName
  * @param {string} componentName
  */
-function widthString(props, propName, componentName) {
+function widthString(props, propName: string, componentName: string) {
   function buildError(reason = 'The value should be a positive number plus the unit.') {
     const lines = [
       `The "${propName}" prop's value of the ${componentName} is invalid.`,
@@ -29,6 +29,8 @@ function widthString(props, propName, componentName) {
 
   if (isNegativeNumber) return buildError('The number must be positive.')
   if (isRelativeWidthMoreThan100) return buildError('Relative widths are allowed up to 100%.')
+
+  return undefined // No prop type errors
 }
 
 export default widthString

@@ -18,6 +18,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "removeComments": true,
+    "downlevelIteration": true,
     // "noImplicitAny": false,
     // "noUnusedLocals": true,
     // "experimentalDecorators": true,
