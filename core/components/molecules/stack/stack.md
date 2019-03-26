@@ -13,8 +13,6 @@ description: 'Use this component to horizontally layout children'
 </Stack>
 ```
 
----
-
 ## Examples
 
 ### Inline form

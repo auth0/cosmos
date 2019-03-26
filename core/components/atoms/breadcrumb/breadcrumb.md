@@ -5,8 +5,6 @@ description: A breadcrumb helps the user navigate and identify the hierarchy of 
 
 `import { Breadcrumb } from '@auth0/cosmos'`
 
----
-
 ```jsx
 <Breadcrumb>
   <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>

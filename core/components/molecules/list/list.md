@@ -5,8 +5,6 @@ description: 'Use this component to layout a list of components vertically'
 
 `import { List } from '@auth0/cosmos'`
 
----
-
 ```jsx
 <List {props}>
   <div>one</div>

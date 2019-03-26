@@ -5,8 +5,6 @@ description: The Icon component displays an icon glyph as an <svg> element
 
 `import { Icon } from '@auth0/cosmos'`
 
----
-
 ```jsx
 <Icon {props} defaults={{name: "copy"}} />
 ```

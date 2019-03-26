@@ -8,8 +8,6 @@ This component can be seen on `/docs/Box`
 <Box {props} />
 ```
 
----
-
 #### Examples
 
 Big box:

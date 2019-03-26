@@ -3,8 +3,6 @@ category: Miscellaneous
 description: Use tooltips for giving extra context AND to make visual cues accessible
 ---
 
----
-
 ```jsx
 <Tooltip defaults={{content: "Here is some text"}} {props}>Hover me</Tooltip>
 ```

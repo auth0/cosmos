@@ -13,7 +13,7 @@ const ResourceList = props => {
   const defaultItemRenderer = (item, _, index) => {
     // We can say we are in dragging mode if there one .cosmos-dragging
     // element in the DOM.
-    const draggingMode = document.querySelector('.cosmos-dragging')
+    const draggingMode = typeof document === 'object' && document.querySelector('.cosmos-dragging') // TODO: hack for SSR, fix me
     return (
       <ResourceListItem
         index={index}

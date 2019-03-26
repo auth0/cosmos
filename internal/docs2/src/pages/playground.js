@@ -22,16 +22,17 @@ class Playground extends React.Component {
   constructor() {
     super()
     let initialCode
-    if (window.location.search.includes("?code=")) {
-      const encodedCode = window.location.search.split("?code=")[1]
-      initialCode = decodeURI(encodedCode).replace(/%0A/g, "\n")
-    } else initialCode = demoCode
 
-    this.state = { initialCode }
+    this.state = { initialCode: demoCode }
   }
 
   componentDidMount() {
-    this.onChange(this.state.initialCode)
+    if (window.location.search.includes("?code=")) {
+      const encodedCode = window.location.search.split("?code=")[1]
+      const initialCode = decodeURI(encodedCode).replace(/%0A/g, "\n")
+      this.onChange(initialCode)
+      this.setState({ initialCode })
+    }
   }
 
   onChange = code => {

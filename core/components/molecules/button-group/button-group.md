@@ -5,8 +5,6 @@ description: Use a ButtonGroup to put related buttons together
 
 `import { ButtonGroup } from '@auth0/cosmos'`
 
----
-
 ```jsx
 <ButtonGroup {props}>
   <Button icon="pencil" />

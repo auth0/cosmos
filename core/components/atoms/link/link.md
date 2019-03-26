@@ -5,8 +5,6 @@ description: Use Links to connect pages with each other
 
 `import { Button } from '@auth0/cosmos'`
 
----
-
 ```jsx
 <Link href="https://auth0.com" {props}>Click me!</Link>
 ```

@@ -1,14 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
-import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+import React from "react"
+import styled from "styled-components"
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live"
 
-import * as Components from '@auth0/cosmos'
+import * as Components from "@auth0/cosmos"
 
-import { fonts, colors, spacing } from '@auth0/cosmos/tokens'
-import Props from './props'
-import getPropString from './prop-string'
-import CopyButton from './copy-button'
-import { getDefaultsFromCode, stripDefaultsFromDocs } from './get-defaults-from-code'
+import { fonts, colors, spacing } from "@auth0/cosmos/tokens"
+import Props from "./props"
+import getPropString from "./prop-string"
+import CopyButton from "./copy-button"
+import {
+  getDefaultsFromCode,
+  stripDefaultsFromDocs,
+} from "./get-defaults-from-code"
 
 const Container = styled.div`
   margin: ${spacing.medium} 0;
@@ -19,8 +22,8 @@ const Container = styled.div`
   & .react-live-preview {
     white-space: normal;
     border: 1px solid ${colors.base.grayLight};
-    border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
-    border-radius: 3px 3px ${props => (props.codeVisible ? '0 0' : '3px 3px')};
+    border-bottom-width: ${props => (props.codeVisible ? 0 : "1px")};
+    border-radius: 3px 3px ${props => (props.codeVisible ? "0 0" : "3px 3px")};
     padding: 40px;
   }
 
@@ -42,7 +45,7 @@ const Container = styled.div`
 
 const CodeWrapper = styled.div`
   overflow: hidden;
-  max-height: ${props => 25 * (props.code.split('\n').length + 1)}px;
+  max-height: ${props => 25 * (props.code.split("\n").length + 1)}px;
   transition: max-height 0.5s ease;
 
   &.hide {
@@ -62,7 +65,7 @@ const CodeToggle = styled.div`
 class LiveCodeBlock extends React.Component {
   constructor(props) {
     super(props)
-    const showProps = props.language === 'lang-jsx'
+    const showProps = props.language === "jsx"
 
     const defaultsFromDocs = getDefaultsFromCode(props.code)
     const code = stripDefaultsFromDocs(props.code)
@@ -71,7 +74,7 @@ class LiveCodeBlock extends React.Component {
       showProps,
       codeVisible: showProps,
       code,
-      defaultsFromDocs
+      defaultsFromDocs,
     }
   }
   toggleCode() {
@@ -80,7 +83,7 @@ class LiveCodeBlock extends React.Component {
   onPropsChange(propData) {
     const propString = getPropString(propData)
     const code = stripDefaultsFromDocs(this.props.code)
-    this.setState({ code: code.replace(' {props}', propString) })
+    this.setState({ code: code.replace(" {props}", propString) })
   }
   render() {
     return (
@@ -88,13 +91,21 @@ class LiveCodeBlock extends React.Component {
         <LiveProvider code={this.state.code} scope={Components}>
           <LivePreview />
           <LiveError />
-          <CodeWrapper className={!this.state.codeVisible && 'hide'} code={this.state.code}>
+          <CodeWrapper
+            className={!this.state.codeVisible && "hide"}
+            code={this.state.code}
+          >
             <LiveEditor />
           </CodeWrapper>
-          {this.state.codeVisible ? <CopyButton code={this.state.code} /> : null}
+          {this.state.codeVisible ? (
+            <CopyButton code={this.state.code} />
+          ) : null}
         </LiveProvider>
-        <CodeToggle codeVisible={this.state.codeVisible} onClick={this.toggleCode.bind(this)}>
-          {this.state.codeVisible ? 'Hide Code' : 'Show Code'}
+        <CodeToggle
+          codeVisible={this.state.codeVisible}
+          onClick={this.toggleCode.bind(this)}
+        >
+          {this.state.codeVisible ? "Hide Code" : "Show Code"}
         </CodeToggle>
         {this.state.showProps && (
           <Props

@@ -32,7 +32,7 @@ export function Provider(props) {
             fields {
               slug
             }
-            rawMarkdownBody
+            htmlAst
             frontmatter {
               category
               description
@@ -58,7 +58,7 @@ export function Provider(props) {
     }
     if (node.documentationFile) {
       const documentationFile = docsMap[node.documentationFile.relativePath]
-      documentation = documentationFile.rawMarkdownBody
+      documentation = documentationFile.htmlAst
       meta = documentationFile.frontmatter
     }
     return { ...node, props, meta, documentation }

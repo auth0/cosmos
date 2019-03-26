@@ -4,8 +4,6 @@ category: Forms
 
 `import { Form } from '@auth0/cosmos'`
 
----
-
 Form is a compound component that ships with `Form.Field` that can wrapped around input elements.
 
 ```jsx

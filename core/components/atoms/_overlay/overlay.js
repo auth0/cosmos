@@ -24,7 +24,7 @@ class Overlay extends React.Component {
   constructor(props) {
     super(props)
     this.state = { hasBeenMounted: false }
-    this.mountElement = document.createElement('div')
+
     this.contentElement = null
   }
 
@@ -35,6 +35,7 @@ class Overlay extends React.Component {
   }
 
   componentDidMount() {
+    this.mountElement = document.createElement('div') // TODO: moved this line from constructor to here, should work
     document.body.appendChild(this.mountElement)
     document.addEventListener('keydown', this.handleDocumentKeyDown)
     this.setState((prevState, props) => ({

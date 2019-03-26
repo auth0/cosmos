@@ -5,6 +5,9 @@ function renderChildren({ children, parent }, options) {
   return children.map(node => renderAST({ node, parent }, options))
 }
 function renderAST({ node, parent }, options) {
+  if (!node) {
+    return null
+  }
   const { type, tagName, children = [], value } = node
   if (type === "root") {
     return <>{renderChildren({ children }, options)}</>
@@ -22,6 +25,9 @@ export function renderElement({ node }, options) {
   const { className: cls, ...attrs } = properties
   const className = classNames(cls)
   node.properties = { className, ...attrs }
+  if (children.length === 0) {
+    return <Tag {...node.properties} />
+  }
   return (
     <Tag {...node.properties}>
       {renderChildren({ children, parent: node }, options)}

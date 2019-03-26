@@ -3,8 +3,6 @@ category: layout
 description: Use this component to create the separation between the header and the content of the page.
 ---
 
----
-
 The `PageLayout` creates the structure for the page by generating the space between the `PageLayout.Header` and the `PageLayout.Content`.
 
 Both sections accept as many children as needed to achieve the desired UI. For example the `PageLayout.Header` can have the `PageHeader` component and `Breadcrumbs` and the `PageLayout.Content` can nest other layouts like `RowLayout` or `ColumnLayout`.

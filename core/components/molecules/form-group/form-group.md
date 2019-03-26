@@ -5,8 +5,6 @@ description: If a page has multiple forms, you can use FormGroup to separate the
 
 `import { FormGroup } from '@auth0/cosmos'`
 
----
-
 Use a `Form.FieldSet` to add meaningful titles.
 
 ```jsx

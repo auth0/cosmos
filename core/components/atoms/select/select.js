@@ -220,7 +220,7 @@ class Select extends React.Component {
               isLoading={props.loading}
               onMenuOpen={this.updateMenuState(true)}
               onMenuClose={this.updateMenuState(false)}
-              menuPortalTarget={document.body}
+              menuPortalTarget={typeof document === 'object' && document.body} // TODO: hack for SSR, fix me
               menuIsOpen={props.defaultMenuOpen}
               defaultValue={props.defaultValue}
               getOptionValue={props.getOptionValue}

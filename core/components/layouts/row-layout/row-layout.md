@@ -3,8 +3,6 @@ category: layout
 description: Row layout allows organization of it's children in row
 ---
 
----
-
 The `RowLayout` organizes its children into rows, creating a vertical separation between them.
 
 ```jsx

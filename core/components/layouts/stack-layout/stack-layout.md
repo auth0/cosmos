@@ -3,8 +3,6 @@ category: layout
 description: The StackLayout horizontally organizes its children
 ---
 
----
-
 The `StackLayout` organizes it's children into flexible horizontal row.
 
 It gives control over the way they spread, space, and align.

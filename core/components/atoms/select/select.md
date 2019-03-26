@@ -3,8 +3,6 @@ category: Forms
 description: Select renders a styled drop-down selector.
 ---
 
----
-
 ```jsx
 <Select {props}
   placeholder="Select an option..."

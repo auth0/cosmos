@@ -3,8 +3,6 @@ category: layout
 description: It organizes elements vertically and horizontally into a gallery grid
 ---
 
----
-
 The `GalleryLayout` arranges its children into a gallery grid. For example to create a list of cards.
 
 ```jsx
