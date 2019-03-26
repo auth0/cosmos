@@ -10,7 +10,6 @@ import { Provider as SiteProvider } from "./../context/site-meta"
 class AppLayout extends React.Component {
   constructor() {
     super()
-
     this.state = { sidebarVisible: false }
   }
   toggleSidebar = () => {
@@ -52,7 +51,14 @@ class AppLayout extends React.Component {
               <Sidebar />
             </SideContent>
             <MainContent id="main">
-              <Body>{this.props.children}</Body>
+              {!this.props.outsideBody ? (
+                <Body>{this.props.children}</Body>
+              ) : (
+                <>
+                  <Body />
+                  {this.props.children}
+                </>
+              )}
             </MainContent>
           </Layout>
         </ComponentProvider>

@@ -2,6 +2,7 @@ const path = require("path")
 const guidesTemplate = path.resolve(`src/templates/guides.js`)
 const guidesIndexTemplate = path.resolve(`src/templates/guides-index.js`)
 const componentTemplate = path.resolve(`src/templates/component-doc.js`)
+const overviewTemplate = path.resolve(`src/templates/overview.js`)
 function createPagesForSideBar(createPage, path, items) {
   if (items) {
     createPage({
@@ -64,6 +65,11 @@ module.exports = ({ actions, graphql }) => {
         context: {
           filepath: `/guides/getting-started/`,
         },
+      })
+      // Overview Page
+      createPage({
+        path: "/overview",
+        component: overviewTemplate,
       })
       // Pages from SidebarYaml
       result.data.allSidebarYaml.edges.forEach(({ node }) => {

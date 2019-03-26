@@ -18,7 +18,7 @@ If you prefer npm, run this command instead:
 
 That is all you need to do, you are now ready to use it in your app, no build step needed.
 
-Continue to the [usage section](#/usage) to read more.
+Continue to the [usage section](/usage) to read more.
 
 ## Examples
 
@@ -26,7 +26,7 @@ We have created some applications with cosmos:
 
 [PoC of manage](/?url=manage/#/clients)
 
-[Overview of components](#/overview)
+[Overview of components](/overview)
 
 [Hello world](https://github.com/auth0/cosmos/tree/master/examples/webpack-hello-world)
 
@@ -34,7 +34,7 @@ We have created some applications with cosmos:
 
 Issues or feature requests can be created on [our GitHub page](https://github.com/auth0/cosmos/issues) or [on Slack](https://auth0.slack.com/messages/C5ZK0DD8X).
 
-You can use the [playground](#/playground) to test and share code, report bugs and ask for feedback.
+You can use the [playground](/playground) to test and share code, report bugs and ask for feedback.
 
 ## Useful links
 

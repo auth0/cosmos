@@ -109,17 +109,31 @@ const List = props => (
 List.Element = styled.ul`
   ${containerStyles};
 `
+// 👇was giving error, 😕 Hooks can only be called inside the body of a function component
+// List.ItemContainer = props => {
+//   const [drawerOpen, setDrawerState] = useState(false)
 
-List.ItemContainer = props => {
-  const [drawerOpen, setDrawerState] = useState(false)
+//   return (
+//     <List.ItemContainer.Element {...props} hasOpenDrawer={drawerOpen}>
+//       {props.children(drawerOpen, setDrawerState)}
+//     </List.ItemContainer.Element>
+//   )
+// }
+List.ItemContainer = class ItemContainer extends React.Component {
+  state = { drawerOpen: false }
+  setDrawerState = drawerOpen => {
+    this.setState({ drawerOpen })
+  }
+  render() {
+    const { drawerOpen } = this.state
 
-  return (
-    <List.ItemContainer.Element {...props} hasOpenDrawer={drawerOpen}>
-      {props.children(drawerOpen, setDrawerState)}
-    </List.ItemContainer.Element>
-  )
+    return (
+      <List.ItemContainer.Element {...this.props} hasOpenDrawer={drawerOpen}>
+        {this.props.children(drawerOpen, this.setDrawerState)}
+      </List.ItemContainer.Element>
+    )
+  }
 }
-
 List.ItemContainer.Element = styled.li`
   border-top: 1px solid ${colors.list.borderColor};
   padding-left: ${spacing.xsmall};
