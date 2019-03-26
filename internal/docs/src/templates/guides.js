@@ -50,7 +50,9 @@ const options = {
 function Guide({ children, filePath }) {
   const { repository } = React.useContext(Context)
   const repoName = repository.split("/").pop()
-  const path = filePath.split(repoName)[1].replace("/", "")
+  const path = filePath.includes(".tmp")
+    ? filePath.split(".tmp/")[1]
+    : filePath.split(repoName)[1].replace("/", "")
   return (
     <>
       <Markdown options={options}>{children}</Markdown>

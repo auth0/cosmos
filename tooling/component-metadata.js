@@ -8,18 +8,17 @@ const deprecationHandler = require('react-docgen-deprecation-handler')
 const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const camelCase = require('lodash.camelcase')
-const getMetadata = require('./get-metadata')
+// const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
 const colors = require('@auth0/cosmos-tokens/colors')
 
-const META_DIR = 'internal/docs2/.tmp'
+const META_DIR = 'internal/docs/.tmp'
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
 let warning = 0
 
 /* Ensure meta directory exists */
-fs.ensureDirSync('core/components/meta')
 fs.ensureDirSync(META_DIR)
 
 /* Get list of js and md files from atoms and molecules */
@@ -155,23 +154,10 @@ const run = () => {
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
-  fs.writeFileSync(
-    'core/components/meta/metadata.json',
-    JSON.stringify({ metadata }, null, 2),
-    'utf8'
-  )
+
   fs.writeFileSync(`${META_DIR}/component.json`, JSON.stringify(metadata, null, 2), 'utf8')
   fs.copyFileSync('core/icons/aliases.json', `${META_DIR}/aliases.json`)
-  // Write a version of the Changelog to a place where we can access it later.
-  // TODO: Consider parsing the Markdown and storing this in a more structured format
-  // so we can display it more intelligently in the docs?
   info('DOCS', 'Generating changelog')
-  const changelog = fs.readFileSync('changelog.md', 'utf8')
-  fs.writeFileSync(
-    'core/components/meta/changelog.json',
-    JSON.stringify({ changelog }, null, 2),
-    'utf8'
-  )
   fs.copyFileSync('changelog.md', `${META_DIR}/changelog.md`)
   if (warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)

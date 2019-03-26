@@ -8,9 +8,8 @@ const chokidar = require('chokidar')
 const { info, warn } = require('prettycli')
 const prettier = require('prettier')
 
-const META_DIR = 'internal/docs2/.tmp'
+const META_DIR = 'internal/docs/.tmp'
 /* Ensure meta directory exists */
-fs.ensureDirSync('core/components/meta')
 fs.ensureDirSync(META_DIR)
 
 const transform = (name, svg) => {
@@ -128,11 +127,7 @@ const run = () => {
     prettier.format('core/components/atoms/icon/icons.json', { parser: 'babylon' })
 
     // Write the lookup table for icon names which will be used in the docs
-    fs.writeFileSync(
-      'core/components/meta/icons.json',
-      JSON.stringify({ types: Object.keys(icons).sort(), aliases }, null, 2),
-      'utf8'
-    )
+
     fs.writeFileSync(
       `${META_DIR}/icons.json`,
       JSON.stringify(
