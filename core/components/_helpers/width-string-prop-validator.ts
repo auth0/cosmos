@@ -16,7 +16,7 @@ function widthString(props, propName: string, componentName: string) {
   }
 
   const prop = props[propName]
-  if (!prop) return
+  if (!prop) return undefined // No prop type errors
 
   const expression = new RegExp(/(-?)([0-9]+(\.?)[0-9]+)(px|%)/)
   if (!expression.test(prop)) return buildError()

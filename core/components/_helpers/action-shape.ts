@@ -21,4 +21,10 @@ const actionShapeWithRequiredIcon = PropTypes.shape({
   handler: PropTypes.func.isRequired
 })
 
+export interface ActionWithIcon {
+  label: string
+  icon: string
+  handler: Function
+}
+
 export { actionShape, actionShapeWithRequiredIcon, actionShapeWithoutRequiredHandler, shapeForDocs }

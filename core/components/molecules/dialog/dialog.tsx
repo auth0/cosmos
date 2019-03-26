@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
+import * as ReactDOM from 'react-dom'
 import styled from '@auth0/cosmos/styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
@@ -14,12 +14,12 @@ import FocusTrap from 'react-focus-lock'
 import containerStyles from '../../_helpers/container-styles'
 import { rootProps } from '../../_helpers/root-props'
 
-const createButtonForAction = (action, index) => {
+const createButtonForAction = (action: DialogAction | JSX.Element, index) => {
   // As we also support passing raw <Button> components
   // as actions, we only need to create buttons for actions
   // when the action is instance of DialogAction.
   if (!(action instanceof DialogAction)) {
-    if (action.displayName !== Button.displayName) {
+    if (action.type !== Button) {
       throw new Error('Invalid action component passed to Dialog.')
     }
 
@@ -39,8 +39,9 @@ const createButtonForAction = (action, index) => {
 }
 
 const focusOnFormInput = ({ current }) => {
-  const node = ReactDOM.findDOMNode(current)
+  const node = ReactDOM.findDOMNode(current) as HTMLDivElement
   if (!node) return
+
   const form = node.querySelector('form')
   if (!form) return
 
@@ -71,90 +72,6 @@ const focusOnFormInput = ({ current }) => {
  */
 const getAccessibilityRole = (props, requiredRole, propObject) =>
   props.role === requiredRole ? propObject : {}
-
-export type DialogActionOrElement = DialogAction | JSX.Element
-
-export interface IDialogProps {
-  /** Buttons that will be shown on the dialog's footer */
-  actions?: DialogActionOrElement[]
-  /** Dialog's header title */
-  title?: string
-  /** Dialog's header title heading element */
-  titleElement?: 'h1' | 'h2' | 'h3' | 'h4'
-  /** Dialog's container width */
-  width?: OverlaySize | number
-  /* Callback triggered when the the dialog is closed by the user */
-  onClose?: Function
-  /** Whether you're presenting a form or a destructive action */
-  role?: 'default' | 'form' | 'destructive'
-}
-
-class Dialog extends React.Component<IDialogProps> {
-  constructor(props) {
-    super(props)
-    this.childrenRef = React.createRef()
-  }
-
-  componentDidMount() {
-    if (this.props.role === 'form') {
-      setImmediate(() => focusOnFormInput(this.childrenRef))
-    }
-  }
-
-  render() {
-    const props = this.props
-    return (
-      <Overlay contentSize={props.width} {...props}>
-        <FocusTrap persistentFocus={false} onExit={props.onClose}>
-          <DialogBox
-            width={props.width}
-            {...Automation('dialog')}
-            {...getAccessibilityRole(props, 'destructive', {
-              'aria-describedby': 'dialog-description'
-            })}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="dialog-title"
-            {...rootProps(props)}
-          >
-            <DialogClose>
-              <Button
-                aria-label="Close"
-                size="default"
-                appearance="link"
-                icon="close"
-                onClick={props.onClose}
-                {...Automation('dialog.close')}
-              />
-            </DialogClose>
-
-            {props.title && (
-              <DialogHeader {...Automation('dialog.title')}>
-                <DialogTitle element={props.titleElement} id="dialog-title">
-                  {props.title}
-                </DialogTitle>
-              </DialogHeader>
-            )}
-
-            <DialogBody
-              ref={this.childrenRef}
-              id="dialog-description"
-              {...Automation('dialog.body')}
-            >
-              {props.children}
-            </DialogBody>
-
-            {props.actions.length > 0 && (
-              <DialogFooter {...Automation('dialog.footer')}>
-                <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
-              </DialogFooter>
-            )}
-          </DialogBox>
-        </FocusTrap>
-      </Overlay>
-    )
-  }
-}
 
 const DialogBox = styled.div`
   ${containerStyles};
@@ -236,14 +153,96 @@ const DialogFooter = styled.footer`
   border-top: 1px solid ${colors.base.grayLight};
 `
 
-Dialog.Action = DialogAction
-Dialog.Element = DialogBox
+export type DialogActionOrElement = DialogAction | JSX.Element
 
-Dialog.defaultProps = {
-  width: 'medium',
-  role: 'default',
-  actions: [],
-  titleElement: 'h2'
+export interface IDialogProps {
+  /** Buttons that will be shown on the dialog's footer */
+  actions?: DialogActionOrElement[]
+  /** Dialog's header title */
+  title?: string
+  /** Dialog's header title heading element */
+  titleElement?: 'h1' | 'h2' | 'h3' | 'h4'
+  /** Dialog's container width */
+  width?: OverlaySize | number
+  /* Callback triggered when the the dialog is closed by the user */
+  onClose?: Function
+  /** Whether you're presenting a form or a destructive action */
+  role?: 'default' | 'form' | 'destructive',
+  open?: boolean
+}
+
+class Dialog extends React.Component<IDialogProps> {
+  static Action = DialogAction
+  static Element = DialogBox
+
+  static defaultProps = {
+    width: 'medium',
+    role: 'default',
+    actions: [],
+    titleElement: 'h2'
+  }
+
+  childrenRef = React.createRef<HTMLDivElement>()
+
+  componentDidMount() {
+    if (this.props.role === 'form') {
+      setImmediate(() => focusOnFormInput(this.childrenRef))
+    }
+  }
+
+  render() {
+    const props = this.props
+    return (
+      <Overlay contentSize={props.width} {...props}>
+        <FocusTrap persistentFocus={false}>
+          <DialogBox
+            width={props.width}
+            {...Automation('dialog')}
+            {...getAccessibilityRole(props, 'destructive', {
+              'aria-describedby': 'dialog-description'
+            })}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+            {...rootProps(props)}
+          >
+            <DialogClose>
+              <Button
+                aria-label="Close"
+                size="default"
+                appearance="link"
+                icon="close"
+                onClick={props.onClose}
+                {...Automation('dialog.close')}
+              />
+            </DialogClose>
+
+            {props.title && (
+              <DialogHeader {...Automation('dialog.title')}>
+                <DialogTitle element={props.titleElement} id="dialog-title">
+                  {props.title}
+                </DialogTitle>
+              </DialogHeader>
+            )}
+
+            <DialogBody
+              ref={this.childrenRef}
+              id="dialog-description"
+              {...Automation('dialog.body')}
+            >
+              {props.children}
+            </DialogBody>
+
+            {props.actions && props.actions.length > 0 && (
+              <DialogFooter {...Automation('dialog.footer')}>
+                <ButtonGroup>{props.actions.map(createButtonForAction)}</ButtonGroup>
+              </DialogFooter>
+            )}
+          </DialogBox>
+        </FocusTrap>
+      </Overlay>
+    )
+  }
 }
 
 export default Dialog

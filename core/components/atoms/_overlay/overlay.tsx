@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
+import * as ReactDOM from 'react-dom'
 import styled from '@auth0/cosmos/styled'
 import { spacing } from '@auth0/cosmos-tokens'
 
@@ -24,7 +24,7 @@ export interface IOverlayProps {
   closeOnBackdropClick?: boolean
   closeOnEscape?: boolean
   open?: boolean
-  onClose: Function
+  onClose?: Function
   contentSize?: number | OverlaySize
 }
 
@@ -92,7 +92,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   handleMouseDown = evt => {
     const { closeOnBackdropClick, open, onClose } = this.props
     const clickWasOnBackdrop = this.contentElement && !this.contentElement.contains(evt.target)
-    if (open && closeOnBackdropClick && clickWasOnBackdrop) {
+    if (open && closeOnBackdropClick && clickWasOnBackdrop && onClose) {
       onClose()
     }
   }
@@ -102,7 +102,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     const escapeWasPressed = evt.which === keyCodes.escape
     if (open && closeOnEscape && escapeWasPressed) {
       evt.preventDefault()
-      onClose()
+      if (onClose) onClose()
     }
   }
 

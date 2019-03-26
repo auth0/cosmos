@@ -68,7 +68,8 @@ export interface IStackProps {
   align?: 'fill' | 'left' | 'right' | 'space-between'
   alignVertical?: 'top' | 'center' | 'bottom'
   widths?: number[]
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  style?: Object
 }
 
 Stack.propTypes = {

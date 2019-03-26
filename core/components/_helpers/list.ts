@@ -56,7 +56,7 @@ export const isListExpandable = (child, type) => {
 }
 
 export const onItemClickHandler = (props, child) => {
-  if (!props.onItemClick) return
+  if (!props.onItemClick) return undefined
 
   return ev => props.onItemClick(ev, child.props)
 }

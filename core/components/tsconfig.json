@@ -1,11 +1,16 @@
 {
-  "include": ["./**/*"],
+  "include": [
+    "./**/*"
+  ],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "../../dist/components/",
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es2016", "dom"],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
@@ -14,7 +19,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": false,
-    "strictNullChecks": true,
+    // "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "skipLibCheck": true,
     "removeComments": true,
@@ -24,9 +29,14 @@
     // "experimentalDecorators": true,
     // "emitDecoratorMetadata": true,
     "preserveConstEnums": true,
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest"
+    ],
     "paths": {
-      "@auth0/cosmos/*": ["./*"]
+      "@auth0/cosmos/*": [
+        "./*"
+      ]
     }
     // "plugins": [{ "name": "typescript-tslint-plugin" }]
   }

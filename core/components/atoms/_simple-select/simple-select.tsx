@@ -1,11 +1,10 @@
 import * as React from 'react'
-import * as PropTypes from 'prop-types'
-import Automation from '../../_helpers/automation-attribute'
-import Icon from '../icon'
 import styled from '@auth0/cosmos/styled'
-
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
+import { ISelectOption, ISelectGroupOption } from '../select/interfaces';
+import Automation from '../../_helpers/automation-attribute'
+import Icon from '../icon'
 import Form from '../../molecules/form'
 
 const selectOpacity = {
@@ -39,7 +38,25 @@ const renderOption = (option, idx) => {
   )
 }
 
-const SimpleSelect = ({ options, ...props }) => {
+
+export interface ISimpleSelectProps {
+  /** HTML ID of the component */
+  id?: string
+  /** Options to render inside select */
+  options?: (ISelectOption | ISelectGroupOption)[]
+  /** Value selected by default */
+  value?: any
+  /** Default value selected by default */
+  defaultValue?: any
+  /** onChange transparently passed to select */
+  onChange?: Function
+  /** String to show when the first empty choice is selected */
+  placeholder?: string
+  /** Determines if the select should be disabled */
+  disabled?: boolean
+}
+
+const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
   /*
     select boxes do not support readonly like input boxes,
     but they do have disabled. we need the style of readOnly input
@@ -101,32 +118,6 @@ SimpleSelect.ArrowIcon = styled(Icon)`
   }
 `
 
-const selectOptionShape = PropTypes.shape({
-  text: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
-  disabled: PropTypes.bool
-})
-
-SimpleSelect.propTypes = {
-  /** Options to render inside select */
-  options: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      selectOptionShape,
-      PropTypes.shape({
-        groupName: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(selectOptionShape)
-      })
-    ])
-  ),
-  /** Value selected by default */
-  value: PropTypes.any,
-  /** onChange transparently passed to select */
-  onChange: PropTypes.func,
-  /** String to show when the first empty choice is selected */
-  placeholder: PropTypes.string,
-  /** Determines if the select should be disabled */
-  disabled: PropTypes.bool
-}
 
 SimpleSelect.defaultProps = {
   options: [],

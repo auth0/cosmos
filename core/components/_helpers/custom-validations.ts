@@ -9,14 +9,14 @@ const onlyOneOf = (props, list: string[]) => {
 
 // @ts-ignore noImplicitReturn
 const sumOfElements = (elements, expectedSum) => {
-  if (!elements) return
+  if (!elements) return undefined // No prop type errors
   const sum = elements.reduce((a, b) => a + b, 0)
   if (sum !== expectedSum) return new Error(`The sum of values should be ${expectedSum}!`)
 }
 
 // @ts-ignore noImplicitReturn
 const numberOfValues = (elements, expectedCount) => {
-  if (!elements) return
+  if (!elements) return undefined // No prop type errors
   if (elements.length !== expectedCount) {
     return new Error(`Expected ${expectedCount} values, found ${elements.length}!`)
   }
