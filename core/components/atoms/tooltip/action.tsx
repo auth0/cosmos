@@ -4,7 +4,7 @@ import Tooltip from './tooltip'
 export interface IActionTooltipProps {
   content: string | { default: string; loading?: string; success?: string; error?: string }
   resetDelay: number
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 interface IActionTooltipState {

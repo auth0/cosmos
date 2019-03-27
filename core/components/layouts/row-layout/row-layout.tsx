@@ -18,7 +18,7 @@ export interface IRowLayoutProps {
   gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const RowLayout = (props: IRowLayoutProps) => (

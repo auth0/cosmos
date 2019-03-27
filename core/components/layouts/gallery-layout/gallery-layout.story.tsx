@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
@@ -9,7 +9,7 @@ storiesOf('Gallery Layout', module).add('Null children check', () =>
   layoutSpacingStoryTest(GalleryLayout, 'small')
 )
 
-storiesOf('Gallery Layout').add('Size: small', () => (
+storiesOf('Gallery Layout', module).add('Size: small', () => (
   <Example title="Size: small">
     <GalleryLayout size="small">
       <StyledPlaceholder />
@@ -32,7 +32,7 @@ storiesOf('Gallery Layout').add('Size: small', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Size: small - with undisplayable children', () => (
+storiesOf('Gallery Layout', module).add('Size: small - with undisplayable children', () => (
   <Example title="Size: small">
     <GalleryLayout size="small">
       <StyledPlaceholder />
@@ -55,7 +55,7 @@ storiesOf('Gallery Layout').add('Size: small - with undisplayable children', () 
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Size: medium', () => (
+storiesOf('Gallery Layout', module).add('Size: medium', () => (
   <Example title="Size: medium">
     <GalleryLayout size="medium">
       <StyledPlaceholder />
@@ -78,7 +78,7 @@ storiesOf('Gallery Layout').add('Size: medium', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Size: large', () => (
+storiesOf('Gallery Layout', module).add('Size: large', () => (
   <Example title="Size: large">
     <GalleryLayout size="large">
       <StyledPlaceholder />
@@ -101,7 +101,7 @@ storiesOf('Gallery Layout').add('Size: large', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Gutter: none', () => (
+storiesOf('Gallery Layout', module).add('Gutter: none', () => (
   <Example title="Gutter: none">
     <GalleryLayout size="small" gutter="none">
       <StyledPlaceholder />
@@ -124,7 +124,7 @@ storiesOf('Gallery Layout').add('Gutter: none', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Gutter: xsmall', () => (
+storiesOf('Gallery Layout', module).add('Gutter: xsmall', () => (
   <Example title="Gutter: xsmall">
     <GalleryLayout size="small" gutter="xsmall">
       <StyledPlaceholder />
@@ -147,7 +147,7 @@ storiesOf('Gallery Layout').add('Gutter: xsmall', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Gutter: small', () => (
+storiesOf('Gallery Layout', module).add('Gutter: small', () => (
   <Example title="Gutter: small">
     <GalleryLayout size="small" gutter="small">
       <StyledPlaceholder />
@@ -170,7 +170,7 @@ storiesOf('Gallery Layout').add('Gutter: small', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Gutter: medium', () => (
+storiesOf('Gallery Layout', module).add('Gutter: medium', () => (
   <Example title="Gutter: medium">
     <GalleryLayout size="small" gutter="medium">
       <StyledPlaceholder />
@@ -193,7 +193,7 @@ storiesOf('Gallery Layout').add('Gutter: medium', () => (
   </Example>
 ))
 
-storiesOf('Gallery Layout').add('Gutter: large', () => (
+storiesOf('Gallery Layout', module).add('Gutter: large', () => (
   <Example title="Gutter: large">
     <GalleryLayout size="small" gutter="large">
       <StyledPlaceholder />

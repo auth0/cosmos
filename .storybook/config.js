@@ -1,3 +1,4 @@
+import 'ts-polyfill/lib/es2015-promise'
 import { configure } from '@storybook/react'
 import { getStorybook } from '@storybook/react'
 import 'storybook-chromatic'

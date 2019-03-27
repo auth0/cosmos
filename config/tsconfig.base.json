@@ -1,0 +1,47 @@
+{
+  "include": [
+    "../**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "../dist/",
+    // "module": "es2015",
+    "target": "es5",
+    "lib": [
+      "es5",
+      "es2017",
+      "dom"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "../",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "downlevelIteration": true,
+    "preserveConstEnums": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "paths": {
+      "@auth0/cosmos/*": [
+        "*",
+        "./*"
+      ]
+    }
+  },
+  "exclude": [
+    "../node_modules",
+    "../build",
+    "../dist",
+    "../tooling",
+    "../examples",
+    "../internal"
+  ]
+}

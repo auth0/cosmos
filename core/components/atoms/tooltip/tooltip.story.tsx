@@ -16,7 +16,7 @@ const ExampleContainer = ({
   position,
   noMargins
 }: {
-  children: React.ReactNode
+  children?: React.ReactNode
   position: TooltipPosition
   noMargins?: boolean
 }) => {

@@ -1,6 +1,5 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'
 import applyMarginReset from '../../_helpers/layout-margin-reset'
@@ -20,7 +19,17 @@ const galleryOptions = {
   large: 'repeat(auto-fill, minmax(450px, 1fr))'
 }
 
-const GalleryLayout = props => (
+export interface IGalleryLayoutProps {
+  /** Regulates the size of the gutter betwen each column */
+  gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
+  /** Regulates the size of the flexible columns */
+  size?: 'small' | 'medium' | 'large'
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
+  disableMarginReset?: boolean
+  children?: React.ReactNode
+}
+
+const GalleryLayout = (props: IGalleryLayoutProps) => (
   <GalleryLayout.Element {...props} {...Automation('gallery-layout')}>
     {transformChildren(props, GalleryLayout.Item, 'gallery-layout.item')}
   </GalleryLayout.Element>
@@ -40,14 +49,6 @@ GalleryLayout.Element = styled.ul`
 
 GalleryLayout.Item = styled.li``
 
-GalleryLayout.propTypes = {
-  /** Regulates the size of the gutter betwen each column */
-  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
-  /** Regulates the size of the flexible columns */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Resets the margins of the component within the layout to generate consistent spaces. */
-  disableMarginReset: PropTypes.bool
-}
 
 GalleryLayout.defaultProps = {
   size: 'medium',

@@ -8,7 +8,7 @@ type TextType = 'allcaps' | 'subdued' | 'strong'
 
 export interface ITextProps {
   type: TextType
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const resolveTextComponent = (type: TextType) => {

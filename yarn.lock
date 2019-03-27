@@ -13845,6 +13845,13 @@ ts-jest@^24.0.0:
     semver "^5.5"
     yargs-parser "10.x"
 
+ts-polyfill@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/ts-polyfill/-/ts-polyfill-3.3.3.tgz#a683da82841376d82477c19313fe755f7f527c45"
+  integrity sha512-10XpANSm2WLP3TRS8NNT+1Q4sjSyEIJy9QvUk/U/CHLTSIOxFB6dgfO9FOOaMU50jcSNORUlcPoLoPSGyedfbg==
+  dependencies:
+    core-js "^2.6.5"
+
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"

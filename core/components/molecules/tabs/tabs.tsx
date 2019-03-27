@@ -8,7 +8,7 @@ import uniqueId from '../../_helpers/uniqueId'
 
 export interface ITabsProps {
   /** Children should be an array of Tabs.Tab */
-  children: React.ReactNode
+  children?: React.ReactNode
   /** Selected should be the index of the desired selected tab */
   selected: number;
   /** onSelect will be called with the new index when a new tab is selected by the user */

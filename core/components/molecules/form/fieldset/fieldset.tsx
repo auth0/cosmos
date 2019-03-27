@@ -9,7 +9,7 @@ import containerStyles from '../../../_helpers/container-styles'
 export interface IFieldSetProps {
   /** Label for group of fields */
   label: string,
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const FieldSet = (props: IFieldSetProps) => (
