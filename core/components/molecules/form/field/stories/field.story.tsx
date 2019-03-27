@@ -17,7 +17,7 @@ import {
 
 storiesOf('Form', module).add('all the fields', () => (
   <Example title="all the fields">
-    <RowLayout gutter="spacious">
+    <RowLayout gutter="small">
       <Form>
         <Form.Field label="Something">
           <TextInput
@@ -159,7 +159,7 @@ storiesOf('Form', module).add('all the fields', () => (
 
 storiesOf('Form', module).add('Form full width', () => (
   <Example title="Form full width">
-    <RowLayout gutter="spacious">
+    <RowLayout gutter="small">
       <Form fullWidth>
         <Form.Field label="Something">
           <TextInput
@@ -302,7 +302,7 @@ storiesOf('Form', module).add('Form full width', () => (
 
 storiesOf('Form', module).add('Form Fields with null children', () => (
   <Example title="Form Fields with null children">
-    <RowLayout gutter="spacious">
+    <RowLayout gutter="small">
       <Form>
         <Form.Field label="Something">
           <TextInput

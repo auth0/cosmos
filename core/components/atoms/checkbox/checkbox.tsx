@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
@@ -14,7 +13,25 @@ const justifyContent = {
   vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
-const Checkbox = props => (
+export interface ICheckboxProps {
+  /** HTML ID of the checkbox */
+  id?: string
+  /** The name of the checkbox */
+  name: string
+  /** The value of the currently-selected option */
+  selected?: string[]
+  /** If true, all options in the group will be disabled */
+  readOnly?: boolean
+  /** Callback function which is called when the user selects an option */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  /** Label */
+  children?: JSX.Element | JSX.Element[] | string
+  defaultChecked?: boolean
+  checked?: boolean
+  value?: any
+}
+
+const Checkbox = (props: ICheckboxProps) => (
   <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
     <Form.Field.ContextConsumer>
       {context => (
@@ -122,7 +139,19 @@ Checkbox.Element = styled.div`
   }
 `
 
-Checkbox.Group = props => (
+export interface ICheckboxGroupProps {
+  /** The direction in which the options should be laid out */
+  align?: 'horizontal' | 'vertical',
+  children?: JSX.Element | JSX.Element[]
+  name?: string
+  selected?: any[]
+  checked?: boolean
+  readOnly?: boolean
+  onChange?: Function
+}
+
+
+const CheckboxGroup = (props: ICheckboxGroupProps) => (
   <Checkbox.Element {...props} {...Automation('checkbox.group')}>
     {React.Children.map(props.children, child => {
       if (!child) return null
@@ -137,26 +166,13 @@ Checkbox.Group = props => (
   </Checkbox.Element>
 )
 
+Checkbox.Group = CheckboxGroup
+
 // Backwards compatibility (will be removed in 1.0)
 const StyledCheckbox = Checkbox.Element
 const StyledCheckboxOption = Checkbox.Option
 
-Checkbox.propTypes = {
-  /** The name of the checkbox */
-  name: PropTypes.string.isRequired,
-  /** The value of the currently-selected option */
-  selected: PropTypes.arrayOf(PropTypes.string),
-  /** If true, all options in the group will be disabled */
-  readOnly: PropTypes.bool,
-  /** Callback function which is called when the user selects an option */
-  onChange: PropTypes.func
-}
-Checkbox.Group.propTypes = {
-  /** The direction in which the options should be laid out */
-  align: PropTypes.oneOf(['horizontal', 'vertical'])
-}
-
-Checkbox.Group.defaultProps = {
+CheckboxGroup.defaultProps = {
   align: 'vertical'
 }
 

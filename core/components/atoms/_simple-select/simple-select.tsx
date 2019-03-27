@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import { StyledInput } from '../_styled-input'
-import { ISelectOption, ISelectGroupOption } from '../select/interfaces';
+import { ISelectOptions } from '../select/interfaces';
 import Automation from '../../_helpers/automation-attribute'
 import Icon from '../icon'
 import Form from '../../molecules/form'
@@ -43,7 +43,7 @@ export interface ISimpleSelectProps {
   /** HTML ID of the component */
   id?: string
   /** Options to render inside select */
-  options?: (ISelectOption | ISelectGroupOption)[]
+  options?: ISelectOptions
   /** Value selected by default */
   value?: any
   /** Default value selected by default */

@@ -1,6 +1,5 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'
 import applyMarginReset from '../../_helpers/layout-margin-reset'
@@ -27,7 +26,18 @@ const gutterOptions = {
   large: spacing.xlarge // 40
 }
 
-const ColumnLayout = props => (
+
+export interface IColumnLayoutProps {
+  /** Regulates the size of the gutter betwen each column */
+  gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large',
+  /** Defines the distribution and amount of columns */
+  distribution?: '1/2 1/2' | '1/3 1/3 1/3' | '2/3 1/3' | '1/3 2/3' | '1/4 1/4 1/4 1/4' | '2/4 1/4 1/4' | '1/4 2/4 1/4' | '1/4 1/4 2/4' | '3/4 1/4' | '1/4 3/4'
+  /** Resets the margins of the component within the layout to generate consistent spaces. */
+  disableMarginReset?: boolean
+  children: React.ReactNode
+}
+
+const ColumnLayout = (props: IColumnLayoutProps) => (
   <ColumnLayout.Element
     gutter={props.gutter}
     distribution={props.distribution}
@@ -56,25 +66,6 @@ ColumnLayout.Element = styled.div`
 
 ColumnLayout.Item = styled.div``
 
-ColumnLayout.propTypes = {
-  /** Regulates the size of the gutter betwen each column */
-  gutter: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large']),
-  /** Defines the distribution and amount of columns */
-  distribution: PropTypes.oneOf([
-    '1/2 1/2',
-    '1/3 1/3 1/3',
-    '2/3 1/3',
-    '1/3 2/3',
-    '1/4 1/4 1/4 1/4',
-    '2/4 1/4 1/4',
-    '1/4 2/4 1/4',
-    '1/4 1/4 2/4',
-    '3/4 1/4',
-    '1/4 3/4'
-  ]),
-  /** Resets the margins of the component within the layout to generate consistent spaces. */
-  disableMarginReset: PropTypes.bool
-}
 
 ColumnLayout.defaultProps = {
   gutter: 'medium',

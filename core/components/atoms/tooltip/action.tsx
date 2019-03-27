@@ -4,7 +4,7 @@ import Tooltip from './tooltip'
 export interface IActionTooltipProps {
   content: string | { default: string; loading?: string; success?: string; error?: string }
   resetDelay: number
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 interface IActionTooltipState {
@@ -89,7 +89,8 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
    * from a text input / text area action.
    */
   processAction() {
-    const { children: button, resetDelay } = this.props
+    const { children, resetDelay } = this.props
+    const button = children as JSX.Element
     const content = this.preprocessContent()
     if (!button) return null
 

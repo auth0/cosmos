@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
@@ -36,12 +36,12 @@ AppLayout.Header = styled.header`
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid #f1f1f1;
 
-  /* 
+  /*
 
-  Comsmos won't set heights and padding for now, 
+  Comsmos won't set heights and padding for now,
   until we create the inner structures and
   header components
-  
+
   height: 69px;
   padding: 10px 0; */
   > * {

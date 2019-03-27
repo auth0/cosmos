@@ -1,7 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import StyledPlaceholder from '../../_helpers/story-layout-placeholder'
 import {
   StackLayout,
   RowLayout,

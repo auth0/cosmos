@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { colors, spacing } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
@@ -13,7 +12,21 @@ const justifyContent = {
   vertical: `margin-bottom: ${spacing.xsmall}`
 }
 
-const Radio = props => (
+export interface IRadioProps {
+  /** The name of the radio */
+  name: string
+  /** The direction in which the options should be laid out */
+  align?: 'horizontal' | 'vertical'
+  /** The value of the currently-selected option */
+  selected?: string
+  /** If true all options in the group will be disabled */
+  readOnly?: boolean
+  /** Callback function which is called when the user selects an option */
+  onChange?: Function,
+  children?: JSX.Element | JSX.Element[]
+}
+
+const Radio = (props: IRadioProps) => (
   <Radio.Element {...props} {...Automation('radio')}>
     {React.Children.map(props.children, child => {
       if (!child) return null
@@ -26,8 +39,15 @@ const Radio = props => (
   </Radio.Element>
 )
 
-Radio.Option = ({ readOnly, children, ...props }) => (
-  <Radio.Option.Element readOnly={props.readOnly}>
+export interface IRadioOptionProps {
+  id?: string
+  value?: any
+  readOnly?: boolean
+  children: string | JSX.Element | JSX.Element[]
+}
+
+const RadioOption = ({ readOnly, children, ...props }: IRadioOptionProps) => (
+  <RadioOption.Element readOnly={readOnly}>
     <Form.Field.ContextConsumer>
       {context => (
         <input
@@ -42,10 +62,10 @@ Radio.Option = ({ readOnly, children, ...props }) => (
 
     <CheckMark />
     <Label>{children}</Label>
-  </Radio.Option.Element>
+  </RadioOption.Element>
 )
 
-Radio.Option.Element = styled.label`
+RadioOption.Element = styled.label`
   position: relative;
   cursor: pointer;
   padding-left: ${spacing.medium};
@@ -71,7 +91,7 @@ Radio.Option.Element = styled.label`
     height: 16px;
     width: 16px;
     background-color: ${props =>
-      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0
@@ -114,6 +134,8 @@ Radio.Option.Element = styled.label`
   }
 `
 
+Radio.Option = RadioOption
+
 Radio.Element = styled.div`
   ${Radio.Option.Element} {
     display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
@@ -124,19 +146,6 @@ Radio.Element = styled.div`
     }
   }
 `
-
-Radio.propTypes = {
-  /** The direction in which the options should be laid out */
-  align: PropTypes.oneOf(['horizontal', 'vertical']),
-  /** The name of the radio */
-  name: PropTypes.string.isRequired,
-  /** The value of the currently-selected option */
-  selected: PropTypes.string,
-  /** If true, all options in the group will be disabled */
-  readOnly: PropTypes.bool,
-  /** Callback function which is called when the user selects an option */
-  onChange: PropTypes.func
-}
 
 Radio.defaultProps = {
   align: 'vertical'

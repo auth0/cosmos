@@ -8,8 +8,9 @@ import { Select, Dialog } from '@auth0/cosmos'
 const ExampleForSelect = styled(Example)`
   min-height: 450px;
 `
-
-class InteractiveSelect extends React.Component {
+type InteractiveSelectProps = { children: (value: any, onChange: Function) => JSX.Element }
+type InteractiveSelectState = { value: any }
+class InteractiveSelect extends React.Component<InteractiveSelectProps, InteractiveSelectState> {
   constructor(props) {
     super(props)
 
@@ -192,7 +193,7 @@ storiesOf('Select', module).add('stressed: multiple tags - open', () => (
   </ExampleForSelect>
 ))
 
-class SelectWithEmptyString extends React.Component {
+class SelectWithEmptyString extends React.Component<{ defaultMenuOpen?: boolean }, { value: any }> {
   constructor(props) {
     super(props)
 
@@ -412,7 +413,7 @@ storiesOf('Select', module).add('interactive: stressed', () => (
   </ExampleForSelect>
 ))
 
-class CustomRendererExample extends React.Component {
+class CustomRendererExample extends React.Component<{ defaultMenuOpen?: boolean }, { selectedItems?: any[] }> {
   constructor(props) {
     super(props)
 
@@ -593,7 +594,10 @@ storiesOf('Select', module).add('custom renderer in dialog', () => (
   </ExampleForSelect>
 ))
 
-class AsyncExample extends React.Component {
+type AsyncExampleItems = ({ label: string, description: string, value: number })[]
+class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItems }> {
+  allOptions: AsyncExampleItems
+
   constructor(props) {
     super(props)
 

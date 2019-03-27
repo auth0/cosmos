@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Automation from '../../_helpers/automation-attribute'
 import styled from '@auth0/cosmos/styled'
-import ReactSelect, { defaultTheme } from 'react-select'
+import ReactSelect, { defaultTheme, components } from 'react-select'
 import AsyncSelect from 'react-select/lib/Async'
 import { misc, colors, spacing } from '@auth0/cosmos-tokens'
 import SimpleSelect from '../_simple-select'
@@ -19,6 +19,7 @@ import {
   optionRenderer,
   valueRenderer
 } from './components'
+import { ISelectOptions } from './interfaces';
 
 const defaultGetOptionValue = option => option.value
 
@@ -104,10 +105,16 @@ const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
 }
 
 export interface ISelectProps {
+  /** HTML name for the select */
+  id?: string
+  /** HTML name for the select */
+  name?: string
   /** Options to render inside select */
-  options?: Object[]
+  options?: ISelectOptions
   /** Value selected by default */
   value?: any
+  /** Value selected by default */
+  defaultValue?: any
   /** Pass hasError to show error state */
   hasError?: boolean
   /** onChange transparently passed to select */
@@ -131,11 +138,13 @@ export interface ISelectProps {
   /** If you want an async select you can pass a function which can return a Promise here */
   loadOptions?: Function
   /** Lets you specify a different key from where the select should take the value from a selected option */
-  getOptionValue?: Function
+  getOptionValue?: (option: any) => any
   /** Used to specify a message for when there's no options */
   noOptionsMessage?: Function | string
   /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
   defaultOptions?: Object[] | boolean
+  /** Used to provide custom styled to the Select wrapper */
+  style?: Object
   /** @internal */
   defaultMenuOpen?: boolean
 }
@@ -145,24 +154,32 @@ interface ISelectState {
 }
 
 class Select extends React.Component<ISelectProps, ISelectState> {
-  componentOverrides: Object
+  static Wrapper = styled.div``
+
+  static defaultProps = {
+    options: [],
+    placeholder: '',
+    searchable: false
+  }
+
+  componentOverrides = {
+    SingleValue: components.SingleValue,
+    MultiValue,
+    DropdownIndicator,
+    LoadingIndicator,
+    ClearIndicator,
+    GroupHeading,
+    Menu,
+    MenuList,
+    Option,
+    Group,
+    IndicatorSeparator: () => null
+  }
 
   constructor(props) {
     super(props)
     this.state = { menuIsOpen: props.defaultMenuOpen || false }
     this.handleScroll = this.handleScroll.bind(this)
-    this.componentOverrides = {
-      MultiValue,
-      DropdownIndicator,
-      LoadingIndicator,
-      ClearIndicator,
-      GroupHeading,
-      Menu,
-      MenuList,
-      Option,
-      Group,
-      IndicatorSeparator: () => null
-    }
   }
 
   componentDidMount() {
@@ -250,7 +267,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     }
 
     return (
-      <Select.Wrapper ref={this.element} {...Automation('select.wrapper')} style={props.style}>
+      <Select.Wrapper {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
           {context => (
             <SelectProvider
@@ -283,15 +300,6 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       </Select.Wrapper>
     )
   }
-}
-
-Select.Wrapper = styled.div``
-
-
-Select.defaultProps = {
-  options: [],
-  placeholder: '',
-  searchable: false
 }
 
 export default Select

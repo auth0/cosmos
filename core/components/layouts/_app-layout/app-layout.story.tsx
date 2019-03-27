@@ -1,10 +1,10 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
 import Automation from '../../_helpers/automation-attribute'
 import { AppLayout } from '@auth0/cosmos'
 
-storiesOf('App Layout').add('default', () => (
+storiesOf('App Layout', module).add('default', () => (
   <Example title="default">
     <AppLayout>
       <AppLayout.Header {...Automation('app-frame.header')} role="banner">
