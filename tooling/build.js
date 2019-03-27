@@ -2,11 +2,15 @@ const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
-const { info, loading } = require('prettycli')
+const { Signale } = require('signale')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
 const directories = ['core/tokens', 'core/babel-preset', 'core/components']
+
+const sign = new Signale();
+const prebuild = sign.scope('pre-build')
+const log = sign.scope('cosmos')
 
 /* copy root version to all dependencies */
 directories.forEach(directory => {
@@ -26,13 +30,13 @@ directories.forEach(directory => {
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
-info('PRE-BUILD', 'Copied root version to all packages')
+prebuild.success('Copied root version to all packages')
 
 /* create dist folder */
 fs.removeSync('dist')
-info('PRE-BUILD', 'Removed dist folder')
+prebuild.success('Removed dist folder')
 fs.mkdirsSync('dist')
-info('PRE-BUILD', 'Created dist folder')
+prebuild.success('Created dist folder')
 
 /* copy all packages for publishing */
 // directories.forEach(directory => {
@@ -43,21 +47,23 @@ info('PRE-BUILD', 'Created dist folder')
 
 /* transpile tokens & components */
 try {
-  loading('BUILD: COSMOS', 'Transpiling...')
+  log.time('cosmos-transpilation');
   execa.shellSync(`./node_modules/.bin/tsc --project ./core/`)
-  info('BUILD: COSMOS', 'Done')
+  log.success('Transpiled components and tokens')
 } catch (err) {
-  console.log(err)
+  log.error(err)
   process.exit(1)
 }
+log.timeEnd('cosmos-transpilation')
 
 try {
-  loading('BUILD: TYPEDEFS', 'Generating type definitions...')
+  log.time('typedef-generation');
   execa.shellSync(
     `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/`
   )
-  info('BUILD: TYPEDEFS', 'Done')
+  log.success('Generated type definitions')
 } catch (err) {
-  console.log(err)
+  log.error(err)
   process.exit(1)
 }
+log.timeEnd('typedef-generation')

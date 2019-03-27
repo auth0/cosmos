@@ -79,6 +79,7 @@
     "react-docgen-deprecation-handler": "1.1.0",
     "react-docgen-displayname-handler": "2.1.0",
     "read-pkg": "4.0.1",
+    "signale": "^1.4.0",
     "storybook-chromatic": "1.2.1",
     "svgo": "1.0.5",
     "ts-jest": "^24.0.0",
