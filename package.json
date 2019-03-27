@@ -7,7 +7,6 @@
     "core/components",
     "core/tokens",
     "core/babel-preset",
-    "core/codemods",
     "internal/cosmos-scripts",
     "internal/overview",
     "internal/docs",

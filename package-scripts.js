@@ -138,10 +138,6 @@ module.exports = {
         description: 'Build sandbox'
       }
     },
-    codemods: {
-      script: 'jscodeshift -t core/codemods core/components/',
-      description: 'Run codemod on components'
-    },
     deploy: {
       default: {
         script: series('deploy.build', 'deploy.publish'),
