@@ -46,7 +46,8 @@ info('PRE-BUILD', 'Created dist folder')
 const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js --extensions .ts')
 try {
   loading('BUILD: TOKENS', 'Transpiling...')
-  execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
+  // execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
+  execa.shellSync(`./node_modules/.bin/tsc --project ./core/tokens/`)
   info('BUILD: TOKENS', 'Done')
 } catch (err) {
   console.log(err)

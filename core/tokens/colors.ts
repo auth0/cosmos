@@ -21,7 +21,8 @@ const colors = {
     green: '#4CD964',
     red: '#FF0000',
     redDarker: '#801F00',
-    yellow: '#786600'
+    yellow: '#786600',
+    text: undefined // TODO: Review with Fer
   },
   text: {
     default: '#212121',
@@ -136,7 +137,8 @@ const colors = {
       border: '#4CD964',
       borderHover: '#4CD964',
       borderFocus: '#4CD964',
-      borderActive: '#4CD964'
+      borderActive: '#4CD964',
+      backgroundActive: undefined // TODO: Review with Fer
     },
     link: {
       text: '#0a84ae',
@@ -202,4 +204,4 @@ const colors = {
   }
 }
 
-module.exports = colors
+export default colors
