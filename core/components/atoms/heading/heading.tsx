@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { colors, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
@@ -11,7 +10,12 @@ const BaseHeading = styled.h1`
   line-height: 1.3;
 `
 
-const Heading = props => {
+export interface IHeadingProps {
+  size?: 1 | 2 | 3 | 4
+  children?: React.ReactNode
+}
+
+const Heading = (props: IHeadingProps) => {
   const Component = Heading.Element[props.size]
   return (
     <Component {...Automation('heading')} {...props}>
@@ -42,11 +46,6 @@ Heading.Element[4] = styled(BaseHeading.withComponent('h4'))`
 `
 
 const StyledHeading = Heading.Element
-
-Heading.propTypes = {
-  size: PropTypes.oneOf([1, 2, 3, 4]),
-  children: PropTypes.node
-}
 
 Heading.defaultProps = {
   size: 1,

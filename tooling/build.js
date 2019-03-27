@@ -3,7 +3,6 @@ const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
 const { info, loading } = require('prettycli')
-const latestVersion = require('latest-version')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 
@@ -42,25 +41,11 @@ info('PRE-BUILD', 'Created dist folder')
 // info('BUILD', 'Copied files to dist')
 
 
-/* transpile tokens */
-const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js --extensions .ts')
+/* transpile tokens & components */
 try {
-  loading('BUILD: TOKENS', 'Transpiling...')
-  // execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
-  execa.shellSync(`./node_modules/.bin/tsc --project ./core/tokens/`)
-  info('BUILD: TOKENS', 'Done')
-} catch (err) {
-  console.log(err)
-  process.exit(1)
-}
-
-
-
-/* transpile components */
-try {
-  loading('BUILD: COMPONENTS', 'Transpiling...')
-  execa.shellSync(`./node_modules/.bin/tsc --project ./core/components/`)
-  info('BUILD: COMPONENTS', 'Done')
+  loading('BUILD: COSMOS', 'Transpiling...')
+  execa.shellSync(`./node_modules/.bin/tsc --project ./core/`)
+  info('BUILD: COSMOS', 'Done')
 } catch (err) {
   console.log(err)
   process.exit(1)
@@ -69,7 +54,7 @@ try {
 try {
   loading('BUILD: TYPEDEFS', 'Generating type definitions...')
   execa.shellSync(
-    `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/components/`
+    `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/`
   )
   info('BUILD: TYPEDEFS', 'Done')
 } catch (err) {

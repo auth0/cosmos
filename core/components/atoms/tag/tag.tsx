@@ -1,11 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import Icon from '../icon'
 import { spacing, fonts, colors, misc } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
-const Tag = props => {
+export interface ITagProps {
+  /** The function to call when a user clicks the tag */
+  onClick?: Function,
+  /** The function to call when a user clicks the tag's remove icon */
+  onRemove?: Function,
+  children?: React.ReactNode
+}
+
+const Tag = (props: ITagProps) => {
   let icon
 
   if (props.onRemove) {
@@ -46,13 +53,13 @@ Tag.Element = styled.span`
   }
 `
 
-Tag.Group = props => (
+const TagGroup = props => (
   <Tag.Group.Element {...Automation('tag.group')} {...props}>
     {props.children}
   </Tag.Group.Element>
 )
 
-Tag.Group.Element = styled.div`
+TagGroup.Element = styled.div`
   ${Tag.Element} {
     margin-right: ${spacing.xsmall};
     &:last-child {
@@ -61,12 +68,7 @@ Tag.Group.Element = styled.div`
   }
 `
 
-Tag.propTypes = {
-  /** The function to call when a user clicks the tag */
-  onClick: PropTypes.func,
-  /** The function to call when a user clicks the tag's remove icon */
-  onRemove: PropTypes.func
-}
+Tag.Group = TagGroup
 
 Tag.defaultProps = {}
 

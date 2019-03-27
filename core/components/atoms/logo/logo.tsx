@@ -1,6 +1,5 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 import Automation from '../../_helpers/automation-attribute'
 
 const colors = {
@@ -15,7 +14,12 @@ const sizes = {
   tiny: { width: 17, height: 19 }
 }
 
-const Logo = ({ size, color, ...props }) => (
+export interface ILogoProps {
+  size: 'tiny' | 'small' | 'default'
+  color: 'default' | 'dark' | 'light'
+}
+
+const Logo = ({ size, color, ...props }: ILogoProps) => (
   <Logo.Element size={size} {...Automation('logo')} {...props}>
     <svg height={sizes[size].height} width={sizes[size].width} viewBox="0 0 29 32">
       <g transform="translate(-100.000000, -88.000000)" fill={colors[color]}>
@@ -35,11 +39,6 @@ Logo.Element = styled.span`
     display: block;
   }
 `
-
-Logo.propTypes = {
-  size: PropTypes.oneOf(['tiny', 'small', 'default']),
-  color: PropTypes.oneOf(['default', 'dark', 'light'])
-}
 
 Logo.defaultProps = {
   /** Defines the size of the logo */

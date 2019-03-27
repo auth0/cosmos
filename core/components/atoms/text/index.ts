@@ -1,4 +1,4 @@
-import Text, { StyledTextAllCaps, StyledTextSubdued } from './text'
+import Text from './text'
 
+export * from './text'
 export default Text
-export { StyledTextAllCaps, StyledTextSubdued }

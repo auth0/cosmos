@@ -7,7 +7,7 @@ import { colors, fonts } from '@auth0/cosmos-tokens'
 type TextType = 'allcaps' | 'subdued' | 'strong'
 
 export interface ITextProps {
-  type: TextType
+  type?: TextType
   children?: React.ReactNode
 }
 

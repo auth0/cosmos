@@ -1,8 +1,7 @@
-const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
-const { info, warn, error } = require('prettycli')
+const { info, warn } = require('prettycli')
 const latestVersion = require('latest-version')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
@@ -29,7 +28,7 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
   /* publish all components */
   try {
     directories.forEach(directory => {
-      const dir = directory.replace('core', 'dist')
+      const dir = directory.replace('core', 'dist/core')
       execa.shellSync(`cd ${dir} && npm publish`)
       info('PUBLISH', `published ${dir}`)
     })

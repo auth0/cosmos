@@ -1,12 +1,22 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
-import PropTypes from 'prop-types'
 
 import { colors } from '@auth0/cosmos-tokens'
-import { icons } from './icons.json'
+import iconData from './icons.json'
 import Automation from '../../_helpers/automation-attribute'
 
-const Icon = props => {
+export interface IIconProps {
+  /** Icon name */
+  name: string
+  /** Icon size */
+  size?: number | string
+  /** Icon foreground color */
+  color?: string
+}
+
+const {icons} = iconData
+
+const Icon = (props: IIconProps) => {
   // If the icon name isn't found, show a question mark instead.
   const icon = icons[props.name] || icons.help
 
@@ -48,15 +58,6 @@ const Image = styled.svg`
 
 const __ICONNAMES__ = Object.keys(icons)
 const __COLORS__ = Object.keys(colors.base)
-
-Icon.propTypes = {
-  /** Icon name */
-  name: PropTypes.oneOf(__ICONNAMES__).isRequired,
-  /** Icon size */
-  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Icon foreground color */
-  color: PropTypes.oneOf(__COLORS__)
-}
 
 Icon.defaultProps = {
   size: 20,
