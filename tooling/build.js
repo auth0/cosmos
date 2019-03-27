@@ -38,13 +38,6 @@ prebuild.success('Removed dist folder')
 fs.mkdirsSync('dist')
 prebuild.success('Created dist folder')
 
-/* copy all packages for publishing */
-// directories.forEach(directory => {
-//   fs.copySync(directory, directory.replace('core', 'dist').replace('internal', 'dist'))
-// })
-// info('BUILD', 'Copied files to dist')
-
-
 /* transpile tokens & components */
 try {
   log.time('cosmos-transpilation');
@@ -56,6 +49,7 @@ try {
 }
 log.timeEnd('cosmos-transpilation')
 
+/* generate type definitions */
 try {
   log.time('typedef-generation');
   execa.shellSync(
