@@ -5,6 +5,9 @@ const mockOnSort = jest.fn()
 const mockOnRowClick = jest.fn()
 
 class Fixture extends React.Component {
+  static onSort = mockOnSort
+  static onRowClick = mockOnRowClick
+
   render() {
     return (
       <Table id="custom-id" items={items} onRowClick={mockOnRowClick} onSort={mockOnSort}>
@@ -17,8 +20,6 @@ class Fixture extends React.Component {
   }
 }
 
-Fixture.onSort = mockOnSort
-Fixture.onRowClick = mockOnRowClick
 
 export default Fixture
 

@@ -11,6 +11,8 @@ import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 export type TableSortDirection = 'asc' | 'desc'
 
 export interface ITableProps {
+  /** HTML ID of the component */
+  id?: string
   /** The items in the table. */
   items: Object[]
   /** Items are sorted on this field (defaults to the first sortable column)*/

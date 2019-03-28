@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { Table, Avatar } from '@auth0/cosmos'
 
 const defaultItems = [
@@ -33,12 +33,19 @@ const defaultItems = [
   }
 ]
 
+interface ITableFactoryProps {
+  items?: any[]
+  onSort?: Function
+  onRowClick?: Function
+  wrapper?: any
+}
+
 const tableFactory = ({
   items = defaultItems,
-  onSort = () => {},
-  onRowClick = () => {},
+  onSort = () => { },
+  onRowClick = () => { },
   wrapper = shallow
-} = {}) =>
+}: ITableFactoryProps = {}) =>
   wrapper(
     <Table items={items} onRowClick={onRowClick} onSort={onSort}>
       <Table.Column field="image" width="50px">
