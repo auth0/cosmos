@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -7,8 +6,7 @@ import FormContext from '../form-context'
 
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
-import { Right, Clear } from '../../../_helpers/float'
-import { actionShape, actionShapeWithoutRequiredHandler } from '@auth0/cosmos/_helpers/action-shape'
+import { Action, ActionWithoutHandler } from '@auth0/cosmos/_helpers/action-shape'
 
 const getButtonProps = action => {
   const props = { ...action }
@@ -20,6 +18,12 @@ const getButtonProps = action => {
   */
   delete props.label
   return props
+}
+
+export interface IActionsProps {
+  primaryAction?: ActionWithoutHandler,
+  secondaryActions?: Action[],
+  destructiveAction?: Action
 }
 
 const Actions = props => {
@@ -72,12 +76,6 @@ Actions.Element = styled.div`
 `
 
 Actions.displayName = 'Form Actions'
-
-Actions.propTypes = {
-  primaryAction: actionShapeWithoutRequiredHandler,
-  secondaryActions: PropTypes.arrayOf(actionShape),
-  destructiveAction: actionShape
-}
 
 Actions.defaultProps = {}
 

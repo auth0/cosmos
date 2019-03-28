@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { components } from 'react-select'
 import { spacing } from '@auth0/cosmos-tokens'
 import styled from '@auth0/cosmos/styled'

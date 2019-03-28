@@ -21,10 +21,21 @@ const actionShapeWithRequiredIcon = PropTypes.shape({
   handler: PropTypes.func.isRequired
 })
 
-export interface ActionWithIcon {
+
+export interface Action {
   label: string
-  icon: string
   handler: Function
+  icon?: string
+}
+
+export interface ActionWithIcon extends Action {
+  icon: string
+}
+
+// Extending Partial<Action> (label?, icon?, handler?) and enforcing `label`
+// to be present results in an interface with (label, icon?, handler?).
+export interface ActionWithoutHandler extends Partial<Action> {
+  label: string
 }
 
 export { actionShape, actionShapeWithRequiredIcon, actionShapeWithoutRequiredHandler, shapeForDocs }

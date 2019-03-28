@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from '@auth0/cosmos/styled'
 import { spacing, colors } from '@auth0/cosmos-tokens'
 import Tag from '../../tag'
