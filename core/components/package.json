@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@auth0/cosmos-tokens": "0.23.1",
+    "array-move": "^2.0.0",
     "md5": "^2.2.1",
     "prop-types": "15.6.1",
     "react-focus-lock": "^1.14.1",

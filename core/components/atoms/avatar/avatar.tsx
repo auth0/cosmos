@@ -62,7 +62,7 @@ export interface IAvatarProps {
   /** An icon to display. */
   icon?: string
   /** An image URL or Image component. */
-  image?: JSX.Element | string
+  image?: string | React.ReactNode
   /** The size of the avatar. */
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge'
   /** The type of item represented by the avatar. */

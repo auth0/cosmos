@@ -14,7 +14,7 @@ export interface IIconProps {
   color?: string
 }
 
-const {icons} = iconData
+const icons = iconData.icons
 
 const Icon = (props: IIconProps) => {
   // If the icon name isn't found, show a question mark instead.

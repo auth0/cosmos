@@ -2230,6 +2230,11 @@ array-map@~0.0.0:
   resolved "https://registry.npmjs.org/array-map/-/array-map-0.0.0.tgz#88a2bab73d1cf7bcd5c1b118a003f66f665fa662"
   integrity sha1-iKK6tz0c97zVwbEYoAP2b2ZfpmI=
 
+array-move@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/array-move/-/array-move-2.0.0.tgz#4aa2262560ec75bae7a08a69e186ef80d439f770"
+  integrity sha512-bF5o1eewLiCJeumuh6vRZsW7ouLCSAEWIpXSliFWIa8/6Cs630a69ooR+H8ExLz8p17/LVUbpXDoJdP08Cpv5A==
+
 array-reduce@~0.0.0:
   version "0.0.0"
   resolved "https://registry.npmjs.org/array-reduce/-/array-reduce-0.0.0.tgz#173899d3ffd1c7d9383e4479525dbe278cab5f2b"

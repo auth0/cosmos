@@ -42,12 +42,12 @@ prebuild.success('Created dist folder')
 try {
   log.time('cosmos-transpilation');
   execa.shellSync(`./node_modules/.bin/tsc --project ./core/`)
+  log.timeEnd('cosmos-transpilation')
   log.success('Transpiled components and tokens')
 } catch (err) {
   log.error(err)
   process.exit(1)
 }
-log.timeEnd('cosmos-transpilation')
 
 /* generate type definitions */
 try {
@@ -55,9 +55,9 @@ try {
   execa.shellSync(
     `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/`
   )
+  log.timeEnd('typedef-generation')
   log.success('Generated type definitions')
 } catch (err) {
   log.error(err)
   process.exit(1)
 }
-log.timeEnd('typedef-generation')
