@@ -5,8 +5,11 @@ import { colors, misc } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ILabelProps {
+  /** HTML ID of the component */
+  id?: string
   appearance?: 'default' | 'information' | 'success' | 'warning' | 'danger'
   children?: React.ReactNode
+  onClick?: Function
 }
 
 const Label = (props: ILabelProps) => (

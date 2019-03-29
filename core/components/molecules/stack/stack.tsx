@@ -26,6 +26,8 @@ accept widths on parent = Stack
 */
 
 export interface IStackProps {
+  /** HTML ID of the component */
+  id?: string
   /** Use align for stacking elements without margin between them */
   align?: 'fill' | 'left' | 'right' | 'space-between',
   /** Vertically align */

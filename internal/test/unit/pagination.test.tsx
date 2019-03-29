@@ -2,8 +2,10 @@ import * as React from 'react'
 import { shallow } from 'enzyme'
 import { Pagination } from '@auth0/cosmos'
 
-const noop = () => {}
-const paginationFactory = ({ page, perPage, items, onPageChanged = noop } = {}) =>
+const noop = () => { }
+export type PaginationFactoryParams = { page?: number, perPage?: number, items?: number, onPageChanged?: Function }
+
+const paginationFactory = ({ page, perPage, items, onPageChanged = noop }: PaginationFactoryParams = {}) =>
   shallow(<Pagination page={page} perPage={perPage} items={items} onPageChanged={onPageChanged} />)
 
 describe('Pagination', () => {

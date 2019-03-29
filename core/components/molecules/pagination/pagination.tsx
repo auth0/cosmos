@@ -39,6 +39,8 @@ const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
 }
 
 export interface IPaginationProps {
+  /** HTML ID of the component */
+  id?: string
   page: number
   perPage: number
   items: number

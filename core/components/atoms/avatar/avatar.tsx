@@ -5,6 +5,7 @@ import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
 import Automation from '../../_helpers/automation-attribute'
+import { prependOnceListener } from 'cluster';
 
 const iconSizes = {
   xsmall: 14,
@@ -59,6 +60,8 @@ const getImageForAvatar = (props, source, onError) => {
 }
 
 export interface IAvatarProps {
+  /** HTML ID of the component */
+  id?: string
   /** An icon to display. */
   icon?: string
   /** An image URL or Image component. */
@@ -71,6 +74,7 @@ export interface IAvatarProps {
   initials?: string
   /** E-mail of the user */
   email?: string
+  onClick?: Function
 }
 
 interface IAvatarState {

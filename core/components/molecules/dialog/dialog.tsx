@@ -156,6 +156,8 @@ const DialogFooter = styled.footer`
 export type DialogActionOrElement = DialogAction | JSX.Element
 
 export interface IDialogProps {
+  /** HTML ID of the component */
+  id?: string
   /** Buttons that will be shown on the dialog's footer */
   actions?: DialogActionOrElement[]
   /** Dialog's header title */

@@ -13,6 +13,8 @@ const justifyContent = {
 }
 
 export interface IRadioProps {
+  /** HTML ID of the component */
+  id?: string
   /** The name of the radio */
   name: string
   /** The direction in which the options should be laid out */
@@ -24,6 +26,7 @@ export interface IRadioProps {
   /** Callback function which is called when the user selects an option */
   onChange?: Function,
   children?: JSX.Element | JSX.Element[]
+  onClick?: Function
 }
 
 const Radio = (props: IRadioProps) => (

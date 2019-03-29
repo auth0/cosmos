@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
 import { PaginationToolbar } from '@auth0/cosmos'
+import { PaginationFactoryParams } from './pagination.test';
 
-const noop = () => {}
-const paginationFactory = ({ page, perPage, items, onPageChanged = noop } = {}) =>
+const noop = () => { }
+
+const paginationFactory = ({ page, perPage, items, onPageChanged = noop }: PaginationFactoryParams = {}) =>
   shallow(
     <PaginationToolbar page={page} perPage={perPage} items={items} onPageChanged={onPageChanged} />
   )

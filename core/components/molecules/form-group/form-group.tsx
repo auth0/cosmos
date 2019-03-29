@@ -7,6 +7,8 @@ import Well from '../../atoms/_well'
 import { spacing } from '@auth0/cosmos-tokens'
 
 export interface IFormGroupProps {
+  /** HTML ID of the component */
+  id?: string
   /** children should be Form components */
   children: React.ReactNode
 }

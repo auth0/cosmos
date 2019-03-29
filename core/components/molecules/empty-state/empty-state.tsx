@@ -30,10 +30,12 @@ const getHelpLink = link => {
 export type LinkType = string | { href?: string, target?: string }
 
 export interface IEmptyStateProps {
+  /** HTML ID of the component */
+  id?: string
   /** Big heading for section */
-  title: string,
+  title: string
   /** Icon associated with section */
-  icon: string,
+  icon: string
   /** @deprecated:children Message */
   text?: string | React.ReactNode
   /** Message */

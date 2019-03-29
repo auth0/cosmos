@@ -13,7 +13,7 @@ const initialsAvatar = initials =>
 const urlTemplate = (hash, initials, size) =>
   `https://s.gravatar.com/avatar/${hash}?s=${size}&r=pg&d=${initialsAvatar(initials)}`
 
-export default function avatarUrl(email, initials, type = 'user', size = 480) {
+export default function avatarUrl(email?: string, initials?: string, type = 'user', size = 480) {
   if (typeof email !== 'string' && typeof initials !== 'string') return PLACEHOLDERS[type]
 
   const hash = email ? md5(email.toLowerCase()) : ''

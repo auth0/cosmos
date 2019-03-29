@@ -65,6 +65,8 @@ const getAvatar = props =>
   )
 
 export interface IAvatarBlockProps {
+  /** HTML ID of the component */
+  id?: string
   /** An icon to display. */
   icon?: string
   /** An image URL to display. */

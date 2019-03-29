@@ -10,7 +10,7 @@ function tabsFactory() {
     third: <div className="content-3" />
   }
 
-  const generator = (index = 0, onSelect = () => {}) =>
+  const generator = (index = 0, onSelect = () => { }) =>
     shallow(
       <Tabs selected={index} onSelect={onSelect}>
         <Tabs.Tab title="Title 1">{content.first}</Tabs.Tab>
@@ -63,12 +63,13 @@ describe('Tabs', () => {
     testableIndexes.forEach(index => {
       const tabs = generator(index)
 
+      // @ts-ignore
       const [tabList, activeTabPanel] = tabs.children()
 
       const getPropFromTabLink = propName =>
         tabList.props.children.map(link => link.props.children.props[propName])
 
-      const getPropFromTabPane = (propName, removeValue) => {
+      const getPropFromTabPane = (propName, removeValue?: string) => {
         const value = activeTabPanel.props[propName]
         return removeValue ? value.replace(removeValue, '') : value
       }

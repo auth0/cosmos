@@ -17,7 +17,7 @@ const checkEventIsValid = event => {
     )
 }
 
-const eventHandlerTest = (Fixture, elementToTrigger, event = 'click', eventData = sampleEvent) => {
+const eventHandlerTest = (Fixture, elementToTrigger, event = 'click', eventData: any = sampleEvent) => {
   mockFn.mockReset()
   checkEventIsValid(event)
   const body = render(<Fixture />)

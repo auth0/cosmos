@@ -7,7 +7,13 @@ import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '@auth0/cosmos-tokens'
 import Icon from '../../atoms/icon'
 
-const Sidebar = props => {
+export interface ISidebarProps {
+  /** HTML ID of the component */
+  id?: string
+  children?: React.ReactNode
+}
+
+const Sidebar = (props: ISidebarProps) => {
   return <Sidebar.Element {...Automation('sidebar')} {...props} />
 }
 

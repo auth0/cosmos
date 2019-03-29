@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Button, ResourceList } from '@auth0/cosmos'
 import { actionToButtonProps } from '@auth0/cosmos/molecules/resource-list/action-builder'
 
-const noop = () => {}
+const noop = () => { }
 const resourceListFactory = ({
   onItemClick = noop,
   items = [
@@ -13,17 +13,6 @@ const resourceListFactory = ({
 } = {}) => shallow(<ResourceList items={items} onItemClick={onItemClick} />)
 
 describe('ResourceList Action Builder', () => {
-  it('builds actions', () => {
-    const buttonPropTypes = Object.keys(Button.propTypes)
-    const generatedProps = Object.keys(actionToButtonProps({}))
-    const expectIfNotKey = (propName, expectation) => propName !== 'key' && expectation()
-
-    // Ignore key since it is a React-internal prop
-    generatedProps.forEach(prop =>
-      expectIfNotKey(prop, () => expect(buttonPropTypes).toContain(prop))
-    )
-  })
-
   it('calls the action#onClick handler', () => {
     const actionCallback = jest.fn()
     const items = [

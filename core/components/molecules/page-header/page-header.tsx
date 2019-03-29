@@ -16,6 +16,8 @@ import { rootProps } from '../../_helpers/root-props'
 
 export type PageHeaderDescription = React.ReactNode | { text?: string, learnMore?: string }
 export interface IPageHeaderProps {
+  /** HTML ID of the component */
+  id?: string
   /** Page title of the section */
   title: React.ReactNode
   /** Description to give more information to the user */

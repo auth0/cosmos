@@ -5,6 +5,8 @@ import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ISidebarLinkGroupProps {
+  /** HTML ID of the component */
+  id?: string
   icon: string
   label: string
   children: React.ReactNode,

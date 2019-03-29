@@ -30,7 +30,7 @@ export interface ITextAreaProps {
   placeholder?: string
   /** Actions to be attached to the input */
   actions?: (JSX.Element | ActionWithIcon)[]
-
+  onClick?: Function
 }
 
 const TextArea = (props: ITextAreaProps) => {

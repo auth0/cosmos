@@ -18,7 +18,7 @@ const arrowAdjustment = multiply(arrowWidth, -2)
 
 export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right'
 export interface ITooltipProps {
-  /** Identifier for tooltip - important for accessibility */
+  /** HTML ID of the component */
   id?: string
   /** Content to show in the tooltip */
   content: string
@@ -26,6 +26,7 @@ export interface ITooltipProps {
   position?: TooltipPosition
   /** Visible by default */
   defaultVisible?: boolean
+  onClick?: Function
 }
 
 interface ITooltipState {

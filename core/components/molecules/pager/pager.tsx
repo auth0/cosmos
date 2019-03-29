@@ -7,6 +7,8 @@ import Button from '../../atoms/button'
 import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
 
 export interface IPagerProps {
+  /** HTML ID of the component */
+  id?: string
   page?: number
   perPage?: number
   items?: number

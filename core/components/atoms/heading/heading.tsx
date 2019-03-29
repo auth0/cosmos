@@ -11,8 +11,11 @@ const BaseHeading = styled.h1`
 `
 
 export interface IHeadingProps {
+  /** HTML ID of the component */
+  id?: string
   size?: 1 | 2 | 3 | 4
   children?: React.ReactNode
+  onClick?: Function
 }
 
 const Heading = (props: IHeadingProps) => {

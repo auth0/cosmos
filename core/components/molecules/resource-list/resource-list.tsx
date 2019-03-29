@@ -8,6 +8,8 @@ import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 import SortableListHandle from './sortable-handle'
 
 export interface IResourceListProps {
+  /** HTML ID of the component */
+  id?: string
   /** The items that will be rendered in the list. */
   items: any[],
   /** The actions to render to the right side of the list items. */

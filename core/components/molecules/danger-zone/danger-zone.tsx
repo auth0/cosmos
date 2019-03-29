@@ -62,6 +62,8 @@ const Action = styled.div`
 `
 
 export interface IDangerZoneProps {
+  /** HTML ID of the component */
+  id?: string
   items: ({ title: string, action?: { loading?: boolean, label?: string, onClick?: Function, type?: ButtonType }, description?: string })[]
 }
 

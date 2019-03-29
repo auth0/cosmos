@@ -13,7 +13,6 @@ describe('Select', () => {
         ]}
         placeholder="Something"
         onChange={event => console.log(event)}
-        customProp={'something'}
       />
     )
 
@@ -78,7 +77,7 @@ describe('Select', () => {
     const select = render(
       <Select
         async
-        loadOptions={() => {}}
+        loadOptions={() => { }}
         placeholder="Something"
         onChange={event => console.log(event)}
         defaultMenuOpen

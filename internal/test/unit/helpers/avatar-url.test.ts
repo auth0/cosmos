@@ -45,11 +45,13 @@ describe('Avatar URL', () => {
   })
 
   it('to return a placeholder URL if email is not a string', () => {
+    // @ts-ignore
     const url = avatarUrl(true)
     expect(url).toEqual('https://cdn.auth0.com/website/cosmos/avatar-user-default.svg')
   })
 
   it('to return a placeholder URL if initials is not a string', () => {
+    // @ts-ignore
     const url = avatarUrl(null, true)
     expect(url).toEqual('https://cdn.auth0.com/website/cosmos/avatar-user-default.svg')
   })

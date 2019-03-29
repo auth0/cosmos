@@ -7,8 +7,11 @@ import { colors, fonts } from '@auth0/cosmos-tokens'
 type TextType = 'allcaps' | 'subdued' | 'strong'
 
 export interface ITextProps {
+  /** HTML ID of the component */
+  id?: string
   type?: TextType
   children?: React.ReactNode
+  onClick?: Function
 }
 
 const resolveTextComponent = (type: TextType) => {

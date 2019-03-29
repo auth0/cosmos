@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Tabs } from '@auth0/cosmos'
 
-class Fixture extends React.Component {
+class Fixture extends React.Component<{}, { selected: number }> {
   constructor(props) {
     super(props)
     this.state = { selected: 0 }

@@ -1,17 +1,23 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { EmptyState, Icon, Heading } from '@auth0/cosmos'
+import { EmptyState } from '@auth0/cosmos'
+import { ActionWithIcon } from '@auth0/cosmos/_helpers/action-shape';
+
+type EmptyStateFactoryParams = { title?: string, icon?: string, link?: string, action?: { label?: string, icon?: string, handler: Function } }
 
 const emptyStateFactory = ({
   title = 'Some title',
   icon = 'copy',
   link = '/some-place',
-  action = { label: 'Something', icon: 'copy', handler: () => {} }
-} = {}) => (
-  <EmptyState title={title} icon={icon} action={action} link={link}>
-    Some description
-  </EmptyState>
-)
+  action = { label: 'Something', icon: 'copy', handler: () => { } }
+}: EmptyStateFactoryParams = {}) => {
+  const safeAction = action as ActionWithIcon
+  return (
+    <EmptyState title={title} icon={icon} action={safeAction} link={link}>
+      Some description
+    </EmptyState>
+  )
+}
 
 describe('Empty State', () => {
   it('renders properly', () => {
@@ -21,11 +27,6 @@ describe('Empty State', () => {
 
   it('renders properly without help link', () => {
     const wrapper = shallow(emptyStateFactory({ link: null }))
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('renders properly without text', () => {
-    const wrapper = shallow(emptyStateFactory({ text: null }))
     expect(wrapper).toMatchSnapshot()
   })
 

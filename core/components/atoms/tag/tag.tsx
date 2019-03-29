@@ -5,6 +5,8 @@ import { spacing, fonts, colors, misc } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ITagProps {
+  /** HTML ID of the component */
+  id?: string
   /** The function to call when a user clicks the tag */
   onClick?: Function,
   /** The function to call when a user clicks the tag's remove icon */

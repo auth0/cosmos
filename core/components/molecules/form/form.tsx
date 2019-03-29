@@ -15,11 +15,14 @@ import ExtFieldSet from './fieldset'
 import FormContext from './form-context'
 
 export interface IFormProps {
+  /** HTML ID of the component */
+  id?: string
   /** Two options for controlling form layout */
   layout?: 'label-on-left' | 'label-on-top'
   /** Remove the 625px constraint from the form fields width */
   fullWidth?: boolean,
   children?: JSX.Element | JSX.Element[]
+  onSubmit?: Function
 }
 
 const Form = (props: IFormProps) => (

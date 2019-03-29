@@ -194,6 +194,8 @@ export type ButtonTarget = '_blank' | '_self' | '_parent' | '_top'
 export type ButtonType = 'submit' | 'button' | 'reset'
 
 export interface IButtonProps {
+  /** HTML ID of the component */
+  id?: string
   /** The size of the button */
   size?: ButtonSize
   /** The visual style used to convey the button's purpose */

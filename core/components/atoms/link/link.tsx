@@ -4,12 +4,15 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { colors } from '@auth0/cosmos-tokens'
 
-export type ILinkTarget = '_blank' | '_self' | '_parent' | '_top'
+export type LinkTarget = '_blank' | '_self' | '_parent' | '_top'
+export type LinkOnClickHandler = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 
 export interface ILinkProps {
+  /** HTML ID of the component */
+  id?: string
   href?: string
-  target?: ILinkTarget
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+  target?: LinkTarget
+  onClick?: LinkOnClickHandler
   children?: React.ReactNode
 }
 

@@ -6,7 +6,7 @@ import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
 import containerStyles from '../../_helpers/container-styles'
 
 import Icon from '../icon'
-import Link from '../link'
+import Link, { LinkOnClickHandler } from '../link'
 
 const Separator = styled(Icon)`
   margin: 0 ${spacing.small};
@@ -17,6 +17,8 @@ const LinkIcon = styled(Icon)`
 `
 
 export interface IBreadcrumbProps {
+  /** HTML ID of the component */
+  id?: string
   children?: JSX.Element | JSX.Element[]
 }
 
@@ -78,9 +80,12 @@ Breadcrumb.Element = styled.div`
 `
 
 export interface IBreadcrumbLinkProps {
+  /** HTML ID of the component */
+  id?: string
   href?: string
   icon?: string
   children?: string | JSX.Element
+  onClick?: LinkOnClickHandler
 }
 
 Breadcrumb.Link = (props: IBreadcrumbLinkProps) => (

@@ -7,6 +7,8 @@ import { spacing } from '@auth0/cosmos-tokens'
 
 
 export interface IButtonGroupProps {
+  /** HTML ID of the component */
+  id?: string
   /** Make Buttons are ordered with the correct space between them  */
   align?: 'left' | 'right'
   /** Make Buttons stick to each other */

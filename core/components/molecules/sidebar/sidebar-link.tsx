@@ -6,6 +6,8 @@ import { colors, spacing } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 
 export interface ISidebarLinkProps {
+  /** HTML ID of the component */
+  id?: string
   label: string
   icon?: string
   onClick?: Function

@@ -6,6 +6,10 @@ const mockPrimaryAction = jest.fn()
 const mockSecondaryAction = jest.fn()
 
 class Fixture extends React.Component {
+  static onSubmit = mockOnSubmit
+  static onPrimaryClick = mockPrimaryAction
+  static onSecondaryAction = mockSecondaryAction
+
   render() {
     return (
       <Form id="custom-id" onSubmit={mockOnSubmit}>
@@ -21,8 +25,5 @@ class Fixture extends React.Component {
   }
 }
 
-Fixture.onSubmit = mockOnSubmit
-Fixture.onPrimaryClick = mockPrimaryAction
-Fixture.onSecondaryAction = mockSecondaryAction
 
 export default Fixture

@@ -45,6 +45,7 @@ export interface ITextInputProps {
   label?: string,
   /** Actions to be attached to the input */
   actions?: (JSX.Element | ActionWithIcon)[]
+  onClick?: Function
 }
 
 const TextInput = (props: ITextInputProps) => {

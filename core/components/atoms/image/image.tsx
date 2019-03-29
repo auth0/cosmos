@@ -11,6 +11,8 @@ export const ImageFit: Record<ImageFitKey, string> = {
 }
 
 export interface IImageProps {
+  /** HTML ID of the component */
+  id?: string
   /** @depreacted:src URL of the image */
   source?: string
   /** URL of the image */
@@ -27,6 +29,7 @@ export interface IImageProps {
   disableResponsive?: boolean
   /** Function called when the image can't load for whatever reason */
   onError?: Function
+  onClick?: Function
 }
 
 const Image = (props: IImageProps) => (

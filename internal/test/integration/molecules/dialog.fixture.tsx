@@ -5,6 +5,9 @@ const mockActionOnClick = jest.fn()
 const mockOnClose = jest.fn()
 
 class Fixture extends React.Component {
+  static actionOnClick = mockActionOnClick
+  static onClose = mockOnClose
+
   render() {
     return (
       <Dialog
@@ -27,7 +30,5 @@ class Fixture extends React.Component {
   }
 }
 
-Fixture.actionOnClick = mockActionOnClick
-Fixture.onClose = mockOnClose
 
 export default Fixture

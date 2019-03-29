@@ -41,6 +41,8 @@ Pager.Button = styled(Button)`
 `
 
 export interface IPaginationToolbarProps {
+  /** HTML ID of the component */
+  id?: string
   page: number
   perPage: number
   items: number

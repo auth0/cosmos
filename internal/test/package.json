@@ -6,7 +6,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --maxWorkers=8",
     "test-watch": "jest --watch --no-cache",
     "test-unit": "jest unit --no-cache",
     "test-unit-watch": "jest unit --no-cache --watch",
@@ -22,7 +22,16 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "preset": "ts-jest"
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.test.json",
+        "diagnostics": true
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^(?!.*\\.(js|jsx|mjs|json)$)": "<rootDir>/fileTransform.js"
+    }
   },
   "devDependencies": {
     "@types/enzyme": "^3.9.1",

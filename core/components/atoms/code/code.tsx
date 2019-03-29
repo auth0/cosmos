@@ -5,7 +5,10 @@ import { colors, fonts } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ICodeProps {
+  /** HTML ID of the component */
+  id?: string
   children?: React.ReactNode
+  onClick?: React.ReactNode
 }
 
 const Code = (props: ICodeProps) => (

@@ -15,8 +15,11 @@ const sizes = {
 }
 
 export interface ILogoProps {
+  /** HTML ID of the component */
+  id?: string
   size: 'tiny' | 'small' | 'default'
   color: 'default' | 'dark' | 'light'
+  onClick?: Function
 }
 
 const Logo = ({ size, color, ...props }: ILogoProps) => (

@@ -88,6 +88,8 @@ const renderItem = (props: IListProps, wrapperElement: any = Div) => (child, ind
 
 
 export interface IListProps {
+  /** HTML ID of the component */
+  id?: string
   /** @deprecated header for list. Use a Heading component */
   label?: string
   /** whether the list should show dragging handles */

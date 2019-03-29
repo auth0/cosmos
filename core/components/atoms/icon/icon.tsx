@@ -6,12 +6,15 @@ import iconData from './icons.json'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface IIconProps {
+  /** HTML ID of the component */
+  id?: string
   /** Icon name */
   name: string
   /** Icon size */
   size?: number | string
   /** Icon foreground color */
   color?: string
+  onClick?: Function
 }
 
 const icons = iconData.icons

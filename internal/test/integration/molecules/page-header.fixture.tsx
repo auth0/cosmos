@@ -3,6 +3,8 @@ import { PageHeader, Button } from '@auth0/cosmos'
 import { mockFn } from '../helpers/event-handler'
 
 class Fixture extends React.Component {
+  static onPrimaryClick = mockFn
+
   render() {
     return (
       <PageHeader
@@ -21,6 +23,6 @@ class Fixture extends React.Component {
   }
 }
 
-Fixture.onPrimaryClick = mockFn
+
 
 export default Fixture

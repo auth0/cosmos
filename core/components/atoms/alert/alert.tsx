@@ -13,8 +13,10 @@ export type IAlertElementProps = Partial<IAlertProps>
 export type IAlertAppearance = 'default' | 'information' | 'success' | 'warning' | 'danger'
 
 export interface IAlertProps {
+  /** HTML ID of the component */
+  id?: string
   type?: IAlertAppearance // deprecated: use appearance
-  appearance: IAlertAppearance
+  appearance?: IAlertAppearance
   icon?: string
   title?: string
   text?: string // deprecated: use children
@@ -38,13 +40,26 @@ const ReadMoreLink = styled(Link)`
 `
 
 class Alert extends React.Component<IAlertProps, IAlertState> {
-  timer: any
+  static defaultProps = {
+    type: 'default',
+    dismissible: true
+    /*
+    default appearance is commented out on purpose,
+    so that it doesn't break old API.
+    TODO: Make this work when type is removed.
+  */
+    // appearance: 'default',
+  }
+
   static Element: any
+  timer: any
 
   constructor(props) {
     super(props)
     this.state = { visible: true }
   }
+
+
 
   componentDidMount() {
     if (this.props.dismissAfterSeconds) {
@@ -52,6 +67,7 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
       this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000)
     }
   }
+
 
   componentWillUnmount() {
     /*
@@ -162,16 +178,5 @@ const iconColorMap = {
   warning: 'yellow',
   danger: 'redDarker'
 }
-
-// Alert.defaultProps = {
-//   type: 'default',
-//   dismissible: true
-//   /*
-//     default appearance is commented out on purpose,
-//     so that it doesn't break old API.
-//     TODO: Make this work when type is removed.
-//   */
-//   // appearance: 'default',
-// }
 
 export default Alert
