@@ -78,11 +78,13 @@
     "react-docgen": "2.21.0",
     "react-docgen-deprecation-handler": "1.1.0",
     "react-docgen-displayname-handler": "2.1.0",
+    "react-docgen-typescript": "^1.12.3",
     "read-pkg": "4.0.1",
     "signale": "^1.4.0",
     "storybook-chromatic": "1.2.1",
     "svgo": "1.0.5",
     "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
     "tslint": "5.11.0",
     "typescript": "^3.3.4000"
   }

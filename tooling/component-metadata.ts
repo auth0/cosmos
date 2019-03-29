@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const glob = require('glob')
 
 const docgen = require('react-docgen')
+import * as tsDocgen from 'react-docgen-typescript'
 const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
 const deprecationHandler = require('react-docgen-deprecation-handler')
 
@@ -20,38 +21,42 @@ let warning = 0
 /* Ensure meta directory exists */
 fs.ensureDirSync('core/components/meta')
 
-/* Get list of js and md files from atoms and molecules */
-const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.js')
+/* Get list of ts and md files from atoms and molecules */
+const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.ts*')
 let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.md')
 
 const run = () => {
   info('DOCS', 'Generating metadata')
   let metadata = javascriptFiles
-    .filter(path => !path.includes('story.js')) // ignore story files
-    .filter(path => !path.includes('.d.ts')) // ignore typescript definitions
+    .filter(path => !path.includes('story.tsx') || !path.includes('.d.ts'))
     .map(path => {
       try {
         /* ignore secondary files */
         const directoryName = path.split('/').splice(-2, 1)[0]
-        const componentFileName = directoryName.replace('_', '') + '.js'
+        const componentFileName = directoryName.replace('_', '') + '.tsx'
+
 
         /* if component file does not exist, move on*/
         if (!path.includes(componentFileName)) return
 
         /* append display name handler to handlers list */
-        const handlers = docgen.defaultHandlers
-          .concat(createDisplayNameHandler(path))
-          .concat(deprecationHandler)
+        // const handlers = docgen.defaultHandlers
+        //   .concat(createDisplayNameHandler(path))
+        //   .concat(deprecationHandler)
 
         /* read file to get source code */
         const code = fs.readFileSync(path, 'utf8')
 
+
         /* parse the component code to get metadata */
-        const data = docgen.parse(code, null, handlers)
+        const data: any = tsDocgen.parse(path)[0]
+        console.log({ data })
+        // const data = docgen.parse(code, null)
 
         /* make modifications to prop types to improve documentation */
         if (data.props) {
-          Object.values(data.props).forEach(prop => {
+          Object.keys(data.props).forEach(propName => {
+            const prop = data.props[propName]
             /* remove redundant quotes from default value of type string */
             if (prop.defaultValue) {
               if (typeof prop.defaultValue.value === 'string') {
@@ -122,7 +127,7 @@ const run = () => {
 
   /* Add documentation files that are not implemented yet */
   markdownFiles.map(path => {
-    const data = {}
+    const data: any = {}
 
     /* attach content of documentation file */
     data.documentation = fs.readFileSync(path, 'utf8')

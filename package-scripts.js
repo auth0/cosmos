@@ -85,12 +85,16 @@ module.exports = {
       }
     },
     metadata: {
+      debug: {
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata --debug',
+        description: 'Generate metadata from components with debug mode'
+      },
       dev: {
-        script: 'node tooling/component-metadata -w',
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata -w',
         description: 'Generate metadata from components with watch mode'
       },
       build: {
-        script: 'node tooling/component-metadata',
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata',
         description: 'Generate metadata from components'
       }
     },
