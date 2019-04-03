@@ -61,5 +61,5 @@ try {
   process.exit(1)
 }
 
-fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/')
+fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/icons.json')
 postbuild.success('Copied icons definition file')
