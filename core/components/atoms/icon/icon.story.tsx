@@ -1,11 +1,13 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { Example, Stack, IconStoryBox } from '@auth0/cosmos/_helpers/story-helpers'
 
 import { Icon } from '../../'
 import { spacing } from '@auth0/cosmos/tokens'
-import { icons } from './icons.json'
+import iconsRaw from './icons.json'
+
+const icons = iconsRaw.icons;
 
 storiesOf('Icon', module).add('default', () => (
   <Example title="Icons">

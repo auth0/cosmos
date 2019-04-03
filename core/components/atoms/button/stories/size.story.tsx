@@ -1,20 +1,21 @@
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Button } from '../../../'
+import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-storiesOf('Button', module).add('wrapping', () => (
+import { Button, ButtonGroup } from '../../../'
+
+storiesOf('Button', module).add('size', () => (
   <div>
-    <Example title="Button Wrapping" align="center">
-      <div style={{ width: 150 }}>
+    <Example title="Button Sizes" align="center">
+      <Stack>
         <Button size="large">Large</Button>
         <Button>Default</Button>
         <Button size="compressed">Compressed</Button>
         <Button size="small">Small</Button>
-      </div>
+      </Stack>
     </Example>
-    <Example title="Button Wrapping + loading" align="center">
-      <div style={{ width: 150 }}>
+    <Example title="Button Sizes + loading" align="center">
+      <Stack>
         <Button loading size="large">
           Large
         </Button>
@@ -25,10 +26,10 @@ storiesOf('Button', module).add('wrapping', () => (
         <Button loading size="small">
           Small
         </Button>
-      </div>
+      </Stack>
     </Example>
-    <Example title="Button Wrapping + success" align="center">
-      <div style={{ width: 150 }}>
+    <Example title="Button Sizes + success" align="center">
+      <Stack>
         <Button success size="large">
           Large
         </Button>
@@ -39,7 +40,7 @@ storiesOf('Button', module).add('wrapping', () => (
         <Button success size="small">
           Small
         </Button>
-      </div>
+      </Stack>
     </Example>
   </div>
 ))
