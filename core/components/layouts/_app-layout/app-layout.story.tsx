@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 import Automation from '../../_helpers/automation-attribute'
-import { AppLayout } from '@auth0/cosmos'
+import { AppLayout } from '../../'
 
 storiesOf('App Layout', module).add('default', () => (
   <Example title="default">

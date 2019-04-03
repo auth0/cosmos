@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { Checkbox, Paragraph } from '@auth0/cosmos'
+import { Checkbox, Paragraph } from '../../'
 
 const CheckBoxExample = () => (
   <Checkbox.Group name="example1" selected={['one', 'two']}>

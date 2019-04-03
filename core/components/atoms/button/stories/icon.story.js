@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Button, ButtonGroup } from '@auth0/cosmos'
+import { Button, ButtonGroup } from '../../../'
 
 storiesOf('Button', module).add('with icon', () => (
   <Example title="Button with icon" align="center">

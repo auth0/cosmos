@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
 import {
   List,
@@ -14,7 +14,7 @@ import {
   Avatar,
   Paragraph,
   Code
-} from '@auth0/cosmos'
+} from '../../'
 
 class ExampleList extends React.Component<{}, { listDrawers: { [key: string]: boolean }, items: string[] }> {
   constructor(props) {

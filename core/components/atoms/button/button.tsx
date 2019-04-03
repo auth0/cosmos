@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { colors, spacing, fonts, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import Spinner from '../spinner'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../../../_helpers/story-helpers'
 
 import {
   Form,
@@ -13,7 +13,7 @@ import {
   StackLayout,
   Button,
   RowLayout
-} from '@auth0/cosmos'
+} from '../../../../'
 
 storiesOf('Form', module).add('all the fields', () => (
   <Example title="all the fields">

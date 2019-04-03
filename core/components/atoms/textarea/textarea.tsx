@@ -1,5 +1,5 @@
 import * as  React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 
 import { StyledInput } from '../_styled-input'
 import Automation from '../../_helpers/automation-attribute'

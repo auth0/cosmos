@@ -1,8 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example, Stack } from '../../_helpers/story-helpers'
 
-import { EmptyState } from '@auth0/cosmos'
+import { EmptyState } from '../../'
 
 storiesOf('EmptyState', module).add('default', () => (
   <Example title="default">
@@ -14,7 +14,7 @@ storiesOf('EmptyState', module).add('default', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => {}
+        handler: () => { }
       }}
     />
   </Example>
@@ -42,7 +42,7 @@ storiesOf('EmptyState', module).add('stressed', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => {}
+        handler: () => { }
       }}
     />
   </Example>

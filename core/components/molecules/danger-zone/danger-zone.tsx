@@ -3,7 +3,7 @@ import Heading from '../../atoms/heading'
 import Button, { ButtonType } from '../../atoms/button'
 import Paragraph from '../../atoms/paragraph'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import containerStyles from '../../_helpers/container-styles'
 import Automation from '../../_helpers/automation-attribute'
 

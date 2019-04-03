@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example, Stack } from '../../_helpers/story-helpers'
 
-import { Breadcrumb } from '@auth0/cosmos'
+import { Breadcrumb } from '../../'
 
 storiesOf('Breadcrumb', module).add('default', () => (
   <Example title="default">

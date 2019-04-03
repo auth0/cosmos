@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Button } from '@auth0/cosmos'
+import { Button } from '../../../'
 
 storiesOf('Button', module).add('wrapping', () => (
   <div>

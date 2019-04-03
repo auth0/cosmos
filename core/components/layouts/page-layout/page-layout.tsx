@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import applyMarginReset, { applyLayoutChildClass } from '../../_helpers/layout-margin-reset'
 import { spacing } from '@auth0/cosmos-tokens'

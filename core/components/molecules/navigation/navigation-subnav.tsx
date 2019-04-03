@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import NavigationItem from './navigation-item'
 

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example, Stack } from '../../_helpers/story-helpers'
 
-import { Radio } from '@auth0/cosmos'
+import { Radio } from '../../'
 
 storiesOf('Radio', module).add('default', () => (
   <Example>

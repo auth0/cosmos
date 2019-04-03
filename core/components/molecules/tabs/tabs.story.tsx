@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { Tabs } from '@auth0/cosmos'
+import { Tabs } from '../../'
 
 class TestExample extends React.Component<{}, { selectedTab: number }> {
   constructor(props) {

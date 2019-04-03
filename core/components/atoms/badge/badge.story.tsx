@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example, Stack } from '../../_helpers/story-helpers'
 
-import { Badge } from '@auth0/cosmos'
+import { Badge } from '../../'
 
 storiesOf('Badge', module).add('appearances', () => (
   <Example title="appearances">

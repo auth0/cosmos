@@ -1,12 +1,12 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../../styled'
 
 import { spacing } from '@auth0/cosmos-tokens'
 import FormContext from '../form-context'
 
 import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
-import { Action, ActionWithoutHandler } from '@auth0/cosmos/_helpers/action-shape'
+import { Action, ActionWithoutHandler } from '../../../_helpers/action-shape'
 
 const getButtonProps = action => {
   const props = { ...action }

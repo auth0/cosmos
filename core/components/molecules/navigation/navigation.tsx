@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import NavigationItem from './navigation-item'
 import NavigationSubnav from './navigation-subnav'
 import Automation from '../../_helpers/automation-attribute'

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../../styled'
 
 import { spacing, misc } from '@auth0/cosmos-tokens'
 import uniqueId from '../../../_helpers/uniqueId'
@@ -13,7 +13,7 @@ import TextArea from '../../../atoms/textarea'
 import Switch from '../../../atoms/switch'
 import Checkbox from '../../../atoms/checkbox'
 import Radio from '../../../atoms/radio'
-import { ActionWithIcon } from '@auth0/cosmos/_helpers/action-shape'
+import { ActionWithIcon } from '../../../_helpers/action-shape'
 import containerStyles from '../../../_helpers/container-styles'
 
 export interface IFieldProps {

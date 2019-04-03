@@ -1,12 +1,12 @@
 import * as React from 'react'
-import styled, { css } from '@auth0/cosmos/styled'
+import styled, { css } from '../../styled'
 import { colors, spacing, misc } from '@auth0/cosmos-tokens'
 import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
 
-import Automation from '@auth0/cosmos/_helpers/automation-attribute'
-import containerStyles from '@auth0/cosmos/_helpers/container-styles'
+import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 
 export type TableSortDirection = 'asc' | 'desc'
 

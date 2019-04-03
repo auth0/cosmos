@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../../../_helpers/story-helpers'
 
-import { Form, Select } from '@auth0/cosmos'
+import { Form, Select } from '../../../../'
 
 storiesOf('Form', module).add('select field', () => (
   <Example title="select field">

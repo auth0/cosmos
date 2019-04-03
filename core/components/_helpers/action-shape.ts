@@ -1,5 +1,5 @@
 import * as PropTypes from 'prop-types'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { __ICONNAMES__ } from '../atoms/icon'
 
 const shapeForDocs = { label: 'string', icon: 'enum', handler: 'func' }
 

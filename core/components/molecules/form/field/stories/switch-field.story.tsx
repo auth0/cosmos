@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example, Stack } from '../../../../_helpers/story-helpers'
 
-import { Form, Switch } from '@auth0/cosmos'
+import { Form, Switch } from '../../../../'
 
 storiesOf('Form', module).add('switch field', () => (
   <Example title="switch field">

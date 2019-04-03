@@ -4,7 +4,7 @@
   ],
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "../dist/",
+    "outDir": "../core/components/dist/",
     "target": "es5",
     "lib": [
       "es5",

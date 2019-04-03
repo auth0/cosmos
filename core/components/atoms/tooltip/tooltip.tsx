@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { Manager, Reference, Popper, RefHandler } from 'react-popper'
 import Automation from '../../_helpers/automation-attribute'
 import { multiply } from '../../_helpers/pixel-calc'

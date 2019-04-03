@@ -1,4 +1,4 @@
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 
 import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
 import containerStyles from '../../_helpers/container-styles'

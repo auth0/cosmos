@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
-import { ColumnLayout } from '@auth0/cosmos'
-import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+import { Example } from '../../_helpers/story-helpers'
+import StyledPlaceholder from '../../_helpers/story-layout-placeholder'
+import { ColumnLayout } from '../../'
+import { layoutSpacingStoryTest } from '../../_helpers/story-layout'
 
 storiesOf('Column Layout', module).add('Null children check', () =>
   layoutSpacingStoryTest(ColumnLayout, null, { distribution: '1/3 1/3 1/3' })

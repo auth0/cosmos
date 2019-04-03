@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
-import { StyledTextAllCaps } from '@auth0/cosmos/atoms/text'
+import styled from '../../styled'
+import { StyledTextAllCaps } from '../../atoms/text'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Automation from '../../_helpers/automation-attribute'
 

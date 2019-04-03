@@ -10,6 +10,7 @@ const directories = ['core/tokens', 'core/babel-preset', 'core/components']
 
 const sign = new Signale();
 const prebuild = sign.scope('pre-build')
+const postbuild = sign.scope('post-build')
 const log = sign.scope('cosmos')
 
 /* copy root version to all dependencies */
@@ -33,10 +34,8 @@ directories.forEach(directory => {
 prebuild.success('Copied root version to all packages')
 
 /* create dist folder */
-fs.removeSync('dist')
+fs.removeSync('core/components/dist')
 prebuild.success('Removed dist folder')
-fs.mkdirsSync('dist')
-prebuild.success('Created dist folder')
 
 /* transpile tokens & components */
 try {
@@ -61,3 +60,6 @@ try {
   log.error(err)
   process.exit(1)
 }
+
+fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/')
+postbuild.success('Copied icons definition file')

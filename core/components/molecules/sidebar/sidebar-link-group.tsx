@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import SidebarLink from './sidebar-link'
-import { __ICONNAMES__ } from '@auth0/cosmos/atoms/icon'
+import { __ICONNAMES__ } from '../../atoms/icon'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ISidebarLinkGroupProps {

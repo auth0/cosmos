@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
-import { colors } from '@auth0/cosmos/tokens'
+import styled from '../styled'
+import { colors } from '../tokens'
 
 const Title = styled.div`
   position: absolute;

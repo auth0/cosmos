@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 
 import { Example, Stack, IconStoryBox } from '@auth0/cosmos/_helpers/story-helpers'
 
-import { Icon } from '@auth0/cosmos'
+import { Icon } from '../../'
 import { spacing } from '@auth0/cosmos/tokens'
 import { icons } from './icons.json'
 

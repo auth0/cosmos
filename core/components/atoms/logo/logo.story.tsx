@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { Logo } from '@auth0/cosmos'
+import { Logo } from '../../'
 
 /**
 <div> elements has been added to each <Logo /> instance to make them "display: block;"

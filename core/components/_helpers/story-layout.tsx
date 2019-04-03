@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Code } from '@auth0/cosmos'
+import { Code } from '../'
 import { Example } from './story-helpers'
 import StyledPlaceholder from './story-layout-placeholder'
 

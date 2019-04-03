@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
-import { GalleryLayout } from '@auth0/cosmos'
-import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+import { Example } from '../../_helpers/story-helpers'
+import StyledPlaceholder from '../../_helpers/story-layout-placeholder'
+import { GalleryLayout } from '../../'
+import { layoutSpacingStoryTest } from '../../_helpers/story-layout'
 
 storiesOf('Gallery Layout', module).add('Null children check', () =>
   layoutSpacingStoryTest(GalleryLayout, 'small')

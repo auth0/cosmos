@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { spacing, colors, misc } from '@auth0/cosmos-tokens'
 import Button, { ButtonAppearance } from '../../atoms/button'
 import Icon from '../../atoms/icon'

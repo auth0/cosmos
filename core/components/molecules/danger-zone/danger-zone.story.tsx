@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { DangerZone } from '@auth0/cosmos'
+import { DangerZone } from '../../'
 
 storiesOf('DangerZone', module).add('single', () => (
   <Example title="1 element">

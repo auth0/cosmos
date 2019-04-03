@@ -7,13 +7,13 @@
 
 /*
   Step 1: Import all the dependencies
-  - import React and @auth0/cosmos/styled, thes are the bread and butter
+  - import React and ../../styled, thes are the bread and butter
   - import prop type for documentation and validation
   - import tokens instead of hard coding values
 */
 
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 
 import { colors, misc } from '@auth0/cosmos-tokens'
 
@@ -78,5 +78,5 @@ export default Box
   This is a step only for convenience while developing the system,
   it will be replaced with a more explicit syntax
 
-  import { Box } from '@auth0/cosmos'
+  import { Box } from '../../'
 */

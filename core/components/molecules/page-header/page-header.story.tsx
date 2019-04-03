@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { PageHeader, Link, Text, Button, Badge } from '@auth0/cosmos'
+import { PageHeader, Link, Text, Button, Badge } from '../../'
 
 storiesOf('Page Header', module).add('default', () => (
   <Example title="default">

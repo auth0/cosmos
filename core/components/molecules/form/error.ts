@@ -1,4 +1,4 @@
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 
 import { spacing, colors } from '@auth0/cosmos-tokens'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
-import { Image } from '@auth0/cosmos'
+import styled from '../../styled'
+import { Image } from '../../'
 import { colors, misc } from '@auth0/cosmos-tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { SortableContainer, SortableElement, SortableHandle, SortEndHandler } from 'react-sortable-hoc'
 import arrayMove from 'array-move'
 import Automation from '../../_helpers/automation-attribute'

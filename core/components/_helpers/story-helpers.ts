@@ -1,4 +1,4 @@
-import styled from '@auth0/cosmos/styled'
+import styled from '../styled'
 
 import Example from './story-example'
 import Stack from './story-stack'

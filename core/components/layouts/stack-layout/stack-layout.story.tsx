@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 import {
   StackLayout,
   RowLayout,
@@ -12,8 +12,8 @@ import {
   Button,
   TextInput,
   ButtonGroup
-} from '@auth0/cosmos'
-import { layoutSpacingStoryTest } from '@auth0/cosmos/_helpers/story-layout'
+} from '../../'
+import { layoutSpacingStoryTest } from '../../_helpers/story-layout'
 
 storiesOf('Stack Layout', module).add('Resource list', () => (
   <Example title="Resource list">

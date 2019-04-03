@@ -1,9 +1,9 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { Select, Dialog } from '@auth0/cosmos'
+import { Select, Dialog } from '../../'
 
 const ExampleForSelect = styled(Example)`
   min-height: 450px;

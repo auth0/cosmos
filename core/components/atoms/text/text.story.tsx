@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example } from '../../_helpers/story-helpers'
 
-import { Text } from '@auth0/cosmos'
+import { Text } from '../../'
 
 storiesOf('Text', module).add('default', () => (
   <Example title="Text">

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { components } from 'react-select'
 import { spacing } from '@auth0/cosmos-tokens'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../../styled'
 import Icon from '../../icon'
 
 const StyledCloseIcon = styled(Icon)`

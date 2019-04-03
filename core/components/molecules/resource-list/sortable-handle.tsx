@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import { SortableHandle } from 'react-sortable-hoc'
-import { Tooltip } from '@auth0/cosmos'
+import { Tooltip } from '../../'
 import { spacing, colors } from '@auth0/cosmos-tokens'
 import Button from '../../atoms/button'
 

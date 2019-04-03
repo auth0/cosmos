@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Navigation, Icon } from '@auth0/cosmos'
+import { Example } from '../../_helpers/story-helpers'
+import { Navigation, Icon } from '../../'
 import Label from '../../atoms/label'
 import { Tooltip } from '../../components'
 

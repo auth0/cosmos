@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css } from '@auth0/cosmos/styled'
+import { css } from '../styled'
 
 export const LAYOUT_CHILDREN_CLASS_NAME = 'cosmos-layout-child'
 

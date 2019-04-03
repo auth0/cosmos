@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import Button from '../../atoms/button'
 import { BaseHeading } from '../../atoms/heading'
 import ButtonGroup from '../../molecules/button-group'

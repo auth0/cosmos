@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { SortableContainer, SortableElement, arrayMove, SortEndHandler } from 'react-sortable-hoc'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import ResourceListItem, { ResourceListItemAction } from './item'
 import { spacing } from '@auth0/cosmos-tokens'
-import Automation from '@auth0/cosmos/_helpers/automation-attribute'
-import containerStyles from '@auth0/cosmos/_helpers/container-styles'
+import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
 import SortableListHandle from './sortable-handle'
 
 export interface IResourceListProps {

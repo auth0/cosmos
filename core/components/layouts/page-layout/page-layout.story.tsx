@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import StyledPlaceholder from '@auth0/cosmos/_helpers/story-layout-placeholder'
+import { Example } from '../../_helpers/story-helpers'
+import StyledPlaceholder from '../../_helpers/story-layout-placeholder'
 import Automation from '../../_helpers/automation-attribute'
-import { PageLayout } from '@auth0/cosmos'
+import { PageLayout } from '../../'
 
 storiesOf('Page Layout', module).add('default', () => (
   <Example title="default">

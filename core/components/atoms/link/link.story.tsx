@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '../../_helpers/story-helpers'
 
-import { Link } from '@auth0/cosmos'
+import { Link } from '../../'
 
 storiesOf('Link', module).add('default', () => (
   <Example title="default">

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
-import { Avatar, Link } from '@auth0/cosmos'
+import styled from '../../styled'
+import { Avatar, Link } from '../../'
 import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 import { deprecate } from '../../_helpers/custom-validations'
@@ -8,7 +8,7 @@ import containerStyles from '../../_helpers/container-styles'
 import Automation from '../../_helpers/automation-attribute'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */
-import { StyledLink } from '@auth0/cosmos/atoms/link'
+import { StyledLink } from '../../atoms/link'
 import { rootProps } from '../../_helpers/root-props'
 
 const avatarSizes = {

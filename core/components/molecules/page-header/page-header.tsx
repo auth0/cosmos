@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import { spacing } from '@auth0/cosmos-tokens'
@@ -8,7 +8,7 @@ import Heading from '../../atoms/heading'
 import Description from './description'
 
 import ButtonGroup from '../../molecules/button-group'
-import { ActionWithIcon } from '@auth0/cosmos/_helpers/action-shape'
+import { ActionWithIcon } from '../../_helpers/action-shape'
 import { descriptionIsObject } from '../../_helpers/page-header'
 import containerStyles from '../../_helpers/container-styles'
 import buttonPropHelper from '../../_helpers/button-prop'

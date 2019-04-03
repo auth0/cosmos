@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled, { keyframes } from '@auth0/cosmos/styled'
+import styled, { keyframes } from '../../styled'
 import Logo from '../logo'
 import defaultPropChangeWarning from '../../_helpers/default-prop-change'
 import Automation from '../../_helpers/automation-attribute'

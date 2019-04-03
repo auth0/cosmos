@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import styled from '@auth0/cosmos/styled'
-import { Tooltip, ButtonGroup, Button, Dialog, Icon, Form, TextInput, Link } from '@auth0/cosmos'
+import { Example } from '../../_helpers/story-helpers'
+import styled from '../../styled'
+import { Tooltip, ButtonGroup, Button, Dialog, Icon, Form, TextInput, Link } from '../../'
 import { TooltipPosition } from './'
 
 const positions: TooltipPosition[] = ['top', 'left', 'right', 'bottom']

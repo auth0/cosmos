@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '@auth0/cosmos/_helpers/story-helpers'
+import { Example, Stack } from '../../_helpers/story-helpers'
 
-import { Button, TextInput, Tooltip } from '@auth0/cosmos'
+import { Button, TextInput, Tooltip } from '../../'
 
 storiesOf('TextInput', module).add('simple', () => (
   <Example title="simple">

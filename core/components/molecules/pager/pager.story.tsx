@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Example } from '@auth0/cosmos/_helpers/story-helpers'
-import { Pager } from '@auth0/cosmos'
+import { Example } from '../../_helpers/story-helpers'
+import { Pager } from '../../'
 
 storiesOf('Pager', module).add('default', () => (
   <Example>

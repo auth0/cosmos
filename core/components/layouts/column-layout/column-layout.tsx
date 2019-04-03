@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '@auth0/cosmos/styled'
+import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'
 import applyMarginReset from '../../_helpers/layout-margin-reset'
