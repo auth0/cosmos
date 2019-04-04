@@ -41,7 +41,7 @@ const run = () => {
 
         /* parse the component code to get metadata */
         const data: any = docgen.parse(path, {
-          componentNameResolver: (exp, source) => docgen.getDefaultExportForFile(source)
+          componentNameResolver: (exp, source) => source.text.match(/export default (\w+)/)[1]
         })[0]
         if (debug) console.log({ data })
 

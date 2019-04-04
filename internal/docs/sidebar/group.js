@@ -51,6 +51,8 @@ const getGroups = components => {
 
     return component // meh
   })
+  console.log({ groups })
+
 
   return groups
 }
