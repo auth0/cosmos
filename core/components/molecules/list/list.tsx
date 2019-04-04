@@ -126,33 +126,43 @@ List.Element = styled.ul`
   ${containerStyles};
 `
 
-const ListItemContainer = props => {
-  const [drawerOpen, setDrawerState] = React.useState(false)
-
-  return (
-    <List.ItemContainer.Element {...props} hasOpenDrawer={drawerOpen}>
-      {props.children(drawerOpen, setDrawerState)}
-    </List.ItemContainer.Element>
-  )
+interface IListItemContainerProps {
+  draggable?: boolean
+  onClick?: Function
+  children?: (open: boolean, setDrawerState: Function) => React.ReactNode
 }
 
+class ListItemContainer extends React.Component<IListItemContainerProps, { open: boolean }> {
+  static Element = styled.li`
+    border-top: 1px solid ${colors.list.borderColor};
+    padding-left: ${spacing.xsmall};
+    padding-right: ${spacing.xsmall};
+    padding-top: ${spacing.small};
+    padding-bottom: ${spacing.small};
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    background-color: ${props => (props.hasOpenDrawer ? colors.list.backgroundHover : 'transparent')};
 
-ListItemContainer.Element = styled.li`
-  border-top: 1px solid ${colors.list.borderColor};
-  padding-left: ${spacing.xsmall};
-  padding-right: ${spacing.xsmall};
-  padding-top: ${spacing.small};
-  padding-bottom: ${spacing.small};
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-between;
-  background-color: ${props => (props.hasOpenDrawer ? colors.list.backgroundHover : 'transparent')};
+    &:hover {
+      background-color: ${colors.list.backgroundHover};
+    }
+  `
 
-  &:hover {
-    background-color: ${colors.list.backgroundHover};
+  state = { open: false }
+
+  setDrawerState = (open) => {
+    this.setState({ open })
   }
-`
+
+  render() {
+    return <List.ItemContainer.Element {...this.props} hasOpenDrawer={this.state.open}>
+      {this.props.children(this.state.open, this.setDrawerState)}
+    </List.ItemContainer.Element>
+  }
+}
+
 
 List.ItemContainer = ListItemContainer
 

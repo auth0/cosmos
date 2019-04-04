@@ -35,21 +35,21 @@ const resolveSpace = (props, child, index) => {
 
 export interface IStackLayoutProps {
   /** Resets the margins of the component within the layout to generate consistent spaces. */
-  disableMarginReset: boolean,
+  disableMarginReset?: boolean,
   /** Regulates the size of the gutter between flexed items*/
-  gutter: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
+  gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
   /** Vertically align the components within the stack. applyes to `align-items` */
-  alignment: 'center' | 'start' | 'end'
+  alignment?: 'center' | 'start' | 'end'
   /** Horizontally distribute the components within the stack. applyes to `justify-content` */
-  distribution: 'spaceBetween' | 'center' | 'start' | 'end'
+  distribution?: 'spaceBetween' | 'center' | 'start' | 'end'
   /** Flex wrap */
-  wrap: 'true' | 'false'
+  wrap?: 'true' | 'false'
   /** Defines how much space each item within the stack container will take in relation to the others. For example and array of {[1, 2, 'none']} will make the third item follow the with of its content, and the second item take double the remind space than the first one. */
-  space: number | 'none'
-  children: React.ReactNode
+  space?: (number | 'none')[]
+  children?: React.ReactNode
 }
 
-const StackLayout = props => (
+const StackLayout = (props: IStackLayoutProps) => (
   <StackLayout.Element {...props} {...Automation('stack-layout')}>
     {React.Children.map(
       transformChildren(props, StackLayout.Item, 'stack-layout.item'),
