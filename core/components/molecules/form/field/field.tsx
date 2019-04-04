@@ -17,6 +17,8 @@ import { ActionWithIcon } from '../../../_helpers/action-shape'
 import containerStyles from '../../../_helpers/container-styles'
 
 export interface IFieldProps {
+  /** HTML ID of the component */
+  id?: string
   /** Form Label */
   label: string,
   /** Text that further explains the purpose of the field, or provides more detail */
@@ -27,6 +29,10 @@ export interface IFieldProps {
   actions?: (JSX.Element | ActionWithIcon)[],
   /** checkbox alignment */
   checkbox?: boolean
+  htmlFor?: string
+  children?: React.ReactNode
+  /** @internal */
+  fieldComponent?: any
 }
 
 const shouldFieldUseCheckboxStyle = props => {
@@ -41,7 +47,7 @@ const shouldFieldUseCheckboxStyle = props => {
 
 const { Provider, Consumer } = React.createContext<{ formFieldId?: string }>({})
 
-const FieldInput = props => {
+const FieldInput = (props) => {
   const { Component, ...fieldProps } = props
   /*
     old API
@@ -88,7 +94,7 @@ const getIdFromChildren = rawChildren => {
   return getIdFromChild(children[0])
 }
 
-const Field = props => {
+const Field = (props: IFieldProps) => {
   /* Get unique id for label */
   let id = getIdFromChildren(props.children) || uniqueId(props.label)
   const { error, htmlFor, ...fieldProps } = props

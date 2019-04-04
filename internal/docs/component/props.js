@@ -65,6 +65,7 @@ class Props extends React.Component {
     let { propData } = this.state
 
     const keys = Object.keys(propData).filter(key => key[0] !== '_')
+    let deprecationMatch = /@deprecated :(\w+)/gi
 
     return (
       <Table>
@@ -77,35 +78,57 @@ class Props extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {keys.map(key => (
-            <tr key={key}>
-              <td>
-                <Code style={{ color: propData[key].deprecated ? colors.text.error : 'inherit' }}>
-                  {key}
-                </Code>
-                {propData[key].deprecated && <Deprecated>(deprecated)</Deprecated>}
-                {propData[key].required && <Required />}
-              </td>
-              <td>
-                {propData[key].description}
-                <Type>type: {parseType(propData[key].type)}</Type>
-              </td>
-              <td>{getDefaultValue(propData[key])}</td>
-              <td>
-                {propData[key].deprecationData ? (
-                  <Deprecated>
-                    use <Code>{propData[key].deprecationData}</Code>
-                  </Deprecated>
-                ) : (
-                  <PropSwitcher
-                    propName={key}
-                    data={propData[key]}
-                    onPropsChange={this.onPropsChange.bind(this)}
-                  />
-                )}
-              </td>
-            </tr>
-          ))}
+          {keys.map(key => {
+            let description = propData[key].description;
+            const isInternal = description.includes('@internal')
+            const isDeprecated = description.includes('@deprecated')
+            let deprecationReplacement;
+
+            if (isInternal) {
+              // Avoid showing internal props in the documentation site.
+              return null;
+            }
+
+            if (isDeprecated) {
+              const deprecationReplMatch = deprecationMatch.exec(description)
+              if (deprecationReplMatch) {
+                deprecationReplacement = deprecationReplMatch[1]
+                description = description.replace(deprecationMatch, '')
+              } else {
+                description = description.replace('@deprecated', '')
+              }
+            }
+
+            return (
+              <tr key={key}>
+                <td>
+                  <Code style={{ color: propData[key].deprecated ? colors.text.error : 'inherit' }}>
+                    {key}
+                  </Code>
+                  {isDeprecated && <Deprecated>(deprecated)</Deprecated>}
+                  {propData[key].required && <Required />}
+                </td>
+                <td>
+                  {description}
+                  <Type>type: {parseType(propData[key].type)}</Type>
+                </td>
+                <td>{getDefaultValue(propData[key])}</td>
+                <td>
+                  {deprecationReplacement ? (
+                    <Deprecated>
+                      use <Code>{deprecationReplacement}</Code>
+                    </Deprecated>
+                  ) : (
+                      <PropSwitcher
+                        propName={key}
+                        data={propData[key]}
+                        onPropsChange={this.onPropsChange.bind(this)}
+                      />
+                    )}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </Table>
     )

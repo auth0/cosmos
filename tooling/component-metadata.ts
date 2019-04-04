@@ -36,19 +36,14 @@ const run = () => {
         /* if component file does not exist, move on*/
         if (!path.includes(componentFileName)) return
 
-        /* append display name handler to handlers list */
-        // const handlers = docgen.defaultHandlers
-        //   .concat(createDisplayNameHandler(path))
-        //   .concat(deprecationHandler)
-
-        /* read file to get source code */
         const code = fs.readFileSync(path, 'utf8')
 
 
         /* parse the component code to get metadata */
-        const data: any = docgen.parse(path)[0]
+        const data: any = docgen.parse(path, {
+          componentNameResolver: (exp, source) => docgen.getDefaultExportForFile(source)
+        })[0]
         if (debug) console.log({ data })
-        // const data = docgen.parse(code, null)
 
         /* make modifications to prop types to improve documentation */
         if (data.props) {
