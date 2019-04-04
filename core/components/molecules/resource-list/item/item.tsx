@@ -5,7 +5,7 @@ import Avatar, { StyledAvatar } from '../../../atoms/avatar'
 import { StyledTextAllCaps } from '../../../atoms/text'
 import { ActionWithIcon } from '../../../_helpers/action-shape'
 import { __ICONNAMES__ } from '../../../atoms/icon'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '../../../tokens'
 import Automation from '../../../_helpers/automation-attribute'
 import { actionToButtonProps, buttonBuilder } from '../action-builder'
 

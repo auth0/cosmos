@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 
-import { spacing, misc } from '@auth0/cosmos-tokens'
+import { spacing, misc } from '../../tokens'
 
 import ButtonGroup from '../../molecules/button-group'
 import Button from '../button'

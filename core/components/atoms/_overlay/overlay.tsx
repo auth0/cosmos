@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import styled from '../../styled'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 // TODO: create tokens?
 const layers = {

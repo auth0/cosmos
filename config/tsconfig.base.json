@@ -12,7 +12,7 @@
       "dom"
     ],
     "sourceMap": true,
-    "allowJs": true,
+    "allowJs": false,
     "jsx": "react",
     "esModuleInterop": true,
     "moduleResolution": "node",

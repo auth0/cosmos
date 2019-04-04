@@ -3,7 +3,7 @@ import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import transformChildren from '../../_helpers/transform-layout-children'
 import applyMarginReset from '../../_helpers/layout-margin-reset'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 const gutterOptions = {
   none: 0,

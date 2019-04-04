@@ -3,7 +3,7 @@ import styled from '../../styled'
 import containerStyles from '../../_helpers/container-styles'
 import Automation from '../../_helpers/automation-attribute'
 
-import { colors, fonts } from '@auth0/cosmos-tokens'
+import { colors, fonts } from '../../tokens'
 
 const Paragraph = props => (
   <Paragraph.Element {...Automation('paragraph')} {...props}>

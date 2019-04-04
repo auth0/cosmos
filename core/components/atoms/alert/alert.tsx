@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled, { css } from '../../styled'
-import { fonts, colors, spacing } from '@auth0/cosmos-tokens'
+import { fonts, colors, spacing } from '../../tokens'
 import Link, { StyledLink } from '../link'
 import Text from '../text'
 import FreeText from '../../_helpers/free-text'
@@ -19,7 +19,9 @@ export interface IAlertProps {
   appearance?: IAlertAppearance
   icon?: string
   title?: string
-  text?: string // deprecated: use children
+  /** @deprecated:children  */
+  text?: string
+  /** @deprecated:children  */
   link?: string
   dismissible?: boolean
   onDismiss?: () => void

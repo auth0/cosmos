@@ -3,7 +3,7 @@ import styled from '../../styled'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 import NavigationItem from './navigation-item'
 
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 

@@ -1,6 +1,6 @@
 import styled from '../../styled'
 
-import { fonts, colors } from '@auth0/cosmos-tokens'
+import { fonts, colors } from '../../tokens'
 
 const StyledLabel = styled.label`
   color: ${colors.text.default};

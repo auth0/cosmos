@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '../../tokens'
 
 import Paragraph from '../../atoms/paragraph'
 import Link from '../../atoms/link'

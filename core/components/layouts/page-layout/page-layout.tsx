@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import applyMarginReset, { applyLayoutChildClass } from '../../_helpers/layout-margin-reset'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 export interface IPageLayoutProps {
   /** Resets the margins of the component within the layout to generate consistent spaces. */

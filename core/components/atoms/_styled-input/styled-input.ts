@@ -1,6 +1,6 @@
 import styled from '../../styled'
 
-import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
+import { colors, fonts, spacing, misc } from '../../tokens'
 import containerStyles from '../../_helpers/container-styles'
 
 const config = {

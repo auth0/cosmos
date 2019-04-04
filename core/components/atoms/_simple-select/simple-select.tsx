@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../styled'
-import { misc, colors, spacing } from '@auth0/cosmos-tokens'
+import { misc, colors, spacing } from '../../tokens'
 import { StyledInput } from '../_styled-input'
 import { ISelectOptions } from '../select/interfaces';
 import Automation from '../../_helpers/automation-attribute'

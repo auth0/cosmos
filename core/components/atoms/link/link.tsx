@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
-import { colors } from '@auth0/cosmos-tokens'
+import { colors } from '../../tokens'
 
 export type LinkTarget = '_blank' | '_self' | '_parent' | '_top'
 export type LinkOnClickHandler = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void

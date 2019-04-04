@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../../styled'
 
-import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
+import { fonts, spacing, colors } from '../../../tokens'
 
 const Divider = props => <Divider.Element {...props} />
 

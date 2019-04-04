@@ -4,7 +4,7 @@ import NavigationItem from './navigation-item'
 import NavigationSubnav from './navigation-subnav'
 import Automation from '../../_helpers/automation-attribute'
 import uniqueId from '../../_helpers/uniqueId'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '../../tokens'
 
 export interface INavigationProps {
   id?: string

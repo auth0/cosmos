@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { spacing, colors } from '@auth0/cosmos-tokens'
+import { spacing, colors } from '@auth0/cosmos/tokens'
 import { Breadcrumb, Code, Heading } from '@auth0/cosmos'
 
 /* TODO: Find a good way to override: https://github.com/auth0/cosmos/issues/347 */

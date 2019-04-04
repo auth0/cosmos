@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { components } from 'react-select'
 import styled from '../../../styled'
-import { spacing, fonts } from '@auth0/cosmos-tokens'
+import { spacing, fonts } from '../../../tokens'
 
 const isFirstGroup = (text, options) => text === options[0].label
 

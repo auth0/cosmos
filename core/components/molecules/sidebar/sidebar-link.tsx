@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '../../tokens'
 import Icon, { __ICONNAMES__ } from '../../atoms/icon'
 
 export interface ISidebarLinkProps {

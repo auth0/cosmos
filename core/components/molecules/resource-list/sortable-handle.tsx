@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import { SortableHandle } from 'react-sortable-hoc'
 import { Tooltip } from '../../'
-import { spacing, colors } from '@auth0/cosmos-tokens'
+import { spacing, colors } from '../../tokens'
 import Button from '../../atoms/button'
 
 const noop = () => { }

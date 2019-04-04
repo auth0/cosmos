@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../styled'
-import { colors, fonts } from '@auth0/cosmos-tokens'
+import { colors, fonts } from '../../tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface IBadgeProps {

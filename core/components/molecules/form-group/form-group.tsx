@@ -4,7 +4,7 @@ import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
 import Well from '../../atoms/_well'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 export interface IFormGroupProps {
   /** HTML ID of the component */

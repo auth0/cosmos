@@ -4,7 +4,7 @@ import SidebarLink from './sidebar-link'
 import SidebarLinkGroup from './sidebar-link-group'
 import Automation from '../../_helpers/automation-attribute'
 
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 import Icon from '../../atoms/icon'
 
 export interface ISidebarProps {

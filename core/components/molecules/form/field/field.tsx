@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../../styled'
 
-import { spacing, misc } from '@auth0/cosmos-tokens'
+import { spacing, misc } from '../../../tokens'
 import uniqueId from '../../../_helpers/uniqueId'
 import FormContext from '../form-context'
 import Automation from '../../../_helpers/automation-attribute'

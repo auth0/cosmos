@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, { css } from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
-import { colors, fonts, spacing, misc } from '@auth0/cosmos-tokens'
+import { colors, fonts, spacing, misc } from '../../tokens'
 import Form from '../../molecules/form'
 
 

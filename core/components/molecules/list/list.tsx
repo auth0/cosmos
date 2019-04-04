@@ -4,7 +4,7 @@ import { SortableContainer, SortableElement, SortableHandle, SortEndHandler } fr
 import arrayMove from 'array-move'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
-import { colors, spacing } from '@auth0/cosmos-tokens'
+import { colors, spacing } from '../../tokens'
 import Heading, { StyledHeading } from '../../atoms/heading'
 import Icon from '../../atoms/icon'
 import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from '../../_helpers/list'

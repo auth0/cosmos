@@ -1,6 +1,6 @@
 import styled from '../../styled'
 
-import { spacing, colors } from '@auth0/cosmos-tokens'
+import { spacing, colors } from '../../tokens'
 
 const Error = styled.p`
   font-size: 13px;

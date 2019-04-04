@@ -5,7 +5,7 @@ import Automation from '../../_helpers/automation-attribute'
 import { multiply } from '../../_helpers/pixel-calc'
 import uniqueId from '../../_helpers/uniqueId'
 
-import { colors, spacing, misc } from '@auth0/cosmos-tokens'
+import { colors, spacing, misc } from '../../tokens'
 
 const arrowWidth = '6px'
 const arrowColor = colors.tooltip.background

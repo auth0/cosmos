@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { components } from 'react-select'
 import styled from '../../../styled'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../../tokens'
 
 export const Menu = props => (
   <Menu.Element>

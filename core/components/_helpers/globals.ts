@@ -1,4 +1,4 @@
-import { fonts, misc } from '@auth0/cosmos-tokens'
+import { fonts, misc } from '../tokens'
 
 let includeGlobals = true
 

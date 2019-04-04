@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../styled'
-import { spacing, colors, misc } from '@auth0/cosmos-tokens'
+import { spacing, colors, misc } from '../../tokens'
 import Button, { ButtonAppearance } from '../../atoms/button'
 import Icon from '../../atoms/icon'
 import Automation from '../../_helpers/automation-attribute'

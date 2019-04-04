@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 const AppLayout = props => (
   <AppLayout.Element {...Automation('app-frame')}>

@@ -7,7 +7,7 @@ import ButtonGroup from '../../molecules/button-group'
 import Tabs from '../../molecules/tabs'
 import Overlay, { OverlaySize } from '../../atoms/_overlay'
 import DialogAction from './dialog-action'
-import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
+import { colors, fonts, spacing } from '../../tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 import FocusTrap from 'react-focus-lock'

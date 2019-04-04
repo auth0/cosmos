@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
-import { fonts, spacing, colors } from '@auth0/cosmos-tokens'
+import { fonts, spacing, colors } from '../../tokens'
 import containerStyles from '../../_helpers/container-styles'
 
 import Icon from '../icon'

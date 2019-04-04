@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 
-import { colors } from '@auth0/cosmos-tokens'
+import { colors } from '../../tokens'
 import iconData from './icons.json'
 import Automation from '../../_helpers/automation-attribute'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../styled'
-import { colors, spacing, fonts } from '@auth0/cosmos-tokens'
+import { colors, spacing, fonts } from '../../tokens'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 import Form from '../../molecules/form'

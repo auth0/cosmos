@@ -1,17 +1,14 @@
 const fs = require('fs-extra')
 const glob = require('glob')
 
-const docgen = require('react-docgen')
-import * as tsDocgen from 'react-docgen-typescript'
-const { createDisplayNameHandler } = require('react-docgen-displayname-handler')
-const deprecationHandler = require('react-docgen-deprecation-handler')
+import * as docgen from 'react-docgen-typescript'
 
 const chokidar = require('chokidar')
-const { info, warn } = require('prettycli')
+const { info, warn } = require('signale')
 const camelCase = require('lodash.camelcase')
 const getMetadata = require('./get-metadata')
 const { icons } = require('@auth0/cosmos/atoms/icon/icons.json')
-const colors = require('@auth0/cosmos-tokens/colors')
+const colors = require('@auth0/cosmos/tokens/colors')
 
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
@@ -26,7 +23,7 @@ const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**
 let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.md')
 
 const run = () => {
-  info('DOCS', 'Generating metadata')
+  info('Generating metadata')
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.tsx') || !path.includes('.d.ts'))
     .map(path => {
@@ -49,8 +46,8 @@ const run = () => {
 
 
         /* parse the component code to get metadata */
-        const data: any = tsDocgen.parse(path)[0]
-        console.log({ data })
+        const data: any = docgen.parse(path)[0]
+        if (debug) console.log({ data })
         // const data = docgen.parse(code, null)
 
         /* make modifications to prop types to improve documentation */
@@ -93,7 +90,7 @@ const run = () => {
         data.filepath = path
 
         /* get documentation file path */
-        const documentationPath = path.replace('.js', '.md')
+        const documentationPath = path.replace('.tsx', '.md')
 
         /* add documentation if exists */
         if (fs.existsSync(documentationPath)) {
@@ -162,7 +159,7 @@ const run = () => {
   // Write a version of the Changelog to a place where we can access it later.
   // TODO: Consider parsing the Markdown and storing this in a more structured format
   // so we can display it more intelligently in the docs?
-  info('DOCS', 'Generating changelog')
+  info('Generating changelog')
   const changelog = fs.readFileSync('changelog.md', 'utf8')
   fs.writeFileSync(
     'core/components/meta/changelog.json',

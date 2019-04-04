@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 
-import { misc } from '@auth0/cosmos-tokens'
+import { misc } from '../../tokens'
 import { StyledInput } from '../_styled-input'
 
 /* Helpers */

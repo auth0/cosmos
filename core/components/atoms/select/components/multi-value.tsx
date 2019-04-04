@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../../styled'
-import { spacing, colors } from '@auth0/cosmos-tokens'
+import { spacing, colors } from '../../../tokens'
 import Tag from '../../tag'
 import Icon from '../../icon'
 

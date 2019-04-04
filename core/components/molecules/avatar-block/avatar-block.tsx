@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 import { Avatar, Link } from '../../'
-import { colors, fonts, spacing } from '@auth0/cosmos-tokens'
+import { colors, fonts, spacing } from '../../tokens'
 import { __ICONNAMES__ } from '../../atoms/icon'
 import { deprecate } from '../../_helpers/custom-validations'
 import containerStyles from '../../_helpers/container-styles'

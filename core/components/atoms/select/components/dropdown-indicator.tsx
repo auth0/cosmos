@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../../tokens'
 import styled from '../../../styled'
 import Icon from '../../icon'
 

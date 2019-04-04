@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
-import { colors, fonts } from '@auth0/cosmos-tokens'
+import { colors, fonts } from '../../tokens'
 
 type TextType = 'allcaps' | 'subdued' | 'strong'
 

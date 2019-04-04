@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 import { StyledTextAllCaps } from '../../atoms/text'
-import { colors, misc } from '@auth0/cosmos-tokens'
+import { colors, misc } from '../../tokens'
 import Automation from '../../_helpers/automation-attribute'
 
 export interface ILabelProps {

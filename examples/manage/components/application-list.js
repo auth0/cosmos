@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Code, ResourceList, Button } from '@auth0/cosmos'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '@auth0/cosmos/tokens'
 import { applications } from '../pages/applications/applications.json'
 
 import ApplicationTypeImages from './application-types-images'

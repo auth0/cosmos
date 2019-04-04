@@ -3,7 +3,7 @@ import Automation from '../../_helpers/automation-attribute'
 import styled from '../../styled'
 import ReactSelect, { defaultTheme, components } from 'react-select'
 import AsyncSelect from 'react-select/lib/Async'
-import { misc, colors, spacing } from '@auth0/cosmos-tokens'
+import { misc, colors, spacing } from '../../tokens'
 import SimpleSelect from '../_simple-select'
 import Form from '../../molecules/form'
 import {

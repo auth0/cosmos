@@ -1,4 +1,4 @@
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../tokens'
 const directions = ['top', 'bottom', 'left', 'right']
 
 /**

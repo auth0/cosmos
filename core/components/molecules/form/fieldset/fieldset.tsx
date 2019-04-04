@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '../../../styled'
 
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../../tokens'
 import Divider from './divider'
 import Automation from '../../../_helpers/automation-attribute'
 import containerStyles from '../../../_helpers/container-styles'

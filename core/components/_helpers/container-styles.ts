@@ -1,5 +1,5 @@
 import { css } from '../styled'
-import { misc } from '@auth0/cosmos-tokens'
+import { misc } from '../tokens'
 
 const containerStyles = css`
   line-height: ${misc.lineHeight};

@@ -5,8 +5,9 @@ const readPkg = require('read-pkg')
 const { Signale } = require('signale')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
+const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 
-const directories = ['core/tokens', 'core/babel-preset', 'core/components']
+const directories = ['core/babel-preset', 'core/components']
 
 const sign = new Signale();
 const prebuild = sign.scope('pre-build')
@@ -18,11 +19,6 @@ directories.forEach(directory => {
   const packageJSONPath = directory + '/package.json'
   let content = fs.readJsonSync(packageJSONPath)
   content.version = version
-
-  /* components should import the same version of tokens */
-  if (directory === 'core/components') {
-    content.dependencies['@auth0/cosmos-tokens'] = version
-  }
 
   /* scripts should import the same version of preset */
   if (directory === 'internal/cosmos-scripts') {
@@ -37,29 +33,23 @@ prebuild.success('Copied root version to all packages')
 fs.removeSync('core/components/dist')
 prebuild.success('Removed dist folder')
 
-/* transpile tokens & components */
-try {
-  log.time('cosmos-transpilation');
-  execa.shellSync(`./node_modules/.bin/tsc --project ./core/`)
-  log.timeEnd('cosmos-transpilation')
-  log.success('Transpiled components and tokens')
-} catch (err) {
-  log.error(err)
-  process.exit(1)
-}
-
-/* generate type definitions */
-try {
-  log.time('typedef-generation');
-  execa.shellSync(
-    `./node_modules/.bin/tsc --declaration  --emitDeclarationOnly --allowJs false --project ./core/`
-  )
-  log.timeEnd('typedef-generation')
-  log.success('Generated type definitions')
-} catch (err) {
-  log.error(err)
-  process.exit(1)
-}
-
+fs.mkdirSync('core/components/dist/core/components/atoms/icon/', { recursive: true })
 fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/icons.json')
 postbuild.success('Copied icons definition file')
+
+/* transpile tokens & components */
+try {
+  if (!watch) {
+    log.time('cosmos-transpilation');
+  } else {
+    log.info('Package build started in watch mode');
+  }
+  execa.shellSync(`./node_modules/.bin/tsc ${watch ? '-w' : ''} --declaration --project ./core/`)
+  if (!watch) {
+    log.timeEnd('cosmos-transpilation')
+    log.success('Transpiled components and tokens')
+  }
+} catch (err) {
+  log.error(err)
+  process.exit(1)
+}

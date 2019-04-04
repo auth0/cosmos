@@ -15,7 +15,7 @@
 import * as React from 'react'
 import styled from '../../styled'
 
-import { colors, misc } from '@auth0/cosmos-tokens'
+import { colors, misc } from '../../tokens'
 
 /*
  * Step 2: Create a React component,

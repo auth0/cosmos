@@ -100,7 +100,7 @@ module.exports = {
     },
     docs: {
       dev: {
-        script: parallel('metadata.dev', 'icons.dev', 'docs.dev_site'),
+        script: parallel('packages.build.dev', 'metadata.dev', 'icons.dev', 'docs.dev_site'),
         description: 'Start metadata + documentation site in dev mode'
       },
       dev_site: {
@@ -142,6 +142,18 @@ module.exports = {
         description: 'Build sandbox'
       }
     },
+    packages: {
+      build: {
+        default: {
+          script: 'node tooling/build.js',
+          description: "Build packages for production"
+        },
+        dev: {
+          script: 'node tooling/build.js -w',
+          description: "Build packages in watching mode"
+        }
+      }
+    },
     deploy: {
       default: {
         script: series('deploy.build', 'deploy.publish'),
@@ -152,8 +164,8 @@ module.exports = {
         description: 'Publish new versions of core packages'
       },
       build: {
-        script: 'node tooling/build.js',
-        description: 'Build packages'
+        script: series('packages.build'),
+        description: 'Build packages for production (packages.build)'
       },
       catchup: {
         script: 'node tooling/catchup.js && yarn install',

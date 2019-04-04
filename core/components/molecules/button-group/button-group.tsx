@@ -3,7 +3,7 @@ import styled, { css } from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 
 import Button from '../../atoms/button'
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 
 
 export interface IButtonGroupProps {

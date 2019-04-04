@@ -3,7 +3,7 @@ import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
-import { spacing } from '@auth0/cosmos-tokens'
+import { spacing } from '../../tokens'
 import { sumOfElements, numberOfValues } from '../../_helpers/custom-validations'
 
 const alignItems = {

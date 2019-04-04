@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled, { css } from '../../styled'
-import { colors, spacing, misc } from '@auth0/cosmos-tokens'
+import { colors, spacing, misc } from '../../tokens'
 import Spinner from '../../atoms/spinner'
 import TableColumn from './table-column'
 import TableHeader from './table-header'
