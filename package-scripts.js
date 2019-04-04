@@ -100,7 +100,7 @@ module.exports = {
     },
     docs: {
       dev: {
-        script: parallel('packages.build.dev', 'metadata.dev', 'icons.dev', 'docs.dev_site'),
+        script: parallel('metadata.dev', 'icons.dev', 'docs.dev_site'),
         description: 'Start metadata + documentation site in dev mode'
       },
       dev_site: {

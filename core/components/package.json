@@ -3,9 +3,9 @@
   "description": "Component library for Auth0 Design System",
   "version": "0.23.1",
   "repository": "auth0/cosmos",
-  "main": "./dist/core/components/index.js",
   "scripts": {},
   "keywords": [],
+  "main": "index.ts",
   "author": "auth0",
   "license": "MIT",
   "dependencies": {
