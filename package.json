@@ -10,7 +10,6 @@
     "internal/overview",
     "internal/docs",
     "internal/test",
-    "examples/manage",
     "examples/webpack-hello-world",
     "examples/perf-tests"
   ],
