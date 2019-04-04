@@ -33,12 +33,8 @@ const getActionGroup = (actions: IAction[] = [], actionOverrides: Partial<IObjec
     return (
       <ButtonGroup compressed>
         {actions.map((action: IObjectAction, index) => {
-          let children = action.label
-
           return (
-            <Button key={index} onClick={action.handler} {...action} {...actionOverrides}>
-              {children}
-            </Button>
+            <Button key={index} onClick={action.handler} {...action} {...actionOverrides} />
           )
         })}
       </ButtonGroup>
