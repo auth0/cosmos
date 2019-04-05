@@ -193,7 +193,7 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
     <List onItemClick={(ev, item) => console.log({ ev, item })}>
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -204,7 +204,7 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -215,7 +215,7 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -226,7 +226,7 @@ storiesOf('List', module).add('StackLayout with a switch', () => (
 
       <List.Item>
         <StackLayout space={[1, 1, 'none']}>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -286,7 +286,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
     <List>
       <List.Item>
         <List.Header>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -302,7 +302,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
       </List.Item>
       <List.Item>
         <List.Header>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
@@ -318,7 +318,7 @@ storiesOf('List', module).add('Drawer and switch', () => (
       </List.Item>
       <List.Item>
         <List.Header>
-          <RowLayout gutter="xsmall">
+          <RowLayout gutter="none">
             <Heading size={3}>M2M</Heading>
             <Paragraph>CLIENT ID whatever</Paragraph>
           </RowLayout>
