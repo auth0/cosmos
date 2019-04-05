@@ -35,24 +35,28 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
   constructor(props) {
     super(props)
 
-    this.state = { open: props.defaultOpen || false, subItemSelected: false }
-    this.evaluateSubItemSelection(props)
+    const subItemSelected = this.evaluateSubItemSelection(props)
+    console.log({ subItemSelected })
+    this.state = { open: props.defaultOpen || false, subItemSelected }
   }
 
   evaluateSubItemSelection(props) {
     let subItemSelected = false
+
     React.Children.forEach(props.children, child => {
       /* group should be open and parent be selected */
       if (child && child.props && child.props.selected) subItemSelected = true
     })
 
-    if (this.state.subItemSelected !== subItemSelected) {
-      this.setState({ subItemSelected })
-    }
+    return subItemSelected
   }
 
   componentDidUpdate() {
-    this.evaluateSubItemSelection(this.props)
+    const selected = this.evaluateSubItemSelection(this.props)
+
+    if (this.state.subItemSelected !== selected) {
+      this.setState({ subItemSelected: selected })
+    }
   }
 
   handleClick = () => {
