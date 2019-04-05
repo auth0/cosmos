@@ -9,6 +9,7 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'packages.build',
           'deploy.catchup',
           'production.directory',
           'icons.build',
@@ -122,12 +123,8 @@ module.exports = {
         description: 'Start sandbox in dev mode'
       },
       build: {
-        script: series('packages.build', 'sandbox.prod'),
-        description: 'Build cosmos and sandbox for production'
-      },
-      prod: {
         script: 'build-storybook -c .storybook -o build/sandbox',
-        description: 'Build cosmos and sandbox for production'
+        description: 'Build sandbox for production'
       }
     },
     packages: {
