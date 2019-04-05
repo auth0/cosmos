@@ -16,7 +16,7 @@ module.exports = (baseConfig, env, config) => {
     test: /\.(ts|tsx)$/,
     loader: require.resolve('awesome-typescript-loader')
   })
-  config.resolve.extensions.push('.ts', '.tsx', 'js')
+  config.resolve.extensions.push('.ts', '.tsx', 'js', 'json')
   config.resolve.plugins = [new TsConfigPathsPlugin()]
 
   return config
