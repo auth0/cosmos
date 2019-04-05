@@ -111,7 +111,7 @@ const getPropString = propData => {
 
     const stringTypes = ['IAlertAppearance', 'LinkType']
 
-    if (stringTypes.indexOf(propData[name].type.name) >= 0) {
+    if (stringTypes.indexOf(propData[name].type.name) >= 0 || propData[name].type.name.includes('|')) {
       propString += ` ${name}="${propData[name].value}"`
       return true
     }

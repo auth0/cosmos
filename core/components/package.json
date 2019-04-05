@@ -5,7 +5,7 @@
   "repository": "auth0/cosmos",
   "scripts": {},
   "keywords": [],
-  "main": "index.ts",
+  "main": "dist/core/components/index.js",
   "author": "auth0",
   "license": "MIT",
   "dependencies": {

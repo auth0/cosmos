@@ -29,6 +29,7 @@ export interface IFieldProps {
   actions?: (JSX.Element | ActionWithIcon)[],
   /** checkbox alignment */
   checkbox?: boolean
+  hasError?: boolean
   htmlFor?: string
   children?: React.ReactNode
   /** @internal */

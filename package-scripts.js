@@ -15,8 +15,6 @@ module.exports = {
           'metadata.build',
           'docs.build',
           'production.copy.docs',
-          'manage.build',
-          'production.copy.manage',
           'sandbox.build',
           'production.copy.redirect'
         ),
@@ -30,10 +28,6 @@ module.exports = {
         docs: {
           script: 'cp -r internal/docs/public build/docs',
           description: 'Copy generated docs site to main production build'
-        },
-        manage: {
-          script: 'cp -r examples/manage/public build/manage',
-          description: 'Copy generated manage POC to main production build'
         },
         redirect: {
           script: 'cp -r internal/redirect/* build/',
@@ -110,16 +104,6 @@ module.exports = {
       build: {
         script: 'cd internal/docs && yarn build',
         description: 'Build documentation site'
-      }
-    },
-    manage: {
-      dev: {
-        script: 'cd examples/manage && yarn dev',
-        description: 'Start manage POC in dev mode'
-      },
-      build: {
-        script: 'cd examples/manage && yarn build',
-        description: 'Build manage POC'
       }
     },
     icons: {

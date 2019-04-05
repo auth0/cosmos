@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(process.cwd(), 'public')
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
   },
   module: {
     rules: [
