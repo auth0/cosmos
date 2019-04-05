@@ -83,6 +83,7 @@ export interface IAvatarBlockProps {
   href?: string
   /** If specified, the main text will be rendered as a hyperlink */
   link?: string | { href: string, target?: string }
+  onClick?: Function
 }
 
 const AvatarBlock = (props: IAvatarBlockProps) => {

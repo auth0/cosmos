@@ -51,8 +51,8 @@ export interface ISpinnerProps {
   /** HTML ID of the component */
   id?: string
   /** Invert for dark background */
-  inverse: boolean
-  size: 'small' | 'medium' | 'large'
+  inverse?: boolean
+  size?: 'small' | 'medium' | 'large'
   onClick?: Function
 }
 

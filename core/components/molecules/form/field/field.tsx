@@ -19,10 +19,12 @@ import containerStyles from '../../../_helpers/container-styles'
 export interface IFieldProps {
   /** HTML ID of the component */
   id?: string
+  /** HTML name of the component */
+  name?: string
   /** Form Label */
-  label: string,
+  label?: string,
   /** Text that further explains the purpose of the field, or provides more detail */
-  helpText?: JSX.Element | string,
+  helpText?: React.ReactNode,
   /** Error message to show in case of failed validation */
   error?: string,
   /** Actions to be attached to input */

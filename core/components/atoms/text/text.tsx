@@ -9,6 +9,7 @@ type TextType = 'allcaps' | 'subdued' | 'strong'
 export interface ITextProps {
   /** HTML ID of the component */
   id?: string
+  name?: string
   type?: TextType
   children?: React.ReactNode
   onClick?: Function

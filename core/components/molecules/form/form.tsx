@@ -21,7 +21,7 @@ export interface IFormProps {
   layout?: 'label-on-left' | 'label-on-top'
   /** Remove the 625px constraint from the form fields width */
   fullWidth?: boolean,
-  children?: JSX.Element | JSX.Element[]
+  children?: React.ReactNode
   onSubmit?: Function
 }
 

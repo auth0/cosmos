@@ -196,6 +196,8 @@ export type ButtonType = 'submit' | 'button' | 'reset'
 export interface IButtonProps {
   /** HTML ID of the component */
   id?: string
+  /** HTML class of the component */
+  className?: string
   /** The size of the button */
   size?: ButtonSize
   /** The visual style used to convey the button's purpose */
@@ -210,6 +212,7 @@ export interface IButtonProps {
   href?: string
   /** Specifies where to open the navigated document */
   target?: ButtonTarget
+  rel?: string; // TODO: use `noopener` as default
   /** Disables the button|changing the visual style and make it unable to be pressed */
   disabled?: boolean
   /** Loading state when waiting for an action to complete */
@@ -221,7 +224,7 @@ export interface IButtonProps {
   /** Handler to be called when the button is clicked */
   onClick?: Function
   /** Content of the button */
-  children?: JSX.Element | string
+  children?: React.ReactNode
   /** @internal */
   labelDefaultVisible?: boolean
 }

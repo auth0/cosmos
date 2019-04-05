@@ -7,15 +7,20 @@ const directions = ['top', 'bottom', 'left', 'right']
  * @return {string} css
  */
 
-const margin = props => {
-  const margin = props.margin || {}
+const marginProcessor = (props) => {
+  const { margin: marginProp } = props;
 
-  if (!props.margin) return ''
+  if (!marginProp) {
+    return ''
+  }
+
+  const margin = marginProp || {}
+
 
   let styles = ''
-  directions.map(direction => {
+  directions.map((direction) => {
     if (typeof margin[direction] !== 'undefined') {
-      let rawValue = margin[direction]
+      const rawValue = margin[direction]
       let value
       /*
         if the value is a string, it's either a token (xsmall)
@@ -23,8 +28,11 @@ const margin = props => {
          if it's a number, we assume it's pixels and pass it through
       */
       if (typeof rawValue === 'string') {
-        if (spacing[rawValue]) value = spacing[rawValue]
-        else value = rawValue
+        if (spacing[rawValue]) {
+          value = spacing[rawValue]
+        } else {
+          value = rawValue
+        }
       } else {
         value = rawValue + 'px'
       }
@@ -34,4 +42,4 @@ const margin = props => {
   })
   return styles
 }
-export default margin
+export default marginProcessor

@@ -67,6 +67,8 @@ typings/
 build
 dist
 
+package-lock.json
+
 # ignore generated files
 core/components/meta
 core/components/dist

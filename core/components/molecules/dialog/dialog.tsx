@@ -153,7 +153,7 @@ const DialogFooter = styled.footer`
   border-top: 1px solid ${colors.base.grayLight};
 `
 
-export type DialogActionOrElement = DialogAction | JSX.Element
+export type DialogActionOrElement = DialogAction | React.ReactNode
 
 export interface IDialogProps {
   /** HTML ID of the component */

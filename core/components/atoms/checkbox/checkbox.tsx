@@ -29,6 +29,7 @@ export interface ICheckboxProps {
   defaultChecked?: boolean
   checked?: boolean
   value?: any
+  align?: 'vertical' | 'horizontal'
 }
 
 const Checkbox = (props: ICheckboxProps) => (

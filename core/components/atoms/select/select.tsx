@@ -146,7 +146,8 @@ export interface ISelectProps {
   /** Used to provide custom styled to the Select wrapper */
   style?: Object
   /** @internal */
-  defaultMenuOpen?: boolean
+  defaultMenuOpen?: boolean,
+  inputValue?: string
 }
 
 interface ISelectState {

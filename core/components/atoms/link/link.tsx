@@ -12,6 +12,7 @@ export interface ILinkProps {
   id?: string
   href?: string
   target?: LinkTarget
+  rel?: string
   onClick?: LinkOnClickHandler
   children?: React.ReactNode
 }

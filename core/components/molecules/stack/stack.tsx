@@ -35,7 +35,7 @@ export interface IStackProps {
   /** Element widths in % */
   widths?: number[],
   /** Elements to be wrapped with Stack */
-  children?: JSX.Element[]
+  children?: React.ReactNode
 
   /* internal props only used for validation */
   /* sum of width values should be 100% */

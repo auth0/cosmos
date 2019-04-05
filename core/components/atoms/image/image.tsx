@@ -30,6 +30,7 @@ export interface IImageProps {
   /** Function called when the image can't load for whatever reason */
   onError?: Function
   onClick?: Function
+  align?: 'left' | 'right' | 'middle' | 'top' | 'bottom'
 }
 
 const Image = (props: IImageProps) => (
