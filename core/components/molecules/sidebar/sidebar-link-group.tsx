@@ -36,7 +36,6 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
     super(props)
 
     const subItemSelected = this.evaluateSubItemSelection(props)
-    console.log({ subItemSelected })
     this.state = { open: props.defaultOpen || false, subItemSelected }
   }
 
