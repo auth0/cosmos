@@ -9,8 +9,8 @@ const PropSwitcher = ({ propName, data, onPropsChange }) => {
   } else if (['string', 'number'].includes(data.type.name)) {
     if (data.value === 'null') data.value = ''
     return <TextInput defaultValue={data.value} onChange={e => handler(e.target.value)} />
-  } else if (data.type.name === 'enum' && Array.isArray(data.type.value)) {
-    const options = data.type.value.map(({ value }) => ({ text: value, value }))
+  } else if (data.type.name.includes('|')) {
+    const options = data.type.name.replace(/"/g, '').split(' | ').map(value => ({ text: value, value }))
     return (
       <Select defaultValue={data.value} onChange={e => handler(e.target.value)} options={options} />
     )

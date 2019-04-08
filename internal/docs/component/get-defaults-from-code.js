@@ -4,7 +4,6 @@ const getDefaultString = code => {
     .split('}}>')[0]
     .split('}} ')[0]
     .split('}}\n')[0]
-
   return string
 }
 

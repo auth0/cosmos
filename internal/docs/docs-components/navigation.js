@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import { Icon, Logo, Label } from '@auth0/cosmos'
-import { StyledLabel } from '../../../core/components/atoms/label'
+import { StyledLabel } from '@auth0/cosmos/atoms/label'
 import { colors, spacing } from '@auth0/cosmos/tokens'
 import HamburgerButton from './hamburger-button'
 import IconSketch from './sketch-icon'

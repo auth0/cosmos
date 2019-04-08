@@ -6,7 +6,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "scripts": {
-    "test": "jest --no-cache",
+    "test": "jest --no-cache --maxWorkers=8",
     "test-watch": "jest --watch --no-cache",
     "test-unit": "jest unit --no-cache",
     "test-unit-watch": "jest unit --no-cache --watch",
@@ -16,19 +16,30 @@
   },
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setup.ts"
+    ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.test.json",
+        "diagnostics": true
+      }
+    },
     "transform": {
-      "^.+\\.js?$": "<rootDir>/jestPreprocess.js"
+      "^.+\\.tsx?$": "ts-jest",
+      "^(?!.*\\.(js|jsx|mjs|json)$)": "<rootDir>/fileTransform.js"
     }
   },
   "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "babel-jest": "^23.4.2",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.3.0",
-    "jest": "^23.5.0",
+    "jest": "^24.1.0",
     "jest-styled-components": "^6.1.1",
     "react-testing-library": "5.3.2"
   },
