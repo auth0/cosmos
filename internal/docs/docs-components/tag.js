@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { colors, fonts } from '@auth0/cosmos-tokens'
+import { colors, fonts } from '@auth0/cosmos/tokens'
 
 const getColor = props => {
   if (props.warning) return colors.base.orangeLighter

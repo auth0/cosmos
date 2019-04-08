@@ -13,20 +13,15 @@
     babel-preset-es2015 "6.24.1"
     babel-preset-react "6.24.1"
 
-"@auth0/cosmos-fonts@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.1.tgz#6c39b18df820511f2c80a3504a63e2c14a7af12a"
-  integrity sha512-jAeE4RJKr8TvPhVXJ7a4vCXt1iuUgVWFFsD+BGWxjngkOjXF8oCwuwFdmUjnHQL9M5i0t4PBSajz2/nEa6AqCA==
-
 "@auth0/cosmos-fonts@0.0.2":
   version "0.0.2"
   resolved "https://registry.npmjs.org/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.2.tgz#16b07e200cff9c3446d5efa0cc44ea6c6f0dd5b9"
   integrity sha512-N2omDWZ+iNx8dU2jP0qova9kM3UlVo6mD+MkofPyM4aW5IUo7eM4v07+YEH4gOVPlYvioMUfePz7CMI5EwrRlA==
 
-"@auth0/cosmos-tokens@0.23.1":
-  version "0.23.1"
-  resolved "https://registry.yarnpkg.com/@auth0/cosmos-tokens/-/cosmos-tokens-0.23.1.tgz#257a03339f029668e218cac301e9a09ff64871c6"
-  integrity sha512-/GHryh2p7wJonJtWzjhdoTOBzeCYlS1yLVd8cH5BWczPxZFcT57R9PtzYKR6jh7YLM42jYnqEFGdFHVHEHzmQA==
+"@auth0/cosmos-fonts@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@auth0/cosmos-fonts/-/cosmos-fonts-0.0.5.tgz#be5769d726eb58ea52f83a3345c438d97f34a64c"
+  integrity sha512-klgsY+Z55C/Qo9o92ia9PCL8OKMYY0Pw7BwA3Y3l/djwRYPIQmXMvB65dVxezsN03kRxbAeUWKpXE3mmMzZlbw==
 
 "@babel/code-frame@7.0.0", "@babel/code-frame@^7.0.0":
   version "7.0.0"
