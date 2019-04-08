@@ -1,0 +1,6 @@
+{
+  "name": "cosmos",
+  "version": 1,
+  "alias": "auth0-cosmos-master.now.sh",
+  "scope": "auth0-design"
+}
