@@ -6,7 +6,7 @@
   "author": "siddharthkp",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "test": "jest --ci",
     "test-watch": "jest --watch",
     "test-unit": "jest unit",
     "test-unit-watch": "jest unit --watch",

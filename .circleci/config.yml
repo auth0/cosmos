@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:10.15.1
+      - image: circleci/node:10
     steps:
       - checkout
       - run:
