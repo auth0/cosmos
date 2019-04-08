@@ -6,9 +6,9 @@
   "author": "siddharthkp",
   "license": "MIT",
   "scripts": {
-    "test": "jest --no-cache --ci --maxWorkers=2",
+    "test": "jest",
     "test-watch": "jest --watch",
-    "test-unit": "jest unit --ci",
+    "test-unit": "jest unit --ci --maxWorkers=2 --no-cache",
     "test-unit-watch": "jest unit --watch",
     "test-integration": "jest integration --no-cache --ci --maxWorkers=2",
     "test-integration-watch": "jest integration --watch",
@@ -41,7 +41,8 @@
     "enzyme-adapter-react-16": "^1.3.0",
     "jest": "^24.1.0",
     "jest-styled-components": "^6.1.1",
-    "react-testing-library": "5.3.2"
+    "react-testing-library": "5.3.2",
+    "weak": "^1.0.1"
   },
   "dependencies": {
     "enzyme-to-json": "^3.3.4",
