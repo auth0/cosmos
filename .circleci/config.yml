@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  "Build for Production":
     working_directory: ~/cosmos
     docker:
       - image: circleci/node:10
@@ -19,5 +19,76 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: test
-          command: yarn test
+          name: build
+          command: yarn scripts production.build
+  "Run Unit Tests":
+    working_directory: ~/cosmos
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g yarn@1.13'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-yarn-wee
+          command: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: yarn scripts ciunit
+  "Run Integration Tests":
+    working_directory: ~/cosmos
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g yarn@1.13'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-yarn-wee
+          command: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: yarn scripts ciintegration
+  "Run Visual Tests":
+    working_directory: ~/cosmos
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g yarn@1.13'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-yarn-wee
+          command: yarn
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: yarn scripts civisual
+workflows:
+  version: 2
+  master:
+    jobs:
+      - "Build for Production"
+      - "Run Unit Tests"
+      - "Run Integration Tests"
+      - "Run Visual Tests"
