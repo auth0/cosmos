@@ -41,7 +41,7 @@ jobs:
             - ./node_modules
       - run:
           name: build
-          command: yarn scripts ciunit
+          command: yarn scripts test.ciunit
   "Run Integration Tests":
     working_directory: ~/cosmos
     docker:
@@ -62,7 +62,7 @@ jobs:
             - ./node_modules
       - run:
           name: build
-          command: yarn scripts ciintegration
+          command: yarn scripts test.ciintegration
   "Run Visual Tests":
     working_directory: ~/cosmos
     docker:
@@ -83,7 +83,7 @@ jobs:
             - ./node_modules
       - run:
           name: build
-          command: yarn scripts civisual
+          command: yarn scripts test.civisual
 workflows:
   version: 2
   master:
