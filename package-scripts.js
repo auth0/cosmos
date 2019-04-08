@@ -42,7 +42,8 @@ module.exports = {
     },
     test: {
       default: {
-        script: series('production.build', 'test.visual', 'test.unit', 'test.integration'),
+        script: series('production.build', 'test.unit', 'test.integration'),
+        // script: series('production.build', 'test.visual', 'test.unit', 'test.integration'),
         description:
           'Check if applications build + Run visual tests + Run unit and integration tests'
       },
