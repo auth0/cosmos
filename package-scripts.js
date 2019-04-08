@@ -48,7 +48,7 @@ module.exports = {
         script: series('test.integration'),
       },
       civisual: {
-        script: series('test.visual'),
+        script: series('production.build', 'test.visual'),
       },
       default: {
         script: series('production.build'),
