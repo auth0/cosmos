@@ -34,15 +34,21 @@ interface ITableState {
   sortDirection: TableSortDirection
 }
 
+export const tableDefaultComparators = {
+  numbers: (row1, row2, column) => Number(row1[column.field]) - Number(row2[column.field]),
+  strings: (row1, row2, column) => {
+    const r1 = String(row1[column]).toLowerCase()
+    const r2 = String(row2[column]).toLowerCase()
+
+    return r1 > r2 ? -1 : r2 > r1 ? 1 : 0;
+  }
+}
+
 class Table extends React.Component<ITableProps, ITableState> {
   static Header = TableHeader
   static Column = TableColumn
 
-  static compare = {
-    numbers: (row1, row2, column) => Number(row1[column.field]) - Number(row2[column.field]),
-    strings: (row1, row2, column) =>
-      (String(row1[column.field]).toLowerCase() < String(row2[column.field]).toLowerCase()) ? -1 : 1
-  }
+  static compare = tableDefaultComparators
 
   static Container = styled.div`
     ${containerStyles};

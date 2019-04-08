@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { Table, Avatar } from '@auth0/cosmos'
+import { tableDefaultComparators } from '@auth0/cosmos/molecules/table'
 
 const defaultItems = [
   {
@@ -144,5 +145,49 @@ describe('Table', () => {
     expect(getItemsAtColumn(0)).toEqual(['3', '4', '6', '4'])
     expect(getItemsAtColumn(1)).toEqual(['1', '1', '0', '2'])
     expect(getItemsAtColumn(2)).toEqual(['4', '5', '6', '6'])
+  })
+
+  it('sorts strings properly with the default comparator', () => {
+    const strings = [
+      { test: 'b' },
+      { test: 'c' },
+      { test: 'f' },
+      { test: 'd' },
+      { test: 'a' },
+    ]
+
+    const stringsSorted = [
+      { test: 'f' },
+      { test: 'd' },
+      { test: 'c' },
+      { test: 'b' },
+      { test: 'a' },
+    ]
+
+    const result = strings.sort((r1, r2) => tableDefaultComparators.strings(r1, r2, 'test'))
+
+    expect(result).toEqual(stringsSorted)
+  })
+
+  it('sorts numbers properly with the default comparator', () => {
+    const strings = [
+      { test: 2 },
+      { test: 3 },
+      { test: 6 },
+      { test: 4 },
+      { test: 1 },
+    ]
+
+    const stringsSorted = [
+      { test: 6 },
+      { test: 4 },
+      { test: 3 },
+      { test: 2 },
+      { test: 1 },
+    ]
+
+    const result = strings.sort((r1, r2) => tableDefaultComparators.strings(r1, r2, 'test'))
+
+    expect(result).toEqual(stringsSorted)
   })
 })
