@@ -8,9 +8,9 @@
   "scripts": {
     "test": "jest --ci",
     "test-watch": "jest --watch",
-    "test-unit": "jest unit",
+    "test-unit": "jest unit --ci",
     "test-unit-watch": "jest unit --watch",
-    "test-integration": "jest integration",
+    "test-integration": "jest integration --ci",
     "test-integration-watch": "jest integration --watch",
     "coverage": "jest --coverage"
   },
