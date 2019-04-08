@@ -13,25 +13,11 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
-  const directories = [
-    'core/tokens',
-    'core/babel-preset',
-    'core/components'
-    // 'internal/cosmos-scripts'
-  ]
-
-  /* copy .npmrc to each package */
-  directories.forEach(directory => {
-    execa.shellSync(`cp .npmrc ${directory.replace('core', 'dist')}/`)
-  })
-
   /* publish all components */
   try {
-    directories.forEach(directory => {
-      const dir = directory.replace('core', 'dist/core')
-      execa.shellSync(`cd ${dir} && npm publish`)
-      info('PUBLISH', `published ${dir}`)
-    })
+    execa.shellSync(`cp .npmrc core/components/dist/core/components/`)
+    execa.shellSync(`cd core/components/dist/core/components && npm publish`)
+    info('PUBLISH', `published @auth0/cosmos`)
   } catch (err) {
     console.log(err)
     process.exit(1)

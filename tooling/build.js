@@ -22,7 +22,7 @@ directories.forEach(directory => {
 
   /* scripts should import the same version of preset */
   if (directory === 'internal/cosmos-scripts') {
-    content.dependencies['@auth0/babel-preset-cosmos'] = version
+    content.dependencies['d@auth0/babel-preset-cosmos'] = version
   }
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
@@ -35,6 +35,7 @@ prebuild.success('Removed dist folder')
 
 fs.mkdirSync('core/components/dist/core/components/atoms/icon/', { recursive: true })
 fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/icons.json')
+fs.copyFileSync('core/components/package.json', 'core/components/dist/core/components/package.json')
 postbuild.success('Copied icons definition file')
 
 /* transpile tokens & components */
