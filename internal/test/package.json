@@ -6,11 +6,11 @@
   "author": "siddharthkp",
   "license": "MIT",
   "scripts": {
-    "test": "jest --ci --maxWorkers=2",
+    "test": "jest --no-cache --ci --maxWorkers=2",
     "test-watch": "jest --watch",
     "test-unit": "jest unit --ci",
     "test-unit-watch": "jest unit --watch",
-    "test-integration": "jest integration --ci --maxWorkers=2",
+    "test-integration": "jest integration --no-cache --ci --maxWorkers=2",
     "test-integration-watch": "jest integration --watch",
     "coverage": "jest --coverage"
   },
