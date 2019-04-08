@@ -1,4 +1,4 @@
-import Icon, { __ICONNAMES__ } from './icon'
+import Icon from './icon'
 
+export * from './icon'
 export default Icon
-export { __ICONNAMES__ }

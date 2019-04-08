@@ -1,4 +1,4 @@
-import Avatar, { StyledAvatar } from './avatar'
+import Avatar from './avatar'
 
+export * from './avatar'
 export default Avatar
-export { StyledAvatar }

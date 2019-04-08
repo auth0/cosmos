@@ -1,4 +1,4 @@
-import Spinner, { StyledSpinner } from './spinner'
+import Spinner from './spinner'
 
+export * from './spinner'
 export default Spinner
-export { StyledSpinner }
