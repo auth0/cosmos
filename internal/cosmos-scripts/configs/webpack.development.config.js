@@ -19,8 +19,15 @@ module.exports = {
     contentBase: path.resolve(process.cwd(), 'public'),
     disableHostCheck: true
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+  },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'awesome-typescript-loader'
+      },
       {
         test: /\.js?$/,
         loader: 'babel-loader',

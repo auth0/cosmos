@@ -9,14 +9,13 @@ module.exports = {
     production: {
       build: {
         script: series(
+          'packages.build',
           'deploy.catchup',
           'production.directory',
           'icons.build',
           'metadata.build',
           'docs.build',
           'production.copy.docs',
-          'manage.build',
-          'production.copy.manage',
           'sandbox.build',
           'production.copy.redirect'
         ),
@@ -30,10 +29,6 @@ module.exports = {
         docs: {
           script: 'cp -r internal/docs/public build/docs',
           description: 'Copy generated docs site to main production build'
-        },
-        manage: {
-          script: 'cp -r examples/manage/public build/manage',
-          description: 'Copy generated manage POC to main production build'
         },
         redirect: {
           script: 'cp -r internal/redirect/* build/',
@@ -85,12 +80,16 @@ module.exports = {
       }
     },
     metadata: {
+      debug: {
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata --debug',
+        description: 'Generate metadata from components with debug mode'
+      },
       dev: {
-        script: 'node tooling/component-metadata -w',
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata -w',
         description: 'Generate metadata from components with watch mode'
       },
       build: {
-        script: 'node tooling/component-metadata',
+        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata',
         description: 'Generate metadata from components'
       }
     },
@@ -106,16 +105,6 @@ module.exports = {
       build: {
         script: 'cd internal/docs && yarn build',
         description: 'Build documentation site'
-      }
-    },
-    manage: {
-      dev: {
-        script: 'cd examples/manage && yarn dev',
-        description: 'Start manage POC in dev mode'
-      },
-      build: {
-        script: 'cd examples/manage && yarn build',
-        description: 'Build manage POC'
       }
     },
     icons: {
@@ -135,12 +124,20 @@ module.exports = {
       },
       build: {
         script: 'build-storybook -c .storybook -o build/sandbox',
-        description: 'Build sandbox'
+        description: 'Build sandbox for production'
       }
     },
-    codemods: {
-      script: 'jscodeshift -t core/codemods core/components/',
-      description: 'Run codemod on components'
+    packages: {
+      build: {
+        default: {
+          script: 'node tooling/build.js',
+          description: "Build packages for production"
+        },
+        dev: {
+          script: 'node tooling/build.js -w',
+          description: "Build packages in watching mode"
+        }
+      }
     },
     deploy: {
       default: {
@@ -152,8 +149,8 @@ module.exports = {
         description: 'Publish new versions of core packages'
       },
       build: {
-        script: 'node tooling/build.js',
-        description: 'Build packages'
+        script: series('packages.build'),
+        description: 'Build packages for production (packages.build)'
       },
       catchup: {
         script: 'node tooling/catchup.js && yarn install',

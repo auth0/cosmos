@@ -36,7 +36,7 @@ const attachChildren = components => {
 const isParent = component => {
   const directoryName = component.filepath.split('/')[3]
 
-  if (component.filepath.includes(`${directoryName}.js`)) return true
+  if (component.filepath.includes(`${directoryName}.tsx`)) return true
   else return false
 }
 
@@ -57,7 +57,7 @@ const getParent = (components, child) => {
       .join('/') +
     '/' +
     directoryName +
-    '.js'
+    '.tsx'
 
   return components.find(component => component.filepath === parentFilePath)
 }

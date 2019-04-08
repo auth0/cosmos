@@ -9,7 +9,6 @@ const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
 info('CATCH UP', `Picked up version ${version} from root`)
 
 const directories = [
-  'core/tokens',
   'core/babel-preset',
   'core/components',
   'internal/cosmos-scripts'
@@ -21,23 +20,16 @@ directories.forEach(directory => {
   let content = fs.readJsonSync(packageJSONPath)
   content.version = version
 
-  /* components should import the same version of tokens and babel-preset */
-  if (directory === 'core/components') {
-    content.dependencies['@auth0/cosmos-tokens'] = version
-  }
-
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
 
 const dependants = [
   'internal/docs',
-  'examples/manage',
   'examples/perf-tests',
   'examples/webpack-hello-world'
 ]
 const packages = [
   '@auth0/cosmos',
-  '@auth0/cosmos-tokens',
   '@auth0/babel-preset-cosmos',
   '@auth0/cosmos-scripts'
 ]
