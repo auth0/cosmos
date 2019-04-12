@@ -48,8 +48,7 @@ module.exports = {
         script: series('test.integration'),
       },
       civisual: {
-        script: series('sandbox.build
-        ', 'test.visual'),
+        script: series('sandbox.build', 'test.visual'),
       },
       default: {
         script: series('production.build'),
