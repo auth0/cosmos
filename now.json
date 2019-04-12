@@ -1,0 +1,8 @@
+{
+  "name": "cosmos",
+  "version": 1,
+  "alias": "auth0-cosmos-master.now.sh",
+  "engines": {
+    "node": "10"
+  }
+}
