@@ -11,6 +11,7 @@ info('CATCH UP', `Picked up version ${version} from root`)
 const directories = [
   'core/babel-preset',
   'core/components',
+  'core/components/dist/core/components',
   'internal/cosmos-scripts'
 ]
 
@@ -23,16 +24,8 @@ directories.forEach(directory => {
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
 
-const dependants = [
-  'internal/docs',
-  'examples/perf-tests',
-  'examples/webpack-hello-world'
-]
-const packages = [
-  '@auth0/cosmos',
-  '@auth0/babel-preset-cosmos',
-  '@auth0/cosmos-scripts'
-]
+const dependants = ['internal/docs', 'examples/perf-tests', 'examples/webpack-hello-world']
+const packages = ['@auth0/cosmos', '@auth0/babel-preset-cosmos', '@auth0/cosmos-scripts']
 
 /* copy version to all dependants */
 dependants.forEach(directory => {
