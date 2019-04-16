@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@auth0/cosmos": "0.23.1",
-    "@auth0/cosmos-fonts": "0.0.2",
+    "@auth0/cosmos-fonts": "0.0.5",
     "fuzzysearch": "1.0.3",
     "js-beautify": "1.7.5",
     "lodash.kebabcase": "4.1.1",
