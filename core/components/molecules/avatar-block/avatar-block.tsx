@@ -72,7 +72,7 @@ export interface IAvatarBlockProps {
   /** An image URL to display. */
   image?: string
   /** The primary line of text to display. */
-  title: string
+  title: string | React.ReactNode
   /** The type of item represented by the avatar block. */
   type: 'user' | 'resource'
   /** The size of the avatar block. */
@@ -82,7 +82,7 @@ export interface IAvatarBlockProps {
   /** @deprecated:link If specified, the main text will be rendered as a hyperlink */
   href?: string
   /** If specified, the main text will be rendered as a hyperlink */
-  link?: string | { href: string, target?: string }
+  link?: string | { href: string; target?: string }
   onClick?: Function
 }
 
@@ -113,7 +113,6 @@ AvatarBlock.Element = styled.span`
   align-items: center;
   justify-content: start;
 `
-
 
 AvatarBlock.defaultProps = {
   size: 'default'
