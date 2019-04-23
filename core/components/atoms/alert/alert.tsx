@@ -18,7 +18,7 @@ export interface IAlertProps {
   type?: IAlertAppearance // deprecated: use appearance
   appearance?: IAlertAppearance
   icon?: string
-  title?: string
+  title?: string | React.ReactNode
   /** @deprecated:children  */
   text?: string
   /** @deprecated:children  */
@@ -61,15 +61,12 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
     this.state = { visible: true }
   }
 
-
-
   componentDidMount() {
     if (this.props.dismissAfterSeconds) {
       /* timer to auto dismiss the component */
       this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000)
     }
   }
-
 
   componentWillUnmount() {
     /*

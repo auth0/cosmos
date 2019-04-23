@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { fonts } from '@auth0/cosmos-tokens'
+import { fonts } from '@auth0/cosmos/tokens'
 
 const List = styled.ul`
   list-style: ${props => (props.nested ? 'circle' : 'disc')};
