@@ -1,15 +1,11 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { spacing, colors, misc } from '../../tokens'
-import Button, { ButtonAppearance } from '../../atoms/button'
-import Icon from '../../atoms/icon'
-import Automation from '../../_helpers/automation-attribute'
+import * as React from "react";
 
-import {
-  getPaginationSlice,
-  changePageIfAppropiate,
-  pagesFromItems
-} from '../../_helpers/pagination'
+import Automation from "../../_helpers/automation-attribute";
+import { changePageIfAppropiate, getPaginationSlice, pagesFromItems } from "../../_helpers/pagination";
+import Button, { ButtonAppearance } from "../../atoms/button";
+import Icon from "../../atoms/icon";
+import styled from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
 
 const renderPaginationItem = ({
   toPage,
@@ -20,22 +16,24 @@ const renderPaginationItem = ({
   onPageChanged,
   right = false
 }) => (
-    <Button
-      icon={`chevron-${right ? 'right' : 'left'}`}
-      iconAlign={right ? 'right' : 'left'}
-      appearance={appearance}
-      size="compressed"
-      onClick={() => changePageIfAppropiate(toPage, items, perPage, onPageChanged)}
-      aria-label={right ? 'Next page' : 'Previous page'}
-    >
-      {content}
-    </Button>
-  )
+  <Button
+    icon={`chevron-${right ? 'right' : 'left'}`}
+    iconAlign={right ? 'right' : 'left'}
+    appearance={appearance}
+    size="compressed"
+    onClick={() =>
+      changePageIfAppropiate({ rawNextPage: toPage, total: items, perPage, onPageChanged })
+    }
+    aria-label={right ? 'Next page' : 'Previous page'}
+  >
+    {content}
+  </Button>
+)
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
   if (page.clickable === false) return
 
-  return changePageIfAppropiate(page.label, items, perPage, onPageChanged)
+  return changePageIfAppropiate({ rawNextPage: page.label, total: items, perPage, onPageChanged })
 }
 
 export interface IPaginationProps {
@@ -48,7 +46,14 @@ export interface IPaginationProps {
   onPageChanged?: Function
 }
 
-const Pagination = ({ page, perPage, items, appearance, onPageChanged, ...props }: IPaginationProps) => (
+const Pagination = ({
+  page,
+  perPage,
+  items,
+  appearance,
+  onPageChanged,
+  ...props
+}: IPaginationProps) => (
   <Pagination.Element {...Automation('pagination')} {...props}>
     {renderPaginationItem({
       toPage: 1,
@@ -61,7 +66,9 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged, ...props 
 
     <Pagination.IconOnlyButton
       size="compressed"
-      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
+      onClick={() =>
+        changePageIfAppropiate({ rawNextPage: page - 1, total: items, perPage, onPageChanged })
+      }
       icon="chevron-left"
     />
 
@@ -79,7 +86,9 @@ const Pagination = ({ page, perPage, items, appearance, onPageChanged, ...props 
 
     <Pagination.IconOnlyButton
       size="compressed"
-      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
+      onClick={() =>
+        changePageIfAppropiate({ rawNextPage: page + 1, total: items, perPage, onPageChanged })
+      }
       icon="chevron-right"
     />
 

@@ -32,12 +32,18 @@ export function pagesFromItems(items, perPage) {
  * @param {number} perPage
  * @param {function} handlerFn
  */
-export function changePageIfAppropiate(rawNextPage, total, perPage, handlerFn) {
+export function changePageIfAppropiate({
+  rawNextPage,
+  total,
+  perPage,
+  onPageChanged,
+  ignoreNextPageCheck = false
+}) {
   const nextPage = parseInt(rawNextPage)
   const pageCount = pagesFromItems(total, perPage)
   const nextPageExists = nextPage > 0 && nextPage <= pageCount
-
-  if (nextPageExists) handlerFn(nextPage)
+  const shouldCallNextPageHandler = ignoreNextPageCheck || nextPageExists
+  if (shouldCallNextPageHandler && typeof onPageChanged === 'function') onPageChanged(nextPage)
 }
 
 /**

@@ -1,13 +1,13 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { colors, spacing } from '../../tokens'
-import TextInput from '../../atoms/text-input'
-import Button from '../../atoms/button'
-import ButtonGroup from '../../molecules/button-group'
-import Icon from '../../atoms/icon'
-import Automation from '../../_helpers/automation-attribute'
+import * as React from "react";
 
-import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from '../../_helpers/pagination'
+import Automation from "../../_helpers/automation-attribute";
+import { changePageIfAppropiate, pageInputWidth, pagesFromItems } from "../../_helpers/pagination";
+import Button from "../../atoms/button";
+import Icon from "../../atoms/icon";
+import TextInput from "../../atoms/text-input";
+import ButtonGroup from "../../molecules/button-group";
+import styled from "../../styled";
+import { colors, spacing } from "../../tokens";
 
 const Pager = ({ page, pages, onPrevPressed, onNextPressed }) => {
   const inFirstPage = page === 1
@@ -49,7 +49,13 @@ export interface IPaginationToolbarProps {
   onPageChanged?: Function
 }
 
-const PaginationToolbar = ({ onPageChanged, page, perPage, items, ...props }: IPaginationToolbarProps) => {
+const PaginationToolbar = ({
+  onPageChanged,
+  page,
+  perPage,
+  items,
+  ...props
+}: IPaginationToolbarProps) => {
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is one page or less
@@ -63,15 +69,21 @@ const PaginationToolbar = ({ onPageChanged, page, perPage, items, ...props }: IP
           type="number"
           size="compressed"
           value={page.toString()}
-          onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
+          onChange={({ target: { value } }) =>
+            changePageIfAppropiate({ rawNextPage: value, total: items, perPage, onPageChanged })
+          }
         />
         <div>of {pages}</div>
       </PaginationToolbar.PageSelector>
       <Pager
         page={page}
         pages={pages}
-        onNextPressed={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
-        onPrevPressed={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
+        onNextPressed={() =>
+          changePageIfAppropiate({ rawNextPage: page + 1, total: items, perPage, onPageChanged })
+        }
+        onPrevPressed={() =>
+          changePageIfAppropiate({ rawNextPage: page - 1, total: items, perPage, onPageChanged })
+        }
       />
     </PaginationToolbar.Element>
   )

@@ -1,11 +1,12 @@
-import * as React from 'react'
+import * as React from "react";
+
 import {
+  changePageIfAppropiate,
+  getPaginationSlice,
   pageInputWidth,
   pagesFromItems,
-  changePageIfAppropiate,
-  totals,
-  getPaginationSlice
-} from '@auth0/cosmos/_helpers/pagination'
+  totals
+} from "@auth0/cosmos/_helpers/pagination";
 
 describe('Pagination helper tests', () => {
   it('should calculate page input width', () => {
@@ -28,11 +29,21 @@ describe('Pagination helper tests', () => {
     let nextPage = 121
     const totalItems = 1200
     const perPage = 10
-    changePageIfAppropiate(nextPage, totalItems, perPage, changePageHandler)
+    changePageIfAppropiate({
+      rawNextPage: nextPage,
+      total: totalItems,
+      perPage,
+      onPageChanged: changePageHandler
+    })
     expect(changePageHandler).not.toHaveBeenCalled()
 
     nextPage = 120
-    changePageIfAppropiate(nextPage, totalItems, perPage, changePageHandler)
+    changePageIfAppropiate({
+      rawNextPage: nextPage,
+      total: totalItems,
+      perPage,
+      onPageChanged: changePageHandler
+    })
     expect(changePageHandler).toHaveBeenCalledWith(nextPage)
   })
 
@@ -42,11 +53,37 @@ describe('Pagination helper tests', () => {
     let nextPage = -1
     const totalItems = 1200
     const perPage = 10
-    changePageIfAppropiate(nextPage, totalItems, perPage, changePageHandler)
+    changePageIfAppropiate({
+      rawNextPage: nextPage,
+      total: totalItems,
+      perPage,
+      onPageChanged: changePageHandler
+    })
     expect(changePageHandler).not.toHaveBeenCalled()
 
     nextPage = 1
-    changePageIfAppropiate(nextPage, totalItems, perPage, changePageHandler)
+    changePageIfAppropiate({
+      rawNextPage: nextPage,
+      total: totalItems,
+      perPage,
+      onPageChanged: changePageHandler
+    })
+    expect(changePageHandler).toHaveBeenCalledWith(nextPage)
+  })
+
+  it('should call change page handler if ignoreNextPageCheck=true', () => {
+    const changePageHandler = jest.fn()
+
+    const nextPage = 100000000
+    const totalItems = 10
+    const perPage = 10
+    changePageIfAppropiate({
+      rawNextPage: nextPage,
+      total: totalItems,
+      perPage,
+      onPageChanged: changePageHandler,
+      ignoreNextPageCheck: true
+    })
     expect(changePageHandler).toHaveBeenCalledWith(nextPage)
   })
 

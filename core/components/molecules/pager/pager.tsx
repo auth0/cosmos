@@ -1,10 +1,10 @@
-import * as React from 'react'
-import styled from '../../styled'
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
+import * as React from "react";
 
-import Button from '../../atoms/button'
-import { changePageIfAppropiate, totals } from '../../_helpers/pagination'
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import { changePageIfAppropiate, totals } from "../../_helpers/pagination";
+import Button from "../../atoms/button";
+import styled from "../../styled";
 
 export interface IPagerProps {
   /** HTML ID of the component */
@@ -15,29 +15,46 @@ export interface IPagerProps {
   onPageChanged?: Function
 }
 
-
-const Pager = ({ onPageChanged, page, perPage, items, ...props }: IPagerProps) => (
-  <Pager.Element {...Automation('pager')} {...props}>
-    <Button
-      size="compressed"
-      appearance="secondary"
-      onClick={() => changePageIfAppropiate(page - 1, items, perPage, onPageChanged)}
-      icon="chevron-left"
-    >
-      Newer
-    </Button>
-    <Pager.PageSelector page={page}>{items && totals(page, perPage, items)}</Pager.PageSelector>
-    <Button
-      size="compressed"
-      appearance="secondary"
-      icon="chevron-right"
-      iconAlign="right"
-      onClick={() => changePageIfAppropiate(page + 1, items, perPage, onPageChanged)}
-    >
-      Older
-    </Button>
-  </Pager.Element>
-)
+const Pager = ({ onPageChanged, page, perPage, items, ...props }: IPagerProps) => {
+  return (
+    <Pager.Element {...Automation('pager')} {...props}>
+      <Button
+        size="compressed"
+        appearance="secondary"
+        onClick={() =>
+          changePageIfAppropiate({
+            rawNextPage: page - 1,
+            total: items,
+            perPage,
+            onPageChanged,
+            ignoreNextPageCheck: !items
+          })
+        }
+        icon="chevron-left"
+      >
+        Newer
+      </Button>
+      <Pager.PageSelector>{!!items && totals(page, perPage, items)}</Pager.PageSelector>
+      <Button
+        size="compressed"
+        appearance="secondary"
+        icon="chevron-right"
+        iconAlign="right"
+        onClick={() =>
+          changePageIfAppropiate({
+            rawNextPage: page + 1,
+            total: items,
+            perPage,
+            onPageChanged,
+            ignoreNextPageCheck: !items
+          })
+        }
+      >
+        Older
+      </Button>
+    </Pager.Element>
+  )
+}
 
 Pager.Element = styled.div`
   ${containerStyles};
