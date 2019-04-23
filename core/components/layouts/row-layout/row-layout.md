@@ -27,7 +27,7 @@ Use the `Rowlayout` to organize components vertically into row.
 
 Combine the `ColymnLayout` with the `RowLayout` to achieve complex grid arrangments.
 
-## Accecibility
+## Accessibility
 
 This layout is semantic free.
 
