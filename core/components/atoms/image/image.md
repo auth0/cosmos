@@ -152,7 +152,7 @@ _How do I write good alt text?_
 - Don't use images as text.
 - Don't include "image of," "picture of," etc. in your alt text.
 
-Since writting good alternative text is critical to pass an accecibility audit please make sure to read the articles below on the Resources section.
+Since writting good alternative text is critical to pass an accessibility audit please make sure to read the articles below on the Resources section.
 
 ## Resources
 
