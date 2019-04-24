@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+
+## 0.23.10 [April 24, 2019]
+
+### Added
+
+- Select: add `autoFocus` support. [#1586]
+- Icon: added`expand-arrows`, `compress-arrows`, `history`, `lock-cancel`, `lock-check`, `reload-cancel`, `reload-check`, `key` icons. [#1583]
+
+### Fixed
+
+- Select: pass down `name` property to **react-select**. [#1586]
+
+
 ## 0.23.9 [April 24, 2019]
 
 ### Fixed
