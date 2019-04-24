@@ -146,8 +146,10 @@ export interface ISelectProps {
   defaultOptions?: Object[] | boolean
   /** Used to provide custom styled to the Select wrapper */
   style?: Object
+  /** Used to focus the control when it mounts */
+  autoFocus?: boolean
   /** @internal */
-  defaultMenuOpen?: boolean,
+  defaultMenuOpen?: boolean
   inputValue?: string
 }
 
@@ -292,6 +294,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
               noOptionsMessage={noOptionsMessage}
               defaultOptions={defaultOptions}
               theme={selectTheme}
+              autoFocus={props.autoFocus}
+              name={props.name}
               value={value}
               styles={styles}
               key={value ? value.length : 0}
