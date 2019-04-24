@@ -1,25 +1,26 @@
-import * as React from 'react'
-import Automation from '../../_helpers/automation-attribute'
-import styled from '../../styled'
-import ReactSelect, { defaultTheme, components } from 'react-select'
-import AsyncSelect from 'react-select/lib/Async'
-import { misc, colors, spacing } from '../../tokens'
-import SimpleSelect from '../_simple-select'
-import Form from '../../molecules/form'
+import * as React from "react";
+import ReactSelect, { components, defaultTheme } from "react-select";
+import AsyncSelect from "react-select/lib/Async";
+
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
+import styled from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
+import SimpleSelect from "../_simple-select";
 import {
+  ClearIndicator,
+  DropdownIndicator,
+  Group,
   GroupHeading,
+  LoadingIndicator,
   Menu,
   MenuList,
-  Option,
-  LoadingIndicator,
-  DropdownIndicator,
-  ClearIndicator,
   MultiValue,
-  Group,
+  Option,
   optionRenderer,
   valueRenderer
-} from './components'
-import { ISelectOptions } from './interfaces';
+} from "./components";
+import { ISelectOptions } from "./interfaces";
 
 const defaultGetOptionValue = option => option.value
 
@@ -80,17 +81,17 @@ const cosmosToReactSelect = {
     control: (provided, state) =>
       props.hasError
         ? {
-          ...provided,
-          borderColor: colors.input.borderError,
-          boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
-          '&:hover': {
-            borderColor: colors.input.borderError
-          },
-          '&:focus': {
+            ...provided,
             borderColor: colors.input.borderError,
-            boxShadow: `0 0 0 2px ${colors.input.borderError}`
+            boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
+            '&:hover': {
+              borderColor: colors.input.borderError
+            },
+            '&:focus': {
+              borderColor: colors.input.borderError,
+              boxShadow: `0 0 0 2px ${colors.input.borderError}`
+            }
           }
-        }
         : provided
   })
 }
