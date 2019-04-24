@@ -77,7 +77,7 @@ const buildSvgoProcessor = ({ precision = 3 } = {}) =>
   })
 
 const run = () => {
-  info('DOCS', 'Generating icons')
+  info('BUILD', 'Generating icons')
 
   // We will use svgo to remove unnecessary data from the SVG file.
   const svgo = buildSvgoProcessor()
