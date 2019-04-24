@@ -15,33 +15,46 @@ import { actionShapeWithRequiredIcon, ActionWithIcon } from '../../_helpers/acti
 
 export type TextInputSize = 'default' | 'large' | 'small' | 'compressed'
 
-//exclude types from the InputHTMLAttributes
-export declare const {
-  defaultValue,
-  value,
-  size,
-  ...inputAttributes
-}: React.InputHTMLAttributes<HTMLInputElement>
-export type InputAttributes = typeof inputAttributes
-
-export interface ITextInputProps extends Partial<InputAttributes> {
+export interface ITextInputProps {
+  /** HTML ID for the element */
+  id?: string
+  /** HTML name for the element */
+  name?: string
   /** Hide input similar to passwords but for other private information. Implies readOnly. */
   masked?: boolean
+  /** Make input readOnly if it does not validate constraint */
+  readOnly?: boolean
   /** Use when the expected input is code */
   code?: boolean
   /** Pass hasError to show error state */
   hasError?: boolean
   /** @deprecated:hasError Pass error string directly to show error state */
   error?: string
+  /** onChange transparently passed to the input */
+  onChange?: Function
+  /** Text to display when the input is empty */
+  placeholder?: string
   /** The default value for the field */
   defaultValue?: string
   /** The current value for the field */
   value?: string
+  /** The (HTML) type for the input. */
+  type?: string
   /** The size of the input. */
   size?: TextInputSize
+  /** The (HTML) label for the input. */
+  label?: string
   /** Actions to be attached to the input */
   actions?: (React.ReactNode | ActionWithIcon)[]
-  label?: string
+  onClick?: Function
+  onBlur?: Function
+  onFocus?: Function
+  /** Native HTML pattern property, accepts a regular expression to validate the input */
+  pattern?: string
+  disabled?: boolean
+  min?: number
+  max?: number
+  autoFocus?: boolean
 }
 
 const TextInput = (props: ITextInputProps) => {
