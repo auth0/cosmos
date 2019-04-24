@@ -6,16 +6,16 @@ exports[`Select async variant renders ReactSelect 1`] = `
   data-cosmos-key="select.wrapper"
 >
   <div
-    class="css-1pcexqc-container"
+    class="css-10nd86i"
   >
     <div
-      class="css-xorvj4-control"
+      class="css-1dhouxp"
     >
       <div
         class="css-1hwfws3"
       >
         <div
-          class="css-151xaom-placeholder"
+          class="css-1492t68"
         >
           Something
         </div>
@@ -33,7 +33,7 @@ exports[`Select async variant renders ReactSelect 1`] = `
               autocorrect="off"
               id="react-select-5-input"
               spellcheck="false"
-              style="box-sizing:content-box;width:1px;label:input;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
+              style="box-sizing:content-box;width:1px;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
               tabindex="0"
               type="text"
               value=""
@@ -79,21 +79,21 @@ exports[`Select customOptionRenderer variant renders ReactSelect 1`] = `
   data-cosmos-key="select.wrapper"
 >
   <div
-    class="css-1pcexqc-container"
+    class="css-10nd86i"
   >
     <div
-      class="css-xorvj4-control"
+      class="css-1dhouxp"
     >
       <div
         class="css-1hwfws3"
       >
         <div
-          class="css-151xaom-placeholder"
+          class="css-1492t68"
         >
           Something
         </div>
         <input
-          class="css-gj7qu5-dummyInput"
+          class="css-14uuagi"
           id="react-select-4-input"
           readonly=""
           tabindex="0"
@@ -135,21 +135,21 @@ exports[`Select multiple variant renders ReactSelect 1`] = `
   data-cosmos-key="select.wrapper"
 >
   <div
-    class="css-1pcexqc-container"
+    class="css-10nd86i"
   >
     <div
-      class="css-xorvj4-control"
+      class="css-1dhouxp"
     >
       <div
         class="css-1hwfws3"
       >
         <div
-          class="css-151xaom-placeholder"
+          class="css-1492t68"
         >
           Something
         </div>
         <input
-          class="css-gj7qu5-dummyInput"
+          class="css-14uuagi"
           id="react-select-2-input"
           readonly=""
           tabindex="0"
@@ -191,16 +191,16 @@ exports[`Select searchable variant renders ReactSelect 1`] = `
   data-cosmos-key="select.wrapper"
 >
   <div
-    class="css-1pcexqc-container"
+    class="css-10nd86i"
   >
     <div
-      class="css-xorvj4-control"
+      class="css-1dhouxp"
     >
       <div
         class="css-1hwfws3"
       >
         <div
-          class="css-151xaom-placeholder"
+          class="css-1492t68"
         >
           Something
         </div>
@@ -218,7 +218,7 @@ exports[`Select searchable variant renders ReactSelect 1`] = `
               autocorrect="off"
               id="react-select-3-input"
               spellcheck="false"
-              style="box-sizing:content-box;width:1px;label:input;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
+              style="box-sizing:content-box;width:1px;background:0;border:0;font-size:inherit;opacity:1;outline:0;padding:0;color:inherit"
               tabindex="0"
               type="text"
               value=""
