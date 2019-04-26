@@ -1,15 +1,16 @@
-import * as React from 'react'
-import styled from '../../styled'
-import SidebarLink from './sidebar-link'
-import { __ICONNAMES__ } from '../../atoms/icon'
-import Automation from '../../_helpers/automation-attribute'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import { __ICONNAMES__ } from "../../atoms/icon";
+import styled from "../../styled";
+import SidebarLink from "./sidebar-link";
 
 export interface ISidebarLinkGroupProps {
   /** HTML ID of the component */
   id?: string
   icon: string
   label: string
-  children: React.ReactNode,
+  children: React.ReactNode
   /** @internal */
   defaultOpen?: boolean
 }
@@ -81,6 +82,5 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
     )
   }
 }
-
 
 export default SidebarLinkGroup

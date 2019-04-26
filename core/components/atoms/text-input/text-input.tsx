@@ -15,7 +15,6 @@ import { actionShapeWithRequiredIcon, ActionWithIcon } from '../../_helpers/acti
 
 export type TextInputSize = 'default' | 'large' | 'small' | 'compressed'
 
-
 export interface ITextInputProps {
   /** HTML ID for the element */
   id?: string
@@ -48,6 +47,8 @@ export interface ITextInputProps {
   /** Actions to be attached to the input */
   actions?: (React.ReactNode | ActionWithIcon)[]
   onClick?: Function
+  onBlur?: Function
+  onFocus?: Function
   /** Native HTML pattern property, accepts a regular expression to validate the input */
   pattern?: string
   disabled?: boolean
