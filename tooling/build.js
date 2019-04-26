@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
+
 const { Signale } = require('signale')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
@@ -32,8 +33,7 @@ prebuild.success('Copied root version to all packages')
 /* create dist folder */
 fs.removeSync('core/components/dist')
 prebuild.success('Removed dist folder')
-
-fs.mkdirSync('core/components/dist/core/components/atoms/icon/', { recursive: true })
+execa.shellSync('mkdir -p core/components/dist/core/components/atoms/icon/')
 fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/icons.json')
 fs.copyFileSync('core/components/package.json', 'core/components/dist/core/components/package.json')
 postbuild.success('Copied icons definition file')
