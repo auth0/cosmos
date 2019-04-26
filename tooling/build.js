@@ -2,10 +2,6 @@ const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
-const { repo, sha, event, commit_message, pull_request_number, branch, ci } = require('ci-env')
-
-console.log('Build info', { repo, sha, event, commit_message, pull_request_number, branch, ci })
-
 
 const { Signale } = require('signale')
 
