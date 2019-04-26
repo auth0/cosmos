@@ -3,7 +3,7 @@
   description: Use Links to connect pages with each other
 ```
 
-`import { Button } from '@auth0/cosmos'`
+`import { Link } from '@auth0/cosmos'`
 
 ---
 
