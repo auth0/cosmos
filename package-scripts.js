@@ -90,7 +90,8 @@ module.exports = {
     },
     metadata: {
       debug: {
-        script: 'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata --debug',
+        script:
+          'ts-node --project ./tooling/tsconfig.tooling.json tooling/component-metadata --debug',
         description: 'Generate metadata from components with debug mode'
       },
       dev: {
@@ -140,11 +141,11 @@ module.exports = {
       build: {
         default: {
           script: 'node tooling/build.js',
-          description: "Build packages for production"
+          description: 'Build packages for production'
         },
         dev: {
           script: 'node tooling/build.js -w',
-          description: "Build packages in watching mode"
+          description: 'Build packages in watching mode'
         }
       }
     },
@@ -158,7 +159,7 @@ module.exports = {
         description: 'Publish new versions of core packages'
       },
       build: {
-        script: series('packages.build'),
+        script: series('icons.build', 'packages.build'),
         description: 'Build packages for production (packages.build)'
       },
       catchup: {
