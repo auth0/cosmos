@@ -23,6 +23,7 @@
 
 ## Examples
 
+
 ### Default structure
 
 The `List` default structure has a `List.Header`, `List.Body`, and `List.Footer` to distribute the content within a row.
