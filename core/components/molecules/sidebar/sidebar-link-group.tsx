@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import { __ICONNAMES__ } from "../../atoms/icon";
-import styled from "../../styled";
-import SidebarLink from "./sidebar-link";
+import Automation from '../../_helpers/automation-attribute'
+import { __ICONNAMES__ } from '../../atoms/icon'
+import styled from '../../styled'
+import SidebarLink from './sidebar-link'
 
 export interface ISidebarLinkGroupProps {
   /** HTML ID of the component */

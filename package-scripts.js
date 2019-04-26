@@ -42,13 +42,13 @@ module.exports = {
     },
     test: {
       ciunit: {
-        script: series('test.unit'),
+        script: series('test.unit')
       },
       ciintegration: {
-        script: series('test.integration'),
+        script: series('test.integration')
       },
       civisual: {
-        script: series('sandbox.build', 'test.visual'),
+        script: series('sandbox.build', 'test.visual')
       },
       default: {
         script: series('production.build'),
