@@ -41,8 +41,17 @@ module.exports = {
       }
     },
     test: {
+      ciunit: {
+        script: series('test.unit'),
+      },
+      ciintegration: {
+        script: series('test.integration'),
+      },
+      civisual: {
+        script: series('sandbox.build', 'test.visual'),
+      },
       default: {
-        script: series('production.build', 'test.visual', 'test.unit', 'test.integration'),
+        script: series('production.build'),
         description:
           'Check if applications build + Run visual tests + Run unit and integration tests'
       },
