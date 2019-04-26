@@ -1,8 +1,7 @@
-const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
-const { info, warn, error } = require('prettycli')
+const { info, warn } = require('prettycli')
 const latestVersion = require('latest-version')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
@@ -14,25 +13,11 @@ latestVersion('@auth0/cosmos').then(publishedVersion => {
     process.exit(0)
   }
 
-  const directories = [
-    'core/tokens',
-    'core/babel-preset',
-    'core/components'
-    // 'internal/cosmos-scripts'
-  ]
-
-  /* copy .npmrc to each package */
-  directories.forEach(directory => {
-    execa.shellSync(`cp .npmrc ${directory.replace('core', 'dist')}/`)
-  })
-
   /* publish all components */
   try {
-    directories.forEach(directory => {
-      const dir = directory.replace('core', 'dist')
-      execa.shellSync(`cd ${dir} && npm publish`)
-      info('PUBLISH', `published ${dir}`)
-    })
+    execa.shellSync(`cp .npmrc core/components/dist/core/components/`)
+    execa.shellSync(`cd core/components/dist/core/components && npm publish`)
+    info('PUBLISH', `published @auth0/cosmos`)
   } catch (err) {
     console.log(err)
     process.exit(1)

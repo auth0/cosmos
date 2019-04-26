@@ -2,12 +2,18 @@ const fs = require('fs-extra')
 const execa = require('execa')
 const path = require('path')
 const readPkg = require('read-pkg')
-const { info, warn, error } = require('prettycli')
-const latestVersion = require('latest-version')
+
+const { Signale } = require('signale')
 
 const { version } = readPkg.sync(path.resolve(__dirname, '../package.json'))
+const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 
-const directories = ['core/tokens', 'core/babel-preset', 'core/components']
+const directories = ['core/babel-preset', 'core/components']
+
+const sign = new Signale();
+const prebuild = sign.scope('pre-build')
+const postbuild = sign.scope('post-build')
+const log = sign.scope('cosmos')
 
 /* copy root version to all dependencies */
 directories.forEach(directory => {
@@ -15,50 +21,36 @@ directories.forEach(directory => {
   let content = fs.readJsonSync(packageJSONPath)
   content.version = version
 
-  /* components should import the same version of tokens */
-  if (directory === 'core/components') {
-    content.dependencies['@auth0/cosmos-tokens'] = version
-  }
-
   /* scripts should import the same version of preset */
   if (directory === 'internal/cosmos-scripts') {
-    content.dependencies['@auth0/babel-preset-cosmos'] = version
+    content.dependencies['d@auth0/babel-preset-cosmos'] = version
   }
 
   fs.writeJsonSync(packageJSONPath, content, { spaces: 2 })
 })
-info('BUILD', 'Copied root version to all packages')
+prebuild.success('Copied root version to all packages')
 
 /* create dist folder */
-fs.removeSync('dist')
-info('BUILD', 'Removed dist folder')
-fs.mkdirsSync('dist')
-info('BUILD', 'Created dist folder')
+fs.removeSync('core/components/dist')
+prebuild.success('Removed dist folder')
+execa.shellSync('mkdir -p core/components/dist/core/components/atoms/icon/')
+fs.copyFileSync('core/components/atoms/icon/icons.json', 'core/components/dist/core/components/atoms/icon/icons.json')
+fs.copyFileSync('core/components/package.json', 'core/components/dist/core/components/package.json')
+postbuild.success('Copied icons definition file')
 
-/* copy all packages for publishing */
-directories.forEach(directory => {
-  fs.copySync(directory, directory.replace('core', 'dist').replace('internal', 'dist'))
-})
-info('BUILD', 'Copied files to dist')
-
-const presetPath = path.resolve(__dirname, '../dist/babel-preset/packages.js')
-
-/* transpile components */
+/* transpile tokens & components */
 try {
-  execa.shellSync(
-    `./node_modules/.bin/babel --presets=${presetPath} core/components -d dist/components`
-  )
-  info('BUILD', 'Transpiled components')
+  if (!watch) {
+    log.time('cosmos-transpilation');
+  } else {
+    log.info('Package build started in watch mode');
+  }
+  execa.shellSync(`./node_modules/.bin/tsc ${watch ? '-w' : ''} --declaration --project ./core/`)
+  if (!watch) {
+    log.timeEnd('cosmos-transpilation')
+    log.success('Transpiled components and tokens')
+  }
 } catch (err) {
-  console.log(err)
-  process.exit(1)
-}
-
-/* transpile tokens */
-try {
-  execa.shellSync(`./node_modules/.bin/babel --presets=${presetPath} core/tokens -d dist/tokens`)
-  info('BUILD', 'Transpiled tokens')
-} catch (err) {
-  console.log(err)
+  log.error(err)
   process.exit(1)
 }

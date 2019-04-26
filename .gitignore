@@ -67,8 +67,11 @@ typings/
 build
 dist
 
+package-lock.json
+
 # ignore generated files
 core/components/meta
+core/components/dist
 internal/docs/public/main.js
 internal/overview/public/main.js
 *.d.ts

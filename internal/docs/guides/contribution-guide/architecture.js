@@ -23,9 +23,6 @@ const Architecture = () => (
             <Code>src</Code> also contains 3 other directories that are not published
           </Text>
           <List.Item>
-            <Code>codemods</Code>: Codemods for cosmos (not published)
-          </List.Item>
-          <List.Item>
             <Code>icons</Code>: Birds eye view of components
           </List.Item>
           <List.Item>

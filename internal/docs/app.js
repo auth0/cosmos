@@ -1,8 +1,8 @@
+import '@auth0/cosmos-fonts'
 import React from 'react'
 import styled from 'styled-components'
-import { HashRouter as Router, Link, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import { Icon } from '@auth0/cosmos'
-import '@auth0/cosmos-fonts'
 
 import Sidebar from './sidebar'
 import ComponentPage from './component'
@@ -17,9 +17,11 @@ class App extends React.Component {
 
     this.state = { sidebarVisible: false }
   }
+
   toggleSidebar = () => {
     this.setState({ sidebarVisible: !this.state.sidebarVisible })
   }
+
   componentDidMount() {
     // Copied from: https://github.com/ReactTraining/react-router/issues/394#issuecomment-128148470
     // Decode entities in the URL

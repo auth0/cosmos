@@ -109,6 +109,13 @@ const getPropString = propData => {
       }
     }
 
+    const stringTypes = ['IAlertAppearance', 'LinkType']
+
+    if (stringTypes.indexOf(propData[name].type.name) >= 0 || propData[name].type.name.includes('|')) {
+      propString += ` ${name}="${propData[name].value}"`
+      return true
+    }
+
     /*
       Default case:
       If something reaches here, we probably don't know what to do with yet.

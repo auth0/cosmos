@@ -5,6 +5,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.23.10 [April 24, 2019]
+
+### Added
+
+- Select: add `autoFocus` support. [#1586]
+- Icon: added`expand-arrows`, `compress-arrows`, `history`, `lock-cancel`, `lock-check`, `reload-cancel`, `reload-check`, `key` icons. [#1583]
+
+### Fixed
+
+- Select: pass down `name` property to **react-select**. [#1586]
+
+## 0.23.9 [April 24, 2019]
+
+### Fixed
+
+- [Text Input] Add `onBlur` and `onFocus` native input props. [#1584]
+
+## 0.23.8 [April 22, 2019]
+
+### Fixed
+
+- [Avatar Block] Fixed issue with title prop typing.
+
+## 0.23.7 [April 16, 2019]
+
+### Fixed
+
+- [Alert] Fixed issue with title prop typing.
+
+## 0.23.6 [April 15, 2019]
+
+### Added
+
+- Refactored Cosmos using Typescript. [#1576]
+
+## 0.23.1 [March 20, 2019]
+
+### Fixed
+
+- List: Cover other drawer related helper functions on check for null. [#1571]
+
 ## 0.23.0 [March 20, 2019]
 
 ### Added

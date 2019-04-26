@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Field - old API renders the correct id 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "fullWidth": undefined,
+      "layout": "label-on-left",
+    }
+  }
+>
+  <styled.form
+    data-cosmos-key="form"
+    layout="label-on-left"
+  >
+    <Form Field
+      error={null}
+      helpText={null}
+      label="Old API"
+    >
+      <Component
+        type="text"
+      />
+    </Form Field>
+  </styled.form>
+</ContextProvider>
+`;
+
+exports[`Form Field renders the correct id 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "fullWidth": undefined,
+      "layout": "label-on-left",
+    }
+  }
+>
+  <styled.form
+    data-cosmos-key="form"
+    layout="label-on-left"
+  >
+    <Form Field
+      error={null}
+      helpText={null}
+      label="Field label"
+    >
+      <TextInput
+        actions={Array []}
+        code={false}
+        error={null}
+        onChange={null}
+        readOnly={false}
+        size="default"
+        type="text"
+      />
+    </Form Field>
+  </styled.form>
+</ContextProvider>
+`;

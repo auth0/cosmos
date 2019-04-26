@@ -10,8 +10,15 @@ module.exports = {
     filename: 'main.[contenthash].js',
     path: path.resolve(process.cwd(), 'public')
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+  },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)$/,
+        loader: require.resolve('awesome-typescript-loader')
+      },
       {
         test: /\.js?$/,
         loader: 'babel-loader',
@@ -19,6 +26,7 @@ module.exports = {
           presets: ['@auth0/babel-preset-cosmos']
         }
       },
+
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']

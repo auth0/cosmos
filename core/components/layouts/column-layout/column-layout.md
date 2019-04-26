@@ -35,7 +35,7 @@ Use the `ColumnLayout` to organize components horizontally into columns.
 
 Combine the `ColymnLayout` with the `RowLayout` to achieve complex grid arrangments.
 
-## Accecibility
+## Accessibility
 
 This layout is semantic free.
 

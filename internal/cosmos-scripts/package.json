@@ -1,6 +1,6 @@
 {
   "name": "@auth0/cosmos-scripts",
-  "version": "0.23.0",
+  "version": "0.23.10",
   "description": "",
   "bin": {
     "cosmos-scripts": "cli.js"
@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@auth0/babel-preset-cosmos": "0.7.2",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
