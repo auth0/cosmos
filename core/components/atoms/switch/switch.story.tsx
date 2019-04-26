@@ -1,4 +1,4 @@
-import * as  React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Example } from '../../_helpers/story-helpers'
 
@@ -31,14 +31,14 @@ storiesOf('Switch', module).add('readonly', () => (
 
 storiesOf('Switch', module).add('accessibility labels', () => (
   <Example title="Switch">
-    <Switch accessibleLabels={[]} onChange={() => { }} />
-    <Switch accessibleLabels={['ON', 'OFF']} onChange={() => { }} />
-    <Switch on accessibleLabels={['ON', 'OFF']} onChange={() => { }} />
+    <Switch accessibleLabels={[]} onChange={() => {}} />
+    <Switch accessibleLabels={['ON', 'OFF']} onChange={() => {}} />
+    <Switch on accessibleLabels={['ON', 'OFF']} onChange={() => {}} />
   </Example>
 ))
 
 storiesOf('Switch', module).add('hidden accessibility labels', () => (
   <Example title="Switch">
-    <Switch hideAccessibleLabels onChange={() => { }} />
+    <Switch hideAccessibleLabels onChange={() => {}} />
   </Example>
 ))

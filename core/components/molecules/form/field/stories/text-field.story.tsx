@@ -58,8 +58,8 @@ storiesOf('Form', module).add('text field - old API', () => (
         type="text"
         placeholder="Enter something"
         actions={[
-          { icon: 'copy', handler: () => { }, label: 'Copy to clipboard' },
-          { icon: 'delete', handler: () => { }, label: 'Delete' }
+          { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
+          { icon: 'delete', handler: () => {}, label: 'Delete' }
         ]}
       />
     </Form>

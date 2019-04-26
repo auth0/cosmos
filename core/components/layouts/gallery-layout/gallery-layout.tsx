@@ -49,7 +49,6 @@ GalleryLayout.Element = styled.ul`
 
 GalleryLayout.Item = styled.li``
 
-
 GalleryLayout.defaultProps = {
   size: 'medium',
   gutter: 'medium'

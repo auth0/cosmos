@@ -7,7 +7,7 @@ import { Icon } from '../../'
 import { spacing } from '@auth0/cosmos/tokens'
 import iconsRaw from './icons.json'
 
-const icons = iconsRaw.icons;
+const icons = iconsRaw.icons
 
 storiesOf('Icon', module).add('default', () => (
   <Example title="Icons">

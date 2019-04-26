@@ -20,7 +20,7 @@ export interface IFormProps {
   /** Two options for controlling form layout */
   layout?: 'label-on-left' | 'label-on-top'
   /** Remove the 625px constraint from the form fields width */
-  fullWidth?: boolean,
+  fullWidth?: boolean
   children?: React.ReactNode
   onSubmit?: Function
 }
@@ -38,7 +38,7 @@ Form.Select = props => <ExtField {...props} fieldComponent={ExtSelect} />
 Form.Switch = props => <ExtField {...props} fieldComponent={ExtSwitch} />
 
 const FormRadio: { (props): JSX.Element; Option: any } = (() => {
-  const Radio = (props) => <ExtField {...props} fieldComponent={ExtRadio} />;
+  const Radio = props => <ExtField {...props} fieldComponent={ExtRadio} />
   Radio.Option = ExtRadio.Option
   return Radio
 })()
@@ -57,6 +57,5 @@ Form.Element = styled.form`
 Form.defaultProps = {
   layout: 'label-on-left'
 }
-
 
 export default Form

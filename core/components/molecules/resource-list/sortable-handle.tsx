@@ -5,7 +5,7 @@ import { Tooltip } from '../../'
 import { spacing, colors } from '../../tokens'
 import Button from '../../atoms/button'
 
-const noop = () => { }
+const noop = () => {}
 
 /**
  * Notifies handle's parent when its focus state changes
@@ -15,17 +15,19 @@ const noop = () => { }
 const notifyFocusStatusChange = (props, onFocus, ev) =>
   props && props.onFocusStatusChange && props.onFocusStatusChange({ onFocus }, ev)
 
-const SortableListHandle = SortableHandle<{ onFocusStatusChange?: Function }>(({ onFocusStatusChange = noop } = {}) => (
-  <SortableListHandleElement>
-    <Tooltip content="Re-order">
-      <SortableListHandleButton
-        onFocusStatusChange={onFocusStatusChange}
-        appearance="link"
-        icon="resize-vertical"
-      />
-    </Tooltip>
-  </SortableListHandleElement>
-))
+const SortableListHandle = SortableHandle<{ onFocusStatusChange?: Function }>(
+  ({ onFocusStatusChange = noop } = {}) => (
+    <SortableListHandleElement>
+      <Tooltip content="Re-order">
+        <SortableListHandleButton
+          onFocusStatusChange={onFocusStatusChange}
+          appearance="link"
+          icon="resize-vertical"
+        />
+      </Tooltip>
+    </SortableListHandleElement>
+  )
+)
 
 export const SortableListHandleElement = styled.div`
   display: flex;

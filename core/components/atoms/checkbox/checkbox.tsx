@@ -142,7 +142,7 @@ Checkbox.Element = styled.div`
 
 export interface ICheckboxGroupProps {
   /** The direction in which the options should be laid out */
-  align?: 'horizontal' | 'vertical',
+  align?: 'horizontal' | 'vertical'
   children?: JSX.Element | JSX.Element[]
   name?: string
   selected?: any[]
@@ -150,7 +150,6 @@ export interface ICheckboxGroupProps {
   readOnly?: boolean
   onChange?: Function
 }
-
 
 const CheckboxGroup = (props: ICheckboxGroupProps) => (
   <Checkbox.Element {...props} {...Automation('checkbox.group')}>

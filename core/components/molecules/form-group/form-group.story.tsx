@@ -12,7 +12,7 @@ storiesOf('Form Group', module).add('default', () => (
           <Form.Field label="Field label">
             <TextInput type="text" placeholder="Enter something" />
           </Form.Field>
-          <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+          <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
         </Form.FieldSet>
       </Form>
       <Form layout="label-on-top">
@@ -20,7 +20,7 @@ storiesOf('Form Group', module).add('default', () => (
           <Form.Field label="Field label">
             <TextInput type="text" placeholder="Enter something" />
           </Form.Field>
-          <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+          <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
         </Form.FieldSet>
       </Form>
     </FormGroup>

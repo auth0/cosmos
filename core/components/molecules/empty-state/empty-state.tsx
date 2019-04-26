@@ -27,7 +27,7 @@ const getHelpLink = link => {
   )
 }
 
-export type LinkType = string | { href?: string, target?: string }
+export type LinkType = string | { href?: string; target?: string }
 
 export interface IEmptyStateProps {
   /** HTML ID of the component */

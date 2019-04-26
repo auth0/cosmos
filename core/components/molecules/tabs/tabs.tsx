@@ -10,11 +10,11 @@ export interface ITabsProps {
   /** Children should be an array of Tabs.Tab */
   children?: React.ReactNode
   /** Selected should be the index of the desired selected tab */
-  selected: number;
+  selected: number
   /** onSelect will be called with the new index when a new tab is selected by the user */
-  onSelect: Function;
+  onSelect: Function
   /** Unique identifier for each tab list */
-  id?: string;
+  id?: string
 }
 
 interface ITabsState {
@@ -81,7 +81,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     id: uniqueId()
   }
 
-  tabs: any[];
+  tabs: any[]
 
   constructor(props) {
     super(props)

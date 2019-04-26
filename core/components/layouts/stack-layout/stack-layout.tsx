@@ -35,7 +35,7 @@ const resolveSpace = (props, child, index) => {
 
 export interface IStackLayoutProps {
   /** Resets the margins of the component within the layout to generate consistent spaces. */
-  disableMarginReset?: boolean,
+  disableMarginReset?: boolean
   /** Regulates the size of the gutter between flexed items*/
   gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
   /** Vertically align the components within the stack. applyes to `align-items` */
@@ -94,7 +94,6 @@ function spaceItemProp(props, propName) {
 
   return undefined
 }
-
 
 StackLayout.defaultProps = {
   gutter: 'medium',

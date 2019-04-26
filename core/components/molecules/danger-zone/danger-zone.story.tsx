@@ -13,7 +13,7 @@ storiesOf('DangerZone', module).add('single', () => (
           description: 'All your projects using this application will stop working.',
           action: {
             label: 'Delete Application',
-            onClick: () => { }
+            onClick: () => {}
           }
         }
       ]}
@@ -30,7 +30,7 @@ storiesOf('DangerZone', module).add('multiple', () => (
           description: 'All your projects using this application will stop working.',
           action: {
             label: 'Delete application',
-            onClick: () => { }
+            onClick: () => {}
           }
         },
         {
@@ -39,7 +39,7 @@ storiesOf('DangerZone', module).add('multiple', () => (
             'All authorized applications will need to be updated with the new client secret.',
           action: {
             label: 'Rotate',
-            onClick: () => { }
+            onClick: () => {}
           }
         }
       ]}
@@ -55,7 +55,7 @@ storiesOf('DangerZone', module).add('required', () => (
           title: 'Delete this client',
           action: {
             label: 'Delete',
-            onClick: () => { }
+            onClick: () => {}
           }
         }
       ]}
@@ -73,7 +73,7 @@ storiesOf('DangerZone', module).add('stress', () => (
             'All your projects using this application will stop. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           action: {
             label: 'Delete application',
-            onClick: () => { }
+            onClick: () => {}
           }
         },
         {
@@ -81,7 +81,7 @@ storiesOf('DangerZone', module).add('stress', () => (
           description: 'All your projects using this application will stop.',
           action: {
             label: 'Delete button has a very long text',
-            onClick: () => { }
+            onClick: () => {}
           }
         },
         {
@@ -90,7 +90,7 @@ storiesOf('DangerZone', module).add('stress', () => (
             'All your projects using this application will stop. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           action: {
             label: 'Delete button has a very long text',
-            onClick: () => { }
+            onClick: () => {}
           }
         }
       ]}

@@ -26,12 +26,21 @@ const gutterOptions = {
   large: spacing.xlarge // 40
 }
 
-
 export interface IColumnLayoutProps {
   /** Regulates the size of the gutter betwen each column */
-  gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large',
+  gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
   /** Defines the distribution and amount of columns */
-  distribution?: '1/2 1/2' | '1/3 1/3 1/3' | '2/3 1/3' | '1/3 2/3' | '1/4 1/4 1/4 1/4' | '2/4 1/4 1/4' | '1/4 2/4 1/4' | '1/4 1/4 2/4' | '3/4 1/4' | '1/4 3/4'
+  distribution?:
+    | '1/2 1/2'
+    | '1/3 1/3 1/3'
+    | '2/3 1/3'
+    | '1/3 2/3'
+    | '1/4 1/4 1/4 1/4'
+    | '2/4 1/4 1/4'
+    | '1/4 2/4 1/4'
+    | '1/4 1/4 2/4'
+    | '3/4 1/4'
+    | '1/4 3/4'
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset?: boolean
   children: React.ReactNode
@@ -65,7 +74,6 @@ ColumnLayout.Element = styled.div`
 `
 
 ColumnLayout.Item = styled.div``
-
 
 ColumnLayout.defaultProps = {
   gutter: 'medium',

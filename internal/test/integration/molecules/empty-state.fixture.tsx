@@ -12,7 +12,7 @@ class Fixture extends React.Component {
         action={{
           icon: 'plus',
           label: 'Create Client',
-          handler: () => { }
+          handler: () => {}
         }}
       >
         No items have been added to this section.

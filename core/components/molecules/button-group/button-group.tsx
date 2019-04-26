@@ -5,7 +5,6 @@ import Automation from '../../_helpers/automation-attribute'
 import Button from '../../atoms/button'
 import { spacing } from '../../tokens'
 
-
 export interface IButtonGroupProps {
   /** HTML ID of the component */
   id?: string
@@ -16,7 +15,6 @@ export interface IButtonGroupProps {
   /** Should container only Buttons */
   children?: React.ReactNode
 }
-
 
 const ButtonGroup = (props: IButtonGroupProps) => (
   <ButtonGroup.Element {...props} {...Automation('button-group')}>

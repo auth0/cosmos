@@ -22,13 +22,13 @@ export interface IFieldProps {
   /** HTML name of the component */
   name?: string
   /** Form Label */
-  label?: string,
+  label?: string
   /** Text that further explains the purpose of the field, or provides more detail */
-  helpText?: React.ReactNode,
+  helpText?: React.ReactNode
   /** Error message to show in case of failed validation */
-  error?: string,
+  error?: string
   /** Actions to be attached to input */
-  actions?: (JSX.Element | ActionWithIcon)[],
+  actions?: (JSX.Element | ActionWithIcon)[]
   /** checkbox alignment */
   checkbox?: boolean
   hasError?: boolean
@@ -50,7 +50,7 @@ const shouldFieldUseCheckboxStyle = props => {
 
 const { Provider, Consumer } = React.createContext<{ formFieldId?: string }>({})
 
-const FieldInput = (props) => {
+const FieldInput = props => {
   const { Component, ...fieldProps } = props
   /*
     old API
@@ -131,8 +131,8 @@ const Field = (props: IFieldProps) => {
                   {...ariaDescribedBy(helperTextId, errorTextId)}
                 />
               ) : (
-                  applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
-                )}
+                applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
+              )}
               {(props.error || props.helpText) && (
                 <Field.FeedbackContainer>
                   {props.error && <StyledError id={errorTextId}>{props.error}</StyledError>}
@@ -186,7 +186,7 @@ Field.LabelLayout = styled.div`
   @media (min-width: 768px) {
     text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
     padding-top: ${props =>
-    !props.checkbox && props.layout === 'label-on-left' ? misc.inputs.padding : '0'};
+      !props.checkbox && props.layout === 'label-on-left' ? misc.inputs.padding : '0'};
   }
 `
 Field.ContentLayout = styled.div``

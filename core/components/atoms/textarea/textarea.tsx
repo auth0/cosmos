@@ -1,4 +1,4 @@
-import * as  React from 'react'
+import * as React from 'react'
 import styled from '../../styled'
 
 import { StyledInput } from '../_styled-input'

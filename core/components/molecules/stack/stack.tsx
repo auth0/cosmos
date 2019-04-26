@@ -29,11 +29,11 @@ export interface IStackProps {
   /** HTML ID of the component */
   id?: string
   /** Use align for stacking elements without margin between them */
-  align?: 'fill' | 'left' | 'right' | 'space-between',
+  align?: 'fill' | 'left' | 'right' | 'space-between'
   /** Vertically align */
-  alignVertical?: 'top' | 'center' | 'bottom',
+  alignVertical?: 'top' | 'center' | 'bottom'
   /** Element widths in % */
-  widths?: number[],
+  widths?: number[]
   /** Elements to be wrapped with Stack */
   children?: React.ReactNode
 

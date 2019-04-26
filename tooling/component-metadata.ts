@@ -32,12 +32,10 @@ const run = () => {
         const directoryName = path.split('/').splice(-2, 1)[0]
         const componentFileName = directoryName.replace('_', '') + '.tsx'
 
-
         /* if component file does not exist, move on*/
         if (!path.includes(componentFileName)) return
 
         const code = fs.readFileSync(path, 'utf8')
-
 
         /* parse the component code to get metadata */
         const data: any = docgen.parse(path, {

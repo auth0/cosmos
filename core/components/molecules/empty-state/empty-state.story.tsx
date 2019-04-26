@@ -14,7 +14,7 @@ storiesOf('EmptyState', module).add('default', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>
@@ -42,7 +42,7 @@ storiesOf('EmptyState', module).add('stressed', () => (
       action={{
         icon: 'plus',
         label: 'Create Client',
-        handler: () => { }
+        handler: () => {}
       }}
     />
   </Example>

@@ -64,8 +64,8 @@ const Spinner = (props: ISpinnerProps) => {
   return variant.logo ? (
     spinnerWithLogo(variant, props)
   ) : (
-      <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
-    )
+    <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
+  )
 }
 
 Spinner.Element = styled.span`

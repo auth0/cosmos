@@ -24,7 +24,7 @@ export interface IRadioProps {
   /** If true all options in the group will be disabled */
   readOnly?: boolean
   /** Callback function which is called when the user selects an option */
-  onChange?: Function,
+  onChange?: Function
   children?: JSX.Element | JSX.Element[]
   onClick?: Function
 }
@@ -94,7 +94,7 @@ RadioOption.Element = styled.label`
     height: 16px;
     width: 16px;
     background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
       ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0

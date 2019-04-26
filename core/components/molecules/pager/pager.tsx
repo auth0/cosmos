@@ -15,7 +15,6 @@ export interface IPagerProps {
   onPageChanged?: Function
 }
 
-
 const Pager = ({ onPageChanged, page, perPage, items, ...props }: IPagerProps) => (
   <Pager.Element {...Automation('pager')} {...props}>
     <Button

@@ -30,7 +30,7 @@ export interface ITableProps {
 }
 
 interface ITableState {
-  sortingColumn: Object,
+  sortingColumn: Object
   sortDirection: TableSortDirection
 }
 
@@ -40,7 +40,7 @@ export const tableDefaultComparators = {
     const r1 = String(row1[column]).toLowerCase()
     const r2 = String(row2[column]).toLowerCase()
 
-    return r1 > r2 ? -1 : r2 > r1 ? 1 : 0;
+    return r1 > r2 ? -1 : r2 > r1 ? 1 : 0
   }
 }
 
@@ -66,7 +66,7 @@ class Table extends React.Component<ITableProps, ITableState> {
   static Body = styled.tbody``
 
   static Row = styled.tr`
-  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+    cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
     &:hover {
       background-color: ${colors.list.backgroundHover};
     }
@@ -109,23 +109,23 @@ class Table extends React.Component<ITableProps, ITableState> {
     const initialLoadingState = rows.length === 0
 
     const TableLoadingIndicator = styled.div`
-    position: ${initialLoadingState ? 'initial' : 'absolute'};
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: ${initialLoadingState ? 'auto' : '100%'};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: ${initialLoadingState ? '20px' : '0'};
-  `
+      position: ${initialLoadingState ? 'initial' : 'absolute'};
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: ${initialLoadingState ? 'auto' : '100%'};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: ${initialLoadingState ? '20px' : '0'};
+    `
 
     const SpinnerContainer = styled.div`
-    background-color: white;
-    display: inline-block;
-    padding: ${spacing.xsmall};
-    border-radius: 50%;
-  `
+      background-color: white;
+      display: inline-block;
+      padding: ${spacing.xsmall};
+      border-radius: 50%;
+    `
 
     return (
       <TableLoadingIndicator>

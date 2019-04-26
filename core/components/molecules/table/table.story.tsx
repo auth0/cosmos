@@ -86,7 +86,7 @@ storiesOf('Table', module).add('cell renderer', () => (
 storiesOf('Table', module).add('sorting', () => (
   <Example title="default">
     <Table items={items}>
-      <Table.Column field="image" width="65px" >
+      <Table.Column field="image" width="65px">
         {item => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="65%" sortable />
@@ -171,9 +171,7 @@ storiesOf('Table', module).add('stressed with truncating', () => (
 
 storiesOf('Table', module).add('with no items', () => (
   <Example title="no items">
-    <Table
-      items={[]}
-    >
+    <Table items={[]}>
       <Table.Column field="image" width="65px">
         {item => <Avatar type="user" image={item.image} />}
       </Table.Column>

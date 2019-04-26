@@ -8,10 +8,12 @@
 const attachChildren = components => {
   /* Attach children to their parents and remove from list */
 
-  const parents = components.filter(component => isParent(component)).map(parent => {
-    parent.children = []
-    return parent
-  })
+  const parents = components
+    .filter(component => isParent(component))
+    .map(parent => {
+      parent.children = []
+      return parent
+    })
 
   const children = components.filter(component => !isParent(component))
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import { misc, colors, spacing } from '../../tokens'
 import { StyledInput } from '../_styled-input'
-import { ISelectOptions } from '../select/interfaces';
+import { ISelectOptions } from '../select/interfaces'
 import Automation from '../../_helpers/automation-attribute'
 import Icon from '../icon'
 import Form from '../../molecules/form'
@@ -37,7 +37,6 @@ const renderOption = (option, idx) => {
     </option>
   )
 }
-
 
 export interface ISimpleSelectProps {
   /** HTML ID of the component */
@@ -117,7 +116,6 @@ SimpleSelect.ArrowIcon = styled(Icon)`
     display: block;
   }
 `
-
 
 SimpleSelect.defaultProps = {
   options: [],

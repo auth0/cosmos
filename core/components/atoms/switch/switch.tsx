@@ -5,7 +5,6 @@ import Automation from '../../_helpers/automation-attribute'
 import { colors, fonts, spacing, misc } from '../../tokens'
 import Form from '../../molecules/form'
 
-
 const Checkbox = styled.input`
   width: 0;
   opacity: 0;
@@ -49,7 +48,7 @@ const Toggle = styled.span`
               left: ${(props: { on?: boolean }) => (props.on ? '0' : '6px')};
             }
           }
-`};
+        `};
 `
 
 const Label = styled.label`
@@ -91,22 +90,21 @@ const Label = styled.label`
 
 export interface ISwitchProps {
   /** HTML ID of the component */
-  id?: string,
+  id?: string
   /** @deprecatede:onChange Function called on toggle */
-  onToggle?: Function,
+  onToggle?: Function
   /** Function called when value changes */
-  onChange?: Function,
+  onChange?: Function
   /** State of the toggle */
-  on?: boolean,
+  on?: boolean
   /** Labels to show, import for accessibility */
-  accessibleLabels?: string[],
+  accessibleLabels?: string[]
   /** Hides accessibility labels */
-  hideAccessibleLabels?: boolean,
+  hideAccessibleLabels?: boolean
   /** Locked switch */
-  readOnly?: boolean,
+  readOnly?: boolean
   /** Label on left side */
-  labelPosition?: 'right' | 'left',
-
+  labelPosition?: 'right' | 'left'
 }
 
 interface ISwitchState {
@@ -125,7 +123,6 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
     readOnly: false,
     labelPosition: 'right'
   }
-
 
   static Element = styled.span`
     --switch-height: 32px;
@@ -223,4 +220,3 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
 export const StyledSwitch = Switch.Element
 
 export default Switch
-

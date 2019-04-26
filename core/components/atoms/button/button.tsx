@@ -212,7 +212,7 @@ export interface IButtonProps {
   href?: string
   /** Specifies where to open the navigated document */
   target?: ButtonTarget
-  rel?: string; // TODO: use `noopener` as default
+  rel?: string // TODO: use `noopener` as default
   /** Disables the button|changing the visual style and make it unable to be pressed */
   disabled?: boolean
   /** Loading state when waiting for an action to complete */

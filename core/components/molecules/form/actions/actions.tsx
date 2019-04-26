@@ -21,8 +21,8 @@ const getButtonProps = action => {
 }
 
 export interface IActionsProps {
-  primaryAction?: ActionWithoutHandler,
-  secondaryActions?: Action[],
+  primaryAction?: ActionWithoutHandler
+  secondaryActions?: Action[]
   destructiveAction?: Action
 }
 

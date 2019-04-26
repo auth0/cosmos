@@ -16,12 +16,12 @@ storiesOf('Page Header', module).add('default', () => (
       }
       learnMore="/link"
       primaryAction={
-        <Button icon="plus" onClick={() => { }}>
+        <Button icon="plus" onClick={() => {}}>
           Create Client
         </Button>
       }
       secondaryAction={
-        <Button icon="play-circle" onClick={() => { }}>
+        <Button icon="play-circle" onClick={() => {}}>
           Tutorial
         </Button>
       }
@@ -61,7 +61,7 @@ storiesOf('Page Header', module).add('only primary action', () => (
       }
       learnMore="/link"
       primaryAction={
-        <Button icon="plus" onClick={() => { }}>
+        <Button icon="plus" onClick={() => {}}>
           Create Client
         </Button>
       }
@@ -81,7 +81,7 @@ storiesOf('Page Header', module).add('only secondary action', () => (
       }
       learnMore="/link"
       secondaryAction={
-        <Button icon="play-circle" onClick={() => { }}>
+        <Button icon="play-circle" onClick={() => {}}>
           Tutorial
         </Button>
       }
@@ -98,7 +98,7 @@ storiesOf('Page Header', module).add('only primary action with deprecated API', 
         learnMore: '/clients'
       }}
       primaryAction={
-        <Button icon="plus" onClick={() => { }}>
+        <Button icon="plus" onClick={() => {}}>
           Create Client
         </Button>
       }
@@ -115,7 +115,7 @@ storiesOf('Page Header', module).add('only secondary action with deprecated API'
         learnMore: '/clients'
       }}
       secondaryAction={
-        <Button icon="play-circle" onClick={() => { }}>
+        <Button icon="play-circle" onClick={() => {}}>
           Tutorial
         </Button>
       }
@@ -139,7 +139,7 @@ storiesOf('Page Header', module).add('with dynamic title', () => (
         learnMore: '/clients'
       }}
       primaryAction={
-        <Button icon="plus" onClick={() => { }}>
+        <Button icon="plus" onClick={() => {}}>
           Create Client
         </Button>
       }

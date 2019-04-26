@@ -413,7 +413,10 @@ storiesOf('Select', module).add('interactive: stressed', () => (
   </ExampleForSelect>
 ))
 
-class CustomRendererExample extends React.Component<{ defaultMenuOpen?: boolean }, { selectedItems?: any[] }> {
+class CustomRendererExample extends React.Component<
+  { defaultMenuOpen?: boolean },
+  { selectedItems?: any[] }
+> {
   constructor(props) {
     super(props)
 
@@ -594,7 +597,7 @@ storiesOf('Select', module).add('custom renderer in dialog', () => (
   </ExampleForSelect>
 ))
 
-type AsyncExampleItems = ({ label: string, description: string, value: number })[]
+type AsyncExampleItems = ({ label: string; description: string; value: number })[]
 class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItems }> {
   allOptions: AsyncExampleItems
 

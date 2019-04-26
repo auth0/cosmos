@@ -15,10 +15,10 @@ import margin from './_helpers/styled-margin'
   styledWithHelpers(c) = styled(c)
 */
 
-const styledWithHelpers: any = (styledComponent) => styled(styledComponent)
+const styledWithHelpers: any = styledComponent => styled(styledComponent)
 
 /* create functions for all the elements supported in styled */
-domElements.forEach((domElement) => {
+domElements.forEach(domElement => {
   styledWithHelpers[domElement] = (styles, ...interpolations) => {
     /*
       this is where we can add custom interpolation logic:

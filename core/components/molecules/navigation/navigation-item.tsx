@@ -37,17 +37,16 @@ const processIcon = (children, selected, inSubMenu) =>
         color: selected
           ? colors.icon.sidebarFocus
           : inSubMenu
-            ? colors.text.subtle
-            : colors.icon.sidebar
+          ? colors.text.subtle
+          : colors.icon.sidebar
       })
     }
 
     return child
   })
 
-
 export interface INavigationItemProps {
-  id?: string;
+  id?: string
   icon?: string
   label?: string
   onClick?: Function
@@ -57,9 +56,9 @@ export interface INavigationItemProps {
   target?: string
   open?: boolean
   /** @internal */
-  inSubMenu?: boolean;
+  inSubMenu?: boolean
   /** @internal */
-  defaultOpen?: boolean;
+  defaultOpen?: boolean
 }
 
 export interface INavigationItemState {
@@ -155,10 +154,5 @@ class NavigationItem extends React.Component<INavigationItemProps, INavigationIt
     )
   }
 }
-
-
-
-
-
 
 export default NavigationItem

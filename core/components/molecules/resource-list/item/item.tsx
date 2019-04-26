@@ -38,7 +38,8 @@ const resolveAction = (item, action, key) => {
  * @param {ResourceList.Item.Action[]} actions
  * @param {ResourceList.Item.Props} item
  */
-const resolveActions = (actions: ResourceListItemAction[], item) => actions.map(resolveAction.bind(this, item))
+const resolveActions = (actions: ResourceListItemAction[], item) =>
+  actions.map(resolveAction.bind(this, item))
 
 export type ResourceListItemAction = React.ReactNode | ActionWithIcon
 
@@ -202,6 +203,5 @@ class ListItem extends React.Component<IListItemProps> {
     )
   }
 }
-
 
 export default ListItem

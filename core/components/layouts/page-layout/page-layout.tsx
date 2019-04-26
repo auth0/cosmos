@@ -32,5 +32,4 @@ PageLayout.Header = styled.div``
 
 PageLayout.Content = styled.div``
 
-
 export default PageLayout

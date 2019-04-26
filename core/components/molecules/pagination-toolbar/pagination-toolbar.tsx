@@ -49,7 +49,13 @@ export interface IPaginationToolbarProps {
   onPageChanged?: Function
 }
 
-const PaginationToolbar = ({ onPageChanged, page, perPage, items, ...props }: IPaginationToolbarProps) => {
+const PaginationToolbar = ({
+  onPageChanged,
+  page,
+  perPage,
+  items,
+  ...props
+}: IPaginationToolbarProps) => {
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is one page or less

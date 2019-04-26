@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { IFormProps } from './form';
+import { IFormProps } from './form'
 
 const LayoutContext: React.Context<IFormProps> = React.createContext({})
 

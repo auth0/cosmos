@@ -169,7 +169,7 @@ export interface IDialogProps {
   /* Callback triggered when the the dialog is closed by the user */
   onClose?: Function
   /** Whether you're presenting a form or a destructive action */
-  role?: 'default' | 'form' | 'destructive',
+  role?: 'default' | 'form' | 'destructive'
   open?: boolean
 }
 

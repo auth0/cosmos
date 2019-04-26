@@ -5,7 +5,7 @@ import { colors, misc } from '../../tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
 import Automation from '../../_helpers/automation-attribute'
-import { prependOnceListener } from 'cluster';
+import { prependOnceListener } from 'cluster'
 
 const iconSizes = {
   xsmall: 14,

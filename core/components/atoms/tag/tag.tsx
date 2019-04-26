@@ -8,9 +8,9 @@ export interface ITagProps {
   /** HTML ID of the component */
   id?: string
   /** The function to call when a user clicks the tag */
-  onClick?: Function,
+  onClick?: Function
   /** The function to call when a user clicks the tag's remove icon */
-  onRemove?: Function,
+  onRemove?: Function
   children?: React.ReactNode
 }
 
