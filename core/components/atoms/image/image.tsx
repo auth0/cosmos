@@ -44,10 +44,10 @@ const Image = (props: IImageProps) => (
 
 Image.Element = styled.img`
   display: block;
-  height: ${props => (props.height ? props.height : 'auto')};
-  width: ${props => (props.width ? props.width : 'auto')};
-  max-width: ${props => (props.disableResponsive ? 'auto' : '100%')};
-  object-fit: ${props => ImageFit[props.fit]};
+  height: ${(props) => (props.height ? props.height : 'auto')};
+  width: ${(props) => (props.width ? props.width : 'auto')};
+  max-width: ${(props) => (props.disableResponsive ? 'auto' : '100%')};
+  object-fit: ${(props) => ImageFit[props.fit]};
 `
 
 Image.defaultProps = {

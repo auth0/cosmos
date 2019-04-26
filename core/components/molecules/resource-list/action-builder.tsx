@@ -5,7 +5,7 @@ import Button, { IButtonProps } from '../../atoms/button'
  * Builds a Button from its props
  * @param {Button.Props} props
  */
-export const buttonBuilder = props => <Button {...props} />
+export const buttonBuilder = (props) => <Button {...props} />
 
 /**
  * Returns a set of Button props from an action object
@@ -17,7 +17,7 @@ export const actionToButtonProps = (
   item
 ): Partial<IButtonProps> => ({
   icon,
-  onClick: handler ? evt => handler(evt, item) : null,
+  onClick: handler ? (evt) => handler(evt, item) : null,
   label,
   disabled,
   href,

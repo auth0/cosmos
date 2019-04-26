@@ -9,7 +9,7 @@ const Section = styled.div`
   background-color: white;
 `
 
-export default props => (
+export default (props) => (
   <Section>
     <Title>{props.title}</Title>
     {props.children}

@@ -7,4 +7,4 @@ const Container = styled.div`
   width: 95%;
 `
 
-export default props => <Container>{props.children}</Container>
+export default (props) => <Container>{props.children}</Container>

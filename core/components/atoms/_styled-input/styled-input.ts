@@ -27,7 +27,7 @@ const config = {
   }
 }
 
-const getAttributes = props => {
+const getAttributes = (props) => {
   if (props.readOnly) return config.readOnly
   else if (props.hasError || props.error) return config.error
   else return config.basic
@@ -38,30 +38,30 @@ const StyledInput = styled.input`
   width: 100%;
   box-sizing: border-box;
 
-  background: ${props => getAttributes(props).background};
+  background: ${(props) => getAttributes(props).background};
   border: 1px solid;
-  border-color: ${props => getAttributes(props).border};
+  border-color: ${(props) => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  font-family: ${props => (props.code ? fonts.family.code : 'inherit')};
-  font-size: ${props => (props.code ? '13px' : 'inherit')};
+  font-family: ${(props) => (props.code ? fonts.family.code : 'inherit')};
+  font-size: ${(props) => (props.code ? '13px' : 'inherit')};
   color: ${colors.text.inputs};
 
   padding: ${misc.inputs.padding} ${spacing.small};
 
-  cursor: ${props => (props.readOnly ? 'not-allowed' : 'auto')};
+  cursor: ${(props) => (props.readOnly ? 'not-allowed' : 'auto')};
   transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
 
   &:hover {
-    border-color: ${props => getAttributes(props).hoverBorder};
+    border-color: ${(props) => getAttributes(props).hoverBorder};
   }
   &:focus {
-    border-color: ${props => getAttributes(props).focusBorder};
-    box-shadow: 0px 0px 0 1px ${props => getAttributes(props).focusBorder};
+    border-color: ${(props) => getAttributes(props).focusBorder};
+    box-shadow: 0px 0px 0 1px ${(props) => getAttributes(props).focusBorder};
     outline: none;
   }
   &::-webkit-input-placeholder {
-    color: ${props => getAttributes(props).placeholder};
+    color: ${(props) => getAttributes(props).placeholder};
   }
 `
 

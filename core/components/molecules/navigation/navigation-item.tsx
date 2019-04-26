@@ -8,10 +8,10 @@ import Label from '../../atoms/label'
 import NavigationSubnav from './navigation-subnav'
 import { childrenMover } from '../../_helpers/children-mover'
 
-const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
+const ariaCurrent = (props) => (props.selected ? { 'aria-current': 'page' } : {})
 const { include: includeSubnav, exclude: excludeSubnav } = childrenMover(NavigationSubnav)
 
-const enforceSingleChildren = children => {
+const enforceSingleChildren = (children) => {
   if (!children) return null
   if (children.constructor.name === 'Array') {
     return children[0] || null
@@ -19,10 +19,10 @@ const enforceSingleChildren = children => {
   return children
 }
 
-const findSelectedSubItem = subMenu => {
+const findSelectedSubItem = (subMenu) => {
   let found = false
 
-  React.Children.forEach(subMenu.props.children, link => {
+  React.Children.forEach(subMenu.props.children, (link) => {
     if (link && link.props.selected) found = true
   })
 
@@ -30,7 +30,7 @@ const findSelectedSubItem = subMenu => {
 }
 
 const processIcon = (children, selected, inSubMenu) =>
-  React.Children.map(children, child => {
+  React.Children.map(children, (child) => {
     if (child && child.type === Icon) {
       return React.cloneElement(child, {
         size: 18, // FIXME: Use a token
@@ -73,7 +73,7 @@ class NavigationItem extends React.Component<INavigationItemProps, INavigationIt
     display: flex;
     align-items: flex-start;
     cursor: pointer;
-    color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
+    color: ${(props) => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
     font-size: 13px;
     text-decoration: none;
     word-break: break-word;

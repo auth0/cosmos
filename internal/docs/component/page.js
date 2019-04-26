@@ -11,7 +11,7 @@ import { Text, List, Link, Code, Table } from '../docs-components'
 import PageHeader from './page-header'
 import { SectionHeader, ExampleHeader } from './header'
 
-const Example = props => {
+const Example = (props) => {
   const options = {
     overrides: {
       hr: Break,
@@ -23,7 +23,7 @@ const Example = props => {
       ul: List,
       table: Table,
       /* use playground for js code blocks */
-      code: markdownProps => {
+      code: (markdownProps) => {
         const language = markdownProps.className
 
         if (!language) return <Code>{markdownProps.children}</Code>

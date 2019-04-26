@@ -112,7 +112,7 @@ const DialogHeader = styled.header`
   text-align: center;
 `
 
-const DialogTitle = props => {
+const DialogTitle = (props) => {
   const InternalTitle = styled(BaseHeading.withComponent(props.element))`
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.size.default};

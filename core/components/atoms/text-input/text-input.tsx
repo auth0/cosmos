@@ -83,7 +83,7 @@ const TextInput = (props: ITextInputProps) => {
 
   const Input = (
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <TextInput.Element
           {...Automation('text-input')}
           id={props.id || context.formFieldId}
@@ -108,7 +108,7 @@ const TextInput = (props: ITextInputProps) => {
 }
 
 TextInput.Element = styled(StyledInput)`
-  height: ${props => misc.input[props.size].height};
+  height: ${(props) => misc.input[props.size].height};
 `
 
 TextInput.defaultProps = {

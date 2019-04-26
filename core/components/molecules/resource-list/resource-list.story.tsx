@@ -52,7 +52,7 @@ class SortableResourceListExample extends React.Component {
         ]}
         sortable
         items={this.state.items}
-        onSortEnd={event => this.onSortEnd(event)}
+        onSortEnd={(event) => this.onSortEnd(event)}
       />
     )
   }
@@ -108,7 +108,7 @@ storiesOf('Resource List', module).add('custom renderer', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -125,7 +125,7 @@ storiesOf('Resource List', module).add('actions', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -146,7 +146,7 @@ storiesOf('Resource List', module).add('body width', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item} bodyWidth="180px">
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -182,7 +182,7 @@ storiesOf('Resource List', module).add('actions as buttons', () => (
           id: 'def456def456def456def456def456'
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -212,7 +212,7 @@ storiesOf('Resource List', module).add('action overrides', () => (
           ]
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -337,7 +337,7 @@ storiesOf('Resource List', module).add('stressed - with body', () => (
             'ghlkjhsdhlkjdsghkdsfkljhdfslkdfsjkdfhljdfkhjldfskljhfdskljdfhskjhdfsjlkhdfskjlhfdsjlkhdfskljhdfskjhlfdkhljsfdkjfdhkdfslkhjdsfhjki789'
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>

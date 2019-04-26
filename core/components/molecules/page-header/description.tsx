@@ -38,7 +38,7 @@ const StyledLink = styled(Link)`
   }
 `
 
-const Description = props => {
+const Description = (props) => {
   return (
     <StyledParagraph>
       {props.children.text}{' '}

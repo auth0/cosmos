@@ -49,7 +49,8 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     line-height: 1.3;
 
     &:hover {
-      color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
+      color: ${(props) =>
+        !props['aria-selected'] ? colors.link.defaultHover : colors.text.default};
     }
     &:focus {
       outline: none;
@@ -58,7 +59,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     &:active {
       border-bottom-color: ${colors.base.text};
     }
-    ${props =>
+    ${(props) =>
       props['aria-selected'] &&
       css`
         border-bottom: 1px solid ${colors.base.text};
@@ -166,7 +167,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
                   aria-selected={tabIsSelected}
                   aria-controls={id + '-tab'}
                   onClick={() => this.changeTab(index)}
-                  onKeyDown={e =>
+                  onKeyDown={(e) =>
                     this.handleTabLinkKeypress(e, index, uniqueTabPrefix, this.tabs.length)
                   }
                   {...Automation('tabs.link')}

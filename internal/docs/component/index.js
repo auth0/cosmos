@@ -6,10 +6,10 @@ import startCase from 'lodash.startcase'
 
 import ComponentPage from './page'
 
-export default props => {
+export default (props) => {
   const componentName = props.match.params.componentName
   const component = components.filter(
-    component => kebabCase(component.displayName) === componentName
+    (component) => kebabCase(component.displayName) === componentName
   )[0]
 
   return (

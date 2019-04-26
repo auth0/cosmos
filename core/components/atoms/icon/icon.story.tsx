@@ -67,7 +67,7 @@ storiesOf('Icon', module).add('dark-background', () => (
 storiesOf('Icon', module).add('named icons', () => (
   <Example>
     <div>
-      {Object.keys(icons).map(name => (
+      {Object.keys(icons).map((name) => (
         <IconStoryBox key={name}>
           <Icon name={name} size={40} />
           <p>{name}</p>

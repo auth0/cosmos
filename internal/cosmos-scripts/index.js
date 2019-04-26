@@ -2,7 +2,7 @@
 
 const path = require('path')
 
-const getConfig = mode => {
+const getConfig = (mode) => {
   const configPath = path.join(__dirname, `./configs/webpack.${mode}.config.js`)
   return require(configPath)
 }

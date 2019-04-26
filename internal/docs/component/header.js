@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
   }
 `
 
-const Header = props => {
+const Header = (props) => {
   const id = kebabCase(props.children)
   const Heading = props.section ? Heading2 : Heading3
 
@@ -25,7 +25,7 @@ const Header = props => {
   )
 }
 
-const SectionHeader = props => <Header section {...props} />
-const ExampleHeader = props => <Header example {...props} />
+const SectionHeader = (props) => <Header section {...props} />
+const ExampleHeader = (props) => <Header example {...props} />
 
 export { SectionHeader, ExampleHeader }

@@ -10,7 +10,7 @@ const Headings = styled.div`
   white-space: normal;
 `
 
-const Header = props => {
+const Header = (props) => {
   let warning
   if (props.unstable === true) {
     warning = (

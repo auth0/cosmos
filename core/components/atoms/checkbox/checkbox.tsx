@@ -35,7 +35,7 @@ export interface ICheckboxProps {
 const Checkbox = (props: ICheckboxProps) => (
   <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <input
           id={props.id || context.formFieldId}
           type="checkbox"
@@ -68,7 +68,7 @@ Checkbox.Option = styled.label`
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
-  pointer-events: ${props => (props.readOnly ? 'none' : null)};
+  pointer-events: ${(props) => (props.readOnly ? 'none' : null)};
 
   input {
     position: absolute;
@@ -77,7 +77,7 @@ Checkbox.Option = styled.label`
   }
 
   ${Label} {
-    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
   }
 
   ${CheckMark} {
@@ -87,7 +87,7 @@ Checkbox.Option = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
     background-color: ${colors.radio.background};
     border: 1px solid ${colors.radio.border};
     box-shadow: inset 0 1px 2px 0 ${colors.radio.shadow};
@@ -131,8 +131,8 @@ Checkbox.Option = styled.label`
 
 Checkbox.Element = styled.div`
   ${Checkbox.Option} {
-    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
-    ${props => justifyContent[props.align]};
+    display: ${(props) => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    ${(props) => justifyContent[props.align]};
 
     &:last-child {
       margin: 0;
@@ -153,7 +153,7 @@ export interface ICheckboxGroupProps {
 
 const CheckboxGroup = (props: ICheckboxGroupProps) => (
   <Checkbox.Element {...props} {...Automation('checkbox.group')}>
-    {React.Children.map(props.children, child => {
+    {React.Children.map(props.children, (child) => {
       if (!child) return null
       return React.cloneElement(child, {
         name: props.name,

@@ -10,7 +10,7 @@ import FreeText from '../../_helpers/free-text'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
 
-const getHelpLink = link => {
+const getHelpLink = (link) => {
   if (!link) return undefined
 
   /* link supports both formats: string and object */

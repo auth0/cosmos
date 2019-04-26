@@ -15,7 +15,7 @@ class Fixture extends React.Component<any, any> {
       <Radio
         name="fixture"
         selected={this.state.selected}
-        onChange={evt => this.handleChange(evt)}
+        onChange={(evt) => this.handleChange(evt)}
         id="custom-id"
         onClick={mockFn}
       >

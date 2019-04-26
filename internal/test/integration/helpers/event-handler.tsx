@@ -8,7 +8,7 @@ const sampleEvent = {
   preventDefault: jest.fn()
 }
 
-const checkEventIsValid = event => {
+const checkEventIsValid = (event) => {
   const availableEvents = Object.keys(fireEvent)
 
   if (availableEvents.indexOf(event) < 0)

@@ -37,8 +37,8 @@ const GalleryLayout = (props: IGalleryLayoutProps) => (
 
 GalleryLayout.Element = styled.ul`
   display: grid;
-  grid-template-columns: ${props => galleryOptions[props.size]};
-  grid-gap: ${props => gutterOptions[props.gutter]};
+  grid-template-columns: ${(props) => galleryOptions[props.size]};
+  grid-gap: ${(props) => gutterOptions[props.gutter]};
 
   & > *:empty {
     display: none;

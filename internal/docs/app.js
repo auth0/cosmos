@@ -78,20 +78,20 @@ const SideContent = styled.div`
   transition: width 0.25s;
 
   @media (max-width: 800px) {
-    width: ${props => (props.visible ? '19rem' : '0rem')};
+    width: ${(props) => (props.visible ? '19rem' : '0rem')};
     z-index: 2;
   }
 `
 const SidebarToggle = styled.div`
   padding: 16px;
   position: fixed;
-  left: ${props => (props.sidebarVisible ? '19rem' : '0rem')};
+  left: ${(props) => (props.sidebarVisible ? '19rem' : '0rem')};
   transition: left 0.25s;
   z-index: 3;
 
   &:hover {
     svg path {
-      fill: ${props => (props.sidebarVisible ? '#E40002' : '#0a84ae')};
+      fill: ${(props) => (props.sidebarVisible ? '#E40002' : '#0a84ae')};
     }
   }
 

@@ -36,7 +36,7 @@ class Props extends React.Component {
 
     /* over ride with defaults from documentation */
     const defaultsFromDocs = props.defaultsFromDocs
-    Object.keys(defaultsFromDocs).forEach(key => {
+    Object.keys(defaultsFromDocs).forEach((key) => {
       if (propData[key]) propData[key].value = defaultsFromDocs[key]
     })
 
@@ -45,10 +45,10 @@ class Props extends React.Component {
   }
 
   onPropsChange(propName, value) {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       /* Handle conflicting binary props */
       const conflictingProps = getConflictingProps(currentState.propData, propName)
-      conflictingProps.forEach(conflictingPropName => {
+      conflictingProps.forEach((conflictingPropName) => {
         /* disable all conflicting props */
         currentState.propData[conflictingPropName].value = 'false'
       })
@@ -64,7 +64,7 @@ class Props extends React.Component {
   render() {
     let { propData } = this.state
 
-    const keys = Object.keys(propData).filter(key => key[0] !== '_')
+    const keys = Object.keys(propData).filter((key) => key[0] !== '_')
     let deprecationMatch = /@deprecated :(\w+)/gi
 
     return (
@@ -78,15 +78,15 @@ class Props extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {keys.map(key => {
-            let description = propData[key].description;
+          {keys.map((key) => {
+            let description = propData[key].description
             const isInternal = description.includes('@internal')
             const isDeprecated = description.includes('@deprecated')
-            let deprecationReplacement;
+            let deprecationReplacement
 
             if (isInternal) {
               // Avoid showing internal props in the documentation site.
-              return null;
+              return null
             }
 
             if (isDeprecated) {
@@ -119,12 +119,12 @@ class Props extends React.Component {
                       use <Code>{deprecationReplacement}</Code>
                     </Deprecated>
                   ) : (
-                      <PropSwitcher
-                        propName={key}
-                        data={propData[key]}
-                        onPropsChange={this.onPropsChange.bind(this)}
-                      />
-                    )}
+                    <PropSwitcher
+                      propName={key}
+                      data={propData[key]}
+                      onPropsChange={this.onPropsChange.bind(this)}
+                    />
+                  )}
                 </td>
               </tr>
             )

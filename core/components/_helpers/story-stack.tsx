@@ -21,12 +21,12 @@ const StyledStack = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: ${props => alignItems[props.alignVertical]};
-  justify-content: ${props => justifyContent[props.align]};
+  align-items: ${(props) => alignItems[props.alignVertical]};
+  justify-content: ${(props) => justifyContent[props.align]};
   line-height: inherit;
   > * {
-    flex: ${props => (props.align === 'fill' ? 1 : 'none')};
-    margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
+    flex: ${(props) => (props.align === 'fill' ? 1 : 'none')};
+    margin-right: ${(props) => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
     margin-right: 0;
@@ -34,7 +34,7 @@ const StyledStack = styled.div`
 `
 
 const StackedItem = styled.div`
-  flex-basis: ${props => props.width}%;
+  flex-basis: ${(props) => props.width}%;
   line-height: inherit;
 `
 
@@ -75,9 +75,9 @@ export interface IStackProps {
 Stack.propTypes = {
   /* internal props only used for validation */
   /* sum of width values should be 100% */
-  _sum: props => sumOfElements(props.widths, 100),
+  _sum: (props) => sumOfElements(props.widths, 100),
   /* the number of widths should match number of children */
-  _numberOfValues: props => numberOfValues(props.widths, React.Children.count(props.children))
+  _numberOfValues: (props) => numberOfValues(props.widths, React.Children.count(props.children))
 }
 
 Stack.defaultProps = {

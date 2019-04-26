@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { colors, fonts } from '@auth0/cosmos/tokens'
 
-const getColor = props => {
+const getColor = (props) => {
   if (props.warning) return colors.base.orangeLighter
   else if (props.error) return colors.base.red
   else return colors.base.gray
@@ -12,9 +12,9 @@ const getColor = props => {
 
 const StyledTag = styled.span`
   display: inline-block;
-  color: ${props => getColor(props)};
+  color: ${(props) => getColor(props)};
   border: 1px solid;
-  border-color: ${props => getColor(props)};
+  border-color: ${(props) => getColor(props)};
   border-radius: 5px;
   min-width: 10px;
   padding: 4px 8px;
@@ -25,7 +25,7 @@ const StyledTag = styled.span`
   font-weight: ${fonts.weight.medium};
 `
 
-const Tag = props => {
+const Tag = (props) => {
   /* you can pass on all the props to the component like this */
   return <StyledTag {...props}>{props.text}</StyledTag>
 }

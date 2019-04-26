@@ -81,12 +81,12 @@ export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 5)
   const maxPage = pagesFromItems(items, itemsPerPage)
 
   const range = [...Array(pagesPerSlice).keys()]
-    .map(i => {
+    .map((i) => {
       const pageNumber = i + minPage + 1 // Avoid starting at 0
       const selected = page === pageNumber
       return { label: pageNumber, selected }
     })
-    .filter(i => i.label <= maxPage)
+    .filter((i) => i.label <= maxPage)
 
   return range
 }

@@ -5,19 +5,19 @@
     3. src/components/molecules/component/child/child.js
 */
 
-const attachChildren = components => {
+const attachChildren = (components) => {
   /* Attach children to their parents and remove from list */
 
   const parents = components
-    .filter(component => isParent(component))
-    .map(parent => {
+    .filter((component) => isParent(component))
+    .map((parent) => {
       parent.children = []
       return parent
     })
 
-  const children = components.filter(component => !isParent(component))
+  const children = components.filter((component) => !isParent(component))
 
-  children.forEach(child => {
+  children.forEach((child) => {
     const parent = getParent(parents, child)
     if (parent) {
       /* Nest child inside parent */
@@ -35,7 +35,7 @@ const attachChildren = components => {
 }
 
 /* Definitions that only works for the current file structure, might change */
-const isParent = component => {
+const isParent = (component) => {
   const directoryName = component.filepath.split('/')[3]
 
   if (component.filepath.includes(`${directoryName}.tsx`)) return true
@@ -61,7 +61,7 @@ const getParent = (components, child) => {
     directoryName +
     '.tsx'
 
-  return components.find(component => component.filepath === parentFilePath)
+  return components.find((component) => component.filepath === parentFilePath)
 }
 
 export default attachChildren

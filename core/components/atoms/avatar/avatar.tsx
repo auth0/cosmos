@@ -32,7 +32,7 @@ const imageForAvatar = (source, handleError) => {
       height="100%"
       fit="cover"
       src={source}
-      onError={event => {
+      onError={(event) => {
         event.target.src = null
         event.target.onError = undefined
         handleError(event)
@@ -42,7 +42,7 @@ const imageForAvatar = (source, handleError) => {
 }
 
 const getImageForAvatar = (props, source, onError) => {
-  const errorHandler = ({ discard }) => event => onError(discard, event)
+  const errorHandler = ({ discard }) => (event) => onError(discard, event)
 
   switch (source) {
     case sources.icon:
@@ -89,12 +89,13 @@ class Avatar extends React.Component<IAvatarProps, IAvatarState> {
   }
 
   static Element = styled.span`
-    min-width: ${props => misc.avatar[props.size]};
-    width: ${props => misc.avatar[props.size]};
-    height: ${props => misc.avatar[props.size]};
+    min-width: ${(props) => misc.avatar[props.size]};
+    width: ${(props) => misc.avatar[props.size]};
+    height: ${(props) => misc.avatar[props.size]};
     background-color: ${colors.base.grayLightest};
-    border: ${props => (props.type === 'resource' ? `1px solid ${colors.base.grayLight}` : 'none')};
-    border-radius: ${props => (props.type === 'resource' ? '3px' : '50%')};
+    border: ${(props) =>
+      props.type === 'resource' ? `1px solid ${colors.base.grayLight}` : 'none'};
+    border-radius: ${(props) => (props.type === 'resource' ? '3px' : '50%')};
 
     text-align: center;
     display: flex;

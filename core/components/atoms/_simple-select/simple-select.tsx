@@ -14,9 +14,9 @@ const selectOpacity = {
 
 const PLACEHOLDER_VALUE = '0'
 
-const valueIsUndefined = value => value === undefined || value === null
+const valueIsUndefined = (value) => value === undefined || value === null
 
-const isGroup = option => option.groupName && option.items
+const isGroup = (option) => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
     return (
@@ -69,7 +69,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
     <SimpleSelect.Wrapper>
       <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Form.Field.ContextConsumer>
-        {context => (
+        {(context) => (
           <SimpleSelect.Element
             id={props.id || context.formFieldId}
             {...Automation('select')}
@@ -96,8 +96,8 @@ SimpleSelect.Element = styled(StyledInput.withComponent('select'))`
   padding-right: ${spacing.large};
 
   height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
+  opacity: ${(props) => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${(props) =>
     props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
 `
 

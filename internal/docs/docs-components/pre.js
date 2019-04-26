@@ -15,7 +15,7 @@ const StyledPre = styled.pre`
   line-height: 18px;
 `
 
-const Pre = props => {
+const Pre = (props) => {
   /* you can pass on all the props to the component like this */
   return <StyledPre {...props}>{props.children || props.code}</StyledPre>
 }

@@ -31,7 +31,7 @@ storiesOf('Select', module).add('simple', () => (
   <ExampleForSelect title="Select: simple">
     <Select
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -60,7 +60,7 @@ storiesOf('Select', module).add('simple with error', () => (
     <Select
       hasError
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -107,7 +107,7 @@ storiesOf('Select', module).add('simple with custom getOptionValue', () => (
             ]}
             value={value}
             onChange={onChange}
-            getOptionValue={option => option.myCustomValue}
+            getOptionValue={(option) => option.myCustomValue}
           />
           <p>Selected value: {value}</p>
         </div>
@@ -131,7 +131,7 @@ storiesOf('Select', module).add('multiple with custom getOptionValue', () => (
             ]}
             value={value}
             onChange={onChange}
-            getOptionValue={option => option.myCustomValue}
+            getOptionValue={(option) => option.myCustomValue}
           />
           <p>Selected value: {(value || []).join(',')}</p>
         </div>
@@ -233,7 +233,7 @@ storiesOf('Select', module).add('default value', () => (
     <Select
       value={2}
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -244,7 +244,7 @@ storiesOf('Select', module).add('disabled', () => (
       value={2}
       disabled
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -259,7 +259,7 @@ storiesOf('Select', module).add('disabled option', () => (
         { text: 'Two', value: 2 },
         { text: 'Three', value: 3 }
       ]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -377,7 +377,7 @@ storiesOf('Select', module).add('stressed', () => (
             value: 3
           }
         ]}
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     </div>
   </ExampleForSelect>
@@ -443,7 +443,7 @@ class CustomRendererExample extends React.Component<
     return (
       <Select
         value={this.state.selectedItems}
-        onChange={ev => this.handleChange(ev)}
+        onChange={(ev) => this.handleChange(ev)}
         placeholder="Select an item..."
         customOptionRenderer={this.renderOption}
         defaultMenuOpen={this.props.defaultMenuOpen}
@@ -515,9 +515,9 @@ storiesOf('Select', module).add('custom value renderer', () => (
     <Select
       defaultMenuOpen
       value="Harry Kane"
-      onChange={ev => this.handleChange(ev)}
+      onChange={(ev) => this.handleChange(ev)}
       placeholder="Select a custom item..."
-      customValueRenderer={option => (
+      customValueRenderer={(option) => (
         <span>
           {option.country} {option.label}
         </span>
@@ -556,7 +556,7 @@ storiesOf('Select', module).add('interactive: custom value renderer', () => (
           value={value}
           onChange={onChange}
           placeholder="Select a custom item..."
-          customValueRenderer={option => (
+          customValueRenderer={(option) => (
             <span>
               {option.country} {option.label}
             </span>
@@ -669,7 +669,7 @@ class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItem
   }
 
   filterOptions(value) {
-    return this.allOptions.filter(item => item.label.toLowerCase().includes(value.toLowerCase()))
+    return this.allOptions.filter((item) => item.label.toLowerCase().includes(value.toLowerCase()))
   }
 
   loadOptions(inputValue, callback) {
@@ -687,7 +687,7 @@ class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItem
       <Select
         async
         value={this.state.selectedItems}
-        onChange={ev => this.handleChange(ev)}
+        onChange={(ev) => this.handleChange(ev)}
         placeholder="Select an item..."
         noOptionsMessage={this.noOptionsMessage}
         loadOptions={this.loadOptions}
@@ -725,7 +725,7 @@ storiesOf('Select', module).add('disabled options', () => (
             value: 3
           }
         ]}
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     </div>
   </ExampleForSelect>

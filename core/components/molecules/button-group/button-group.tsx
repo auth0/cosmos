@@ -51,9 +51,9 @@ const middleButtonStyles = css`
 
 ButtonGroup.Child = styled.span`
   ${Button.Element} {
-    ${props => (props.compressed && props.first ? firstButtonStyles : null)};
-    ${props => (props.compressed && props.last ? lastButtonStyles : null)};
-    ${props => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
+    ${(props) => (props.compressed && props.first ? firstButtonStyles : null)};
+    ${(props) => (props.compressed && props.last ? lastButtonStyles : null)};
+    ${(props) => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
   }
 `
 
@@ -62,7 +62,7 @@ const justifyContent = {
   right: 'flex-end'
 }
 
-const marginForButton = props => {
+const marginForButton = (props) => {
   if (!props.children) return ''
 
   const isSingleChild = props.children.constructor.name !== 'Array'
@@ -82,7 +82,7 @@ const marginForButton = props => {
 
 ButtonGroup.Element = styled.div`
   display: flex;
-  justify-content: ${props => justifyContent[props.align]};
+  justify-content: ${(props) => justifyContent[props.align]};
 
   & > * {
     ${marginForButton};

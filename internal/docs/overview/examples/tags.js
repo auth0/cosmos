@@ -3,7 +3,7 @@ import React from 'react'
 import Example from '../components/example'
 import { Tag } from '@auth0/cosmos'
 
-const handleRemove = text => evt => {
+const handleRemove = (text) => (evt) => {
   alert(`${text} was removed!`)
 }
 

@@ -74,7 +74,7 @@ storiesOf('Table', module).add('cell renderer', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="65px">
-        {item => <Avatar image={item.image} size="large" />}
+        {(item) => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" />
@@ -87,7 +87,7 @@ storiesOf('Table', module).add('sorting', () => (
   <Example title="default">
     <Table items={items}>
       <Table.Column field="image" width="65px">
-        {item => <Avatar image={item.image} size="large" />}
+        {(item) => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="65%" sortable />
       <Table.Column field="born" title="Born" sortable />
@@ -100,7 +100,7 @@ storiesOf('Table', module).add('initial sort props', () => (
   <Example title="default">
     <Table items={items} sortOn="died" sortDirection="desc">
       <Table.Column field="image" width="65px">
-        {item => <Avatar image={item.image} size="large" />}
+        {(item) => <Avatar image={item.image} size="large" />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="65%" />
       <Table.Column field="born" title="Born" sortable />
@@ -173,7 +173,7 @@ storiesOf('Table', module).add('with no items', () => (
   <Example title="no items">
     <Table items={[]}>
       <Table.Column field="image" width="65px">
-        {item => <Avatar type="user" image={item.image} />}
+        {(item) => <Avatar type="user" image={item.image} />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="30%" />
       <Table.Column field="country" title="Country" />
@@ -283,12 +283,12 @@ storiesOf('Table', module).add('with buttons', () => (
       onRowClick={(evt, item) => alert(`${item.name} was clicked!`)}
     >
       <Table.Column field="name" title="Name" width="30%">
-        {item => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
+        {(item) => <AvatarBlock type="user" image={item.image} title={item.name} size="compact" />}
       </Table.Column>
       <Table.Column field="country" title="Country" />
       <Table.Column field="goals" title="Goals" />
       <Table.Column field="assists" title="Assists" width="5%">
-        {item => <Button appearance="default" icon="emails" href="https://auth0.com" />}
+        {(item) => <Button appearance="default" icon="emails" href="https://auth0.com" />}
       </Table.Column>
     </Table>
   </Example>

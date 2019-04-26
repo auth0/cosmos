@@ -60,13 +60,13 @@ class Table extends React.Component<ITableProps, ITableState> {
     border-spacing: 0;
     border-collapse: collapse;
     table-layout: fixed;
-    opacity: ${p => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
+    opacity: ${(p) => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
   `
 
   static Body = styled.tbody``
 
   static Row = styled.tr`
-    cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
     &:hover {
       background-color: ${colors.list.backgroundHover};
     }
@@ -78,8 +78,8 @@ class Table extends React.Component<ITableProps, ITableState> {
     text-align: left;
     vertical-align: middle;
     overflow-wrap: break-word;
-    width: ${props => props.column.width || 'auto'};
-    ${props =>
+    width: ${(props) => props.column.width || 'auto'};
+    ${(props) =>
       props.column.truncate
         ? css`
             text-overflow: ellipsis;
@@ -175,20 +175,20 @@ class Table extends React.Component<ITableProps, ITableState> {
   }
 
   inferColumnsFromChildren(children) {
-    return React.Children.toArray(children).map(element => element.props)
+    return React.Children.toArray(children).map((element) => element.props)
   }
 
   getSortingColumn(sortOnField) {
     const columns = this.inferColumnsFromChildren(this.props.children)
     if (sortOnField) {
       /* find matching column by field prop */
-      return columns.find(column => column.field === sortOnField)
+      return columns.find((column) => column.field === sortOnField)
     } else {
       /*
         default to the first column that has sortable prop
         if there are no columns with sortable, return empty
       */
-      return columns.find(column => column.sortable) || {}
+      return columns.find((column) => column.sortable) || {}
     }
   }
 
@@ -218,9 +218,9 @@ class Table extends React.Component<ITableProps, ITableState> {
     return items
   }
 
-  handleRowClicked = item => {
+  handleRowClicked = (item) => {
     if (!this.props.onRowClick) return null
-    return evt => {
+    return (evt) => {
       this.props.onRowClick(evt, item)
     }
   }
@@ -253,7 +253,7 @@ class Table extends React.Component<ITableProps, ITableState> {
     // If columns are passed as a variable or as a child to <div> element
     if (columns[0].children != undefined && columns[0].children.length > 1) {
       let nestedColumns = []
-      columns[0].children.map(column => {
+      columns[0].children.map((column) => {
         nestedColumns.push(column.props)
       })
       columns = nestedColumns
@@ -265,7 +265,7 @@ class Table extends React.Component<ITableProps, ITableState> {
         onClick={this.handleRowClicked(item)}
         {...Automation('table.row')}
       >
-        {columns.map(column => {
+        {columns.map((column) => {
           const cellRenderer = column.children || this.defaultCellRenderer
 
           return (

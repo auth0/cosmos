@@ -7,7 +7,7 @@ const directions = ['top', 'bottom', 'left', 'right']
  * @return {string} css
  */
 
-const marginProcessor = props => {
+const marginProcessor = (props) => {
   const { margin: marginProp } = props
 
   if (!marginProp) {
@@ -17,7 +17,7 @@ const marginProcessor = props => {
   const margin = marginProp || {}
 
   let styles = ''
-  directions.map(direction => {
+  directions.map((direction) => {
     if (typeof margin[direction] !== 'undefined') {
       const rawValue = margin[direction]
       let value

@@ -94,7 +94,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
     const content = this.preprocessContent()
     if (!button) return null
 
-    const newHandler = event => {
+    const newHandler = (event) => {
       this.resetState()
       if (content.loading) {
         this.setTooltipContent(content.loading, { taskIsRunning: true })
@@ -103,7 +103,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
       }
 
       Promise.resolve(button.props.onClick(event))
-        .then(result =>
+        .then((result) =>
           this.setTooltipContent(content.success || content.default, { taskIsRunning: false })
         )
         .catch(() =>
@@ -113,7 +113,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
         )
     }
 
-    const onMouseLeave = ev => {
+    const onMouseLeave = (ev) => {
       if (button.props.onMouseLeave) {
         button.props.onMouseLeave(ev)
       }

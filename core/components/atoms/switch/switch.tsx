@@ -15,7 +15,7 @@ const Toggle = styled.span`
   width: 55px;
   height: var(--switch-height);
   border-radius: 21px;
-  background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
+  background: ${(props) => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
   position: relative;
 
@@ -33,10 +33,10 @@ const Toggle = styled.span`
       -1px 3px 3px 0 rgba(0, 0, 0, 0.14);
     transition: transform ${misc.animationDuration} ease, width ${misc.animationDuration},
       left ${misc.animationDuration};
-    transform: translateX(${props => (props.on ? '20px' : 0)});
+    transform: translateX(${(props) => (props.on ? '20px' : 0)});
   }
 
-  ${props =>
+  ${(props) =>
     props.readOnly
       ? css`
           opacity: 0.4;
@@ -62,9 +62,9 @@ const Label = styled.label`
     text-transform: uppercase;
     color: ${colors.text.secondary};
 
-    margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
-    margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
-    text-align: ${props => (props.labelPosition == 'left' ? 'right' : 'left')};
+    margin-left: ${(props) => (props.labelPosition == 'left' ? '0' : spacing.small)};
+    margin-right: ${(props) => (props.labelPosition == 'left' ? spacing.small : '0')};
+    text-align: ${(props) => (props.labelPosition == 'left' ? 'right' : 'left')};
 
     /*
     In order to make the switch always the same width
@@ -148,7 +148,7 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
     e.stopPropagation()
 
     if (this.props.readOnly) return
-    this.setState(currentState => {
+    this.setState((currentState) => {
       if (this.props.onChange) this.props.onChange(!currentState.on)
       else if (this.props.onToggle) this.props.onToggle(!currentState.on)
 
@@ -165,7 +165,7 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
 
     const checkbox = (
       <Form.Field.ContextConsumer>
-        {context => (
+        {(context) => (
           <Checkbox
             type="checkbox"
             checked={this.state.on}

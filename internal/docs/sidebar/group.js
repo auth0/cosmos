@@ -26,7 +26,7 @@ const LinkGroup = styled.div`
   margin-top: ${spacing.medium};
 `
 
-const Group = props => (
+const Group = (props) => (
   <LinkGroup {...props}>
     <Label>
       <a>{props.label}</a>
@@ -35,10 +35,10 @@ const Group = props => (
   </LinkGroup>
 )
 
-const getGroups = components => {
+const getGroups = (components) => {
   const groups = { atoms: [], molecules: [], internal: [], layouts: [] }
 
-  components.map(component => {
+  components.map((component) => {
     let category
 
     if (component.internal) category = 'internal'

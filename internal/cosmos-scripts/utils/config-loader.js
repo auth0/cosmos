@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
-const configPath = mode => {
+const configPath = (mode) => {
   /* load custom config from application root */
   const customConfigPath = path.resolve(process.cwd(), `./webpack.${mode}.config.js`)
   const exists = fs.existsSync(customConfigPath)

@@ -29,7 +29,7 @@ import TableFixture from './molecules/table.fixture'
 import TabsFixture from './molecules/tabs.fixture'
 
 // To avoid repeating 'has automation attribute' everywhere
-const tests = elementName => `${elementName} has automation attribute`
+const tests = (elementName) => `${elementName} has automation attribute`
 
 describe('Automation data attributes', () => {
   it(tests('Alert'), () => {

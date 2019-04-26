@@ -34,7 +34,8 @@
   "prettier": {
     "singleQuote": true,
     "semi": false,
-    "printWidth": 100
+    "printWidth": 100,
+    "arrowParens": "always"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",

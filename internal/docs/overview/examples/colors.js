@@ -8,7 +8,7 @@ const Swatch = styled.span`
   display: inline-block;
   width: 80px;
   height: 80px;
-  background: ${prop => prop.color};
+  background: ${(prop) => prop.color};
   margin: ${spacing.xsmall} ${spacing.xsmall} 0 0;
 `
 

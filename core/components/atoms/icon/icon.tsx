@@ -45,17 +45,17 @@ const Icon = (props: IIconProps) => {
 Icon.Element = styled.i`
   display: inline-block;
   line-height: 1;
-  width: ${props => props.size}px;
-  height: ${props => props.size}px;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
 `
 const Image = styled.svg`
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
-  width: ${imageProps => imageProps.width}px;
-  height: ${imageProps => imageProps.height}px;
+  width: ${(imageProps) => imageProps.width}px;
+  height: ${(imageProps) => imageProps.height}px;
   path {
-    fill: ${imageProps => imageProps.color};
+    fill: ${(imageProps) => imageProps.color};
   }
 `
 

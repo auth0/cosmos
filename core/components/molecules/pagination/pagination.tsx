@@ -72,7 +72,7 @@ const Pagination = ({
       icon="chevron-left"
     />
 
-    {getPaginationSlice(page, items, perPage).map(page => (
+    {getPaginationSlice(page, items, perPage).map((page) => (
       <Pagination.PageButton
         key={page.label}
         appearance={appearance}
@@ -122,7 +122,7 @@ Pagination.IconOnlyButton = styled(Button)`
 `
 
 Pagination.PageButton = styled(Button)`
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.selected ? colors.button.default.backgroundActive : colors.button.default.background};
 
   &:hover {

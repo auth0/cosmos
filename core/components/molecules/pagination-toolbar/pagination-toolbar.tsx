@@ -69,7 +69,9 @@ const PaginationToolbar = ({
           type="number"
           size="compressed"
           value={page.toString()}
-          onChange={evt => changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)}
+          onChange={(evt) =>
+            changePageIfAppropiate(evt.target.value, items, perPage, onPageChanged)
+          }
         />
         <div>of {pages}</div>
       </PaginationToolbar.PageSelector>

@@ -18,11 +18,11 @@ const StyledSearchBox = styled(TextInput)`
   }
 `
 
-const SearchBox = props => (
+const SearchBox = (props) => (
   <StyledSearchBox
     autoFocus
     placeholder="Search for a component..."
-    onChange={e => props.onChange(e.target.value)}
+    onChange={(e) => props.onChange(e.target.value)}
   />
 )
 

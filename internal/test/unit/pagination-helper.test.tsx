@@ -60,7 +60,7 @@ describe('Pagination helper tests', () => {
   })
 
   it('should generate pagination content', () => {
-    const prettify = p => p.map(i => (i.selected ? `[${i.label}]` : i.label))
+    const prettify = (p) => p.map((i) => (i.selected ? `[${i.label}]` : i.label))
 
     expect(prettify(getPaginationSlice(2, 100, 10, 10))).toEqual([
       1,

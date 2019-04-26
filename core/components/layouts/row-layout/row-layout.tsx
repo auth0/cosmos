@@ -30,7 +30,7 @@ const RowLayout = (props: IRowLayoutProps) => (
 RowLayout.Element = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: ${props => gutterOptions[props.gutter]};
+  grid-gap: ${(props) => gutterOptions[props.gutter]};
 
   & > *:empty {
     display: none;

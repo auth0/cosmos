@@ -13,7 +13,7 @@ const StyledIcon = styled.i`
     fill: ${colors.base.grayLightest};
   }
 `
-const IconGithub = props => {
+const IconGithub = (props) => {
   return (
     <StyledIcon>
       <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">

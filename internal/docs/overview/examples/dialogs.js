@@ -9,7 +9,7 @@ class DialogExample extends React.Component {
     this.state = { isOpen: false }
   }
 
-  setIsOpen = isOpen => () => {
+  setIsOpen = (isOpen) => () => {
     this.setState((prevState, props) => ({ isOpen }))
   }
 

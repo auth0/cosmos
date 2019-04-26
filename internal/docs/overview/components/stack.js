@@ -15,12 +15,12 @@ const StyledStack = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: bottom;
-  justify-content: ${props => justifyContent[props.align]};
+  justify-content: ${(props) => justifyContent[props.align]};
 
   > * {
-    flex: ${props => (props.align === 'fill' ? 1 : 'none')};
+    flex: ${(props) => (props.align === 'fill' ? 1 : 'none')};
     align-self: center;
-    margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
+    margin-right: ${(props) => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
     margin-right: 0;
@@ -28,7 +28,7 @@ const StyledStack = styled.div`
 `
 
 const StackedItem = styled.div`
-  flex-basis: ${props => props.width}%;
+  flex-basis: ${(props) => props.width}%;
   display: flex;
   justify-content: center;
 `
@@ -39,7 +39,7 @@ const StackedItem = styled.div`
   accept widths on parent = Stack
 */
 
-const Stack = props => {
+const Stack = (props) => {
   let children
   if (props.align === 'fill') {
     children = React.Children.map(props.children, (child, index) => {

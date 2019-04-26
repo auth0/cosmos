@@ -22,7 +22,7 @@ import {
 } from './components'
 import { ISelectOptions } from './interfaces'
 
-const defaultGetOptionValue = option => option.value
+const defaultGetOptionValue = (option) => option.value
 
 const selectTheme = {
   ...defaultTheme,
@@ -40,7 +40,7 @@ const selectTheme = {
 }
 
 const cosmosToReactSelect = {
-  options: cosmosOptions =>
+  options: (cosmosOptions) =>
     cosmosOptions.map(({ items, groupName, disabled, label, text, ...otherProperties }) => ({
       isDisabled: disabled,
       label: groupName || label || text,
@@ -51,16 +51,16 @@ const cosmosToReactSelect = {
     if (valueProp === null || typeof valueProp === 'undefined') return null
 
     if (valueProp.constructor.name === 'Array') {
-      return valueProp.map(item => cosmosToReactSelect.value(item, options, getOptionValue))
+      return valueProp.map((item) => cosmosToReactSelect.value(item, options, getOptionValue))
     }
 
-    const matchValue = option => getOptionValue(option) === valueProp
+    const matchValue = (option) => getOptionValue(option) === valueProp
 
     let valueFound = null
 
-    options.forEach(option => {
+    options.forEach((option) => {
       if (option.options && option.options.constructor.name === 'Array') {
-        option.options.forEach(subOption => {
+        option.options.forEach((subOption) => {
           if (matchValue(subOption)) {
             valueFound = subOption
           }
@@ -72,7 +72,7 @@ const cosmosToReactSelect = {
 
     return options.find(matchValue)
   },
-  styles: props => ({
+  styles: (props) => ({
     menuPortal: Menu.portalTheme,
     menu: Menu.theme,
     groupHeading: GroupHeading.theme,
@@ -265,7 +265,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
 
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
-    const onChange = options => {
+    const onChange = (options) => {
       const newValue = props.async ? options : oneOrMore(options, props.getOptionValue)
       if (props.onChange) props.onChange({ target: { name: props.name, value: newValue } })
     }
@@ -273,7 +273,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     return (
       <Select.Wrapper {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
-          {context => (
+          {(context) => (
             <SelectProvider
               onChange={onChange}
               isClearable

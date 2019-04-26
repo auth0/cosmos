@@ -33,7 +33,7 @@ class Playground extends React.Component {
     this.onChange(this.state.initialCode)
   }
 
-  onChange = code => {
+  onChange = (code) => {
     const encodedCode = encodeURI(code.replace(/\n/g, '%0A'))
     this.setState({ encodedCode, url: null })
   }

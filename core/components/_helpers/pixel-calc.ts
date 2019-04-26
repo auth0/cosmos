@@ -1,4 +1,4 @@
-const parse = a => {
+const parse = (a) => {
   /* Explicitly convert to string, so that we can except numbers as well */
   a = a.toString()
   const value = parseFloat(a)

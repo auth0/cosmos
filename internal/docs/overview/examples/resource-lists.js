@@ -4,7 +4,7 @@ import Example from '../components/example'
 import Section from '../components/section'
 import { ResourceList, Image } from '@auth0/cosmos'
 
-const clickHandler = name => (evt, item) => {
+const clickHandler = (name) => (evt, item) => {
   evt.preventDefault()
   alert(`You triggered the ${name} action for ${item.title}`)
 }

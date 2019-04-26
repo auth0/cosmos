@@ -2,17 +2,24 @@ import React from 'react'
 import { TextInput, Switch, Select } from '@auth0/cosmos'
 
 const PropSwitcher = ({ propName, data, onPropsChange }) => {
-  let handler = value => onPropsChange(propName, value.toString())
+  let handler = (value) => onPropsChange(propName, value.toString())
 
   if (data.type.name === 'bool') {
     return <Switch accessibleLabels={[]} on={data.value === 'true'} onChange={handler} />
   } else if (['string', 'number'].includes(data.type.name)) {
     if (data.value === 'null') data.value = ''
-    return <TextInput defaultValue={data.value} onChange={e => handler(e.target.value)} />
+    return <TextInput defaultValue={data.value} onChange={(e) => handler(e.target.value)} />
   } else if (data.type.name.includes('|')) {
-    const options = data.type.name.replace(/"/g, '').split(' | ').map(value => ({ text: value, value }))
+    const options = data.type.name
+      .replace(/"/g, '')
+      .split(' | ')
+      .map((value) => ({ text: value, value }))
     return (
-      <Select defaultValue={data.value} onChange={e => handler(e.target.value)} options={options} />
+      <Select
+        defaultValue={data.value}
+        onChange={(e) => handler(e.target.value)}
+        options={options}
+      />
     )
   }
   return <div />

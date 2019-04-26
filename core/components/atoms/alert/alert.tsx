@@ -33,7 +33,7 @@ export interface IAlertState {
 }
 
 const ReadMoreLink = styled(Link)`
-  color: ${props => colors.alert[props.appearance].text};
+  color: ${(props) => colors.alert[props.appearance].text};
   text-decoration: underline;
   &:hover {
     text-decoration: none;
@@ -131,10 +131,10 @@ const styledForCross = css`
 Alert.Element = styled.div<IAlertElementProps>`
   ${containerStyles};
   padding: ${spacing.small} ${spacing.small};
-  ${props => props.dismissible && styledForCross};
+  ${(props) => props.dismissible && styledForCross};
 
-  background-color: ${props => colors.alert[props.appearance].background};
-  color: ${props => colors.alert[props.appearance].text};
+  background-color: ${(props) => colors.alert[props.appearance].background};
+  color: ${(props) => colors.alert[props.appearance].text};
   border-radius: 3px;
   position: relative;
   display: flex;
@@ -143,11 +143,11 @@ Alert.Element = styled.div<IAlertElementProps>`
     position: relative;
     top: 1px;
     path {
-      fill: ${props => colors.alert[props.appearance].text};
+      fill: ${(props) => colors.alert[props.appearance].text};
     }
   }
   ${StyledLink} {
-    color: ${props => colors.alert[props.appearance].text};
+    color: ${(props) => colors.alert[props.appearance].text};
     text-decoration: underline;
     &:hover {
       text-decoration: none;
@@ -157,7 +157,7 @@ Alert.Element = styled.div<IAlertElementProps>`
     position: absolute;
     right: 0;
     top: 0;
-    color: ${props => colors.alert[props.appearance].text};
+    color: ${(props) => colors.alert[props.appearance].text};
     opacity: 0.3;
     padding: ${spacing.small} ${spacing.small};
     &:hover {

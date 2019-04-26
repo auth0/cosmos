@@ -1,8 +1,8 @@
-const getPropString = propData => {
+const getPropString = (propData) => {
   let propString = ''
 
   /* filter out internal props, they start with _underscore */
-  const propNames = Object.keys(propData).filter(key => key[0] !== '_')
+  const propNames = Object.keys(propData).filter((key) => key[0] !== '_')
 
   /*
     react-docgen gives us values as string instead of booleans
@@ -10,7 +10,7 @@ const getPropString = propData => {
 
     we parse these values to decide what to put in
   */
-  propNames.forEach(name => {
+  propNames.forEach((name) => {
     /*
       Case 1: Falsy boolean
       These should be ignored: primary="false" / name="null"
@@ -133,7 +133,7 @@ const getPropString = propData => {
   return propString
 }
 
-const isNumber = value => {
+const isNumber = (value) => {
   const parsedValue = Number(value)
   /*
     Number("42") => 42

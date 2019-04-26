@@ -73,7 +73,7 @@ const Inputs = () => (
               { text: 'Option 2', value: 2 },
               { text: 'Option 3', value: 3 }
             ]}
-            onChange={event => console.log(event)}
+            onChange={(event) => console.log(event)}
           />
         </Example>
       </Col>

@@ -49,17 +49,17 @@ const TablesExample = () => (
         ]}
       >
         <Table.Column field="image" width="32px">
-          {item => <Avatar type="user" size="small" image={item.image} />}
+          {(item) => <Avatar type="user" size="small" image={item.image} />}
         </Table.Column>
         <Table.Column field="name" title="Name" width="20%">
-          {item => <Link href="#">{item.name}</Link>}
+          {(item) => <Link href="#">{item.name}</Link>}
         </Table.Column>
         <Table.Column field="email" title="Email" />
         <Table.Column field="latest_login" title="Latest Login" sortable sort="asc" />
         <Table.Column field="num_logins" title="# of Logins" sortable />
         <Table.Column field="connection" title="Connection" sortable />
         <Table.Column field="actions">
-          {item => (
+          {(item) => (
             <ButtonGroup>
               <Button icon="pencil" />
             </ButtonGroup>

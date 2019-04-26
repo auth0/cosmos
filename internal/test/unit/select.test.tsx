@@ -12,7 +12,7 @@ describe('Select', () => {
           { text: 'Three', value: 3 }
         ]}
         placeholder="Something"
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     )
 
@@ -28,7 +28,7 @@ describe('Select', () => {
           { text: 'Three', value: 3 }
         ]}
         placeholder="Something"
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
         defaultMenuOpen
         multiple
       />
@@ -46,7 +46,7 @@ describe('Select', () => {
           { text: 'Three', value: 3 }
         ]}
         placeholder="Something"
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
         defaultMenuOpen
         searchable
       />
@@ -64,9 +64,9 @@ describe('Select', () => {
           { text: 'Three', value: 3 }
         ]}
         placeholder="Something"
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
         defaultMenuOpen
-        customOptionRenderer={option => <div>{option.label}</div>}
+        customOptionRenderer={(option) => <div>{option.label}</div>}
       />
     )
 
@@ -79,7 +79,7 @@ describe('Select', () => {
         async
         loadOptions={() => {}}
         placeholder="Something"
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
         defaultMenuOpen
       />
     )

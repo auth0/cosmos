@@ -36,10 +36,10 @@ export const SortableListHandleElement = styled.div`
   margin-right: ${spacing.xsmall};
 `
 
-export const SortableListHandleButton = props => (
+export const SortableListHandleButton = (props) => (
   <SortableListHandleButton.Element
-    onFocus={ev => notifyFocusStatusChange(props, true, ev)}
-    onBlur={ev => notifyFocusStatusChange(props, false, ev)}
+    onFocus={(ev) => notifyFocusStatusChange(props, true, ev)}
+    onBlur={(ev) => notifyFocusStatusChange(props, false, ev)}
     {...props}
   />
 )

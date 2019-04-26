@@ -26,8 +26,8 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
   static Content = styled.div`
     padding-left: 1.75em;
     overflow: hidden;
-    max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
-    visibility: ${props => (props.open ? 'visible' : 'hidden')};
+    max-height: ${(props) => (props.open ? props.children.length * 50 + 'px' : '0')};
+    visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
     transition: max-height 0.5s ease, visibility 0.5s ease;
   `
 
@@ -43,7 +43,7 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
   evaluateSubItemSelection(props) {
     let subItemSelected = false
 
-    React.Children.forEach(props.children, child => {
+    React.Children.forEach(props.children, (child) => {
       /* group should be open and parent be selected */
       if (child && child.props && child.props.selected) subItemSelected = true
     })

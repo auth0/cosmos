@@ -5,7 +5,7 @@ import Automation from '../../_helpers/automation-attribute'
 
 import { colors, fonts } from '../../tokens'
 
-const Paragraph = props => (
+const Paragraph = (props) => (
   <Paragraph.Element {...Automation('paragraph')} {...props}>
     {props.children}
   </Paragraph.Element>

@@ -10,7 +10,7 @@ export interface IPageLayoutProps {
   children?: React.ReactNode
 }
 
-const PageLayout = props => (
+const PageLayout = (props) => (
   <PageLayout.Element {...props} {...Automation('page-layout')}>
     {applyLayoutChildClass(props.children)}
   </PageLayout.Element>

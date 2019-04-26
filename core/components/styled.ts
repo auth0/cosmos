@@ -1,12 +1,11 @@
 import styled, {
-  keyframes,
   css,
   injectGlobal,
-  ThemeProvider,
-  StyledComponentClass
+  keyframes,
+  StyledComponentClass,
+  ThemeProvider
 } from 'styled-components'
 import domElements from './_helpers/dom-elements'
-
 /* import cosmos specific helpers */
 import margin from './_helpers/styled-margin'
 
@@ -15,10 +14,10 @@ import margin from './_helpers/styled-margin'
   styledWithHelpers(c) = styled(c)
 */
 
-const styledWithHelpers: any = styledComponent => styled(styledComponent)
+const styledWithHelpers: any = (styledComponent) => styled(styledComponent)
 
 /* create functions for all the elements supported in styled */
-domElements.forEach(domElement => {
+domElements.forEach((domElement) => {
   styledWithHelpers[domElement] = (styles, ...interpolations) => {
     /*
       this is where we can add custom interpolation logic:

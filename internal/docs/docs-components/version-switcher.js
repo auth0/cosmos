@@ -9,10 +9,10 @@ import { changelog } from '@auth0/cosmos/meta/changelog'
 /* grab lines that start with ## */
 const regex = /^## (.*)$/gm
 const lines = changelog.match(regex)
-let versions = lines.map(line => line.split('## ')[1].split(' [')[0])
+let versions = lines.map((line) => line.split('## ')[1].split(' [')[0])
 
 /* remove versions older than 0.5.1 */
-versions = versions.filter(version => versionCompare(version, '0.5.0') === 1)
+versions = versions.filter((version) => versionCompare(version, '0.5.0') === 1)
 
 const StyledVersionSwitcher = styled.div`
   position: relative;
@@ -49,12 +49,12 @@ const VersionSwitcher = () => (
   <StyledVersionSwitcher>
     <StyledIcon />
     <StyledSelect
-      onChange={event => {
+      onChange={(event) => {
         const version = event.target.value.replace(/\./g, '-')
         window.location.href = `https://auth0-cosmos-${version}.now.sh`
       }}
     >
-      {versions.map(v => (
+      {versions.map((v) => (
         <option key={v} value={v}>
           {v}
         </option>

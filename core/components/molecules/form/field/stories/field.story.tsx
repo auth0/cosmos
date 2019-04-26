@@ -47,7 +47,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => {}}>
+          <Radio name="example1" selected="one" onChange={(_) => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -79,7 +79,7 @@ storiesOf('Form', module).add('all the fields', () => (
               appearance="link"
               icon="copy"
               label="Copy value"
-              onClick={e => console.log(e)}
+              onClick={(e) => console.log(e)}
             />
           </StackLayout>
         </Form.Field>
@@ -115,7 +115,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => {}}>
+          <Radio name="example1" selected="one" onChange={(_) => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -147,7 +147,7 @@ storiesOf('Form', module).add('all the fields', () => (
               appearance="link"
               icon="copy"
               label="Copy value"
-              onClick={e => console.log(e)}
+              onClick={(e) => console.log(e)}
             />
           </StackLayout>
         </Form.Field>
@@ -189,7 +189,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => {}}>
+          <Radio name="example1" selected="one" onChange={(_) => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -221,7 +221,7 @@ storiesOf('Form', module).add('Form full width', () => (
               appearance="link"
               icon="copy"
               label="Copy value"
-              onClick={e => console.log(e)}
+              onClick={(e) => console.log(e)}
             />
           </StackLayout>
         </Form.Field>
@@ -258,7 +258,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => {}}>
+          <Radio name="example1" selected="one" onChange={(_) => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -290,7 +290,7 @@ storiesOf('Form', module).add('Form full width', () => (
               appearance="link"
               icon="copy"
               label="Copy value"
-              onClick={e => console.log(e)}
+              onClick={(e) => console.log(e)}
             />
           </StackLayout>
         </Form.Field>

@@ -150,7 +150,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     if (this.props.defaultVisible) return
     this.setState({ visible: false })
   }
-  onKeyDown = event => {
+  onKeyDown = (event) => {
     /* this overrides defaultVisible as well */
     if (event.key === 'Escape') this.setState({ visible: false })
   }

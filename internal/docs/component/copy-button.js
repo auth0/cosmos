@@ -36,7 +36,7 @@ class CopyButton extends React.Component {
     document.execCommand('copy')
     this.setState({ copied: true })
     /* Go back to original state after 2s */
-    setTimeout(_ => this.setState({ copied: false }), 2000)
+    setTimeout((_) => this.setState({ copied: false }), 2000)
   }
   componentWillReceiveProps() {
     this.setState({ copied: false })

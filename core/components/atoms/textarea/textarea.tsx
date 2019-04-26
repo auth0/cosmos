@@ -36,7 +36,7 @@ export interface ITextAreaProps {
 const TextArea = (props: ITextAreaProps) => {
   const Input = (
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <TextArea.Element
           rows={props.length}
           id={props.id || context.formFieldId}
@@ -55,8 +55,8 @@ const TextArea = (props: ITextAreaProps) => {
 }
 
 TextArea.Element = styled(StyledInput.withComponent('textarea'))`
-  resize: ${props => (props.resizable ? 'vertical' : 'none')};
-  font-size: ${props => (props.code ? '13px' : 'inherit')};
+  resize: ${(props) => (props.resizable ? 'vertical' : 'none')};
+  font-size: ${(props) => (props.code ? '13px' : 'inherit')};
   display: block;
 `
 

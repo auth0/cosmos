@@ -54,11 +54,11 @@ const processedSections = (() => {
     (prev, current) => [...prev, ...Object.keys(sections[current])],
     []
   )
-  const notAliasedIcons = uniqueIcons.filter(item => !uniqueAliasedIcons.includes(item))
+  const notAliasedIcons = uniqueIcons.filter((item) => !uniqueAliasedIcons.includes(item))
 
   const uncategorized = {}
 
-  notAliasedIcons.forEach(icon => {
+  notAliasedIcons.forEach((icon) => {
     uncategorized[icon] = [icon]
   })
 
@@ -71,7 +71,7 @@ class IconBrowser extends React.Component {
     this.state = { filter: '' }
   }
 
-  handleChange = evt => {
+  handleChange = (evt) => {
     var filter = evt.target.value
     this.setState((state, props) => {
       return { filter }
@@ -84,14 +84,14 @@ class IconBrowser extends React.Component {
     const search = filter.toLowerCase()
 
     return Object.keys(aliases)
-      .filter(alias => fuzzysearch(search, alias))
-      .map(alias => aliases[alias])
+      .filter((alias) => fuzzysearch(search, alias))
+      .map((alias) => aliases[alias])
       .filter((value, index, arr) => arr.indexOf(value) === index)
       .sort()
   }
 
   filterIconsForSection(section, icons) {
-    const sectionIcons = icons.filter(icon => !!processedSections[section][icon])
+    const sectionIcons = icons.filter((icon) => !!processedSections[section][icon])
 
     if (sectionIcons.length === 0 || section == 'Deprecated') return null
 
@@ -128,7 +128,7 @@ class IconBrowser extends React.Component {
             onChange={this.handleChange}
           />
           <Rows gutter="large">
-            {Object.keys(processedSections).map(section =>
+            {Object.keys(processedSections).map((section) =>
               this.filterIconsForSection(section, matchingIcons)
             )}
           </Rows>

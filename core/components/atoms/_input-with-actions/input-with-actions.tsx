@@ -13,7 +13,7 @@ import { multiply, add } from '../../_helpers/pixel-calc'
 const widthOfButton = '36px'
 
 /* Calculate how much space should be left on the right for actions */
-const getPaddingForActions = actions => {
+const getPaddingForActions = (actions) => {
   const numberOfActions = actions.length
   const spaceForActions = multiply(widthOfButton, numberOfActions)
   const buffer = spacing.xsmall
@@ -26,7 +26,7 @@ const StyledWrapper = styled.div`
 
   input,
   textarea {
-    padding-right: ${props => getPaddingForActions(props.actions)};
+    padding-right: ${(props) => getPaddingForActions(props.actions)};
   }
 
   ${ButtonGroup.Element} {
@@ -35,7 +35,7 @@ const StyledWrapper = styled.div`
     top: 0;
 
     ${Button.Element} {
-      height: ${props => misc.input[props.size || 'default'].height};
+      height: ${(props) => misc.input[props.size || 'default'].height};
       margin: 0;
     }
   }
@@ -44,7 +44,7 @@ const StyledWrapper = styled.div`
 /* Override appearance and size of actions */
 const actionOverrides: Partial<IObjectAction> = { appearance: 'link', size: 'small' }
 
-const InputWithActions = props => {
+const InputWithActions = (props) => {
   const Actions = getActionGroup(props.actions, actionOverrides)
 
   return (

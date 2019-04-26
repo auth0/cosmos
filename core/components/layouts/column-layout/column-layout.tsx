@@ -58,12 +58,12 @@ const ColumnLayout = (props: IColumnLayoutProps) => (
 
 ColumnLayout.Element = styled.div`
   display: grid;
-  grid-gap: ${props => gutterOptions[props.gutter]};
+  grid-gap: ${(props) => gutterOptions[props.gutter]};
   grid-template-columns: 1fr;
 
   /* Placeholder width media feature until we have global variables for breakpoints */
   @media (min-width: 768px) {
-    grid-template-columns: ${props => gridTemplateColumns[props.distribution]};
+    grid-template-columns: ${(props) => gridTemplateColumns[props.distribution]};
   }
 
   & > *:empty {

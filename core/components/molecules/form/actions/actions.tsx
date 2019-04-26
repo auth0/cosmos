@@ -8,7 +8,7 @@ import Button from '../../../atoms/button'
 import ButtonGroup from '../../../molecules/button-group'
 import { Action, ActionWithoutHandler } from '../../../_helpers/action-shape'
 
-const getButtonProps = action => {
+const getButtonProps = (action) => {
   const props = { ...action }
   props.icon = action.icon
   props.onClick = action.handler
@@ -26,12 +26,12 @@ export interface IActionsProps {
   destructiveAction?: Action
 }
 
-const Actions = props => {
+const Actions = (props) => {
   const { primaryAction, secondaryActions, destructiveAction } = props
 
   return (
     <FormContext.Consumer>
-      {context => (
+      {(context) => (
         <Actions.Element layout={context.layout} fullWidth={context.fullWidth}>
           <ButtonGroup>
             {primaryAction && (
@@ -65,12 +65,12 @@ const Actions = props => {
 Actions.Element = styled.div`
   display: grid;
   margin-top: ${spacing.xlarge};
-  grid-gap: ${props => (props.layout === 'label-on-left' ? '25px' : '0')};
+  grid-gap: ${(props) => (props.layout === 'label-on-left' ? '25px' : '0')};
   @media (min-width: 768px) {
-    grid-template-columns: ${props => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
+    grid-template-columns: ${(props) => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
 
     ${ButtonGroup.Element} {
-      grid-column-start: ${props => (props.layout === 'label-on-left' ? '2' : '1')};
+      grid-column-start: ${(props) => (props.layout === 'label-on-left' ? '2' : '1')};
     }
   }
 `

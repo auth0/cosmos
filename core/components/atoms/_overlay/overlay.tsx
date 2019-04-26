@@ -58,7 +58,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     display: inline-block;
 
     /* Since the focus trap is adding divs around the dialog box, the max width prop should be here */
-    max-width: ${props => Overlay.getSizeForOverlay(props.contentSize)};
+    max-width: ${(props) => Overlay.getSizeForOverlay(props.contentSize)};
   `
 
   mountElement: HTMLDivElement
@@ -89,7 +89,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     document.removeEventListener('keydown', this.handleDocumentKeyDown)
   }
 
-  handleMouseDown = evt => {
+  handleMouseDown = (evt) => {
     const { closeOnBackdropClick, open, onClose } = this.props
     const clickWasOnBackdrop = this.contentElement && !this.contentElement.contains(evt.target)
     if (open && closeOnBackdropClick && clickWasOnBackdrop && onClose) {
@@ -97,7 +97,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
     }
   }
 
-  handleDocumentKeyDown = evt => {
+  handleDocumentKeyDown = (evt) => {
     const { closeOnEscape, open, onClose } = this.props
     const escapeWasPressed = evt.which === keyCodes.escape
     if (open && closeOnEscape && escapeWasPressed) {
@@ -113,7 +113,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
 
     let content = open ? (
       <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-        <Overlay.Element contentSize={contentSize} innerRef={el => (this.contentElement = el)}>
+        <Overlay.Element contentSize={contentSize} innerRef={(el) => (this.contentElement = el)}>
           {children}
         </Overlay.Element>
       </Overlay.Backdrop>

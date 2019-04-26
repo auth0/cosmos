@@ -37,10 +37,10 @@ const Subtitle = styled.span`
   line-height: normal;
   color: ${colors.text.secondary};
   margin-top: ${spacing.xxsmall};
-  display: ${props => (props.size === 'compact' ? 'none' : 'block')};
+  display: ${(props) => (props.size === 'compact' ? 'none' : 'block')};
 `
 
-const getLinkedElement = props => element => {
+const getLinkedElement = (props) => (element) => {
   let link = props.href || props.link
 
   if (!link) return element
@@ -52,9 +52,9 @@ const getLinkedElement = props => element => {
   return <Link {...link}>{element}</Link>
 }
 
-const getTitle = props => <Title>{getLinkedElement(props)(props.title)}</Title>
+const getTitle = (props) => <Title>{getLinkedElement(props)(props.title)}</Title>
 
-const getAvatar = props =>
+const getAvatar = (props) =>
   getLinkedElement(props)(
     <Avatar
       icon={props.icon}

@@ -1,6 +1,6 @@
 import { shapeForDocs } from '@auth0/cosmos/_helpers/action-shape'
 
-const parseType = type => {
+const parseType = (type) => {
   if (type.name === 'shape') {
     return 'shape ' + getShape(type.value)
   } else if (type.name === 'arrayOf') {
@@ -18,24 +18,24 @@ const parseType = type => {
   }
 }
 
-const replaceRaw = value => {
+const replaceRaw = (value) => {
   if (['actionShape', 'actionShapeWithRequiredIcon'].includes(value)) {
     return JSON.stringify(shapeForDocs, null, 2)
   } else return value
 }
 
-const getShape = value => {
+const getShape = (value) => {
   const shape = {}
 
-  Object.keys(value).forEach(key => {
+  Object.keys(value).forEach((key) => {
     shape[key] = value[key].name
   })
 
   return JSON.stringify(shape, null, 2)
 }
 
-const getArray = value => {
-  return value.map(v => parseType(v))
+const getArray = (value) => {
+  return value.map((v) => parseType(v))
 }
 
 export default parseType

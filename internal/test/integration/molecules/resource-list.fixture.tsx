@@ -58,7 +58,7 @@ class Custom extends React.Component {
             joined: 1990
           }
         ]}
-        renderItem={item => (
+        renderItem={(item) => (
           <ResourceList.Item {...item} id="custom-id">
             Joined: {item.joined}
           </ResourceList.Item>

@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   }
 `
 
-const CodeBlock = props => {
+const CodeBlock = (props) => {
   return (
     <Wrapper>
       <Highlight className={props.language}>{props.children.trim()}</Highlight>

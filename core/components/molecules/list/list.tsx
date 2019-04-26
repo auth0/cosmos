@@ -23,7 +23,7 @@ import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from '
  *
  * @param {object} props
  */
-export const Div = props => <div {...props} />
+export const Div = (props) => <div {...props} />
 
 const ListContainer = SortableContainer((props: IListProps) => (
   <div>{React.Children.map(props.children, renderItem(props, SortableListItemContainer))}</div>
@@ -33,7 +33,7 @@ const SortableListItemContainer = SortableElement<{
   children: React.ReactNode
   index: number
   value: any
-}>(props =>
+}>((props) =>
   React.cloneElement(props.children as JSX.Element, { sortIndex: props.index, value: props.value })
 )
 
@@ -145,7 +145,7 @@ class ListItemContainer extends React.Component<IListItemContainerProps, { open:
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: space-between;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.hasOpenDrawer ? colors.list.backgroundHover : 'transparent'};
 
     &:hover {
@@ -155,7 +155,7 @@ class ListItemContainer extends React.Component<IListItemContainerProps, { open:
 
   state = { open: false }
 
-  setDrawerState = open => {
+  setDrawerState = (open) => {
     this.setState({ open })
   }
 
@@ -176,7 +176,7 @@ List.Item = styled.div`
   flex-wrap: wrap;
   align-items: center;
   word-break: break-word;
-  margin-right: ${props => (props.arrowIsVisible ? '0' : '32px')};
+  margin-right: ${(props) => (props.arrowIsVisible ? '0' : '32px')};
 
   > *:not(:last-child) {
     margin-right: ${spacing.medium};
@@ -236,7 +236,7 @@ List.Arrow = styled.button`
 List.Drawer = styled.section`
   flex: 1 0 100%;
   border-top: 1px solid ${colors.list.borderColor};
-  display: ${props => (props.hidden ? 'none' : 'block')};
+  display: ${(props) => (props.hidden ? 'none' : 'block')};
 
   margin-top: ${spacing.small};
   margin-bottom: -${spacing.small};

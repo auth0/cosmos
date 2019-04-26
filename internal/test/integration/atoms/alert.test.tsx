@@ -16,7 +16,7 @@ test('Calls custom event handler', () => {
 test('Calls custom event handler automatically using dismissAfterSeconds', () => {
   render(<Fixture dismissAfterSeconds={0.5} />)
 
-  return new Promise<any>(resolve => {
+  return new Promise<any>((resolve) => {
     setTimeout(() => {
       expect(Fixture.onDismiss).toHaveBeenCalled()
       resolve()

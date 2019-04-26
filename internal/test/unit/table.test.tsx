@@ -50,7 +50,7 @@ const tableFactory = ({
   wrapper(
     <Table items={items} onRowClick={onRowClick} onSort={onSort}>
       <Table.Column field="image" width="50px">
-        {item => <Avatar type="user" image={item.image} />}
+        {(item) => <Avatar type="user" image={item.image} />}
       </Table.Column>
       <Table.Column field="name" title="Name" width="30%" sortable />
       <Table.Column field="country" title="Country" />
@@ -88,14 +88,14 @@ describe('Table', () => {
   })
 
   it('provides automatic sorting', () => {
-    const data = [1, 3, 5, 7, 8, 0, 2, 4, 6, 9].map(number => ({ number }))
+    const data = [1, 3, 5, 7, 8, 0, 2, 4, 6, 9].map((number) => ({ number }))
 
     const wrapper = mount(
       <Table items={data}>
         <Table.Column sortable field="number" title="Number" />
       </Table>
     )
-    const tableItems = () => wrapper.find('td').map(x => x.text())
+    const tableItems = () => wrapper.find('td').map((x) => x.text())
 
     const ascending = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     expect(tableItems()).toEqual(ascending)
@@ -122,15 +122,15 @@ describe('Table', () => {
             return a.goals + a.assists - b.goals - b.assists
           }}
         >
-          {item => item.goals + item.assists}
+          {(item) => item.goals + item.assists}
         </Table.Column>
       </Table>
     )
 
-    const getItemsAtColumn = column =>
+    const getItemsAtColumn = (column) =>
       wrapper
         .find('tr')
-        .map(tr => tr.find('td').map(td => td.text())[column])
+        .map((tr) => tr.find('td').map((td) => td.text())[column])
         .slice(1) // Remove the header (which is a <tr> as well)
 
     expect(getItemsAtColumn(0)).toEqual(['3', '4', '4', '6'])

@@ -15,7 +15,7 @@ const appearances: IAlertAppearance[] = ['default', 'information', 'success', 'w
 
 storiesOf('Alert', module).add('default', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} key={appearance}>
         This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
       </Alert>
@@ -25,7 +25,7 @@ storiesOf('Alert', module).add('default', () => (
 
 storiesOf('Alert', module).add('with string text', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} key={appearance} text="This is the alert content" />
     ))}
   </Example>
@@ -33,7 +33,7 @@ storiesOf('Alert', module).add('with string text', () => (
 
 storiesOf('Alert', module).add('with title', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" key={appearance}>
         <span>
           This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
@@ -45,7 +45,7 @@ storiesOf('Alert', module).add('with title', () => (
 
 storiesOf('Alert', module).add('with title and children', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" key={appearance}>
         <span>This is the alert content</span>
       </Alert>
@@ -55,7 +55,7 @@ storiesOf('Alert', module).add('with title and children', () => (
 
 storiesOf('Alert', module).add('with title and link', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" link="/test" key={appearance}>
         This is the <Text type="strong">alert</Text> <Link href="#">content</Link>.
       </Alert>
@@ -65,7 +65,7 @@ storiesOf('Alert', module).add('with title and link', () => (
 
 storiesOf('Alert', module).add('with icon', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" link="/test" icon="hourglass" key={appearance}>
         This is the <Text type="strong">alert</Text>
       </Alert>
@@ -75,7 +75,7 @@ storiesOf('Alert', module).add('with icon', () => (
 
 storiesOf('Alert', module).add('stressed content', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" link="/test" key={appearance}>
         This is the alert content. This is the alert content. This is the alert content. This is the
         alert content. This is the alert content. This is the alert content. This is the alert
@@ -87,7 +87,7 @@ storiesOf('Alert', module).add('stressed content', () => (
 
 storiesOf('Alert', module).add('with no children/text', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert appearance={appearance} title="A title" link="/test" key={appearance} />
     ))}
   </Example>
@@ -95,7 +95,7 @@ storiesOf('Alert', module).add('with no children/text', () => (
 
 storiesOf('Alert', module).add('old API', () => (
   <Example>
-    {appearances.map(appearance => (
+    {appearances.map((appearance) => (
       <Alert key={appearance} appearance={appearance} title="Warning!" text="This is the old API" />
     ))}
   </Example>

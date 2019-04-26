@@ -6,7 +6,7 @@ import * as React from 'react'
  * @param {React.Element} child
  */
 export const excludeDrawer = (child, type) => {
-  const newChildren = React.Children.map(child.props.children, child => {
+  const newChildren = React.Children.map(child.props.children, (child) => {
     if (!child || child.type === type) return null
 
     return child
@@ -21,7 +21,7 @@ export const excludeDrawer = (child, type) => {
  * @param {React.Element} child
  */
 export const getDrawer = (child, drawerIsOpen, type) => {
-  const drawer = React.Children.map(child.props.children, child => {
+  const drawer = React.Children.map(child.props.children, (child) => {
     if (!child || child.type !== type) return null
 
     const { props } = child
@@ -42,7 +42,7 @@ export const isListExpandable = (child, type) => {
   let isPresent = false
   let arrowIsVisible = true
 
-  React.Children.map(child.props.children, item => {
+  React.Children.map(child.props.children, (item) => {
     if (item && item.type === type) {
       isPresent = true
 
@@ -58,5 +58,5 @@ export const isListExpandable = (child, type) => {
 export const onItemClickHandler = (props, child) => {
   if (!props.onItemClick) return undefined
 
-  return ev => props.onItemClick(ev, child.props)
+  return (ev) => props.onItemClick(ev, child.props)
 }

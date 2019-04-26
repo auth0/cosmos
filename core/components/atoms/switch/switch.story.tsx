@@ -6,19 +6,19 @@ import { Switch } from '../../'
 
 storiesOf('Switch', module).add('default', () => (
   <Example title="Switch">
-    <Switch onChange={value => console.log(value)} />
+    <Switch onChange={(value) => console.log(value)} />
   </Example>
 ))
 
 storiesOf('Switch', module).add('left label', () => (
   <Example title="Switch">
-    <Switch onChange={value => console.log(value)} labelPosition="left" />
+    <Switch onChange={(value) => console.log(value)} labelPosition="left" />
   </Example>
 ))
 
 storiesOf('Switch', module).add('on', () => (
   <Example title="Switch">
-    <Switch on onChange={value => console.log(value)} />
+    <Switch on onChange={(value) => console.log(value)} />
   </Example>
 ))
 

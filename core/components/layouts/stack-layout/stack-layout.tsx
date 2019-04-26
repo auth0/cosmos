@@ -60,12 +60,12 @@ const StackLayout = (props: IStackLayoutProps) => (
 
 StackLayout.Element = styled.div`
   display: flex;
-  align-items: ${props => alignmentOptions[props.alignment]};
-  justify-content: ${props => distributionOptions[props.distribution]};
+  align-items: ${(props) => alignmentOptions[props.alignment]};
+  justify-content: ${(props) => distributionOptions[props.distribution]};
 
-  flex-wrap: ${props => (props.wrap ? 'nowrap' : 'wrap')};
+  flex-wrap: ${(props) => (props.wrap ? 'nowrap' : 'wrap')};
   > *:not(:last-child) {
-    margin-right: ${props => gutterOptions[props.gutter]};
+    margin-right: ${(props) => gutterOptions[props.gutter]};
   }
 
   & > *:empty {
@@ -76,7 +76,7 @@ StackLayout.Element = styled.div`
 `
 
 StackLayout.Item = styled.div`
-  flex: ${props => props.space};
+  flex: ${(props) => props.space};
 
   /* Avoids any component to be larger than it's parent */
   max-width: 100%;

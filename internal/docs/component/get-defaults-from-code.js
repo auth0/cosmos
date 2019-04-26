@@ -1,4 +1,4 @@
-const getDefaultString = code => {
+const getDefaultString = (code) => {
   const string = code
     .split('defaults={{')[1]
     .split('}}>')[0]
@@ -7,7 +7,7 @@ const getDefaultString = code => {
   return string
 }
 
-const getDefaultsFromCode = code => {
+const getDefaultsFromCode = (code) => {
   let values = {}
 
   // code ~ <Component defaults={{key1: "value1", key2: "value2"}}/>
@@ -17,7 +17,7 @@ const getDefaultsFromCode = code => {
   const string = getDefaultString(code)
   // string ~ key1: "value1", key2: "value2"
 
-  string.split(',').forEach(pair => {
+  string.split(',').forEach((pair) => {
     const [key, value] = pair.split(':')
     values[key.trim()] = JSON.parse(value.trim())
   })
@@ -26,7 +26,7 @@ const getDefaultsFromCode = code => {
   return values
 }
 
-const stripDefaultsFromDocs = code => {
+const stripDefaultsFromDocs = (code) => {
   // code ~ <Component defaults={{key1: "value1", key2: "value2"}}/>
 
   if (!code.includes('defaults')) return code

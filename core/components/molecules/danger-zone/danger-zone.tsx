@@ -75,7 +75,7 @@ const DangerZone = ({ items, ...props }: IDangerZoneProps) => (
   <Container {...Automation('danger-zone')} {...props}>
     <MainTitle size={3}>Danger Zone</MainTitle>
     <ItemsContainer>
-      {items.map(item => (
+      {items.map((item) => (
         <Item key={item.title}>
           <TempStack>
             <Description>
@@ -85,7 +85,7 @@ const DangerZone = ({ items, ...props }: IDangerZoneProps) => (
             <Action>
               <Button
                 type={item.action.type || 'button'}
-                onClick={e => {
+                onClick={(e) => {
                   item.action.onClick(e)
                 }}
                 appearance="destructive"

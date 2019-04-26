@@ -13,22 +13,22 @@ const StyledLink = styled.div`
   a {
     display: block;
     padding: 10px ${spacing.medium};
-    padding-left: ${props => (props.isChild ? spacing.xlarge : spacing.medium)};
+    padding-left: ${(props) => (props.isChild ? spacing.xlarge : spacing.medium)};
     text-decoration: none;
     font-size: 14px;
-    color: ${props => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
-    cursor: ${props => (props.disabled ? 'default' : 'pointer')};
+    color: ${(props) => (props.disabled ? colors.base.grayMedium : colors.base.grayDark)};
+    cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
 
     &:hover {
-      color: ${props => (props.disabled ? null : colors.text.default)};
+      color: ${(props) => (props.disabled ? null : colors.text.default)};
     }
     &.selected {
-      color: ${props => (props.disabled ? null : colors.link.default)};
+      color: ${(props) => (props.disabled ? null : colors.link.default)};
     }
   }
 `
 
-const List = props => {
+const List = (props) => {
   /* Filter out internal components */
   let components = props.components
 
@@ -36,7 +36,7 @@ const List = props => {
   components = attachChildren(components)
   const groups = getGroups(components)
 
-  const filteredGuides = guides.filter(guide =>
+  const filteredGuides = guides.filter((guide) =>
     guide.title.toLowerCase().includes(props.query.toLowerCase())
   )
 

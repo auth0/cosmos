@@ -1,7 +1,7 @@
 // @ts-ignore noImplicitReturn
 const onlyOneOf = (props, list: string[]) => {
   let matches: string[] = []
-  list.forEach(item => {
+  list.forEach((item) => {
     if (props[item]) matches.push(item)
   })
   if (matches.length > 1) return new Error(`Can not use ${matches.join(' + ')} together!`)

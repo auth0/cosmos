@@ -5,7 +5,7 @@ const PLACEHOLDERS = {
   resource: 'https://cdn.auth0.com/website/cosmos/avatar-resource-default.svg'
 }
 
-const initialsAvatar = initials =>
+const initialsAvatar = (initials) =>
   initials
     ? encodeURIComponent(`https://cdn.auth0.com/avatars/${initials.toLowerCase()}.png`)
     : '404'

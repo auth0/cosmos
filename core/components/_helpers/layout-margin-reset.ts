@@ -4,7 +4,7 @@ import { css } from '../styled'
 export const LAYOUT_CHILDREN_CLASS_NAME = 'cosmos-layout-child'
 
 export const applyLayoutChildClass = (children: JSX.Element) =>
-  React.Children.map(children, child => {
+  React.Children.map(children, (child) => {
     if (!child) return null
     return React.cloneElement(child, { className: LAYOUT_CHILDREN_CLASS_NAME })
   })
@@ -16,7 +16,7 @@ export const applyLayoutChildClass = (children: JSX.Element) =>
  * Layout's Items direct children has to have their margin cleared so it doesn't generate double spacings.
  * This is a fix that will last until we remove margins from components.
  */
-const applyMarginReset = (propName = 'disableMarginReset') => props => {
+const applyMarginReset = (propName = 'disableMarginReset') => (props) => {
   const propValue = props[propName]
   const matchingValue = propValue !== 'undefined' ? '0' : null
 

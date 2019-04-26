@@ -74,11 +74,11 @@ Stack.Element = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: ${props => alignItems[props.alignVertical]};
-  justify-content: ${props => justifyContent[props.align]};
+  align-items: ${(props) => alignItems[props.alignVertical]};
+  justify-content: ${(props) => justifyContent[props.align]};
   > * {
-    flex: ${props => (props.align === 'fill' ? 1 : 'none')};
-    margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
+    flex: ${(props) => (props.align === 'fill' ? 1 : 'none')};
+    margin-right: ${(props) => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
     margin-right: 0;
@@ -86,7 +86,7 @@ Stack.Element = styled.div`
 `
 
 Stack.Item = styled.div`
-  flex-basis: ${props => props.width}%;
+  flex-basis: ${(props) => props.width}%;
 `
 
 Stack.defaultProps = {

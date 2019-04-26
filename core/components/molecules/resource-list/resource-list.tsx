@@ -39,7 +39,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   }
 
-  const itemRendererBuilder = props => {
+  const itemRendererBuilder = (props) => {
     const {
       item,
       index,
@@ -52,7 +52,7 @@ const ResourceList = (props: IResourceListProps) => {
     const itemRenderer = renderItem || defaultItemRenderer
     const actualIndex = index || accessibilityIndex
 
-    const handleOnItemClick = evt => {
+    const handleOnItemClick = (evt) => {
       if (typeof onItemClick === 'function') onItemClick(evt, item)
     }
 
@@ -119,7 +119,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   )
 
-  const sortableChildrenRenderer = props => {
+  const sortableChildrenRenderer = (props) => {
     return (
       <SortableResourceList
         {...props}
@@ -130,7 +130,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   }
 
-  const resolveChildrenRenderer = props =>
+  const resolveChildrenRenderer = (props) =>
     props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
 
   return (

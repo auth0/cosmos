@@ -60,14 +60,14 @@ describe('Tabs', () => {
     const { generator } = tabsFactory()
     const testableIndexes = [0, 1, 2]
 
-    testableIndexes.forEach(index => {
+    testableIndexes.forEach((index) => {
       const tabs = generator(index)
 
       // @ts-ignore
       const [tabList, activeTabPanel] = tabs.children()
 
-      const getPropFromTabLink = propName =>
-        tabList.props.children.map(link => link.props.children.props[propName])
+      const getPropFromTabLink = (propName) =>
+        tabList.props.children.map((link) => link.props.children.props[propName])
 
       const getPropFromTabPane = (propName, removeValue?: string) => {
         const value = activeTabPanel.props[propName]

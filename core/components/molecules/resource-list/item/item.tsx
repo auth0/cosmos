@@ -25,7 +25,7 @@ const resolveAction = (item, action, key) => {
 
   // Patch action's onClick handler to include the item
   const { onClick: handler } = action.props
-  const onClick = evt => {
+  const onClick = (evt) => {
     evt.stopPropagation()
     handler(evt, item)
   }
@@ -73,7 +73,7 @@ class ListItem extends React.Component<IListItemProps> {
     align-items: center;
     border-top: 1px solid ${colors.list.borderColor};
     padding: ${spacing.small} ${spacing.xsmall};
-    cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
 
     &:hover {
       background: ${colors.list.backgroundHover};
@@ -91,7 +91,7 @@ class ListItem extends React.Component<IListItemProps> {
 
     /* Disable pointer events on non-dragging elements */
     /* to avoid unexpected hover behaviors. */
-    ${props =>
+    ${(props) =>
       props.draggingMode
         ? css`
             &:not(.cosmos-dragging) {
@@ -115,7 +115,7 @@ class ListItem extends React.Component<IListItemProps> {
 
   static Body = styled.div`
     flex: 1;
-    flex-basis: ${props => props.bodyWidth};
+    flex-basis: ${(props) => props.bodyWidth};
 
     /* This is not mobile first, but it avoids negation of margin */
     @media screen and (max-width: 768px) {
@@ -180,7 +180,7 @@ class ListItem extends React.Component<IListItemProps> {
 
   render() {
     const props = this.props
-    const callHandler = handler => evt => handler(evt, props.item)
+    const callHandler = (handler) => (evt) => handler(evt, props.item)
     return (
       <ListItem.Element
         {...props}

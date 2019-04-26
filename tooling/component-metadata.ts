@@ -25,8 +25,8 @@ let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.m
 const run = () => {
   info('Generating metadata')
   let metadata = javascriptFiles
-    .filter(path => !path.includes('story.tsx') || !path.includes('.d.ts'))
-    .map(path => {
+    .filter((path) => !path.includes('story.tsx') || !path.includes('.d.ts'))
+    .map((path) => {
       try {
         /* ignore secondary files */
         const directoryName = path.split('/').splice(-2, 1)[0]
@@ -45,7 +45,7 @@ const run = () => {
 
         /* make modifications to prop types to improve documentation */
         if (data.props) {
-          Object.keys(data.props).forEach(propName => {
+          Object.keys(data.props).forEach((propName) => {
             const prop = data.props[propName]
             /* remove redundant quotes from default value of type string */
             if (prop.defaultValue) {
@@ -56,17 +56,19 @@ const run = () => {
 
             if (prop.type.name === 'enum' && prop.type.value === '__ICONNAMES__') {
               /* create an array of all the icons with an empty string as first element */
-              prop.type.value = [{ value: '' }].concat(Object.keys(icons).map(value => ({ value })))
+              prop.type.value = [{ value: '' }].concat(
+                Object.keys(icons).map((value) => ({ value }))
+              )
             }
 
             if (prop.type.name === 'enum' && prop.type.value === '__COLORS__') {
               /* create an array of all the base colors */
-              prop.type.value = Object.keys(colors.base).map(value => ({ value }))
+              prop.type.value = Object.keys(colors.base).map((value) => ({ value }))
             }
 
             /* remove redundant quotes from enum values in prop types */
             if (prop.type.name === 'enum' && Array.isArray(prop.type.value)) {
-              prop.type.value.forEach(element => {
+              prop.type.value.forEach((element) => {
                 element.value = element.value.replace(/^'(.*)'$/, '$1')
               })
             }
@@ -89,7 +91,7 @@ const run = () => {
         if (fs.existsSync(documentationPath)) {
           data.documentation = fs.readFileSync(documentationPath, 'utf8')
           /* remove from markdown files list (useful later) */
-          markdownFiles = markdownFiles.filter(path => path !== documentationPath)
+          markdownFiles = markdownFiles.filter((path) => path !== documentationPath)
           /* pull meta from docs */
           data.meta = getMetadata(documentationPath)
         } else if (debug) {
@@ -113,10 +115,10 @@ const run = () => {
       filter out null values,
       this protects against components that don't have metadata yet
     */
-    .filter(meta => meta)
+    .filter((meta) => meta)
 
   /* Add documentation files that are not implemented yet */
-  markdownFiles.map(path => {
+  markdownFiles.map((path) => {
     const data: any = {}
 
     /* attach content of documentation file */

@@ -19,8 +19,8 @@ const Container = styled.div`
   & .react-live-preview {
     white-space: normal;
     border: 1px solid ${colors.base.grayLight};
-    border-bottom-width: ${props => (props.codeVisible ? 0 : '1px')};
-    border-radius: 3px 3px ${props => (props.codeVisible ? '0 0' : '3px 3px')};
+    border-bottom-width: ${(props) => (props.codeVisible ? 0 : '1px')};
+    border-radius: 3px 3px ${(props) => (props.codeVisible ? '0 0' : '3px 3px')};
     padding: 40px;
   }
 
@@ -42,7 +42,7 @@ const Container = styled.div`
 
 const CodeWrapper = styled.div`
   overflow: hidden;
-  max-height: ${props => 25 * (props.code.split('\n').length + 1)}px;
+  max-height: ${(props) => 25 * (props.code.split('\n').length + 1)}px;
   transition: max-height 0.5s ease;
 
   &.hide {

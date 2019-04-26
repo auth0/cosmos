@@ -4,7 +4,7 @@ import Example from '../components/example'
 import Section from '../components/section'
 import { Code, Form, FormGroup, Radio } from '@auth0/cosmos'
 
-const fakeMethod = e => {
+const fakeMethod = (e) => {
   e.preventDefault()
   console.log('fired')
 }

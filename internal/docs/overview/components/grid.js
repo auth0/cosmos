@@ -14,7 +14,7 @@ const Col = styled.div`
   flex-direction: column;
   flex: 1 0 0;
   margin: 0 0.5rem;
-  width: ${props => props.width || '50%'};
+  width: ${(props) => props.width || '50%'};
   ${Example} {
     flex-grow: 1;
   }
