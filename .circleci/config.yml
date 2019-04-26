@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   "Build for Production":
     working_directory: ~/cosmos
