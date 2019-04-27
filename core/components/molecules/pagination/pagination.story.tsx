@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Example } from '../../_helpers/story-helpers'
-import { Pagination } from '../../'
+import * as React from "react";
+
+import { storiesOf } from "@storybook/react";
+
+import { Pagination } from "../../";
+import { Example } from "../../_helpers/story-helpers";
 
 storiesOf('Pagination', module).add('default', () => (
   <Example>

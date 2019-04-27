@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pager modes renders full mode 1`] = `
+<styled.div
+  data-cosmos-key="pager"
+>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-left"
+    iconAlign="left"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Newer
+  </Button>
+  <styled.div>
+    Showing 31 - 40 of 10000
+  </styled.div>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-right"
+    iconAlign="right"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Older
+  </Button>
+</styled.div>
+`;
+
+exports[`Pager modes renders next page control disabled 1`] = `
+<styled.div
+  data-cosmos-key="pager"
+>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-left"
+    iconAlign="left"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Newer
+  </Button>
+  <styled.div>
+    Showing 6 - 10 of 10
+  </styled.div>
+  <Button
+    appearance="secondary"
+    disabled={true}
+    icon="chevron-right"
+    iconAlign="right"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Older
+  </Button>
+</styled.div>
+`;
+
+exports[`Pager modes renders no info mode 1`] = `
+<styled.div
+  data-cosmos-key="pager"
+>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-left"
+    iconAlign="left"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Newer
+  </Button>
+  <styled.div />
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-right"
+    iconAlign="right"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Older
+  </Button>
+</styled.div>
+`;
+
+exports[`Pager modes renders page only mode 1`] = `
+<styled.div
+  data-cosmos-key="pager"
+>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-left"
+    iconAlign="left"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Newer
+  </Button>
+  <styled.div>
+    Page 4
+  </styled.div>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-right"
+    iconAlign="right"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Older
+  </Button>
+</styled.div>
+`;
+
+exports[`Pager modes renders previus page control disabled 1`] = `
+<styled.div
+  data-cosmos-key="pager"
+>
+  <Button
+    appearance="secondary"
+    disabled={true}
+    icon="chevron-left"
+    iconAlign="left"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Newer
+  </Button>
+  <styled.div>
+    Showing 1 - 5 of 10
+  </styled.div>
+  <Button
+    appearance="secondary"
+    disabled={false}
+    icon="chevron-right"
+    iconAlign="right"
+    loading={false}
+    onClick={[Function]}
+    size="compressed"
+    success={false}
+  >
+    Older
+  </Button>
+</styled.div>
+`;
