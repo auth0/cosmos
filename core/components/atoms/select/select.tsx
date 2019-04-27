@@ -1,12 +1,12 @@
-import * as React from "react";
-import ReactSelect, { components, defaultTheme } from "react-select";
-import AsyncSelect from "react-select/lib/Async";
+import * as React from 'react'
+import ReactSelect, { components, defaultTheme } from 'react-select'
+import AsyncSelect from 'react-select/lib/Async'
 
-import Automation from "../../_helpers/automation-attribute";
-import Form from "../../molecules/form";
-import styled from "../../styled";
-import { colors, misc, spacing } from "../../tokens";
-import SimpleSelect from "../_simple-select";
+import Automation from '../../_helpers/automation-attribute'
+import Form from '../../molecules/form'
+import styled from '../../styled'
+import { colors, misc, spacing } from '../../tokens'
+import SimpleSelect from '../_simple-select'
 import {
   ClearIndicator,
   DropdownIndicator,
@@ -19,8 +19,8 @@ import {
   Option,
   optionRenderer,
   valueRenderer
-} from "./components";
-import { ISelectOptions } from "./interfaces";
+} from './components'
+import { ISelectOptions } from './interfaces'
 
 const defaultGetOptionValue = option => option.value
 
@@ -148,6 +148,8 @@ export interface ISelectProps {
   style?: Object
   /** Used to focus the control when it mounts */
   autoFocus?: boolean
+  /** If cacheOptions is truthy, then the loaded data will be cached. The cache will remain until cacheOptions changes value. */
+  cacheOptions?: boolean
   /** @internal */
   defaultMenuOpen?: boolean
   inputValue?: string
