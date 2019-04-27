@@ -3,15 +3,10 @@ import styled from '../../styled'
 
 import { misc } from '../../tokens'
 import { StyledInput } from '../_styled-input'
-
-/* Helpers */
 import Automation from '../../_helpers/automation-attribute'
-import { deprecate } from '../../_helpers/custom-validations'
-
-/* Input with actions */
 import InputWithActions from '../_input-with-actions'
 import Form from '../../molecules/form'
-import { actionShapeWithRequiredIcon, ActionWithIcon } from '../../_helpers/action-shape'
+import { ActionWithIcon } from '../../_helpers/action-shape'
 
 export type TextInputSize = 'default' | 'large' | 'small' | 'compressed'
 
@@ -55,6 +50,9 @@ export interface ITextInputProps {
   min?: number
   max?: number
   autoFocus?: boolean
+  autoComplete?: string
+  autoCorrect?: string
+  spellCheck?: boolean
 }
 
 const TextInput = (props: ITextInputProps) => {
