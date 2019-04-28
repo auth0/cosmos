@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.23.11 [April 29, 2019]
+
+### Added
+
+- Select: add `chageOptions` and pass down to **react-select**. [#1590]
+- TextInput: add `autoComplete`, `autoCorrect`, `spellCheck` native input props. [#1590]
+- Pager: add `showInfo` boolean property to allow **no info** mode between the controls. [#1592]
+
+### Fixed
+
+- Pager: fix issue where `onPageChanged` provided function would not be called. [#1592]
+- Docs: fix typo on import line for `Link` component. [#1588]
+
+### Changed
+
+- Pager: change `page` property to be **required**. [#1592]
+- Pager: change **Newer / Older** buttons to be disabled when on first / last page. [#1592]
+- Pager: improve internal _test coverage_. [#1592]
+- Docs: improve `List` component docs. [#1569]
+- Internal: moved to **CircleCI** for CI/CD. [#1580]
+
 ## 0.23.10 [April 24, 2019]
 
 ### Added
