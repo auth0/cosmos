@@ -15,7 +15,7 @@ class PaginatedResource extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { page: 1, perPage: 15, items: 7500 }
+    this.state = { page: 1, perPage: 15, items: 150 }
   }
 
   onPageChange(page) {
@@ -36,7 +36,7 @@ class PaginatedResource extends React.Component {
 }
 ```
 
-### Without items
+### Displaying just current page
 
 ```js
 class PaginatedResource extends React.Component {
@@ -52,7 +52,28 @@ class PaginatedResource extends React.Component {
 
   render() {
     const { page, perPage } = this.state
-    return <Pager page={page} perPage={perPage} onPageChanged={this.onPageChange.bind(this)} />
+    return <Pager page={page} onPageChanged={this.onPageChange.bind(this)} />
+  }
+}
+```
+
+### Without any info
+
+```js
+class PaginatedResource extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { page: 1, perPage: 15 }
+  }
+
+  onPageChange(page) {
+    this.setState({ page })
+  }
+
+  render() {
+    const { page, perPage } = this.state
+    return <Pager showInfo={false} page={page} onPageChanged={this.onPageChange.bind(this)} />
   }
 }
 ```
