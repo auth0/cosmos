@@ -1,4 +1,4 @@
-import * as  React from 'react'
+import * as React from 'react'
 import styled from '../../styled'
 
 import { StyledInput } from '../_styled-input'
@@ -30,6 +30,10 @@ export interface ITextAreaProps {
   placeholder?: string
   /** Actions to be attached to the input */
   actions?: (JSX.Element | ActionWithIcon)[]
+  /** The default value for the field */
+  defaultValue?: string
+  /** The current value for the text area */
+  value?: string
   onClick?: Function
 }
 
