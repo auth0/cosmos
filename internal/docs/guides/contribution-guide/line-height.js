@@ -21,8 +21,8 @@ const LineHeight = () => (
     <CodeBlock language="html">
       {`
 <p>
-<span>this is a child element</span>
-<span>that should inherit the paragraph's line height</span>
+  <span>this is a child element</span>
+  <span>that should inherit the paragraph's line height</span>
 </p>
     `}
     </CodeBlock>
@@ -32,8 +32,8 @@ const LineHeight = () => (
         {`
 import containerStyles from '@auth0/cosmos/_helpers/container-styles'
 const Paragraph = styled.p\`
-\${containerStyles};
-color: \${colors.text};
+  \${containerStyles};
+  color: \${colors.text};
 \`
       `}
       </CodeBlock>

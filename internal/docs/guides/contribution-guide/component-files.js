@@ -10,7 +10,7 @@ const ComponentFiles = () => (
     <Text>Each component directory has these 5 files:</Text>
     <List>
       <List.Item>
-        <Code>component.js</Code>
+        <Code>component.tsx</Code>
         <Text>This is where all the component code sits.</Text>
         <Text>
           We create a <Code>Element</Code> with <Code>styled-components</Code> and use that in the
@@ -18,26 +18,35 @@ const ComponentFiles = () => (
           needed.
         </Text>
         <Text>
-          <Code>propTypes</Code> and <Code>defaultProps</Code> help us validate props and build the
-          documentation.
+          <Code>IComponentProps</Code> (TypeScript interface containing all your props) and{' '}
+          <Code>defaultProps</Code> help us validate props and build the documentation.
         </Text>
-        <CodeBlock language="javascript">
+        <CodeBlock language="typescript">
           {`
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 
-const AvatarElement = styled.div\`
-border-radius: 50%;
-\`
 
-const Avatar = props => (
-<AvatarElement size={props.size}>
-<img src={props.image}></img>
-</AvatarElement>
+export interface IAvatarProps {
+  /** What prop1 does */
+  prop1: string
+  /** What prop2 does */
+  prop2: number
+}
+
+const Avatar = (props: IAvatarProps) => (
+  <Avatar.Element size={props.size}>
+    <img src={props.image}></img>
+  </Avatar.Element>
 )
 
-Avatar.propTypes = {}
-Avatar.defaultProps = {}
+Avatar.Element = styled.div\`
+  border-radius: 50%;
+\`
+
+Avatar.defaultProps = {
+  prop2: 50
+}
 
 export default Avatar
 export { AvatarElement }
@@ -45,13 +54,11 @@ export { AvatarElement }
         </CodeBlock>
       </List.Item>
       <List.Item>
-        <Code>index.js</Code>
+        <Code>index.ts</Code>
         <Text>This file exports the component for easy imports</Text>
-        <CodeBlock language="javascript">
+        <CodeBlock language="typescript">
           {`
-import Avatar from './avatar'
-
-export default Avatar
+export * from './avatar'
         `}
         </CodeBlock>
       </List.Item>
@@ -94,20 +101,20 @@ With use case
         </CodeBlock>
       </List.Item>
       <List.Item>
-        <Code>component.story.js</Code>
+        <Code>component.story.tsx</Code>
         <Text>Story for visual tests, these are compared for every pull request</Text>
 
         <CodeBlock language="javascript">
           {`
-import React from 'react'
+import * React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Avatar } from '@auth0/cosmos'
+import { Avatar } from './'
 
 storiesOf('Avatar').add('with images', () => (
-<div>
-<Avatar size="small" image="https://cdn.auth0.com/logo.svg" />
-<Avatar size="medium" image="https://cdn.auth0.com/logo.svg" />
-</div>
+  <div>
+    <Avatar size="small" image="https://cdn.auth0.com/logo.svg" />
+    <Avatar size="medium" image="https://cdn.auth0.com/logo.svg" />
+  </div>
 ))
         `}
         </CodeBlock>

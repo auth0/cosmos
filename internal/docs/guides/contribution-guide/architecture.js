@@ -1,32 +1,28 @@
 import React from 'react'
 
-import { Text, Code, List, CodeBlock, FoldingSection } from '../../docs-components'
+import { Text, Code, List, FoldingSection } from '../../docs-components'
 
 const Architecture = () => (
   <FoldingSection page="contribution-guide" name="Architecture">
     <Text>The repository is broken into 3 parts:</Text>
     <List>
       <List.Item>
-        <Code>src</Code> or <Code>core</Code>: This contains packages that are published
+        <Code>core</Code>: This contains packages that are published
         <List nested>
           <List.Item>
-            <Code>tokens</Code>: configs that can be shared imported into projects
-          </List.Item>
-          <List.Item>
             <Code>components</Code>: React component library
+            <List nested>
+              <List.Item>
+                <Code>tokens</Code>: root design values that can be shared/imported into projects
+              </List.Item>
+            </List>
           </List.Item>
           <List.Item>
             <Code>babel-preset</Code>: Optional Babel preset to use cosmos
           </List.Item>
-
-          <Text>
-            <Code>src</Code> also contains 3 other directories that are not published
-          </Text>
           <List.Item>
-            <Code>icons</Code>: Birds eye view of components
-          </List.Item>
-          <List.Item>
-            <Code>overview</Code>: Birds eye view of components
+            <Code>icons</Code>: Raw SVG files for our icons and misc configuration regarding their
+            processing.
           </List.Item>
         </List>
       </List.Item>
@@ -34,12 +30,12 @@ const Architecture = () => (
         <Code>internal</Code>:
         <List nested>
           <List.Item>
-            <Code>docs</Code>: Generated documentation site
+            <Code>docs</Code>: Source code for this documentation website.
           </List.Item>
         </List>
       </List.Item>
       <List.Item>
-        <Code>examples</Code>: Examples of using cosmos
+        <Code>examples</Code>: Example applications that use cosmos.
       </List.Item>
     </List>
   </FoldingSection>

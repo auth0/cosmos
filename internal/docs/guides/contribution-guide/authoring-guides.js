@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Heading3, Text, Code, Link, List, CodeBlock, FoldingSection } from '../../docs-components'
+import { Text, Code, List, CodeBlock, FoldingSection } from '../../docs-components'
 
 const AuthoringGuides = () => (
   <FoldingSection page="contribution-guide" name="Authoring Guides">

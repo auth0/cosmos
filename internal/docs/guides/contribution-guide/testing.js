@@ -15,9 +15,9 @@ const Testing = () => (
       <CodeBlock language="javascript">
         {`
 it('Button', () => {
-const button = shallow(<Button />)
-
-expect(button.prop('data-cosmos-key')).toEqual('button')
+  const button = shallow(<Button />)
+  
+  expect(button.prop('data-cosmos-key')).toEqual('button')
 })`}
       </CodeBlock>
     </Text>
