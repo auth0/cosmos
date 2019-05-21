@@ -46,7 +46,7 @@ module.exports = {
     new CleanWebpackPlugin(['*.js'], { root: path.resolve(process.cwd(), 'public') }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      inject: true
+      hash: false
     })
   ],
   node: {
