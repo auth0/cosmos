@@ -62,9 +62,10 @@ const SystemGuidelines = () => (
         component and the last element's margin is cleared.
       </List.Item>
       <List.Item>
-        Components should include semantic markup and necessary Aria tags implemented following
+        New components should include semantic markup and necessary Aria tags implemented following
         WAI-ARIA AA standards and meet{' '}
-        <Link href="https://a11yproject.com/checklist">the a11y project checklist</Link>.
+        <Link href="https://a11yproject.com/checklist">the a11y project checklist</Link>. We are
+        working on migrating all our current components to meet this guideline.
       </List.Item>
     </List>
 
@@ -93,9 +94,9 @@ const SystemGuidelines = () => (
 
     <Heading3>Atomic Design</Heading3>
     <Text>
-      Cosmos components follow the Atomic design principles. Please make sure to read and understand
-      the Atomic design philosophy as well as the Atomic design terminology and component
-      architecture.
+      Cosmos components follow the <a href="https://bradfrost.com/blog/post/atomic-web-design/" />
+      Atomic design principles. Please make sure to read and understand the Atomic design philosophy
+      as well as the Atomic design terminology and component architecture.
     </Text>
 
     <Heading3>Naming convention with BEM-ish (B.E prop)</Heading3>
@@ -162,13 +163,18 @@ const SystemGuidelines = () => (
       <List.Item>
         They follow this formula <Code>Block.Element.prop.state.CSSProperty</Code>.
       </List.Item>
-      <List.Item>The `Block.Element` is the selector name for example `Dialog.Header` </List.Item>
-      <List.Item>The `prop` is something like `Primary`;</List.Item>
-      <List.Item>a `state` is something like `hover` or `active`;</List.Item>
       <List.Item>
-        The value of component scoped tokens is **always** defined by a global token.
+        The <Code>Block.Element</Code> is the selector name for example <Code>Dialog.Header</Code>.
       </List.Item>
       <List.Item>
+        The <Code>prop</Code> is something like <Code>Primary</Code>;
+      </List.Item>
+      <List.Item>
+        a <Code>state</Code> is something like <Code>hover</Code> or <Code>active</Code>;
+      </List.Item>
+      <List.Item>
+        The value of component scoped tokens is <strong>always</strong> defined by a global token.
+        <List.Item />
         There should be tokens for all properties that are not related to layout.
       </List.Item>
     </List>
