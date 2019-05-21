@@ -144,7 +144,8 @@
     "lock-cancel": [],
     "lock-check": [],
     "reload-cancel": [],
-    "reload-check": []
+    "reload-check": [],
+    "layout-col-left": ["template", "layout"]
   },
   "Concepts": {
     "authorization": ["606"],
