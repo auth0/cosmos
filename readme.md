@@ -99,6 +99,6 @@ Thanks to [Chromatic](https://www.chromaticqa.com/) for providing the visual tes
 
 Thanks to [BrowserStack](https://www.browserstack.com/) for providing the infrastructure that allows us to test in real browsers.
 
-<a href="https://www.travis-ci.com/"><img src="https://travis-ci.com/images/logos/TravisCI-Mascot-1.png" alt="BrowserStack Logo" width="30"> </a>
+<a href="https://www.circleci.com/"><img src="https://d3r49iyjzglexf.cloudfront.net/logo-wordmark-black-7fec8eb34f3f7d8a2d75b22e789bca438ae7f6174a7949784054e726c5acdccb.svg" alt="Circle CI Logo" width="120"> </a>
 
-Thanks to [Travis CI](https://www.travis-ci.com/) for providing the infrastructure for our Continuous Integration needs.
+Thanks to [Circle CI](https://www.circleci.com/) for providing the infrastructure for our Continuous Integration needs.
