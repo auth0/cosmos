@@ -125,6 +125,10 @@ const SystemGuidelines = () => (
     <Heading3>Theming</Heading3>
 
     <Text>
+      We are working on a 2 layer theming system to open Cosmos for global and granular
+      modifications
+    </Text>
+    {/* <Text>
       Cosmos follows a two-layer theming system where global tokens always inform component token.
       Each one of those layers follows a set of very specific rules.
     </Text>
@@ -194,7 +198,7 @@ const SystemGuidelines = () => (
       In the case where a 'magic' value needs entering, ensure to create a component token with the
       magic number for value, and a comment must be added on the line above to explain its
       relevance.
-    </Text>
+    </Text> */}
   </FoldingSection>
 )
 
