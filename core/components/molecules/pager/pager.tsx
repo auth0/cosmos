@@ -1,10 +1,10 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import containerStyles from "../../_helpers/container-styles";
-import { changePageIfAppropiate, pagesFromItems, totals } from "../../_helpers/pagination";
-import Button from "../../atoms/button";
-import styled from "../../styled";
+import Automation from '../../_helpers/automation-attribute'
+import containerStyles from '../../_helpers/container-styles'
+import { changePageIfAppropiate, pagesFromItems, totals } from '../../_helpers/pagination'
+import Button from '../../atoms/button'
+import styled from '../../styled'
 
 export interface IPagerProps {
   /** HTML ID of the component */
@@ -19,6 +19,7 @@ export interface IPagerProps {
 const Pager = ({ onPageChanged, page, perPage, items, showInfo, ...props }: IPagerProps) => {
   const inFirstPage = page === 1
   const inLastPage = showInfo && items && perPage ? pagesFromItems(items, perPage) === page : false
+  const nextPageEnabled = (typeof items === 'undefined' || items > 0) && !inLastPage
   const ignoreNextPageCheck = !items
   return (
     <Pager.Element {...Automation('pager')} {...props}>
@@ -46,7 +47,7 @@ const Pager = ({ onPageChanged, page, perPage, items, showInfo, ...props }: IPag
       <Button
         size="compressed"
         appearance="secondary"
-        disabled={inLastPage}
+        disabled={!nextPageEnabled}
         icon="chevron-right"
         iconAlign="right"
         onClick={() =>

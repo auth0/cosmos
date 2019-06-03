@@ -77,3 +77,9 @@ class PaginatedResource extends React.Component {
   }
 }
 ```
+
+### With explicit zero items
+
+```js
+<Pager page={1} items={0} perPage={50} />
+```

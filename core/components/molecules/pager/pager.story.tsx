@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react'
 
-import { Pager } from "../../";
-import { Example } from "../../_helpers/story-helpers";
+import { Pager } from '../../'
+import { Example } from '../../_helpers/story-helpers'
 
 storiesOf('Pager', module)
   .add('default', () => (
@@ -19,5 +19,10 @@ storiesOf('Pager', module)
   .add('without info', () => (
     <Example>
       <Pager items={20372} perPage={10} page={3} showInfo={false} />
+    </Example>
+  ))
+  .add('with explicit zero items', () => (
+    <Example>
+      <Pager page={1} items={0} perPage={50} />
     </Example>
   ))
