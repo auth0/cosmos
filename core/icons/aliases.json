@@ -57,7 +57,6 @@
     "cursor-left": ["481"],
     "cursor-right": ["479"],
     "slides": ["674"],
-    "page-cancel": ["754", "Error 404"],
     "note": ["697", "document"],
     "notes": ["724", "documents"],
     "search": ["489", "loupe", "magnifier glass"],
@@ -147,7 +146,12 @@
     "reload-check": [],
     "layout-col-left": ["template", "layout"],
     "eye": ["show", "reveal"],
-    "eye-slash": ["hide", "conceal"]
+    "eye-slash": ["hide", "conceal"],
+    "page": ["file"],
+    "page-plus": ["add file"],
+    "page-minus": ["remove file"],
+    "page-check": ["file ok"],
+    "page-cancel": ["754", "Error 404"]
   },
   "Concepts": {
     "authorization": ["606"],
@@ -206,7 +210,8 @@
     "brand-dwolla": [],
     "brand-vkontakte": [],
     "brand-planningcenter": [],
-    "brand-thirtysevensignals": []
+    "brand-thirtysevensignals": [],
+    "brand-apple": []
   },
   "Fill icons": {
     "lock-fill": [],
