@@ -10,7 +10,7 @@ const ComponentFiles = () => (
     <Text>Each component directory has these 5 files:</Text>
     <List>
       <List.Item>
-        <Code>&lt;component_name.tsx&gt;</Code>
+        <Code>&lt;component_name&gt;.tsx</Code>
         <Text>This is where all the component code sits.</Text>
         <Text>
           We create an <Code>Element</Code> with <Code>styled-components</Code> and use that in the
