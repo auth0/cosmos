@@ -7,7 +7,7 @@ const Testing = () => (
     <Text>
       In order to ensure the reliability and mantainability of the component, please write snapshot
       and unit tests. Each component should have a test file located in
-      <Code>internal/test/unit/component.test.js</Code> containing all test cases you consider.
+      <Code>internal/test/unit/&lt;component_name&gt;.test.js</Code> containing all test cases you consider.
     </Text>
     <Text>
       Additionally, add a test case in <Code>internal/test/unit/automation-attributes.test.js</Code>{' '}
@@ -16,7 +16,7 @@ const Testing = () => (
         {`
 it('Button', () => {
   const button = shallow(<Button />)
-  
+
   expect(button.prop('data-cosmos-key')).toEqual('button')
 })`}
       </CodeBlock>
@@ -24,7 +24,7 @@ it('Button', () => {
 
     <Heading3>What do I test?</Heading3>
     <Text>
-      Please test the most possible out of our component including: prop-based rendering branches,
+      Please test as much of the component as possible including: prop-based rendering branches,
       handler/callback props being called accordingly, user-action based rendering branches (i.e.
       component visually changing based on user actions within the component), among others.
     </Text>
@@ -34,13 +34,13 @@ it('Button', () => {
       Please, do not write functional tests in order to test rendering features. Use{' '}
       <Link href="https://jestjs.io/docs/en/snapshot-testing">snapshot testing</Link> instead. Take
       a look at the <Code>Table</Code> component tests located in{' '}
-      <Code>internal/test/unit/table.test.js</Code> as an example of a component that include both
+      <Code>internal/test/unit/table.test.js</Code> for an example of a component that includes both
       functional and snapshot rendering tests.
     </Text>
 
     <Heading3>Test ownership</Heading3>
     <Text>
-      Ideally, each test should be written/fixed by the same person implemented the
+      Ideally, each test should be written/fixed by the person who implemented the
       component/fix/feature in Cosmos.
     </Text>
 

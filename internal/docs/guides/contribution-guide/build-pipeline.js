@@ -52,7 +52,7 @@ $ yarn i
         <Code>icons.dev</Code>
         <Text>
           Icon files live in <Code>/core/icons</Code>, to make them usable by components and
-          documentation, we parse these svg files and create a JSON from them. You can think of this
+          documentation, we parse these svg files and create JSON from them. You can think of this
           as icons metadata (Like other metadata, this also lives in{' '}
           <Code>/core/components/meta/</Code>)
         </Text>
@@ -67,7 +67,7 @@ $ yarn i
     </Text>
     <Text>
       Example: If you are adding new icons to test in the manage demo app, make sure you run
-      `icons.dev` in parallel to get access to the updated icons.
+      <Code>icons.dev</Code> in parallel to get access to the updated icons.
     </Text>
     <Heading3>Production pipeline</Heading3>
     <Text>
