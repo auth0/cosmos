@@ -9,14 +9,14 @@ const LinkingCosmos = () => (
     <List>
       <List.Item>
         <Text>
-          Build Cosmos for in distribution mode by running <Code>yarn build-packages</Code>. This
+          Build Cosmos in distribution mode by running <Code>yarn build-packages</Code>. This
           will compile cosmos to <Code>dist/components/</Code>.
         </Text>
       </List.Item>
 
       <List.Item>
         <Text>
-          Got into <Code>dist/components/</Code> and run <Code>yarn link</Code>.
+          Go into <Code>dist/components/</Code> and run <Code>yarn link</Code>.
         </Text>
       </List.Item>
 
@@ -27,7 +27,7 @@ const LinkingCosmos = () => (
       </List.Item>
 
       <List.Item>
-        <Text>That's it, you should see your new guided in the sidebar.</Text>
+        <Text>That's it, you should see your new guide in the sidebar.</Text>
       </List.Item>
     </List>
     <Heading3>How to remove the link?</Heading3>
