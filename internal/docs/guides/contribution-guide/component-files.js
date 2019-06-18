@@ -10,10 +10,10 @@ const ComponentFiles = () => (
     <Text>Each component directory has these 5 files:</Text>
     <List>
       <List.Item>
-        <Code>component.tsx</Code>
+        <Code>&lt;component_name.tsx&gt;</Code>
         <Text>This is where all the component code sits.</Text>
         <Text>
-          We create a <Code>Element</Code> with <Code>styled-components</Code> and use that in the
+          We create an <Code>Element</Code> with <Code>styled-components</Code> and use that in the
           React component. This is also exported so that compound components can style them if
           needed.
         </Text>
@@ -64,9 +64,9 @@ export * from './avatar'
       </List.Item>
 
       <List.Item>
-        <Code>component.md</Code>
+        <Code>&lt;component_name&gt;.md</Code>
         <Text>
-          Documentation is pulled from markdown files, there are a few different sections in the
+          Documentation is pulled from these markdown files. There are a few different sections in the
           document:
         </Text>
         <CodeBlock language="markdown">
@@ -101,8 +101,8 @@ With use case
         </CodeBlock>
       </List.Item>
       <List.Item>
-        <Code>component.story.tsx</Code>
-        <Text>Story for visual tests, these are compared for every pull request</Text>
+        <Code>&lt;component_name&gt;.story.tsx</Code>
+        <Text>Story for visual tests; these are compared for every pull request</Text>
 
         <CodeBlock language="javascript">
           {`

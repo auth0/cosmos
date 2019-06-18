@@ -7,7 +7,7 @@ const LineHeight = () => (
     <Text>
       The <Code>line-height</Code> used in{' '}
       <Link href="https://styleguide.auth0.com">styleguide</Link> and cosmos are different.
-      Styleguide uses <Code>2</Code> whereas cosmos uses <Code>1.6</Code> for it's elements.
+      Styleguide uses <Code>2</Code> whereas cosmos uses <Code>1.6</Code> for its elements.
     </Text>
     <Text>
       To make sure cosmos does not override local components of the application, we need to scope
@@ -15,7 +15,7 @@ const LineHeight = () => (
     </Text>
     <Text>
       It's important to note that all elements should not have a line height of <Code>1.6</Code>.
-      elements inside a container/wrapper element should inherit their parent's line height.
+      Elements inside a container/wrapper element should inherit their parent's line height.
     </Text>
     <Text>Example:</Text>
     <CodeBlock language="html">
