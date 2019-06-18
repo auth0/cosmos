@@ -111,7 +111,7 @@ const ReleaseProcess = () => (
       </List.Item>
       <List.Item>Change the title of a pull request if it doesn't communicate </List.Item>
       <List.Item>
-        The internal changes are used just as a good-to-know, as does not affect the app.
+        The internal changes are used just as a good-to-know, as they do not affect the app.
       </List.Item>
     </List>
 
@@ -125,7 +125,7 @@ const ReleaseProcess = () => (
       </Link>
     </Text>
     <Text>
-      The steps to perform are written in the{' '}
+      The steps to perform this are written in the{' '}
       <Link href="https://github.com/auth0/cosmos/blob/master/Jenkinsfile">Jenkinsfile</Link> which
       sits at the root of this codebase. After cloning the codebase and installing dependencies, we
       run the deployment script: <Code>npm run scripts deploy</Code>

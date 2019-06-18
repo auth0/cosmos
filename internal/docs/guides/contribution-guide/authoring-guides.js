@@ -36,7 +36,7 @@ const guides = [
       </List.Item>
 
       <List.Item>
-        <Text>That's it, you should see your new guided in the sidebar.</Text>
+        <Text>That's it, you should see your new guide in the sidebar.</Text>
       </List.Item>
     </List>
   </FoldingSection>

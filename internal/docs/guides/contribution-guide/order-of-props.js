@@ -52,7 +52,7 @@ const Link = (props) => (
         renders
         <CodeBlock language="html">{`<a data-cosmos-key="breadcrumb.link"/>`}</CodeBlock>
         <Text>
-          This principle extends to cosmos users as well, they can give their own attributes to
+          This principle extends to cosmos users as well. They can give their own attributes to
           cosmos components.
         </Text>
         <CodeBlock language="jsx">
@@ -65,7 +65,7 @@ const Link = (props) => (
         </CodeBlock>
         <Text>
           {' '}
-          This is usually the behaviour you want from any atomic component. So it's useful to make
+          This is usually the behaviour you want from any atomic component, so it's useful to make
           this into a rule.
         </Text>
         <Heading4>
@@ -76,7 +76,7 @@ const Link = (props) => (
       <List.Item>
         <Heading3>When needed, cosmos can override the user's intent</Heading3>
         <Text>
-          This is a tricky one, you usually want the user to be able to have the final say.
+          This is a tricky one, since you usually want the user to be able to have the final say.
         </Text>
         <Text>
           But, in some cases, you can override them to save them from making a mistake (usually a
@@ -91,7 +91,7 @@ const InputAction = (props) => (
           `}</CodeBlock>
         </Text>
         <Text>
-          Here we are locking <Code>appearance</Code> to link even if the user passed{' '}
+          Here we are locking <Code>appearance</Code> to <Code>link</Code> even if the user passed{' '}
           <Code>appearance="destructive"</Code>
         </Text>
       </List.Item>
