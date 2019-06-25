@@ -6,6 +6,6 @@ import { FileInput, Tooltip } from '../..'
 
 storiesOf('FileInput', module).add('simple', () => (
   <Example title="simple">
-    <FileInput type="text" placeholder="Enter some text" />
+    <FileInput files={[]} label="hola" />
   </Example>
 ))
