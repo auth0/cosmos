@@ -21,6 +21,7 @@ import Breadcrumb from './atoms/breadcrumb'
 import Button from './atoms/button'
 import Checkbox from './atoms/checkbox'
 import Code from './atoms/code'
+import FileInput from './atoms/file-input'
 import Heading from './atoms/heading'
 import Icon from './atoms/icon'
 import Image from './atoms/image'
@@ -83,6 +84,7 @@ export {
   DangerZone,
   Dialog,
   EmptyState,
+  FileInput,
   Form,
   FormGroup,
   GalleryLayout,
