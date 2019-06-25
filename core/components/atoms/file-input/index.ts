@@ -1,4 +1,4 @@
-import TextInput from './file-input'
+import FileInput from './file-input'
 
 export * from './file-input'
-export default TextInput
+export default FileInput
