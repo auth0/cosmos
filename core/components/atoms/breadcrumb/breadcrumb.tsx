@@ -6,7 +6,7 @@ import { fonts, spacing, colors } from '../../tokens'
 import containerStyles from '../../_helpers/container-styles'
 
 import Icon from '../icon'
-import Link, { LinkOnClickHandler } from '../link'
+import Link, { ILinkProps } from '../link'
 
 const Separator = styled(Icon)`
   margin: 0 ${spacing.small};
@@ -23,10 +23,10 @@ export interface IBreadcrumbProps {
 }
 
 const Breadcrumb = (props: IBreadcrumbProps) => (
-  <Breadcrumb.Element {...Automation('breadcrumb')} {...props} />
+  <Breadcrumb.Element aria-label="Breadcrumb" {...Automation('breadcrumb')} {...props} />
 )
 
-Breadcrumb.Element = styled.div`
+Breadcrumb.Element = styled.nav`
   ${containerStyles};
 
   /* overrides for link */
@@ -79,20 +79,15 @@ Breadcrumb.Element = styled.div`
   }
 `
 
-export interface IBreadcrumbLinkProps {
-  /** HTML ID of the component */
-  id?: string
-  href?: string
+export interface IBreadcrumbLinkProps extends ILinkProps {
   icon?: string
-  children?: string | JSX.Element
-  onClick?: LinkOnClickHandler
 }
 
 Breadcrumb.Link = (props: IBreadcrumbLinkProps) => (
   <Link {...Automation('breadcrumb.link')} {...props}>
     {props.icon && <LinkIcon name={props.icon} size={12} color="grayDarkest" />}
     {props.children}
-    <Separator name="chevron-right-fill" size={12} color="grayMedium" />
+    <Separator aria-hidden={true} name="chevron-right-fill" size={12} color="grayMedium" />
   </Link>
 )
 
