@@ -49,95 +49,32 @@ export interface IFileInputProps {
   files: IFile[]
   /** files state */
   multiple?: boolean
+  renderItem?: Function
 }
 
-const FileInput = (props: IFileInputProps) => {
-  return (
-    <FileInput.Element>
-      <FileInputInputContainer>
-        <FileInputInput type="file" multiple={props.multiple} />
-        <FileInputLabel htmlFor="customFileLong">
-          <FileInput.Button icon="plus">Choose File</FileInput.Button>
-          <FileInputText>3 files selected</FileInputText>
-        </FileInputLabel>
-      </FileInputInputContainer>
+class FileInput extends React.Component<IFileInputProps> {
+  static Element = styled.div``
+  static Button = styled(Button)``
 
-      <FileInputCard>
-        <StackLayout distribution="spaceBetween">
-          <StackLayout gutter="small">
-            <Avatar type="resource" icon="clients" size="large" />
-            <RowLayout gutter="xsmall">
-              <p>Subject</p>
-              <p>Validation</p>
-            </RowLayout>
-          </StackLayout>
-          <Button icon="delete" size="small" appearance="link" label="Remove" />
-        </StackLayout>
-      </FileInputCard>
-
-      <FileInputList>
-        <FileInputListItem>
-          <FileInputListItemBody>
-            <Icon name="attachment" color={colors.text.secondary} size={18} />
-            <FileInputFileName>Name opqf the file</FileInputFileName>
-            <FileInputFileNameWeight>836kb</FileInputFileNameWeight>
-          </FileInputListItemBody>
-          <Button icon="delete" size="small" appearance="link" label="Remove" />
-        </FileInputListItem>
-        <FileInputListItem>
-          <FileInputListItemBody>
-            <Icon name="attachment" color={colors.text.secondary} size={18} />
-            <FileInputFileName>Name of the file</FileInputFileName>
-            <FileInputFileNameWeight>836kb</FileInputFileNameWeight>
-          </FileInputListItemBody>
-          <Button icon="delete" size="small" appearance="link" label="Remove" />
-        </FileInputListItem>
-        <FileInputListItem>
-          <FileInputListItemBody>
-            <Icon name="attachment" color={colors.text.secondary} size={18} />
-            <FileInputFileName>Name of the file</FileInputFileName>
-            <FileInputFileNameWeight>836kb</FileInputFileNameWeight>
-          </FileInputListItemBody>
-          <Button icon="delete" size="small" appearance="link" label="Remove" />
-        </FileInputListItem>
-        <FileInputListItem>
-          <FileInputListItemBody>
-            <Icon name="attachment" color={colors.text.secondary} size={18} />
-            <FileInputFileName>Name of the file</FileInputFileName>
-            <FileInputFileNameWeight>836kb</FileInputFileNameWeight>
-          </FileInputListItemBody>
-          <Button icon="delete" size="small" appearance="link" label="Remove" />
-        </FileInputListItem>
-      </FileInputList>
-    </FileInput.Element>
-  )
-}
-
-FileInput.Element = styled.div``
-
-const FileInputInputContainer = styled.div`
+  static Container = styled.div`
   position: relative;
 `
-
-const FileInputInput = styled.input`
+  static Input = styled.input`
   position: relative;
   z-index: 2;
   width: 100%;
   height: ${misc.button.default.height};
   margin: 0;
   opacity: 0;
-
   /* &:focus ~ .custom-file-label {
     border-color: $custom-file-focus-border-color;
     box-shadow: $custom-file-focus-box-shadow;
   }
-
   &[disabled] ~ .custom-file-label {
     background-color: $custom-file-disabled-bg;
   } */
 `
-
-const FileInputLabel = styled.label`
+  static Label = styled.label`
   position: absolute;
   top: 0;
   right: 0;
@@ -147,11 +84,8 @@ const FileInputLabel = styled.label`
   height: ${misc.button.default.height};
   border-color: yellow;
 `
-FileInput.Button = styled(Button)`
-  /* pointer-events: none; */
-`
 
-const FileInputText = styled.span`
+  static Text = styled.span`
   display: block;
   flex-grow: 1;
   margin-left: 12px;
@@ -159,17 +93,16 @@ const FileInputText = styled.span`
   /* centering with line height because of the ellipse */
   line-height: ${misc.button.default.height};
   align-items: center;
-
   color: black;
   text-overflow: ellipsis;
   white-space: nowrap;
 `
 
-const FileInputList = styled.ul`
+  static List = styled.ul`
   margin-top: ${spacing.xsmall};
 `
 
-const FileInputListItem = styled.li`
+  static ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -178,39 +111,74 @@ const FileInputListItem = styled.li`
   padding-bottom: ${spacing.xsmall};
 `
 
-const FileInputListItemBody = styled.div``
+  static ListItemBody = styled.div``
 
-const FileInputFileName = styled.span`
+  static FileName = styled.span`
   margin-left: ${spacing.xsmall};
 `
 
-const FileInputFileNameWeight = styled.span`
+  static FileNameWeight = styled.span`
   margin-left: 12px;
   color: ${colors.text.secondary};
 `
 
-const FileInputCard = styled.div`
+  static Card = styled.div`
   border: 1px solid #e4e4e4;
   border-radius: 3px;
   padding: ${spacing.small};
 `
+  static defaultProps = {
+    type: 'text',
+    size: 'default'
+  }
 
-FileInput.defaultProps = {
-  readOnly: false,
-  code: false,
-  error: null,
-  onChange: null,
-  type: 'text',
-  size: 'default',
-  actions: []
+  handleDelete = () => {
+
+  }
+
+  handleAttach = (e) => {
+    console.log(e)
+  }
+
+  render() {
+    const { ...props } = this.props
+    return (
+      <FileInput.Element>
+        <FileInput.Container>
+          <FileInput.Input type="file" multiple={props.multiple} />
+          <FileInput.Label htmlFor="customFileLong">
+            <FileInput.Button icon="plus" onAttach={this.handleAttach}>Choose File</FileInput.Button>
+            <FileInput.Text>3 files selected</FileInput.Text>
+          </FileInput.Label>
+        </FileInput.Container>
+        {/* 
+        <FileInput.Card>
+          <StackLayout distribution="spaceBetween">
+            <StackLayout gutter="small">
+              <Avatar type="resource" icon="clients" size="large" />
+              <RowLayout gutter="xsmall">
+                <p>Subject</p>
+                <p>Validation</p>
+              </RowLayout>
+            </StackLayout>
+            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onDelete={this.handleDelete} />
+          </StackLayout>
+        </FileInput.Card> */}
+
+        <FileInput.List>
+          <FileInput.ListItem>
+            <FileInput.ListItemBody>
+              <Icon name="attachment" color={colors.text.secondary} size={18} />
+              <FileInput.FileName>name</FileInput.FileName>
+              <FileInput.FileNameWeight>836kb</FileInput.FileNameWeight>
+            </FileInput.ListItemBody>
+            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" />
+          </FileInput.ListItem>
+        </FileInput.List>
+      </FileInput.Element>
+    )
+  }
 }
 
 export default FileInput
 export { StyledInput }
-
-// TODO
-// Put this input into a form
-// Check diffrent states
-// Add middle truncation
-// Error message
-// info message
