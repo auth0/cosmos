@@ -6,6 +6,6 @@
 `import { FileInput } from '@auth0/cosmos'`
 
 ```jsx
-  <FileInput {props}  /> 
+<FileInput {props}  multiple={true}/>
 ```
 

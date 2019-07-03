@@ -49,10 +49,14 @@ export interface IFileInputProps {
   files: IFile[]
   /** files state */
   multiple?: boolean
-  renderItem?: Function
 }
 
-class FileInput extends React.Component<IFileInputProps> {
+interface IFileInputState {
+  selectedFile: any,
+  progress: number
+}
+
+class FileInput extends React.Component<IFileInputProps, IFileInputState> {
   static Element = styled.div``
   static Button = styled(Button)``
 
@@ -132,23 +136,61 @@ class FileInput extends React.Component<IFileInputProps> {
     size: 'default'
   }
 
-  handleDelete = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedFile: null,
+      progress: 0
+    }
 
   }
 
-  handleAttach = (e) => {
-    console.log(e)
+  onChangeHandler = event => {
+    this.setState({
+      selectedFile: event.target.files,
+      progress: 0,
+    })
+
+  }
+
+  onClickHandler = () => {
+    const data = new FormData()
+    console.log(data)
+    console.log(this.state.selectedFile)
+    // const val = data.append('file', this.state.selectedFile)
+    // this.renderFiles(val)
+  }
+
+  renderFiles = (files) => {
+    if (files) {
+      return files.map(file => {
+        return (
+          <FileInput.ListItem key={file.id}>
+            <FileInput.ListItemBody>
+              <Icon name="attachment" color={colors.text.secondary} size={18} />
+              <FileInput.FileName>{file.name}</FileInput.FileName>
+              <FileInput.FileNameWeight>{file.size}</FileInput.FileNameWeight>
+            </FileInput.ListItemBody>
+            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" {...Automation('fileinput.remove')} />
+          </FileInput.ListItem>
+        )
+      })
+    }
   }
 
   render() {
     const { ...props } = this.props
+    const { selectedFile } = this.state
+    let files = [{ name: 'first.jpg', size: '860kb' }, { name: 'second.jpg', size: '700kb' }]
     return (
       <FileInput.Element>
         <FileInput.Container>
-          <FileInput.Input type="file" multiple={props.multiple} />
+          <FileInput.Input type="file" multiple={props.multiple} onChange={this.onChangeHandler} />
           <FileInput.Label htmlFor="customFileLong">
-            <FileInput.Button icon="plus" onAttach={this.handleAttach}>Choose File</FileInput.Button>
-            <FileInput.Text>3 files selected</FileInput.Text>
+            <FileInput.Button icon="plus" onClick={this.onClickHandler}>Choose File</FileInput.Button>
+            {selectedFile &&
+              <FileInput.Text>{selectedFile.length} files selected</FileInput.Text>
+            }
           </FileInput.Label>
         </FileInput.Container>
         {/* 
@@ -166,15 +208,9 @@ class FileInput extends React.Component<IFileInputProps> {
         </FileInput.Card> */}
 
         <FileInput.List>
-          <FileInput.ListItem>
-            <FileInput.ListItemBody>
-              <Icon name="attachment" color={colors.text.secondary} size={18} />
-              <FileInput.FileName>name</FileInput.FileName>
-              <FileInput.FileNameWeight>836kb</FileInput.FileNameWeight>
-            </FileInput.ListItemBody>
-            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" />
-          </FileInput.ListItem>
+          {this.renderFiles(files)}
         </FileInput.List>
+
       </FileInput.Element>
     )
   }
