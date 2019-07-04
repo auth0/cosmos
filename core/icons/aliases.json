@@ -171,7 +171,8 @@
     "anomaly-detection": ["anomaly"],
     "sso-integrations": [],
     "extensions": [],
-    "login-box": []
+    "login-box": [],
+    "groups": []
   },
   "Brands": {
     "brand-microsoft": ["windowslive", "windows"],
