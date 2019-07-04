@@ -3,7 +3,10 @@
   "description": "Component library for Auth0 Design System",
   "version": "0.27.0",
   "repository": "auth0/cosmos",
-  "scripts": {},
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
   "keywords": [],
   "main": "index.js",
   "types": "index.d.ts",
@@ -17,10 +20,12 @@
     "react-popper": "1.3.2",
     "react-select": "2.3.0",
     "react-sortable-hoc": "^0.8.3",
-    "styled-components": "3.4.10"
+    "styled-components": "3.4.10",
+    "snyk": "^1.189.0"
   },
   "peerDependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
-  }
+  },
+  "snyk": true
 }
