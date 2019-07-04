@@ -12,7 +12,9 @@
     "test-unit-watch": "jest unit --watch",
     "test-integration": "jest integration --no-cache --ci --maxWorkers=2",
     "test-integration-watch": "jest integration --watch",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "jest": {
     "verbose": true,
@@ -45,6 +47,8 @@
   },
   "dependencies": {
     "enzyme-to-json": "^3.3.4",
-    "jest-dom": "3.0.0"
-  }
+    "jest-dom": "3.0.0",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
