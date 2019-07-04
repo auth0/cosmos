@@ -6,7 +6,10 @@
     "cosmos-scripts": "cli.js"
   },
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
   "keywords": [],
   "author": "siddharthkp",
   "license": "MIT",
@@ -27,6 +30,8 @@
     "webpack": "4.15.1",
     "webpack-cli": "3.0.8",
     "webpack-dev-server": "3.7.2",
-    "yargs": "11.0.0"
-  }
+    "yargs": "11.0.0",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
