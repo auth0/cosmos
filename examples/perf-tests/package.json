@@ -7,14 +7,18 @@
   "scripts": {
     "dev": "cosmos-scripts dev",
     "build": "cosmos-scripts build",
-    "start": "cosmos-scripts start"
+    "start": "cosmos-scripts start",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@auth0/cosmos": "0.27.0",
     "react": "16.8.4",
-    "react-dom": "16.8.4"
+    "react-dom": "16.8.4",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@auth0/cosmos-scripts": "0.27.0"
-  }
+  },
+  "snyk": true
 }
