@@ -49,7 +49,7 @@ You can change how the help link opens by passing an `object` with `target` inst
 </EmptyState>
 ```
 
-### Adding beta tags
+### Empty state with beta tag
 
 ```js
 <EmptyState
