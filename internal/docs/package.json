@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "cosmos-scripts dev",
     "build": "cosmos-scripts build",
-    "start": "cosmos-scripts start"
+    "start": "cosmos-scripts start",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@auth0/cosmos": "0.27.0",
@@ -23,9 +25,11 @@
     "react-live": "1.10.1",
     "react-router-dom": "^4.3.1",
     "semver-compare": "^1.0.0",
-    "yamljs": "0.3.0"
+    "yamljs": "0.3.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@auth0/cosmos-scripts": "0.27.0"
-  }
+  },
+  "snyk": true
 }
