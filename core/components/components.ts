@@ -8,7 +8,7 @@
 /* eslint-disable import/first */
 
 /* resets for font */
-import './_helpers/globals'
+import injectCosmosGlobals from  './_helpers/globals'
 
 /* internal */
 import Box from './atoms/_box'
@@ -116,5 +116,6 @@ export {
   TextArea,
   TextInput,
   Tooltip,
-  Well
+  Well,
+  injectCosmosGlobals
 }

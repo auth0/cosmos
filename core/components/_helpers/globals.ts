@@ -1,4 +1,5 @@
 import { fonts, misc } from '../tokens'
+import { injectGlobal } from 'styled-components'
 
 let includeGlobals = true
 
@@ -6,24 +7,14 @@ if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
   includeGlobals = false
 }
 
-const insertAtTheStart = styles => {
-  let tag = document.getElementById('cosmos-globals')
-
-  if (tag) {
-    tag.innerHTML = styles
-  } else {
-    tag = document.createElement('style')
-    tag.id = 'cosmos-globals'
-    tag.innerHTML = styles
-
-    // Register the resets before anything else
-    const head = document.getElementsByTagName('head')[0]
-    head.insertBefore(tag, head.firstChild)
+const injectCosmosGlobals = () =>
+  includeGlobals ?
+    injectGlobal`
+  /* TODO: REMOVE */
+  remove-me-after-review {
+    font-family: 'resets not disabled';
   }
-}
 
-if (includeGlobals) {
-  insertAtTheStart(`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -90,10 +81,13 @@ if (includeGlobals) {
   }
 
 
-`)
-} else {
-  /* We still insert some styles to add missing fonts and keep other things sane 😅 */
-  insertAtTheStart(`
+` :
+    injectGlobal`
+    /* TODO: REMOVE */
+    remove-me-after-review {
+      font-family: 'resets disabled';
+    }
+    
     * {
       box-sizing: border-box;
     }
@@ -112,5 +106,6 @@ if (includeGlobals) {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-  `)
-}
+  `
+
+export default injectCosmosGlobals

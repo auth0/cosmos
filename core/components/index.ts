@@ -47,7 +47,8 @@ import {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  StackLayout
+  StackLayout,
+  injectCosmosGlobals
 } from './components'
 
 export {
@@ -99,5 +100,6 @@ export {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  StackLayout
+  StackLayout,
+  injectCosmosGlobals
 }
