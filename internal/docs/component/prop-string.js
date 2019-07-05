@@ -75,7 +75,7 @@ const getPropString = propData => {
 
     if (propData[name].type.name === 'enum') {
       /*
-        react-docgen convers everything to a string :/
+        react-docgen converts everything to a string :/
         so we need to find out if there is a number
         inside the string
       */
@@ -89,7 +89,7 @@ const getPropString = propData => {
     }
 
     /*
-      Case 6: Union
+      Case 7: Union
       The value for enum should be printed depending on their value
       Currently supports only number and string and empty objects
     */
@@ -109,9 +109,28 @@ const getPropString = propData => {
       }
     }
 
+    /*
+      Case 8: ReactNode
+      ReactNode encompasses primitive types (string, number, bool) as well as elements/components
+      Wrap strings in double quotes. For all others, default to {value} 
+    */
+
+    if (propData[name].type.name === 'ReactNode') {
+      if (typeof propData[name].value === 'string') {
+        propString += ` ${name}="${propData[name].value}"`
+        return true
+      }
+
+      propString += ` ${name}={${propData[name].value}}`
+      return true
+    }
+
     const stringTypes = ['IAlertAppearance', 'LinkType']
 
-    if (stringTypes.indexOf(propData[name].type.name) >= 0 || propData[name].type.name.includes('|')) {
+    if (
+      stringTypes.indexOf(propData[name].type.name) >= 0 ||
+      propData[name].type.name.includes('|')
+    ) {
       propString += ` ${name}="${propData[name].value}"`
       return true
     }
