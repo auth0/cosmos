@@ -1,23 +1,20 @@
-import * as React from 'react'
-import styled from '../../styled'
+import * as React from "react";
 
-import { misc } from '../../tokens'
-import { StyledInput } from '../_styled-input'
-import Automation from '../../_helpers/automation-attribute'
-import Button from '../../atoms/button'
-import Icon from '../../atoms/icon'
-import { colors } from '../../tokens'
-
-import { spacing } from '../../tokens/v2'
-import StackLayout from '../../layouts/stack-layout'
-import { RowLayout } from '../..'
-import Avatar from '../avatar'
+import { RowLayout } from "../..";
+import Automation from "../../_helpers/automation-attribute";
+import Button from "../../atoms/button";
+import Icon from "../../atoms/icon";
+import StackLayout from "../../layouts/stack-layout";
+import styled from "../../styled";
+import { colors, misc } from "../../tokens";
+import { spacing } from "../../tokens/v2";
+import { StyledInput } from "../_styled-input";
+import Avatar from "../avatar";
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
 export interface IFile {
   fileName: string
-  progress: number
-  isUploaded?: boolean
+  progress: number | boolean // Determinated(number) | Indeterminated(boolean)
 }
 
 export interface IFileInputProps {
