@@ -155,7 +155,14 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
     })
   }
 
-
+  formatBytes(bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  }
 
   render() {
     const { selectedFiles } = this.state
@@ -181,7 +188,7 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
                 <p>Validation</p>
               </RowLayout>
             </StackLayout>
-            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onDelete={this.handleDelete} />
+            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove"/>
           </StackLayout>
         </FileInput.Card> */}
 
@@ -193,7 +200,7 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
                     <FileInput.FileName>{file.name}</FileInput.FileName>
-                    <FileInput.FileNameWeight>{file.size}</FileInput.FileNameWeight>
+                    <FileInput.FileNameWeight>{this.formatBytes(file.size)}</FileInput.FileNameWeight>
                   </FileInput.ListItemBody>
                   <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onClick={() => this.onDeleteHandler(fileIndex)} />
                 </FileInput.ListItem>
