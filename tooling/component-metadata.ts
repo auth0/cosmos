@@ -13,7 +13,6 @@ const colors = require('@auth0/cosmos/tokens/colors')
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
-let warning = 0
 
 /* Ensure meta directory exists */
 fs.ensureDirSync('core/components/meta')
@@ -23,6 +22,7 @@ const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**
 let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.md')
 
 const run = () => {
+  let warning = 0
   info('Generating metadata')
   let metadata = javascriptFiles
     .filter(path => !path.includes('story.tsx') || !path.includes('.d.ts'))
