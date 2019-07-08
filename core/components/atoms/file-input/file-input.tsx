@@ -12,6 +12,8 @@ import { spacing } from '../../tokens/v2'
 import StackLayout from '../../layouts/stack-layout'
 import { RowLayout } from '../..'
 import Avatar from '../avatar'
+import bytesConversion from '../../_helpers/bytes-conversion'
+
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
 export interface IFile {
@@ -131,8 +133,7 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
   padding: ${spacing.small};
 `
   static defaultProps = {
-    type: 'text',
-    size: 'default'
+    multiple: false
   }
 
   constructor(props) {
@@ -155,21 +156,13 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
     })
   }
 
-  formatBytes(bytes, decimals = 2) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-  }
-
   render() {
     const { selectedFiles } = this.state
+    const { multiple } = this.props
     return (
       <FileInput.Element>
         <FileInput.Container>
-          <FileInput.Input type="file" multiple={true} onChange={this.onChangeHandler} />
+          <FileInput.Input type="file" multiple={multiple} onChange={this.onChangeHandler} />
           <FileInput.Label htmlFor="customFileLong">
             <FileInput.Button icon="plus">Choose File</FileInput.Button>
             {selectedFiles &&
@@ -177,20 +170,6 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
             }
           </FileInput.Label>
         </FileInput.Container>
-
-        {/* 
-        <FileInput.Card>
-          <StackLayout distribution="spaceBetween">
-            <StackLayout gutter="small">
-              <Avatar type="resource" icon="clients" size="large" />
-              <RowLayout gutter="xsmall">
-                <p>Subject</p>
-                <p>Validation</p>
-              </RowLayout>
-            </StackLayout>
-            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove"/>
-          </StackLayout>
-        </FileInput.Card> */}
 
         <FileInput.List>
           {selectedFiles &&
@@ -200,7 +179,7 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
                     <FileInput.FileName>{file.name}</FileInput.FileName>
-                    <FileInput.FileNameWeight>{this.formatBytes(file.size)}</FileInput.FileNameWeight>
+                    <FileInput.FileNameWeight>{bytesConversion(file.size)}</FileInput.FileNameWeight>
                   </FileInput.ListItemBody>
                   <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onClick={() => this.onDeleteHandler(fileIndex)} />
                 </FileInput.ListItem>
