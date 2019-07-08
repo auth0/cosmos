@@ -52,8 +52,7 @@ export interface IFileInputProps {
 }
 
 interface IFileInputState {
-  selectedFile: any,
-  progress: number
+  selectedFile: any[]
 }
 
 class FileInput extends React.Component<IFileInputProps, IFileInputState> {
@@ -139,60 +138,31 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFile: null,
-      progress: 0
+      selectedFile: []
     }
-
   }
 
-  onChangeHandler = event => {
+  onChangeHandler = (event) => {
+    let files = event.target.files
     this.setState({
-      selectedFile: event.target.files,
-      progress: 0,
+      selectedFile: [...this.state.selectedFile, ...Array.from(files)]
     })
-
-  }
-
-  onClickHandler = () => {
-    const data = new FormData()
-    console.log(data)
-    console.log(this.state.selectedFile)
-    // const val = data.append('file', this.state.selectedFile)
-    // this.renderFiles(val)
-  }
-
-  renderFiles = (files) => {
-    if (files) {
-      return files.map(file => {
-        return (
-          <FileInput.ListItem key={file.id}>
-            <FileInput.ListItemBody>
-              <Icon name="attachment" color={colors.text.secondary} size={18} />
-              <FileInput.FileName>{file.name}</FileInput.FileName>
-              <FileInput.FileNameWeight>{file.size}</FileInput.FileNameWeight>
-            </FileInput.ListItemBody>
-            <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" {...Automation('fileinput.remove')} />
-          </FileInput.ListItem>
-        )
-      })
-    }
   }
 
   render() {
-    const { ...props } = this.props
     const { selectedFile } = this.state
-    let files = [{ name: 'first.jpg', size: '860kb' }, { name: 'second.jpg', size: '700kb' }]
     return (
       <FileInput.Element>
         <FileInput.Container>
-          <FileInput.Input type="file" multiple={props.multiple} onChange={this.onChangeHandler} />
+          <FileInput.Input type="file" multiple={true} onChange={this.onChangeHandler} />
           <FileInput.Label htmlFor="customFileLong">
-            <FileInput.Button icon="plus" onClick={this.onClickHandler}>Choose File</FileInput.Button>
+            <FileInput.Button icon="plus">Choose File</FileInput.Button>
             {selectedFile &&
               <FileInput.Text>{selectedFile.length} files selected</FileInput.Text>
             }
           </FileInput.Label>
         </FileInput.Container>
+
         {/* 
         <FileInput.Card>
           <StackLayout distribution="spaceBetween">
@@ -208,9 +178,22 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
         </FileInput.Card> */}
 
         <FileInput.List>
-          {this.renderFiles(files)}
-        </FileInput.List>
+          {selectedFile &&
 
+            selectedFile.map((file) => {
+              return (
+                <FileInput.ListItem key={file.id}>
+                  <FileInput.ListItemBody>
+                    <Icon name="attachment" color={colors.text.secondary} size={18} />
+                    <FileInput.FileName>{file.name}</FileInput.FileName>
+                    <FileInput.FileNameWeight>{file.size}</FileInput.FileNameWeight>
+                  </FileInput.ListItemBody>
+                  <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" />
+                </FileInput.ListItem>
+              )
+            })
+          }
+        </FileInput.List>
       </FileInput.Element>
     )
   }
