@@ -52,7 +52,7 @@ export interface IFileInputProps {
 }
 
 interface IFileInputState {
-  selectedFile: any[]
+  selectedFiles: any[]
 }
 
 class FileInput extends React.Component<IFileInputProps, IFileInputState> {
@@ -138,27 +138,35 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
   constructor(props) {
     super(props);
     this.state = {
-      selectedFile: []
+      selectedFiles: []
     }
   }
 
   onChangeHandler = (event) => {
     let files = event.target.files
     this.setState({
-      selectedFile: [...this.state.selectedFile, ...Array.from(files)]
+      selectedFiles: [...this.state.selectedFiles, ...Array.from(files)]
     })
   }
 
+  onDeleteHandler = (fileIndex) => {
+    this.setState({
+      selectedFiles: this.state.selectedFiles.filter((file, index) => !(index === fileIndex))
+    })
+  }
+
+
+
   render() {
-    const { selectedFile } = this.state
+    const { selectedFiles } = this.state
     return (
       <FileInput.Element>
         <FileInput.Container>
           <FileInput.Input type="file" multiple={true} onChange={this.onChangeHandler} />
           <FileInput.Label htmlFor="customFileLong">
             <FileInput.Button icon="plus">Choose File</FileInput.Button>
-            {selectedFile &&
-              <FileInput.Text>{selectedFile.length} files selected</FileInput.Text>
+            {selectedFiles &&
+              <FileInput.Text>{selectedFiles.length} files selected</FileInput.Text>
             }
           </FileInput.Label>
         </FileInput.Container>
@@ -178,17 +186,16 @@ class FileInput extends React.Component<IFileInputProps, IFileInputState> {
         </FileInput.Card> */}
 
         <FileInput.List>
-          {selectedFile &&
-
-            selectedFile.map((file) => {
+          {selectedFiles &&
+            selectedFiles.map((file, fileIndex) => {
               return (
-                <FileInput.ListItem key={file.id}>
+                <FileInput.ListItem key={file.name}>
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
                     <FileInput.FileName>{file.name}</FileInput.FileName>
                     <FileInput.FileNameWeight>{file.size}</FileInput.FileNameWeight>
                   </FileInput.ListItemBody>
-                  <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" />
+                  <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onClick={() => this.onDeleteHandler(fileIndex)} />
                 </FileInput.ListItem>
               )
             })
