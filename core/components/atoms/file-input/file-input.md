@@ -6,21 +6,6 @@
 `import { FileInput } from '@auth0/cosmos'`
 
 ```jsx
-<FileInput {props}  multiple={true}/>
-```
-
-```js
-<FileInput
-  multiple
-  renderItem={file => (
-    <div>
-      custom {file.name} and {FileInput.bytesConversion(file.size)}
-    </div>
-  )}
-/>
-```
-
-```js
 class FileInputState extends React.Component {
   constructor(props) {
     super(props)
@@ -32,6 +17,7 @@ class FileInputState extends React.Component {
   render() {
     return (
       <FileInput
+        multiple
         files={this.state.files}
         onAttach={files => this.setState({ files: [...this.state.files, ...files] })}
         onDelete={fileIndex =>

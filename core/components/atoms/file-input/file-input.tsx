@@ -2,6 +2,7 @@ import * as React from "react";
 
 import Automation from "../../_helpers/automation-attribute";
 import bytesConversion from "../../_helpers/bytes-conversion";
+import truncateMidString from "../../_helpers/truncate-mid-string";
 import Button from "../../atoms/button";
 import Icon from "../../atoms/icon";
 import styled from "../../styled";
@@ -103,7 +104,7 @@ class FileInput extends React.Component<IFileInputProps> {
     padding-bottom: ${spacing.xsmall};
   `
 
-  static ListItemBody = styled.div``
+  static ListItemBody = styled.div` `
 
   static FileName = styled.span`
     margin-left: ${spacing.xsmall};
@@ -163,7 +164,7 @@ class FileInput extends React.Component<IFileInputProps> {
                 <FileInput.ListItem key={file.name} {...Automation('file-input.list-item')}>
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
-                    <FileInput.FileName>{file.name}</FileInput.FileName>
+                    <FileInput.FileName>{truncateMidString(file.name)}</FileInput.FileName>
                     <FileInput.FileNameWeight>
                       {bytesConversion(file.size)}
                     </FileInput.FileNameWeight>
