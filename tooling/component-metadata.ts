@@ -14,6 +14,7 @@ const colors = require('@auth0/cosmos/tokens/colors')
 /* CLI param for watch mode */
 const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
+let warning = 0
 
 /* Cache file metadata in memory for comparison on subsequent recompiles */
 const jsCache = []
