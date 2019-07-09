@@ -127,10 +127,6 @@ class FileInput extends React.Component<IFileInputProps> {
     const files = Array.from(event.target.files)
 
     if (this.props.onAttach) {
-      if (this.props.files.length > 0 && !this.props.multiple) {
-        this.props.onDelete(0)
-      }
-
       this.props.onAttach(files)
     }
   }
