@@ -34,7 +34,7 @@ const stripDefaultsFromDocs = code => {
   const string = getDefaultString(code)
   // string ~ key1: "value1", key2: "value2"
 
-  const strippedCode = code.replace(/\s*defaults=\{\s*\{}.*\}\s*\}/, '')
+  const strippedCode = code.replace(/\s*defaults=\{\s*\{.*\}\s*\}/, '')
   // strippedCode ~ <Component />
 
   return strippedCode
