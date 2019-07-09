@@ -1,26 +1,15 @@
-import * as React from 'react'
-import styled from '../../styled'
+import * as React from "react";
 
-import { misc } from '../../tokens'
-import { StyledInput } from '../_styled-input'
-import Automation from '../../_helpers/automation-attribute'
-import Button from '../../atoms/button'
-import Icon from '../../atoms/icon'
-import { colors } from '../../tokens'
-
-import { spacing } from '../../tokens/v2'
-import StackLayout from '../../layouts/stack-layout'
-import { RowLayout } from '../..'
-import Avatar from '../avatar'
-import bytesConversion from '../../_helpers/bytes-conversion'
-
+import Automation from "../../_helpers/automation-attribute";
+import bytesConversion from "../../_helpers/bytes-conversion";
+import Button from "../../atoms/button";
+import Icon from "../../atoms/icon";
+import styled from "../../styled";
+import { colors, misc } from "../../tokens";
+import { spacing } from "../../tokens/v2";
+import { StyledInput } from "../_styled-input";
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
-export interface IFile {
-  fileName: string
-  progress: number
-  isUploaded?: boolean
-}
 
 export interface IFileInputProps {
   /** HTML ID for the element */
@@ -48,144 +37,151 @@ export interface IFileInputProps {
   /** accept state */
   accept?: string[]
   /** files state */
-  files: IFile[]
+  files: any[]
   /** files state */
   multiple?: boolean
+  renderItem?: Function
 }
 
-interface IFileInputState {
-  selectedFiles: any[]
-}
-
-class FileInput extends React.Component<IFileInputProps, IFileInputState> {
+class FileInput extends React.Component<IFileInputProps> {
+  static bytesConversion = bytesConversion
   static Element = styled.div``
   static Button = styled(Button)``
 
   static Container = styled.div`
-  position: relative;
-`
+    position: relative;
+  `
   static Input = styled.input`
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: ${misc.button.default.height};
-  margin: 0;
-  opacity: 0;
-  /* &:focus ~ .custom-file-label {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: ${misc.button.default.height};
+    margin: 0;
+    opacity: 0;
+    /* &:focus ~ .custom-file-label {
     border-color: $custom-file-focus-border-color;
     box-shadow: $custom-file-focus-box-shadow;
   }
   &[disabled] ~ .custom-file-label {
     background-color: $custom-file-disabled-bg;
   } */
-`
+  `
   static Label = styled.label`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  display: flex;
-  height: ${misc.button.default.height};
-  border-color: yellow;
-`
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    height: ${misc.button.default.height};
+    border-color: yellow;
+  `
 
   static Text = styled.span`
-  display: block;
-  flex-grow: 1;
-  margin-left: 12px;
-  overflow: hidden;
-  /* centering with line height because of the ellipse */
-  line-height: ${misc.button.default.height};
-  align-items: center;
-  color: black;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`
+    display: block;
+    flex-grow: 1;
+    margin-left: 12px;
+    overflow: hidden;
+    /* centering with line height because of the ellipse */
+    line-height: ${misc.button.default.height};
+    align-items: center;
+    color: black;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `
 
   static List = styled.ul`
-  margin-top: ${spacing.xsmall};
-`
+    margin-top: ${spacing.xsmall};
+  `
 
   static ListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #e4e4e4;
-  padding-top: ${spacing.xsmall};
-  padding-bottom: ${spacing.xsmall};
-`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e4e4e4;
+    padding-top: ${spacing.xsmall};
+    padding-bottom: ${spacing.xsmall};
+  `
 
   static ListItemBody = styled.div``
 
   static FileName = styled.span`
-  margin-left: ${spacing.xsmall};
-`
+    margin-left: ${spacing.xsmall};
+  `
 
   static FileNameWeight = styled.span`
-  margin-left: 12px;
-  color: ${colors.text.secondary};
-`
+    margin-left: 12px;
+    color: ${colors.text.secondary};
+  `
 
   static Card = styled.div`
-  border: 1px solid #e4e4e4;
-  border-radius: 3px;
-  padding: ${spacing.small};
-`
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    padding: ${spacing.small};
+  `
   static defaultProps = {
     multiple: false
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedFiles: []
+  onChangeHandler = event => {
+    const files = Array.from(event.target.files)
+
+    if (this.props.onAttach) {
+      if (this.props.files.length > 0 && !this.props.multiple) {
+        this.props.onDelete(0)
+      }
+
+      this.props.onAttach(files)
     }
   }
 
-  onChangeHandler = (event) => {
-    let files = event.target.files
-    this.setState({
-      selectedFiles: [...this.state.selectedFiles, ...Array.from(files)]
-    })
-  }
-
-  onDeleteHandler = (fileIndex) => {
-    this.setState({
-      selectedFiles: this.state.selectedFiles.filter((file, index) => !(index === fileIndex))
-    })
+  onDeleteHandler = fileIndex => {
+    if (this.props.onDelete) {
+      this.props.onDelete(fileIndex)
+    }
   }
 
   render() {
-    const { selectedFiles } = this.state
-    const { multiple } = this.props
+    const { multiple, files: selectedFiles } = this.props
+
     return (
-      <FileInput.Element>
+      <FileInput.Element {...Automation('file-input')} {...this.props}>
         <FileInput.Container>
           <FileInput.Input type="file" multiple={multiple} onChange={this.onChangeHandler} />
           <FileInput.Label htmlFor="customFileLong">
             <FileInput.Button icon="plus">Choose File</FileInput.Button>
-            {selectedFiles &&
+            {selectedFiles && (
               <FileInput.Text>{selectedFiles.length} files selected</FileInput.Text>
-            }
+            )}
           </FileInput.Label>
         </FileInput.Container>
 
-        <FileInput.List>
+        <FileInput.List {...Automation('file-input.list')}>
           {selectedFiles &&
             selectedFiles.map((file, fileIndex) => {
+              if (this.props.renderItem) {
+                return this.props.renderItem(file)
+              }
+
               return (
-                <FileInput.ListItem key={file.name}>
+                <FileInput.ListItem key={file.name} {...Automation('file-input.list-item')}>
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
                     <FileInput.FileName>{file.name}</FileInput.FileName>
-                    <FileInput.FileNameWeight>{bytesConversion(file.size)}</FileInput.FileNameWeight>
+                    <FileInput.FileNameWeight>
+                      {bytesConversion(file.size)}
+                    </FileInput.FileNameWeight>
                   </FileInput.ListItemBody>
-                  <FileInput.Button icon="delete" size="small" appearance="link" label="Remove" onClick={() => this.onDeleteHandler(fileIndex)} />
+                  <FileInput.Button
+                    icon="delete"
+                    size="small"
+                    appearance="link"
+                    label="Remove"
+                    onClick={() => this.onDeleteHandler(fileIndex)}
+                  />
                 </FileInput.ListItem>
               )
-            })
-          }
+            })}
         </FileInput.List>
       </FileInput.Element>
     )
