@@ -7,7 +7,7 @@
 
 ```jsx
 <Select {props}
-  placeholder="Select an option..."
+  defaults={{placeholder: "Select an option..."}} 
   options={[
     { text: 'One', value: 1, disabled: true },
     { text: 'Two', value: 2 },
