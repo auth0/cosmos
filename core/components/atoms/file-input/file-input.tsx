@@ -27,12 +27,6 @@ export interface IFileInputProps {
   onAttach?: Function
   /** onDelete transparently passed to the input */
   onDelete?: Function
-  /** The current value for the field */
-  value?: string
-  /** The (HTML) type for the input. */
-  type?: string
-  /** The (HTML) label for the input. */
-  label: string
   /** disabled state */
   disabled?: boolean
   /** accept state */
@@ -45,7 +39,7 @@ export interface IFileInputProps {
 }
 
 class FileInput extends React.Component<IFileInputProps> {
-  static bytesConversion = bytesConversion
+  static formatBytes = bytesConversion
   static Element = styled.div``
   static Button = styled(Button)``
 
@@ -104,7 +98,7 @@ class FileInput extends React.Component<IFileInputProps> {
     padding-bottom: ${spacing.xsmall};
   `
 
-  static ListItemBody = styled.div` `
+  static ListItemBody = styled.div``
 
   static FileName = styled.span`
     margin-left: ${spacing.xsmall};
@@ -139,14 +133,21 @@ class FileInput extends React.Component<IFileInputProps> {
   }
 
   render() {
-    const { multiple, files: selectedFiles } = this.props
+    const { multiple, files: selectedFiles, disabled } = this.props
 
     return (
       <FileInput.Element {...Automation('file-input')} {...this.props}>
         <FileInput.Container>
-          <FileInput.Input type="file" multiple={multiple} onChange={this.onChangeHandler} />
+          <FileInput.Input
+            disabled={disabled}
+            type="file"
+            multiple={multiple}
+            onChange={this.onChangeHandler}
+          />
           <FileInput.Label htmlFor="customFileLong">
-            <FileInput.Button icon="plus">Choose File</FileInput.Button>
+            <FileInput.Button disabled={disabled} icon="plus">
+              Choose File
+            </FileInput.Button>
             {selectedFiles && (
               <FileInput.Text>{selectedFiles.length} files selected</FileInput.Text>
             )}
@@ -157,7 +158,7 @@ class FileInput extends React.Component<IFileInputProps> {
           {selectedFiles &&
             selectedFiles.map((file, fileIndex) => {
               if (this.props.renderItem) {
-                return this.props.renderItem(file)
+                return this.props.renderItem(file, fileIndex)
               }
 
               return (
