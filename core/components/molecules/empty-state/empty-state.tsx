@@ -1,14 +1,15 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { colors, spacing } from '../../tokens'
-import Icon, { __ICONNAMES__ } from '../../atoms/icon'
-import Button from '../../atoms/button'
-import Link from '../../atoms/link'
-import Heading from '../../atoms/heading'
-import { ActionWithIcon } from '../../_helpers/action-shape'
-import FreeText from '../../_helpers/free-text'
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
+import * as React from "react";
+
+import { ActionWithIcon } from "../../_helpers/action-shape";
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import FreeText from "../../_helpers/free-text";
+import Button from "../../atoms/button";
+import Heading from "../../atoms/heading";
+import Icon, { __ICONNAMES__ } from "../../atoms/icon";
+import Link from "../../atoms/link";
+import styled from "../../styled";
+import { colors, spacing } from "../../tokens";
 
 const getHelpLink = link => {
   if (!link) return undefined
@@ -33,7 +34,7 @@ export interface IEmptyStateProps {
   /** HTML ID of the component */
   id?: string
   /** Big heading for section */
-  title: string
+  title: React.ReactNode
   /** Icon associated with section */
   icon: string
   /** @deprecated:children Message */

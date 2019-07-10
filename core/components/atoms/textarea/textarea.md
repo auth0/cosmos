@@ -7,7 +7,7 @@
 Note: `TextArea` is camelcased, it's not `Textarea`.
 
 ```jsx
-<TextArea {props} placeholder="Placeholder text" />
+<TextArea {props} defaults={{placeholder: "Placeholder text"}} />
 ```
 
 ### Length of the TextArea

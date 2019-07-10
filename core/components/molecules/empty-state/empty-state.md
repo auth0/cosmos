@@ -7,7 +7,7 @@ Empty states are displayed when a page has no content.
 
 ```jsx
 <EmptyState
-  {props} defaults={{title: "Clients", icon: "clients", link: "auth0.com"}}
+  {props} defaults={{title: "'Clients'", icon: "clients", link: "auth0.com"}}
   action={{
     icon: 'plus',
     label: 'Create Client',
@@ -46,5 +46,22 @@ You can change how the help link opens by passing an `object` with `target` inst
   link={{ href: 'https://auth0.com', target: '_blank' }}
 >
   We couldn't find files that match your search.
+</EmptyState>
+```
+
+### Empty state with beta tag
+
+```js
+<EmptyState
+  title={
+    <>
+      Hooks <Badge appearance="information">BETA</Badge>
+    </>
+  }
+  icon="hooks"
+  link={{ href: 'https://auth0.com', target: '_blank' }}
+>
+  Hooks allow you to customize the behavior of Auth0 with Node.js code that is executed in selected
+  extension points.
 </EmptyState>
 ```

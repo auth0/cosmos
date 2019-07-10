@@ -1,5 +1,6 @@
 const fs = require('fs-extra')
 const glob = require('glob')
+const md5File = require('md5-file')
 
 import * as docgen from 'react-docgen-typescript'
 
@@ -15,6 +16,10 @@ const watch = process.argv.includes('-w') || process.argv.includes('--watch')
 const debug = process.argv.includes('-d') || process.argv.includes('--debug')
 let warning = 0
 
+/* Cache file metadata in memory for comparison on subsequent recompiles */
+const jsCache = []
+const mdCache = []
+
 /* Ensure meta directory exists */
 fs.ensureDirSync('core/components/meta')
 
@@ -22,22 +27,54 @@ fs.ensureDirSync('core/components/meta')
 const javascriptFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.ts*')
 let markdownFiles = glob.sync('core/components/+(atoms|molecules|layouts)/**/*.md')
 
-const run = () => {
-  info('Generating metadata')
-  let metadata = javascriptFiles
+const run = (event: string, srcPath?: string) => {
+  let warning = 0
+
+  if (event === 'ready') {
+    info('Generating metadata')
+  } else {
+    info(`Updating metadata for ${event === 'change' ? 'changed' : 'unlinked'} path ${srcPath}`)
+  }
+
+  javascriptFiles
+    /* Get all files on first run or only those matching the srcPath from change/unlink */
+    .filter(path => !srcPath || path.includes(srcPath.replace('.md', '')))
+    /* Ignore stories and type defs */
     .filter(path => !path.includes('story.tsx') || !path.includes('.d.ts'))
-    .map(path => {
+    .forEach(path => {
       try {
         /* ignore secondary files */
         const directoryName = path.split('/').splice(-2, 1)[0]
         const componentFileName = directoryName.replace('_', '') + '.tsx'
 
-
-        /* if component file does not exist, move on*/
+        /* if component file does not exist, move on */
         if (!path.includes(componentFileName)) return
 
-        const code = fs.readFileSync(path, 'utf8')
+        /* get documentation file path */
+        const documentationPath = path.replace('.tsx', '.md')
 
+        const cmpFileHash = md5File.sync(path)
+        const docFileHash = fs.existsSync(documentationPath)
+          ? md5File.sync(documentationPath)
+          : null
+
+        let cacheEntry = jsCache.find(f => f.name === componentFileName)
+
+        /* If component file and corresponding doc file are unchanged, move on */
+        if (cacheEntry && cacheEntry.hash === cmpFileHash && cacheEntry.docHash === docFileHash) {
+          return
+        }
+
+        if (!cacheEntry) {
+          cacheEntry = {
+            name: componentFileName
+          }
+
+          jsCache.push(cacheEntry)
+        }
+
+        cacheEntry.hash = cmpFileHash
+        cacheEntry.docHash = docFileHash
 
         /* parse the component code to get metadata */
         const data: any = docgen.parse(path, {
@@ -84,9 +121,6 @@ const run = () => {
         /* add filepath to metadata */
         data.filepath = path
 
-        /* get documentation file path */
-        const documentationPath = path.replace('.tsx', '.md')
-
         /* add documentation if exists */
         if (fs.existsSync(documentationPath)) {
           data.documentation = fs.readFileSync(documentationPath, 'utf8')
@@ -104,47 +138,60 @@ const run = () => {
         data.implemented = true
         data.internal = path.includes('_')
 
-        return data
+        cacheEntry.data = data
       } catch (err) {
         /* warn if there was a problem with getting metadata */
         if (debug) warn(`Could not parse metadata for ${path}: ${err.stack || err}`)
         else warning++
       }
     })
-    /*
-      filter out null values,
-      this protects against components that don't have metadata yet
-    */
-    .filter(meta => meta)
+
+  info('metadata done')
 
   /* Add documentation files that are not implemented yet */
-  markdownFiles.map(path => {
-    const data: any = {}
+  markdownFiles
+    .filter(path => !srcPath || path.includes(srcPath))
+    .forEach(path => {
+      const data: any = {}
 
-    /* attach content of documentation file */
-    data.documentation = fs.readFileSync(path, 'utf8')
+      /* infer display name from path */
+      data.displayName = camelCase(
+        path
+          .split('/')
+          .pop()
+          .replace('.md', '')
+      )
 
-    /* attach temporary filepath */
-    data.filepath = path
+      const currentHash = md5File.sync(path)
+      let cacheEntry = mdCache.find(f => f.data.displayName === data.displayName)
 
-    /* infer display name from path */
-    data.displayName = camelCase(
-      path
-        .split('/')
-        .pop()
-        .replace('.md', '')
-    )
+      if (cacheEntry && cacheEntry.hash === currentHash) {
+        return
+      }
 
-    /* add lazy hint for documentation */
-    data.implemented = false
+      if (!cacheEntry) {
+        cacheEntry = { data }
+        mdCache.push(cacheEntry)
+      }
 
-    metadata.push(data)
-  })
+      cacheEntry.hash = currentHash
+      /* attach content of documentation file */
+      data.documentation = fs.readFileSync(path, 'utf8')
+
+      /* attach temporary filepath */
+      data.filepath = path
+
+      /* add lazy hint for documentation */
+      data.implemented = false
+    })
 
   /*
     Write the file in docs folder
     TODO: Rethink tooling for docs which works across packages
   */
+
+  const metadata = [...jsCache, ...mdCache].map(entry => entry.data)
+
   fs.writeFileSync(
     'core/components/meta/metadata.json',
     JSON.stringify({ metadata }, null, 2),
@@ -162,7 +209,7 @@ const run = () => {
     'utf8'
   )
 
-  if (warning) {
+  if (event === 'ready' && warning) {
     warn(`${warning} components could use some docs love, run in --debug mode for more info`)
   }
 }
@@ -174,9 +221,9 @@ if (watch) {
     .watch('core/components', {
       ignored: ['node_modules', 'core/components/meta']
     })
-    .on('ready', run)
-    .on('change', run)
-    .on('unlink', run)
+    .on('ready', () => run('ready'))
+    .on('change', path => run('change', path))
+    .on('unlink', path => run('unlink', path))
 } else {
-  run()
+  run('ready')
 }

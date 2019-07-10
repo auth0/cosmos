@@ -21,7 +21,7 @@ const TablesExample = () => (
           },
           {
             name: 'Ray Bradbury',
-            email: 'ray.asimov@gmail.com',
+            email: 'ray.bradbury@gmail.com',
             latest_login: '2 months ago',
             num_logins: '25',
             connection: 'Username-Password',
