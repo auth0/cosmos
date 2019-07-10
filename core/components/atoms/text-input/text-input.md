@@ -6,7 +6,7 @@
 `import { TextInput } from '@auth0/cosmos'`
 
 ```jsx
-<TextInput placeholder="Placeholder text" {props} />
+<TextInput defaults={{placeholder: "Placeholder text"}} {props} />
 ```
 
 ### Input types
