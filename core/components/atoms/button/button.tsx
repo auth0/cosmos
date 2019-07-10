@@ -1,10 +1,11 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { colors, spacing, fonts, misc } from '../../tokens'
-import Icon, { __ICONNAMES__ } from '../icon'
-import Spinner from '../spinner'
-import Tooltip from '../tooltip'
-import Automation from '../../_helpers/automation-attribute'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import styled from "../../styled";
+import { colors, fonts, misc, spacing } from "../../tokens";
+import Icon, { __ICONNAMES__ } from "../icon";
+import Spinner from "../spinner";
+import Tooltip from "../tooltip";
 
 export interface IButtonAppearance {
   text: string
@@ -212,7 +213,7 @@ export interface IButtonProps {
   href?: string
   /** Specifies where to open the navigated document */
   target?: ButtonTarget
-  rel?: string; // TODO: use `noopener` as default
+  rel?: string // TODO: use `noopener` as default
   /** Disables the button|changing the visual style and make it unable to be pressed */
   disabled?: boolean
   /** Loading state when waiting for an action to complete */
