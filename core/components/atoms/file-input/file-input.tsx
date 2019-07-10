@@ -10,42 +10,42 @@ import { colors, misc } from "../../tokens";
 import { spacing } from "../../tokens/v2";
 import { StyledInput } from "../_styled-input";
 
-export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
+export type FileInputSize = "default" | "large" | "small" | "compressed";
 
 export interface IFileInputProps {
   /** HTML ID for the element */
-  id?: string
+  id?: string;
   /** HTML name for the element */
-  name?: string
+  name?: string;
   /** Make input readOnly if it does not validate constraint */
-  readOnly?: boolean
+  readOnly?: boolean;
   /** Pass hasError to show error state */
-  hasError?: boolean
+  hasError?: boolean;
   /** @deprecated:hasError Pass error string directly to show error state */
-  error?: string
+  error?: string;
   /** onAttach transparently passed to the input */
-  onAttach?: Function
+  onAttach?: Function;
   /** onDelete transparently passed to the input */
-  onDelete?: Function
+  onDelete?: Function;
   /** disabled state */
-  disabled?: boolean
+  disabled?: boolean;
   /** accept state */
-  accept?: string[]
+  accept?: string[];
   /** files state */
-  files: any[]
+  files: any[];
   /** files state */
-  multiple?: boolean
-  renderItem?: Function
+  multiple?: boolean;
+  renderItem?: Function;
 }
 
 class FileInput extends React.Component<IFileInputProps> {
-  static formatBytes = bytesConversion
-  static Element = styled.div``
-  static Button = styled(Button)``
+  static formatBytes = bytesConversion;
+  static Element = styled.div``;
+  static Button = styled(Button)``;
 
   static Container = styled.div`
     position: relative;
-  `
+  `;
   static Input = styled.input`
     position: relative;
     z-index: 2;
@@ -60,7 +60,7 @@ class FileInput extends React.Component<IFileInputProps> {
   &[disabled] ~ .custom-file-label {
     background-color: $custom-file-disabled-bg;
   } */
-  `
+  `;
   static Label = styled.label`
     position: absolute;
     top: 0;
@@ -70,7 +70,7 @@ class FileInput extends React.Component<IFileInputProps> {
     display: flex;
     height: ${misc.button.default.height};
     border-color: yellow;
-  `
+  `;
 
   static Text = styled.span`
     display: block;
@@ -83,11 +83,11 @@ class FileInput extends React.Component<IFileInputProps> {
     color: black;
     text-overflow: ellipsis;
     white-space: nowrap;
-  `
+  `;
 
   static List = styled.ul`
     margin-top: ${spacing.xsmall};
-  `
+  `;
 
   static ListItem = styled.li`
     display: flex;
@@ -96,47 +96,47 @@ class FileInput extends React.Component<IFileInputProps> {
     border-bottom: 1px solid #e4e4e4;
     padding-top: ${spacing.xsmall};
     padding-bottom: ${spacing.xsmall};
-  `
+  `;
 
-  static ListItemBody = styled.div``
+  static ListItemBody = styled.div``;
 
   static FileName = styled.span`
     margin-left: ${spacing.xsmall};
-  `
+  `;
 
   static FileNameWeight = styled.span`
     margin-left: 12px;
     color: ${colors.text.secondary};
-  `
+  `;
 
   static Card = styled.div`
     border: 1px solid #e4e4e4;
     border-radius: 3px;
     padding: ${spacing.small};
-  `
+  `;
   static defaultProps = {
     multiple: false
-  }
+  };
 
   onChangeHandler = event => {
-    const files = Array.from(event.target.files)
+    const files = Array.from(event.target.files);
 
     if (this.props.onAttach) {
-      this.props.onAttach(files)
+      this.props.onAttach(files);
     }
-  }
+  };
 
   onDeleteHandler = fileIndex => {
     if (this.props.onDelete) {
-      this.props.onDelete(fileIndex)
+      this.props.onDelete(fileIndex);
     }
-  }
+  };
 
   render() {
-    const { multiple, files: selectedFiles, disabled } = this.props
+    const { multiple, files: selectedFiles, disabled } = this.props;
 
     return (
-      <FileInput.Element {...Automation('file-input')} {...this.props}>
+      <FileInput.Element {...Automation("file-input")} {...this.props}>
         <FileInput.Container>
           <FileInput.Input
             disabled={disabled}
@@ -154,17 +154,17 @@ class FileInput extends React.Component<IFileInputProps> {
           </FileInput.Label>
         </FileInput.Container>
 
-        <FileInput.List {...Automation('file-input.list')}>
+        <FileInput.List {...Automation("file-input.list")}>
           {selectedFiles &&
             selectedFiles.map((file, fileIndex) => {
-              const deleteFileHandler = () => this.onDeleteHandler(fileIndex)
+              const deleteFileHandler = () => this.onDeleteHandler(fileIndex);
 
               if (this.props.renderItem) {
-                return this.props.renderItem(file, fileIndex, deleteFileHandler)
+                return this.props.renderItem(file, fileIndex, deleteFileHandler);
               }
 
               return (
-                <FileInput.ListItem key={file.name} {...Automation('file-input.list-item')}>
+                <FileInput.ListItem key={file.name} {...Automation("file-input.list-item")}>
                   <FileInput.ListItemBody>
                     <Icon name="attachment" color={colors.text.secondary} size={18} />
                     <FileInput.FileName>{truncateMidString(file.name)}</FileInput.FileName>
@@ -180,13 +180,13 @@ class FileInput extends React.Component<IFileInputProps> {
                     onClick={deleteFileHandler}
                   />
                 </FileInput.ListItem>
-              )
+              );
             })}
         </FileInput.List>
       </FileInput.Element>
-    )
+    );
   }
 }
 
-export default FileInput
-export { StyledInput }
+export default FileInput;
+export { StyledInput };
