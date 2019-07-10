@@ -157,8 +157,10 @@ class FileInput extends React.Component<IFileInputProps> {
         <FileInput.List {...Automation('file-input.list')}>
           {selectedFiles &&
             selectedFiles.map((file, fileIndex) => {
+              const deleteFileHandler = () => this.onDeleteHandler(fileIndex)
+
               if (this.props.renderItem) {
-                return this.props.renderItem(file, fileIndex)
+                return this.props.renderItem(file, fileIndex, deleteFileHandler)
               }
 
               return (
@@ -175,7 +177,7 @@ class FileInput extends React.Component<IFileInputProps> {
                     size="small"
                     appearance="link"
                     label="Remove"
-                    onClick={() => this.onDeleteHandler(fileIndex)}
+                    onClick={deleteFileHandler}
                   />
                 </FileInput.ListItem>
               )
