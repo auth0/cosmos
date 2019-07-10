@@ -2,7 +2,7 @@ import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { Example, IconStoryBox } from '@auth0/cosmos/_helpers/story-helpers'
-import { Paragraph, Text, StackLayout, RowLayout } from '@auth0/cosmos'
+import { Paragraph, Text, StackLayout, RowLayout, ColumnLayout } from '../../'
 
 import { Icon } from '../../'
 import { spacing } from '@auth0/cosmos/tokens'
@@ -81,19 +81,51 @@ storiesOf('Icon', module).add('named icons', () => (
 storiesOf('Icon', module).add('icon and text aligment', () => (
   <Example>
     <RowLayout gutter="large">
-      <div>
-        <Icon name="danger" size="16" color="default" /> <Text>Icon name</Text>
-      </div>
+      <ColumnLayout>
+        <div>
+          <Icon name="danger" size="16" color="red" /> <Text>Icon name (Inline)</Text>
+        </div>
 
-      <StackLayout gutter="xsmall">
-        <Icon name="danger" size="16" color="default" />
-        <span>Icon name</span>
-      </StackLayout>
+        <div>
+          <Icon name="danger" color="red" size="20" /> <Text>Icon name (Inline)</Text>
+        </div>
+
+        <StackLayout gutter="xsmall">
+          <Icon color="red" name="danger" size="16" />
+          <span>Icon name (Stack Layout)</span>
+        </StackLayout>
+
+        <StackLayout gutter="xsmall">
+          <Icon name="danger" color="red" size="20" />
+          <span>Icon name (Stack Layout)</span>
+        </StackLayout>
+      </ColumnLayout>
+
+      <div>
+        <div style={{ maxWidth: '300px', borderBottom: '1px solid #cecece', padding: '0.75rem 0' }}>
+          <StackLayout distribution="spaceBetween">
+            <StackLayout gutter="xsmall">
+              <Icon color="default" name="settings" size="16" />
+              <span>Icon name (Stack Layout)</span>
+            </StackLayout>
+            <Icon color="green" name="check" size="16" />
+          </StackLayout>
+        </div>
+        <div style={{ maxWidth: '300px', borderBottom: '1px solid #cecece', padding: '0.75rem 0' }}>
+          <StackLayout distribution="spaceBetween">
+            <StackLayout gutter="xsmall">
+              <Icon color="default" name="plus" size="16" />
+              <span>Icon name (Stack Layout)</span>
+            </StackLayout>
+            <Icon color="green" name="check" size="16" />
+          </StackLayout>
+        </div>
+      </div>
 
       <Paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac velit fringilla,
         faucibus quam a, efficitur felis. Suspendisse viverra lacinia interdum. Vivamus semper
-        interdum justo non aliquam. <Icon name="danger" size="16" color="default" /> Aliquam lacinia
+        interdum justo non aliquam. <Icon name="danger" size="16" color="red" /> Aliquam lacinia
         commodo nulla at vehicula. Curabitur eget enim bibendum, consectetur diam nec, pellentesque
         elit. Integer sagittis scelerisque elementum. Praesent eleifend enim a lorem hendrerit, et
         feugiat arcu mollis. Sed sit amet diam in felis euismod lacinia vitae nec augue. Curabitur
