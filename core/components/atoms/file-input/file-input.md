@@ -62,11 +62,11 @@ class FileInputState extends React.Component {
 ```js
 <FileInput
   files={[{ name: 'certificate.pem', size: 3579 }, { name: 'certificate.pub', size: 1337 }]}
-  renderItem={(file, index) => (
+  renderItem={(file, index, deleteFile) => (
     <div style={{ border: '1px solid black', padding: '5px 15px' }}>
       <p>
         #{index + 1}: {file.name} ({FileInput.formatBytes(file.size)}){' '}
-        <Button appearance="link" icon="delete" />
+        <Button appearance="link" icon="delete" onClick={deleteFile} />
       </p>
     </div>
   )}
