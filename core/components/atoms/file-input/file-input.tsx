@@ -133,7 +133,7 @@ class FileInput extends React.Component<IFileInputProps> {
   };
 
   render() {
-    const { multiple, files: selectedFiles, disabled } = this.props;
+    const { multiple, files: selectedFiles, disabled, accept } = this.props;
 
     return (
       <FileInput.Element {...Automation("file-input")} {...this.props}>
@@ -143,6 +143,7 @@ class FileInput extends React.Component<IFileInputProps> {
             type="file"
             multiple={multiple}
             onChange={this.onChangeHandler}
+            accept={accept}
           />
           <FileInput.Label htmlFor="customFileLong">
             <FileInput.Button disabled={disabled} icon="plus">
