@@ -2,9 +2,7 @@ import * as React from "react";
 
 import { FileInput } from "@auth0/cosmos";
 
-type FixtureProps = { onChange: Function }
-
-class Fixture extends React.Component<FixtureProps> {
+class Fixture extends React.Component {
   state = { items: [] }
 
   handleChange(event) {
