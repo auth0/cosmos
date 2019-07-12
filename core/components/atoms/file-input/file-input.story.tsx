@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Example } from '../../_helpers/story-helpers'
-import FileInput from '.'
+import * as React from "react";
+
+import { storiesOf } from "@storybook/react";
+
+import { Example } from "../../_helpers/story-helpers";
+import FileInput from "./";
 
 storiesOf('FileInput', module).add('simple', () => (
   <Example title="simple">
@@ -10,7 +12,7 @@ storiesOf('FileInput', module).add('simple', () => (
 ))
 
 storiesOf('FileInput', module).add('multiple files', () => (
-  <Example title="simple">
+  <Example title="multiple files">
     <FileInput
       items={[
         { file: { name: 'file1.txt', size: 3579 } },
@@ -22,7 +24,7 @@ storiesOf('FileInput', module).add('multiple files', () => (
 ))
 
 storiesOf('FileInput', module).add('loading state', () => (
-  <Example title="simple">
+  <Example title="loading state">
     <FileInput
       items={[
         { file: { name: 'file1.txt', size: 3579 }, loading: true },
@@ -33,8 +35,8 @@ storiesOf('FileInput', module).add('loading state', () => (
   </Example>
 ))
 
-storiesOf('FileInput', module).add('file truncation', () => (
-  <Example title="simple">
+storiesOf('FileInput', module).add('file name truncation', () => (
+  <Example title="file name truncation">
     <FileInput
       items={[
         {
