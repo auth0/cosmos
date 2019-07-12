@@ -1,15 +1,15 @@
-import * as React from 'react'
+import * as React from "react";
 
-import Automation from '../../_helpers/automation-attribute'
-import bytesConversion from '../../_helpers/bytes-conversion'
-import truncateMidString from '../../_helpers/truncate-mid-string'
-import Button from '../../atoms/button'
-import Icon from '../../atoms/icon'
-import styled from '../../styled'
-import { colors, misc } from '../../tokens'
-import { spacing } from '../../tokens/v2'
-import { StyledInput } from '../_styled-input'
-import { Spinner } from '../..'
+import { Spinner } from "../..";
+import Automation from "../../_helpers/automation-attribute";
+import bytesConversion from "../../_helpers/bytes-conversion";
+import truncateMidString from "../../_helpers/truncate-mid-string";
+import Button from "../../atoms/button";
+import Icon from "../../atoms/icon";
+import styled from "../../styled";
+import { colors, misc } from "../../tokens";
+import { spacing } from "../../tokens/v2";
+import { StyledInput } from "../_styled-input";
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
 
@@ -149,13 +149,17 @@ class FileInput extends React.Component<IFileInputProps> {
             multiple={multiple}
             onChange={this.onChangeHandler}
             accept={accept}
+            {...Automation('file-input.input')}
           />
           <FileInput.Label htmlFor="customFileLong">
             <FileInput.Button disabled={disabled} icon="plus">
               Choose File
             </FileInput.Button>
             {selectedItems && (
-              <FileInput.Text>{selectedItems.length} files selected</FileInput.Text>
+              <FileInput.Text>
+                {selectedItems.length} file
+                {selectedItems.length === 1 ? '' : 's'} selected
+              </FileInput.Text>
             )}
           </FileInput.Label>
         </FileInput.Container>
