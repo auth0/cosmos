@@ -58,13 +58,6 @@ class FileInput extends React.Component<IFileInputProps> {
     height: ${misc.button.default.height};
     margin: 0;
     opacity: 0;
-    /* &:focus ~ .custom-file-label {
-    border-color: $custom-file-focus-border-color;
-    box-shadow: $custom-file-focus-box-shadow;
-  }
-  &[disabled] ~ .custom-file-label {
-    background-color: $custom-file-disabled-bg;
-  } */
   `
   static Label = styled.label`
     position: absolute;
