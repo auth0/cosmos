@@ -54,8 +54,7 @@ This component works the same way as any other Cosmos' input, you can use it
 along `Form.Field` in order to add things like a label, help text and errors.
 
 ```js
-<Form.Field label="Certificates" helpText="Upload your domain's certificate to
-  use in production.">
+<Form.Field label="Certificates" helpText="Upload your domain's certificate to use in production.">
   <FileInput
     items={[
       { file: { name: 'certificate.pem', size: 3579 }, loading: true },
