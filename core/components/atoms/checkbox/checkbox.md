@@ -28,7 +28,7 @@ class Example extends React.Component {
   render() {
     return (
       <Checkbox
-        name="example"
+        defaults={{name: "example"}}
         onChange={evt => this.handleChange(evt)}
         value="one"
         checked={this.state.selected.indexOf('one') >= 0}

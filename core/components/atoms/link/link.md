@@ -8,7 +8,7 @@
 ---
 
 ```jsx
-<Link href="https://auth0.com" {props}>Click me!</Link>
+<Link defaults={{href: "https://auth0.com"}} {props}>Click me!</Link>
 ```
 
 #### Examples

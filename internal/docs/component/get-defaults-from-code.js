@@ -1,10 +1,8 @@
+const REGEX_DEFAULTS_STR = /\s*defaults=(\{\s*){2}([\s\S]+?)(\s*\}){2}/
+
 const getDefaultString = code => {
-  const string = code
-    .split('defaults={{')[1]
-    .split('}}>')[0]
-    .split('}} ')[0]
-    .split('}}\n')[0]
-  return string
+  const matches = code.match(REGEX_DEFAULTS_STR)
+  return matches ? matches[2].trim() : null
 }
 
 const getDefaultsFromCode = code => {
@@ -12,13 +10,14 @@ const getDefaultsFromCode = code => {
 
   // code ~ <Component defaults={{key1: "value1", key2: "value2"}}/>
 
-  if (!code.includes('defaults')) return values
+  if (!REGEX_DEFAULTS_STR.test(code)) return values
 
-  const string = getDefaultString(code)
+  const defaultsString = getDefaultString(code)
   // string ~ key1: "value1", key2: "value2"
 
-  string.split(',').forEach(pair => {
-    const [key, value] = pair.split(':')
+  defaultsString.split(',').forEach(pair => {
+    // Split on the first ":" only (value may be a URL)
+    const [key, value] = pair.split(/:(.+)/)
     values[key.trim()] = JSON.parse(value.trim())
   })
   // values ~ { key1: "value1", key2: "value2" }
@@ -34,7 +33,7 @@ const stripDefaultsFromDocs = code => {
   const string = getDefaultString(code)
   // string ~ key1: "value1", key2: "value2"
 
-  const strippedCode = code.replace(/\s*defaults=\{\s*\{.*\}\s*\}/, '')
+  const strippedCode = code.replace(REGEX_DEFAULTS_STR, '')
   // strippedCode ~ <Component />
 
   return strippedCode

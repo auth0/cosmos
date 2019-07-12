@@ -25,7 +25,7 @@ class Example extends React.Component {
   render() {
     return (
       <Radio
-        name="example1"
+        defaults={{name: "example1"}}
         selected={this.state.selected}
         onChange={evt => this.handleChange(evt)}
         {props}

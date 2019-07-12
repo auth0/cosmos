@@ -7,8 +7,11 @@
 
 ```jsx
 <Image
-  source="https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80"
-  alt="The cosmos"
+  {props}
+  defaults={{
+    src: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2257&h=1200&q=80",
+    alt: "The cosmos"
+  }}
 />
 ```
 
