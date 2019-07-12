@@ -11,7 +11,9 @@
 <Breadcrumb>
   <Breadcrumb.Link href="/home">Home</Breadcrumb.Link>
   <Breadcrumb.Link href="/parent">Parent</Breadcrumb.Link>
-  <Breadcrumb.Link href="/parent/page">Page</Breadcrumb.Link>
+  <Breadcrumb.Link aria-current="page" href="/parent/page">
+    Page
+  </Breadcrumb.Link>
 </Breadcrumb>
 ```
 
@@ -24,6 +26,7 @@ A breadcrumb is a hierarchical representation of the page within the application
 - The breadcrumb is displayed as single horizontal line.
 - Using this component is optional: it only makes sense when there is a hierarchy of pages to display.
 - The last item of the breadcrumb indicates the current page and it’s not clickable.
+- The last item can be given an [`aria-current`](https://www.w3.org/TR/wai-aria-1.1/#aria-current) attribute to indicate to assistive technologies that it is the current item.
 
 ## Examples
 

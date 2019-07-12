@@ -1,6 +1,6 @@
 {
   "name": "cosmos",
-  "version": "0.26.0",
+  "version": "0.29.0",
   "engine": "^7.0.0",
   "private": true,
   "workspaces": [
@@ -68,6 +68,7 @@
     "lint-staged": "7.2.0",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
+    "md5-file": "^4.0.0",
     "nps": "5.9.2",
     "nps-i": "1.0.2",
     "nps-utils": "1.6.0",

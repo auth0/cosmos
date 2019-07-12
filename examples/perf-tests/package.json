@@ -10,11 +10,11 @@
     "start": "cosmos-scripts start"
   },
   "dependencies": {
-    "@auth0/cosmos": "0.26.0",
+    "@auth0/cosmos": "0.29.0",
     "react": "16.8.4",
     "react-dom": "16.8.4"
   },
   "devDependencies": {
-    "@auth0/cosmos-scripts": "0.26.0"
+    "@auth0/cosmos-scripts": "0.29.0"
   }
 }

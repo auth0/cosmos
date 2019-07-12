@@ -12,8 +12,66 @@ import {
   Checkbox,
   StackLayout,
   Button,
-  RowLayout
+  RowLayout,
+  Link,
+  Text,
+  Code
 } from '../../../../'
+
+storiesOf('Form', module).add('form field', () => (
+  <Example title="form field">
+    <Form.Field label="Field title">
+      <TextInput type="text" placeholder="Enter something" />
+    </Form.Field>
+  </Example>
+))
+
+storiesOf('Form', module).add('form field + help text', () => (
+  <Example title="form field + help text">
+    <Form.Field
+      label="Field title"
+      helpText="The help text for the field provide the user with instructions of how to correctly fill this field."
+    >
+      <TextInput type="text" placeholder="Enter something" />
+    </Form.Field>
+  </Example>
+))
+
+storiesOf('Form', module).add('form field + rich help text', () => (
+  <Example title="form field + rich help text">
+    <Form.Field
+      label="Field title"
+      helpText={
+        <>
+          Help text for the field. It can contain <Link href="">links to documentation</Link> or{' '}
+          <Code>code-anotations</Code>. Also, <Text type="strong">bold text</Text> for emphasis.
+        </>
+      }
+    >
+      <TextInput type="text" placeholder="Enter something" />
+    </Form.Field>
+  </Example>
+))
+
+storiesOf('Form', module).add('form field + error', () => (
+  <Example title="form field + error">
+    <Form.Field label="Field title" error="Everything is broken.">
+      <TextInput type="text" placeholder="Enter something" hasError />
+    </Form.Field>
+  </Example>
+))
+
+storiesOf('Form', module).add('form field + help text + error', () => (
+  <Example title="form field + help text + error">
+    <Form.Field
+      label="Field title"
+      helpText="The help text for the field provide the user with instructions of how to correctly fill this field."
+      error="Everything is broken."
+    >
+      <TextInput type="text" placeholder="Enter something" hasError />
+    </Form.Field>
+  </Example>
+))
 
 storiesOf('Form', module).add('all the fields', () => (
   <Example title="all the fields">
@@ -23,7 +81,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <TextInput
             type="text"
             placeholder="Enter something"
-            actions={[{ icon: 'copy', handler: () => { }, label: 'Copy to clipboard' }]}
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
           />
         </Form.Field>
         <Form.Field
@@ -47,7 +105,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => { }}>
+          <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -83,7 +141,7 @@ storiesOf('Form', module).add('all the fields', () => (
             />
           </StackLayout>
         </Form.Field>
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
 
       <Form layout="label-on-top">
@@ -91,7 +149,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <TextInput
             type="text"
             placeholder="Enter something"
-            actions={[{ icon: 'copy', handler: () => { }, label: 'Copy to clipboard' }]}
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
           />
         </Form.Field>
         <Form.Field
@@ -115,7 +173,7 @@ storiesOf('Form', module).add('all the fields', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => { }}>
+          <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -151,7 +209,7 @@ storiesOf('Form', module).add('all the fields', () => (
             />
           </StackLayout>
         </Form.Field>
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </RowLayout>
   </Example>
@@ -165,7 +223,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <TextInput
             type="text"
             placeholder="Enter something"
-            actions={[{ icon: 'copy', handler: () => { }, label: 'Copy to clipboard' }]}
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
           />
         </Form.Field>
         <Form.Field
@@ -189,7 +247,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => { }}>
+          <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -225,7 +283,7 @@ storiesOf('Form', module).add('Form full width', () => (
             />
           </StackLayout>
         </Form.Field>
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
 
       <Form layout="label-on-top" fullWidth>
@@ -233,7 +291,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <TextInput
             type="text"
             placeholder="Enter something"
-            actions={[{ icon: 'copy', handler: () => { }, label: 'Copy to clipboard' }]}
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
           />
         </Form.Field>
         <Form.Field
@@ -258,7 +316,7 @@ storiesOf('Form', module).add('Form full width', () => (
           <Switch on />
         </Form.Field>
         <Form.Field label="Agree">
-          <Radio name="example1" selected="one" onChange={_ => { }}>
+          <Radio name="example1" selected="one" onChange={_ => {}}>
             <Radio.Option value="one">One</Radio.Option>
             <Radio.Option value="two">Two</Radio.Option>
           </Radio>
@@ -294,7 +352,7 @@ storiesOf('Form', module).add('Form full width', () => (
             />
           </StackLayout>
         </Form.Field>
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </RowLayout>
   </Example>
@@ -308,12 +366,12 @@ storiesOf('Form', module).add('Form Fields with null children', () => (
           <TextInput
             type="text"
             placeholder="Enter something"
-            actions={[{ icon: 'copy', handler: () => { }, label: 'Copy to clipboard' }]}
+            actions={[{ icon: 'copy', handler: () => {}, label: 'Copy to clipboard' }]}
           />
           {null}
         </Form.Field>
 
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </RowLayout>
   </Example>

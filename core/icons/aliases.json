@@ -171,7 +171,8 @@
     "anomaly-detection": ["anomaly"],
     "sso-integrations": [],
     "extensions": [],
-    "login-box": []
+    "login-box": [],
+    "groups": []
   },
   "Brands": {
     "brand-microsoft": ["windowslive", "windows"],
@@ -211,7 +212,9 @@
     "brand-vkontakte": [],
     "brand-planningcenter": [],
     "brand-thirtysevensignals": [],
-    "brand-apple": []
+    "brand-apple": [],
+    "brand-aws": [],
+    "brand-firebase": []
   },
   "Fill icons": {
     "lock-fill": [],
