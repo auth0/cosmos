@@ -11,6 +11,11 @@
 
 ## Managing state
 
+Since the component itself doesn't manage any state, you will need to pass an
+`items` array with the files you currently have at all times. 
+You can use `onChange` to get file additions and deletions and mutate your local
+`items` array.
+
 ```js
 class FileInputState extends React.Component {
   constructor(props) {
@@ -30,6 +35,7 @@ class FileInputState extends React.Component {
             const newItems = event.added
             this.setState({ items: [...this.state.items, ...newItems] })
           }
+
           if (event.deleted) {
             this.setState({
               items: this.state.items.filter((item, index) => !(index === event.deleted.index))
@@ -44,8 +50,12 @@ class FileInputState extends React.Component {
 
 ## Using with Form.Field
 
+This component works the same way as any other Cosmos' input, you can use it
+along `Form.Field` in order to add things like a label, help text and errors.
+
 ```js
-<Form.Field label="Certificates">
+<Form.Field label="Certificates" helpText="Upload your domain's certificate to
+  use in production.">
   <FileInput
     items={[
       { file: { name: 'certificate.pem', size: 3579 }, loading: true },
@@ -69,6 +79,9 @@ class FileInputState extends React.Component {
 ```
 
 ## Using custom list items
+
+In the case the component's default list is not enough to represent your use
+case, you can use `renderItem` to render a custom list element.
 
 ```js
 <FileInput
