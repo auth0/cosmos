@@ -1,32 +1,33 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { Checkbox, Tag } from '@auth0/cosmos'
+import { Checkbox, Tag } from "@auth0/cosmos";
 
-import automationAttributeTest from './helpers/automation-attribute'
-import AlertFixture from './atoms/alert.fixture'
-import BreadcrumbFixture from './atoms/breadcrumb.fixture'
-import ButtonFixture from './atoms/button.fixture'
-import CheckboxFixture from './atoms/checkbox.fixture'
-import RadioFixture from './atoms/radio.fixture'
-import SwitchFixture from './atoms/switch.fixture'
-import TagFixture from './atoms/tag.fixture'
-import TextInputFixture from './atoms/text-input.fixture'
-import TextAreaFixture from './atoms/textarea.fixture'
-import ButtonGroupFixture from './molecules/button-group.fixture'
-import DialogFixture from './molecules/dialog.fixture'
-import EmptyStateFixture from './molecules/empty-state.fixture'
-import FormGroupFixture from './molecules/form-group.fixture'
-import FormFixture from './molecules/form.fixture'
-import ListFixture from './molecules/list.fixture'
-import PageHeaderFixture from './molecules/page-header.fixture'
-import PagerFixture from './molecules/pager.fixture'
-import PaginationFixture from './molecules/pagination.fixture'
-import PaginationToolbarFixture from './molecules/pagination-toolbar.fixture'
-import ResourceListFixture from './molecules/resource-list.fixture'
-import SidebarFixture from './molecules/sidebar.fixture'
-import StackFixture from './molecules/stack.fixture'
-import TableFixture from './molecules/table.fixture'
-import TabsFixture from './molecules/tabs.fixture'
+import AlertFixture from "./atoms/alert.fixture";
+import BreadcrumbFixture from "./atoms/breadcrumb.fixture";
+import ButtonFixture from "./atoms/button.fixture";
+import CheckboxFixture from "./atoms/checkbox.fixture";
+import FileInputFixture from "./atoms/file-input.fixture";
+import RadioFixture from "./atoms/radio.fixture";
+import SwitchFixture from "./atoms/switch.fixture";
+import TagFixture from "./atoms/tag.fixture";
+import TextInputFixture from "./atoms/text-input.fixture";
+import TextAreaFixture from "./atoms/textarea.fixture";
+import automationAttributeTest from "./helpers/automation-attribute";
+import ButtonGroupFixture from "./molecules/button-group.fixture";
+import DialogFixture from "./molecules/dialog.fixture";
+import EmptyStateFixture from "./molecules/empty-state.fixture";
+import FormGroupFixture from "./molecules/form-group.fixture";
+import FormFixture from "./molecules/form.fixture";
+import ListFixture from "./molecules/list.fixture";
+import PageHeaderFixture from "./molecules/page-header.fixture";
+import PagerFixture from "./molecules/pager.fixture";
+import PaginationToolbarFixture from "./molecules/pagination-toolbar.fixture";
+import PaginationFixture from "./molecules/pagination.fixture";
+import ResourceListFixture from "./molecules/resource-list.fixture";
+import SidebarFixture from "./molecules/sidebar.fixture";
+import StackFixture from "./molecules/stack.fixture";
+import TableFixture from "./molecules/table.fixture";
+import TabsFixture from "./molecules/tabs.fixture";
 
 // To avoid repeating 'has automation attribute' everywhere
 const tests = elementName => `${elementName} has automation attribute`
@@ -78,6 +79,10 @@ describe('Automation data attributes', () => {
     )
 
     automationAttributeTest(customFixture, 'tag.group')
+  })
+
+  it(tests('FileInput'), () => {
+    automationAttributeTest(FileInputFixture, 'file-input')
   })
 
   it(tests('TextInput'), () => {

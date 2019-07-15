@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { render } from 'react-testing-library'
+import * as React from "react";
+import { render } from "react-testing-library";
 
 const customIdTest = (Fixture, componentName) => {
   const body = render(<Fixture />)
