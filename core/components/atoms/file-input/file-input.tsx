@@ -1,6 +1,5 @@
 import * as React from "react";
 
-import { Spinner } from "../..";
 import Automation from "../../_helpers/automation-attribute";
 import bytesConversion from "../../_helpers/bytes-conversion";
 import truncateMidString from "../../_helpers/truncate-mid-string";
@@ -10,6 +9,7 @@ import styled from "../../styled";
 import { colors, misc } from "../../tokens";
 import { spacing } from "../../tokens/v2";
 import { StyledInput } from "../_styled-input";
+import Spinner from "../spinner";
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
 
@@ -43,9 +43,8 @@ class FileInput extends React.Component<IFileInputProps> {
   static Element = styled.div``
   static Button = styled(Button)``
 
-  static SpinnerWrapper = styled.div`
-    width: 18px;
-    display: inline-block;
+  static Spinner = styled(Spinner)`
+    margin-right: ${spacing.xxsmall};
   `
 
   static Container = styled.div`
@@ -96,7 +95,10 @@ class FileInput extends React.Component<IFileInputProps> {
     padding-bottom: ${spacing.xsmall};
   `
 
-  static ListItemBody = styled.div``
+  static ListItemBody = styled.div`
+    display: flex;
+    align-items: center;
+  `
 
   static FileName = styled.span`
     margin-left: ${spacing.xsmall};
@@ -171,9 +173,7 @@ class FileInput extends React.Component<IFileInputProps> {
                 <FileInput.ListItem key={file.name} {...Automation('file-input.list-item')}>
                   <FileInput.ListItemBody>
                     {item.loading ? (
-                      <FileInput.SpinnerWrapper>
-                        <Spinner />
-                      </FileInput.SpinnerWrapper>
+                      <FileInput.Spinner />
                     ) : (
                       <Icon name="attachment" color={colors.text.secondary} size={18} />
                     )}
