@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.30.0 [July 15, 2019]
+
+### Added
+
+- Introduced FileInput component [#1646]
+- Docs: Added more examples for Checkbox [#1648]
+- Docs: Added plain examples of Form.Field [#1644]
+
+### Fixed
+
+- Docs: Limit exposure of prop switching to string literal union types [#1641]
+
+### Internal
+
+- Cache metadata for faster rebuilds in development mode [#1640]
+- Reset missing metadata component count in console warnings on recompilation [#1637]
+
 ## 0.29.0 [July 5, 2019]
 
 ### Added
