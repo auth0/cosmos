@@ -25,8 +25,8 @@ const TableHeader = (props: ITableHeaderProps) => {
       )
     }
 
-    const onClick = column => {
-      if (!column.sortable) return
+    const onClick = (column) => {
+      if (!column.sortable) { return }
 
       let sortDirection
 
@@ -45,7 +45,7 @@ const TableHeader = (props: ITableHeaderProps) => {
         key={`row-header-${index}`}
         column={column}
         sortable={column.sortable && props.onSort}
-        onClick={_ => onClick(column)}
+        onClick={(_) => onClick(column)}
         width={column.width}
       >
         {column.title}
@@ -67,7 +67,7 @@ TableHeader.Row = styled.tr``
 
 TableHeader.SortIndicator = styled.span`
   padding-left: ${spacing.xsmall};
-  visibility: ${props => (props.isSortedBy ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.isSortedBy ? 'visible' : 'hidden')};
 `
 
 TableHeader.Cell = styled.th`
@@ -75,10 +75,10 @@ TableHeader.Cell = styled.th`
   border-bottom: 2px solid ${colors.base.grayLight};
   text-align: left;
   vertical-align: bottom;
-  ${props => (props.width ? `width: ${props.width};` : '')}
-  cursor: ${props => (props.sortable ? 'pointer' : 'auto')};
+  ${(props) => (props.width ? `width: ${props.width};` : '')}
+  cursor: ${(props) => (props.sortable ? 'pointer' : 'auto')};
   &:hover {
-    color: ${props => (props.sortable ? colors.link.default : 'inherit')};
+    color: ${(props) => (props.sortable ? colors.link.default : 'inherit')};
     ${TableHeader.SortIndicator} {
       visibility: visible;
     }
@@ -86,7 +86,7 @@ TableHeader.Cell = styled.th`
 `
 
 TableHeader.defaultProps = {
-  onSort: column => event => null
+  onSort: (column) => (event) => null
 }
 
 export default TableHeader

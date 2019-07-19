@@ -29,7 +29,7 @@ export interface ITextAreaProps {
   /** Placeholder for the input component */
   placeholder?: string
   /** Actions to be attached to the input */
-  actions?: (JSX.Element | ActionWithIcon)[]
+  actions?: Array<JSX.Element | ActionWithIcon>
   /** The default value for the field */
   defaultValue?: string
   /** The current value for the text area */
@@ -40,7 +40,7 @@ export interface ITextAreaProps {
 const TextArea = (props: ITextAreaProps) => {
   const Input = (
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <TextArea.Element
           rows={props.length}
           id={props.id || context.formFieldId}
@@ -51,7 +51,7 @@ const TextArea = (props: ITextAreaProps) => {
     </Form.Field.ContextConsumer>
   )
 
-  if (!props.actions.length) return Input
+  if (!props.actions.length) { return Input }
   else {
     /* Input is not a component, just JSX, hence wrapped in {} */
     return <InputWithActions actions={props.actions}>{Input}</InputWithActions>
@@ -59,8 +59,8 @@ const TextArea = (props: ITextAreaProps) => {
 }
 
 TextArea.Element = styled(StyledInput.withComponent('textarea'))`
-  resize: ${props => (props.resizable ? 'vertical' : 'none')};
-  font-size: ${props => (props.code ? '13px' : 'inherit')};
+  resize: ${(props) => (props.resizable ? 'vertical' : 'none')};
+  font-size: ${(props) => (props.code ? '13px' : 'inherit')};
   display: block;
 `
 

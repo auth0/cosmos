@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const EmptyUser = props => (
+const EmptyUser = (props) => (
   <svg viewBox="0 0 96 96" width="1em" height="1em" {...props}>
     <g fill="none" fillRule="evenodd">
       <circle fill="#E0E0E0" cx={48} cy={48} r={48} />

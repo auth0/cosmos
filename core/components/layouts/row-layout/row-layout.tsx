@@ -1,9 +1,10 @@
-import * as React from 'react'
-import styled from '../../styled'
-import Automation from '../../_helpers/automation-attribute'
-import transformChildren from '../../_helpers/transform-layout-children'
-import applyMarginReset from '../../_helpers/layout-margin-reset'
-import { spacing } from '../../tokens'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import applyMarginReset from "../../_helpers/layout-margin-reset";
+import transformChildren from "../../_helpers/transform-layout-children";
+import styled from "../../styled";
+import { spacing } from "../../tokens";
 
 const gutterOptions = {
   none: 0,
@@ -14,7 +15,7 @@ const gutterOptions = {
 }
 
 export interface IRowLayoutProps {
-  /** Regulates the size of the gutter between rows*/
+  /** Regulates the size of the gutter between rows */
   gutter?: 'none' | 'xsmall' | 'small' | 'medium' | 'large'
   /** Resets the margins of the component within the layout to generate consistent spaces. */
   disableMarginReset?: boolean
@@ -30,7 +31,7 @@ const RowLayout = (props: IRowLayoutProps) => (
 RowLayout.Element = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: ${props => gutterOptions[props.gutter]};
+  grid-gap: ${(props) => gutterOptions[props.gutter]};
 
   & > *:empty {
     display: none;

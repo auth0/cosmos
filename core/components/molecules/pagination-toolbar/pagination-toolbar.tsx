@@ -13,7 +13,7 @@ const Pager = ({ page, pages, onPrevPressed, onNextPressed }) => {
   const inFirstPage = page === 1
   const inLastPage = page === pages
   return (
-    <ButtonGroup compressed>
+    <ButtonGroup compressed={true}>
       <Pager.Button
         icon="chevron-left"
         size="compressed"
@@ -59,7 +59,9 @@ const PaginationToolbar = ({
   const pages = pagesFromItems(items, perPage)
 
   // Do not show the pagination toolbar if there is one page or less
-  if (pages <= 1) return null
+  if (pages <= 1) {
+    return null
+  }
 
   return (
     <PaginationToolbar.Element {...Automation('pagination-toolbar')} {...props}>

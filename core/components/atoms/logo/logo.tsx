@@ -36,8 +36,8 @@ const Logo = ({ size, color, ...props }: ILogoProps) => (
 
 Logo.Element = styled.span`
   display: inline-block;
-  height: ${props => sizes[props.size].height}px;
-  width: ${props => sizes[props.size].width}px;
+  height: ${(props) => sizes[props.size].height}px;
+  width: ${(props) => sizes[props.size].width}px;
   svg {
     display: block;
   }

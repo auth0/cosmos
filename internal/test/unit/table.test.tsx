@@ -43,8 +43,8 @@ interface ITableFactoryProps {
 
 const tableFactory = ({
   items = defaultItems,
-  onSort = () => { },
-  onRowClick = () => { },
+  onSort = () => {},
+  onRowClick = () => {},
   wrapper = shallow
 }: ITableFactoryProps = {}) =>
   wrapper(
@@ -148,20 +148,14 @@ describe('Table', () => {
   })
 
   it('sorts strings properly with the default comparator', () => {
-    const strings = [
-      { test: 'b' },
-      { test: 'c' },
-      { test: 'f' },
-      { test: 'd' },
-      { test: 'a' },
-    ]
+    const strings = [{ test: 'b' }, { test: 'c' }, { test: 'f' }, { test: 'd' }, { test: 'a' }]
 
     const stringsSorted = [
       { test: 'f' },
       { test: 'd' },
       { test: 'c' },
       { test: 'b' },
-      { test: 'a' },
+      { test: 'a' }
     ]
 
     const result = strings.sort((r1, r2) => tableDefaultComparators.strings(r1, r2, 'test'))
@@ -170,21 +164,9 @@ describe('Table', () => {
   })
 
   it('sorts numbers properly with the default comparator', () => {
-    const strings = [
-      { test: 2 },
-      { test: 3 },
-      { test: 6 },
-      { test: 4 },
-      { test: 1 },
-    ]
+    const strings = [{ test: 2 }, { test: 3 }, { test: 6 }, { test: 4 }, { test: 1 }]
 
-    const stringsSorted = [
-      { test: 6 },
-      { test: 4 },
-      { test: 3 },
-      { test: 2 },
-      { test: 1 },
-    ]
+    const stringsSorted = [{ test: 6 }, { test: 4 }, { test: 3 }, { test: 2 }, { test: 1 }]
 
     const result = strings.sort((r1, r2) => tableDefaultComparators.strings(r1, r2, 'test'))
 

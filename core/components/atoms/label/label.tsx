@@ -20,9 +20,9 @@ const Label = (props: ILabelProps) => (
 
 Label.Element = styled(StyledTextAllCaps)`
   font-size: 11px;
-  color: ${props => colors.status[props.appearance]};
+  color: ${(props) => colors.status[props.appearance]};
   padding: 2px 6px;
-  border: 1px solid ${props => colors.status[props.appearance]};
+  border: 1px solid ${(props) => colors.status[props.appearance]};
   border-radius: ${misc.radius};
   line-height: 1.2;
 `

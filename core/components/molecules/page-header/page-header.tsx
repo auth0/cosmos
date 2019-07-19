@@ -14,7 +14,7 @@ import containerStyles from '../../_helpers/container-styles'
 import buttonPropHelper from '../../_helpers/button-prop'
 import { rootProps } from '../../_helpers/root-props'
 
-export type PageHeaderDescription = React.ReactNode | { text?: string, learnMore?: string }
+export type PageHeaderDescription = React.ReactNode | { text?: string; learnMore?: string }
 export interface IPageHeaderProps {
   /** HTML ID of the component */
   id?: string
@@ -85,13 +85,13 @@ export interface IPageHeaderDescriptionProps {
 }
 
 PageHeader.Description = ({ description, learnMore }: IPageHeaderDescriptionProps) => {
-  if (!description) return null
+  if (!description) { return null }
 
   if (descriptionIsObject(description)) {
     return <Description>{description}</Description>
   }
 
-  let descriptionCompat = { text: description, learnMore }
+  const descriptionCompat = { text: description, learnMore }
 
   return <Description>{descriptionCompat}</Description>
 }

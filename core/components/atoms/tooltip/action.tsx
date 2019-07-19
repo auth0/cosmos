@@ -13,25 +13,25 @@ interface IActionTooltipState {
 }
 
 class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipState> {
-  static defaultProps = {
+  public static defaultProps = {
     resetDelay: 5000
   }
 
-  timer?: number
+  public timer?: number
 
   constructor(props) {
     super(props)
     this.state = { tooltipContent: null, taskIsRunning: false }
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     this.clearTimer()
   }
 
   /**
    * Resets the tooltip content timer if appropiate.
    */
-  clearTimer() {
+  public clearTimer() {
     if (this.timer) {
       clearTimeout(this.timer)
     }
@@ -41,7 +41,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
    * Resets the tooltip content timer and sets
    * its content to the default state.
    */
-  resetState() {
+  public resetState() {
     if (!this.state.taskIsRunning) {
       this.clearTimer()
       this.setState({ tooltipContent: null })
@@ -53,7 +53,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
    * this function will transform it to a
    * `{ default: string }` shape.
    */
-  preprocessContent() {
+  public preprocessContent() {
     const rawContent = this.props.content
     return typeof rawContent === 'string' ? { default: rawContent } : rawContent
   }
@@ -64,7 +64,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
    * @param {string} newContent - Text to be set in the tooltip
    * @param {object} additionalState - Any additional data you want to set in the state.
    */
-  setTooltipContent(newContent, additionalState = {}) {
+  public setTooltipContent(newContent, additionalState = {}) {
     const content = this.preprocessContent()
     this.setState({ tooltipContent: newContent, ...additionalState })
 
@@ -88,13 +88,13 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
    * Also sets the child button appearance to link, since this is going to be used
    * from a text input / text area action.
    */
-  processAction() {
+  public processAction() {
     const { children, resetDelay } = this.props
     const button = children as JSX.Element
     const content = this.preprocessContent()
-    if (!button) return null
+    if (!button) { return null }
 
-    const newHandler = event => {
+    const newHandler = (event) => {
       this.resetState()
       if (content.loading) {
         this.setTooltipContent(content.loading, { taskIsRunning: true })
@@ -103,7 +103,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
       }
 
       Promise.resolve(button.props.onClick(event))
-        .then(result =>
+        .then((result) =>
           this.setTooltipContent(content.success || content.default, { taskIsRunning: false })
         )
         .catch(() =>
@@ -113,7 +113,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
         )
     }
 
-    const onMouseLeave = ev => {
+    const onMouseLeave = (ev) => {
       if (button.props.onMouseLeave) {
         button.props.onMouseLeave(ev)
       }
@@ -128,7 +128,7 @@ class ActionTooltip extends React.Component<IActionTooltipProps, IActionTooltipS
     })
   }
 
-  render() {
+  public render() {
     const { tooltipContent } = this.state
     const content = this.preprocessContent()
     const children = this.processAction()

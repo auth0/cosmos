@@ -53,7 +53,7 @@ storiesOf('Tooltip', module).add('hidden by default', () => (
 
 storiesOf('Tooltip', module).add('with button', () => (
   <Example title="with button">
-    {positions.map(position => (
+    {positions.map((position) => (
       <ExampleContainer position={position} key={position}>
         <Tooltip position={position} content={`Inner content ${position}`} defaultVisible>
           <Button>Something</Button>
@@ -65,7 +65,7 @@ storiesOf('Tooltip', module).add('with button', () => (
 
 storiesOf('Tooltip', module).add('with button group', () => (
   <Example title="with button group">
-    {positions.map(position => (
+    {positions.map((position) => (
       <ExampleContainer position={position} noMargins>
         <ButtonGroup>
           <Button>Something</Button>
@@ -81,7 +81,7 @@ storiesOf('Tooltip', module).add('with button group', () => (
 
 storiesOf('Tooltip', module).add('with compressed button group', () => (
   <Example title="with compressed button group">
-    {positions.map(position => (
+    {positions.map((position) => (
       <ExampleContainer position={position} noMargins>
         <ButtonGroup compressed>
           <Button>Something</Button>
@@ -179,11 +179,11 @@ storiesOf('Tooltip', module).add('input actions inside dialog', () => (
             type="password"
             readOnly
             actions={[
-              <Button icon="copy" label="Copy to Clipboard" onClick={e => console.log(e)} />,
+              <Button icon="copy" label="Copy to Clipboard" onClick={(e) => console.log(e)} />,
               <Button
                 icon="delete"
                 label="This is an intentionally long label"
-                onClick={e => console.log(e)}
+                onClick={(e) => console.log(e)}
                 labelDefaultVisible
               />
             ]}

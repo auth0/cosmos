@@ -20,13 +20,13 @@ storiesOf('Form', module).add('layouts', () => (
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </Example>
     <Example title="label-on-top">
       <Form layout="label-on-top">
         <Form.TextInput label="Field label" type="text" placeholder="Enter something" />
-        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => { } }} />
+        <Form.Actions primaryAction={{ label: 'Save Changes', handler: () => {} }} />
       </Form>
     </Example>
   </div>

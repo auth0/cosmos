@@ -25,7 +25,7 @@ const resolveAction = (item, action, key) => {
 
   // Patch action's onClick handler to include the item
   const { onClick: handler } = action.props
-  const onClick = evt => {
+  const onClick = (evt) => {
     evt.stopPropagation()
     handler(evt, item)
   }
@@ -38,7 +38,8 @@ const resolveAction = (item, action, key) => {
  * @param {ResourceList.Item.Action[]} actions
  * @param {ResourceList.Item.Props} item
  */
-const resolveActions = (actions: ResourceListItemAction[], item) => actions.map(resolveAction.bind(this, item))
+const resolveActions = (actions: ResourceListItemAction[], item) =>
+  actions.map(resolveAction.bind(this, item))
 
 export type ResourceListItemAction = React.ReactNode | ActionWithIcon
 
@@ -65,14 +66,14 @@ export interface IListItemProps {
 }
 
 class ListItem extends React.Component<IListItemProps> {
-  static Element = styled.li`
+  public static Element = styled.li`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid ${colors.list.borderColor};
     padding: ${spacing.small} ${spacing.xsmall};
-    cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
 
     &:hover {
       background: ${colors.list.backgroundHover};
@@ -90,7 +91,7 @@ class ListItem extends React.Component<IListItemProps> {
 
     /* Disable pointer events on non-dragging elements */
     /* to avoid unexpected hover behaviors. */
-    ${props =>
+    ${(props) =>
       props.draggingMode
         ? css`
             &:not(.cosmos-dragging) {
@@ -100,7 +101,7 @@ class ListItem extends React.Component<IListItemProps> {
         : ''};
   `
 
-  static Header = styled.div`
+  public static Header = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
@@ -112,9 +113,9 @@ class ListItem extends React.Component<IListItemProps> {
     }
   `
 
-  static Body = styled.div`
+  public static Body = styled.div`
     flex: 1;
-    flex-basis: ${props => props.bodyWidth};
+    flex-basis: ${(props) => props.bodyWidth};
 
     /* This is not mobile first, but it avoids negation of margin */
     @media screen and (max-width: 768px) {
@@ -124,16 +125,16 @@ class ListItem extends React.Component<IListItemProps> {
     }
   `
 
-  static Footer = styled.div``
+  public static Footer = styled.div``
 
-  static Subtitle = styled(StyledTextAllCaps)`
+  public static Subtitle = styled(StyledTextAllCaps)`
     margin-top: ${spacing.xxsmall};
     display: block;
   `
 
-  dragHandler = React.createRef()
+  public dragHandler = React.createRef()
 
-  renderSortingHandler() {
+  public renderSortingHandler() {
     if (this.props.reorderHandle) {
       const SortableHandler = this.props.reorderHandle
 
@@ -143,7 +144,7 @@ class ListItem extends React.Component<IListItemProps> {
     return null
   }
 
-  renderImage() {
+  public renderImage() {
     if (this.props.image) {
       // TODO: We might want a way to control the type of the avatar, but we don't
       // want to leak every prop from Avatar into the ListItem...
@@ -155,7 +156,7 @@ class ListItem extends React.Component<IListItemProps> {
     return null
   }
 
-  renderTitle() {
+  public renderTitle() {
     if (this.props.title) {
       if (this.props.href) {
         return <Link href={this.props.href}>{this.props.title}</Link>
@@ -167,19 +168,19 @@ class ListItem extends React.Component<IListItemProps> {
     return null
   }
 
-  renderSubtitle() {
+  public renderSubtitle() {
     return this.props.subtitle ? <ListItem.Subtitle>{this.props.subtitle}</ListItem.Subtitle> : null
   }
 
-  renderActions() {
+  public renderActions() {
     return this.props.actions ? (
       <ButtonGroup align="right">{resolveActions(this.props.actions, this.props.item)}</ButtonGroup>
     ) : null
   }
 
-  render() {
+  public render() {
     const props = this.props
-    const callHandler = handler => evt => handler(evt, props.item)
+    const callHandler = (handler) => (evt) => handler(evt, props.item)
     return (
       <ListItem.Element
         {...props}
@@ -202,6 +203,5 @@ class ListItem extends React.Component<IListItemProps> {
     )
   }
 }
-
 
 export default ListItem

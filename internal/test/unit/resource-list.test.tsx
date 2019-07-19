@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { Button, ResourceList } from '@auth0/cosmos'
 import { actionToButtonProps } from '@auth0/cosmos/molecules/resource-list/action-builder'
 
-const noop = () => { }
+const noop = () => {}
 const resourceListFactory = ({
   onItemClick = noop,
   items = [

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react'
 
-import { EmptyState } from "../../";
-import { Example, Stack } from "../../_helpers/story-helpers";
-import Badge from "../../atoms/badge";
+import { EmptyState } from '../../'
+import { Example, Stack } from '../../_helpers/story-helpers'
+import Badge from '../../atoms/badge'
 
 storiesOf('EmptyState', module).add('default', () => (
   <Example title="default">

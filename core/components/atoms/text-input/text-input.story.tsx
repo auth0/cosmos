@@ -76,15 +76,15 @@ storiesOf('TextInput', module).add('with actions as shape', () => (
       type="text"
       placeholder="Enter some text"
       actions={[
-        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
-        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+        { icon: 'copy', label: 'Copy URL', handler: (e) => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: (e) => console.log(e) }
       ]}
     />
   </Example>
 ))
 
-const sampleAsyncAction = event => new Promise(resolve => setTimeout(resolve, 900))
-const sampleAsyncFailingAction = event => new Promise((_, reject) => setTimeout(reject, 900))
+const sampleAsyncAction = (event) => new Promise((resolve) => setTimeout(resolve, 900))
+const sampleAsyncFailingAction = (event) => new Promise((_, reject) => setTimeout(reject, 900))
 
 storiesOf('TextInput', module).add('with actions as buttons', () => (
   <Example title="with actions as buttons">
@@ -100,7 +100,7 @@ storiesOf('TextInput', module).add('with actions as buttons', () => (
             error: 'Could not copy'
           }}
         >
-          <Button icon="copy" onClick={e => console.log(e)} />
+          <Button icon="copy" onClick={(e) => console.log(e)} />
         </Tooltip.Action>,
         <Tooltip.Action
           content={{
@@ -122,7 +122,7 @@ storiesOf('TextInput', module).add('with actions as buttons', () => (
         >
           <Button icon="reload" onClick={sampleAsyncFailingAction} />
         </Tooltip.Action>,
-        <Button icon="delete" onClick={e => console.log(e)} />
+        <Button icon="delete" onClick={(e) => console.log(e)} />
       ]}
     />
   </Example>
@@ -135,9 +135,9 @@ class InteractiveExample extends React.Component<{}, { working: boolean }> {
     this.state = { working: false }
   }
 
-  exampleAsyncTask() {
+  public exampleAsyncTask() {
     this.setState({ working: true })
-    return new Promise(resolve =>
+    return new Promise((resolve) =>
       setTimeout(() => {
         resolve()
         this.setState({ working: false })
@@ -145,7 +145,7 @@ class InteractiveExample extends React.Component<{}, { working: boolean }> {
     )
   }
 
-  render() {
+  public render() {
     return (
       <TextInput
         type="text"

@@ -40,7 +40,7 @@ export interface ITextInputProps {
   /** The (HTML) label for the input. */
   label?: string
   /** Actions to be attached to the input */
-  actions?: (React.ReactNode | ActionWithIcon)[]
+  actions?: Array<React.ReactNode | ActionWithIcon>
   onClick?: Function
   onBlur?: Function
   onFocus?: Function
@@ -81,7 +81,7 @@ const TextInput = (props: ITextInputProps) => {
 
   const Input = (
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <TextInput.Element
           {...Automation('text-input')}
           id={props.id || context.formFieldId}
@@ -94,7 +94,7 @@ const TextInput = (props: ITextInputProps) => {
     </Form.Field.ContextConsumer>
   )
 
-  if (!props.actions.length) return Input
+  if (!props.actions.length) { return Input }
   else {
     /* Input is not a component, just JSX, hence wrapper in {} */
     return (
@@ -106,7 +106,7 @@ const TextInput = (props: ITextInputProps) => {
 }
 
 TextInput.Element = styled(StyledInput)`
-  height: ${props => misc.input[props.size].height};
+  height: ${(props) => misc.input[props.size].height};
 `
 
 TextInput.defaultProps = {

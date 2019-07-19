@@ -1,15 +1,20 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
 import { EmptyState } from '@auth0/cosmos'
-import { ActionWithIcon } from '@auth0/cosmos/_helpers/action-shape';
+import { ActionWithIcon } from '@auth0/cosmos/_helpers/action-shape'
 
-type EmptyStateFactoryParams = { title?: string, icon?: string, link?: string, action?: { label?: string, icon?: string, handler: Function } }
+type EmptyStateFactoryParams = {
+  title?: string
+  icon?: string
+  link?: string
+  action?: { label?: string; icon?: string; handler: Function }
+}
 
 const emptyStateFactory = ({
   title = 'Some title',
   icon = 'copy',
   link = '/some-place',
-  action = { label: 'Something', icon: 'copy', handler: () => { } }
+  action = { label: 'Something', icon: 'copy', handler: () => {} }
 }: EmptyStateFactoryParams = {}) => {
   const safeAction = action as ActionWithIcon
   return (

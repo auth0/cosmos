@@ -25,7 +25,7 @@ Badge.Element = styled.span`
   line-height: 1;
   color: #fff;
   padding: 4px 8px;
-  background: ${props => colors.status[props.appearance]};
+  background: ${(props) => colors.status[props.appearance]};
   border-radius: 21px;
 `
 

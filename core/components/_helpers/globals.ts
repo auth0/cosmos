@@ -6,7 +6,7 @@ if (process && process.env && process.env.COSMOS_DISABLE_RESETS) {
   includeGlobals = false
 }
 
-const insertAtTheStart = styles => {
+const insertAtTheStart = (styles) => {
   let tag = document.getElementById('cosmos-globals')
 
   if (tag) {

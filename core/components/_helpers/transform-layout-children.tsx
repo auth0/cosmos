@@ -5,7 +5,7 @@ import { LAYOUT_CHILDREN_CLASS_NAME } from './layout-margin-reset'
 const transformChildren = (props, ChildWrapperElement, automationAttributeName) => {
   const transformChild = (child, index = null) => {
     // if child is undefined or null, do not wrap/render anything
-    if (!child) return null
+    if (!child) { return null }
 
     return (
       <ChildWrapperElement

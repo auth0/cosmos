@@ -16,7 +16,10 @@ import {
   Code
 } from '../../'
 
-class ExampleList extends React.Component<{}, { listDrawers: { [key: string]: boolean }, items: string[] }> {
+class ExampleList extends React.Component<
+  {},
+  { listDrawers: { [key: string]: boolean }; items: string[] }
+> {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,13 +28,13 @@ class ExampleList extends React.Component<{}, { listDrawers: { [key: string]: bo
     }
   }
 
-  toggleList(listId) {
+  public toggleList(listId) {
     this.setState({
       listDrawers: { ...this.state.listDrawers, [listId]: !this.state.listDrawers[listId] }
     })
   }
 
-  buildItem(item, i) {
+  public buildItem(item, i) {
     return (
       <List.Item id="algo">
         <List.Header>
@@ -69,7 +72,7 @@ class ExampleList extends React.Component<{}, { listDrawers: { [key: string]: bo
     )
   }
 
-  render() {
+  public render() {
     return (
       <List
         draggable
@@ -91,7 +94,7 @@ storiesOf('List', module).add('Default structure', () => (
 
 storiesOf('List', module).add('Simple list', () => (
   <Example title="Simple list">
-    <List draggable onDragEnd={() => { }} onItemClick={(e, props) => alert(props.id)}>
+    <List draggable onDragEnd={() => {}} onItemClick={(e, props) => alert(props.id)}>
       <List.Item id="a">Item 1</List.Item>
       <List.Item id="b">Item 2</List.Item>
       <List.Item id="c">Item 3</List.Item>
