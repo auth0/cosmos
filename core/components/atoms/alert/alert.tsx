@@ -1,13 +1,14 @@
-import * as React from 'react'
-import styled, { css } from '../../styled'
-import { fonts, colors, spacing } from '../../tokens'
-import Link, { StyledLink } from '../link'
-import Text from '../text'
-import FreeText from '../../_helpers/free-text'
-import Automation from '../../_helpers/automation-attribute'
-import Icon, { __ICONNAMES__ } from '../icon'
-import containerStyles from '../../_helpers/container-styles'
-import { rootProps } from '../../_helpers/root-props'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import FreeText from "../../_helpers/free-text";
+import { rootProps } from "../../_helpers/root-props";
+import styled, { css } from "../../styled";
+import { colors, fonts, spacing } from "../../tokens";
+import Icon, { __ICONNAMES__ } from "../icon";
+import Link, { StyledLink } from "../link";
+import Text from "../text";
 
 export type IAlertElementProps = Partial<IAlertProps>
 export type IAlertAppearance = 'default' | 'information' | 'success' | 'warning' | 'danger'
@@ -15,7 +16,6 @@ export type IAlertAppearance = 'default' | 'information' | 'success' | 'warning'
 export interface IAlertProps {
   /** HTML ID of the component */
   id?: string
-  type?: IAlertAppearance // deprecated: use appearance
   appearance?: IAlertAppearance
   icon?: string
   title?: string | React.ReactNode
@@ -43,14 +43,8 @@ const ReadMoreLink = styled(Link)`
 
 class Alert extends React.Component<IAlertProps, IAlertState> {
   static defaultProps = {
-    type: 'default',
+    appearance: 'default',
     dismissible: true
-    /*
-    default appearance is commented out on purpose,
-    so that it doesn't break old API.
-    TODO: Make this work when type is removed.
-  */
-    // appearance: 'default',
   }
 
   static Element: any
@@ -85,14 +79,14 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
   }
 
   render() {
-    /* new: appearance, old: type*/
-    const appearance = this.props.appearance || this.props.type
+    const appearance = this.props.appearance
 
     if (this.state.visible) {
       return (
         <Alert.Element
           appearance={appearance}
           dismissible={this.props.dismissible}
+          data-cosmos-appearance={appearance}
           {...Automation('alert')}
           {...rootProps(this.props)}
         >
