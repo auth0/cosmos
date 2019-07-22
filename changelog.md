@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.31.0 [July 22, 2019]
+
+### Changes
+
+- Alert: Remove `type` prop in favor of `appearance`. [#1655]
+- Text: Always return a `<span>` element as root. [#1653]
+
+### Internal
+
+- Security: Updated `lodash` to 4.17.14. [#1647]
+
 ## 0.30.0 [July 15, 2019]
 
 ### Added
