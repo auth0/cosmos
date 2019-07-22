@@ -9,8 +9,8 @@ const LinkingCosmos = () => (
     <List>
       <List.Item>
         <Text>
-          Build Cosmos in distribution mode by running <Code>yarn build-packages</Code>. This
-          will compile cosmos to <Code>dist/components/</Code>.
+          Build Cosmos in distribution mode by running <Code>yarn build-packages</Code>. This will
+          compile cosmos to <Code>dist/components/</Code>.
         </Text>
       </List.Item>
 
@@ -44,7 +44,7 @@ const LinkingCosmos = () => (
         </Text>
       </List.Item>
     </List>
-    <Alert type="information">
+    <Alert appearance="information">
       You'll need to run <Code>yarn build-packages</Code> everytime you change something on the
       Cosmos side for the changes to be applied in your application.
     </Alert>
