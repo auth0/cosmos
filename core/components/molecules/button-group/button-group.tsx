@@ -5,7 +5,6 @@ import Automation from '../../_helpers/automation-attribute'
 import Button from '../../atoms/button'
 import { spacing } from '../../tokens'
 
-
 export interface IButtonGroupProps {
   /** HTML ID of the component */
   id?: string
@@ -17,11 +16,10 @@ export interface IButtonGroupProps {
   children?: React.ReactNode
 }
 
-
 const ButtonGroup = (props: IButtonGroupProps) => (
   <ButtonGroup.Element {...props} {...Automation('button-group')}>
     {React.Children.map(props.children, (child, index) => {
-      if (child)
+      if (child) {
         return (
           <ButtonGroup.Child
             key={index}
@@ -32,6 +30,7 @@ const ButtonGroup = (props: IButtonGroupProps) => (
             {child}
           </ButtonGroup.Child>
         )
+      }
 
       return null
     })}
@@ -53,9 +52,9 @@ const middleButtonStyles = css`
 
 ButtonGroup.Child = styled.span`
   ${Button.Element} {
-    ${props => (props.compressed && props.first ? firstButtonStyles : null)};
-    ${props => (props.compressed && props.last ? lastButtonStyles : null)};
-    ${props => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
+    ${(props) => (props.compressed && props.first ? firstButtonStyles : null)};
+    ${(props) => (props.compressed && props.last ? lastButtonStyles : null)};
+    ${(props) => (props.compressed && !props.first && !props.last ? middleButtonStyles : null)};
   }
 `
 
@@ -64,11 +63,11 @@ const justifyContent = {
   right: 'flex-end'
 }
 
-const marginForButton = props => {
-  if (!props.children) return ''
+const marginForButton = (props) => {
+  if (!props.children) { return '' }
 
   const isSingleChild = props.children.constructor.name !== 'Array'
-  if (isSingleChild || props.compressed) return null
+  if (isSingleChild || props.compressed) { return null }
 
   const property = props.align === 'left' ? 'margin-right' : 'margin-left'
   const trailing = props.align === 'left' ? '&:last-child' : '&:first-child'
@@ -84,7 +83,7 @@ const marginForButton = props => {
 
 ButtonGroup.Element = styled.div`
   display: flex;
-  justify-content: ${props => justifyContent[props.align]};
+  justify-content: ${(props) => justifyContent[props.align]};
 
   & > * {
     ${marginForButton};

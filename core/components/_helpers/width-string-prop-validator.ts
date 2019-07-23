@@ -16,10 +16,10 @@ function widthString(props, propName: string, componentName: string) {
   }
 
   const prop = props[propName]
-  if (!prop) return undefined // No prop type errors
+  if (!prop) { return undefined } // No prop type errors
 
   const expression = new RegExp(/(-?)([0-9]+(\.?)[0-9]+)(px|%)/)
-  if (!expression.test(prop)) return buildError()
+  if (!expression.test(prop)) { return buildError() }
 
   const [text, sign, strNumber, unit] = prop.match(expression)
   const number = parseFloat(strNumber)
@@ -27,8 +27,8 @@ function widthString(props, propName: string, componentName: string) {
   const isNegativeNumber = sign === '-'
   const isRelativeWidthMoreThan100 = number > 100 && unit === '%'
 
-  if (isNegativeNumber) return buildError('The number must be positive.')
-  if (isRelativeWidthMoreThan100) return buildError('Relative widths are allowed up to 100%.')
+  if (isNegativeNumber) { return buildError('The number must be positive.') }
+  if (isRelativeWidthMoreThan100) { return buildError('Relative widths are allowed up to 100%.') }
 
   return undefined // No prop type errors
 }

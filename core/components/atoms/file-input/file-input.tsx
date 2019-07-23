@@ -1,15 +1,15 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import bytesConversion from "../../_helpers/bytes-conversion";
-import truncateMidString from "../../_helpers/truncate-mid-string";
-import Button from "../../atoms/button";
-import Icon from "../../atoms/icon";
-import styled from "../../styled";
-import { colors, misc } from "../../tokens";
-import { spacing } from "../../tokens/v2";
-import { StyledInput } from "../_styled-input";
-import Spinner from "../spinner";
+import Automation from '../../_helpers/automation-attribute'
+import bytesConversion from '../../_helpers/bytes-conversion'
+import truncateMidString from '../../_helpers/truncate-mid-string'
+import Button from '../../atoms/button'
+import Icon from '../../atoms/icon'
+import styled from '../../styled'
+import { colors, misc } from '../../tokens'
+import { spacing } from '../../tokens/v2'
+import { StyledInput } from '../_styled-input'
+import Spinner from '../spinner'
 
 export type FileInputSize = 'default' | 'large' | 'small' | 'compressed'
 
@@ -31,7 +31,7 @@ export interface IFileInputProps {
   /** accept state */
   accept?: string[]
   /** items state */
-  items: { file: any; loading?: boolean }[]
+  items: Array<{ file: any; loading?: boolean }>
   /** items state */
   multiple?: boolean
 
@@ -39,18 +39,18 @@ export interface IFileInputProps {
 }
 
 class FileInput extends React.Component<IFileInputProps> {
-  static formatBytes = bytesConversion
-  static Element = styled.div``
-  static Button = styled(Button)``
+  public static formatBytes = bytesConversion
+  public static Element = styled.div``
+  public static Button = styled(Button)``
 
-  static Spinner = styled(Spinner)`
+  public static Spinner = styled(Spinner)`
     margin-right: ${spacing.xxsmall};
   `
 
-  static Container = styled.div`
+  public static Container = styled.div`
     position: relative;
   `
-  static Input = styled.input`
+  public static Input = styled.input`
     position: relative;
     z-index: 2;
     width: 100%;
@@ -58,7 +58,7 @@ class FileInput extends React.Component<IFileInputProps> {
     margin: 0;
     opacity: 0;
   `
-  static Label = styled.label`
+  public static Label = styled.label`
     position: absolute;
     top: 0;
     right: 0;
@@ -69,7 +69,7 @@ class FileInput extends React.Component<IFileInputProps> {
     border-color: yellow;
   `
 
-  static Text = styled.span`
+  public static Text = styled.span`
     display: block;
     flex-grow: 1;
     margin-left: 12px;
@@ -82,11 +82,11 @@ class FileInput extends React.Component<IFileInputProps> {
     white-space: nowrap;
   `
 
-  static List = styled.ul`
+  public static List = styled.ul`
     margin-top: ${spacing.xsmall};
   `
 
-  static ListItem = styled.li`
+  public static ListItem = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,44 +95,44 @@ class FileInput extends React.Component<IFileInputProps> {
     padding-bottom: ${spacing.xsmall};
   `
 
-  static ListItemBody = styled.div`
+  public static ListItemBody = styled.div`
     display: flex;
     align-items: center;
   `
 
-  static FileName = styled.span`
+  public static FileName = styled.span`
     margin-left: ${spacing.xsmall};
   `
 
-  static FileNameWeight = styled.span`
+  public static FileNameWeight = styled.span`
     margin-left: 12px;
     color: ${colors.text.secondary};
   `
 
-  static Card = styled.div`
+  public static Card = styled.div`
     border: 1px solid #e4e4e4;
     border-radius: 3px;
     padding: ${spacing.small};
   `
-  static defaultProps = {
+  public static defaultProps = {
     multiple: false
   }
 
-  onChangeHandler = event => {
-    const items = Array.from(event.target.files).map(item => ({ file: item, loading: false }))
+  public onChangeHandler = (event) => {
+    const items = Array.from(event.target.files).map((item) => ({ file: item, loading: false }))
 
     if (this.props.onChange) {
       this.props.onChange({ added: items })
     }
   }
 
-  onDeleteHandler = index => {
+  public onDeleteHandler = (index) => {
     if (this.props.onChange) {
       this.props.onChange({ deleted: { index, file: this.props.items[index] } })
     }
   }
 
-  render() {
+  public render() {
     const { multiple, items: selectedItems, disabled, accept } = this.props
 
     return (

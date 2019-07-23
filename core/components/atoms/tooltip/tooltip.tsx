@@ -43,18 +43,18 @@ interface IObservedElementProps {
 }
 
 class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
-  static ObservedElement = class extends React.Component<IObservedElementProps> {
-    componentDidUpdate() {
+  public static ObservedElement = class extends React.Component<IObservedElementProps> {
+    public componentDidUpdate() {
       this.props.scheduleUpdate()
     }
-    render() {
+    public render() {
       return <Tooltip.Element {...this.props} />
     }
   }
 
-  static Action: any | undefined
+  public static Action: any | undefined
 
-  static Element = styled.div`
+  public static Element = styled.div`
     background: ${colors.tooltip.background};
     color: ${colors.tooltip.text};
     border-radius: ${misc.radius};
@@ -67,12 +67,12 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     max-width: 260px;
   `
 
-  static Trigger = styled.div`
+  public static Trigger = styled.div`
     display: inline-block;
     position: relative;
   `
 
-  static Arrow = styled.div`
+  public static Arrow = styled.div`
     position: absolute;
     width: 0;
     height: 0;
@@ -129,7 +129,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     }
   `
 
-  static defaultProps = {
+  public static defaultProps = {
     content: null,
     position: 'top',
     defaultVisible: false
@@ -143,18 +143,18 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
       id: props.id || uniqueId('tooltip')
     }
   }
-  showTooltip = () => {
+  public showTooltip = () => {
     this.setState({ visible: true })
   }
-  hideTooltip = () => {
-    if (this.props.defaultVisible) return
+  public hideTooltip = () => {
+    if (this.props.defaultVisible) { return }
     this.setState({ visible: false })
   }
-  onKeyDown = event => {
+  public onKeyDown = (event) => {
     /* this overrides defaultVisible as well */
-    if (event.key === 'Escape') this.setState({ visible: false })
+    if (event.key === 'Escape') { this.setState({ visible: false }) }
   }
-  render() {
+  public render() {
     const { content, ...props } = this.props
     const { id } = this.state
     let child

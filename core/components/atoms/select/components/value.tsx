@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export const valueRenderer = providedRenderer => optionProps => {
+export const valueRenderer = (providedRenderer) => (optionProps) => {
   const { innerProps, innerRef, data } = optionProps
 
   return (

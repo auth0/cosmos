@@ -37,7 +37,7 @@ const SidebarLink = (props: ISidebarLinkProps) => {
 SidebarLink.Element = styled.a`
   display: block;
   cursor: pointer;
-  color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
+  color: ${(props) => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
   text-decoration: none;
   font-size: 13px;
   line-height: 1;

@@ -64,27 +64,27 @@ const Spinner = (props: ISpinnerProps) => {
   return variant.logo ? (
     spinnerWithLogo(variant, props)
   ) : (
-      <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
-    )
+    <Spinner.Element {...Automation('spinner')} {...props} width={variant.width} />
+  )
 }
 
 Spinner.Element = styled.span`
   display: inline-block;
-  border-top: 2px solid ${props => getColor(props)};
-  border-right: 2px solid ${props => getColor(props)};
-  border-bottom: 2px solid ${props => getColor(props)};
-  border-left: 2px solid ${props => getColor(props, true)};
+  border-top: 2px solid ${(props) => getColor(props)};
+  border-right: 2px solid ${(props) => getColor(props)};
+  border-bottom: 2px solid ${(props) => getColor(props)};
+  border-left: 2px solid ${(props) => getColor(props, true)};
   border-radius: 50%;
   vertical-align: text-bottom;
-  width: ${props => props.width}px;
-  height: ${props => props.width}px;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.width}px;
   animation: ${rotate} 0.8s infinite linear;
 `
 
 Spinner.Container = styled.div`
   position: relative;
-  width: ${p => p.variant.width}px;
-  height: ${p => p.variant.width}px;
+  width: ${(p) => p.variant.width}px;
+  height: ${(p) => p.variant.width}px;
 
   ${Logo.Element} {
     position: absolute;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Automation from '../../_helpers/automation-attribute'
 import { spacing } from '../../tokens'
 
-const AppLayout = props => (
+const AppLayout = (props) => (
   <AppLayout.Element {...Automation('app-frame')}>
     <AppLayout.SkipLink {...Automation('app-frame.skiplink')} href="#main">
       Skip to main content

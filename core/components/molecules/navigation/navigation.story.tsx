@@ -19,11 +19,11 @@ class InteractiveExample extends React.Component<{}, { selected: string }> {
     this.select = this.select.bind(this)
   }
 
-  select(selected) {
+  public select(selected) {
     this.setState({ selected })
   }
 
-  render() {
+  public render() {
     const { selected } = this.state
 
     return (

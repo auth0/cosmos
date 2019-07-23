@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react'
 
-import { Example } from "../../_helpers/story-helpers";
-import FileInput from "./";
+import { Example } from '../../_helpers/story-helpers'
+import FileInput from './'
 
 storiesOf('FileInput', module).add('simple', () => (
   <Example title="simple">

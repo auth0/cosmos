@@ -40,13 +40,13 @@ const createButtonForAction = (action: DialogAction | JSX.Element, index) => {
 
 const focusOnFormInput = ({ current }) => {
   const node = ReactDOM.findDOMNode(current) as HTMLDivElement
-  if (!node) return
+  if (!node) { return }
 
   const form = node.querySelector('form')
-  if (!form) return
+  if (!form) { return }
 
   const firstInput = form.querySelector('input')
-  if (!firstInput) return
+  if (!firstInput) { return }
 
   firstInput.focus()
 }
@@ -112,7 +112,7 @@ const DialogHeader = styled.header`
   text-align: center;
 `
 
-const DialogTitle = props => {
+const DialogTitle = (props) => {
   const InternalTitle = styled(BaseHeading.withComponent(props.element))`
     font-weight: ${fonts.weight.medium};
     font-size: ${fonts.size.default};
@@ -169,30 +169,30 @@ export interface IDialogProps {
   /* Callback triggered when the the dialog is closed by the user */
   onClose?: Function
   /** Whether you're presenting a form or a destructive action */
-  role?: 'default' | 'form' | 'destructive',
+  role?: 'default' | 'form' | 'destructive'
   open?: boolean
 }
 
 class Dialog extends React.Component<IDialogProps> {
-  static Action = DialogAction
-  static Element = DialogBox
+  public static Action = DialogAction
+  public static Element = DialogBox
 
-  static defaultProps = {
+  public static defaultProps = {
     width: 'medium',
     role: 'default',
     actions: [],
     titleElement: 'h2'
   }
 
-  childrenRef = React.createRef<HTMLDivElement>()
+  public childrenRef = React.createRef<HTMLDivElement>()
 
-  componentDidMount() {
+  public componentDidMount() {
     if (this.props.role === 'form') {
       setImmediate(() => focusOnFormInput(this.childrenRef))
     }
   }
 
-  render() {
+  public render() {
     const props = this.props
     return (
       <Overlay contentSize={props.width} {...props}>

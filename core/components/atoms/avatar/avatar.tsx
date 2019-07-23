@@ -5,7 +5,7 @@ import { colors, misc } from '../../tokens'
 import Icon, { __ICONNAMES__ } from '../icon'
 import getUserAvatarUrl from '../../_helpers/avatar-url'
 import Automation from '../../_helpers/automation-attribute'
-import { prependOnceListener } from 'cluster';
+import { prependOnceListener } from 'cluster'
 
 const iconSizes = {
   xsmall: 14,
@@ -24,7 +24,7 @@ const sources = {
 }
 
 const imageForAvatar = (source, handleError) => {
-  if (React.isValidElement(source)) return source
+  if (React.isValidElement(source)) { return source }
 
   return (
     <Image
@@ -32,7 +32,7 @@ const imageForAvatar = (source, handleError) => {
       height="100%"
       fit="cover"
       src={source}
-      onError={event => {
+      onError={(event) => {
         event.target.src = null
         event.target.onError = undefined
         handleError(event)
@@ -42,7 +42,7 @@ const imageForAvatar = (source, handleError) => {
 }
 
 const getImageForAvatar = (props, source, onError) => {
-  const errorHandler = ({ discard }) => event => onError(discard, event)
+  const errorHandler = ({ discard }) => (event) => onError(discard, event)
 
   switch (source) {
     case sources.icon:
@@ -83,18 +83,18 @@ interface IAvatarState {
 }
 
 class Avatar extends React.Component<IAvatarProps, IAvatarState> {
-  static defaultProps = {
+  public static defaultProps = {
     size: 'medium',
     type: 'user'
   }
 
-  static Element = styled.span`
-    min-width: ${props => misc.avatar[props.size]};
-    width: ${props => misc.avatar[props.size]};
-    height: ${props => misc.avatar[props.size]};
+  public static Element = styled.span`
+    min-width: ${(props) => misc.avatar[props.size]};
+    width: ${(props) => misc.avatar[props.size]};
+    height: ${(props) => misc.avatar[props.size]};
     background-color: ${colors.base.grayLightest};
-    border: ${props => (props.type === 'resource' ? `1px solid ${colors.base.grayLight}` : 'none')};
-    border-radius: ${props => (props.type === 'resource' ? '3px' : '50%')};
+    border: ${(props) => (props.type === 'resource' ? `1px solid ${colors.base.grayLight}` : 'none')};
+    border-radius: ${(props) => (props.type === 'resource' ? '3px' : '50%')};
 
     text-align: center;
     display: flex;
@@ -122,7 +122,7 @@ class Avatar extends React.Component<IAvatarProps, IAvatarState> {
     this.discardSource = this.discardSource.bind(this)
   }
 
-  discardSource(source: 'image' | 'gravatar') {
+  public discardSource(source: 'image' | 'gravatar') {
     switch (source) {
       case 'image':
         return this.setState({ imageErrored: true })
@@ -133,21 +133,21 @@ class Avatar extends React.Component<IAvatarProps, IAvatarState> {
     }
   }
 
-  getSource() {
+  public getSource() {
     const { imageErrored, gravatarErrored } = this.state
     const { email, initials, icon, image } = this.props
 
-    if (icon) return sources.icon
-    if (imageErrored && gravatarErrored) return sources.fallback
+    if (icon) { return sources.icon }
+    if (imageErrored && gravatarErrored) { return sources.fallback }
     if (imageErrored || !image) {
-      if (email || initials) return sources.gravatar
+      if (email || initials) { return sources.gravatar }
       return sources.fallback
     }
 
     return sources.image
   }
 
-  render() {
+  public render() {
     const source = this.getSource()
     const image = getImageForAvatar(this.props, this.getSource(), this.discardSource)
 

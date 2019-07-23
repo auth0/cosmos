@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "mikerhyssmith.ts-barrelr",
+    "mike-co.import-sorter",
+    "editorconfig.editorconfig",
+    "msjsdiag.debugger-for-chrome"
+  ]
+}

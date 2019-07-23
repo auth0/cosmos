@@ -10,7 +10,7 @@ function tabsFactory() {
     third: <div className="content-3" />
   }
 
-  const generator = (index = 0, onSelect = () => { }) =>
+  const generator = (index = 0, onSelect = () => {}) =>
     shallow(
       <Tabs selected={index} onSelect={onSelect}>
         <Tabs.Tab title="Title 1">{content.first}</Tabs.Tab>

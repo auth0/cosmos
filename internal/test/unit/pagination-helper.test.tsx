@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 
 import {
   changePageIfAppropiate,
@@ -6,7 +6,7 @@ import {
   pageInputWidth,
   pagesFromItems,
   totals
-} from "@auth0/cosmos/_helpers/pagination";
+} from '@auth0/cosmos/_helpers/pagination'
 
 describe('Pagination helper tests', () => {
   it('should calculate page input width', () => {

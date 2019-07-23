@@ -10,11 +10,11 @@ export interface ITabsProps {
   /** Children should be an array of Tabs.Tab */
   children?: React.ReactNode
   /** Selected should be the index of the desired selected tab */
-  selected: number;
+  selected: number
   /** onSelect will be called with the new index when a new tab is selected by the user */
-  onSelect: Function;
+  onSelect: Function
   /** Unique identifier for each tab list */
-  id?: string;
+  id?: string
 }
 
 interface ITabsState {
@@ -22,22 +22,22 @@ interface ITabsState {
 }
 
 class Tabs extends React.Component<ITabsProps, ITabsState> {
-  static Element = styled.div`
+  public static Element = styled.div`
     ${containerStyles};
   `
 
-  static TabList = styled.ul`
+  public static TabList = styled.ul`
     display: flex;
     border-bottom: 1px solid ${colors.base.grayLight};
   `
 
-  static TabListItem = styled.li`
+  public static TabListItem = styled.li`
     &:not(:last-child) {
       margin-right: ${spacing.large};
     }
   `
 
-  static TabLink = styled.button`
+  public static TabLink = styled.button`
     /* Resets button browser styles */
     background-color: transparent;
     border: none;
@@ -49,7 +49,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     line-height: 1.3;
 
     &:hover {
-      color: ${props => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
+      color: ${(props) => (!props['aria-selected'] ? colors.link.defaultHover : colors.text.default)};
     }
     &:focus {
       outline: none;
@@ -58,7 +58,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     &:active {
       border-bottom-color: ${colors.base.text};
     }
-    ${props =>
+    ${(props) =>
       props['aria-selected'] &&
       css`
         border-bottom: 1px solid ${colors.base.text};
@@ -70,18 +70,18 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
       `};
   `
 
-  static TabContent = styled.div`
+  public static TabContent = styled.div`
     padding-top: ${spacing.large};
   `
 
-  static Tab = Tabs.TabContent
+  public static Tab = Tabs.TabContent
 
-  static defaultProps = {
+  public static defaultProps = {
     children: [],
     id: uniqueId()
   }
 
-  tabs: any[];
+  public tabs: any[]
 
   constructor(props) {
     super(props)
@@ -92,29 +92,29 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     }
   }
 
-  getTabsFromProps(props) {
+  public getTabsFromProps(props) {
     return React.Children.toArray(props.children)
   }
 
-  componentWillReceiveProps(newProps) {
+  public componentWillReceiveProps(newProps) {
     this.tabs = this.getTabsFromProps(newProps)
     this.setState({
       selectedIndex: this.getSelectedTabFromChildProps(this.tabs)
     })
   }
 
-  getSelectedTabFromChildProps(tabs) {
+  public getSelectedTabFromChildProps(tabs) {
     const { selected } = this.props
-    if (selected) return selected
+    if (selected) { return selected }
 
     for (let index = 0; index < tabs.length; index++) {
-      if (tabs[index].props.selected) return index
+      if (tabs[index].props.selected) { return index }
     }
     // If none of the tabs were marked as selected, choose the first.
     return 0
   }
 
-  changeTab(nextIndex) {
+  public changeTab(nextIndex) {
     const currentIndex = this.props.selected
 
     if (currentIndex !== nextIndex) {
@@ -122,30 +122,30 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
     }
   }
 
-  handleTabLinkKeypress(e, index, tabsId, tabsLength) {
+  public handleTabLinkKeypress(e, index, tabsId, tabsLength) {
     if (e.key === 'Enter' || e.key === ' ') {
       this.changeTab(index)
       return
     }
 
-    if (!(e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return
+    if (!(e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { return }
 
     const firstTabIndex = 0
     const lastTabIndex = tabsLength - 1
 
     let nextPosition = e.key === 'ArrowLeft' ? index - 1 : index + 1
-    if (nextPosition > lastTabIndex) nextPosition = firstTabIndex
-    if (nextPosition < firstTabIndex) nextPosition = lastTabIndex
+    if (nextPosition > lastTabIndex) { nextPosition = firstTabIndex }
+    if (nextPosition < firstTabIndex) { nextPosition = lastTabIndex }
 
     this.changeFocusedTab(tabsId, nextPosition)
   }
 
-  changeFocusedTab(tabsId, index) {
+  public changeFocusedTab(tabsId, index) {
     const tab = document.querySelector(`#${tabsId}-${index}`) as HTMLDivElement
     tab.focus()
   }
 
-  render() {
+  public render() {
     const uniqueTabPrefix = `tabs${this.props.id}`
     const { selected: selectedIndex, onSelect, ...restOfTheProps } = this.props
 
@@ -166,7 +166,7 @@ class Tabs extends React.Component<ITabsProps, ITabsState> {
                   aria-selected={tabIsSelected}
                   aria-controls={id + '-tab'}
                   onClick={() => this.changeTab(index)}
-                  onKeyDown={e =>
+                  onKeyDown={(e) =>
                     this.handleTabLinkKeypress(e, index, uniqueTabPrefix, this.tabs.length)
                   }
                   {...Automation('tabs.link')}

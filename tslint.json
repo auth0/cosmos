@@ -1,0 +1,81 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier", "tslint-react-a11y"],
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "max-classes-per-file": false,
+    "no-console": false,
+    "no-default-export": false,
+    "interface-over-type-literal": false,
+    "jsx-no-lambda": false,
+    "variable-name": false,
+    "arrow-parens": true,
+    "prefer-const": {
+      "severity": "warning"
+    },
+    "interface-name": false,
+    "jsx-no-bind": {
+      "severity": "warning"
+    },
+    "one-variable-per-declaration": {
+      "severity": "warning"
+    },
+    "triple-equals": {
+      "severity": "warning"
+    },
+    "no-empty": {
+      "severity": "warning"
+    },
+    "ban-types": {
+      "severity": "warning"
+    },
+    "no-shadowed-variable": {
+      "severity": "warning"
+    },
+    "react-a11y-anchors": {
+      "severity": "warning"
+    },
+    "react-a11y-aria-unsupported-elements": {
+      "severity": "warning"
+    },
+    "react-a11y-event-has-role": {
+      "severity": "warning"
+    },
+    "react-a11y-image-button-has-alt": {
+      "severity": "warning"
+    },
+    "react-a11y-img-has-alt": {
+      "severity": "warning"
+    },
+    "react-a11y-lang": {
+      "severity": "warning"
+    },
+    "react-a11y-meta": {
+      "severity": "warning"
+    },
+    "react-a11y-props": {
+      "severity": "warning"
+    },
+    "react-a11y-proptypes": {
+      "severity": "warning"
+    },
+    "react-a11y-role-has-required-aria-props": {
+      "severity": "warning"
+    },
+    "react-a11y-role-supports-aria-props": {
+      "severity": "warning"
+    },
+    "react-a11y-role": {
+      "severity": "warning"
+    },
+    "react-a11y-tabindex-no-positive": {
+      "severity": "warning"
+    },
+    "react-a11y-titles": {
+      "severity": "warning"
+    }
+  },
+  "linterOptions": {
+    "exclude": ["**/*.story.tsx"]
+  }
+}

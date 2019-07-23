@@ -23,18 +23,14 @@
     "test": "nps -s test",
     "precommit": "nps icons.build && lint-staged",
     "sandbox": "start-storybook -p 9001 -s build",
-    "chromatic": "echo 'defined inside package-scripts.js'"
+    "chromatic": "echo 'defined inside package-scripts.js'",
+    "lint": "tslint --project ."
   },
   "lint-staged": {
     "*.{js,json,md}": [
       "prettier --write",
       "git add"
     ]
-  },
-  "prettier": {
-    "singleQuote": true,
-    "semi": false,
-    "printWidth": 100
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
@@ -84,8 +80,12 @@
     "svgo": "1.0.5",
     "ts-jest": "^24.0.0",
     "ts-node": "^8.0.3",
-    "tslint": "5.11.0",
-    "typescript": "^3.3.4000"
+    "tslint": "5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-react": "4.0.0",
+    "tslint-react-a11y": "^1.0.0",
+    "typescript": "^3.3.4000",
+    "typescript-tslint-plugin": "0.5.3"
   },
   "engines": {
     "node": "10"

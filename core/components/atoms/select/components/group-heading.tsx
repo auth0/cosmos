@@ -5,7 +5,7 @@ import { spacing, fonts } from '../../../tokens'
 
 const isFirstGroup = (text, options) => text === options[0].label
 
-export const GroupHeading = props => {
+export const GroupHeading = (props) => {
   const isFirst = isFirstGroup(props.children, props.selectProps.options)
   return (
     <GroupHeading.Element>
@@ -29,7 +29,7 @@ GroupHeading.Element = styled.div`
   letter-spacing: 1px;
 `
 
-GroupHeading.theme = provided => ({
+GroupHeading.theme = (provided) => ({
   ...provided,
   paddingLeft: spacing.small,
   paddingRight: spacing.small,

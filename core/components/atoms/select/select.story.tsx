@@ -18,11 +18,11 @@ class InteractiveSelect extends React.Component<InteractiveSelectProps, Interact
     this.onChange = this.onChange.bind(this)
   }
 
-  onChange(event) {
+  public onChange(event) {
     this.setState({ value: event.target.value })
   }
 
-  render() {
+  public render() {
     return this.props.children(this.state.value, this.onChange)
   }
 }
@@ -31,7 +31,7 @@ storiesOf('Select', module).add('simple', () => (
   <ExampleForSelect title="Select: simple">
     <Select
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -60,7 +60,7 @@ storiesOf('Select', module).add('simple with error', () => (
     <Select
       hasError
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -107,7 +107,7 @@ storiesOf('Select', module).add('simple with custom getOptionValue', () => (
             ]}
             value={value}
             onChange={onChange}
-            getOptionValue={option => option.myCustomValue}
+            getOptionValue={(option) => option.myCustomValue}
           />
           <p>Selected value: {value}</p>
         </div>
@@ -131,7 +131,7 @@ storiesOf('Select', module).add('multiple with custom getOptionValue', () => (
             ]}
             value={value}
             onChange={onChange}
-            getOptionValue={option => option.myCustomValue}
+            getOptionValue={(option) => option.myCustomValue}
           />
           <p>Selected value: {(value || []).join(',')}</p>
         </div>
@@ -202,11 +202,11 @@ class SelectWithEmptyString extends React.Component<{ defaultMenuOpen?: boolean 
     this.handleValue = this.handleValue.bind(this)
   }
 
-  handleValue(event) {
+  public handleValue(event) {
     this.setState({ value: event.target.value })
   }
 
-  render() {
+  public render() {
     return (
       <Select
         defaultMenuOpen={this.props.defaultMenuOpen}
@@ -233,7 +233,7 @@ storiesOf('Select', module).add('default value', () => (
     <Select
       value={2}
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -244,7 +244,7 @@ storiesOf('Select', module).add('disabled', () => (
       value={2}
       disabled
       options={[{ text: 'One', value: 1 }, { text: 'Two', value: 2 }, { text: 'Three', value: 3 }]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -259,7 +259,7 @@ storiesOf('Select', module).add('disabled option', () => (
         { text: 'Two', value: 2 },
         { text: 'Three', value: 3 }
       ]}
-      onChange={event => console.log(event)}
+      onChange={(event) => console.log(event)}
     />
   </ExampleForSelect>
 ))
@@ -377,7 +377,7 @@ storiesOf('Select', module).add('stressed', () => (
             value: 3
           }
         ]}
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     </div>
   </ExampleForSelect>
@@ -413,19 +413,22 @@ storiesOf('Select', module).add('interactive: stressed', () => (
   </ExampleForSelect>
 ))
 
-class CustomRendererExample extends React.Component<{ defaultMenuOpen?: boolean }, { selectedItems?: any[] }> {
+class CustomRendererExample extends React.Component<
+  { defaultMenuOpen?: boolean },
+  { selectedItems?: any[] }
+> {
   constructor(props) {
     super(props)
 
     this.state = { selectedItems: [] }
   }
 
-  handleChange(event) {
+  public handleChange(event) {
     const selectedItems = event.target.value
     this.setState({ selectedItems })
   }
 
-  renderOption(option, { isHovered }) {
+  public renderOption(option, { isHovered }) {
     return (
       <div>
         <p>
@@ -436,11 +439,11 @@ class CustomRendererExample extends React.Component<{ defaultMenuOpen?: boolean 
     )
   }
 
-  render() {
+  public render() {
     return (
       <Select
         value={this.state.selectedItems}
-        onChange={ev => this.handleChange(ev)}
+        onChange={(ev) => this.handleChange(ev)}
         placeholder="Select an item..."
         customOptionRenderer={this.renderOption}
         defaultMenuOpen={this.props.defaultMenuOpen}
@@ -512,9 +515,9 @@ storiesOf('Select', module).add('custom value renderer', () => (
     <Select
       defaultMenuOpen
       value="Harry Kane"
-      onChange={ev => this.handleChange(ev)}
+      onChange={(ev) => this.handleChange(ev)}
       placeholder="Select a custom item..."
-      customValueRenderer={option => (
+      customValueRenderer={(option) => (
         <span>
           {option.country} {option.label}
         </span>
@@ -553,7 +556,7 @@ storiesOf('Select', module).add('interactive: custom value renderer', () => (
           value={value}
           onChange={onChange}
           placeholder="Select a custom item..."
-          customValueRenderer={option => (
+          customValueRenderer={(option) => (
             <span>
               {option.country} {option.label}
             </span>
@@ -594,9 +597,9 @@ storiesOf('Select', module).add('custom renderer in dialog', () => (
   </ExampleForSelect>
 ))
 
-type AsyncExampleItems = ({ label: string, description: string, value: number })[]
+type AsyncExampleItems = Array<{ label: string; description: string; value: number }>
 class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItems }> {
-  allOptions: AsyncExampleItems
+  public allOptions: AsyncExampleItems
 
   constructor(props) {
     super(props)
@@ -659,32 +662,32 @@ class AsyncExample extends React.Component<{}, { selectedItems: AsyncExampleItem
     this.noOptionsMessage = this.noOptionsMessage.bind(this)
   }
 
-  handleChange(event) {
+  public handleChange(event) {
     const selectedItems = event.target.value
     console.log({ selectedItems })
     this.setState({ selectedItems })
   }
 
-  filterOptions(value) {
-    return this.allOptions.filter(item => item.label.toLowerCase().includes(value.toLowerCase()))
+  public filterOptions(value) {
+    return this.allOptions.filter((item) => item.label.toLowerCase().includes(value.toLowerCase()))
   }
 
-  loadOptions(inputValue, callback) {
+  public loadOptions(inputValue, callback) {
     setTimeout(() => {
       callback(this.filterOptions(inputValue))
     }, 500)
   }
 
-  noOptionsMessage({ inputValue }) {
+  public noOptionsMessage({ inputValue }) {
     return inputValue.length > 0 ? 'No options' : 'Type to search...'
   }
 
-  render() {
+  public render() {
     return (
       <Select
         async
         value={this.state.selectedItems}
-        onChange={ev => this.handleChange(ev)}
+        onChange={(ev) => this.handleChange(ev)}
         placeholder="Select an item..."
         noOptionsMessage={this.noOptionsMessage}
         loadOptions={this.loadOptions}
@@ -722,7 +725,7 @@ storiesOf('Select', module).add('disabled options', () => (
             value: 3
           }
         ]}
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     </div>
   </ExampleForSelect>

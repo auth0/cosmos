@@ -39,11 +39,13 @@ export function changePageIfAppropiate({
   onPageChanged,
   ignoreNextPageCheck = false
 }) {
-  const nextPage = parseInt(rawNextPage)
+  const nextPage = parseInt(rawNextPage, 0)
   const pageCount = pagesFromItems(total, perPage)
   const nextPageExists = nextPage > 0 && nextPage <= pageCount
   const shouldCallNextPageHandler = ignoreNextPageCheck || nextPageExists
-  if (shouldCallNextPageHandler && typeof onPageChanged === 'function') onPageChanged(nextPage)
+  if (shouldCallNextPageHandler && typeof onPageChanged === 'function') {
+    onPageChanged(nextPage)
+  }
 }
 
 /**
@@ -56,10 +58,14 @@ export function totals(page: number, perPage: number, items = 0) {
   let toRecord = page * perPage
   const fromRecord = toRecord - perPage + 1
 
-  if (items > 0 && toRecord > items) toRecord = items
+  if (items > 0 && toRecord > items) {
+    toRecord = items
+  }
 
   let result = `Showing ${fromRecord} - ${toRecord}`
-  if (items > 0) result += ` of ${items}`
+  if (items > 0) {
+    result += ` of ${items}`
+  }
 
   return result
 }
@@ -87,12 +93,12 @@ export function getPaginationSlice(page, items, itemsPerPage, pagesPerSlice = 5)
   const maxPage = pagesFromItems(items, itemsPerPage)
 
   const range = [...Array(pagesPerSlice).keys()]
-    .map(i => {
+    .map((i) => {
       const pageNumber = i + minPage + 1 // Avoid starting at 0
       const selected = page === pageNumber
       return { label: pageNumber, selected }
     })
-    .filter(i => i.label <= maxPage)
+    .filter((i) => i.label <= maxPage)
 
   return range
 }

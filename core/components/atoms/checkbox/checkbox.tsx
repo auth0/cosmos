@@ -1,9 +1,10 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { colors, spacing, fonts } from '../../tokens'
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
-import Form from '../../molecules/form'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import Form from "../../molecules/form";
+import styled from "../../styled";
+import { colors, fonts, spacing } from "../../tokens";
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -35,7 +36,7 @@ export interface ICheckboxProps {
 const Checkbox = (props: ICheckboxProps) => (
   <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <input
           id={props.id || context.formFieldId}
           type="checkbox"
@@ -44,7 +45,7 @@ const Checkbox = (props: ICheckboxProps) => (
           checked={props.checked}
           defaultChecked={props.defaultChecked}
           onChange={props.onChange}
-          readOnly
+          readOnly={true}
           {...Automation('checkbox.input')}
         />
       )}
@@ -68,7 +69,7 @@ Checkbox.Option = styled.label`
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
-  pointer-events: ${props => (props.readOnly ? 'none' : null)};
+  pointer-events: ${(props) => (props.readOnly ? 'none' : null)};
 
   input {
     position: absolute;
@@ -77,7 +78,7 @@ Checkbox.Option = styled.label`
   }
 
   ${Label} {
-    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
   }
 
   ${CheckMark} {
@@ -87,7 +88,7 @@ Checkbox.Option = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
     background-color: ${colors.radio.background};
     border: 1px solid ${colors.radio.border};
     box-shadow: inset 0 1px 2px 0 ${colors.radio.shadow};
@@ -131,8 +132,8 @@ Checkbox.Option = styled.label`
 
 Checkbox.Element = styled.div`
   ${Checkbox.Option} {
-    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
-    ${props => justifyContent[props.align]};
+    display: ${(props) => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    ${(props) => justifyContent[props.align]};
 
     &:last-child {
       margin: 0;
@@ -142,7 +143,7 @@ Checkbox.Element = styled.div`
 
 export interface ICheckboxGroupProps {
   /** The direction in which the options should be laid out */
-  align?: 'horizontal' | 'vertical',
+  align?: 'horizontal' | 'vertical'
   children?: JSX.Element | JSX.Element[]
   name?: string
   selected?: any[]
@@ -151,11 +152,12 @@ export interface ICheckboxGroupProps {
   onChange?: Function
 }
 
-
 const CheckboxGroup = (props: ICheckboxGroupProps) => (
   <Checkbox.Element {...props} {...Automation('checkbox.group')}>
-    {React.Children.map(props.children, child => {
-      if (!child) return null
+    {React.Children.map(props.children, (child) => {
+      if (!child) {
+        return null
+      }
       return React.cloneElement(child, {
         name: props.name,
         defaultChecked: props.selected.indexOf(child.props.value) > -1,

@@ -3,7 +3,7 @@ import styled from '../../../styled'
 
 import { fonts, spacing, colors } from '../../../tokens'
 
-const Divider = props => <Divider.Element {...props} />
+const Divider = (props) => <Divider.Element {...props} />
 
 Divider.Element = styled.legend`
   font-size: 14px;

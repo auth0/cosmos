@@ -1,4 +1,4 @@
-const parse = a => {
+const parse = (a) => {
   /* Explicitly convert to string, so that we can except numbers as well */
   a = a.toString()
   const value = parseFloat(a)
@@ -19,7 +19,7 @@ const validate = (a, b) => {
 }
 
 const add = (a, b) => {
-  if (!validate(a, b)) return
+  if (!validate(a, b)) { return }
   const unit = parse(a).unit
   const value = parse(a).value + parse(b).value
 
@@ -27,7 +27,7 @@ const add = (a, b) => {
 }
 
 const subtract = (a, b) => {
-  if (!validate(a, b)) return
+  if (!validate(a, b)) { return }
   const unit = parse(a).unit
   const value = parse(a).value - parse(b).value
 
@@ -35,7 +35,7 @@ const subtract = (a, b) => {
 }
 
 const multiply = (a, b) => {
-  if (!validate(a, b)) return
+  if (!validate(a, b)) { return }
   const unit = parse(a).unit
   const value = parse(a).value * parse(b).value
 

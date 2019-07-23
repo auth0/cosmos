@@ -20,7 +20,7 @@ export interface IFormProps {
   /** Two options for controlling form layout */
   layout?: 'label-on-left' | 'label-on-top'
   /** Remove the 625px constraint from the form fields width */
-  fullWidth?: boolean,
+  fullWidth?: boolean
   children?: React.ReactNode
   onSubmit?: Function
 }
@@ -32,13 +32,13 @@ const Form = (props: IFormProps) => (
 )
 
 Form.Field = ExtField
-Form.TextInput = props => <ExtField {...props} fieldComponent={ExtTextInput} />
-Form.TextArea = props => <ExtField {...props} fieldComponent={ExtTextArea} />
-Form.Select = props => <ExtField {...props} fieldComponent={ExtSelect} />
-Form.Switch = props => <ExtField {...props} fieldComponent={ExtSwitch} />
+Form.TextInput = (props) => <ExtField {...props} fieldComponent={ExtTextInput} />
+Form.TextArea = (props) => <ExtField {...props} fieldComponent={ExtTextArea} />
+Form.Select = (props) => <ExtField {...props} fieldComponent={ExtSelect} />
+Form.Switch = (props) => <ExtField {...props} fieldComponent={ExtSwitch} />
 
 const FormRadio: { (props): JSX.Element; Option: any } = (() => {
-  const Radio = (props) => <ExtField {...props} fieldComponent={ExtRadio} />;
+  const Radio = (props) => <ExtField {...props} fieldComponent={ExtRadio} />
   Radio.Option = ExtRadio.Option
   return Radio
 })()
@@ -50,13 +50,12 @@ Form.FieldSet = ExtFieldSet
 
 Form.Element = styled.form`
   ${ExtField.Element}, ${ExtActions.Element} {
-    max-width: ${props => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '624px')};
+    max-width: ${(props) => (props.layout === 'label-on-top' || props.fullWidth ? 'auto' : '624px')};
   }
 `
 
 Form.defaultProps = {
   layout: 'label-on-left'
 }
-
 
 export default Form

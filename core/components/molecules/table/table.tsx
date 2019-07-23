@@ -1,12 +1,12 @@
-import * as React from 'react'
-import styled, { css } from '../../styled'
-import { colors, spacing, misc } from '../../tokens'
-import Spinner from '../../atoms/spinner'
-import TableColumn from './table-column'
-import TableHeader from './table-header'
+import * as React from "react";
 
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import Spinner from "../../atoms/spinner";
+import styled, { css } from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
+import TableColumn from "./table-column";
+import TableHeader from "./table-header";
 
 export type TableSortDirection = 'asc' | 'desc'
 
@@ -15,7 +15,7 @@ export interface ITableProps {
   id?: string
   /** The items in the table. */
   items: Object[]
-  /** Items are sorted on this field (defaults to the first sortable column)*/
+  /** Items are sorted on this field (defaults to the first sortable column) */
   sortOn?: string
   /** Direction of sort */
   sortDirection?: TableSortDirection
@@ -30,7 +30,7 @@ export interface ITableProps {
 }
 
 interface ITableState {
-  sortingColumn: Object,
+  sortingColumn: Object
   sortDirection: TableSortDirection
 }
 
@@ -40,46 +40,46 @@ export const tableDefaultComparators = {
     const r1 = String(row1[column]).toLowerCase()
     const r2 = String(row2[column]).toLowerCase()
 
-    return r1 > r2 ? -1 : r2 > r1 ? 1 : 0;
+    return r1 > r2 ? -1 : r2 > r1 ? 1 : 0
   }
 }
 
 class Table extends React.Component<ITableProps, ITableState> {
-  static Header = TableHeader
-  static Column = TableColumn
+  public static Header = TableHeader
+  public static Column = TableColumn
 
-  static compare = tableDefaultComparators
+  public static compare = tableDefaultComparators
 
-  static Container = styled.div`
+  public static Container = styled.div`
     ${containerStyles};
     position: relative;
   `
 
-  static Element = styled.table`
+  public static Element = styled.table`
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
     table-layout: fixed;
-    opacity: ${p => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
+    opacity: ${(p) => (p.loading && p.rows.length !== 0 ? 0.3 : 1)};
   `
 
-  static Body = styled.tbody``
+  public static Body = styled.tbody``
 
-  static Row = styled.tr`
-  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  public static Row = styled.tr`
+    cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
     &:hover {
       background-color: ${colors.list.backgroundHover};
     }
   `
 
-  static Cell = styled.td`
+  public static Cell = styled.td`
     padding: ${spacing.xsmall};
     border-top: 1px solid ${colors.base.grayLight};
     text-align: left;
     vertical-align: middle;
     overflow-wrap: break-word;
-    width: ${props => props.column.width || 'auto'};
-    ${props =>
+    width: ${(props) => props.column.width || 'auto'};
+    ${(props) =>
       props.column.truncate
         ? css`
             text-overflow: ellipsis;
@@ -89,8 +89,17 @@ class Table extends React.Component<ITableProps, ITableState> {
         : ``};
   `
 
-  static EmptyState = ({ rows, children, loading }) => {
-    if (rows.length > 0 || !children || loading) return null
+  public static defaultProps = {
+    onRowClick: null,
+    onSort: null,
+    sortDirection: 'asc',
+    emptyMessage: 'There are no items to display'
+  }
+
+  public static EmptyState = ({ rows, children, loading }) => {
+    if (rows.length > 0 || !children || loading) {
+      return null
+    }
 
     const TableEmptyState = styled.div`
       padding: ${spacing.small};
@@ -104,28 +113,30 @@ class Table extends React.Component<ITableProps, ITableState> {
     return <TableEmptyState>{children}</TableEmptyState>
   }
 
-  static LoadingIndicator = ({ loading, rows }) => {
-    if (!loading) return null
+  public static LoadingIndicator = ({ loading, rows }) => {
+    if (!loading) {
+      return null
+    }
     const initialLoadingState = rows.length === 0
 
     const TableLoadingIndicator = styled.div`
-    position: ${initialLoadingState ? 'initial' : 'absolute'};
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: ${initialLoadingState ? 'auto' : '100%'};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: ${initialLoadingState ? '20px' : '0'};
-  `
+      position: ${initialLoadingState ? 'initial' : 'absolute'};
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: ${initialLoadingState ? 'auto' : '100%'};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: ${initialLoadingState ? '20px' : '0'};
+    `
 
     const SpinnerContainer = styled.div`
-    background-color: white;
-    display: inline-block;
-    padding: ${spacing.xsmall};
-    border-radius: 50%;
-  `
+      background-color: white;
+      display: inline-block;
+      padding: ${spacing.xsmall};
+      border-radius: 50%;
+    `
 
     return (
       <TableLoadingIndicator>
@@ -134,13 +145,6 @@ class Table extends React.Component<ITableProps, ITableState> {
         </SpinnerContainer>
       </TableLoadingIndicator>
     )
-  }
-
-  static defaultProps = {
-    onRowClick: null,
-    onSort: null,
-    sortDirection: 'asc',
-    emptyMessage: 'There are no items to display'
   }
 
   constructor(props) {
@@ -167,65 +171,76 @@ class Table extends React.Component<ITableProps, ITableState> {
     }
   }
 
-  defaultCellRenderer = (item, column) => item[column.field]
+  public defaultCellRenderer = (item, column) => item[column.field]
 
-  defaultOnSort = (sortOnField, sortDirection) => {
+  public defaultOnSort = (sortOnField, sortDirection) => {
     const sortingColumn = this.getSortingColumn(sortOnField)
     this.setState({ sortingColumn, sortDirection })
   }
 
-  inferColumnsFromChildren(children) {
-    return React.Children.toArray(children).map(element => element.props)
+  public inferColumnsFromChildren(children) {
+    return React.Children.toArray(children).map((element) => element.props)
   }
 
-  getSortingColumn(sortOnField) {
+  public getSortingColumn(sortOnField) {
     const columns = this.inferColumnsFromChildren(this.props.children)
     if (sortOnField) {
       /* find matching column by field prop */
-      return columns.find(column => column.field === sortOnField)
+      return columns.find((column) => column.field === sortOnField)
     } else {
       /*
         default to the first column that has sortable prop
         if there are no columns with sortable, return empty
       */
-      return columns.find(column => column.sortable) || {}
+      return columns.find((column) => column.sortable) || {}
     }
   }
 
-  getComparator(items, sortingColumn) {
+  public getComparator(items, sortingColumn) {
     /* Use custom comparator if given as prop */
-    if (sortingColumn.comparator) return sortingColumn.comparator
+    if (sortingColumn.comparator) {
+      return sortingColumn.comparator
+    }
 
     /* if not, try to guess it from the type of data */
     const firstItem = items[0]
     const sampleValue = firstItem[sortingColumn.field]
-    if (typeof sampleValue === 'number') return Table.compare.numbers
-    else return Table.compare.strings
+    if (typeof sampleValue === 'number') {
+      return Table.compare.numbers
+    } else {
+      return Table.compare.strings
+    }
   }
 
-  sortItems = ({ unsortedItems, sortingColumn, sortDirection }) => {
+  public sortItems = ({ unsortedItems, sortingColumn, sortDirection }) => {
     /* create a copy of allItems */
     const items = [...unsortedItems]
 
     /* if there are no items or no sorting column sorting code breaks */
-    if (!sortingColumn || items.length === 0) return items
+    if (!sortingColumn || items.length === 0) {
+      return items
+    }
 
     const comparator = this.getComparator(items, sortingColumn)
 
     items.sort((row1, row2) => comparator(row1, row2, sortingColumn))
-    if (sortDirection === 'desc') items.reverse()
+    if (sortDirection === 'desc') {
+      items.reverse()
+    }
 
     return items
   }
 
-  handleRowClicked = item => {
-    if (!this.props.onRowClick) return null
-    return evt => {
+  public handleRowClicked = (item) => {
+    if (!this.props.onRowClick) {
+      return null
+    }
+    return (evt) => {
       this.props.onRowClick(evt, item)
     }
   }
 
-  render() {
+  public render() {
     let columns = this.inferColumnsFromChildren(this.props.children)
     let sortedItems, sortingColumn, sortDirection, onSort
     const { loading } = this.props
@@ -252,8 +267,8 @@ class Table extends React.Component<ITableProps, ITableState> {
 
     // If columns are passed as a variable or as a child to <div> element
     if (columns[0].children != undefined && columns[0].children.length > 1) {
-      let nestedColumns = []
-      columns[0].children.map(column => {
+      const nestedColumns = []
+      columns[0].children.map((column) => {
         nestedColumns.push(column.props)
       })
       columns = nestedColumns
@@ -265,7 +280,7 @@ class Table extends React.Component<ITableProps, ITableState> {
         onClick={this.handleRowClicked(item)}
         {...Automation('table.row')}
       >
-        {columns.map(column => {
+        {columns.map((column) => {
           const cellRenderer = column.children || this.defaultCellRenderer
 
           return (

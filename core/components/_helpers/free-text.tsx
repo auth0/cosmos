@@ -30,7 +30,7 @@ const FreeText = ({ text, children, useParagraph = false }: IFreeTextProps) => {
     return useStyledTextIfAppropiate(text, useParagraph)
   }
 
-  if (text) return <>{text}</>
+  if (text) { return <>{text}</> }
 
   return null
 }

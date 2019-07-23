@@ -7,9 +7,9 @@ import { spacing } from '../../tokens'
 
 import Automation from '../../_helpers/automation-attribute'
 
-const passSubMenuPropToChildren = children =>
-  React.Children.map(children, el => {
-    if (!el) return null
+const passSubMenuPropToChildren = (children) =>
+  React.Children.map(children, (el) => {
+    if (!el) { return null }
     return React.cloneElement(el, { inSubMenu: true })
   })
 
@@ -34,8 +34,8 @@ NavigationSubnav.Content = styled.ul`
   flex: 1 0 100%;
   margin-left: calc(18px + ${spacing.xsmall});
   overflow: hidden;
-  max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
-  visibility: ${props => (props.open ? 'visible' : 'hidden')};
+  max-height: ${(props) => (props.open ? props.children.length * 50 + 'px' : '0')};
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
   transition: all 0.3s ease-in-out;
 
   ${NavigationItem} {

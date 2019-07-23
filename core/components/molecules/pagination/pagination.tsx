@@ -1,11 +1,15 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import { changePageIfAppropiate, getPaginationSlice, pagesFromItems } from "../../_helpers/pagination";
-import Button, { ButtonAppearance } from "../../atoms/button";
-import Icon from "../../atoms/icon";
-import styled from "../../styled";
-import { colors, misc, spacing } from "../../tokens";
+import Automation from '../../_helpers/automation-attribute'
+import {
+  changePageIfAppropiate,
+  getPaginationSlice,
+  pagesFromItems
+} from '../../_helpers/pagination'
+import Button, { ButtonAppearance } from '../../atoms/button'
+import Icon from '../../atoms/icon'
+import styled from '../../styled'
+import { colors, misc, spacing } from '../../tokens'
 
 const renderPaginationItem = ({
   toPage,
@@ -31,7 +35,7 @@ const renderPaginationItem = ({
 )
 
 const handlePaginationButtonClick = (page, items, perPage, onPageChanged) => {
-  if (page.clickable === false) return
+  if (page.clickable === false) { return }
 
   return changePageIfAppropiate({ rawNextPage: page.label, total: items, perPage, onPageChanged })
 }
@@ -72,7 +76,7 @@ const Pagination = ({
       icon="chevron-left"
     />
 
-    {getPaginationSlice(page, items, perPage).map(page => (
+    {getPaginationSlice(page, items, perPage).map((page) => (
       <Pagination.PageButton
         key={page.label}
         appearance={appearance}
@@ -124,7 +128,7 @@ Pagination.IconOnlyButton = styled(Button)`
 `
 
 Pagination.PageButton = styled(Button)`
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.selected ? colors.button.default.backgroundActive : colors.button.default.background};
 
   &:hover {

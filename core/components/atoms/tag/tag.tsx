@@ -8,9 +8,9 @@ export interface ITagProps {
   /** HTML ID of the component */
   id?: string
   /** The function to call when a user clicks the tag */
-  onClick?: Function,
+  onClick?: Function
   /** The function to call when a user clicks the tag's remove icon */
-  onRemove?: Function,
+  onRemove?: Function
   children?: React.ReactNode
 }
 
@@ -18,7 +18,7 @@ const Tag = (props: ITagProps) => {
   let icon
 
   if (props.onRemove) {
-    const handleRemove = evt => {
+    const handleRemove = (evt) => {
       evt.stopPropagation()
       props.onRemove(evt)
     }
@@ -46,7 +46,7 @@ Tag.Element = styled.span`
   background: ${colors.tag.background};
   border: 1px solid ${colors.tag.border};
   border-radius: ${misc.radius};
-  cursor: ${props => (props.onClick ? 'pointer' : 'inherit')};
+  cursor: ${(props) => (props.onClick ? 'pointer' : 'inherit')};
 
   ${Icon.Element} {
     cursor: pointer;
@@ -55,7 +55,7 @@ Tag.Element = styled.span`
   }
 `
 
-const TagGroup = props => (
+const TagGroup = (props) => (
   <Tag.Group.Element {...Automation('tag.group')} {...props}>
     {props.children}
   </Tag.Group.Element>

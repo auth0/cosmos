@@ -8,7 +8,7 @@ const StyledWell = styled.div`
   padding: ${spacing.large};
 `
 
-const Well = props => {
+const Well = (props) => {
   return <StyledWell {...props}>{props.children}</StyledWell>
 }
 

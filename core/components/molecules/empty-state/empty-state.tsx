@@ -11,8 +11,10 @@ import Link from "../../atoms/link";
 import styled from "../../styled";
 import { colors, spacing } from "../../tokens";
 
-const getHelpLink = link => {
-  if (!link) return undefined
+const getHelpLink = (link) => {
+  if (!link) {
+    return undefined
+  }
 
   /* link supports both formats: string and object */
   if (typeof link === 'string') {
@@ -22,13 +24,13 @@ const getHelpLink = link => {
   return (
     <LearnMore>
       <Link {...link}>
-        Learn More <i> </i>
+        Learn More <i />
       </Link>
     </LearnMore>
   )
 }
 
-export type LinkType = string | { href?: string, target?: string }
+export type LinkType = string | { href?: string; target?: string }
 
 export interface IEmptyStateProps {
   /** HTML ID of the component */
@@ -50,14 +52,14 @@ export interface IEmptyStateProps {
 }
 
 const EmptyState = ({ link, helpUrl, title, icon, action, ...props }: IEmptyStateProps) => {
-  let helpLink = getHelpLink(link || helpUrl)
+  const helpLink = getHelpLink(link || helpUrl)
 
   return (
     <EmptyState.Element {...Automation('empty-state')} {...props}>
       <Title size={1}>{title}</Title>
       <EmptyState.Body>
         <Icon name={icon} size={110} color="blue" />
-        <FreeText {...props} useParagraph />
+        <FreeText {...props} useParagraph={true} />
         {helpLink}
       </EmptyState.Body>
       {action && (

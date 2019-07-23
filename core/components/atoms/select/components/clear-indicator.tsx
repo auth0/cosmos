@@ -13,7 +13,7 @@ const StyledCloseIcon = styled(Icon)`
   }
 `
 
-export const ClearIndicator = props => (
+export const ClearIndicator = (props) => (
   <components.ClearIndicator {...props}>
     <StyledCloseIcon name="close" size="14" color="default" />
   </components.ClearIndicator>

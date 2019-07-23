@@ -29,11 +29,11 @@ export interface IStackProps {
   /** HTML ID of the component */
   id?: string
   /** Use align for stacking elements without margin between them */
-  align?: 'fill' | 'left' | 'right' | 'space-between',
+  align?: 'fill' | 'left' | 'right' | 'space-between'
   /** Vertically align */
-  alignVertical?: 'top' | 'center' | 'bottom',
+  alignVertical?: 'top' | 'center' | 'bottom'
   /** Element widths in % */
-  widths?: number[],
+  widths?: number[]
   /** Elements to be wrapped with Stack */
   children?: React.ReactNode
 
@@ -49,7 +49,7 @@ const Stack = (props: IStackProps) => {
   if (props.align === 'fill' || props.align === 'space-between') {
     children = React.Children.map(props.children, (child, index) => {
       let width = 0
-      if (props.widths) width = props.widths[index] || 0
+      if (props.widths) { width = props.widths[index] || 0 }
 
       return (
         <Stack.Item width={width} {...Automation('stack.item')}>
@@ -74,11 +74,11 @@ Stack.Element = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: ${props => alignItems[props.alignVertical]};
-  justify-content: ${props => justifyContent[props.align]};
+  align-items: ${(props) => alignItems[props.alignVertical]};
+  justify-content: ${(props) => justifyContent[props.align]};
   > * {
-    flex: ${props => (props.align === 'fill' ? 1 : 'none')};
-    margin-right: ${props => (props.align === 'fill' ? spacing.xsmall : 0)};
+    flex: ${(props) => (props.align === 'fill' ? 1 : 'none')};
+    margin-right: ${(props) => (props.align === 'fill' ? spacing.xsmall : 0)};
   }
   > *:last-child {
     margin-right: 0;
@@ -86,7 +86,7 @@ Stack.Element = styled.div`
 `
 
 Stack.Item = styled.div`
-  flex-basis: ${props => props.width}%;
+  flex-basis: ${(props) => props.width}%;
 `
 
 Stack.defaultProps = {

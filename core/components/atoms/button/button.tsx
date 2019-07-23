@@ -150,7 +150,7 @@ const sizes = {
   }
 }
 
-const getAttributes = props => {
+const getAttributes = (props) => {
   // Get the styles for the button's selected appearance.
   const appearanceStyles = appearances[props.appearance]
     ? appearances[props.appearance]
@@ -212,7 +212,7 @@ export interface IButtonProps {
   href?: string
   /** Specifies where to open the navigated document */
   target?: ButtonTarget
-  rel?: string; // TODO: use `noopener` as default
+  rel?: string // TODO: use `noopener` as default
   /** Disables the button|changing the visual style and make it unable to be pressed */
   disabled?: boolean
   /** Loading state when waiting for an action to complete */
@@ -229,24 +229,25 @@ export interface IButtonProps {
   labelDefaultVisible?: boolean
 }
 
-const ButtonContent = props => {
-  let content: JSX.Element[] = []
+const ButtonContent = (props) => {
+  const content: JSX.Element[] = []
 
-  let icon = props.success ? 'check' : props.icon
+  const icon = props.success ? 'check' : props.icon
   const iconNode = icon ? (
     <Icon key="icon" size={16} name={icon} color={getAttributes(props).icon} />
   ) : null
 
   // Button left icon or loading
-  if (props.loading)
+  if (props.loading) {
     content.push(<Spinner key="spinner" inverse={getAttributes(props).loadingInverse} />)
-  else if (iconNode && props.iconAlign === 'left') content.push(iconNode)
+  }
+  else if (iconNode && props.iconAlign === 'left') { content.push(iconNode) }
 
   // Button text
-  if (props.text) content.push(<Button.Text key="text">{props.text}</Button.Text>)
+  if (props.text) { content.push(<Button.Text key="text">{props.text}</Button.Text>) }
 
   // Button right icon
-  if (iconNode && props.iconAlign === 'right') content.push(iconNode)
+  if (iconNode && props.iconAlign === 'right') { content.push(iconNode) }
 
   const Element = props.href ? Button.LinkElement : Button.Element
 
@@ -254,7 +255,7 @@ const ButtonContent = props => {
 }
 
 const Button = ({ children, ...props }: IButtonProps) => {
-  let button = <ButtonContent {...Automation('button')} {...props} text={children} />
+  const button = <ButtonContent {...Automation('button')} {...props} text={children} />
 
   // If a label was specified, wrap the Button in a Tooltip.
   if (props.label) {
@@ -274,9 +275,9 @@ Button.Element = styled.button`
   align-items: center;
   justify-content: center;
 
-  min-width: ${props => getAttributes(props).minWidth};
-  min-height: ${props => getAttributes(props).lineHeight};
-  line-height: ${props => getAttributes(props).lineHeight};
+  min-width: ${(props) => getAttributes(props).minWidth};
+  min-height: ${(props) => getAttributes(props).lineHeight};
+  line-height: ${(props) => getAttributes(props).lineHeight};
 
   /* Safari button margins reset */
   /* See https://github.com/google/material-design-lite/issues/4008 */
@@ -289,42 +290,42 @@ Button.Element = styled.button`
   font-size: 13px;
   font-weight: ${fonts.weight.medium};
 
-  background: ${props => getAttributes(props).background};
-  border: 1px solid ${props => getAttributes(props).border};
+  background: ${(props) => getAttributes(props).background};
+  border: 1px solid ${(props) => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  color: ${props => getAttributes(props).text};
+  color: ${(props) => getAttributes(props).text};
 
-  padding: 0 ${props => getAttributes(props).padding};
+  padding: 0 ${(props) => getAttributes(props).padding};
 
-  opacity: ${props => (props.disabled ? 0.5 : 1)};
-  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  pointer-events: ${props => (props.disabled || props.loading || props.success ? 'none' : null)};
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${(props) => (props.disabled || props.loading || props.success ? 'none' : null)};
   transition: border-color ${misc.animationDuration}, background ${misc.animationDuration};
 
   > *:not(:last-child):not(:only-child) {
-    margin-right: ${props => (props.text ? spacing.xsmall : 0)};
+    margin-right: ${(props) => (props.text ? spacing.xsmall : 0)};
   }
 
   ${Icon.Element} {
-    color: ${props => getAttributes(props).text};
+    color: ${(props) => getAttributes(props).text};
   }
 
   &:hover {
-    color: ${props => getAttributes(props).hoverText || getAttributes(props).text};
-    background: ${props => getAttributes(props).hoverBackground};
-    border-color: ${props => getAttributes(props).hoverBorder};
+    color: ${(props) => getAttributes(props).hoverText || getAttributes(props).text};
+    background: ${(props) => getAttributes(props).hoverBackground};
+    border-color: ${(props) => getAttributes(props).hoverBorder};
   }
 
   &:focus {
-    background: ${props => getAttributes(props).focusBackground};
-    border-color: ${props => getAttributes(props).focusBorder};
+    background: ${(props) => getAttributes(props).focusBackground};
+    border-color: ${(props) => getAttributes(props).focusBorder};
     outline: none;
   }
 
   &:active {
-    background: ${props => getAttributes(props).activeBackground};
-    border-color: ${props => getAttributes(props).activeBorder};
+    background: ${(props) => getAttributes(props).activeBackground};
+    border-color: ${(props) => getAttributes(props).activeBorder};
     outline: none;
   }
 `

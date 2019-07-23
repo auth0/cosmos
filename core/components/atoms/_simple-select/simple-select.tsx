@@ -1,11 +1,12 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { misc, colors, spacing } from '../../tokens'
-import { StyledInput } from '../_styled-input'
-import { ISelectOptions } from '../select/interfaces';
-import Automation from '../../_helpers/automation-attribute'
-import Icon from '../icon'
-import Form from '../../molecules/form'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
+import styled from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
+import { StyledInput } from "../_styled-input";
+import Icon from "../icon";
+import { ISelectOptions } from "../select/interfaces";
 
 const selectOpacity = {
   default: 1,
@@ -14,9 +15,9 @@ const selectOpacity = {
 
 const PLACEHOLDER_VALUE = '0'
 
-const valueIsUndefined = value => value === undefined || value === null
+const valueIsUndefined = (value) => value === undefined || value === null
 
-const isGroup = option => option.groupName && option.items
+const isGroup = (option) => option.groupName && option.items
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
     return (
@@ -37,7 +38,6 @@ const renderOption = (option, idx) => {
     </option>
   )
 }
-
 
 export interface ISimpleSelectProps {
   /** HTML ID of the component */
@@ -64,13 +64,15 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
   */
 
   const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue)
-  if (shouldUsePlaceholder) props.value = PLACEHOLDER_VALUE
+  if (shouldUsePlaceholder) {
+    props.value = PLACEHOLDER_VALUE
+  }
 
   return (
     <SimpleSelect.Wrapper>
       <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Form.Field.ContextConsumer>
-        {context => (
+        {(context) => (
           <SimpleSelect.Element
             id={props.id || context.formFieldId}
             {...Automation('select')}
@@ -78,7 +80,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
           >
             {/* First option will be selected if there is no value passed as a prop */}
             {props.placeholder && (
-              <option disabled value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+              <option disabled={true} value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
                 {props.placeholder}
               </option>
             )}
@@ -97,8 +99,8 @@ SimpleSelect.Element = styled(StyledInput.withComponent('select'))`
   padding-right: ${spacing.large};
 
   height: ${misc.input.default.height};
-  opacity: ${props => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${props =>
+  opacity: ${(props) => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
+  background-color: ${(props) =>
     props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
 `
 
@@ -117,7 +119,6 @@ SimpleSelect.ArrowIcon = styled(Icon)`
     display: block;
   }
 `
-
 
 SimpleSelect.defaultProps = {
   options: [],
