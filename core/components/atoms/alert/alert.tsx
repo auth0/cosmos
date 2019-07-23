@@ -42,9 +42,9 @@ const ReadMoreLink = styled(Link)`
 `
 
 class Alert extends React.Component<IAlertProps, IAlertState> {
-  static defaultProps = {
+  public static defaultProps = {
     appearance: 'default',
-    dismissible: true
+    dismissible: true,
   }
 
   public static Element: any
@@ -70,22 +70,20 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
       otherwise we would try to setState on an unmounted
       component
     */
-    if (this.timer) { window.clearTimeout(this.timer) }
+    if (this.timer) {
+      window.clearTimeout(this.timer)
+    }
   }
 
   public dismiss = () => {
     this.setState({ visible: false })
-    if (typeof this.props.onDismiss === 'function') { this.props.onDismiss() }
+    if (typeof this.props.onDismiss === 'function') {
+      this.props.onDismiss()
+    }
   }
 
-<<<<<<< HEAD
-  render() {
-    const appearance = this.props.appearance
-=======
   public render() {
-    /* new: appearance, old: type*/
-    const appearance = this.props.appearance || this.props.type
->>>>>>> Adding tslint
+    const appearance = this.props.appearance
 
     if (this.state.visible) {
       return (
@@ -110,7 +108,9 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
           )}
         </Alert.Element>
       )
-    } else { return null }
+    } else {
+      return null
+    }
   }
 }
 
@@ -175,7 +175,7 @@ const iconColorMap = {
   information: 'blueDarker',
   success: 'greenDarker',
   warning: 'yellow',
-  danger: 'redDarker'
+  danger: 'redDarker',
 }
 
 export default Alert
