@@ -32,11 +32,6 @@
       "git add"
     ]
   },
-  "prettier": {
-    "singleQuote": true,
-    "semi": false,
-    "printWidth": 100
-  },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0",
     "ts-polyfill": "^3.3.3"
