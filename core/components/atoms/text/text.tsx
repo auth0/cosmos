@@ -1,8 +1,8 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import styled from "../../styled";
-import { colors, fonts } from "../../tokens";
+import Automation from '../../_helpers/automation-attribute'
+import styled from '../../styled'
+import { colors, fonts } from '../../tokens'
 
 type TextType = 'allcaps' | 'subdued' | 'strong'
 
@@ -31,7 +31,7 @@ const resolveTextComponent = (type: TextType) => {
 const Text = (props: ITextProps) => {
   const TextComponent = resolveTextComponent(props.type)
 
-  if (!TextComponent) return <span>{props.children}</span>
+  if (!TextComponent) { return <span>{props.children}</span> }
 
   return <TextComponent {...Automation('text')} {...props} />
 }

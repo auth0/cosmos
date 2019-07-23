@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from "react";
 
-import Button, { ButtonAppearance, ButtonSize } from '../atoms/button'
-import ButtonGroup from '../molecules/button-group'
+import Button, { ButtonAppearance, ButtonSize } from "../atoms/button";
+import ButtonGroup from "../molecules/button-group";
 
 export interface IObjectAction {
   label: string
@@ -17,10 +17,12 @@ const getActionGroup = (actions: IAction[] = [], actionOverrides: Partial<IObjec
   /* If the first button is a React element */
   if (React.isValidElement(actions[0])) {
     return (
-      <ButtonGroup compressed>
+      <ButtonGroup compressed={true}>
         {actions.map((action, index) => {
           /* add key to each element of array */
-          if (!action) return null
+          if (!action) {
+            return null
+          }
           return React.cloneElement(action as JSX.Element, {
             key: index,
             ...actionOverrides
@@ -31,11 +33,9 @@ const getActionGroup = (actions: IAction[] = [], actionOverrides: Partial<IObjec
   } else {
     /* If the actions are of object shape */
     return (
-      <ButtonGroup compressed>
+      <ButtonGroup compressed={true}>
         {actions.map((action: IObjectAction, index) => {
-          return (
-            <Button key={index} onClick={action.handler} {...action} {...actionOverrides} />
-          )
+          return <Button key={index} onClick={action.handler} {...action} {...actionOverrides} />
         })}
       </ButtonGroup>
     )

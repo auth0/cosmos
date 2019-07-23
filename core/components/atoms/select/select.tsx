@@ -1,12 +1,12 @@
-import * as React from 'react'
-import ReactSelect, { components, defaultTheme } from 'react-select'
-import AsyncSelect from 'react-select/lib/Async'
+import * as React from "react";
+import ReactSelect, { components, defaultTheme } from "react-select";
+import AsyncSelect from "react-select/lib/Async";
 
-import Automation from '../../_helpers/automation-attribute'
-import Form from '../../molecules/form'
-import styled from '../../styled'
-import { colors, misc, spacing } from '../../tokens'
-import SimpleSelect from '../_simple-select'
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
+import styled from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
+import SimpleSelect from "../_simple-select";
 import {
   ClearIndicator,
   DropdownIndicator,
@@ -19,10 +19,10 @@ import {
   Option,
   optionRenderer,
   valueRenderer
-} from './components'
-import { ISelectOptions } from './interfaces'
+} from "./components";
+import { ISelectOptions } from "./interfaces";
 
-const defaultGetOptionValue = option => option.value
+const defaultGetOptionValue = (option) => option.value
 
 const selectTheme = {
   ...defaultTheme,
@@ -40,7 +40,7 @@ const selectTheme = {
 }
 
 const cosmosToReactSelect = {
-  options: cosmosOptions =>
+  options: (cosmosOptions) =>
     cosmosOptions.map(({ items, groupName, disabled, label, text, ...otherProperties }) => ({
       isDisabled: disabled,
       label: groupName || label || text,
@@ -48,19 +48,21 @@ const cosmosToReactSelect = {
       ...otherProperties
     })),
   value: (valueProp, options, getOptionValue = defaultGetOptionValue) => {
-    if (valueProp === null || typeof valueProp === 'undefined') return null
-
-    if (valueProp.constructor.name === 'Array') {
-      return valueProp.map(item => cosmosToReactSelect.value(item, options, getOptionValue))
+    if (valueProp === null || typeof valueProp === 'undefined') {
+      return null
     }
 
-    const matchValue = option => getOptionValue(option) === valueProp
+    if (valueProp.constructor.name === 'Array') {
+      return valueProp.map((item) => cosmosToReactSelect.value(item, options, getOptionValue))
+    }
+
+    const matchValue = (option) => getOptionValue(option) === valueProp
 
     let valueFound = null
 
-    options.forEach(option => {
+    options.forEach((option) => {
       if (option.options && option.options.constructor.name === 'Array') {
-        option.options.forEach(subOption => {
+        option.options.forEach((subOption) => {
           if (matchValue(subOption)) {
             valueFound = subOption
           }
@@ -68,11 +70,13 @@ const cosmosToReactSelect = {
       }
     })
 
-    if (valueFound !== null) return valueFound
+    if (valueFound !== null) {
+      return valueFound
+    }
 
     return options.find(matchValue)
   },
-  styles: props => ({
+  styles: (props) => ({
     menuPortal: Menu.portalTheme,
     menu: Menu.theme,
     groupHeading: GroupHeading.theme,
@@ -97,7 +101,9 @@ const cosmosToReactSelect = {
 }
 
 const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
-  if (options === null) return null
+  if (options === null) {
+    return null
+  }
 
   if (options.constructor.name === 'Array') {
     return options.map(getOptionValue)
@@ -160,15 +166,15 @@ interface ISelectState {
 }
 
 class Select extends React.Component<ISelectProps, ISelectState> {
-  static Wrapper = styled.div``
+  public static Wrapper = styled.div``
 
-  static defaultProps = {
+  public static defaultProps = {
     options: [],
     placeholder: '',
     searchable: false
   }
 
-  componentOverrides = {
+  public componentOverrides = {
     SingleValue: components.SingleValue,
     MultiValue,
     DropdownIndicator,
@@ -188,7 +194,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     this.handleScroll = this.handleScroll.bind(this)
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     document.addEventListener('scroll', this.handleScroll, true)
 
     if (this.props.defaultMenuOpen) {
@@ -198,11 +204,11 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     }
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount() {
     document.removeEventListener('scroll', this.handleScroll, true)
   }
 
-  handleScroll() {
+  public handleScroll() {
     if (this.state.menuIsOpen) {
       // Force update for react-select to
       // re-compute portal dropdown position
@@ -210,11 +216,11 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     }
   }
 
-  updateMenuState(newState) {
+  public updateMenuState(newState) {
     return () => this.setState({ menuIsOpen: newState })
   }
 
-  render() {
+  public render() {
     const props = this.props
 
     if (
@@ -226,8 +232,9 @@ class Select extends React.Component<ISelectProps, ISelectState> {
         props.customValueRenderer ||
         props.getOptionValue
       )
-    )
+    ) {
       return <SimpleSelect {...props} />
+    }
 
     /*
       select boxes do not support readonly like input boxes,
@@ -235,7 +242,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       and functionality of select disabled
     */
 
-    let options = cosmosToReactSelect.options(props.options)
+    const options = cosmosToReactSelect.options(props.options)
     const defaultOptions = props.defaultOptions
       ? cosmosToReactSelect.options(props.defaultOptions)
       : null
@@ -267,18 +274,20 @@ class Select extends React.Component<ISelectProps, ISelectState> {
 
     const SelectProvider = props.async ? AsyncSelect : ReactSelect
 
-    const onChange = options => {
+    const onChange = (options) => {
       const newValue = props.async ? options : oneOrMore(options, props.getOptionValue)
-      if (props.onChange) props.onChange({ target: { name: props.name, value: newValue } })
+      if (props.onChange) {
+        props.onChange({ target: { name: props.name, value: newValue } })
+      }
     }
 
     return (
       <Select.Wrapper {...Automation('select.wrapper')} style={props.style}>
         <Form.Field.ContextConsumer>
-          {context => (
+          {(context) => (
             <SelectProvider
               onChange={onChange}
-              isClearable
+              isClearable={true}
               isDisabled={props.disabled}
               isMulti={props.multiple}
               isSearchable={searchable}

@@ -1,7 +1,7 @@
-import { shallow } from "enzyme";
-import * as React from "react";
+import { shallow } from 'enzyme'
+import * as React from 'react'
 
-import { Pager } from "@auth0/cosmos";
+import { Pager } from '@auth0/cosmos'
 
 export type PagerFactoryParams = {
   page?: number

@@ -11,4 +11,4 @@ export interface ISelectGroupOption {
   items?: ISelectOption[]
 }
 
-export type ISelectOptions = (ISelectOption | ISelectGroupOption)[]
+export type ISelectOptions = Array<ISelectOption | ISelectGroupOption>

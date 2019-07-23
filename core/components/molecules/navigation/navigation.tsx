@@ -54,7 +54,6 @@ const NavigationGroupHeader = styled.h2`
   padding-bottom: ${spacing.xxsmall};
 `
 
-
 Navigation.List = styled.ul``
 Navigation.Item = NavigationItem
 Navigation.Group = NavigationGroup

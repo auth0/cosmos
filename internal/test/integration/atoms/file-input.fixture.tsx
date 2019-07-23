@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { FileInput } from "@auth0/cosmos";
+import { FileInput } from '@auth0/cosmos'
 
 class Fixture extends React.Component {
   state = { items: [] }

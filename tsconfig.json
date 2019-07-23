@@ -1,11 +1,13 @@
 {
   "extends": "./config/tsconfig.base.json",
   "compilerOptions": {
-    "lib": [
-      "es7",
-      "dom"
-    ],
+    "lib": ["es7", "dom"],
     "moduleResolution": "node",
-    "module": "esnext"
-  },
+    "module": "esnext",
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin"
+      }
+    ]
+  }
 }

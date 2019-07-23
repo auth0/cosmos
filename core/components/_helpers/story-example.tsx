@@ -27,11 +27,11 @@ const Wrapper = styled.div`
     justify-content: center;
   }
 
-  background: ${props => (props.background === 'dark' ? colors.base.default : colors.base.white)};
-  color: ${props => (props.background === 'dark' ? colors.base.white : colors.text.default)};
+  background: ${(props) => (props.background === 'dark' ? colors.base.default : colors.base.white)};
+  color: ${(props) => (props.background === 'dark' ? colors.base.white : colors.text.default)};
 `
 
-const Example = props => (
+const Example = (props) => (
   <Wrapper className={props.align === 'center' ? 'align-center' : null} {...props}>
     <Title>{props.title}</Title>
     {props.children}

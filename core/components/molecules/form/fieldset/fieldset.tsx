@@ -8,7 +8,7 @@ import containerStyles from '../../../_helpers/container-styles'
 
 export interface IFieldSetProps {
   /** Label for group of fields */
-  label: string,
+  label: string
   children?: React.ReactNode
 }
 

@@ -8,46 +8,45 @@ import Label from '../../atoms/label'
 import NavigationSubnav from './navigation-subnav'
 import { childrenMover } from '../../_helpers/children-mover'
 
-const ariaCurrent = props => (props.selected ? { 'aria-current': 'page' } : {})
+const ariaCurrent = (props) => (props.selected ? { 'aria-current': 'page' } : {})
 const { include: includeSubnav, exclude: excludeSubnav } = childrenMover(NavigationSubnav)
 
-const enforceSingleChildren = children => {
-  if (!children) return null
+const enforceSingleChildren = (children) => {
+  if (!children) { return null }
   if (children.constructor.name === 'Array') {
     return children[0] || null
   }
   return children
 }
 
-const findSelectedSubItem = subMenu => {
+const findSelectedSubItem = (subMenu) => {
   let found = false
 
-  React.Children.forEach(subMenu.props.children, link => {
-    if (link && link.props.selected) found = true
+  React.Children.forEach(subMenu.props.children, (link) => {
+    if (link && link.props.selected) { found = true }
   })
 
   return found
 }
 
 const processIcon = (children, selected, inSubMenu) =>
-  React.Children.map(children, child => {
+  React.Children.map(children, (child) => {
     if (child && child.type === Icon) {
       return React.cloneElement(child, {
         size: 18, // FIXME: Use a token
         color: selected
           ? colors.icon.sidebarFocus
           : inSubMenu
-            ? colors.text.subtle
-            : colors.icon.sidebar
+          ? colors.text.subtle
+          : colors.icon.sidebar
       })
     }
 
     return child
   })
 
-
 export interface INavigationItemProps {
-  id?: string;
+  id?: string
   icon?: string
   label?: string
   onClick?: Function
@@ -57,9 +56,9 @@ export interface INavigationItemProps {
   target?: string
   open?: boolean
   /** @internal */
-  inSubMenu?: boolean;
+  inSubMenu?: boolean
   /** @internal */
-  defaultOpen?: boolean;
+  defaultOpen?: boolean
 }
 
 export interface INavigationItemState {
@@ -67,14 +66,14 @@ export interface INavigationItemState {
 }
 
 class NavigationItem extends React.Component<INavigationItemProps, INavigationItemState> {
-  static Item = styled.li``
-  static Text = styled.div``
+  public static Item = styled.li``
+  public static Text = styled.div``
 
-  static Element = styled.a`
+  public static Element = styled.a`
     display: flex;
     align-items: flex-start;
     cursor: pointer;
-    color: ${props => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
+    color: ${(props) => (props.selected ? colors.link.sidebarFocus : colors.link.sidebar)};
     font-size: 13px;
     text-decoration: none;
     word-break: break-word;
@@ -97,7 +96,7 @@ class NavigationItem extends React.Component<INavigationItemProps, INavigationIt
     }
   `
 
-  static Postfix = styled.div`
+  public static Postfix = styled.div`
     margin-left: ${spacing.xsmall};
   `
 
@@ -114,16 +113,16 @@ class NavigationItem extends React.Component<INavigationItemProps, INavigationIt
     return selected || (subMenu ? findSelectedSubItem(subMenu) : false)
   }
 
-  toggleSubmenu() {
+  public toggleSubmenu() {
     this.setState({ subMenuOpen: !this.state.subMenuOpen })
   }
 
-  setSubMenuState(subMenu, state) {
-    if (!subMenu) return null
+  public setSubMenuState(subMenu, state) {
+    if (!subMenu) { return null }
     return React.cloneElement(subMenu, state)
   }
 
-  render() {
+  public render() {
     const props = this.props
     const { inSubMenu, children } = props
 
@@ -155,10 +154,5 @@ class NavigationItem extends React.Component<INavigationItemProps, INavigationIt
     )
   }
 }
-
-
-
-
-
 
 export default NavigationItem

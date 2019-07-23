@@ -11,7 +11,7 @@ export interface IResourceListProps {
   /** HTML ID of the component */
   id?: string
   /** The items that will be rendered in the list. */
-  items: any[],
+  items: any[]
   /** The actions to render to the right side of the list items. */
   actions?: ResourceListItemAction[]
   /** A function that will be called when an item is clicked. */
@@ -19,7 +19,7 @@ export interface IResourceListProps {
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */
   renderItem?: Function
   /** Whether the resource list will be sortable by the user or not */
-  sortable?: boolean,
+  sortable?: boolean
   onSortEnd?: SortEndHandler
 }
 
@@ -39,7 +39,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   }
 
-  const itemRendererBuilder = props => {
+  const itemRendererBuilder = (props) => {
     const {
       item,
       index,
@@ -52,8 +52,8 @@ const ResourceList = (props: IResourceListProps) => {
     const itemRenderer = renderItem || defaultItemRenderer
     const actualIndex = index || accessibilityIndex
 
-    const handleOnItemClick = evt => {
-      if (typeof onItemClick === 'function') onItemClick(evt, item)
+    const handleOnItemClick = (evt) => {
+      if (typeof onItemClick === 'function') { onItemClick(evt, item) }
     }
 
     return React.cloneElement(itemRenderer(item, props, actualIndex), {
@@ -80,11 +80,11 @@ const ResourceList = (props: IResourceListProps) => {
       onClick: onItemClick,
       accessibilityOnSortEnd
     }: {
-      item: Object,
-      actions: ResourceListItemAction[],
-      renderItem: Function,
-      accessibilityIndex: number,
-      onClick: Function,
+      item: Object
+      actions: ResourceListItemAction[]
+      renderItem: Function
+      accessibilityIndex: number
+      onClick: Function
       accessibilityOnSortEnd: Function
     }) =>
       itemRendererBuilder({
@@ -119,7 +119,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   )
 
-  const sortableChildrenRenderer = props => {
+  const sortableChildrenRenderer = (props) => {
     return (
       <SortableResourceList
         {...props}
@@ -130,7 +130,7 @@ const ResourceList = (props: IResourceListProps) => {
     )
   }
 
-  const resolveChildrenRenderer = props =>
+  const resolveChildrenRenderer = (props) =>
     props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
 
   return (

@@ -10,5 +10,4 @@ class Fixture extends React.Component {
   }
 }
 
-
 export default Fixture

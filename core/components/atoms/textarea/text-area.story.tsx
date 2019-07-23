@@ -33,8 +33,8 @@ storiesOf('TextArea', module).add('with actions as shape', () => (
     <TextArea
       placeholder="Small text area"
       actions={[
-        { icon: 'copy', label: 'Copy URL', handler: e => console.log(e) },
-        { icon: 'delete', label: 'Delete URL', handler: e => console.log(e) }
+        { icon: 'copy', label: 'Copy URL', handler: (e) => console.log(e) },
+        { icon: 'delete', label: 'Delete URL', handler: (e) => console.log(e) }
       ]}
     />
   </Example>
@@ -45,8 +45,8 @@ storiesOf('TextArea', module).add('with actions as buttons', () => (
     <TextArea
       placeholder="Small text area"
       actions={[
-        <Button icon="copy" onClick={e => console.log(e)} />,
-        <Button icon="delete" onClick={e => console.log(e)} />
+        <Button icon="copy" onClick={(e) => console.log(e)} />,
+        <Button icon="delete" onClick={(e) => console.log(e)} />
       ]}
     />
   </Example>
@@ -56,7 +56,7 @@ storiesOf('TextArea', module).add('with a copy action', () => (
   <Example title="with a copy action">
     <TextArea
       placeholder="Small text area"
-      actions={[<Button icon="copy" onClick={e => console.log(e)} />]}
+      actions={[<Button icon="copy" onClick={(e) => console.log(e)} />]}
     />
   </Example>
 ))

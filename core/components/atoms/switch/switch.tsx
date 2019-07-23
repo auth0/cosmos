@@ -1,10 +1,9 @@
-import * as React from 'react'
-import styled, { css } from '../../styled'
-import Automation from '../../_helpers/automation-attribute'
+import * as React from "react";
 
-import { colors, fonts, spacing, misc } from '../../tokens'
-import Form from '../../molecules/form'
-
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
+import styled, { css } from "../../styled";
+import { colors, fonts, misc, spacing } from "../../tokens";
 
 const Checkbox = styled.input`
   width: 0;
@@ -16,7 +15,7 @@ const Toggle = styled.span`
   width: 55px;
   height: var(--switch-height);
   border-radius: 21px;
-  background: ${props => (props.on ? colors.base.green : colors.base.grayLight)};
+  background: ${(props) => (props.on ? colors.base.green : colors.base.grayLight)};
   cursor: pointer;
   position: relative;
 
@@ -34,10 +33,10 @@ const Toggle = styled.span`
       -1px 3px 3px 0 rgba(0, 0, 0, 0.14);
     transition: transform ${misc.animationDuration} ease, width ${misc.animationDuration},
       left ${misc.animationDuration};
-    transform: translateX(${props => (props.on ? '20px' : 0)});
+    transform: translateX(${(props) => (props.on ? '20px' : 0)});
   }
 
-  ${props =>
+  ${(props) =>
     props.readOnly
       ? css`
           opacity: 0.4;
@@ -49,7 +48,7 @@ const Toggle = styled.span`
               left: ${(props: { on?: boolean }) => (props.on ? '0' : '6px')};
             }
           }
-`};
+        `};
 `
 
 const Label = styled.label`
@@ -63,9 +62,9 @@ const Label = styled.label`
     text-transform: uppercase;
     color: ${colors.text.secondary};
 
-    margin-left: ${props => (props.labelPosition == 'left' ? '0' : spacing.small)};
-    margin-right: ${props => (props.labelPosition == 'left' ? spacing.small : '0')};
-    text-align: ${props => (props.labelPosition == 'left' ? 'right' : 'left')};
+    margin-left: ${(props) => (props.labelPosition == 'left' ? '0' : spacing.small)};
+    margin-right: ${(props) => (props.labelPosition == 'left' ? spacing.small : '0')};
+    text-align: ${(props) => (props.labelPosition == 'left' ? 'right' : 'left')};
 
     /*
     In order to make the switch always the same width
@@ -91,22 +90,21 @@ const Label = styled.label`
 
 export interface ISwitchProps {
   /** HTML ID of the component */
-  id?: string,
+  id?: string
   /** @deprecatede:onChange Function called on toggle */
-  onToggle?: Function,
+  onToggle?: Function
   /** Function called when value changes */
-  onChange?: Function,
+  onChange?: Function
   /** State of the toggle */
-  on?: boolean,
+  on?: boolean
   /** Labels to show, import for accessibility */
-  accessibleLabels?: string[],
+  accessibleLabels?: string[]
   /** Hides accessibility labels */
-  hideAccessibleLabels?: boolean,
+  hideAccessibleLabels?: boolean
   /** Locked switch */
-  readOnly?: boolean,
+  readOnly?: boolean
   /** Label on left side */
-  labelPosition?: 'right' | 'left',
-
+  labelPosition?: 'right' | 'left'
 }
 
 interface ISwitchState {
@@ -114,9 +112,9 @@ interface ISwitchState {
 }
 
 class Switch extends React.Component<ISwitchProps, ISwitchState> {
-  static displayName = 'Switch'
+  public static displayName = 'Switch'
 
-  static defaultProps = {
+  public static defaultProps = {
     onToggle: null,
     onChange: null,
     on: false,
@@ -126,8 +124,7 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
     labelPosition: 'right'
   }
 
-
-  static Element = styled.span`
+  public static Element = styled.span`
     --switch-height: 32px;
 
     display: inline-flex;
@@ -146,33 +143,40 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
     this.state = { on: props.on }
   }
 
-  onToggle(e) {
+  public onToggle(e) {
     e.preventDefault()
     e.stopPropagation()
 
-    if (this.props.readOnly) return
-    this.setState(currentState => {
-      if (this.props.onChange) this.props.onChange(!currentState.on)
-      else if (this.props.onToggle) this.props.onToggle(!currentState.on)
+    if (this.props.readOnly) {
+      return
+    }
+    this.setState((currentState) => {
+      if (this.props.onChange) {
+        this.props.onChange(!currentState.on)
+      } else if (this.props.onToggle) {
+        this.props.onToggle(!currentState.on)
+      }
 
       return { on: !currentState.on }
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.on !== this.state.on) this.setState({ on: newProps.on })
+  public componentWillReceiveProps(newProps) {
+    if (newProps.on !== this.state.on) {
+      this.setState({ on: newProps.on })
+    }
   }
 
-  render() {
-    let [onLabel, offLabel] = this.props.accessibleLabels
+  public render() {
+    const [onLabel, offLabel] = this.props.accessibleLabels
 
     const checkbox = (
       <Form.Field.ContextConsumer>
-        {context => (
+        {(context) => (
           <Checkbox
             type="checkbox"
             checked={this.state.on}
-            readOnly
+            readOnly={true}
             id={this.props.id || context.formFieldId}
           />
         )}
@@ -223,4 +227,3 @@ class Switch extends React.Component<ISwitchProps, ISwitchState> {
 export const StyledSwitch = Switch.Element
 
 export default Switch
-

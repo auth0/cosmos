@@ -1,11 +1,12 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { SortableHandle } from 'react-sortable-hoc'
-import { Tooltip } from '../../'
-import { spacing, colors } from '../../tokens'
-import Button from '../../atoms/button'
+import * as React from "react";
+import { SortableHandle } from "react-sortable-hoc";
 
-const noop = () => { }
+import { Tooltip } from "../../";
+import Button from "../../atoms/button";
+import styled from "../../styled";
+import { colors, spacing } from "../../tokens";
+
+const noop = () => {}
 
 /**
  * Notifies handle's parent when its focus state changes
@@ -15,17 +16,19 @@ const noop = () => { }
 const notifyFocusStatusChange = (props, onFocus, ev) =>
   props && props.onFocusStatusChange && props.onFocusStatusChange({ onFocus }, ev)
 
-const SortableListHandle = SortableHandle<{ onFocusStatusChange?: Function }>(({ onFocusStatusChange = noop } = {}) => (
-  <SortableListHandleElement>
-    <Tooltip content="Re-order">
-      <SortableListHandleButton
-        onFocusStatusChange={onFocusStatusChange}
-        appearance="link"
-        icon="resize-vertical"
-      />
-    </Tooltip>
-  </SortableListHandleElement>
-))
+const SortableListHandle = SortableHandle<{ onFocusStatusChange?: Function }>(
+  ({ onFocusStatusChange = noop } = {}) => (
+    <SortableListHandleElement>
+      <Tooltip content="Re-order">
+        <SortableListHandleButton
+          onFocusStatusChange={onFocusStatusChange}
+          appearance="link"
+          icon="resize-vertical"
+        />
+      </Tooltip>
+    </SortableListHandleElement>
+  )
+)
 
 export const SortableListHandleElement = styled.div`
   display: flex;
@@ -34,10 +37,10 @@ export const SortableListHandleElement = styled.div`
   margin-right: ${spacing.xsmall};
 `
 
-export const SortableListHandleButton = props => (
+export const SortableListHandleButton = (props) => (
   <SortableListHandleButton.Element
-    onFocus={ev => notifyFocusStatusChange(props, true, ev)}
-    onBlur={ev => notifyFocusStatusChange(props, false, ev)}
+    onFocus={(ev) => notifyFocusStatusChange(props, true, ev)}
+    onBlur={(ev) => notifyFocusStatusChange(props, false, ev)}
     {...props}
   />
 )

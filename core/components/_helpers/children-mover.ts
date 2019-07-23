@@ -43,15 +43,15 @@ import * as React from 'react'
  *
  * @param {React.Element} type - The React element type you want to match
  */
-export const childrenMover = type => {
+export const childrenMover = (type) => {
   const conditionResolver = (child, isInclude) => {
     const condition = child && child.type === type
 
     return isInclude ? condition : !condition
   }
 
-  const childResolver = ({ isInclude }) => children =>
-    React.Children.map(children, child => (conditionResolver(child, isInclude) ? child : null))
+  const childResolver = ({ isInclude }) => (children) =>
+    React.Children.map(children, (child) => (conditionResolver(child, isInclude) ? child : null))
 
   return {
     include: childResolver({ isInclude: true }),

@@ -11,7 +11,7 @@
  *
  * @param {object} props
  */
-export const rootProps = props => {
+export const rootProps = (props) => {
   const { title, ...rest } = props
   return rest
 }

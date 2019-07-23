@@ -22,13 +22,13 @@ export interface IFieldProps {
   /** HTML name of the component */
   name?: string
   /** Form Label */
-  label?: string,
+  label?: string
   /** Text that further explains the purpose of the field, or provides more detail */
-  helpText?: React.ReactNode,
+  helpText?: React.ReactNode
   /** Error message to show in case of failed validation */
-  error?: string,
+  error?: string
   /** Actions to be attached to input */
-  actions?: (JSX.Element | ActionWithIcon)[],
+  actions?: Array<JSX.Element | ActionWithIcon>
   /** checkbox alignment */
   checkbox?: boolean
   hasError?: boolean
@@ -38,8 +38,8 @@ export interface IFieldProps {
   fieldComponent?: any
 }
 
-const shouldFieldUseCheckboxStyle = props => {
-  if (props.checkbox) return true
+const shouldFieldUseCheckboxStyle = (props) => {
+  if (props.checkbox) { return true }
   if (props.children) {
     const children = React.Children.toArray(props.children)
     const type = children[0].type
@@ -56,13 +56,13 @@ const FieldInput = (props) => {
     old API
     we proxy through all the props to the input element
   */
-  if (Component) return <Component {...fieldProps} />
+  if (Component) { return <Component {...fieldProps} /> }
 
   /*
     New API
     We create a context around the field to pass the field id
   */
-  let { children, id } = fieldProps
+  const { children, id } = fieldProps
   return <Provider value={{ formFieldId: id }}>{children}</Provider>
 }
 
@@ -79,17 +79,17 @@ const ariaDescribedBy = (helperTextId, errorTextId) => {
 }
 
 const applyAriaToFieldChild = (children, inputId, helperTextId, errorTextId) =>
-  React.Children.map(children, child => {
-    if (!child) return null
+  React.Children.map(children, (child) => {
+    if (!child) { return null }
     return React.cloneElement(child, {
       id: inputId,
       ...ariaDescribedBy(helperTextId, errorTextId)
     })
   })
 
-const getIdFromChild = child => child.props.id
+const getIdFromChild = (child) => child.props.id
 
-const getIdFromChildren = rawChildren => {
+const getIdFromChildren = (rawChildren) => {
   const children = React.Children.toArray(rawChildren)
   if (children.length === 0) {
     return null
@@ -99,7 +99,7 @@ const getIdFromChildren = rawChildren => {
 
 const Field = (props: IFieldProps) => {
   /* Get unique id for label */
-  let id = getIdFromChildren(props.children) || uniqueId(props.label)
+  const id = getIdFromChildren(props.children) || uniqueId(props.label)
   const { error, htmlFor, ...fieldProps } = props
   const useCheckboxStyle = shouldFieldUseCheckboxStyle(props)
   const Label = useCheckboxStyle ? Field.CheckboxLabel : StyledLabel
@@ -109,7 +109,7 @@ const Field = (props: IFieldProps) => {
 
   return (
     <FormContext.Consumer>
-      {context => (
+      {(context) => (
         // The field element needs to be wrap by a fieldset when it has radios or checkboxes inside
         // to make them accesible.
         // There is a bug due to a browser bug https://github.com/w3c/csswg-drafts/issues/321
@@ -131,8 +131,8 @@ const Field = (props: IFieldProps) => {
                   {...ariaDescribedBy(helperTextId, errorTextId)}
                 />
               ) : (
-                  applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
-                )}
+                applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
+              )}
               {(props.error || props.helpText) && (
                 <Field.FeedbackContainer>
                   {props.error && <StyledError id={errorTextId}>{props.error}</StyledError>}
@@ -158,9 +158,9 @@ Field.Element = styled.div`
   }
 
   @media (min-width: 768px) {
-    grid-gap: ${props => (props.layout === 'label-on-left' ? spacing.medium : spacing.xsmall)};
+    grid-gap: ${(props) => (props.layout === 'label-on-left' ? spacing.medium : spacing.xsmall)};
 
-    grid-template-columns: ${props => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
+    grid-template-columns: ${(props) => (props.layout === 'label-on-left' ? '200px 1fr' : '1fr')};
   }
 
   ${TextArea.Element} {
@@ -170,7 +170,7 @@ Field.Element = styled.div`
   ${Switch.Element} {
     /* Adds a space so the label aligns with the switch */
     @media (min-width: 768px) {
-      margin-top: ${props => (props.layout === 'label-on-left' ? '6px' : '0')};
+      margin-top: ${(props) => (props.layout === 'label-on-left' ? '6px' : '0')};
     }
   }
 `
@@ -184,9 +184,9 @@ Field.CheckboxLabel = StyledLabel.withComponent('legend')
 
 Field.LabelLayout = styled.div`
   @media (min-width: 768px) {
-    text-align: ${props => (props.layout === 'label-on-left' ? 'right' : 'left')};
-    padding-top: ${props =>
-    !props.checkbox && props.layout === 'label-on-left' ? misc.inputs.padding : '0'};
+    text-align: ${(props) => (props.layout === 'label-on-left' ? 'right' : 'left')};
+    padding-top: ${(props) =>
+      !props.checkbox && props.layout === 'label-on-left' ? misc.inputs.padding : '0'};
   }
 `
 Field.ContentLayout = styled.div``

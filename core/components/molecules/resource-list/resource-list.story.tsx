@@ -31,28 +31,28 @@ storiesOf('Resource List', module).add('titles and subtitles', () => (
 ))
 
 class SortableResourceListExample extends React.Component {
-  state = {
+  public state = {
     items: [
       { title: 'Title One', subtitle: 'Subtitle One', href: 'https://auth0.com/' },
       { title: 'Title Two', subtitle: 'Subtitle Two', href: 'https://auth0.com/' },
       { title: 'Title Three', subtitle: 'Subtitle Three', href: 'https://auth0.com/' }
     ]
   }
-  onSortEnd({ oldIndex, newIndex }) {
+  public onSortEnd({ oldIndex, newIndex }) {
     this.setState({
       items: arrayMove(this.state.items, oldIndex, newIndex)
     })
   }
-  render() {
+  public render() {
     return (
       <ResourceList
         actions={[
-          <Button onClick={() => { }} icon="settings" label="Settings" />,
-          <Button onClick={() => { }} icon="delete" label="Delete" />
+          <Button onClick={() => {}} icon="settings" label="Settings" />,
+          <Button onClick={() => {}} icon="delete" label="Delete" />
         ]}
         sortable
         items={this.state.items}
-        onSortEnd={event => this.onSortEnd(event)}
+        onSortEnd={(event) => this.onSortEnd(event)}
       />
     )
   }
@@ -108,7 +108,7 @@ storiesOf('Resource List', module).add('custom renderer', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
@@ -125,14 +125,14 @@ storiesOf('Resource List', module).add('actions', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="delete" onClick={() => { }} />,
-        <Button icon="settings" onClick={() => { }} />
+        <Button icon="delete" onClick={() => {}} />,
+        <Button icon="settings" onClick={() => {}} />
       ]}
     />
   </Example>
@@ -146,14 +146,14 @@ storiesOf('Resource List', module).add('body width', () => (
         { title: 'Title Two', subtitle: 'Subtitle Two', image: IMAGE_URLS[1], id: 'def456' },
         { title: 'Title Three', subtitle: 'Subtitle Three', image: IMAGE_URLS[2], id: 'ghi789' }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item} bodyWidth="180px">
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="delete" onClick={() => { }} />,
-        <Button icon="settings" onClick={() => { }} />
+        <Button icon="delete" onClick={() => {}} />,
+        <Button icon="settings" onClick={() => {}} />
       ]}
     />
   </Example>
@@ -182,14 +182,14 @@ storiesOf('Resource List', module).add('actions as buttons', () => (
           id: 'def456def456def456def456def456'
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="settings" onClick={() => { }} label="Settings" />,
-        <Button icon="delete" onClick={() => { }} label="Delete" />
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>
@@ -207,19 +207,19 @@ storiesOf('Resource List', module).add('action overrides', () => (
           image: IMAGE_URLS[2],
           id: 'ghi789',
           actions: [
-            <Button icon="settings" onClick={() => { }} label="Settings" disabled />,
-            <Button icon="delete" onClick={() => { }} label="Delete" />
+            <Button icon="settings" onClick={() => {}} label="Settings" disabled />,
+            <Button icon="delete" onClick={() => {}} label="Delete" />
           ]
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="settings" onClick={() => { }} label="Settings" />,
-        <Button icon="delete" onClick={() => { }} label="Delete" />
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>
@@ -266,13 +266,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         },
         {
@@ -282,13 +282,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         },
         {
@@ -298,13 +298,13 @@ storiesOf('Resource List', module).add('stressed - with actions', () => (
           subtitle:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula massa augue, in consectetur tellus tristique ut.',
           actions: [
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />,
-            <Button icon="settings" onClick={() => { }} label="Settings" />
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />,
+            <Button icon="settings" onClick={() => {}} label="Settings" />
           ]
         }
       ]}
@@ -337,14 +337,14 @@ storiesOf('Resource List', module).add('stressed - with body', () => (
             'ghlkjhsdhlkjdsghkdsfkljhdfslkdfsjkdfhljdfkhjldfskljhfdskljdfhskjhdfsjlkhdfskjlhfdsjlkhdfskljhdfskjhlfdkhljsfdkjfdhkdfslkhjdsfhjki789'
         }
       ]}
-      renderItem={item => (
+      renderItem={(item) => (
         <ResourceList.Item {...item}>
           ID: <Code>{item.id}</Code>
         </ResourceList.Item>
       )}
       actions={[
-        <Button icon="settings" onClick={() => { }} label="Settings" />,
-        <Button icon="delete" onClick={() => { }} label="Delete" />
+        <Button icon="settings" onClick={() => {}} label="Settings" />,
+        <Button icon="delete" onClick={() => {}} label="Delete" />
       ]}
     />
   </Example>

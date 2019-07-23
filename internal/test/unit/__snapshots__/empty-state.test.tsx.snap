@@ -26,9 +26,7 @@ exports[`Empty State renders properly 1`] = `
         target="_blank"
       >
         Learn More 
-        <i>
-           
-        </i>
+        <i />
       </Link>
     </styled.div>
   </styled.div>

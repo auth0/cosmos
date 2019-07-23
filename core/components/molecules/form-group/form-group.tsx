@@ -14,7 +14,7 @@ export interface IFormGroupProps {
 }
 
 const FormGroup = ({ children, ...props }: IFormGroupProps) => {
-  const wrappedChildren = React.Children.map(children, child => {
+  const wrappedChildren = React.Children.map(children, (child) => {
     return <FormGroup.FormWrapper>{child}</FormGroup.FormWrapper>
   })
 

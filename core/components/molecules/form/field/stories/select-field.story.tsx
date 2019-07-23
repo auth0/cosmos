@@ -16,7 +16,7 @@ storiesOf('Form', module).add('select field', () => (
             { text: 'Third option', value: '3' },
             { text: 'Fourth option', value: '4' }
           ]}
-          onChange={event => console.log(event)}
+          onChange={(event) => console.log(event)}
         />
       </Form.Field>
     </Form>
@@ -36,7 +36,7 @@ storiesOf('Form', module).add('select field + error', () => (
             { text: 'Third option', value: '3' },
             { text: 'Fourth option', value: '4' }
           ]}
-          onChange={event => console.log(event)}
+          onChange={(event) => console.log(event)}
         />
       </Form.Field>
     </Form>
@@ -56,7 +56,7 @@ storiesOf('Form', module).add('select field - old API', () => (
           { text: 'Third option', value: '3' },
           { text: 'Fourth option', value: '4' }
         ]}
-        onChange={event => console.log(event)}
+        onChange={(event) => console.log(event)}
       />
     </Form>
   </Example>

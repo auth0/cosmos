@@ -1,8 +1,9 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { colors, spacing } from '../../tokens'
-import Automation from '../../_helpers/automation-attribute'
-import Form from '../../molecules/form'
+import * as React from "react";
+
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
+import styled from "../../styled";
+import { colors, spacing } from "../../tokens";
 
 const CheckMark = styled.span``
 const Label = styled.div``
@@ -24,15 +25,17 @@ export interface IRadioProps {
   /** If true all options in the group will be disabled */
   readOnly?: boolean
   /** Callback function which is called when the user selects an option */
-  onChange?: Function,
+  onChange?: Function
   children?: JSX.Element | JSX.Element[]
   onClick?: Function
 }
 
 const Radio = (props: IRadioProps) => (
   <Radio.Element {...props} {...Automation('radio')}>
-    {React.Children.map(props.children, child => {
-      if (!child) return null
+    {React.Children.map(props.children, (child) => {
+      if (!child) {
+        return null
+      }
       return React.cloneElement(child, {
         name: props.name,
         checked: props.selected === child.props.value,
@@ -52,12 +55,12 @@ export interface IRadioOptionProps {
 const RadioOption = ({ readOnly, children, ...props }: IRadioOptionProps) => (
   <RadioOption.Element readOnly={readOnly}>
     <Form.Field.ContextConsumer>
-      {context => (
+      {(context) => (
         <input
           id={props.id || context.formFieldId}
           {...Automation('radio.option')}
           type="radio"
-          readOnly
+          readOnly={true}
           {...props}
         />
       )}
@@ -74,7 +77,7 @@ RadioOption.Element = styled.label`
   padding-left: ${spacing.medium};
   user-select: none;
   vertical-align: middle;
-  pointer-events: ${props => (props.readOnly ? 'none' : null)};
+  pointer-events: ${(props) => (props.readOnly ? 'none' : null)};
 
   input {
     position: absolute;
@@ -83,7 +86,7 @@ RadioOption.Element = styled.label`
   }
 
   ${Label} {
-    opacity: ${props => (props.readOnly ? 0.5 : null)};
+    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
   }
 
   ${CheckMark} {
@@ -93,12 +96,12 @@ RadioOption.Element = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    background-color: ${props =>
-    props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
+    background-color: ${(props) =>
+      props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background};
     border: 1px solid
-      ${props => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
+      ${(props) => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
     box-shadow: inset 0 1px 2px 0
-      ${props => (props.readOnly ? colors.radio.shadowDisabled : colors.radio.shadow)};
+      ${(props) => (props.readOnly ? colors.radio.shadowDisabled : colors.radio.shadow)};
     border-radius: 50%;
   }
 
@@ -141,8 +144,8 @@ Radio.Option = RadioOption
 
 Radio.Element = styled.div`
   ${Radio.Option.Element} {
-    display: ${props => (props.align === 'horizontal' ? 'inline-block' : 'table')};
-    ${props => justifyContent[props.align]};
+    display: ${(props) => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    ${(props) => justifyContent[props.align]};
 
     &:last-child {
       margin: 0;

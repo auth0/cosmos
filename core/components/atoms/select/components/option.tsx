@@ -9,7 +9,7 @@ const selectOpacity = {
 
 const hoverBackgroundColor = '#F5F7F9'
 
-export const optionRenderer = providedRenderer => optionProps => {
+export const optionRenderer = (providedRenderer) => (optionProps) => {
   const { innerProps, data } = optionProps
 
   const state = { isHovered: optionProps.isFocused, isDisabled: data.isDisabled }
@@ -22,15 +22,15 @@ export const optionRenderer = providedRenderer => optionProps => {
   )
 }
 
-export const Option = optionRenderer(data => <p>{data.label}</p>)
+export const Option = optionRenderer((data) => <p>{data.label}</p>)
 
 export const OptionElement = styled.div`
-  background-color: ${props =>
+  background-color: ${(props) =>
     props.noStyles ? 'none' : props.isHovered ? hoverBackgroundColor : 'white'};
   display: flex;
   align-items: center;
-  padding: ${props => (props.noStyles ? 'none' : `${spacing.xsmall} ${spacing.small}`)};
+  padding: ${(props) => (props.noStyles ? 'none' : `${spacing.xsmall} ${spacing.small}`)};
   color: ${colors.text.default};
-  cursor: ${props => (props.isDisabled ? 'no-drop' : 'pointer')};
-  opacity: ${props => (props.isDisabled ? selectOpacity.disabled : selectOpacity.default)};
+  cursor: ${(props) => (props.isDisabled ? 'no-drop' : 'pointer')};
+  opacity: ${(props) => (props.isDisabled ? selectOpacity.disabled : selectOpacity.default)};
 `

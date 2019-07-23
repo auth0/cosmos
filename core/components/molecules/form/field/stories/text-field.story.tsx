@@ -24,15 +24,15 @@ storiesOf('Form', module).add('text field + error', () => (
   </Example>
 ))
 
-const textInputForSize = size => (
+const textInputForSize = (size) => (
   <Form.Field label="Field label">
     <TextInput
       type="text"
       size={size}
       placeholder="Enter something"
       actions={[
-        <Button icon="copy" onClick={e => console.log(e)} />,
-        <Button icon="delete" onClick={e => console.log(e)} />
+        <Button icon="copy" onClick={(e) => console.log(e)} />,
+        <Button icon="delete" onClick={(e) => console.log(e)} />
       ]}
     />
   </Form.Field>
@@ -58,8 +58,8 @@ storiesOf('Form', module).add('text field - old API', () => (
         type="text"
         placeholder="Enter something"
         actions={[
-          { icon: 'copy', handler: () => { }, label: 'Copy to clipboard' },
-          { icon: 'delete', handler: () => { }, label: 'Delete' }
+          { icon: 'copy', handler: () => {}, label: 'Copy to clipboard' },
+          { icon: 'delete', handler: () => {}, label: 'Delete' }
         ]}
       />
     </Form>

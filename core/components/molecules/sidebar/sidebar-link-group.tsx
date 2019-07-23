@@ -1,9 +1,9 @@
-import * as React from "react";
+import * as React from 'react'
 
-import Automation from "../../_helpers/automation-attribute";
-import { __ICONNAMES__ } from "../../atoms/icon";
-import styled from "../../styled";
-import SidebarLink from "./sidebar-link";
+import Automation from '../../_helpers/automation-attribute'
+import { __ICONNAMES__ } from '../../atoms/icon'
+import styled from '../../styled'
+import SidebarLink from './sidebar-link'
 
 export interface ISidebarLinkGroupProps {
   /** HTML ID of the component */
@@ -21,17 +21,17 @@ interface ISidebarLinkGroupState {
 }
 
 class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarLinkGroupState> {
-  static Element = styled.div``
+  public static Element = styled.div``
 
-  static Content = styled.div`
+  public static Content = styled.div`
     padding-left: 1.75em;
     overflow: hidden;
-    max-height: ${props => (props.open ? props.children.length * 50 + 'px' : '0')};
-    visibility: ${props => (props.open ? 'visible' : 'hidden')};
+    max-height: ${(props) => (props.open ? props.children.length * 50 + 'px' : '0')};
+    visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
     transition: max-height 0.5s ease, visibility 0.5s ease;
   `
 
-  static defaultProps = {}
+  public static defaultProps = {}
 
   constructor(props) {
     super(props)
@@ -40,18 +40,18 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
     this.state = { open: props.defaultOpen || false, subItemSelected }
   }
 
-  evaluateSubItemSelection(props) {
+  public evaluateSubItemSelection(props) {
     let subItemSelected = false
 
-    React.Children.forEach(props.children, child => {
+    React.Children.forEach(props.children, (child) => {
       /* group should be open and parent be selected */
-      if (child && child.props && child.props.selected) subItemSelected = true
+      if (child && child.props && child.props.selected) { subItemSelected = true }
     })
 
     return subItemSelected
   }
 
-  componentDidUpdate() {
+  public componentDidUpdate() {
     const selected = this.evaluateSubItemSelection(this.props)
 
     if (this.state.subItemSelected !== selected) {
@@ -59,11 +59,11 @@ class SidebarLinkGroup extends React.Component<ISidebarLinkGroupProps, ISidebarL
     }
   }
 
-  handleClick = () => {
+  public handleClick = () => {
     this.setState({ open: !this.state.open })
   }
 
-  render() {
+  public render() {
     const { icon, label, children } = this.props
     const { open, subItemSelected } = this.state
 

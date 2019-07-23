@@ -39,8 +39,8 @@ Box.Element = styled.div`
   border-radius: ${misc.radius};
 
   /* you can use props here to customize the element */
-  width: ${props => (props.big ? '100px' : '50px')};
-  height: ${props => (props.big ? '100px' : '50px')};
+  width: ${(props) => (props.big ? '100px' : '50px')};
+  height: ${(props) => (props.big ? '100px' : '50px')};
 
   /* this is how you add pseudo states */
   &:hover {
