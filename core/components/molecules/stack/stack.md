@@ -3,6 +3,9 @@
   description: "Use this component to horizontally layout children"
 ```
 
+**Do not use this component!** This component will be deprecated soon. Use the `StackLayout` component instead.
+
+
 `import { Stack } from '@auth0/cosmos'`
 
 ```jsx
