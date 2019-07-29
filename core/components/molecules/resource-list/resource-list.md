@@ -4,6 +4,8 @@
   unstable: true
 ```
 
+**Do not use this component!** This component will be deprecated soon. Use the `List` component instead.
+
 `import { ResourceList } from '@auth0/cosmos'`
 
 The `ResourceList` is a data-driven list. You should use it when you have a list of _resources_; that is, records or entities loaded from a database of some kind.
