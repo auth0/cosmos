@@ -18,7 +18,7 @@ export interface IAlertProps {
   id?: string
   appearance?: IAlertAppearance
   icon?: string
-  title?: string | React.ReactNode
+  title?: React.ReactNode
   /** @deprecated:children  */
   text?: string
   /** @deprecated:children  */
