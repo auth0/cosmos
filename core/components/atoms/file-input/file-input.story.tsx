@@ -43,3 +43,9 @@ storiesOf("FileInput", module).add("file name truncation", () => (
     />
   </Example>
 ));
+
+storiesOf("FileInput", module).add("no files selected", () => (
+  <Example title="no files selected">
+    <FileInput items={[]} />
+  </Example>
+));

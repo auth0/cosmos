@@ -152,7 +152,7 @@ class FileInput extends React.Component<IFileInputProps> {
             </FileInput.Button>
             {selectedItems && (
               <FileInput.Text>
-                {selectedItems.length} file
+                {selectedItems.length === 0 ? "No" : selectedItems.length} file
                 {selectedItems.length === 1 ? "" : "s"} selected
               </FileInput.Text>
             )}
