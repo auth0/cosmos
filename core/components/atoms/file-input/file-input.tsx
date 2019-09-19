@@ -41,7 +41,7 @@ export interface IFileInputProps {
   /** accept state */
   accept?: string[];
   /** items state */
-  items: Array<FileInputItem>;
+  items: FileInputItem[];
   /** items state */
   multiple?: boolean;
 
