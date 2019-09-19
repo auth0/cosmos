@@ -13,15 +13,15 @@ import Spinner from "../spinner";
 
 export type FileInputSize = "default" | "large" | "small" | "compressed";
 
-export type FileInputFile = {
+export interface IFileInputFile {
   name: string;
   size: number;
-};
+}
 
-export type FileInputItem = {
-  file: FileInputFile;
+export interface IFileInputItem {
+  file: IFileInputFile;
   loading?: boolean;
-};
+}
 
 export interface IFileInputProps {
   /** HTML ID for the element */
@@ -41,7 +41,7 @@ export interface IFileInputProps {
   /** accept state */
   accept?: string[];
   /** items state */
-  items: FileInputItem[];
+  items: IFileInputItem[];
   /** items state */
   multiple?: boolean;
 
