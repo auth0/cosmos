@@ -23,6 +23,7 @@ export interface IFileInputItem {
   loading?: boolean;
 }
 
+
 export interface IFileInputProps {
   /** HTML ID for the element */
   id?: string;
@@ -124,6 +125,7 @@ class FileInput extends React.Component<IFileInputProps> {
     border-radius: 3px;
     padding: ${spacing.small};
   `;
+
   public static defaultProps = {
     multiple: false,
   };
@@ -168,41 +170,42 @@ class FileInput extends React.Component<IFileInputProps> {
             )}
           </FileInput.Label>
         </FileInput.Container>
+        {selectedItems.length > 0 && (
+          <FileInput.List {...Automation("file-input.list")}>
+            {selectedItems &&
+              selectedItems.map((item, itemIndex) => {
+                const file = item.file;
+                const deleteFileHandler = () => this.onDeleteHandler(itemIndex);
 
-        <FileInput.List {...Automation("file-input.list")}>
-          {selectedItems &&
-            selectedItems.map((item, itemIndex) => {
-              const file = item.file;
-              const deleteFileHandler = () => this.onDeleteHandler(itemIndex);
+                if (this.props.renderItem) {
+                  return this.props.renderItem(item, itemIndex, deleteFileHandler);
+                }
 
-              if (this.props.renderItem) {
-                return this.props.renderItem(item, itemIndex, deleteFileHandler);
-              }
+                return (
+                  <FileInput.ListItem key={file.name} {...Automation("file-input.list-item")}>
+                    <FileInput.ListItemBody>
+                      {item.loading ? (
+                        <FileInput.Spinner />
+                      ) : (
+                        <Icon name="attachment" color={colors.text.secondary} size={18} />
+                      )}
 
-              return (
-                <FileInput.ListItem key={file.name} {...Automation("file-input.list-item")}>
-                  <FileInput.ListItemBody>
-                    {item.loading ? (
-                      <FileInput.Spinner />
-                    ) : (
-                      <Icon name="attachment" color={colors.text.secondary} size={18} />
-                    )}
-
-                    <FileInput.FileName>{truncateMidString(file.name)}</FileInput.FileName>
-                    <FileInput.FileNameWeight>{bytesConversion(file.size)}</FileInput.FileNameWeight>
-                  </FileInput.ListItemBody>
-                  <FileInput.Button
-                    icon="delete"
-                    size="small"
-                    appearance="link"
-                    label={item.loading ? "" : "Remove"}
-                    onClick={deleteFileHandler}
-                    disabled={item.loading}
-                  />
-                </FileInput.ListItem>
-              );
-            })}
-        </FileInput.List>
+                      <FileInput.FileName>{truncateMidString(file.name)}</FileInput.FileName>
+                      <FileInput.FileNameWeight>{bytesConversion(file.size)}</FileInput.FileNameWeight>
+                    </FileInput.ListItemBody>
+                    <FileInput.Button
+                      icon="delete"
+                      size="small"
+                      appearance="link"
+                      label={item.loading ? "" : "Remove"}
+                      onClick={deleteFileHandler}
+                      disabled={item.loading}
+                    />
+                  </FileInput.ListItem>
+                );
+              })}
+          </FileInput.List>
+        )}
       </FileInput.Element>
     );
   }
