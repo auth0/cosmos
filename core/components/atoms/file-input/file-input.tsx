@@ -13,6 +13,17 @@ import Spinner from "../spinner";
 
 export type FileInputSize = "default" | "large" | "small" | "compressed";
 
+export interface IFileInputFile {
+  name: string;
+  size: number;
+}
+
+export interface IFileInputItem {
+  file: IFileInputFile;
+  loading?: boolean;
+}
+
+
 export interface IFileInputProps {
   /** HTML ID for the element */
   id?: string;
@@ -31,7 +42,7 @@ export interface IFileInputProps {
   /** accept state */
   accept?: string[];
   /** items state */
-  items: Array<{ file: any; loading?: boolean }>;
+  items: IFileInputItem[];
   /** items state */
   multiple?: boolean;
 
@@ -114,6 +125,7 @@ class FileInput extends React.Component<IFileInputProps> {
     border-radius: 3px;
     padding: ${spacing.small};
   `;
+
   public static defaultProps = {
     multiple: false,
   };
@@ -152,7 +164,7 @@ class FileInput extends React.Component<IFileInputProps> {
             </FileInput.Button>
             {selectedItems && (
               <FileInput.Text>
-                {selectedItems.length} file
+                {selectedItems.length === 0 ? "No" : selectedItems.length} file
                 {selectedItems.length === 1 ? "" : "s"} selected
               </FileInput.Text>
             )}
