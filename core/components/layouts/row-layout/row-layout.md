@@ -25,7 +25,7 @@ Use the `Rowlayout` to organize components vertically into row.
 - **Arrange components next to each other:** To arrange components next to one another while keeping their relative sizes use the Stack Layout.
 - **Card List**: Use the Gallery layout instead.
 
-Combine the `ColymnLayout` with the `RowLayout` to achieve complex grid arrangments.
+Combine the `ColumnLayout` with the `RowLayout` to achieve complex grid arrangements.
 
 ## Accessibility
 
