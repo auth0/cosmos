@@ -23,7 +23,6 @@ export interface IFileInputItem {
   loading?: boolean;
 }
 
-
 export interface IFileInputProps {
   /** HTML ID for the element */
   id?: string;
