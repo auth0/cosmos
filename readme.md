@@ -35,6 +35,8 @@ See the documentation at https://auth0-cosmos.now.sh/docs
 
 ### Installation
 
+Ensure you have [Yarn](https://yarnpkg.com/lang/en/) installed.
+
 To add Cosmos to your React application, run:
 
 ```
