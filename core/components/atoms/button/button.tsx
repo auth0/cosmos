@@ -204,7 +204,7 @@ export interface IButtonProps {
   appearance?: ButtonAppearance
   /** Name of icon */
   icon?: string
-  /** Name of icon */
+  /** Align Icon Left or Right */
   iconAlign?: ButtonIconAlign
   /** Tooltip to show when the user hovers over the button */
   label?: string
