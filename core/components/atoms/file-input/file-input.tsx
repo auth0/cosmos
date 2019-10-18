@@ -133,6 +133,7 @@ class FileInput extends React.Component<IFileInputProps> {
     const items = Array.from(event.target.files).map((item) => ({ file: item, loading: false }));
 
     if (this.props.onChange) {
+      event.target.value = null;
       this.props.onChange({ added: items });
     }
   };
