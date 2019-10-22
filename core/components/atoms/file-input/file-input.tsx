@@ -186,7 +186,7 @@ class FileInput extends React.Component<IFileInputProps> {
                 }
 
                 return (
-                  <FileInput.ListItem key={file.name} {...Automation("file-input.list-item")}>
+                  <FileInput.ListItem key={itemIndex} {...Automation("file-input.list-item")}>
                     <FileInput.ListItemBody>
                       {item.loading ? (
                         <FileInput.Spinner />
