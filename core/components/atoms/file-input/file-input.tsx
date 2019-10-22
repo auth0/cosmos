@@ -133,6 +133,10 @@ class FileInput extends React.Component<IFileInputProps> {
     const items = Array.from(event.target.files).map((item) => ({ file: item, loading: false }));
 
     if (this.props.onChange) {
+      /**
+       * File input cannot be controlled in a React-specific way.
+       * To allow re-adding a file that was just removed, clear the input value like this:
+       */
       event.target.value = null;
       this.props.onChange({ added: items });
     }
