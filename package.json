@@ -64,6 +64,7 @@
     "lint-staged": "7.2.0",
     "lodash.camelcase": "4.3.0",
     "lodash.frompairs": "4.0.1",
+    "lodash.isempty": "4.4.0",
     "md5-file": "^4.0.0",
     "nps": "5.9.2",
     "nps-i": "1.0.2",

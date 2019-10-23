@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '../../styled'
 import Automation from '../../_helpers/automation-attribute'
 import containerStyles from '../../_helpers/container-styles'
+import isEmpty from 'lodash.isempty'
 
 import Well from '../../atoms/_well'
 import { spacing } from '../../tokens'
@@ -15,7 +16,11 @@ export interface IFormGroupProps {
 
 const FormGroup = ({ children, ...props }: IFormGroupProps) => {
   const wrappedChildren = React.Children.map(children, (child) => {
-    return <FormGroup.FormWrapper>{child}</FormGroup.FormWrapper>
+    if (isEmpty(child)) {
+      return null;
+    } else {
+      return <FormGroup.FormWrapper>{child}</FormGroup.FormWrapper>;
+    }
   })
 
   return (
