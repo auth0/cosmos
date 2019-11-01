@@ -36,7 +36,7 @@ import Switch from "./atoms/switch";
 import Tag from "./atoms/tag";
 import Text from "./atoms/text";
 import TextArea from "./atoms/textarea";
-import TextInput from "./atoms/text-input";
+import TextInput, { ITextInputProps, TextInputSize } from "./atoms/text-input";
 
 import Tooltip from "./atoms/tooltip";
 
@@ -118,6 +118,8 @@ export {
   Text,
   TextArea,
   TextInput,
+  ITextInputProps,
+  TextInputSize,
   Tooltip,
   Well,
 };
