@@ -48,8 +48,8 @@ import {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  StackLayout
-} from './components'
+  StackLayout,
+} from "./components";
 
 export {
   Alert,
@@ -101,5 +101,5 @@ export {
   GalleryLayout,
   RowLayout,
   PageLayout,
-  StackLayout
-}
+  StackLayout,
+};
