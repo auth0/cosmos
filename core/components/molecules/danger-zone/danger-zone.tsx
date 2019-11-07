@@ -68,7 +68,7 @@ export interface IDangerZoneProps {
   items: Array<{
     title: string;
     action?: { loading?: boolean; label?: string; onClick?: Function; type?: ButtonType };
-    description?: string | React.ReactNode;
+    description?: React.ReactNode;
   }>;
 }
 
