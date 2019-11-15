@@ -23,7 +23,6 @@ export interface IFileInputItem {
   loading?: boolean;
 }
 
-
 export interface IFileInputProps {
   /** HTML ID for the element */
   id?: string;
@@ -134,6 +133,11 @@ class FileInput extends React.Component<IFileInputProps> {
     const items = Array.from(event.target.files).map((item) => ({ file: item, loading: false }));
 
     if (this.props.onChange) {
+      /**
+       * File input cannot be controlled in a React-specific way.
+       * To allow re-adding a file that was just removed, clear the input value like this:
+       */
+      event.target.value = null;
       this.props.onChange({ added: items });
     }
   };
@@ -182,7 +186,7 @@ class FileInput extends React.Component<IFileInputProps> {
                 }
 
                 return (
-                  <FileInput.ListItem key={file.name} {...Automation("file-input.list-item")}>
+                  <FileInput.ListItem key={itemIndex} {...Automation("file-input.list-item")}>
                     <FileInput.ListItemBody>
                       {item.loading ? (
                         <FileInput.Spinner />
