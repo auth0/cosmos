@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.32.0 [January 2, 2020]
+
+
+### Fixed
+
+- Fix not being able to remove and add the same file in FileInput. [#1665]
+- Fix extra rendering in FormGroup. [#1678]
+
+### Changes
+
+- Adds deprecation text to the ResourceList and Stack components. [#1659]
+- Remove empty element from FileInput when there are no files. [#1667]
+- Change '0 files selected' to 'No files selected' in FileInput. [#1666]
+
+### Internal
+
+- Added TSLint. [#1654]
+- Fix icons library referencing in documentation. [#1658]
+- Fix typo in RowLayout documentation. [#1671]
+- Fix symlink error with Yarn in CircleCI. [#1686]
+
 ## 0.31.0 [July 22, 2019]
 
 ### Changes
