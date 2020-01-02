@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g yarn@1.16'
+          command: 'sudo npm install --force -g yarn@1.16'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g yarn@1.16'
+          command: 'sudo npm install --force -g yarn@1.16'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -57,7 +57,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g yarn@1.16'
+          command: 'sudo npm install --force -g yarn@1.16'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
@@ -78,7 +78,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: 'sudo npm install -g yarn@1.16'
+          command: 'sudo npm install --force -g yarn@1.16'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
