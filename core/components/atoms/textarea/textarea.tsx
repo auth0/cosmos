@@ -1,40 +1,45 @@
-import * as React from 'react'
-import styled from '../../styled'
+import * as React from "react";
+import styled from "../../styled";
 
-import { StyledInput } from '../_styled-input'
-import Automation from '../../_helpers/automation-attribute'
-import Form from '../../molecules/form'
+import { StyledInput } from "../_styled-input";
+import Automation from "../../_helpers/automation-attribute";
+import Form from "../../molecules/form";
 
 /* Input with actions */
-import InputWithActions from '../_input-with-actions'
-import { ActionWithIcon } from '../../_helpers/action-shape'
+import InputWithActions from "../_input-with-actions";
+import { ActionWithIcon } from "../../_helpers/action-shape";
 
 export interface ITextAreaProps {
   /** HTML ID of the component */
-  id?: string
+  id?: string;
   /** Length of the textarea in rows */
-  length?: number
+  length?: number;
   /** Make input readOnly if it does not validate constraint */
-  readOnly?: boolean
+  readOnly?: boolean;
   /** Use when the expected input is code */
-  code?: boolean
+  code?: boolean;
   /** Pass hasError to show error state */
-  hasError?: boolean
+  hasError?: boolean;
   /** @deprecated:hasError Pass error string directly to show error state */
-  error?: string
+  error?: string;
   /** Allow resizing of the textarea */
-  resizable?: boolean
+  resizable?: boolean;
   /** onChange transparently passed to the input */
-  onChange?: Function
+  onChange?: Function;
   /** Placeholder for the input component */
-  placeholder?: string
+  placeholder?: string;
   /** Actions to be attached to the input */
-  actions?: Array<JSX.Element | ActionWithIcon>
+  actions?: Array<JSX.Element | ActionWithIcon>;
   /** The default value for the field */
-  defaultValue?: string
+  defaultValue?: string;
   /** The current value for the text area */
-  value?: string
-  onClick?: Function
+  value?: string;
+  /** onBlur transparently passed to the input */
+  onBlur?: Function;
+  /** onFocus transparently passed to the input */
+  onFocus?: Function;
+  /** onClick transparently passed to the input */
+  onClick?: Function;
 }
 
 const TextArea = (props: ITextAreaProps) => {
@@ -45,26 +50,27 @@ const TextArea = (props: ITextAreaProps) => {
           rows={props.length}
           id={props.id || context.formFieldId}
           {...props}
-          {...Automation('text-area')}
+          {...Automation("text-area")}
         />
       )}
     </Form.Field.ContextConsumer>
-  )
+  );
 
-  if (!props.actions.length) { return Input }
-  else {
+  if (!props.actions.length) {
+    return Input;
+  } else {
     /* Input is not a component, just JSX, hence wrapped in {} */
-    return <InputWithActions actions={props.actions}>{Input}</InputWithActions>
+    return <InputWithActions actions={props.actions}>{Input}</InputWithActions>;
   }
-}
+};
 
-TextArea.Element = styled(StyledInput.withComponent('textarea'))`
-  resize: ${(props) => (props.resizable ? 'vertical' : 'none')};
-  font-size: ${(props) => (props.code ? '13px' : 'inherit')};
+TextArea.Element = styled(StyledInput.withComponent("textarea"))`
+  resize: ${(props) => (props.resizable ? "vertical" : "none")};
+  font-size: ${(props) => (props.code ? "13px" : "inherit")};
   display: block;
-`
+`;
 
-export const StyledTextArea = TextArea.Element
+export const StyledTextArea = TextArea.Element;
 
 TextArea.defaultProps = {
   length: 3,
@@ -73,7 +79,7 @@ TextArea.defaultProps = {
   error: null,
   resizable: true,
   onChange: null,
-  actions: []
-}
+  actions: [],
+};
 
-export default TextArea
+export default TextArea;
