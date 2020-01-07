@@ -24,6 +24,8 @@ export interface ITextAreaProps {
   error?: string;
   /** Allow resizing of the textarea */
   resizable?: boolean;
+  /** name transparently passed to the input */
+  name?: string;
   /** onChange transparently passed to the input */
   onChange?: Function;
   /** Placeholder for the input component */
