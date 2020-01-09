@@ -45,6 +45,10 @@ export interface ISimpleSelectProps {
   defaultValue?: any;
   /** onChange transparently passed to select */
   onChange?: Function;
+  /** onFocus transparently passed to select */
+  onFocus?: Function;
+  /** onBlur transparently passed to select */
+  onBlur?: Function;
   /** String to show when the first empty choice is selected */
   placeholder?: string;
   /** Determines if the select should be disabled */

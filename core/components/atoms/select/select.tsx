@@ -126,6 +126,10 @@ export interface ISelectProps {
   hasError?: boolean;
   /** onChange transparently passed to select */
   onChange?: Function;
+  /** onFocus transparently passed to select */
+  onFocus?: Function;
+  /** onBlur transparently passed to select */
+  onBlur?: Function;
   /** String to show when the first empty choice is selected */
   placeholder?: string;
   /** Determines if the select is asynchronous */
@@ -283,6 +287,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
           {(context) => (
             <SelectProvider
               onChange={onChange}
+              onFocus={props.onFocus}
+              onBlur={props.onBlur}
               isClearable={true}
               isDisabled={props.disabled}
               isMulti={props.multiple}

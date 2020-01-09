@@ -9,6 +9,8 @@ describe("Select", () => {
         options={[{ text: "One", value: 1 }, { text: "Two", value: 2 }, { text: "Three", value: 3 }]}
         placeholder="Something"
         onChange={(event) => console.log(event)}
+        onFocus={(event) => console.log(event)}
+        onBlur={(event) => console.log(event)}
       />,
     );
 
@@ -21,6 +23,8 @@ describe("Select", () => {
         options={[{ text: "One", value: 1 }, { text: "Two", value: 2 }, { text: "Three", value: 3 }]}
         placeholder="Something"
         onChange={(event) => console.log(event)}
+        onFocus={(event) => console.log(event)}
+        onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         multiple={true}
       />,
@@ -35,6 +39,8 @@ describe("Select", () => {
         options={[{ text: "One", value: 1 }, { text: "Two", value: 2 }, { text: "Three", value: 3 }]}
         placeholder="Something"
         onChange={(event) => console.log(event)}
+        onFocus={(event) => console.log(event)}
+        onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         searchable={true}
       />,
@@ -49,6 +55,8 @@ describe("Select", () => {
         options={[{ text: "One", value: 1 }, { text: "Two", value: 2 }, { text: "Three", value: 3 }]}
         placeholder="Something"
         onChange={(event) => console.log(event)}
+        onFocus={(event) => console.log(event)}
+        onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         customOptionRenderer={(option) => <div>{option.label}</div>}
       />,
@@ -64,6 +72,8 @@ describe("Select", () => {
         loadOptions={() => {}}
         placeholder="Something"
         onChange={(event) => console.log(event)}
+        onFocus={(event) => console.log(event)}
+        onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
       />,
     );
