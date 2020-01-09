@@ -11,7 +11,7 @@ describe("Select", () => {
         onChange={(event) => console.log(event)}
         onFocus={(event) => console.log(event)}
         onBlur={(event) => console.log(event)}
-      />,
+      />
     );
 
     expect(select).toMatchSnapshot();
@@ -27,7 +27,7 @@ describe("Select", () => {
         onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         multiple={true}
-      />,
+      />
     );
 
     expect(select).toMatchSnapshot();
@@ -43,7 +43,7 @@ describe("Select", () => {
         onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         searchable={true}
-      />,
+      />
     );
 
     expect(select).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe("Select", () => {
         onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
         customOptionRenderer={(option) => <div>{option.label}</div>}
-      />,
+      />
     );
 
     expect(select).toMatchSnapshot();
@@ -75,7 +75,7 @@ describe("Select", () => {
         onFocus={(event) => console.log(event)}
         onBlur={(event) => console.log(event)}
         defaultMenuOpen={true}
-      />,
+      />
     );
 
     expect(select).toMatchSnapshot();

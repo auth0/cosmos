@@ -10,7 +10,7 @@ import { ISelectOptions } from "../select/interfaces";
 
 const selectOpacity = {
   default: 1,
-  disabled: 0.5,
+  disabled: 0.5
 };
 
 const PLACEHOLDER_VALUE = "0";
@@ -116,7 +116,7 @@ SimpleSelect.ArrowIcon = styled(Icon)`
 
 SimpleSelect.defaultProps = {
   options: [],
-  placeholder: "",
+  placeholder: ""
 };
 
 export default SimpleSelect;

@@ -18,7 +18,7 @@ import {
   MultiValue,
   Option,
   optionRenderer,
-  valueRenderer,
+  valueRenderer
 } from "./components";
 import { ISelectOptions } from "./interfaces";
 
@@ -29,14 +29,14 @@ const selectTheme = {
   colors: {
     ...defaultTheme.colors,
     danger: colors.input.borderError,
-    primary: colors.input.borderFocus,
+    primary: colors.input.borderFocus
   },
   borderRadius: misc.radius,
   spacing: {
     menuGutter: 0,
     baseUnit: spacing.unit,
-    controlHeight: misc.input.default.height,
-  },
+    controlHeight: misc.input.default.height
+  }
 };
 
 const cosmosToReactSelect = {
@@ -45,7 +45,7 @@ const cosmosToReactSelect = {
       isDisabled: disabled,
       label: groupName || label || text,
       options: items ? cosmosToReactSelect.options(items) : undefined,
-      ...otherProperties,
+      ...otherProperties
     })),
   value: (valueProp, options, getOptionValue = defaultGetOptionValue) => {
     if (valueProp === null || typeof valueProp === "undefined") {
@@ -89,15 +89,15 @@ const cosmosToReactSelect = {
             borderColor: colors.input.borderError,
             boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
             "&:hover": {
-              borderColor: colors.input.borderError,
+              borderColor: colors.input.borderError
             },
             "&:focus": {
               borderColor: colors.input.borderError,
-              boxShadow: `0 0 0 2px ${colors.input.borderError}`,
-            },
+              boxShadow: `0 0 0 2px ${colors.input.borderError}`
+            }
           }
-        : provided,
-  }),
+        : provided
+  })
 };
 
 const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
@@ -175,7 +175,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   public static defaultProps = {
     options: [],
     placeholder: "",
-    searchable: false,
+    searchable: false
   };
 
   public componentOverrides = {
@@ -189,7 +189,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     MenuList,
     Option,
     Group,
-    IndicatorSeparator: () => null,
+    IndicatorSeparator: () => null
   };
 
   constructor(props) {
