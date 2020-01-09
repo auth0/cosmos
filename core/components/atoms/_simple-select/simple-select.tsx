@@ -10,50 +10,45 @@ import { ISelectOptions } from "../select/interfaces";
 
 const selectOpacity = {
   default: 1,
-  disabled: 0.5
-}
+  disabled: 0.5,
+};
 
-const PLACEHOLDER_VALUE = '0'
+const PLACEHOLDER_VALUE = "0";
 
-const valueIsUndefined = (value) => value === undefined || value === null
+const valueIsUndefined = (value) => value === undefined || value === null;
 
-const isGroup = (option) => option.groupName && option.items
+const isGroup = (option) => option.groupName && option.items;
 const renderOption = (option, idx) => {
   if (isGroup(option)) {
     return (
-      <optgroup key={idx} label={option.groupName} {...Automation('select.optgroup')}>
+      <optgroup key={idx} label={option.groupName} {...Automation("select.optgroup")}>
         {option.items.map(renderOption)}
       </optgroup>
-    )
+    );
   }
 
   return (
-    <option
-      key={idx}
-      value={option.value}
-      disabled={option.disabled}
-      {...Automation('select.option')}
-    >
+    <option key={idx} value={option.value} disabled={option.disabled} {...Automation("select.option")}>
       {option.text}
     </option>
-  )
-}
+  );
+};
 
 export interface ISimpleSelectProps {
   /** HTML ID of the component */
-  id?: string
+  id?: string;
   /** Options to render inside select */
-  options?: ISelectOptions
+  options?: ISelectOptions;
   /** Value selected by default */
-  value?: any
+  value?: any;
   /** Default value selected by default */
-  defaultValue?: any
+  defaultValue?: any;
   /** onChange transparently passed to select */
-  onChange?: Function
+  onChange?: Function;
   /** String to show when the first empty choice is selected */
-  placeholder?: string
+  placeholder?: string;
   /** Determines if the select should be disabled */
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
@@ -63,9 +58,9 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
     and functionality of select disabled
   */
 
-  const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue)
+  const shouldUsePlaceholder = valueIsUndefined(props.value) && valueIsUndefined(props.defaultValue);
   if (shouldUsePlaceholder) {
-    props.value = PLACEHOLDER_VALUE
+    props.value = PLACEHOLDER_VALUE;
   }
 
   return (
@@ -73,14 +68,10 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
       <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color="default" />
       <Form.Field.ContextConsumer>
         {(context) => (
-          <SimpleSelect.Element
-            id={props.id || context.formFieldId}
-            {...Automation('select')}
-            {...props}
-          >
+          <SimpleSelect.Element id={props.id || context.formFieldId} {...Automation("select")} {...props}>
             {/* First option will be selected if there is no value passed as a prop */}
             {props.placeholder && (
-              <option disabled={true} value={PLACEHOLDER_VALUE} {...Automation('select.option')}>
+              <option disabled={true} value={PLACEHOLDER_VALUE} {...Automation("select.option")}>
                 {props.placeholder}
               </option>
             )}
@@ -90,25 +81,24 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
         )}
       </Form.Field.ContextConsumer>
     </SimpleSelect.Wrapper>
-  )
-}
+  );
+};
 
-SimpleSelect.Element = styled(StyledInput.withComponent('select'))`
+SimpleSelect.Element = styled(StyledInput.withComponent("select"))`
   appearance: none;
 
   padding-right: ${spacing.large};
 
   height: ${misc.input.default.height};
   opacity: ${(props) => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${(props) =>
-    props.disabled ? colors.input.backgroundReadOnly : colors.input.background};
-`
+  background-color: ${(props) => (props.disabled ? colors.input.backgroundReadOnly : colors.input.background)};
+`;
 
 SimpleSelect.Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-`
+`;
 
 SimpleSelect.ArrowIcon = styled(Icon)`
   position: absolute;
@@ -118,11 +108,11 @@ SimpleSelect.ArrowIcon = styled(Icon)`
   svg {
     display: block;
   }
-`
+`;
 
 SimpleSelect.defaultProps = {
   options: [],
-  placeholder: ''
-}
+  placeholder: "",
+};
 
-export default SimpleSelect
+export default SimpleSelect;

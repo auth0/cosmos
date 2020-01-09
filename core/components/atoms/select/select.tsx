@@ -18,26 +18,26 @@ import {
   MultiValue,
   Option,
   optionRenderer,
-  valueRenderer
+  valueRenderer,
 } from "./components";
 import { ISelectOptions } from "./interfaces";
 
-const defaultGetOptionValue = (option) => option.value
+const defaultGetOptionValue = (option) => option.value;
 
 const selectTheme = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors,
     danger: colors.input.borderError,
-    primary: colors.input.borderFocus
+    primary: colors.input.borderFocus,
   },
   borderRadius: misc.radius,
   spacing: {
     menuGutter: 0,
     baseUnit: spacing.unit,
-    controlHeight: misc.input.default.height
-  }
-}
+    controlHeight: misc.input.default.height,
+  },
+};
 
 const cosmosToReactSelect = {
   options: (cosmosOptions) =>
@@ -45,36 +45,36 @@ const cosmosToReactSelect = {
       isDisabled: disabled,
       label: groupName || label || text,
       options: items ? cosmosToReactSelect.options(items) : undefined,
-      ...otherProperties
+      ...otherProperties,
     })),
   value: (valueProp, options, getOptionValue = defaultGetOptionValue) => {
-    if (valueProp === null || typeof valueProp === 'undefined') {
-      return null
+    if (valueProp === null || typeof valueProp === "undefined") {
+      return null;
     }
 
-    if (valueProp.constructor.name === 'Array') {
-      return valueProp.map((item) => cosmosToReactSelect.value(item, options, getOptionValue))
+    if (valueProp.constructor.name === "Array") {
+      return valueProp.map((item) => cosmosToReactSelect.value(item, options, getOptionValue));
     }
 
-    const matchValue = (option) => getOptionValue(option) === valueProp
+    const matchValue = (option) => getOptionValue(option) === valueProp;
 
-    let valueFound = null
+    let valueFound = null;
 
     options.forEach((option) => {
-      if (option.options && option.options.constructor.name === 'Array') {
+      if (option.options && option.options.constructor.name === "Array") {
         option.options.forEach((subOption) => {
           if (matchValue(subOption)) {
-            valueFound = subOption
+            valueFound = subOption;
           }
-        })
+        });
       }
-    })
+    });
 
     if (valueFound !== null) {
-      return valueFound
+      return valueFound;
     }
 
-    return options.find(matchValue)
+    return options.find(matchValue);
   },
   styles: (props) => ({
     menuPortal: Menu.portalTheme,
@@ -88,91 +88,91 @@ const cosmosToReactSelect = {
             ...provided,
             borderColor: colors.input.borderError,
             boxShadow: `0 0 0 ${state.isFocused ? 1 : 0}px ${colors.input.borderError}`,
-            '&:hover': {
-              borderColor: colors.input.borderError
-            },
-            '&:focus': {
+            "&:hover": {
               borderColor: colors.input.borderError,
-              boxShadow: `0 0 0 2px ${colors.input.borderError}`
-            }
+            },
+            "&:focus": {
+              borderColor: colors.input.borderError,
+              boxShadow: `0 0 0 2px ${colors.input.borderError}`,
+            },
           }
-        : provided
-  })
-}
+        : provided,
+  }),
+};
 
 const oneOrMore = (options, getOptionValue = defaultGetOptionValue) => {
   if (options === null) {
-    return null
+    return null;
   }
 
-  if (options.constructor.name === 'Array') {
-    return options.map(getOptionValue)
+  if (options.constructor.name === "Array") {
+    return options.map(getOptionValue);
   }
-  return getOptionValue(options)
-}
+  return getOptionValue(options);
+};
 
 export interface ISelectProps {
   /** HTML name for the select */
-  id?: string
+  id?: string;
   /** HTML name for the select */
-  name?: string
+  name?: string;
   /** Options to render inside select */
-  options?: ISelectOptions
+  options?: ISelectOptions;
   /** Value selected by default */
-  value?: any
+  value?: any;
   /** Value selected by default */
-  defaultValue?: any
+  defaultValue?: any;
   /** Pass hasError to show error state */
-  hasError?: boolean
+  hasError?: boolean;
   /** onChange transparently passed to select */
-  onChange?: Function
+  onChange?: Function;
   /** String to show when the first empty choice is selected */
-  placeholder?: string
+  placeholder?: string;
   /** Determines if the select is asynchronous */
-  async?: boolean
+  async?: boolean;
   /** Determines if the select should be disabled */
-  disabled?: boolean
+  disabled?: boolean;
   /** Determines if the user can type to search for items */
-  searchable?: boolean
+  searchable?: boolean;
   /** Determines if the user can select more than one item */
-  multiple?: boolean
+  multiple?: boolean;
   /** Shows a spinner inside the select control */
-  loading?: boolean
+  loading?: boolean;
   /** Lets you define a custom component to render each option */
-  customOptionRenderer?: Function
+  customOptionRenderer?: Function;
   /** Lets you define a custom component to render the selected value */
-  customValueRenderer?: Function
+  customValueRenderer?: Function;
   /** If you want an async select you can pass a function which can return a Promise here */
-  loadOptions?: Function
+  loadOptions?: Function;
   /** Lets you specify a different key from where the select should take the value from a selected option */
-  getOptionValue?: (option: any) => any
+  getOptionValue?: (option: any) => any;
   /** Used to specify a message for when there's no options */
-  noOptionsMessage?: Function | string
+  noOptionsMessage?: Function | string;
   /** Used to provide default options for the select (as object) or tell the select to search with '' (as boolean) */
-  defaultOptions?: Object[] | boolean
+  defaultOptions?: Object[] | boolean;
   /** Used to provide custom styled to the Select wrapper */
-  style?: Object
+  style?: Object;
   /** Used to focus the control when it mounts */
-  autoFocus?: boolean
+  autoFocus?: boolean;
   /** If cacheOptions is truthy, then the loaded data will be cached. The cache will remain until cacheOptions changes value. */
-  cacheOptions?: boolean
+  cacheOptions?: boolean;
   /** @internal */
-  defaultMenuOpen?: boolean
-  inputValue?: string
+  defaultMenuOpen?: boolean;
+  inputValue?: string;
 }
 
 interface ISelectState {
-  menuIsOpen: boolean
+  menuIsOpen: boolean;
 }
 
 class Select extends React.Component<ISelectProps, ISelectState> {
-  public static Wrapper = styled.div``
+  public static Wrapper = styled.div``;
 
   public static defaultProps = {
     options: [],
-    placeholder: '',
-    searchable: false
-  }
+    placeholder: "",
+    searchable: false,
+  };
 
   public componentOverrides = {
     SingleValue: components.SingleValue,
@@ -185,43 +185,43 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     MenuList,
     Option,
     Group,
-    IndicatorSeparator: () => null
-  }
+    IndicatorSeparator: () => null,
+  };
 
   constructor(props) {
-    super(props)
-    this.state = { menuIsOpen: props.defaultMenuOpen || false }
-    this.handleScroll = this.handleScroll.bind(this)
+    super(props);
+    this.state = { menuIsOpen: props.defaultMenuOpen || false };
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
   public componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll, true)
+    document.addEventListener("scroll", this.handleScroll, true);
 
     if (this.props.defaultMenuOpen) {
       // If `defaultMenuOpen` is passed (only for testing)
       // force react-select to render portal for dropdown
-      this.forceUpdate()
+      this.forceUpdate();
     }
   }
 
   public componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleScroll, true)
+    document.removeEventListener("scroll", this.handleScroll, true);
   }
 
   public handleScroll() {
     if (this.state.menuIsOpen) {
       // Force update for react-select to
       // re-compute portal dropdown position
-      this.forceUpdate()
+      this.forceUpdate();
     }
   }
 
   public updateMenuState(newState) {
-    return () => this.setState({ menuIsOpen: newState })
+    return () => this.setState({ menuIsOpen: newState });
   }
 
   public render() {
-    const props = this.props
+    const props = this.props;
 
     if (
       !(
@@ -233,7 +233,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
         props.getOptionValue
       )
     ) {
-      return <SimpleSelect {...props} />
+      return <SimpleSelect {...props} />;
     }
 
     /*
@@ -242,47 +242,43 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       and functionality of select disabled
     */
 
-    const options = cosmosToReactSelect.options(props.options)
-    const defaultOptions = props.defaultOptions
-      ? cosmosToReactSelect.options(props.defaultOptions)
-      : null
+    const options = cosmosToReactSelect.options(props.options);
+    const defaultOptions = props.defaultOptions ? cosmosToReactSelect.options(props.defaultOptions) : null;
 
     if (props.customOptionRenderer) {
-      this.componentOverrides.Option = optionRenderer(props.customOptionRenderer)
+      this.componentOverrides.Option = optionRenderer(props.customOptionRenderer);
     }
 
     if (props.customValueRenderer) {
-      this.componentOverrides.SingleValue = valueRenderer(props.customValueRenderer)
+      this.componentOverrides.SingleValue = valueRenderer(props.customValueRenderer);
     }
 
     /**
      * If the Select is async we need to get the complete object value from the user,
      * while if it's a sync select, we can just get the value and match it from the options.
      */
-    const value = props.async
-      ? props.value
-      : cosmosToReactSelect.value(props.value, options, props.getOptionValue)
-    const styles = cosmosToReactSelect.styles(props)
-    const searchable = props.async || props.searchable
+    const value = props.async ? props.value : cosmosToReactSelect.value(props.value, options, props.getOptionValue);
+    const styles = cosmosToReactSelect.styles(props);
+    const searchable = props.async || props.searchable;
 
     // React Select requires `noOptionsMessage` to be a function
     const noOptionsMessage = props.noOptionsMessage
-      ? typeof props.noOptionsMessage === 'function'
+      ? typeof props.noOptionsMessage === "function"
         ? props.noOptionsMessage
         : () => props.noOptionsMessage
-      : () => 'No options'
+      : () => "No options";
 
-    const SelectProvider = props.async ? AsyncSelect : ReactSelect
+    const SelectProvider = props.async ? AsyncSelect : ReactSelect;
 
     const onChange = (options) => {
-      const newValue = props.async ? options : oneOrMore(options, props.getOptionValue)
+      const newValue = props.async ? options : oneOrMore(options, props.getOptionValue);
       if (props.onChange) {
-        props.onChange({ target: { name: props.name, value: newValue } })
+        props.onChange({ target: { name: props.name, value: newValue } });
       }
-    }
+    };
 
     return (
-      <Select.Wrapper {...Automation('select.wrapper')} style={props.style}>
+      <Select.Wrapper {...Automation("select.wrapper")} style={props.style}>
         <Form.Field.ContextConsumer>
           {(context) => (
             <SelectProvider
@@ -315,8 +311,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
           )}
         </Form.Field.ContextConsumer>
       </Select.Wrapper>
-    )
+    );
   }
 }
 
-export default Select
+export default Select;
