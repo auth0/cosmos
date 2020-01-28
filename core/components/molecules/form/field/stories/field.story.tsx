@@ -37,6 +37,14 @@ storiesOf("Form", module).add("form field + help text", () => (
   </Example>
 ));
 
+storiesOf("Form", module).add("form field + required prop", () => (
+  <Example title="form field + required prop">
+    <Form.Field label="Callback URL" required>
+      <TextInput type="text" placeholder="Enter something" />
+    </Form.Field>
+  </Example>
+));
+
 storiesOf("Form", module).add("form field + rich help text", () => (
   <Example title="form field + rich help text">
     <Form.Field
