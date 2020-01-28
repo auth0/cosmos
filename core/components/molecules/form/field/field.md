@@ -120,6 +120,18 @@ or other rich formatting to displayed text.
 </Form>
 ```
 
+### Required fields 
+
+Here's an example letting the user know this field is required using the `required` prop. 
+
+```js
+<Form>
+  <Form.Field label="Callback URL" required>
+    <TextInput type="text" placeholder="Enter something" />
+  </Form.Field>
+</Form>
+```
+
 ### Actions
 
 You can add actions to a `TextInput` by passing an array of `Button`:
