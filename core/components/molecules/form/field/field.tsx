@@ -31,6 +31,8 @@ export interface IFieldProps {
   actions?: Array<JSX.Element | ActionWithIcon>;
   /** checkbox alignment */
   checkbox?: boolean;
+  /** Shows the user this field is required */
+  required?: boolean;
   hasError?: boolean;
   htmlFor?: string;
   children?: React.ReactNode;
@@ -123,6 +125,7 @@ const Field = (props: IFieldProps) => {
           <Field.Element layout={context.layout} fullWidth={context.fullWidth} {...Automation("form.field")}>
             <Field.LabelLayout checkbox={useCheckboxStyle} layout={context.layout}>
               <Label htmlFor={id}>{props.label}</Label>
+              {props.required && <Field.RequiredIndicator />}
             </Field.LabelLayout>
             <Field.ContentLayout layout={context.layout} {...Automation("form.field.content")}>
               {props.fieldComponent ? (
@@ -175,6 +178,11 @@ Field.Element = styled.div`
       margin-top: ${(props) => (props.layout === "label-on-left" ? "6px" : "0")};
     }
   }
+`;
+
+Field.RequiredIndicator = styled.span.attrs({ children: "*" })`
+  color: red;
+  margin-left: ${spacing.unit / 2}px;
 `;
 
 Field.FieldSetElement = styled.fieldset`
