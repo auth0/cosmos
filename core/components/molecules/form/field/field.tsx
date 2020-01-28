@@ -84,14 +84,15 @@ const ariaDescribedBy = (helperTextId, errorTextId) => {
   return {};
 };
 
-const applyAriaToFieldChild = (children, inputId, helperTextId, errorTextId) =>
+const applyAriaToFieldChild = (children, inputId, helperTextId, errorTextId, isRequired) =>
   React.Children.map(children, (child) => {
     if (!child) {
       return null;
     }
     return React.cloneElement(child, {
       id: inputId,
-      ...ariaDescribedBy(helperTextId, errorTextId)
+      ...ariaDescribedBy(helperTextId, errorTextId),
+      "aria-required": isRequired
     });
   });
 
@@ -136,7 +137,7 @@ const Field = (props: IFieldProps) => {
                   {...ariaDescribedBy(helperTextId, errorTextId)}
                 />
               ) : (
-                applyAriaToFieldChild(props.children, id, helperTextId, errorTextId)
+                applyAriaToFieldChild(props.children, id, helperTextId, errorTextId, props.required)
               )}
               {(props.error || props.helpText) && (
                 <Field.FeedbackContainer>
