@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "../../../styled";
 
-import { spacing, misc } from "../../../tokens";
+import { spacing, misc, colors } from "../../../tokens";
 import uniqueId from "../../../_helpers/uniqueId";
 import FormContext from "../form-context";
 import Automation from "../../../_helpers/automation-attribute";
@@ -15,6 +15,8 @@ import Checkbox from "../../../atoms/checkbox";
 import Radio from "../../../atoms/radio";
 import { ActionWithIcon } from "../../../_helpers/action-shape";
 import containerStyles from "../../../_helpers/container-styles";
+import Icon from "../../../atoms/icon";
+import { StackLayout } from "@auth0/cosmos/components";
 
 export interface IFieldProps {
   /** HTML ID of the component */
@@ -92,7 +94,8 @@ const applyAriaToFieldChild = (children, inputId, helperTextId, errorTextId, isR
     return React.cloneElement(child, {
       id: inputId,
       ...ariaDescribedBy(helperTextId, errorTextId),
-      "aria-required": isRequired
+      "aria-required": isRequired,
+      required: isRequired
     });
   });
 
@@ -135,13 +138,21 @@ const Field = (props: IFieldProps) => {
                   hasError={error ? true : false}
                   {...fieldProps}
                   {...ariaDescribedBy(helperTextId, errorTextId)}
+                  required={props.required}
                 />
               ) : (
                 applyAriaToFieldChild(props.children, id, helperTextId, errorTextId, props.required)
               )}
               {(props.error || props.helpText) && (
                 <Field.FeedbackContainer>
-                  {props.error && <StyledError id={errorTextId}>{props.error}</StyledError>}
+                  {props.error && (
+                    <StyledError id={errorTextId}>
+                      <StackLayout gutter="xsmall" alignment="center">
+                        <Icon color={colors.base.red} size={16} name="danger" />
+                        {props.error}
+                      </StackLayout>
+                    </StyledError>
+                  )}
                   {props.helpText && <HelpText id={helperTextId}>{props.helpText}</HelpText>}
                 </Field.FeedbackContainer>
               )}

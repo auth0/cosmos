@@ -21,13 +21,15 @@ export interface IFormProps {
   layout?: "label-on-left" | "label-on-top";
   /** Remove the 625px constraint from the form fields width */
   fullWidth?: boolean;
+  /** Defaults to true. If set to false, the form will provide HTML5 validation. */
+  novalidate?: boolean;
   children?: React.ReactNode;
   onSubmit?: Function;
 }
 
 const Form = (props: IFormProps) => (
   <FormContext.Provider value={{ layout: props.layout, fullWidth: props.fullWidth }}>
-    <Form.Element {...props} {...Automation("form")} />
+    <Form.Element novalidate={true} {...props} {...Automation("form")} />
   </FormContext.Provider>
 );
 
