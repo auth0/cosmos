@@ -148,7 +148,9 @@ const Field = (props: IFieldProps) => {
                   {props.error && (
                     <StyledError id={errorTextId}>
                       <StackLayout gutter="xsmall" alignment="center">
-                        <Icon color={colors.base.red} size={16} name="danger" />
+                        <Field.IconContainer>
+                          <Field.ErrorIcon />
+                        </Field.IconContainer>
                         {props.error}
                       </StackLayout>
                     </StyledError>
@@ -190,6 +192,14 @@ Field.Element = styled.div`
       margin-top: ${(props) => (props.layout === "label-on-left" ? "6px" : "0")};
     }
   }
+`;
+
+Field.IconContainer = styled.div`
+  display: flex;
+`;
+
+Field.ErrorIcon = styled(Icon).attrs({ color: colors.base.red, size: 16, name: "danger" })`
+  margin: 0;
 `;
 
 Field.RequiredIndicator = styled.span.attrs({ children: "*" })`
