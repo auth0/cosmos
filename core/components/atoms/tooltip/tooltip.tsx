@@ -1,58 +1,60 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { Manager, Reference, Popper, RefHandler } from 'react-popper'
-import Automation from '../../_helpers/automation-attribute'
-import { multiply } from '../../_helpers/pixel-calc'
-import uniqueId from '../../_helpers/uniqueId'
+import * as React from "react";
+import { Manager, Popper, Reference, RefHandler } from "react-popper";
 
-import { colors, spacing, misc } from '../../tokens'
+import Automation from "../../_helpers/automation-attribute";
+import { multiply } from "../../_helpers/pixel-calc";
+import uniqueId from "../../_helpers/uniqueId";
+import styled from "../../styled";
+import { colors, misc, spacing } from "../../tokens";
 
-const arrowWidth = '6px'
-const arrowColor = colors.tooltip.background
+const arrowWidth = "6px";
+const arrowColor = colors.tooltip.background;
 
 /*
   Popper doesn't arrange the tooltip right in the center,
   so we add an adjustment
 */
-const arrowAdjustment = multiply(arrowWidth, -2)
+const arrowAdjustment = multiply(arrowWidth, -2);
 
-export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right'
+export type TooltipPosition = "top" | "bottom" | "left" | "right";
 export interface ITooltipProps {
   /** HTML ID of the component */
-  id?: string
+  id?: string;
   /** Content to show in the tooltip */
-  content: string
+  content: string;
   /** Where to place the tooltip */
-  position?: TooltipPosition
+  position?: TooltipPosition;
   /** Visible by default */
-  defaultVisible?: boolean
-  onClick?: Function
+  defaultVisible?: boolean;
+  onClick?: Function;
 }
 
 interface ITooltipState {
-  visible: boolean
-  id: string
+  visible: boolean;
+  id: string;
 }
 
 interface IObservedElementProps {
-  scheduleUpdate: Function
-  innerRef: RefHandler
-  style: Object
-  'data-placement': string
-  id: string
+  scheduleUpdate: Function;
+  innerRef: RefHandler;
+  style: Object;
+  "data-placement": string;
+  id: string;
 }
 
 class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
   public static ObservedElement = class extends React.Component<IObservedElementProps> {
     public componentDidUpdate() {
-      this.props.scheduleUpdate()
+      this.props.scheduleUpdate();
     }
     public render() {
-      return <Tooltip.Element {...this.props} />
-    }
-  }
+      const { innerRef, ...props } = this.props;
 
-  public static Action: any | undefined
+      return <Tooltip.Element {...props} ref={innerRef} />;
+    }
+  };
+
+  public static Action: any | undefined;
 
   public static Element = styled.div`
     background: ${colors.tooltip.background};
@@ -65,12 +67,12 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     font-size: 13px;
     pointer-events: none;
     max-width: 260px;
-  `
+  `;
 
   public static Trigger = styled.div`
     display: inline-block;
     position: relative;
-  `
+  `;
 
   public static Arrow = styled.div`
     position: absolute;
@@ -78,7 +80,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     height: 0;
 
     &::before {
-      content: '';
+      content: "";
       margin: auto;
       display: block;
       width: 0;
@@ -88,7 +90,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
       border-color: transparent;
     }
 
-    &[data-placement*='top'] {
+    &[data-placement*="top"] {
       bottom: 0;
       margin-left: ${arrowAdjustment};
 
@@ -98,7 +100,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
       }
     }
 
-    &[data-placement*='right'] {
+    &[data-placement*="right"] {
       left: 0;
       margin-top: ${arrowAdjustment};
       margin-left: -${arrowWidth};
@@ -108,7 +110,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
       }
     }
 
-    &[data-placement*='bottom'] {
+    &[data-placement*="bottom"] {
       top: 0;
       left: 0;
       margin-left: ${arrowAdjustment};
@@ -119,7 +121,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
       }
     }
 
-    &[data-placement*='left'] {
+    &[data-placement*="left"] {
       right: 0;
       margin-top: ${arrowAdjustment};
       &::before {
@@ -127,44 +129,48 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
         border-left-color: ${arrowColor};
       }
     }
-  `
+  `;
 
   public static defaultProps = {
     content: null,
-    position: 'top',
+    position: "top",
     defaultVisible: false
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       visible: props.defaultVisible || false,
       // generating id in constructor to keep it consistent across renders
-      id: props.id || uniqueId('tooltip')
-    }
+      id: props.id || uniqueId("tooltip")
+    };
   }
   public showTooltip = () => {
-    this.setState({ visible: true })
-  }
+    this.setState({ visible: true });
+  };
   public hideTooltip = () => {
-    if (this.props.defaultVisible) { return }
-    this.setState({ visible: false })
-  }
+    if (this.props.defaultVisible) {
+      return;
+    }
+    this.setState({ visible: false });
+  };
   public onKeyDown = (event) => {
     /* this overrides defaultVisible as well */
-    if (event.key === 'Escape') { this.setState({ visible: false }) }
-  }
+    if (event.key === "Escape") {
+      this.setState({ visible: false });
+    }
+  };
   public render() {
-    const { content, ...props } = this.props
-    const { id } = this.state
-    let child
+    const { content, ...props } = this.props;
+    const { id } = this.state;
+    let child;
 
     if (React.Children.count(props.children) === 1 && React.isValidElement(props.children)) {
       /* If there's just one child which is a React Element */
-      child = React.cloneElement<any>(props.children, { 'aria-describedby': id })
+      child = React.cloneElement<any>(props.children, { "aria-describedby": id });
     } else {
       /* weird case, we don't really know what to do when this happens */
-      child = props.children
+      child = props.children;
     }
 
     return (
@@ -176,9 +182,9 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
               onFocus={this.showTooltip}
               onMouseLeave={this.hideTooltip}
               onBlur={this.hideTooltip}
-              innerRef={ref}
+              ref={ref}
               onKeyDown={this.onKeyDown}
-              {...Automation('tooltip.trigger')}
+              {...Automation("tooltip.trigger")}
             >
               {child}
             </Tooltip.Trigger>
@@ -190,7 +196,7 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
           modifiers={{
             preventOverflow: { enabled: false },
             hide: { enabled: false },
-            offset: { offset: '0, 10' }
+            offset: { offset: "0, 10" }
           }}
         >
           {({ ref, style, placement, arrowProps, scheduleUpdate }) => (
@@ -202,23 +208,19 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
                   style={{ zIndex: 20, ...style }}
                   data-placement={placement}
                   id={id}
-                  {...Automation('tooltip')}
+                  {...Automation("tooltip")}
                   {...props}
                 >
                   {content}
-                  <Tooltip.Arrow
-                    data-placement={placement}
-                    innerRef={arrowProps.ref}
-                    style={arrowProps.style}
-                  />
+                  <Tooltip.Arrow data-placement={placement} ref={arrowProps.ref} style={arrowProps.style} />
                 </Tooltip.ObservedElement>
               ) : null}
             </React.Fragment>
           )}
         </Popper>
       </Manager>
-    )
+    );
   }
 }
 
-export default Tooltip
+export default Tooltip;

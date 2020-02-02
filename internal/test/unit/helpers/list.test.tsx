@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { shallow } from 'enzyme'
-import { getDrawer, isListExpandable, excludeDrawer } from '@auth0/cosmos/_helpers/list'
-import { List } from '@auth0/cosmos'
+import * as React from "react";
+
+import { List } from "@auth0/cosmos";
+import { excludeDrawer, getDrawer, isListExpandable } from "@auth0/cosmos/_helpers/list";
 
 const testCases = {
   hiddenListDrawer: () => (
     <List.Item>
-      <List.Drawer hidden description="Something">
+      <List.Drawer hidden={true} description="Something">
         <p>This is a test</p>
       </List.Drawer>
     </List.Item>
@@ -26,81 +26,76 @@ const testCases = {
     </List.Item>
   ),
   nullChildren: () => <List.Item>{null}</List.Item>
-}
+};
 
-describe('getDrawer', () => {
-  it('should handle a List.Drawer', () => {
-    const drawer = getDrawer(testCases.includingListDrawer(), false, List.Drawer)
-    expect(drawer[0].type).toEqual(List.Drawer)
-  })
+describe("getDrawer", () => {
+  it("should handle a List.Drawer", () => {
+    const drawer = getDrawer(testCases.includingListDrawer(), false, List.Drawer);
+    expect(drawer[0].type).toEqual(List.Drawer);
+  });
 
-  it('should handle children without List.Drawer', () => {
-    const drawer = getDrawer(testCases.excludingListDrawer(), false, List.Drawer)
-    expect(drawer).toHaveLength(0)
-  })
+  it("should handle children without List.Drawer", () => {
+    const drawer = getDrawer(testCases.excludingListDrawer(), false, List.Drawer);
+    expect(drawer).toHaveLength(0);
+  });
 
-  it('should handle null children', () => {
-    const drawer = getDrawer(testCases.nullChildren(), false, List.Drawer)
-    expect(drawer).toBeNull()
-  })
+  it("should handle null children", () => {
+    const drawer = getDrawer(testCases.nullChildren(), false, List.Drawer);
+    expect(drawer).toBeNull();
+  });
 
-  it('should pass a hidden prop to List.Drawer', () => {
-    const drawer = getDrawer(testCases.includingListDrawer(), false, List.Drawer)
-    expect(drawer[0].props.hidden).toEqual(true)
-  })
-})
+  it("should pass a hidden prop to List.Drawer", () => {
+    const drawer = getDrawer(testCases.includingListDrawer(), false, List.Drawer);
+    expect(drawer[0].props.hidden).toEqual(true);
+  });
+});
 
-describe('isListExpandable', () => {
-  it('should handle a List.Drawer', () => {
-    const [isExpandable, _] = isListExpandable(testCases.includingListDrawer(), List.Drawer)
+describe("isListExpandable", () => {
+  it("should handle a List.Drawer", () => {
+    const [isExpandable, _] = isListExpandable(testCases.includingListDrawer(), List.Drawer);
 
-    expect(isExpandable).toBe(true)
-  })
+    expect(isExpandable).toBe(true);
+  });
 
-  it('should handle children without List.Drawer', () => {
-    const [isExpandable, _] = isListExpandable(testCases.excludingListDrawer(), List.Drawer)
+  it("should handle children without List.Drawer", () => {
+    const [isExpandable, _] = isListExpandable(testCases.excludingListDrawer(), List.Drawer);
 
-    expect(isExpandable).toBe(false)
-  })
+    expect(isExpandable).toBe(false);
+  });
 
-  it('should handle null children', () => {
-    const [isExpandable, _] = isListExpandable(testCases.nullChildren(), List.Drawer)
+  it("should handle null children", () => {
+    const [isExpandable, _] = isListExpandable(testCases.nullChildren(), List.Drawer);
 
-    expect(isExpandable).toBe(false)
-  })
+    expect(isExpandable).toBe(false);
+  });
 
-  it('should mark the arrow as visible if hidden is not passed to List.Drawer', () => {
-    const [_, arrowIsVisible] = isListExpandable(testCases.includingListDrawer(), List.Drawer)
+  it("should mark the arrow as visible if hidden is not passed to List.Drawer", () => {
+    const [_, arrowIsVisible] = isListExpandable(testCases.includingListDrawer(), List.Drawer);
 
-    expect(arrowIsVisible).toBe(true)
-  })
+    expect(arrowIsVisible).toBe(true);
+  });
 
-  it('should mark the arrow as not visible when hidden is passed to List.Drawer', () => {
-    const [_, arrowIsVisible] = isListExpandable(testCases.hiddenListDrawer(), List.Drawer)
+  it("should mark the arrow as not visible when hidden is passed to List.Drawer", () => {
+    const [_, arrowIsVisible] = isListExpandable(testCases.hiddenListDrawer(), List.Drawer);
 
-    expect(arrowIsVisible).toBe(false)
-  })
-})
+    expect(arrowIsVisible).toBe(false);
+  });
+});
 
-describe('excludeDrawer', () => {
-  it('should handle a List.Drawer', () => {
-    const result = excludeDrawer(testCases.includingListDrawer(), List.Drawer)
-    const children = shallow(result).children()
+describe("excludeDrawer", () => {
+  it("should handle a List.Drawer", () => {
+    const before = testCases.includingListDrawer();
+    const result = excludeDrawer(before, List.Drawer);
+    expect(result.props.children.length).toBe(0);
+  });
 
-    expect(children.exists()).toBe(false)
-  })
+  it("should handle children without List.Drawer", () => {
+    const result = excludeDrawer(testCases.excludingListDrawer(), List.Drawer);
+    expect(result.props.children.length).not.toBe(0);
+  });
 
-  it('should handle children without List.Drawer', () => {
-    const result = excludeDrawer(testCases.excludingListDrawer(), List.Drawer)
-    const children = shallow(result).children()
-
-    expect(children.exists()).toBe(true)
-  })
-
-  it('should handle null children', () => {
-    const result = excludeDrawer(testCases.nullChildren(), List.Drawer)
-    const children = shallow(result).children()
-
-    expect(children.exists()).toBe(false)
-  })
-})
+  it("should handle null children", () => {
+    const result = excludeDrawer(testCases.nullChildren(), List.Drawer);
+    expect(result.props.children).toBeNull();
+  });
+});

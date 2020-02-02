@@ -1,20 +1,19 @@
 import * as React from "react";
-import styled from "../../../styled";
 
-import { spacing, misc } from "../../../tokens";
-import uniqueId from "../../../_helpers/uniqueId";
-import FormContext from "../form-context";
+import { ActionWithIcon } from "../../../_helpers/action-shape";
 import Automation from "../../../_helpers/automation-attribute";
-
-import StyledLabel from "../label";
-import StyledError from "../error";
-import HelpText from "../help-text";
-import TextArea from "../../../atoms/textarea";
-import Switch from "../../../atoms/switch";
+import containerStyles from "../../../_helpers/container-styles";
+import uniqueId from "../../../_helpers/uniqueId";
 import Checkbox from "../../../atoms/checkbox";
 import Radio from "../../../atoms/radio";
-import { ActionWithIcon } from "../../../_helpers/action-shape";
-import containerStyles from "../../../_helpers/container-styles";
+import Switch from "../../../atoms/switch";
+import TextArea from "../../../atoms/textarea";
+import styled from "../../../styled";
+import { misc, spacing } from "../../../tokens";
+import StyledError from "../error";
+import FormContext from "../form-context";
+import HelpText from "../help-text";
+import StyledLabel from "../label";
 
 export interface IFieldProps {
   /** HTML ID of the component */
@@ -191,7 +190,8 @@ Field.FieldSetElement = styled.fieldset`
     margin-bottom: ${spacing.medium};
   }
 `;
-Field.CheckboxLabel = StyledLabel.withComponent("legend");
+
+Field.CheckboxLabel = styled(StyledLabel).attrs({ as: "legend" })``;
 
 Field.LabelLayout = styled.div`
   @media (min-width: 768px) {
