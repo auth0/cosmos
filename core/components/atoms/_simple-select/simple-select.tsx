@@ -88,7 +88,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
   );
 };
 
-SimpleSelect.Element = styled(StyledInput.withComponent("select"))`
+SimpleSelect.Element = styled(StyledInput).attrs({ as: "select" })`
   appearance: none;
 
   padding-right: ${spacing.large};
