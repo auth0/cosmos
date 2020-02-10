@@ -10,26 +10,26 @@ import Icon, { __ICONNAMES__ } from "../icon";
 import Link, { StyledLink } from "../link";
 import Text from "../text";
 
-export type IAlertElementProps = Partial<IAlertProps>
-export type IAlertAppearance = 'default' | 'information' | 'success' | 'warning' | 'danger'
+export type IAlertElementProps = Partial<IAlertProps>;
+export type IAlertAppearance = "default" | "information" | "success" | "warning" | "danger";
 
 export interface IAlertProps {
   /** HTML ID of the component */
-  id?: string
-  appearance?: IAlertAppearance
-  icon?: string
-  title?: React.ReactNode
+  id?: string;
+  appearance?: IAlertAppearance;
+  icon?: string;
+  title?: React.ReactNode;
   /** @deprecated:children  */
-  text?: string
+  text?: string;
   /** @deprecated:children  */
-  link?: string
-  dismissible?: boolean
-  onDismiss?: () => void
-  dismissAfterSeconds?: number
+  link?: string;
+  dismissible?: boolean;
+  onDismiss?: () => void;
+  dismissAfterSeconds?: number;
 }
 
 export interface IAlertState {
-  visible: boolean
+  visible: boolean;
 }
 
 const ReadMoreLink = styled(Link)`
@@ -39,26 +39,26 @@ const ReadMoreLink = styled(Link)`
     text-decoration: none;
   }
   margin-left: ${spacing.xxsmall};
-`
+`;
 
 class Alert extends React.Component<IAlertProps, IAlertState> {
   public static defaultProps = {
-    appearance: 'default',
+    appearance: "default",
     dismissible: true,
-  }
+  };
 
-  public static Element: any
-  public timer: any
+  public static Element: any;
+  public timer: any;
 
   constructor(props) {
-    super(props)
-    this.state = { visible: true }
+    super(props);
+    this.state = { visible: true };
   }
 
   public componentDidMount() {
     if (this.props.dismissAfterSeconds) {
       /* timer to auto dismiss the component */
-      this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000)
+      this.timer = window.setTimeout(this.dismiss, this.props.dismissAfterSeconds * 1000);
     }
   }
 
@@ -71,19 +71,19 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
       component
     */
     if (this.timer) {
-      window.clearTimeout(this.timer)
+      window.clearTimeout(this.timer);
     }
   }
 
   public dismiss = () => {
-    this.setState({ visible: false })
-    if (typeof this.props.onDismiss === 'function') {
-      this.props.onDismiss()
+    this.setState({ visible: false });
+    if (typeof this.props.onDismiss === "function") {
+      this.props.onDismiss();
     }
-  }
+  };
 
   public render() {
-    const appearance = this.props.appearance
+    const appearance = this.props.appearance;
 
     if (this.state.visible) {
       return (
@@ -91,8 +91,9 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
           appearance={appearance}
           dismissible={this.props.dismissible}
           data-cosmos-appearance={appearance}
-          {...Automation('alert')}
+          {...Automation("alert")}
           {...rootProps(this.props)}
+          role="alert"
         >
           {this.props.icon && <Icon name={this.props.icon} color={iconColorMap[appearance]} />}
           <span>
@@ -104,29 +105,31 @@ class Alert extends React.Component<IAlertProps, IAlertState> {
             )}
           </span>
           {this.props.dismissible && (
-            <Cross onClick={this.dismiss} {...Automation('alert.dismiss')} />
+            <Cross onClick={this.dismiss} {...Automation("alert.dismiss")} aria-label="Close" />
           )}
         </Alert.Element>
-      )
+      );
     } else {
-      return null
+      return null;
     }
   }
 }
 
-const Cross = styled.a`
+const Cross = styled.button`
   cursor: pointer;
   font-size: 1.5em;
   line-height: 1;
+  border: none;
+  background: transparent;
   &:after {
-    content: '×';
+    content: "×";
     font-weight: ${fonts.weight.bold};
   }
-`
+`;
 
 const styledForCross = css`
   padding-right: ${spacing.large};
-`
+`;
 
 Alert.Element = styled.div<IAlertElementProps>`
   ${containerStyles};
@@ -160,22 +163,23 @@ Alert.Element = styled.div<IAlertElementProps>`
     color: ${(props) => colors.alert[props.appearance].text};
     opacity: 0.3;
     padding: ${spacing.small} ${spacing.small};
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 0.5;
     }
   }
-`
+`;
 
 /*
   Icon only accepts colors from colors.base
   This is a map between alert types and base colors
 */
 const iconColorMap = {
-  default: 'default',
-  information: 'blueDarker',
-  success: 'greenDarker',
-  warning: 'yellow',
-  danger: 'redDarker',
-}
+  default: "default",
+  information: "blueDarker",
+  success: "greenDarker",
+  warning: "yellow",
+  danger: "redDarker",
+};
 
-export default Alert
+export default Alert;
