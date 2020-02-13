@@ -56,15 +56,26 @@ That's all you need to do: no config changes required!
 
 ### Using Cosmos components in your application
 
-1. Include any of available components:
+1. Cosmos provides a CssBaseline component to setup some of the base styles required (fonts, etc). It also fixes some inconsistencies across browsers and devices while providing slightly more opinionated resets to common HTML elements. Import and render the `CssBaseline` component once at the top of your application.
+
+```js
+import { CssBaseline } from '@auth0/cosmos';
+
+const App = () => {
+  return (
+    <>
+      <CssBaseline />
+      {/* The rest of your application */}
+    </>
+  )
+};
+```
+
+2. Include and render them alongside your React components:
 
 ```js
 import { Button } from '@auth0/cosmos'
-```
 
-2. Use them along your React components:
-
-```js
 const Actions = () => (
   <div>
     <h1>Hello Word!</h1>
@@ -74,6 +85,8 @@ const Actions = () => (
   </div>
 )
 ```
+
+
 
 To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options.
 

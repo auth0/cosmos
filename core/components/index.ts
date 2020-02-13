@@ -10,12 +10,15 @@ import {
   ButtonGroup,
   Checkbox,
   Code,
+  ColumnLayout,
+  CssBaseline,
   DangerZone,
   Dialog,
   EmptyState,
   FileInput,
   Form,
   FormGroup,
+  GalleryLayout,
   Heading,
   Icon,
   Image,
@@ -25,16 +28,19 @@ import {
   Logo,
   Navigation,
   PageHeader,
+  PageLayout,
+  Pager,
   Pagination,
   PaginationToolbar,
-  Pager,
   Paragraph,
   Radio,
   ResourceList,
+  RowLayout,
   Select,
   Sidebar,
   Spinner,
   Stack,
+  StackLayout,
   Switch,
   Table,
   Tabs,
@@ -43,13 +49,8 @@ import {
   TextArea,
   TextInput,
   Tooltip,
-  Well,
-  ColumnLayout,
-  GalleryLayout,
-  RowLayout,
-  PageLayout,
-  StackLayout
-} from './components'
+  Well
+} from "./components";
 
 export {
   Alert,
@@ -63,6 +64,7 @@ export {
   ButtonGroup,
   Checkbox,
   Code,
+  CssBaseline,
   DangerZone,
   Dialog,
   EmptyState,
@@ -102,4 +104,4 @@ export {
   RowLayout,
   PageLayout,
   StackLayout
-}
+};
