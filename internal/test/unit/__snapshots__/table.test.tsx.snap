@@ -41,11 +41,11 @@ exports[`Table renders properly 1`] = `
     onSort={[Function]}
     rows={
       Array [
-        <styled.tr
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -61,8 +61,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -74,8 +74,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Harry Kane
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -86,8 +86,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇬🇧
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -98,8 +98,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             6
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -110,13 +110,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             0
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -132,8 +132,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -145,8 +145,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Romelu Lukaku
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -157,8 +157,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇧🇪
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -169,8 +169,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -181,13 +181,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -203,8 +203,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -216,8 +216,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Antoine Griezmann
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -228,8 +228,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇫🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -240,8 +240,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -252,13 +252,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             2
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -274,8 +274,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -287,8 +287,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Ivan Perišić
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -299,8 +299,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇭🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -311,8 +311,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             3
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -323,8 +323,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
       ]
     }
     sortDirection="asc"
@@ -694,11 +694,11 @@ exports[`Table renders properly 1`] = `
   <Component
     rows={
       Array [
-        <styled.tr
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -714,8 +714,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -727,8 +727,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Harry Kane
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -739,8 +739,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇬🇧
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -751,8 +751,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             6
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -763,13 +763,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             0
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -785,8 +785,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -798,8 +798,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Romelu Lukaku
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -810,8 +810,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇧🇪
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -822,8 +822,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -834,13 +834,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -856,8 +856,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -869,8 +869,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Antoine Griezmann
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -881,8 +881,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇫🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -893,8 +893,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -905,13 +905,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             2
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -927,8 +927,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -940,8 +940,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Ivan Perišić
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -952,8 +952,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇭🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -964,8 +964,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             3
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -976,8 +976,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
       ]
     }
   >
@@ -986,11 +986,11 @@ exports[`Table renders properly 1`] = `
   <Component
     rows={
       Array [
-        <styled.tr
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -1006,8 +1006,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -1019,8 +1019,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Harry Kane
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -1031,8 +1031,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇬🇧
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -1043,8 +1043,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             6
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -1055,13 +1055,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             0
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -1077,8 +1077,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -1090,8 +1090,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Romelu Lukaku
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -1102,8 +1102,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇧🇪
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -1114,8 +1114,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -1126,13 +1126,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -1148,8 +1148,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -1161,8 +1161,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Antoine Griezmann
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -1173,8 +1173,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇫🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -1185,8 +1185,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             4
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -1197,13 +1197,13 @@ exports[`Table renders properly 1`] = `
             }
           >
             2
-          </styled.td>
-        </styled.tr>,
-        <styled.tr
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
+        <ForwardRef(styled.tr)
           data-cosmos-key="table.row"
           onClick={[Function]}
         >
-          <styled.td
+          <ForwardRef(styled.td)
             column={
               Object {
                 "children": [Function],
@@ -1219,8 +1219,8 @@ exports[`Table renders properly 1`] = `
               size="medium"
               type="user"
             />
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "name",
@@ -1232,8 +1232,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             Ivan Perišić
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "country",
@@ -1244,8 +1244,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             🇭🇷
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "goals",
@@ -1256,8 +1256,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             3
-          </styled.td>
-          <styled.td
+          </ForwardRef(styled.td)>
+          <ForwardRef(styled.td)
             column={
               Object {
                 "field": "assists",
@@ -1268,8 +1268,8 @@ exports[`Table renders properly 1`] = `
             }
           >
             1
-          </styled.td>
-        </styled.tr>,
+          </ForwardRef(styled.td)>
+        </ForwardRef(styled.tr)>,
       ]
     }
   />

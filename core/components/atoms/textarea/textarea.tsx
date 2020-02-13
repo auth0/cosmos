@@ -1,13 +1,12 @@
 import * as React from "react";
-import styled from "../../styled";
 
-import { StyledInput } from "../_styled-input";
+import { ActionWithIcon } from "../../_helpers/action-shape";
 import Automation from "../../_helpers/automation-attribute";
 import Form from "../../molecules/form";
-
+import styled from "../../styled";
 /* Input with actions */
 import InputWithActions from "../_input-with-actions";
-import { ActionWithIcon } from "../../_helpers/action-shape";
+import { StyledInput } from "../_styled-input";
 
 export interface ITextAreaProps {
   /** HTML ID of the component */
@@ -66,7 +65,7 @@ const TextArea = (props: ITextAreaProps) => {
   }
 };
 
-TextArea.Element = styled(StyledInput.withComponent("textarea"))`
+TextArea.Element = styled(StyledInput).attrs({ as: "textarea" })`
   resize: ${(props) => (props.resizable ? "vertical" : "none")};
   font-size: ${(props) => (props.code ? "13px" : "inherit")};
   display: block;
@@ -81,7 +80,7 @@ TextArea.defaultProps = {
   error: null,
   resizable: true,
   onChange: null,
-  actions: [],
+  actions: []
 };
 
 export default TextArea;

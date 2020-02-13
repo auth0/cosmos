@@ -1,18 +1,14 @@
-import * as React from 'react'
-import styled from '../../styled'
-import {
-  SortableContainer,
-  SortableElement,
-  SortableHandle,
-  SortEndHandler
-} from 'react-sortable-hoc'
-import arrayMove from 'array-move'
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
-import { colors, spacing } from '../../tokens'
-import Heading, { StyledHeading } from '../../atoms/heading'
-import Icon from '../../atoms/icon'
-import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from '../../_helpers/list'
+import arrayMove from "array-move";
+import * as React from "react";
+import { SortableContainer, SortableElement, SortableHandle, SortEndHandler } from "react-sortable-hoc";
+
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from "../../_helpers/list";
+import Heading, { StyledHeading } from "../../atoms/heading";
+import Icon from "../../atoms/icon";
+import styled from "../../styled";
+import { colors, spacing } from "../../tokens";
 
 /**
  * Used to store a div element constructor.
@@ -23,47 +19,45 @@ import { excludeDrawer, getDrawer, isListExpandable, onItemClickHandler } from '
  *
  * @param {object} props
  */
-export const Div = (props) => <div {...props} />
+export const Div = (props) => <div {...props} />;
 
 const ListContainer = SortableContainer((props: IListProps) => (
   <div>{React.Children.map(props.children, renderItem(props, SortableListItemContainer))}</div>
-))
+));
 
 const SortableListItemContainer = SortableElement<{
-  children: React.ReactNode
-  index: number
-  value: any
-}>((props) =>
-  React.cloneElement(props.children as JSX.Element, { sortIndex: props.index, value: props.value })
-)
+  children: React.ReactNode;
+  index: number;
+  value: any;
+}>((props) => React.cloneElement(props.children as JSX.Element, { sortIndex: props.index, value: props.value }));
 
 const renderItem = (props: IListProps, wrapperElement: any = Div) => (child, index) => {
-  const ItemWrapper = wrapperElement
+  const ItemWrapper = wrapperElement;
 
-  const itemWrapperProps = ItemWrapper === Div ? {} : { index, value: index }
+  const itemWrapperProps = ItemWrapper === Div ? {} : { index, value: index };
 
   return (
     <ItemWrapper key={`item-${index}`} {...itemWrapperProps}>
       <List.ItemContainer
-        {...Automation('list.item')}
+        {...Automation("list.item")}
         draggable={props.draggable}
         onClick={onItemClickHandler(props, child)}
       >
         {(drawerIsOpen, setDrawerState) => {
-          const drawer = getDrawer(child, drawerIsOpen, List.Drawer)
-          const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer)
-          const rawListContent = excludeDrawer(child, List.Drawer)
+          const drawer = getDrawer(child, drawerIsOpen, List.Drawer);
+          const [listIsExpandable, arrowIsVisible] = isListExpandable(child, List.Drawer);
+          const rawListContent = excludeDrawer(child, List.Drawer);
           const listContent = rawListContent
             ? React.cloneElement<any>(rawListContent, {
                 arrowIsVisible
               })
-            : null
+            : null;
 
           return (
             <React.Fragment>
               {props.draggable && (
                 <List.Handle
-                  aria-expanded={drawerIsOpen ? 'true' : 'false'}
+                  aria-expanded={drawerIsOpen ? "true" : "false"}
                   // aria-label="Toggle details"
                   // aria-labelledby="example-id button_id"
                   // id="button_id"
@@ -74,42 +68,39 @@ const renderItem = (props: IListProps, wrapperElement: any = Div) => (child, ind
 
               {listContent}
 
-              {listIsExpandable && arrowIsVisible && (
-                <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
-                  <Icon
-                    name={drawerIsOpen ? 'chevron-up' : 'chevron-down'}
-                    size="16"
-                    color="default"
-                  />
-                </List.Arrow>
-              )}
+              {listIsExpandable &&
+                arrowIsVisible && (
+                  <List.Arrow onClick={() => setDrawerState(!drawerIsOpen)}>
+                    <Icon name={drawerIsOpen ? "chevron-up" : "chevron-down"} size="16" color="default" />
+                  </List.Arrow>
+                )}
 
               {drawer}
             </React.Fragment>
-          )
+          );
         }}
       </List.ItemContainer>
     </ItemWrapper>
-  )
-}
+  );
+};
 
 export interface IListProps {
   /** HTML ID of the component */
-  id?: string
+  id?: string;
   /** @deprecated header for list. Use a Heading component */
-  label?: string
+  label?: string;
   /** whether the list should show dragging handles */
-  draggable?: boolean
-  expandable?: boolean
+  draggable?: boolean;
+  expandable?: boolean;
   /** this function is called when dragging items have finished */
-  onDragEnd?: SortEndHandler
-  onItemClick?: Function
-  children?: React.ReactNode
-  sortable?: boolean
+  onDragEnd?: SortEndHandler;
+  onItemClick?: Function;
+  children?: React.ReactNode;
+  sortable?: boolean;
 }
 
 const List = (props: IListProps) => (
-  <List.Element {...props} {...Automation('list')} role="list">
+  <List.Element {...props} {...Automation("list")} role="list">
     {props.label && (
       <List.Label>
         <Heading size={4}>{props.label}</Heading>
@@ -122,16 +113,16 @@ const List = (props: IListProps) => (
       React.Children.map(props.children, renderItem(props))
     )}
   </List.Element>
-)
+);
 
 List.Element = styled.ul`
   ${containerStyles};
-`
+`;
 
 interface IListItemContainerProps {
-  draggable?: boolean
-  onClick?: Function
-  children?: (open: boolean, setDrawerState: Function) => React.ReactNode
+  draggable?: boolean;
+  onClick?: Function;
+  children?: (open: boolean, setDrawerState: Function) => React.ReactNode;
 }
 
 class ListItemContainer extends React.Component<IListItemContainerProps, { open: boolean }> {
@@ -145,30 +136,29 @@ class ListItemContainer extends React.Component<IListItemContainerProps, { open:
     flex-wrap: wrap;
     align-items: stretch;
     justify-content: space-between;
-    background-color: ${(props) =>
-      props.hasOpenDrawer ? colors.list.backgroundHover : 'transparent'};
+    background-color: ${(props) => (props.hasOpenDrawer ? colors.list.backgroundHover : "transparent")};
 
     &:hover {
       background-color: ${colors.list.backgroundHover};
     }
-  `
+  `;
 
-  public state = { open: false }
+  public state = { open: false };
 
   public setDrawerState = (open) => {
-    this.setState({ open })
-  }
+    this.setState({ open });
+  };
 
   public render() {
     return (
       <List.ItemContainer.Element {...this.props} hasOpenDrawer={this.state.open}>
         {this.props.children(this.state.open, this.setDrawerState)}
       </List.ItemContainer.Element>
-    )
+    );
   }
 }
 
-List.ItemContainer = ListItemContainer
+List.ItemContainer = ListItemContainer;
 
 List.Item = styled.div`
   flex: 1;
@@ -176,7 +166,7 @@ List.Item = styled.div`
   flex-wrap: wrap;
   align-items: center;
   word-break: break-word;
-  margin-right: ${(props) => (props.arrowIsVisible ? '0' : '32px')};
+  margin-right: ${(props) => (props.arrowIsVisible ? "0" : "32px")};
 
   > *:not(:last-child) {
     margin-right: ${spacing.medium};
@@ -186,13 +176,13 @@ List.Item = styled.div`
   > * {
     flex: 1;
   }
-`
+`;
 List.Header = styled.div`
   flex: 1;
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */
-`
+`;
 
 List.Body = styled.div`
   flex: 1.4;
@@ -202,11 +192,11 @@ List.Body = styled.div`
     order: 1;
     margin-top: ${spacing.small};
   }
-`
+`;
 
 List.Footer = styled.div`
   flex: none;
-`
+`;
 
 // Sortable List
 List.Handle = SortableHandle(styled.button`
@@ -219,7 +209,7 @@ List.Handle = SortableHandle(styled.button`
   margin-left: -${spacing.xsmall};
   padding-left: ${spacing.xsmall};
   padding-right: ${spacing.small};
-`)
+`);
 
 List.Arrow = styled.button`
   cursor: pointer;
@@ -231,12 +221,12 @@ List.Arrow = styled.button`
   margin-right: -${spacing.xsmall};
   padding-left: ${spacing.small};
   padding-right: ${spacing.xsmall};
-`
+`;
 
 List.Drawer = styled.section`
   flex: 1 0 100%;
   border-top: 1px solid ${colors.list.borderColor};
-  display: ${(props) => (props.hidden ? 'none' : 'block')};
+  display: ${(props) => (props.hidden ? "none" : "block")};
 
   margin-top: ${spacing.small};
   margin-bottom: -${spacing.small};
@@ -246,7 +236,7 @@ List.Drawer = styled.section`
   padding-right: ${spacing.small};
   padding-top: ${spacing.small};
   padding-bottom: ${spacing.small};
-`
+`;
 
 List.Label = styled.div`
   padding: ${spacing.xsmall};
@@ -254,10 +244,10 @@ List.Label = styled.div`
   ${StyledHeading[4]} {
     margin: 0;
   }
-`
+`;
 
-List.arrayMove = arrayMove
+List.arrayMove = arrayMove;
 
-List.defaultProps = {}
+List.defaultProps = {};
 
-export default List
+export default List;

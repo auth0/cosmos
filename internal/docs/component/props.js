@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import { spacing, colors, fonts, misc } from '@auth0/cosmos/tokens'
-import parseType from './prop-type'
-import addDefaultValues, { getDefaultValue } from './default-props'
-import getConflictingProps from './prop-conflicts'
-import PropSwitcher from './prop-switcher'
-import { Table, Code } from '../docs-components'
+import { spacing, colors, fonts, misc } from "@auth0/cosmos/tokens";
+import parseType from "./prop-type";
+import addDefaultValues, { getDefaultValue } from "./default-props";
+import getConflictingProps from "./prop-conflicts";
+import PropSwitcher from "./prop-switcher";
+import { Table, Code } from "../docs-components";
 
 const Type = styled.div`
   font-size: 13px;
@@ -15,57 +15,57 @@ const Type = styled.div`
   border-radius: ${misc.radius};
   position: relative;
   left: -${spacing.xsmall};
-`
+`;
 
-const Deprecated = Type.withComponent('span').extend`
+const Deprecated = styled(Type).attrs({ as: "span" })`
   color: ${colors.text.error};
-`
+`;
 
 const Required = styled.span`
   color: ${colors.base.orange};
   &:after {
-    content: '*';
+    content: "*";
     font-size: 16px;
   }
-`
+`;
 
 class Props extends React.Component {
   constructor(props) {
-    super(props)
-    let propData = addDefaultValues(props.propData)
+    super(props);
+    let propData = addDefaultValues(props.propData);
 
     /* over ride with defaults from documentation */
-    const defaultsFromDocs = props.defaultsFromDocs
-    Object.keys(defaultsFromDocs).forEach(key => {
-      if (propData[key]) propData[key].value = defaultsFromDocs[key]
-    })
+    const defaultsFromDocs = props.defaultsFromDocs;
+    Object.keys(defaultsFromDocs).forEach((key) => {
+      if (propData[key]) propData[key].value = defaultsFromDocs[key];
+    });
 
-    this.state = { propData: propData }
-    this.props.onPropsChange(propData)
+    this.state = { propData: propData };
+    this.props.onPropsChange(propData);
   }
 
   onPropsChange(propName, value) {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       /* Handle conflicting binary props */
-      const conflictingProps = getConflictingProps(currentState.propData, propName)
-      conflictingProps.forEach(conflictingPropName => {
+      const conflictingProps = getConflictingProps(currentState.propData, propName);
+      conflictingProps.forEach((conflictingPropName) => {
         /* disable all conflicting props */
-        currentState.propData[conflictingPropName].value = 'false'
-      })
+        currentState.propData[conflictingPropName].value = "false";
+      });
 
       /* set value for prop */
-      currentState.propData[propName].value = value
+      currentState.propData[propName].value = value;
 
-      this.props.onPropsChange(currentState.propData)
-      return currentState
-    })
+      this.props.onPropsChange(currentState.propData);
+      return currentState;
+    });
   }
 
   render() {
-    let { propData } = this.state
+    let { propData } = this.state;
 
-    const keys = Object.keys(propData).filter(key => key[0] !== '_')
-    let deprecationMatch = /@deprecated :(\w+)/gi
+    const keys = Object.keys(propData).filter((key) => key[0] !== "_");
+    let deprecationMatch = /@deprecated :(\w+)/gi;
 
     return (
       <Table>
@@ -78,10 +78,10 @@ class Props extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {keys.map(key => {
+          {keys.map((key) => {
             let description = propData[key].description;
-            const isInternal = description.includes('@internal')
-            const isDeprecated = description.includes('@deprecated')
+            const isInternal = description.includes("@internal");
+            const isDeprecated = description.includes("@deprecated");
             let deprecationReplacement;
 
             if (isInternal) {
@@ -90,21 +90,19 @@ class Props extends React.Component {
             }
 
             if (isDeprecated) {
-              const deprecationReplMatch = deprecationMatch.exec(description)
+              const deprecationReplMatch = deprecationMatch.exec(description);
               if (deprecationReplMatch) {
-                deprecationReplacement = deprecationReplMatch[1]
-                description = description.replace(deprecationMatch, '')
+                deprecationReplacement = deprecationReplMatch[1];
+                description = description.replace(deprecationMatch, "");
               } else {
-                description = description.replace('@deprecated', '')
+                description = description.replace("@deprecated", "");
               }
             }
 
             return (
               <tr key={key}>
                 <td>
-                  <Code style={{ color: propData[key].deprecated ? colors.text.error : 'inherit' }}>
-                    {key}
-                  </Code>
+                  <Code style={{ color: propData[key].deprecated ? colors.text.error : "inherit" }}>{key}</Code>
                   {isDeprecated && <Deprecated>(deprecated)</Deprecated>}
                   {propData[key].required && <Required />}
                 </td>
@@ -119,19 +117,15 @@ class Props extends React.Component {
                       use <Code>{deprecationReplacement}</Code>
                     </Deprecated>
                   ) : (
-                      <PropSwitcher
-                        propName={key}
-                        data={propData[key]}
-                        onPropsChange={this.onPropsChange.bind(this)}
-                      />
-                    )}
+                    <PropSwitcher propName={key} data={propData[key]} onPropsChange={this.onPropsChange.bind(this)} />
+                  )}
                 </td>
               </tr>
-            )
+            );
           })}
         </tbody>
       </Table>
-    )
+    );
   }
 }
-export default Props
+export default Props;
