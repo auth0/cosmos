@@ -296,7 +296,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
               isLoading={props.loading}
               onMenuOpen={this.updateMenuState(true)}
               onMenuClose={this.updateMenuState(false)}
-              menuPortalTarget={document.body}
+              menuPortalTarget={!!document ? document.body : null}
               menuIsOpen={props.defaultMenuOpen}
               defaultValue={props.defaultValue}
               getOptionValue={props.getOptionValue}
