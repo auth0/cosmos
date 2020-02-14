@@ -1,33 +1,34 @@
-import * as React from 'react'
-import { SortableContainer, SortableElement, arrayMove, SortEndHandler } from 'react-sortable-hoc'
-import styled from '../../styled'
-import ResourceListItem, { ResourceListItemAction } from './item'
-import { spacing } from '../../tokens'
-import Automation from '../../_helpers/automation-attribute'
-import containerStyles from '../../_helpers/container-styles'
-import SortableListHandle from './sortable-handle'
+import * as React from "react";
+import { arrayMove, SortableContainer, SortableElement, SortEndHandler } from "react-sortable-hoc";
+
+import Automation from "../../_helpers/automation-attribute";
+import containerStyles from "../../_helpers/container-styles";
+import styled from "../../styled";
+import { spacing } from "../../tokens";
+import ResourceListItem, { ResourceListItemAction } from "./item";
+import SortableListHandle from "./sortable-handle";
 
 export interface IResourceListProps {
   /** HTML ID of the component */
-  id?: string
+  id?: string;
   /** The items that will be rendered in the list. */
-  items: any[]
+  items: any[];
   /** The actions to render to the right side of the list items. */
-  actions?: ResourceListItemAction[]
+  actions?: ResourceListItemAction[];
   /** A function that will be called when an item is clicked. */
-  onItemClick?: Function
+  onItemClick?: Function;
   /** A function that accepts an item from the items array, and returns a ResourceList.Item. */
-  renderItem?: Function
+  renderItem?: Function;
   /** Whether the resource list will be sortable by the user or not */
-  sortable?: boolean
-  onSortEnd?: SortEndHandler
+  sortable?: boolean;
+  onSortEnd?: SortEndHandler;
 }
 
 const ResourceList = (props: IResourceListProps) => {
   const defaultItemRenderer = (item, _, index) => {
     // We can say we are in dragging mode if there one .cosmos-dragging
     // element in the DOM.
-    const draggingMode = document.querySelector('.cosmos-dragging')
+    const draggingMode = !!document && document.querySelector(".cosmos-dragging");
     return (
       <ResourceListItem
         index={index}
@@ -36,25 +37,19 @@ const ResourceList = (props: IResourceListProps) => {
         item={item}
         {...item}
       />
-    )
-  }
+    );
+  };
 
   const itemRendererBuilder = (props) => {
-    const {
-      item,
-      index,
-      actions,
-      renderItem,
-      onItemClick,
-      accessibilityIndex,
-      accessibilityOnSortEnd
-    } = props
-    const itemRenderer = renderItem || defaultItemRenderer
-    const actualIndex = index || accessibilityIndex
+    const { item, index, actions, renderItem, onItemClick, accessibilityIndex, accessibilityOnSortEnd } = props;
+    const itemRenderer = renderItem || defaultItemRenderer;
+    const actualIndex = index || accessibilityIndex;
 
     const handleOnItemClick = (evt) => {
-      if (typeof onItemClick === 'function') { onItemClick(evt, item) }
-    }
+      if (typeof onItemClick === "function") {
+        onItemClick(evt, item);
+      }
+    };
 
     return React.cloneElement(itemRenderer(item, props, actualIndex), {
       item,
@@ -63,13 +58,11 @@ const ResourceList = (props: IResourceListProps) => {
       accessibilityOnSortEnd,
       actions: item.actions || actions,
       onClick: item.onClick || handleOnItemClick
-    })
-  }
+    });
+  };
 
   const defaultChildrenRenderer = ({ items, actions, onItemClick, renderItem }) =>
-    items.map((item, index) =>
-      itemRendererBuilder({ item, index, renderItem, onItemClick, actions })
-    )
+    items.map((item, index) => itemRendererBuilder({ item, index, renderItem, onItemClick, actions }));
 
   const SortableResourceListItem = SortableElement(
     ({
@@ -80,12 +73,12 @@ const ResourceList = (props: IResourceListProps) => {
       onClick: onItemClick,
       accessibilityOnSortEnd
     }: {
-      item: Object
-      actions: ResourceListItemAction[]
-      renderItem: Function
-      accessibilityIndex: number
-      onClick: Function
-      accessibilityOnSortEnd: Function
+      item: Object;
+      actions: ResourceListItemAction[];
+      renderItem: Function;
+      accessibilityIndex: number;
+      onClick: Function;
+      accessibilityOnSortEnd: Function;
     }) =>
       itemRendererBuilder({
         item,
@@ -95,7 +88,7 @@ const ResourceList = (props: IResourceListProps) => {
         onItemClick,
         accessibilityOnSortEnd
       })
-  )
+  );
 
   const SortableResourceList = SortableContainer(
     ({ items: sortableItems, actions, onItemClick, renderItem, accessibilityOnSortEnd }) => (
@@ -117,7 +110,7 @@ const ResourceList = (props: IResourceListProps) => {
         ))}
       </div>
     )
-  )
+  );
 
   const sortableChildrenRenderer = (props) => {
     return (
@@ -127,27 +120,27 @@ const ResourceList = (props: IResourceListProps) => {
         helperClass="cosmos-dragging"
         accessibilityOnSortEnd={props.onSortEnd}
       />
-    )
-  }
+    );
+  };
 
   const resolveChildrenRenderer = (props) =>
-    props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props)
+    props.sortable ? sortableChildrenRenderer(props) : defaultChildrenRenderer(props);
 
   return (
-    <ResourceList.Element {...Automation('resource-list')} {...props}>
+    <ResourceList.Element {...Automation("resource-list")} {...props}>
       {resolveChildrenRenderer(props)}
     </ResourceList.Element>
-  )
-}
+  );
+};
 
 ResourceList.Element = styled.ul`
   ${containerStyles};
 
   margin: ${spacing.large} 0;
   padding: 0;
-`
+`;
 
-ResourceList.Item = ResourceListItem
+ResourceList.Item = ResourceListItem;
 
-export default ResourceList
-export { arrayMove }
+export default ResourceList;
+export { arrayMove };
