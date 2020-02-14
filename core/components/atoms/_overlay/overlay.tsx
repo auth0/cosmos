@@ -71,15 +71,15 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
   }
 
   public mountElement: HTMLDivElement;
-  public contentElement: HTMLDivElement;
+  public contentElementRef = React.createRef<HTMLDivElement>();
 
   constructor(props) {
     super(props);
     this.state = { hasBeenMounted: false };
-    this.mountElement = document.createElement("div");
   }
 
   public componentDidMount() {
+    this.mountElement = document.createElement("div");
     document.body.appendChild(this.mountElement);
     document.addEventListener("keydown", this.handleDocumentKeyDown);
     this.setState((prevState, props) => ({
@@ -94,7 +94,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
 
   public handleMouseDown = (evt) => {
     const { closeOnBackdropClick, open, onClose } = this.props;
-    const clickWasOnBackdrop = this.contentElement && !this.contentElement.contains(evt.target);
+    const clickWasOnBackdrop = this.contentElementRef.current && !this.contentElementRef.current.contains(evt.target);
     if (open && closeOnBackdropClick && clickWasOnBackdrop && onClose) {
       onClose();
     }
@@ -120,7 +120,7 @@ class Overlay extends React.Component<IOverlayProps, IOverlayState> {
 
     const content = open ? (
       <Overlay.Backdrop onMouseDown={this.handleMouseDown}>
-        <Overlay.Element contentSize={contentSize} ref={(el) => (this.contentElement = el)}>
+        <Overlay.Element contentSize={contentSize} ref={this.contentElementRef}>
           {children}
         </Overlay.Element>
       </Overlay.Backdrop>
