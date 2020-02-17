@@ -222,7 +222,8 @@
     "home-fill": [],
     "arrow-left-fill": [],
     "dropdown-fill": [],
-    "chevron-right-fill": []
+    "chevron-right-fill": [],
+    "danger-fill": ["important", "exclamation", "!"]
   },
   "Deprecated": {
     "email": [],
