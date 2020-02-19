@@ -7,66 +7,61 @@
 
 /* eslint-disable import/first */
 
-/* resets for font */
-import './_helpers/globals'
-
 /* internal */
-import Box from './atoms/_box'
-import Well from './atoms/_well'
-
-/* atoms */
-import Avatar from './atoms/avatar'
-import Badge from './atoms/badge'
-import Breadcrumb from './atoms/breadcrumb'
-import Button from './atoms/button'
-import Checkbox from './atoms/checkbox'
-import Code from './atoms/code'
-import FileInput from './atoms/file-input'
-import Heading from './atoms/heading'
-import Icon from './atoms/icon'
-import Image from './atoms/image'
-import Label from './atoms/label'
-import Link from './atoms/link'
-import Logo from './atoms/logo'
-import Paragraph from './atoms/paragraph'
-import Radio from './atoms/radio'
-import Select from './atoms/select'
-import Spinner from './atoms/spinner'
-import Switch from './atoms/switch'
-import Tag from './atoms/tag'
-import Text from './atoms/text'
-import TextArea from './atoms/textarea'
-import TextInput from './atoms/text-input'
-import Tooltip from './atoms/tooltip'
-
+import Box from "./atoms/_box";
+import Well from "./atoms/_well";
 /* molecules */
-import Alert from './atoms/alert'
-import AvatarBlock from './molecules/avatar-block'
-import ButtonGroup from './molecules/button-group'
-import DangerZone from './molecules/danger-zone'
-import Dialog from './molecules/dialog'
-import EmptyState from './molecules/empty-state'
-import Form from './molecules/form'
-import FormGroup from './molecules/form-group'
-import List from './molecules/list'
-import Navigation from './molecules/navigation'
-import PageHeader from './molecules/page-header'
-import Pagination from './molecules/pagination'
-import PaginationToolbar from './molecules/pagination-toolbar'
-import Pager from './molecules/pager'
-import ResourceList from './molecules/resource-list'
-import Sidebar from './molecules/sidebar'
-import Stack from './molecules/stack'
-import Table from './molecules/table'
-import Tabs from './molecules/tabs'
-
+import Alert from "./atoms/alert";
+/* atoms */
+import Avatar from "./atoms/avatar";
+import Badge from "./atoms/badge";
+import Breadcrumb from "./atoms/breadcrumb";
+import Button from "./atoms/button";
+import Checkbox from "./atoms/checkbox";
+import Code from "./atoms/code";
+import CssBaseline from "./atoms/css-baseline";
+import FileInput from "./atoms/file-input";
+import Heading from "./atoms/heading";
+import Icon from "./atoms/icon";
+import Image from "./atoms/image";
+import Label from "./atoms/label";
+import Link from "./atoms/link";
+import Logo from "./atoms/logo";
+import Paragraph from "./atoms/paragraph";
+import Radio from "./atoms/radio";
+import Select from "./atoms/select";
+import Spinner from "./atoms/spinner";
+import Switch from "./atoms/switch";
+import Tag from "./atoms/tag";
+import Text from "./atoms/text";
+import TextInput from "./atoms/text-input";
+import TextArea from "./atoms/textarea";
+import Tooltip from "./atoms/tooltip";
 /* layouts (internal) */
-import AppLayout from './layouts/_app-layout'
-import ColumnLayout from './layouts/column-layout'
-import RowLayout from './layouts/row-layout'
-import GalleryLayout from './layouts/gallery-layout'
-import PageLayout from './layouts/page-layout'
-import StackLayout from './layouts/stack-layout'
+import AppLayout from "./layouts/_app-layout";
+import ColumnLayout from "./layouts/column-layout";
+import GalleryLayout from "./layouts/gallery-layout";
+import PageLayout from "./layouts/page-layout";
+import RowLayout from "./layouts/row-layout";
+import StackLayout from "./layouts/stack-layout";
+import AvatarBlock from "./molecules/avatar-block";
+import ButtonGroup from "./molecules/button-group";
+import DangerZone from "./molecules/danger-zone";
+import Dialog from "./molecules/dialog";
+import EmptyState from "./molecules/empty-state";
+import Form from "./molecules/form";
+import FormGroup from "./molecules/form-group";
+import List from "./molecules/list";
+import Navigation from "./molecules/navigation";
+import PageHeader from "./molecules/page-header";
+import Pager from "./molecules/pager";
+import Pagination from "./molecules/pagination";
+import PaginationToolbar from "./molecules/pagination-toolbar";
+import ResourceList from "./molecules/resource-list";
+import Sidebar from "./molecules/sidebar";
+import Stack from "./molecules/stack";
+import Table from "./molecules/table";
+import Tabs from "./molecules/tabs";
 
 export {
   Alert,
@@ -81,6 +76,7 @@ export {
   Checkbox,
   Code,
   ColumnLayout,
+  CssBaseline,
   DangerZone,
   Dialog,
   EmptyState,
@@ -119,4 +115,4 @@ export {
   TextInput,
   Tooltip,
   Well
-}
+};
