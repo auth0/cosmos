@@ -7,7 +7,7 @@ Empty states are displayed when a page has no content.
 
 ```jsx
 <EmptyState
-  {props} defaults={{title: "'Clients'", icon: "clients", link: "auth0.com"}}
+  {props} defaults={{title: "Clients", icon: "clients", link: "auth0.com"}}
   action={{
     icon: 'plus',
     label: 'Create Client',
