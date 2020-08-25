@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/). Currently, this project is using an `0.x` versioning system to indicate its preview status. As such, it does _not_ currently adhere to [Semantic Versioning](http://semver.org/spec/v2.0.0.html). Once we reach production readiness, we will
 follow semver beginning with our `1.0` release. In the meantime, please read this changelog for information on breaking changes!
 
+## 0.36.0 [August 24th, 2020]
+
+### Changes
+
+- Add new icons. [#1717]
+
+## 0.35.0 [February 24th, 2020]
+
+### Changes
+
+- (**Breaking** 💥) Updated to styled-components v5 [#1697] (See the [Upgrade Guide](https://auth0-cosmos.now.sh/docs/#/upgrade-guide) for changes required.)
+- (**Breaking** 💥) `CssBaseline`: Added `CssBaseline` Component to render global styles [#1699]
+- SSR Support: [#1704], [#1703], [#1702]
+- Icon: added `danger-fill` icon. [#1701]
+
 ## 0.34.0 [February 13th, 2020]
 
 ### Changes
