@@ -4,7 +4,7 @@ pipeline {
   }
 
   tools {
-    nodejs '10.16.0-yarn-1.16.0'
+    nodejs '12.18.0'
   }
 
   environment {
