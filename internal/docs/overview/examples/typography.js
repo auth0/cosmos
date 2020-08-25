@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import Section from '../components/section'
-import Example from '../components/example'
-import { Heading, Paragraph, Text, Code, Link, Stack } from '@auth0/cosmos'
+import Section from "../components/section";
+import Example from "../components/example";
+import { Heading, Paragraph, Text, Code, Link, Stack } from "@auth0/cosmos";
 
 const Colors = () => (
   <Section title="Typography">
@@ -15,13 +15,12 @@ const Colors = () => (
 
     <Example title="Paragraph">
       <Paragraph>
-        Auth0 provides authentication and authorization as a service. We are here to give developers
-        and companies the building blocks they need in order to secure their applications, without
-        having to become security experts. You can connect any application (written in any language
-        or on any stack) to Auth0 and define the identity providers you want to use (how you want
-        your users to log in). Based on your app's technology, choose one of our SDKs (or call our
-        API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will
-        verify their identity and send the required information back to your app.
+        Auth0 provides authentication and authorization as a service. We are here to give developers and companies the
+        building blocks they need in order to secure their applications, without having to become security experts. You
+        can connect any application (written in any language or on any stack) to Auth0 and define the identity providers
+        you want to use (how you want your users to log in). Based on your app's technology, choose one of our SDKs (or
+        call our API) and hook it up to your app. Now each time a user tries to authenticate, Auth0 will verify their
+        identity and send the required information back to your app.
       </Paragraph>
     </Example>
 
@@ -34,8 +33,7 @@ const Colors = () => (
 
     <Example title="Link">
       <Paragraph>
-        Auth0 provides authentication and authorization as a service.{' '}
-        <Link href="/docs">Read more in the docs</Link>.
+        Auth0 provides authentication and authorization as a service. <Link href="/">Read more in the docs</Link>.
       </Paragraph>
     </Example>
 
@@ -45,6 +43,6 @@ const Colors = () => (
       </Paragraph>
     </Example>
   </Section>
-)
+);
 
-export default Colors
+export default Colors;

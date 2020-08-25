@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import Helmet from 'react-helmet'
+import React from "react";
+import styled from "styled-components";
+import Helmet from "react-helmet";
 
-import { Heading1, Heading2, Text, Link, Subheader, CodeBlock, Tag } from '../docs-components'
-import { Code, Icon, List, Badge } from '@auth0/cosmos'
+import { Heading1, Heading2, Text, Link, Subheader, CodeBlock, Tag } from "../docs-components";
+import { Code, Icon, List, Badge } from "@auth0/cosmos";
 
 class Home extends React.Component {
   render() {
@@ -35,29 +35,27 @@ class Home extends React.Component {
           <Link href="#/overview">Overview of components</Link>
           <br />
           <br />
-          <Link href="https://github.com/auth0/cosmos/tree/master/examples/webpack-hello-world">
-            Hello world
-          </Link>
+          <Link href="https://github.com/auth0/cosmos/tree/master/examples/webpack-hello-world">Hello world</Link>
         </Text>
 
         <Heading2>Feedback</Heading2>
         <Text>
           Issues or feature requests can be created on
-          <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{' '}
+          <Link href="https://github.com/auth0/cosmos/issues"> our GitHub page</Link> or{" "}
           <Link href="https://auth0.slack.com/messages/C5ZK0DD8X">on Slack</Link>.<br />
           <br />
-          You can use the <Link href="#/playground">playground</Link> to test and share code, report
-          bugs and ask for feedback.
+          You can use the <Link href="#/playground">playground</Link> to test and share code, report bugs and ask for
+          feedback.
         </Text>
 
         <Heading2>Useful links</Heading2>
-        <Link href="/sandbox">Sandbox</Link>
+        <Link href="/sandbox/">Sandbox</Link>
         <br />
         <br />
         <Link href="#">Sketch UI Kit (coming soon)</Link>
       </div>
-    )
+    );
   }
 }
 
-export default Home
+export default Home;

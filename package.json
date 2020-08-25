@@ -16,6 +16,7 @@
   "scripts": {
     "scripts": "nps -s",
     "i": "nps-i",
+    "docs-build": "nps -s docs.static_build",
     "build": "nps -s production.build",
     "build-packages": "nps -s deploy.build",
     "start": "nps -s production.start",
