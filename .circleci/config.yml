@@ -1,37 +1,10 @@
 version: 2
 
 jobs:
-  "Build for Production":
-    working_directory: ~/cosmos
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install --force -g yarn@1.16'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-yarn-wee
-          command: yarn
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: build
-          command: yarn scripts production.build
-      - run:
-          name: copy-production-package-metadata
-          command: cp tooling/deployment-package.json build/package.json
-      - run:
-          name: deploy-to-now
-          command: cd build && npx now-cd --team auth0-design --alias "master=auth0-cosmos-master.now.sh" --alias "stable=auth0-cosmos.now.sh"
   "Run Unit Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:12
     steps:
       - checkout
       - run:
@@ -52,7 +25,7 @@ jobs:
   "Run Integration Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:12
     steps:
       - checkout
       - run:
@@ -73,7 +46,7 @@ jobs:
   "Run Visual Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:10
+      - image: circleci/node:12
     steps:
       - checkout
       - run:
@@ -95,7 +68,6 @@ workflows:
   version: 2
   master:
     jobs:
-      - "Build for Production"
       - "Run Unit Tests"
       - "Run Integration Tests"
       - "Run Visual Tests"
