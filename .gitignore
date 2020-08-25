@@ -75,3 +75,5 @@ core/components/dist
 internal/docs/public/main.js
 internal/overview/public/main.js
 *.d.ts
+
+.vercel
