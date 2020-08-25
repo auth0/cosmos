@@ -172,7 +172,9 @@
     "sso-integrations": [],
     "extensions": [],
     "login-box": [],
-    "groups": []
+    "groups": [],
+    "flows": [],
+    "integrations": []
   },
   "Brands": {
     "brand-microsoft": ["windowslive", "windows"],
