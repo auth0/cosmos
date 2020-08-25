@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import { Icon, Logo, Label } from '@auth0/cosmos'
-import { StyledLabel } from '@auth0/cosmos/atoms/label'
-import { colors, spacing } from '@auth0/cosmos/tokens'
-import HamburgerButton from './hamburger-button'
-import IconSketch from './sketch-icon'
-import IconGithub from './github-icon'
-import VersionSwitcher from './version-switcher'
+import { Icon, Logo, Label } from "@auth0/cosmos";
+import { StyledLabel } from "@auth0/cosmos/atoms/label";
+import { colors, spacing } from "@auth0/cosmos/tokens";
+import HamburgerButton from "./hamburger-button";
+import IconGithub from "./github-icon";
+import VersionSwitcher from "./version-switcher";
 
 const NavigationContainer = styled.nav`
   position: fixed;
@@ -61,7 +60,7 @@ const NavigationContainer = styled.nav`
       height: 100%;
     }
   }
-`
+`;
 
 const NavigationLinks = styled.ul`
   li {
@@ -93,7 +92,7 @@ const NavigationLinks = styled.ul`
       border-top: 1px solid ${colors.base.default};
     }
   }
-`
+`;
 
 const LogoName = styled.h1`
   font-size: 14px;
@@ -104,13 +103,13 @@ const LogoName = styled.h1`
   margin-left: 16px;
   margin-right: 0.75em;
   text-transform: uppercase;
-`
+`;
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Header = styled.div`
   height: 80px;
@@ -121,27 +120,27 @@ const Header = styled.div`
     padding: 0 ${spacing.medium};
     width: 100%;
   }
-`
+`;
 
 class Navigation extends Component {
   constructor() {
-    super()
+    super();
     /* by default, hide mobile nav */
-    this.state = { isOpen: false }
+    this.state = { isOpen: false };
   }
 
   toggleMenu() {
-    this.setState({ isOpen: !this.state.isOpen })
+    this.setState({ isOpen: !this.state.isOpen });
   }
   revealHiddenFeatures() {
     /* remove hidden features css block */
-    let tag = document.getElementById('hidden-features')
-    tag.innerHTML = ''
+    let tag = document.getElementById("hidden-features");
+    tag.innerHTML = "";
   }
 
   render() {
     return (
-      <NavigationContainer className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}>
+      <NavigationContainer className={`${this.state.isOpen ? "is-open" : "is-closed"}`}>
         <Header>
           <LogoContainer>
             <span onDoubleClick={this.revealHiddenFeatures}>
@@ -152,30 +151,23 @@ class Navigation extends Component {
           </LogoContainer>
           <HamburgerButton isOpen={this.state.isOpen} onClick={() => this.toggleMenu()} />
         </Header>
-        <NavigationLinks className={`${this.state.isOpen ? 'is-open' : 'is-closed'}`}>
+        <NavigationLinks className={`${this.state.isOpen ? "is-open" : "is-closed"}`}>
           <li>
-            <a href="/?url=docs" onClick={() => this.toggleMenu()}>
+            <a href="/" onClick={() => this.toggleMenu()}>
               <Icon name="logs" color="grayLightest" size={20} />
               <span>Documentation</span>
             </a>
           </li>
           <li>
-            <a href="/docs/#/playground" onClick={() => this.toggleMenu()}>
+            <a href="/#/playground" onClick={() => this.toggleMenu()}>
               <Icon name="code" color="grayLightest" size={16} />
               <span>Playground</span>
             </a>
           </li>
           <li>
-            <a href="/sandbox" target="_blank" onClick={() => this.toggleMenu()}>
+            <a href="/sandbox/" target="_blank" onClick={() => this.toggleMenu()}>
               <Icon name="support" color="grayLightest" size={20} />
               <span>Stories</span>
-            </a>
-          </li>
-          <li>
-            <a href="/" onClick={() => this.toggleMenu()}>
-              <IconSketch />
-              <span>UI Kit</span>
-              <Label appearance="information">Soon</Label>
             </a>
           </li>
           <li>
@@ -191,8 +183,8 @@ class Navigation extends Component {
           </li>
         </NavigationLinks>
       </NavigationContainer>
-    )
+    );
   }
 }
 
-export default Navigation
+export default Navigation;
