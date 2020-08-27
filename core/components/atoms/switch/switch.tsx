@@ -16,7 +16,7 @@ const Toggle = styled.span`
   height: var(--switch-height);
   border-radius: 21px;
   background: ${(props) => (props.on ? colors.base.green : colors.base.grayLight)};
-  cursor: pointer;
+  cursor: ${(props) => (props.readOnly ? "not-allowed" : "pointer")};
   position: relative;
 
   &:before {

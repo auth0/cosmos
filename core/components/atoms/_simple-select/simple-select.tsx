@@ -89,6 +89,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
 };
 
 SimpleSelect.Element = styled(StyledInput).attrs({ as: "select" })`
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   appearance: none;
 
   padding-right: ${spacing.large};
