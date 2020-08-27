@@ -16,8 +16,7 @@ module.exports = {
           "metadata.build",
           "docs.build",
           "production.copy.docs",
-          "sandbox.build",
-          "production.copy.redirect"
+          "sandbox.build"
         ),
         description: "Build for production"
       },
