@@ -67,7 +67,12 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
       <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color={props.disabled ? colors.input.icon : "default"} />
       <Form.Field.ContextConsumer>
         {(context) => (
-          <SimpleSelect.Element id={props.id || context.formFieldId} {...Automation("select")} {...props}>
+          <SimpleSelect.Element
+            id={props.id || context.formFieldId}
+            isUsingPlaceholder={shouldUsePlaceholder}
+            {...Automation("select")}
+            {...props}
+          >
             {/* First option will be selected if there is no value passed as a prop */}
             {props.placeholder && (
               <option disabled={true} value={PLACEHOLDER_VALUE} {...Automation("select.option")}>
@@ -87,9 +92,11 @@ SimpleSelect.Element = styled(StyledInput).attrs({ as: "select" })`
   appearance: none;
   padding-right: ${spacing.large};
   height: ${misc.input.default.height};
+  color: ${(props) => (props.isUsingPlaceholder ? colors.input.placeholder : colors.input.text)};
 
   &:disabled {
     opacity: 1;
+    color: ${(props) => (props.isUsingPlaceholder ? colors.input.placeholderReadOnly : colors.input.text)};
   }
 `;
 

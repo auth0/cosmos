@@ -282,7 +282,7 @@ exports[`Select simple variant renders SimpleSelect 1`] = `
     </svg>
   </i>
   <select
-    class="sc-fzXfMD sc-fzXfNg fjyOhp"
+    class="sc-fzXfMD sc-fzXfNg gnEaJI"
     data-cosmos-key="select"
     placeholder="Something"
   >

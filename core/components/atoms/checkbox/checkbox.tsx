@@ -44,8 +44,9 @@ const Checkbox = (props: ICheckboxProps) => (
           value={props.value}
           checked={props.checked}
           defaultChecked={props.defaultChecked}
-          onChange={props.onChange}
+          onChange={!props.readOnly ? props.onChange : undefined}
           readOnly={true}
+          disabled={props.readOnly}
           {...Automation("checkbox.input")}
         />
       )}
@@ -57,7 +58,7 @@ const Checkbox = (props: ICheckboxProps) => (
 
 Checkbox.Option = styled.label`
   ${containerStyles};
-
+  cursor: ${(props) => (props.readOnly ? "not-allowed" : "pointer")};
   display: flex;
   position: relative;
 
@@ -124,7 +125,6 @@ Checkbox.Option = styled.label`
 `;
 
 Checkbox.Element = styled.div`
-  cursor: ${(props) => (props.readOnly ? "not-allowed" : "pointer ")};
   ${Checkbox.Option} {
     display: ${(props) => (props.align === "horizontal" ? "inline-block" : "table")};
     ${(props) => justifyContent[props.align]};
@@ -152,12 +152,15 @@ const CheckboxGroup = (props: ICheckboxGroupProps) => (
       if (!child) {
         return null;
       }
+
+      const isReadOnly = props.readOnly || child.props.readOnly;
+
       return React.cloneElement(child, {
         name: props.name,
         defaultChecked: props.selected.indexOf(child.props.value) > -1,
         checked: props.checked,
-        readOnly: props.readOnly || child.props.readOnly,
-        onChange: props.onChange
+        readOnly: isReadOnly,
+        onChange: !isReadOnly ? props.onChange : undefined
       });
     })}
   </Checkbox.Element>
