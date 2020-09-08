@@ -67,7 +67,7 @@ const StyledInput = styled.input`
     outline: none;
   }
   &::-webkit-input-placeholder {
-    color: ${(props) => getAttributes(props).placeholder};
+    color: ${(props) => (props.masked ? colors.text.inputs : getAttributes(props).placeholder)};
   }
 `;
 
