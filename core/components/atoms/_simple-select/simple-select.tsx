@@ -8,11 +8,6 @@ import { StyledInput } from "../_styled-input";
 import Icon from "../icon";
 import { ISelectOptions } from "../select/interfaces";
 
-const selectOpacity = {
-  default: 1,
-  disabled: 0.5
-};
-
 const PLACEHOLDER_VALUE = "0";
 
 const valueIsUndefined = (value) => value === undefined || value === null;
@@ -69,7 +64,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
 
   return (
     <SimpleSelect.Wrapper>
-      <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color="default" />
+      <SimpleSelect.ArrowIcon name="dropdown-fill" size="14" color={props.disabled ? colors.input.icon : "default"} />
       <Form.Field.ContextConsumer>
         {(context) => (
           <SimpleSelect.Element id={props.id || context.formFieldId} {...Automation("select")} {...props}>
@@ -89,14 +84,13 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
 };
 
 SimpleSelect.Element = styled(StyledInput).attrs({ as: "select" })`
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   appearance: none;
-
   padding-right: ${spacing.large};
-
   height: ${misc.input.default.height};
-  opacity: ${(props) => (props.disabled ? selectOpacity.disabled : selectOpacity.default)};
-  background-color: ${(props) => (props.disabled ? colors.input.backgroundReadOnly : colors.input.background)};
+
+  &:disabled {
+    opacity: 1;
+  }
 `;
 
 SimpleSelect.Wrapper = styled.div`
