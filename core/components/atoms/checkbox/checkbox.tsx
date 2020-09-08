@@ -90,7 +90,8 @@ Checkbox.Option = styled.label`
   }
 
   &:hover input ~ ${CheckMark} {
-    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow};
+    box-shadow: ${(props) =>
+      props.readOnly ? `inset 0 1px 2px 0 ${colors.radio.shadow}` : `inset 0 1px 4px 0 ${colors.radio.shadow}`};
   }
 
   input:checked ~ ${CheckMark} {
