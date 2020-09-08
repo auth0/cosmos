@@ -69,7 +69,7 @@ const SimpleSelect = ({ options, ...props }: ISimpleSelectProps) => {
         {(context) => (
           <SimpleSelect.Element
             id={props.id || context.formFieldId}
-            isUsingPlaceholder={shouldUsePlaceholder}
+            isUsingPlaceholder={!!props.placeholder && shouldUsePlaceholder}
             {...Automation("select")}
             {...props}
           >
