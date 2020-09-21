@@ -83,15 +83,15 @@ Checkbox.Option = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    background-color: ${colors.radio.background};
-    border: 1px solid ${colors.radio.border};
-    box-shadow: inset 0 1px 2px 0 ${colors.radio.shadow};
+    background-color: ${(props) => (props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background)};
+    border: 1px solid ${(props) => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
+    box-shadow: inset 0 1px 2px 0 ${(props) => (props.readOnly ? colors.radio.shadowDisabled : colors.radio.shadow)};
     border-radius: 2px;
   }
 
   &:hover input ~ ${CheckMark} {
     box-shadow: ${(props) =>
-      props.readOnly ? `inset 0 1px 2px 0 ${colors.radio.shadow}` : `inset 0 1px 4px 0 ${colors.radio.shadow}`};
+      props.readOnly ? `inset 0 1px 2px 0 ${colors.radio.shadowDisabled}` : `inset 0 1px 4px 0 ${colors.radio.shadow}`};
   }
 
   input:checked ~ ${CheckMark} {
