@@ -6,35 +6,35 @@ import Form from "../../molecules/form";
 import styled from "../../styled";
 import { colors, fonts, spacing } from "../../tokens";
 
-const CheckMark = styled.span``
-const Label = styled.div``
+const CheckMark = styled.span``;
+const Label = styled.div``;
 
 const justifyContent = {
   horizontal: `margin-right: ${spacing.medium}`,
   vertical: `margin-bottom: ${spacing.xsmall}`
-}
+};
 
 export interface ICheckboxProps {
   /** HTML ID of the checkbox */
-  id?: string
+  id?: string;
   /** The name of the checkbox */
-  name: string
+  name: string;
   /** The value of the currently-selected option */
-  selected?: string[]
+  selected?: string[];
   /** If true, all options in the group will be disabled */
-  readOnly?: boolean
+  readOnly?: boolean;
   /** Callback function which is called when the user selects an option */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Label */
-  children?: JSX.Element | JSX.Element[] | string
-  defaultChecked?: boolean
-  checked?: boolean
-  value?: any
-  align?: 'vertical' | 'horizontal'
+  children?: JSX.Element | JSX.Element[] | string;
+  defaultChecked?: boolean;
+  checked?: boolean;
+  value?: any;
+  align?: "vertical" | "horizontal";
 }
 
 const Checkbox = (props: ICheckboxProps) => (
-  <Checkbox.Option readOnly={props.readOnly} {...Automation('checkbox')}>
+  <Checkbox.Option readOnly={props.readOnly} {...Automation("checkbox")}>
     <Form.Field.ContextConsumer>
       {(context) => (
         <input
@@ -44,23 +44,24 @@ const Checkbox = (props: ICheckboxProps) => (
           value={props.value}
           checked={props.checked}
           defaultChecked={props.defaultChecked}
-          onChange={props.onChange}
+          onChange={!props.readOnly ? props.onChange : undefined}
           readOnly={true}
-          {...Automation('checkbox.input')}
+          disabled={props.readOnly}
+          {...Automation("checkbox.input")}
         />
       )}
     </Form.Field.ContextConsumer>
     <CheckMark />
     <Label>{props.children}</Label>
   </Checkbox.Option>
-)
+);
 
 Checkbox.Option = styled.label`
   ${containerStyles};
-
+  cursor: ${(props) => (props.readOnly ? "not-allowed" : "pointer")};
   display: flex;
   position: relative;
-  cursor: pointer;
+
   margin-bottom: 0;
   font-weight: ${fonts.weight.normal};
   padding-left: ${spacing.medium};
@@ -69,16 +70,10 @@ Checkbox.Option = styled.label`
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
-  pointer-events: ${(props) => (props.readOnly ? 'none' : null)};
 
   input {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
-  }
-
-  ${Label} {
-    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
   }
 
   ${CheckMark} {
@@ -88,20 +83,19 @@ Checkbox.Option = styled.label`
     transform: translateY(20%);
     height: 16px;
     width: 16px;
-    opacity: ${(props) => (props.readOnly ? 0.5 : null)};
-    background-color: ${colors.radio.background};
-    border: 1px solid ${colors.radio.border};
-    box-shadow: inset 0 1px 2px 0 ${colors.radio.shadow};
+    background-color: ${(props) => (props.readOnly ? colors.radio.backgroundDisabled : colors.radio.background)};
+    border: 1px solid ${(props) => (props.readOnly ? colors.radio.borderDisabled : colors.radio.border)};
+    box-shadow: ${(props) => (props.readOnly ? `none` : `inset 0 1px 2px 0  ${colors.radio.shadow}`)};
     border-radius: 2px;
   }
 
   &:hover input ~ ${CheckMark} {
-    box-shadow: inset 0 1px 4px 0 ${colors.radio.shadow};
+    box-shadow: ${(props) => (props.readOnly ? `none` : `inset 0 1px 4px 0 ${colors.radio.shadow}`)};
   }
 
   input:checked ~ ${CheckMark} {
-    background-color: ${colors.radio.backgroundSelected};
-    border: 1px solid ${colors.radio.borderSelected};
+    background-color: ${(props) => (props.readOnly ? colors.base.gray : colors.radio.backgroundSelected)};
+    border: 1px solid ${(props) => (props.readOnly ? colors.base.gray : colors.radio.borderSelected)};
   }
 
   input:focus ~ ${CheckMark} {
@@ -109,7 +103,7 @@ Checkbox.Option = styled.label`
   }
 
   ${CheckMark}:after {
-    content: '';
+    content: "";
     position: absolute;
     display: none;
   }
@@ -128,56 +122,59 @@ Checkbox.Option = styled.label`
     left: 20%;
     top: 50%;
   }
-`
+`;
 
 Checkbox.Element = styled.div`
   ${Checkbox.Option} {
-    display: ${(props) => (props.align === 'horizontal' ? 'inline-block' : 'table')};
+    display: ${(props) => (props.align === "horizontal" ? "inline-block" : "table")};
     ${(props) => justifyContent[props.align]};
 
     &:last-child {
       margin: 0;
     }
   }
-`
+`;
 
 export interface ICheckboxGroupProps {
   /** The direction in which the options should be laid out */
-  align?: 'horizontal' | 'vertical'
-  children?: JSX.Element | JSX.Element[]
-  name?: string
-  selected?: any[]
-  checked?: boolean
-  readOnly?: boolean
-  onChange?: Function
+  align?: "horizontal" | "vertical";
+  children?: JSX.Element | JSX.Element[];
+  name?: string;
+  selected?: any[];
+  checked?: boolean;
+  readOnly?: boolean;
+  onChange?: Function;
 }
 
 const CheckboxGroup = (props: ICheckboxGroupProps) => (
-  <Checkbox.Element {...props} {...Automation('checkbox.group')}>
+  <Checkbox.Element {...props} {...Automation("checkbox.group")}>
     {React.Children.map(props.children, (child) => {
       if (!child) {
-        return null
+        return null;
       }
+
+      const isReadOnly = props.readOnly || child.props.readOnly;
+
       return React.cloneElement(child, {
         name: props.name,
         defaultChecked: props.selected.indexOf(child.props.value) > -1,
         checked: props.checked,
-        readOnly: props.readOnly || child.props.readOnly,
-        onChange: props.onChange
-      })
+        readOnly: isReadOnly,
+        onChange: !isReadOnly ? props.onChange : undefined
+      });
     })}
   </Checkbox.Element>
-)
+);
 
-Checkbox.Group = CheckboxGroup
+Checkbox.Group = CheckboxGroup;
 
 // Backwards compatibility (will be removed in 1.0)
-const StyledCheckbox = Checkbox.Element
-const StyledCheckboxOption = Checkbox.Option
+const StyledCheckbox = Checkbox.Element;
+const StyledCheckboxOption = Checkbox.Option;
 
 CheckboxGroup.defaultProps = {
-  align: 'vertical'
-}
+  align: "vertical"
+};
 
-export default Checkbox
-export { StyledCheckbox, StyledCheckboxOption }
+export default Checkbox;
+export { StyledCheckbox, StyledCheckboxOption };

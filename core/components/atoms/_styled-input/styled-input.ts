@@ -1,7 +1,6 @@
-import styled from '../../styled'
-
-import { colors, fonts, spacing, misc } from '../../tokens'
-import containerStyles from '../../_helpers/container-styles'
+import containerStyles from "../../_helpers/container-styles";
+import styled from "../../styled";
+import { colors, fonts, misc, spacing } from "../../tokens";
 
 const config = {
   basic: {
@@ -9,29 +8,36 @@ const config = {
     border: colors.input.border,
     hoverBorder: colors.input.borderHover,
     focusBorder: colors.input.borderFocus,
-    placeholder: colors.input.placeholder
+    placeholder: colors.input.placeholder,
+    cursor: "auto"
   },
   readOnly: {
     background: colors.input.backgroundReadOnly,
     border: colors.input.border,
     hoverBorder: colors.input.border,
     focusBorder: colors.input.border,
-    placeholder: colors.input.placeholderReadOnly
+    placeholder: colors.input.placeholderReadOnly,
+    cursor: "not-allowed"
   },
   error: {
     background: colors.input.background,
     border: colors.input.borderError,
     hoverBorder: colors.input.borderError,
     focusBorder: colors.input.borderError,
-    placeholder: colors.input.placeholder
+    placeholder: colors.input.placeholder,
+    cursor: "auto"
   }
-}
+};
 
 const getAttributes = (props) => {
-  if (props.readOnly) { return config.readOnly }
-  else if (props.hasError || props.error) { return config.error }
-  else { return config.basic }
-}
+  if (props.readOnly || props.disabled) {
+    return config.readOnly;
+  } else if (props.hasError || props.error) {
+    return config.error;
+  } else {
+    return config.basic;
+  }
+};
 
 const StyledInput = styled.input`
   ${containerStyles};
@@ -43,13 +49,13 @@ const StyledInput = styled.input`
   border-color: ${(props) => getAttributes(props).border};
   border-radius: ${misc.radius};
 
-  font-family: ${(props) => (props.code ? fonts.family.code : 'inherit')};
-  font-size: ${(props) => (props.code ? '13px' : 'inherit')};
+  font-family: ${(props) => (props.code ? fonts.family.code : "inherit")};
+  font-size: ${(props) => (props.code ? "13px" : "inherit")};
   color: ${colors.text.inputs};
 
   padding: ${misc.inputs.padding} ${spacing.small};
 
-  cursor: ${(props) => (props.readOnly ? 'not-allowed' : 'auto')};
+  cursor: ${(props) => getAttributes(props).cursor};
   transition: border-color ${misc.animationDuration}, box-shadow ${misc.animationDuration};
 
   &:hover {
@@ -61,8 +67,8 @@ const StyledInput = styled.input`
     outline: none;
   }
   &::-webkit-input-placeholder {
-    color: ${(props) => getAttributes(props).placeholder};
+    color: ${(props) => (props.masked ? colors.text.inputs : getAttributes(props).placeholder)};
   }
-`
+`;
 
-export { StyledInput }
+export { StyledInput };
