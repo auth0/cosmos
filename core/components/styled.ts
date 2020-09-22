@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle, css, keyframes, ThemeProvider } from "styled-components";
+import styled, { createGlobalStyle, css, keyframes, ServerStyleSheet, ThemeProvider } from "styled-components";
 
 import domElements from "./_helpers/dom-elements";
 /* import cosmos specific helpers */
@@ -34,4 +34,4 @@ domElements.forEach((domElement) => {
 });
 
 export default styledWithHelpers;
-export { keyframes, css, createGlobalStyle, ThemeProvider };
+export { keyframes, css, createGlobalStyle, ThemeProvider, ServerStyleSheet };
