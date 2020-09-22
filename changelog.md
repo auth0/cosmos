@@ -10,6 +10,7 @@ follow semver beginning with our `1.0` release. In the meantime, please read thi
 ### Changes
 
 - update styled-components to v5.2.0 [#1728]
+- update http-proxy to v1.18.1 [#1727]
 - update read-only checkbox styles [#1727]
 - update read-only select styles [#1727]
 
