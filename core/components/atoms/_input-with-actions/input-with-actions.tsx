@@ -33,6 +33,8 @@ const StyledWrapper = styled.div`
     position: absolute;
     right: 4px;
     top: 0;
+    align-items: center;
+    height: ${(props) => misc.input[props.size || 'default'].height};
 
     ${Button.Element} {
       height: ${(props) => misc.input[props.size || 'default'].height};
