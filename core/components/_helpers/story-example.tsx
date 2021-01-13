@@ -1,6 +1,7 @@
-import * as React from 'react'
-import styled from '../styled'
-import { colors } from '../tokens'
+import * as React from "react";
+
+import styled from "../styled";
+import { colors } from "../tokens";
 
 const Title = styled.div`
   position: absolute;

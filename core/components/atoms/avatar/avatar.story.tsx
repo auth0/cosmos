@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { Example, Stack } from '../../_helpers/story-helpers'
-import { Avatar } from '../../'
+import * as React from "react";
+
+import { storiesOf } from "@storybook/react";
+
+import { Avatar } from "../../";
+import { Example, Stack } from "../../_helpers/story-helpers";
 
 const EXAMPLE_IMAGE =
   'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDhweCIgaGVpZ2h0PSI0OHB4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUwLjIgKDU1MDQ3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5IZWxwZXJzIC8gQXZhdGFycyAvIFR5cGVzIC8gTW9iaWxlPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IkhlbHBlcnMtLy1BdmF0YXJzLS8tVHlwZXMtLy1Nb2JpbGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0yIj4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgeD0iMCIgeT0iMCIgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4Ij48L3JlY3Q+CiAgICAgICAgPC9nPgogICAgICAgIDxnIGlkPSJzZXJ2aWNlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMC4wMDAwMDAsIDExLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJGaWxsLTUzIiBmaWxsPSIjNDRDN0Y0IiBwb2ludHM9IjYuODAzNzg5NTUgMjEuMzk4OTkzIDMuOTk0NjE0NDcgMTkuNzczOTkzIDEyLjczNjA5MjQgNC42MDQxNjY2NyAxNS41NDUyNjc1IDYuMjI5MTY2NjciPjwvcG9seWdvbj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkZpbGwtNTQiIGZpbGw9IiNFQzU0MjQiIHBvaW50cz0iMjEuNDc2MTg4NyAyMS4zOTg5OTMgMTIuNzM0NzEwOCA2LjIyOTE2NjY3IDE1LjU0Mzg4NTkgNC42MDQxNjY2NyAyNC4yODUzNjM3IDE5Ljc3Mzk5MyI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cGF0aCBkPSJNMTkuNTUyNTg2Niw1LjQxNjY2NjY3IEMxOS41NTI1ODY2LDguNDA4MjAxNDIgMTcuMTMyMTUwNiwxMC44MzMzMzMzIDE0LjE0NjM0MTUsMTAuODMzMzMzMyBDMTEuMTYwNTYyNCwxMC44MzMzMzMzIDguNzQwMDk2MjksOC40MDgyMDE0MiA4Ljc0MDA5NjI5LDUuNDE2NjY2NjcgQzguNzQwMDk2MjksMi40MjUxMzE5NSAxMS4xNjA1NjI0LDAgMTQuMTQ2MzQxNSwwIEMxNy4xMzIxNTA2LDAgMTkuNTUyNTg2NiwyLjQyNTEzMTk1IDE5LjU1MjU4NjYsNS40MTY2NjY2NyIgaWQ9IkZpbGwtNTUiIGZpbGw9IiMxNjIxNEQiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggZD0iTTEwLjgxMjQ5MDMsMjAuNTgzMzMzMyBDMTAuODEyNDkwMywyMy41NzQ4NjggOC4zOTIwNTQyNCwyNiA1LjQwNjI0NTE1LDI2IEMyLjQyMDQ2NjA1LDI2IDAsMjMuNTc0ODY4IDAsMjAuNTgzMzMzMyBDMCwxNy41OTE3OTg2IDIuNDIwNDY2MDUsMTUuMTY2NjY2NyA1LjQwNjI0NTE1LDE1LjE2NjY2NjcgQzguMzkyMDU0MjQsMTUuMTY2NjY2NyAxMC44MTI0OTAzLDE3LjU5MTc5ODYgMTAuODEyNDkwMywyMC41ODMzMzMzIiBpZD0iRmlsbC01NiIgZmlsbD0iI0VDNTQyNCI+PC9wYXRoPgogICAgICAgICAgICA8cGF0aCBkPSJNMjguMjkyNjgyOSwyMC41ODMzMzMzIEMyOC4yOTI2ODI5LDE3LjU5MTc5ODYgMjUuODcyMjE2OCwxNS4xNjY2NjY3IDIyLjg4NjQzNzcsMTUuMTY2NjY2NyBDMTkuOTAwNjU4NywxNS4xNjY2NjY3IDE3LjQ4MDE5MjcsMTcuNTkxNzk4NiAxNy40ODAxOTI3LDIwLjU4MzMzMzMgQzE3LjQ4MDE5MjcsMjMuNTc0ODY4IDE5LjkwMDY1ODcsMjYgMjIuODg2NDM3NywyNiBDMjUuODcyMjE2OCwyNiAyOC4yOTI2ODI5LDIzLjU3NDg2OCAyOC4yOTI2ODI5LDIwLjU4MzMzMzMiIGlkPSJGaWxsLTU3IiBmaWxsPSIjNDRDN0Y0Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4='
@@ -144,4 +146,85 @@ storiesOf('Avatar', module).add('fitted images', () => (
       />
     </Stack>
   </Example>
+))
+
+storiesOf('Avatar', module).add('failure fallbacks', () => (
+  <>
+    <Example title="Full fallback - All fail + all missing props">
+      <Stack>
+        <Avatar
+          type="user"
+          size="xlarge"
+          email="wrong@email.coma"
+          initials="failed-initials"
+          image="some-relative-path-not-found"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+        />
+      </Stack>
+    </Example>
+    <Example title="Missing image fallbacks">
+      <Stack>
+        <Avatar
+          type="user"
+          size="xlarge"
+          email="wrong@email.coma"
+          initials="failed-initials"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          initials="failed-initials"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          email="wrong@email.coma"
+        />
+        <span>All stories with missing <code>image</code> prop used to have an infinite loop issue causing incidents - it's already fixed!</span>
+      </Stack>
+    </Example>
+    <Example title="Missing email">
+      <Stack>
+        <Avatar
+          type="user"
+          size="xlarge"
+          initials="failed-initials"
+          image="some-relative-path-not-found"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          initials="failed-initials"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          image="some-relative-path-not-found"
+        />
+      </Stack>
+    </Example>
+    <Example title="Missing initials">
+      <Stack>
+        <Avatar
+          type="user"
+          size="xlarge"
+          email="wrong@email.coma"
+          image="some-relative-path-not-found"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          image="some-relative-path-not-found"
+        />
+        <Avatar
+          type="user"
+          size="xlarge"
+          email="wrong@email.coma"
+        />
+      </Stack>
+    </Example>
+  </>
 ))
