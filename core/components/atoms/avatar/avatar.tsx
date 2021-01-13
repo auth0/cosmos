@@ -33,7 +33,12 @@ const imageForAvatar = (source, handleError) => {
       fit="cover"
       src={source}
       onError={(event) => {
-        event.target.src = null
+        try {
+          event.target.removeAttribute('src')
+        } catch (e) {
+          event.target.src = undefined
+        }
+        event.target.onerror = undefined
         event.target.onError = undefined
         handleError(event)
       }}
