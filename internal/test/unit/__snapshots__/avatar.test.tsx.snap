@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar .getSource() should return "fallback" if both image and gravatar errors to load 1`] = `"fallback"`;
+
+exports[`Avatar .getSource() should return "fallback" if not image nor gravatar property is passed 1`] = `"fallback"`;
+
+exports[`Avatar .getSource() should return "fallback" when gravatar errors to load with email 1`] = `"fallback"`;
+
+exports[`Avatar .getSource() should return "fallback" when gravatar errors to load with initials 1`] = `"fallback"`;
+
+exports[`Avatar .getSource() should return "fallback" when image errors and no gravatar prop is passed 1`] = `"fallback"`;
+
+exports[`Avatar .getSource() should return "gravatar" when both initials and email are passed 1`] = `"gravatar"`;
+
+exports[`Avatar .getSource() should return "gravatar" when email is passed 1`] = `"gravatar"`;
+
+exports[`Avatar .getSource() should return "gravatar" when image errors to load and email is passed 1`] = `"gravatar"`;
+
+exports[`Avatar .getSource() should return "gravatar" when image errors to load and initials are passed 1`] = `"gravatar"`;
+
+exports[`Avatar .getSource() should return "gravatar" when initials are passed 1`] = `"gravatar"`;
+
+exports[`Avatar .getSource() should return "icon" prefered over anything 1`] = `"icon"`;
+
+exports[`Avatar .getSource() should return "image" when image prop passed 1`] = `"image"`;
+
+exports[`Avatar .getSource() should return "image" when image, initials and emails props are passed 1`] = `"image"`;

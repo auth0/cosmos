@@ -1,11 +1,11 @@
-import * as React from 'react'
-import styled from '../../styled'
-import { Image } from '../../'
-import { colors, misc } from '../../tokens'
-import Icon, { __ICONNAMES__ } from '../icon'
-import getUserAvatarUrl from '../../_helpers/avatar-url'
-import Automation from '../../_helpers/automation-attribute'
-import { prependOnceListener } from 'cluster'
+import * as React from "react";
+
+import { Image } from "../../";
+import Automation from "../../_helpers/automation-attribute";
+import getUserAvatarUrl from "../../_helpers/avatar-url";
+import styled from "../../styled";
+import { colors, misc } from "../../tokens";
+import Icon, { __ICONNAMES__ } from "../icon";
 
 const iconSizes = {
   xsmall: 14,
@@ -33,7 +33,12 @@ const imageForAvatar = (source, handleError) => {
       fit="cover"
       src={source}
       onError={(event) => {
-        event.target.src = null
+        try {
+          event.target.removeAttribute('src')
+        } catch (e) {
+          event.target.src = undefined
+        }
+        event.target.onerror = undefined
         event.target.onError = undefined
         handleError(event)
       }}
@@ -124,9 +129,9 @@ class Avatar extends React.Component<IAvatarProps, IAvatarState> {
 
   public discardSource(source: 'image' | 'gravatar') {
     switch (source) {
-      case 'image':
+      case sources.image:
         return this.setState({ imageErrored: true })
-      case 'gravatar':
+      case sources.gravatar:
         return this.setState({ gravatarErrored: true })
       default:
         return
@@ -137,14 +142,15 @@ class Avatar extends React.Component<IAvatarProps, IAvatarState> {
     const { imageErrored, gravatarErrored } = this.state
     const { email, initials, icon, image } = this.props
 
+    // NOTE: The following order of checks MATTER. They determine the fallback
+    //       precedence when there are any missing props or failed attempts.
+    //       Carefully review all scenarios are covered when changing the
+    //       following lines.
     if (icon) { return sources.icon }
     if (imageErrored && gravatarErrored) { return sources.fallback }
-    if (imageErrored || !image) {
-      if (email || initials) { return sources.gravatar }
-      return sources.fallback
-    }
-
-    return sources.image
+    if (image && !imageErrored) { return sources.image }
+    if ((email || initials) && !gravatarErrored) { return sources.gravatar }
+    return sources.fallback
   }
 
   public render() {
