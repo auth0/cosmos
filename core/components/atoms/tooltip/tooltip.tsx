@@ -60,7 +60,6 @@ class Tooltip extends React.Component<ITooltipProps, ITooltipState> {
     background: ${colors.tooltip.background};
     color: ${colors.tooltip.text};
     border-radius: ${misc.radius};
-    width: max-content;
     text-align: center;
     padding: ${spacing.xsmall};
     line-height: ${misc.lineHeight};
