@@ -16,19 +16,19 @@ The aim of Cosmos is to help Auth0 designers and developers deliver work faster 
 
 We are currently building our roadmap and initial components inventory to estimate the v1 release date. We are in active development and testing with selected teams, so the components API may change frequently. However, you can play with the alpha version today! Your feedback will help us shape Cosmos.
 
-See the documentation at https://auth0-cosmos.now.sh/docs
+See the documentation at https://auth0-cosmos.now.sh/
 
 &nbsp;
 &nbsp;
 
 #### Quicklinks:
 
-- [Getting started](https://auth0-cosmos.now.sh/docs/)
-- [How to use Cosmos](https://auth0-cosmos.now.sh/docs/#/usage)
-- [Components Overview](https://auth0-cosmos.now.sh/docs/#/overview)
-- [Playground](https://auth0-cosmos.now.sh/docs/#/playground)
-- [Sandbox](https://auth0-cosmos.now.sh/sandbox) - Storybook
-- [Contribution Guide](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
+- [Getting started](https://auth0-cosmos.now.sh/)
+- [How to use Cosmos](https://auth0-cosmos.now.sh/#/usage)
+- [Components Overview](https://auth0-cosmos.now.sh/#/overview)
+- [Playground](https://auth0-cosmos.now.sh/#/playground)
+- [Sandbox](https://auth0-cosmos.now.sh/sandbox/) - Storybook
+- [Contribution Guide](https://auth0-cosmos.now.sh/#/contribution-guide)
 
 &nbsp;
 &nbsp;
@@ -88,21 +88,21 @@ const Actions = () => (
 
 
 
-To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/docs/#/). Pick a component from the sidebar to find examples and configuration options.
+To learn more about the components and the props they offer, check the [Cosmos documentation](https://auth0-cosmos.now.sh/). Pick a component from the sidebar to find examples and configuration options.
 
 &nbsp;
 &nbsp;
 
 ## Contribute
 
-There's a lot to write here, we maintain it in our docs: [Contribution guidelines](https://auth0-cosmos.now.sh/docs/#/contribution-guide)
+There's a lot to write here, we maintain it in our docs: [Contribution guidelines](https://auth0-cosmos.now.sh/#/contribution-guide)
 
 &nbsp;
 &nbsp;
 
 ## Feedback
 
-Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X) (internal). You can use the [playground](https://auth0-cosmos.now.sh/docs/#/playground) to test and share code, report bugs and ask for feedback.
+Issues or feature requests can be created on our [GitHub page](https://github.com/auth0/cosmos/issues) or on [Slack](https://auth0.slack.com/messages/C5ZK0DD8X) (internal). You can use the [playground](https://auth0-cosmos.now.sh/#/playground) to test and share code, report bugs and ask for feedback.
 
 ## Thanks
 
