@@ -6,7 +6,7 @@
 
 &nbsp;&nbsp;
 
-#### [👉 Start here 👈](https://auth0-cosmos.now.sh/docs)
+#### [👉 Start here 👈](https://auth0-cosmos.vercel.app/)
 
 &nbsp;&nbsp;
 
