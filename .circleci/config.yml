@@ -4,7 +4,7 @@ jobs:
   "Run Unit Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:16
     steps:
       - checkout
       - run:
@@ -25,7 +25,7 @@ jobs:
   "Run Integration Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:16
     steps:
       - checkout
       - run:
@@ -46,7 +46,7 @@ jobs:
   "Run Visual Tests":
     working_directory: ~/cosmos
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:16
     steps:
       - checkout
       - run:
