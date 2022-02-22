@@ -87,6 +87,6 @@
     "typescript-tslint-plugin": "0.5.3"
   },
   "engines": {
-    "node": "12"
+    "node": "^16"
   }
 }
