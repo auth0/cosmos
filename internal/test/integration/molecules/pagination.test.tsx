@@ -1,22 +1,23 @@
-import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
-import Fixture from './pagination.fixture'
-import customIdTest from '../helpers/custom-id'
+import * as React from "react";
+import { fireEvent, render } from "react-testing-library";
 
-test('Accepts custom id prop', () => {
-  customIdTest(Fixture, 'pagination')
-})
+import customIdTest from "../helpers/custom-id";
+import Fixture from "./pagination.fixture";
 
-test('Calls page change event handler', () => {
-  const body = render(<Fixture />)
+test("Accepts custom id prop", () => {
+  customIdTest(Fixture, "pagination");
+});
 
-  const nextButton = body.getByLabelText('Next page')
-  fireEvent.click(nextButton, {})
+test("Calls page change event handler", () => {
+  const body = render(<Fixture />);
 
-  expect(Fixture.onPageChanged).toHaveBeenCalled()
+  const nextButton = body.getByLabelText("Next page") as HTMLElement;
+  fireEvent.click(nextButton, {});
 
-  const lastButton = body.getByText('Last')
-  fireEvent.click(lastButton, {})
+  expect(Fixture.onPageChanged).toHaveBeenCalled();
 
-  expect(Fixture.onPageChanged).toHaveBeenCalled()
-})
+  const lastButton = body.getByText("Last") as HTMLElement;
+  fireEvent.click(lastButton, {});
+
+  expect(Fixture.onPageChanged).toHaveBeenCalled();
+});
