@@ -1,90 +1,91 @@
-import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
-import Fixture from './tooltip.fixture'
+import * as React from "react";
+import { fireEvent, render } from "react-testing-library";
 
-test('Tooltip is hidden by default', () => {
-  const body = render(<Fixture />)
+import Fixture from "./tooltip.fixture";
 
-  const tooltip = body.queryByTestId('tooltip')
+test("Tooltip is hidden by default", () => {
+  const body = render(<Fixture />);
 
-  expect(tooltip).toBeFalsy()
-})
+  const tooltip = body.queryByTestId("tooltip") as HTMLElement;
 
-test('Tooltip is hidden by default', () => {
-  const body = render(<Fixture />)
+  expect(tooltip).toBeFalsy();
+});
 
-  const tooltip = body.queryByTestId('tooltip')
+test("Tooltip is hidden by default", () => {
+  const body = render(<Fixture />);
 
-  expect(tooltip).toBeFalsy()
-})
+  const tooltip = body.queryByTestId("tooltip") as HTMLElement;
 
-test('Tooltip should show up on hover', () => {
-  const body = render(<Fixture />)
+  expect(tooltip).toBeFalsy();
+});
 
-  const input = body.queryByTestId('text-input')
-  fireEvent.mouseEnter(input)
+test("Tooltip should show up on hover", () => {
+  const body = render(<Fixture />);
 
-  let tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toBeTruthy()
+  const input = body.queryByTestId("text-input") as HTMLElement;
+  fireEvent.mouseEnter(input);
 
-  fireEvent.mouseLeave(input)
+  let tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  expect(tooltip).toBeTruthy();
 
-  tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toBeFalsy()
-})
+  fireEvent.mouseLeave(input);
 
-test('Tooltip is shows up on focus', () => {
-  const body = render(<Fixture />)
+  tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  expect(tooltip).toBeFalsy();
+});
 
-  const input = body.queryByTestId('text-input')
-  fireEvent.focus(input)
+test("Tooltip is shows up on focus", () => {
+  const body = render(<Fixture />);
 
-  let tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toBeTruthy()
+  const input = body.queryByTestId("text-input") as HTMLElement;
+  fireEvent.focus(input);
 
-  fireEvent.blur(input)
+  let tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  expect(tooltip).toBeTruthy();
 
-  tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toBeFalsy()
-})
+  fireEvent.blur(input);
 
-test('Tooltip should have custom id', () => {
-  const body = render(<Fixture />)
+  tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  expect(tooltip).toBeFalsy();
+});
+
+test("Tooltip should have custom id", () => {
+  const body = render(<Fixture />);
 
   /* get tooltip to show */
-  const input = body.queryByTestId('text-input')
-  fireEvent.mouseEnter(input)
+  const input = body.queryByTestId("text-input") as HTMLElement;
+  fireEvent.mouseEnter(input);
 
-  let tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toHaveAttribute('id', 'custom-id')
-})
+  let tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  expect(tooltip).toHaveAttribute("id", "custom-id");
+});
 
-test('Tooltip should hide on escape key', () => {
-  const body = render(<Fixture />)
+test("Tooltip should hide on escape key", () => {
+  const body = render(<Fixture />);
 
   /* show tooltip */
-  const input = body.queryByTestId('text-input')
-  fireEvent.focus(input)
+  const input = body.queryByTestId("text-input") as HTMLElement;
+  fireEvent.focus(input);
 
-  let tooltip = body.queryByTestId('tooltip')
+  let tooltip = body.queryByTestId("tooltip");
 
   /* confirm tooltip is shown*/
-  expect(tooltip).toBeTruthy()
+  expect(tooltip).toBeTruthy();
 
-  fireEvent.keyDown(input, { key: 'Escape' })
+  fireEvent.keyDown(input, { key: "Escape" });
 
-  tooltip = body.queryByTestId('tooltip')
-  expect(tooltip).toBeFalsy()
-})
+  tooltip = body.queryByTestId("tooltip");
+  expect(tooltip).toBeFalsy();
+});
 
-test('Calls custom event handler', () => {
-  const body = render(<Fixture />)
+test("Calls custom event handler", () => {
+  const body = render(<Fixture />);
 
   /* get tooltip to show */
-  const input = body.queryByTestId('text-input')
-  fireEvent.mouseEnter(input)
+  const input = body.queryByTestId("text-input") as HTMLElement;
+  fireEvent.mouseEnter(input);
 
-  let tooltip = body.queryByTestId('tooltip')
-  fireEvent.click(tooltip)
-  expect(Fixture.onClick).toHaveBeenCalled()
-})
+  let tooltip = body.queryByTestId("tooltip") as HTMLElement;
+  fireEvent.click(tooltip);
+  expect(Fixture.onClick).toHaveBeenCalled();
+});

@@ -1,24 +1,24 @@
-import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
+import * as React from "react";
+import { fireEvent, render } from "react-testing-library";
 
-import Fixture from './tag.fixture'
-import customIdTest from '../helpers/custom-id'
-import eventHandlerTest from '../helpers/event-handler'
+import customIdTest from "../helpers/custom-id";
+import eventHandlerTest from "../helpers/event-handler";
+import Fixture from "./tag.fixture";
 
-test('Accepts custom id prop', () => {
-  customIdTest(Fixture, 'tag')
-  customIdTest(Fixture, 'tag.group')
-})
+test("Accepts custom id prop", () => {
+  customIdTest(Fixture, "tag");
+  customIdTest(Fixture, "tag.group");
+});
 
-test('Calls custom event handler', () => {
-  eventHandlerTest(Fixture, 'tag')
-})
+test("Calls custom event handler", () => {
+  eventHandlerTest(Fixture, "tag");
+});
 
-test('Calls onRemove', () => {
-  const body = render(<Fixture />)
+test("Calls onRemove", () => {
+  const body = render(<Fixture />);
 
-  const removeElement = body.getByTestId('tag.remove')
-  fireEvent.click(removeElement)
+  const removeElement = body.getByTestId("tag.remove") as HTMLElement;
+  fireEvent.click(removeElement);
 
-  expect(Fixture.onRemove).toHaveBeenCalledTimes(1)
-})
+  expect(Fixture.onRemove).toHaveBeenCalledTimes(1);
+});

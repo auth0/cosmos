@@ -1,26 +1,27 @@
-import * as React from 'react'
-import { render, fireEvent } from 'react-testing-library'
-import Fixture from './table.fixture'
-import customIdTest from '../helpers/custom-id'
+import * as React from "react";
+import { fireEvent, render } from "react-testing-library";
 
-test('Accepts custom id prop', () => {
-  customIdTest(Fixture, 'table')
-})
+import customIdTest from "../helpers/custom-id";
+import Fixture from "./table.fixture";
 
-test('Calls on sort event handler', () => {
-  const body = render(<Fixture />)
+test("Accepts custom id prop", () => {
+  customIdTest(Fixture, "table");
+});
 
-  const nextButton = body.getByText('Goals')
-  fireEvent.click(nextButton)
+test("Calls on sort event handler", () => {
+  const body = render(<Fixture />);
 
-  expect(Fixture.onSort).toHaveBeenCalled()
-})
+  const nextButton = body.getByText("Goals") as HTMLElement;
+  fireEvent.click(nextButton);
 
-test('Calls on row click event handler', () => {
-  const body = render(<Fixture />)
+  expect(Fixture.onSort).toHaveBeenCalled();
+});
 
-  const row = body.getByTestId('table.row')
-  fireEvent.click(row)
+test("Calls on row click event handler", () => {
+  const body = render(<Fixture />);
 
-  expect(Fixture.onRowClick).toHaveBeenCalled()
-})
+  const row = body.getByTestId("table.row") as HTMLElement;
+  fireEvent.click(row);
+
+  expect(Fixture.onRowClick).toHaveBeenCalled();
+});
