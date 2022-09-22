@@ -1,12 +1,23 @@
+
+
 <img src="https://cdn.auth0.com/website/cosmos/github/readme-header.png">
 
 &nbsp;
 
 # [Cosmos](https://auth0-cosmos.now.sh/)
 
+
+
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) [![npm version](https://img.shields.io/npm/v/@auth0/cosmos.svg)](https://npmjs.com/@auth0/cosmos)
 
 > A Design System For Auth0 Products.
+
+## Project Status
+
+Cosmos is a legacy project, now in maintenance mode, only critical security fixes will be implemented. In most cases, you should choose a different library.
+
+*Thank you.*
+
 
 ### What is a design system?
 
